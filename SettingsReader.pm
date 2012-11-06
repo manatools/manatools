@@ -1,3 +1,4 @@
+# vim: set et ts=4 sw=4:
 #    Copyright 2012 Angelo Naselli
 #
 #    This file is part of AdminPanel

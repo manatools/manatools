@@ -1,3 +1,4 @@
+# vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
 #    This file is part of AdminPanel
@@ -79,56 +80,55 @@ sub start {
     my $launch = 0;
     while(!$launch) {
 
-	## Grab Event
+        ## Grab Event
         $self->{event} = $self->{mainWin}->waitForEvent();
 
-	## Check for window close
-	if ($self->{event}->eventType() == $yui::YEvent::CancelEvent)
-	{
+        ## Check for window close
+        if ($self->{event}->eventType() == $yui::YEvent::CancelEvent)
+        {
             last;
-	}
+        }
 
 ## why i can't test item() with $self->{menus}->{file}[0]?
-	## Check for Exit button push or menu
-    if($self->{event}->widget() == $self->{exitButton} || 
-       ($self->{event}->item() && ($self->{event}->item()->label() eq $self->{menus}->{file}[0]->label() ))) {
-        last;
-    };
+        ## Check for Exit button push or menu
+        if($self->{event}->widget() == $self->{exitButton} || 
+           ($self->{event}->item() && ($self->{event}->item()->label() eq $self->{menus}->{file}[0]->label() ))) {
+            last;
+        };
 
-	## Discover if a menu button was selected.
-	## If menu button selected, set right panel to display
-	## selected Category Modules
-	for(@{$self->{categories}}){
-	    if( $_->{button} == $self->{event}->widget() ){
-
-		## Menu item selected, set right pane
+        ## Discover if a menu button was selected.
+        ## If menu button selected, set right panel to display
+        ## selected Category Modules
+        for(@{$self->{categories}}){
+            if( $_->{button} == $self->{event}->widget() ){
+                ## Menu item selected, set right pane
                 $self->{mainWin}->startMultipleChanges();
-		## Remove existing modules
+                ## Remove existing modules
                 $self->{replacePoint}->deleteChildren();
                 $self->{rightPane} = $self->{factory}->createVBox($self->{replacePoint});
 
-		## Change Current Category to the selected one
-		$self->{currCategory} = $_;
-		## Add new Module Buttons to Right Pane
-		$self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
+                ## Change Current Category to the selected one
+                $self->{currCategory} = $_;
+                ## Add new Module Buttons to Right Pane
+                $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
                 $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
                 $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
-		$self->{replacePoint}->showChild();
-		$self->{mainWin}->recalcLayout();
-		$self->{mainWin}->doneMultipleChanges();
+                $self->{replacePoint}->showChild();
+                $self->{mainWin}->recalcLayout();
+                $self->{mainWin}->doneMultipleChanges();
 
-		last;
-	    }
+                last;
+            }
         }
 
-	## Check if event is from current Category View
-	## If icon click, launch the Module
-	for(@{$self->{currCategory}->{modules}}) {
-	    if( $_->{button} == $self->{event}->widget() ){
-		$launch = $_->{launch};
-		last;
-	    }
-	}
+        ## Check if event is from current Category View
+        ## If icon click, launch the Module
+        for(@{$self->{currCategory}->{modules}}) {
+            if( $_->{button} == $self->{event}->widget() ){
+                $launch = $_->{launch};
+                last;
+            }
+        }
     }
 
     return $launch;
@@ -144,7 +144,7 @@ sub setupGui {
 
     my $cmdline = new yui::YCommandLine;
 
-## TODO add parameter check
+    ## TODO add parameter check
     my $pos       = $cmdline->find("--name");
     if ($pos > 0)
     {
@@ -257,23 +257,23 @@ sub loadCategories {
     my $tmp;
     my $hasNextCat = $inFile->hasNextCat();
     while( $hasNextCat ) {
-	$tmp = $inFile->getNextCat();
-	$tmpCat = new Category($tmp->{title}, $tmp->{icon});
-	$self->loadCategory($tmpCat);
-	$hasNextCat = $inFile->hasNextCat();
-	$self->{currCategory} = $tmpCat;
-	
-	my $hasNextMod = $inFile->hasNextMod();
-	while( $hasNextMod ) {
-	    $tmp = $inFile->getNextMod();
-	    my $tmpMod = new Module($tmp->{title}, 
-		                    $tmp->{icon},
-		                    $tmp->{launcher}
-		                   );
-	    $self->{currCategory}->loadModule($tmpMod);
+        $tmp = $inFile->getNextCat();
+        $tmpCat = new Category($tmp->{title}, $tmp->{icon});
+        $self->loadCategory($tmpCat);
+        $hasNextCat = $inFile->hasNextCat();
+        $self->{currCategory} = $tmpCat;
+    
+        my $hasNextMod = $inFile->hasNextMod();
+        while( $hasNextMod ) {
+            $tmp = $inFile->getNextMod();
+            my $tmpMod = new Module($tmp->{title}, 
+                                    $tmp->{icon},
+                                    $tmp->{launcher}
+                                   );
+            $self->{currCategory}->loadModule($tmpMod);
 
-	    $hasNextMod = $inFile->hasNextMod();
-	}
+            $hasNextMod = $inFile->hasNextMod();
+        }
     }
     undef($tmpCat);
 }
@@ -289,7 +289,7 @@ sub menuEventIndex {
         if($self->{event}->widget() == @{$self->{categories}}[$i]->{button})
         {
             $index = $i;
-	    print "Index found is : ".$index;
+            print "Index found is : ".$index;
             last;
         }
     }

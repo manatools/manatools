@@ -1,3 +1,4 @@
+# vim: set et ts=4 sw=4:
 #    Copyright 2012 Matteo Pasotti
 #
 #    This file is part of AdminPanel
@@ -20,7 +21,7 @@ package Auth;
 require Exporter;
 @ISA = qw(Exporter);
 @EXPORT = qw(require_root_capability
-	     ask_for_authentication);
+         ask_for_authentication);
 
 use strict;
 use warnings;
@@ -29,22 +30,22 @@ use Data::Dumper;
 
 
 sub require_root_capability {
-	return 0 if(!$>);
-	return 1;
+    return 0 if(!$>);
+    return 1;
 }
 
 sub ask_for_authentication {
-	my @args = @ARGV;
-	my $command = wrap_command($0);
-	unshift(@args, $command->[2]);
-	exec { $command->[0] } $command->[1], @args or die ("command %s missing", $command->[0]);
-	die "You must be root to run this program" if $>;
+    my @args = @ARGV;
+    my $command = wrap_command($0);
+    unshift(@args, $command->[2]);
+    exec { $command->[0] } $command->[1], @args or die ("command %s missing", $command->[0]);
+    die "You must be root to run this program" if $>;
 }
 
 sub wrap_command {
-	my $currenv = "env";
-	my $wrapper = "pkexec";
-	my $app = $0;
-	my $command = [$wrapper, $currenv, $app];
-	($command);
+    my $currenv = "env";
+    my $wrapper = "pkexec";
+    my $app = $0;
+    my $command = [$wrapper, $currenv, $app];
+    ($command);
 }

@@ -1,3 +1,5 @@
+// vim: set et ts=4 sw=4:
+//
 // Trivial libyui example.
 //
 // Compile with:
@@ -46,7 +48,7 @@ int main( int argc, char **argv )
    std::vector<YPushButton*>buttons;
    
    for (;;)
-   {	
+   {    
      YEvent* event = dialog->waitForEvent();
      // Check for window close
      if (event->eventType() == YEvent::CancelEvent)
@@ -56,7 +58,7 @@ int main( int argc, char **argv )
 
      // Check for Exit button push
      if(event->widget() == (YWidget*)exitButton ) {
-            break;
+        break;
      };
 
      if(event->widget() == (YWidget*)addButton ) {
@@ -66,8 +68,7 @@ int main( int argc, char **argv )
             vbox_rframe    = YUI::widgetFactory()->createVBox( replacePoint );
             bnum++;
             buttons.clear();
-            for (int i=0; i < bnum; ++i)
-            {                
+            for (int i=0; i < bnum; ++i) {                
                YPushButton* tmpB = YUI::widgetFactory()->createPushButton( vbox_rframe, "Delete Me" );
                buttons.push_back(tmpB);
             }
@@ -75,14 +76,12 @@ int main( int argc, char **argv )
             dialog->recalcLayout();
             dialog->doneMultipleChanges();
        }
-       else if (bnum == 6)
-       {
+       else if (bnum == 6) {
             dialog->startMultipleChanges();
             replacePoint->deleteChildren();
             vbox_rframe    = YUI::widgetFactory()->createVBox( replacePoint );
             buttons.clear();
-            for (int i=0; i < bnum; ++i)
-            {                
+            for (int i=0; i < bnum; ++i) {                
                YPushButton* tmpB = YUI::widgetFactory()->createPushButton( vbox_rframe, "Delete Me" );
                buttons.push_back(tmpB);
             }
@@ -93,37 +92,32 @@ int main( int argc, char **argv )
        }
      }
      if(event->widget() == (YWidget*)removeButton ) {
-        if (bnum > 0)
-        {
-        dialog->startMultipleChanges();
-        replacePoint->deleteChildren();
-        vbox_rframe    = YUI::widgetFactory()->createVBox( replacePoint );
-        bnum--;
-        buttons.clear();
-        for (int i=0; i < bnum; ++i)
-        {                
-            YPushButton* tmpB = YUI::widgetFactory()->createPushButton( vbox_rframe, "Delete Me" );
-            buttons.push_back(tmpB);
-        }
-        replacePoint->showChild();
-        dialog->recalcLayout();
-        dialog->doneMultipleChanges();
+        if (bnum > 0) {
+            dialog->startMultipleChanges();
+            replacePoint->deleteChildren();
+            vbox_rframe    = YUI::widgetFactory()->createVBox( replacePoint );
+            bnum--;
+            buttons.clear();
+            for (int i=0; i < bnum; ++i) {                
+                YPushButton* tmpB = YUI::widgetFactory()->createPushButton( vbox_rframe, "Delete Me" );
+                buttons.push_back(tmpB);
+            }
+            replacePoint->showChild();
+            dialog->recalcLayout();
+            dialog->doneMultipleChanges();
         }
      }
-     
 
-     for(int i = 0; i < bnum; ++i)
-     {
+     for(int i = 0; i < bnum; ++i) {
         if (event->widget() == (YWidget*)buttons[i]) {
             dialog->startMultipleChanges();
             replacePoint->deleteChildren();
             vbox_rframe    = YUI::widgetFactory()->createVBox( replacePoint );
             bnum--;
             buttons.clear();
-            for (int i=0; i < bnum; ++i)
-            {                
-               YPushButton* tmpB = YUI::widgetFactory()->createPushButton( vbox_rframe, "Delete Me" );
-               buttons.push_back(tmpB);
+            for (int i=0; i < bnum; ++i) {                
+                YPushButton* tmpB = YUI::widgetFactory()->createPushButton( vbox_rframe, "Delete Me" );
+                buttons.push_back(tmpB);
             }
             replacePoint->showChild();
             dialog->recalcLayout();

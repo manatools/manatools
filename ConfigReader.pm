@@ -1,3 +1,4 @@
+# vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
 #    This file is part of AdminPanel
@@ -29,12 +30,12 @@ sub new {
     my ($class, $fileName) = @_;
     
     my $self = {
-	my $data = 0,
-	my $catLen = 0,
+        my $data = 0,
+        my $catLen = 0,
         my $currCat = 0,
-	my $modLen = 0,
-	my $currMod = 0,
-	my $placeHolder = 0
+        my $modLen = 0,
+        my $currMod = 0,
+        my $placeHolder = 0
     };
     bless $self, 'ConfigReader';
     
@@ -46,7 +47,7 @@ sub new {
     if(ref(@{$self->{data}->{category}}[0]->{module}) eq "ARRAY") {
         $self->{modLen} = scalar(@{@{$self->{data}->{category}}[0]->{module}});
     } else {
-	$self->{modLen} = 1;
+        $self->{modLen} = 1;
     }
     $self->{currMod} = -1;
 
@@ -57,7 +58,7 @@ sub hasNextCat {
     my ($self) = @_;
     
     if($self->{currCat} + 1 >= $self->{catLen}) {
-	return 0;
+        return 0;
     }
     return 1;
 }
@@ -67,7 +68,7 @@ sub getNextCat {
     
     $self->{currCat}++;
     if($self->{currCat} >= $self->{catLen}) {
-	return 0;
+        return 0;
     }
     
     # Reset the Module Count and Mod length for new Category
@@ -75,7 +76,7 @@ sub getNextCat {
     if(ref(@{$self->{data}->{category}}[$self->{currCat}]->{module}) eq "ARRAY") {
         $self->{modLen} = scalar(@{@{$self->{data}->{category}}[$self->{currCat}]->{module}});
     } else {
-	$self->{modLen} = 1;
+        $self->{modLen} = 1;
     }
 
     my $tmp = @{$self->{data}->{category}}[$self->{currCat}];
@@ -87,7 +88,7 @@ sub hasNextMod {
     my ($self) = @_;
 
     if($self->{currMod} + 1 >= $self->{modLen}) {
-	return 0;
+        return 0;
     }
     return 1;
 }
@@ -100,9 +101,9 @@ sub getNextMod {
     $self->{currMod}++;
 
     if($self->{modLen} == 1) {
-	$ret = @{$self->{data}->{category}}[$self->{currCat}]->{module};
+        $ret = @{$self->{data}->{category}}[$self->{currCat}]->{module};
     } else {
-	$ret = @{@{$self->{data}->{category} }[$self->{currCat}]->{module}}[$self->{currMod}];
+        $ret = @{@{$self->{data}->{category} }[$self->{currCat}]->{module}}[$self->{currMod}];
     }
 
     return $ret;

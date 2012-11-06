@@ -1,3 +1,4 @@
+# vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
 #    This file is part of AdminPanel
@@ -31,8 +32,8 @@ sub new {
     my $self = {
         my $name = 0,
         my $button = 0,
-	my $icon = 0,
-	my $modules = 0
+        my $icon = 0,
+        my $modules = 0
     };
     bless $self, 'Category';
 
@@ -58,23 +59,20 @@ sub addButtons {
     my $currLayout = 0;
     $factory->createVSpacing($pane, 2);
     foreach my $mod (@{$self->{modules}}) {
-        if(($count % 2) != 1)
-	{
-	    $currLayout = $factory->createHBox($pane);
-	    $factory->createHStretch($currLayout);
-	}
-	$count++;
-	$tmpButton = $factory->createPushButton($currLayout,
-						$mod->{name}
-	                                       );
-	$mod->setButton($tmpButton);
-	$tmpButton->setLabel($mod->{name});
-	$tmpButton->setIcon($mod->{icon});
-	$factory->createHStretch($currLayout);
-        if(($count % 2) != 1)
-	{
-	    $factory->createVSpacing($pane, 2);	    
-	}
+        if(($count % 2) != 1) {
+            $currLayout = $factory->createHBox($pane);
+            $factory->createHStretch($currLayout);
+        }
+        $count++;
+        $tmpButton = $factory->createPushButton($currLayout,
+                                                $mod->{name});
+        $mod->setButton($tmpButton);
+        $tmpButton->setLabel($mod->{name});
+        $tmpButton->setIcon($mod->{icon});
+        $factory->createHStretch($currLayout);
+        if(($count % 2) != 1) {
+            $factory->createVSpacing($pane, 2);     
+        }
     }
     $factory->createVStretch($pane);
 }
@@ -84,7 +82,7 @@ sub removeButtons {
     my($self) = @_;
 
     for(@{$self->{modules}}) {
-	$_->removeButton();
+        $_->removeButton();
     }
 }
 

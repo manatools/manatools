@@ -1,5 +1,6 @@
 #!/usr/bin/perl
 
+# vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
 #    This file is part of AdminPanel
@@ -29,10 +30,10 @@ use yui;
 sub new {
     my ($class, $newName, $newIcon, $newLaunch) = @_;
     my $self = {
-	my $name = 0,
-	my $icon = 0,
-	my $launch = 0,
-	my $button = 0
+        my $name = 0,
+        my $icon = 0,
+        my $launch = 0,
+        my $button = 0
     };
     bless $self, 'Module';
     
