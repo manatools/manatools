@@ -22,16 +22,13 @@ use warnings;
 use diagnostics;
 use FindBin;
 use lib "$FindBin::RealBin";
-use Getopt::Long;
 use Auth;
 use MainDisplay;
 use yui;
 
-my $help=0;
+my $cmdline = new yui::YCommandLine;
 
-my $result = GetOptions ("help" => \$help);
-
-usage() if($help);
+usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
 
 ask_for_authentication() if(require_root_capability());
 
@@ -61,6 +58,10 @@ sub usage {
 	print "Usage apanel [options...]\n\n";
 	print "Options:\n";
 	print "\t--help | -h        print this help\n";
+## anaselli: --name now is used only to add a path to /etc (e.g. --name mcc2 means /etc/mcc2)
+	#          and it is overriden by --conf_dir, so it should be discussed better to understand
+	#          if it is really needed any more. 
+	#          Window title is got from settings.conf (key title)
 	print "\t--name string      specify the window title of the administration panel\n";
 	print "\t--conf_dir path    specify the settings.conf file directory\n";
 	print "\n";
