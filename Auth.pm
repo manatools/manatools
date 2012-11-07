@@ -34,17 +34,13 @@ sub require_root_capability {
 }
 
 sub ask_for_authentication {
-    my @args = @ARGV;
-    my $command = wrap_command($0);
-    unshift(@args, $command->[2]);
+    my ($command, @args) = wrap_command($0, @ARGV);
+    unshift(@args,$command->[1]);
     exec { $command->[0] } $command->[1], @args or die ("command %s missing", $command->[0]);
-    die "You must be root to run this program" if $>;
 }
 
 sub wrap_command {
-    my $currenv = "env";
     my $wrapper = "pkexec";
-    my $app = $0;
-    my $command = [$wrapper, $currenv, $app];
-    ($command);
+    my ($app, @args) = @_;
+    return ([$wrapper, $app], @args);
 }
