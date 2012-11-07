@@ -19,15 +19,14 @@
 package Auth;
 
 require Exporter;
-@ISA = qw(Exporter);
-@EXPORT = qw(require_root_capability
-         ask_for_authentication);
-
+use base qw(Exporter);
 use strict;
 use warnings;
 use diagnostics;
 use Data::Dumper;
 
+our @EXPORT = qw(require_root_capability
+         ask_for_authentication);
 
 sub require_root_capability {
     return 0 if(!$>);
