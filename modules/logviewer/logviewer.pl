@@ -133,26 +133,30 @@ search() if $isFile;
 while(1) {
     my $event = $my_win->waitForEvent();
 
+    my $eventType = $event->eventType();
 
     #event type checking
-    if ($event->eventType() == $yui::YEvent::CancelEvent) {
+    if ($eventType == $yui::YEvent::CancelEvent) {
         quit();
         last;
     }
+    elsif ($eventType == $yui::YEvent::WidgetEvent) {
+        # widget selected
+        my $widget = $event->widget();
 
-    # widget selected 
-    my $widget = $event->widget();
-    if ($widget) {
-        if ($widget == $searchButton) {
-            $logView->clearText();
-            search();
-        }
-        elsif($widget == $SaveButton) {
+        if($widget == $SaveButton) {
             save();
         }
         elsif ($widget == $QuitButton) {
             quit();
             last;
+        }
+        elsif ($searchButton && $widget == $searchButton) {
+            $logView->clearText();
+            search();
+        }
+        elsif ($widget == $mailALertButton) {
+            alert_config();
         }
         else {
             print "Unmnaged widget\;";
