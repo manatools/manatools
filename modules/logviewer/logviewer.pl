@@ -20,7 +20,8 @@
 package LogViewer;
 
 use strict;
-use POSIX;
+use POSIX qw/strftime floor/;
+use File::HomeDir qw(home);
 # use FindBin::Bin;
 # use lib "$FindBin::RealBin";
 use lib qw(/usr/lib/libDrakX);
@@ -75,6 +76,7 @@ my $notMatchingInputField = 0;
 my $progressBarPosition = 0;
 
 my $mainLayout = $factory->createVBox($my_win);
+
 my $align = $factory->createAlignment($mainLayout, 3, 0);
 $factory->createLabel( $align, N("A tool to monitor your logs") );
 
@@ -84,12 +86,18 @@ if (!$isFile) {
     $factory->createLabel($align, N("Settings") );
 
     my $hbox = $factory->createHBox($vbox);
-    $align = $factory->createAlignment($hbox, 1, 0);
+    #input field aligned to left
+    $align = $factory->createLeft($hbox);
     $matchingInputField = $factory->createInputField($align, N("Matching"));
-    $align = $factory->createAlignment($hbox, 1, 0);
+
+    $factory->createHSpacing($hbox, 5);
+
+    #input field aligned to left
+    $align = $factory->createLeft($hbox);
     $notMatchingInputField = $factory->createInputField($align, N("but not matching"));
 
     $hbox = $factory->createHBox($vbox);
+
     my $fileFrame = $factory->createFrame($hbox, N("Choose file"));
     my $calendarFrame = $factory->createFrame($hbox, N("Calendar"));
 
@@ -109,9 +117,11 @@ if (!$isFile) {
     }
 
 }
+# create log view object
 my $logView = $factory->createLogView($mainLayout, N("Content of the file"), 10, 0);
-$align = $factory->createAlignment($mainLayout, 2, 0);
 
+# buttons are on the ritght
+$align = $factory->createRight($mainLayout);
 my $hbox = $factory->createHBox($align);
 my $mailALertButton = $factory->createPushButton($hbox, N("Mail alert"));
 my $SaveButton = $factory->createPushButton($hbox, N("Save"));
@@ -123,21 +133,30 @@ search() if $isFile;
 while(1) {
     my $event = $my_win->waitForEvent();
 
-    if($event->widget() == $QuitButton) {
-        quit();
-        last;
-    }
+
+    #event type checking
     if ($event->eventType() == $yui::YEvent::CancelEvent) {
         quit();
         last;
     }
-    if($event->widget() == $searchButton) {
-        $logView->clearText();
-        search();
-    }
 
-    if($event->widget() == $SaveButton) {
-        save();
+    # widget selected 
+    my $widget = $event->widget();
+    if ($widget) {
+        if ($widget == $searchButton) {
+            $logView->clearText();
+            search();
+        }
+        elsif($widget == $SaveButton) {
+            save();
+        }
+        elsif ($widget == $QuitButton) {
+            quit();
+            last;
+        }
+        else {
+            print "Unmnaged widget\;";
+        }
     }
 }
 
@@ -255,8 +274,9 @@ sub parse_file {
 ## Append a custom string to log view adding date
 sub logText {
     my ($st) = @_;
-    my $string = chomp_(`LC_ALL=C date '+%Y %b %d %T'`) . " " . $st . "\n";
-    # `` return non utf8 and concat of non utf8 & utf8 is non utf8:
+
+    my $string = strftime('%Y %b %d %T', localtime) . " " . $st . "\n";
+    # convert to utf8:
     c::set_tagged_utf8($string);
 
     # log given text
@@ -265,7 +285,7 @@ sub logText {
 
 ## Save as
 sub save() {
-    my $outFile = yui::YUI::app()->askForSaveFileName( "/root", "*", N("Save as.."));
+    my $outFile = yui::YUI::app()->askForSaveFileName(home(), "*", N("Save as.."));
     if ($outFile) {
         output($outFile, $logView->logText());
     }
@@ -282,8 +302,9 @@ sub alert_config() {
     print "To be implemented yet \n";
     return;
 }
-=comment
 
+### NOTE next code has to be removed after getting mail alert functionality
+=comment
 
 #-------------------------------------------------------------
 # mail/sms alert
