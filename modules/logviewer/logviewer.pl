@@ -21,6 +21,7 @@ package LogViewer;
 
 use strict;
 use POSIX qw/strftime floor/;
+use Date::Simple ();
 use File::HomeDir qw(home);
 # use FindBin::Bin;
 # use lib "$FindBin::RealBin";
@@ -50,12 +51,15 @@ my $isTail = $isFile;
 $| = 1 if $isTail;
 my $h = chomp_(`hostname -s`);
 
+my @months = qw(Err Jan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec);
+
 my $explain_title = N("%s Tools Logs", N("Mageia"));
 
 yui::YUI::app()->setApplicationTitle($isExplain ? $explain_title : N("Log viewer"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
 my $factory = yui::YUI::widgetFactory;
+my $optFactory = yui::YUI::optionalWidgetFactory;
 
 ### MAIN DIALOG ###
 my $my_win = $factory->createMainDialog;
@@ -74,6 +78,8 @@ my $searchButton  = 0;
 my $matchingInputField = 0;
 my $notMatchingInputField = 0;
 my $progressBarPosition = 0;
+my $calendar = 0;
+my $calendarFrame = 0;
 
 my $mainLayout = $factory->createVBox($my_win);
 
@@ -99,7 +105,7 @@ if (!$isFile) {
     $hbox = $factory->createHBox($vbox);
 
     my $fileFrame = $factory->createFrame($hbox, N("Choose file"));
-    my $calendarFrame = $factory->createFrame($hbox, N("Calendar"));
+    $calendarFrame = $factory->createCheckBoxFrame($hbox, N("Calendar"), 1);
 
     $fileFrame->setWeight(0, 75);
     $calendarFrame->setWeight(0, 25);
@@ -116,6 +122,16 @@ if (!$isFile) {
         $toggle{$cb} = $factory->createCheckBox($align, $files{$cb}{desc}, 0);
     }
 
+    $vbox = $factory->createVBox($calendarFrame);
+    $align = $factory->createAlignment($vbox, 3, 3);
+
+    if ($optFactory->hasDateField()) {
+        $calendar = $optFactory->createDateField($align, "");
+        my $day = strftime "%F", localtime;
+        $calendar->setValue($day);
+    }
+    ### NOTE CheckBoxFrame doesn't honoured his costructor checked value for his children
+    $calendarFrame->setValue(0);
 }
 # create log view object
 my $logView = $factory->createLogView($mainLayout, N("Content of the file"), 10, 0);
@@ -126,6 +142,7 @@ my $hbox = $factory->createHBox($align);
 my $mailALertButton = $factory->createPushButton($hbox, N("Mail alert"));
 my $SaveButton = $factory->createPushButton($hbox, N("Save"));
 my $QuitButton = $factory->createPushButton($hbox, N("Quit"));
+
 
 search() if $isFile;
 
@@ -210,11 +227,13 @@ sub parse_file {
     $en =~ s/^\*$/.*/;
     $ey = $ey . $Word if $isWord;
 
-    #### TODO calendar
-    #   if ($cal_mode) {
-    #       my (undef, $month, $day) = $cal->get_date;
-    #       $ey = $months[$month] . "\\s{1,2}$day\\s.*$ey.*\n";
-    #   }
+    #### calendar
+    if ($calendarFrame && $calendarFrame->value() == 1 && $calendar) {
+        my $date  = Date::Simple->new($calendar->value());
+        my $month = $date->month;
+        my $day   = $date->day;
+        $ey = $months[$month] . "\\s{1,2}$day\\s.*$ey.*\n";
+    }
 
     my @all = -e $file ? catMaybeCompressed($file) : N("Sorry, log file isn't available!");
 
@@ -257,6 +276,7 @@ sub parse_file {
         $progressBarPosition->showChild();
         $my_win->recalcLayout();
         $my_win->doneMultipleChanges();
+        $pbar = 0;
     }
 
     if ($isTail && ! $isWord) {
