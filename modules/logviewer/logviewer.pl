@@ -78,8 +78,13 @@ my $searchButton  = 0;
 my $matchingInputField = 0;
 my $notMatchingInputField = 0;
 my $progressBarPosition = 0;
-my $calendar = 0;
+my $fileChooserFrame = 0;
 my $calendarFrame = 0;
+my $journalctlFrame = 0;
+my $calendar = 0;
+my $journalAll = 0;
+my $journalFree = 0;
+my $journalFreeInputField = 0;
 
 my $mainLayout = $factory->createVBox($my_win);
 
@@ -104,11 +109,15 @@ if (!$isFile) {
 
     $hbox = $factory->createHBox($vbox);
 
-    my $fileFrame = $factory->createFrame($hbox, N("Choose file"));
+    $fileChooserFrame = $factory->createCheckBoxFrame($hbox, N("Choose file"), 1);
+    $fileChooserFrame->setNotify(1);
+    $journalctlFrame = $factory->createCheckBoxFrame($hbox, N("Get from the journal"), 1);
+    $journalctlFrame->setNotify(1);
     $calendarFrame = $factory->createCheckBoxFrame($hbox, N("Calendar"), 1);
 
-    $fileFrame->setWeight(0, 75);
-    $calendarFrame->setWeight(0, 25);
+    $fileChooserFrame->setWeight(0, 40);
+    $journalctlFrame->setWeight(0, 40);
+    $calendarFrame->setWeight(0, 20);
 
     $searchButton = $factory->createPushButton($vbox, N("search"));
     $searchButton->setStretchable(0, 1);
@@ -116,12 +125,30 @@ if (!$isFile) {
     $progressBarPosition = $factory->createReplacePoint($vbox);
     $factory->createLabel($progressBarPosition, "");
 
-    $vbox = $factory->createVBox($fileFrame);
+    # file chooser 
+    $vbox = $factory->createVBox($fileChooserFrame);
     for my $cb (keys %files) {
         $align = $factory->createAlignment($vbox, 1, 0);
         $toggle{$cb} = $factory->createCheckBox($align, $files{$cb}{desc}, 0);
     }
 
+    # journalctl    
+    my $rg = $factory->createRadioButtonGroup($journalctlFrame);
+    $vbox = $factory->createVBox($rg);
+    $align = $factory->createAlignment($vbox, 1, 0);
+    $journalAll = $factory->createRadioButton($align, N("Whole journal"), 1);
+    if ($journalAll->buttonGroup()) {
+        $journalAll->buttonGroup()->addRadioButton($journalAll);
+    }
+    $align = $factory->createAlignment($vbox, 1, 0);
+    $hbox = $factory->createHBox($align);
+    $journalFree = $factory->createRadioButton($hbox, N("Free journalctl parameters"), 0);
+    if ($journalFree->buttonGroup()) {
+        $journalFree->buttonGroup()->addRadioButton($journalFree);
+    }
+    $journalFreeInputField = $factory->createInputField($hbox, N("journalctl parameters"));
+
+    # calendar
     $vbox = $factory->createVBox($calendarFrame);
     $align = $factory->createAlignment($vbox, 3, 3);
 
@@ -130,8 +157,10 @@ if (!$isFile) {
         my $day = strftime "%F", localtime;
         $calendar->setValue($day);
     }
+
     ### NOTE CheckBoxFrame doesn't honoured his costructor checked value for his children
     $calendarFrame->setValue(0);
+    $journalctlFrame->setValue(0);
 }
 # create log view object
 my $logView = $factory->createLogView($mainLayout, N("Content of the file"), 10, 0);
@@ -159,7 +188,7 @@ while(1) {
     }
     elsif ($eventType == $yui::YEvent::WidgetEvent) {
         # widget selected
-        my $widget = $event->widget();
+        my $widget      = $event->widget();
 
         if($widget == $SaveButton) {
             save();
@@ -172,11 +201,39 @@ while(1) {
             $logView->clearText();
             search();
         }
+        elsif ($fileChooserFrame && $widget == $fileChooserFrame) {
+            # block journalctl frame notification
+            $journalctlFrame->setNotify(0);
+            if ($fileChooserFrame->value()) {
+                # unchecK $journalctlFrame
+                $journalctlFrame->setValue(0);
+            }
+            else {
+                # checK $journalctlFrame
+                $journalctlFrame->setValue(1);
+            }
+            # unblock journalctl frame notification
+            $journalctlFrame->setNotify(1);
+        }
+        elsif ($journalctlFrame && $widget == $journalctlFrame) {
+            # block file chooser frame notification
+            $fileChooserFrame->setNotify(0);
+            if ($journalctlFrame->value()) {
+                # unchecK $fileChooserFrame
+                $fileChooserFrame->setValue(0);
+            }
+            else {
+                # checK $fileChooserFrame
+                $fileChooserFrame->setValue(1);
+            }
+            # unblock file chooser frame notification
+            $fileChooserFrame->setNotify(1);
+        }
         elsif ($widget == $mailALertButton) {
             alert_config();
         }
         else {
-            print "Unmnaged widget\;";
+            print "Unmanaged WidgetEvent\n";
         }
     }
 }
@@ -188,19 +245,42 @@ sub search() {
     if ($isFile) {
         parse_file($File, $File);
     } else {
-        foreach (keys %files) {
-            parse_file($files{$_}{file}, $files{$_}{desc}) if $toggle{$_}->isChecked();
+        if ($fileChooserFrame && $fileChooserFrame->value()) {
+            foreach (keys %files) {
+                parse_file($files{$_}{file}, $files{$_}{desc}) if $toggle{$_}->isChecked();
+            }
+        }
+        elsif ($journalctlFrame && $journalctlFrame->value()) {
+            my @all;
+            # using journal log
+            # there is not any perl binding at the moment
+            if ($journalAll->value()) {
+                if ($calendarFrame && $calendarFrame->value() == 1 && $calendar) {
+                    my $date  = Date::Simple->new($calendar->value());
+                    @all = `journalctl --all --no-pager --since=$date`;
+                }
+                else {
+                    @all = `journalctl --all --no-pager`;
+                }
+            }
+            elsif ($journalFree->value()) {
+                if ($calendarFrame && $calendarFrame->value() == 1 && $calendar) {
+                    my $date  = Date::Simple->new($calendar->value());
+                    my $param = $journalFreeInputField->value();
+                    @all = `journalctl --no-pager --since=$date $param`;
+                }
+                else {
+                    my $param = $journalFreeInputField->value();
+                    @all = `journalctl --all --no-pager $param`;
+                }
+            }
+            parse_content(@all, N("from journalctl"));
         }
     }
 }
 
-sub parse_file {
-    my ($file, $descr) = @_;
-
-    $file =~ s/\.gz$//;
-
-    logText("****************************************");
-    logText($file . " - " . $descr);
+sub parse_content {
+    my (@all, $descr) = @_;
 
     my $pbar = 0;
     my $ey = "";
@@ -228,14 +308,15 @@ sub parse_file {
     $ey = $ey . $Word if $isWord;
 
     #### calendar
-    if ($calendarFrame && $calendarFrame->value() == 1 && $calendar) {
-        my $date  = Date::Simple->new($calendar->value());
-        my $month = $date->month;
-        my $day   = $date->day;
-        $ey = $months[$month] . "\\s{1,2}$day\\s.*$ey.*\n";
+    if ($journalAll && !$journalAll->value() && $journalFree && !$journalFree->value()) {
+        if ($calendarFrame && $calendarFrame->value() == 1 && $calendar) {
+            my $date  = Date::Simple->new($calendar->value());
+            my $month = $date->month;
+            my $day   = $date->day;
+            $ey = $months[$month] . "\\s{1,2}$day\\s.*$ey.*\n";
+        }
     }
 
-    my @all = -e $file ? catMaybeCompressed($file) : N("Sorry, log file isn't available!");
 
     if ($isExplain) {
         my (@t, $t);
@@ -265,8 +346,12 @@ sub parse_file {
         if ($pbar && $i % 10) {
             $pbar->setValue(floor(100*$i/$taille));
         }
-
-        $logView->appendLines($_) if $test->($_);
+        if ($journalFree && $journalFree->value()) {
+            $logView->appendLines($_);
+        }
+        else {
+            $logView->appendLines($_) if $test->($_);
+        }
     }
 
     if ($progressBarPosition) {
@@ -278,6 +363,20 @@ sub parse_file {
         $my_win->doneMultipleChanges();
         $pbar = 0;
     }
+
+}
+
+sub parse_file {
+    my ($file, $descr) = @_;
+
+    $file =~ s/\.gz$//;
+
+    logText("****************************************");
+    logText($file . " - " . $descr);
+
+    my @all = -e $file ? catMaybeCompressed($file) : N("Sorry, log file isn't available!");
+
+    parse_content(@all, $descr);
 
     if ($isTail && ! $isWord) {
         my $F;
