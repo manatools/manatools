@@ -89,7 +89,7 @@ my $journalFreeInputField = 0;
 my $mainLayout = $factory->createVBox($my_win);
 
 my $align = $factory->createAlignment($mainLayout, 3, 0);
-$factory->createLabel( $align, N("A tool to monitor your logs") );
+$factory->createLabel( $align, N("A tool to monitor your logs"), 1, 0);
 
 if (!$isFile) {
     my $vbox = $factory->createVBox($mainLayout);
