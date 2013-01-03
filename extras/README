@@ -13,3 +13,8 @@ Add AdminPanel to the include path (for developers)
 
 symlink trunk/AdminPanel to /usr/lib/perl5/<currentversion>/AdminPanel
 where currentversion could be for example 5.16.2
+
+Additional notes:
+1. if you have installed old org.mageia.policykit.pkexec.policy remove it from /usr/share/polkit-1/actions/
+2. you can use at your own risk our script from this directory create_link.sh
+
