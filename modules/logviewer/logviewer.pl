@@ -29,7 +29,7 @@ use lib qw(/usr/lib/libDrakX);
 use standalone;     #- warning, standalone must be loaded very first, for 'explanations'
 use c;
 use common;
-# use Auth;
+#use AdminPanel::Privileges;
 use yui;
 
 ### TODO icon 
