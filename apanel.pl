@@ -20,9 +20,9 @@
 use strict;
 use warnings;
 use diagnostics;
+use AdminPanel::Privileges;
 use FindBin;
 use lib "$FindBin::RealBin";
-use Auth;
 use MainDisplay;
 use yui;
 

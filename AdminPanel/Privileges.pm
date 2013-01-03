@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-#    Copyright 2012 Matteo Pasotti
+#    Copyright 2012-2013 Matteo Pasotti
 #
 #    This file is part of AdminPanel
 #
@@ -16,21 +16,20 @@
 #    You should have received a copy of the GNU General Public License
 #    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
 
-package Auth;
+package AdminPanel::Privileges;
 
-require Exporter;
-use base qw(Exporter);
 use strict;
 use warnings;
 use diagnostics;
-use Data::Dumper;
+require Exporter;
+use base qw(Exporter);
+use English qw(-no_match_vars);
 
 our @EXPORT = qw(require_root_capability
          ask_for_authentication);
 
 sub require_root_capability {
-    return 0 if(!$>);
-    return 1;
+    return $EUID != 0;
 }
 
 sub ask_for_authentication {
