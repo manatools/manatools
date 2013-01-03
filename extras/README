@@ -1,3 +1,6 @@
+Configure polkit
+----------------
+
 Please copy extras/org.freedesktop.policykit.pkexec.policy to /usr/share/polkit-1/actions/org.freedesktop.policykit.pkexec.policy
 to make apanel be usable through policykit (mcc is currently using pam, a bit more complicated compared to polkit).
 
@@ -5,6 +8,8 @@ After that you have to make a symbolic link to apanel.pl into /usr/bin/  (i.e. /
 
 This settings will be automatically handled at rpm installation time in future/production.
 
-TODO:
-- support to pam (wip)
-- add testing/develop exceptions (avoid to insert password at develop time)
+Add AdminPanel to the include path (for developers)
+---------------------------------------------------
+
+symlink trunk/AdminPanel to /usr/lib/perl5/<currentversion>/AdminPanel
+where currentversion could be for example 5.16.2
