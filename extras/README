@@ -1,7 +1,7 @@
 Configure polkit
 ----------------
 
-Please copy extras/org.freedesktop.policykit.pkexec.policy to /usr/share/polkit-1/actions/org.freedesktop.policykit.pkexec.policy
+Please copy extras/org.mageia.policykit.pkexec.adminpanel.policy to /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.adminpanel.policy
 to make apanel be usable through policykit (mcc is currently using pam, a bit more complicated compared to polkit).
 
 After that you have to make a symbolic link to apanel.pl into /usr/bin/  (i.e. /usr/bin/apanel.pl) and make your local apanel.pl script executable (chmod +x apanel.pl).
