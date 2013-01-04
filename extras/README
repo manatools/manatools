@@ -8,6 +8,31 @@ After that you have to make a symbolic link to apanel.pl into /usr/bin/  (i.e. /
 
 This settings will be automatically handled at rpm installation time in future/production.
 
+Configure pam
+-------------
+
+1. symlink /usr/bin/consolehelper -> /usr/bin/apanel
+2. create /etc/pam.d/apanel and populate it with the code below:
+#%PAM-1.0
+auth       sufficient   pam_rootok.so
+auth       required     pam_console.so
+auth       sufficient   pam_timestamp.so
+auth       include      system-auth
+account    required     pam_permit.so
+session    optional     pam_timestamp.so
+session    optional     pam_xauth.so
+
+auth    required        pam_succeed_if.so       quiet user != xguest
+
+3. create /etc/security/console.apps/apanel and populate it with the code below:
+USER=root
+PROGRAM=<absolute/path/to/apanel.pl>
+
+4. authorize apanel to use the display
+xhost local:root
+
+5. setup apanel.pl to use consolehelper backend ($USE_CHLP)
+
 Add AdminPanel to the include path (for developers)
 ---------------------------------------------------
 

@@ -28,13 +28,17 @@ use English qw(-no_match_vars);
 our @EXPORT = qw(require_root_capability
          ask_for_authentication
          $USE_SUDO
-         $USE_PKIT);
+         $USE_PKIT
+         $USE_CHLP);
 
 our $USE_SUDO = 1;
 our $USE_PKIT = 2;
+our $USE_CHLP = 3;
 
 my $wrappers = { $USE_SUDO => "sudo",
-                 $USE_PKIT => "pkexec" };
+                 $USE_PKIT => "pkexec",
+                 $USE_CHLP => "consolehelper"
+               };
 
 my $wrapper = 0;
 
