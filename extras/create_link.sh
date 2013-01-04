@@ -14,7 +14,7 @@ fi
 
 if [ -f /usr/bin/apanel.pl ]
 then
-   rm usr/bin/apanel.pl
+   rm /usr/bin/apanel.pl
 fi
 
 pushd .
