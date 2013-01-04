@@ -30,7 +30,7 @@ my $cmdline = new yui::YCommandLine;
 
 usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
 
-ask_for_authentication() if(require_root_capability());
+ask_for_authentication($USE_PKIT) if(require_root_capability());
 
 my $mainWin = new MainDisplay();
 my $launch = $mainWin->start();
