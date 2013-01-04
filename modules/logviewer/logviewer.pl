@@ -229,11 +229,11 @@ while(1) {
             # unblock file chooser frame notification
             $fileChooserFrame->setNotify(1);
         }
-        elsif ($widget == $mailALertButton) {
-            alert_config();
-        }
+       elsif ($widget == $mailALertButton) {
+           alert_config();
+       }
         else {
-            print "Unmanaged WidgetEvent\n";
+            warningMsgBox(N("Unmanaged WidgetEvent"));
         }
     }
 }
@@ -422,9 +422,121 @@ sub quit() {
 ## alert config call back
 sub alert_config() {
 ## TODO
-    print "To be implemented yet \n";
+    infoMsgBox(N("To be implemented yet"));
     return;
 }
+
+
+### Begin interactive functions ###
+# NOTE next routines (from BEGIN to END) have to be moved to a package and
+#      factory got by using yui::YUI::widgetFactory
+
+sub warningMsgBox() {
+    my ($st) = @_;
+    my $msg_box = $factory->createPopupDialog($yui::YDialogWarnColor);
+    my $layout = $factory->createVBox($msg_box);
+    my $align = $factory->createAlignment($layout, 3, 0);
+    $factory->createLabel( $align, $st, 1, 0);
+    $align = $factory->createAlignment($layout, 3, 0);
+    $factory->createPushButton($align, N("Ok"));
+    $msg_box->waitForEvent();
+
+    destroy $msg_box;
+}
+
+sub infoMsgBox() {
+    my ($st) = @_;
+    my $msg_box = $factory->createPopupDialog($yui::YDialogInfoColor);
+    my $layout = $factory->createVBox($msg_box);
+    my $align = $factory->createAlignment($layout, 3, 0);
+    $factory->createLabel( $align, $st, 1, 0);
+    $align = $factory->createAlignment($layout, 3, 0);
+    $factory->createPushButton($align, N("Ok"));
+    $msg_box->waitForEvent();
+
+    destroy $msg_box;
+}
+
+sub msgBox() {
+    my ($st) = @_;
+    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $layout = $factory->createVBox($msg_box);
+    my $align = $factory->createAlignment($layout, 3, 0);
+    $factory->createLabel( $align, $st, 1, 0);
+    $align = $factory->createAlignment($layout, 3, 0);
+    $factory->createPushButton($align, N("Ok"));
+    $msg_box->waitForEvent();
+
+    destroy $msg_box;
+}
+
+sub ask_OkCancel() {
+    my ($title, $text) = @_;
+    my $retVal = 0;
+
+    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $layout = $factory->createVBox($msg_box);
+
+    my $align = $factory->createAlignment($layout, 3, 0);
+    ## title with headings true
+    $factory->createLabel( $align, $title, 1, 0);
+    my $align = $factory->createLeft($layout);
+    $factory->createLabel( $align, $text, 0, 0);
+
+    $align = $factory->createRight($layout);
+    my $hbox = $factory->createHBox($align);
+    my $okButton = $factory->createPushButton($hbox, N("Ok"));
+    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
+
+    my $event = $msg_box->waitForEvent();
+
+    my $eventType = $event->eventType();
+
+    if ($eventType == $yui::YEvent::WidgetEvent) {
+        # widget selected
+        my $widget      = $event->widget();
+        $retVal = ($widget == $okButton);
+    }
+
+    destroy $msg_box;
+
+    return $retVal;
+}
+
+sub ask_YesOrNo() {
+    my ($title, $text) = @_;
+    my $retVal = "No";
+
+    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $layout = $factory->createVBox($msg_box);
+
+    my $align = $factory->createAlignment($layout, 3, 0);
+    ## title with headings true
+    $factory->createLabel( $align, $title, 1, 0);
+    my $align = $factory->createLeft($layout);
+    $factory->createLabel( $align, $text, 0, 0);
+
+    $align = $factory->createRight($layout);
+    my $hbox = $factory->createHBox($align);
+    my $yesButton = $factory->createPushButton($hbox, N("Yes"));
+    my $noButton  = $factory->createPushButton($hbox, N("No"));
+
+    my $event = $msg_box->waitForEvent();
+
+    my $eventType = $event->eventType();
+
+    if ($eventType == $yui::YEvent::WidgetEvent) {
+        # widget selected
+        my $widget      = $event->widget();
+        $retVal = ($widget == $yesButton) ? "Yes" : "No";
+    }
+
+    destroy $msg_box;
+
+    return $retVal;
+}
+
+### END interactive functions ###
 
 ### NOTE next code has to be removed after getting mail alert functionality
 =comment
