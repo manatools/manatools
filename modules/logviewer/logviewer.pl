@@ -29,15 +29,22 @@ use lib qw(/usr/lib/libDrakX);
 use standalone;     #- warning, standalone must be loaded very first, for 'explanations'
 use c;
 use common;
-#use AdminPanel::Privileges;
 use yui;
+
+#use AdminPanel::Privileges;
+use AdminPanel::Shared;
 
 ### TODO icon 
 my $wm_icon = "/usr/share/mcc/themes/default/logdrake-mdk.png";
 
-#ask_for_authentication() if(require_root_capability());
+#ask_for_authentication($USE_CHLP) if(require_root_capability());
 
 my ($isExplain, $Explain, $isFile, $File, $isWord, $Word);
+
+# prototypes
+sub alert_config;
+sub quit;
+sub search;
 
 #- parse arguments list.
 foreach (@ARGV) {
@@ -232,9 +239,9 @@ while(1) {
        elsif ($widget == $mailALertButton) {
            alert_config();
        }
-        else {
-            warningMsgBox(N("Unmanaged WidgetEvent"));
-        }
+       else {
+           warningMsgBox(N("Unmanaged WidgetEvent"));
+       }
     }
 }
 
@@ -407,7 +414,7 @@ sub logText {
 }
 
 ## Save as
-sub save() {
+sub save {
     my $outFile = yui::YUI::app()->askForSaveFileName(home(), "*", N("Save as.."));
     if ($outFile) {
         output($outFile, $logView->logText());
@@ -415,128 +422,17 @@ sub save() {
 }
 
 ## Quit 
-sub quit() {
+sub quit {
     $my_win->destroy();
 }
 
 ## alert config call back
-sub alert_config() {
+sub alert_config {
 ## TODO
     infoMsgBox(N("To be implemented yet"));
     return;
 }
 
-
-### Begin interactive functions ###
-# NOTE next routines (from BEGIN to END) have to be moved to a package and
-#      factory got by using yui::YUI::widgetFactory
-
-sub warningMsgBox() {
-    my ($st) = @_;
-    my $msg_box = $factory->createPopupDialog($yui::YDialogWarnColor);
-    my $layout = $factory->createVBox($msg_box);
-    my $align = $factory->createAlignment($layout, 3, 0);
-    $factory->createLabel( $align, $st, 1, 0);
-    $align = $factory->createAlignment($layout, 3, 0);
-    $factory->createPushButton($align, N("Ok"));
-    $msg_box->waitForEvent();
-
-    destroy $msg_box;
-}
-
-sub infoMsgBox() {
-    my ($st) = @_;
-    my $msg_box = $factory->createPopupDialog($yui::YDialogInfoColor);
-    my $layout = $factory->createVBox($msg_box);
-    my $align = $factory->createAlignment($layout, 3, 0);
-    $factory->createLabel( $align, $st, 1, 0);
-    $align = $factory->createAlignment($layout, 3, 0);
-    $factory->createPushButton($align, N("Ok"));
-    $msg_box->waitForEvent();
-
-    destroy $msg_box;
-}
-
-sub msgBox() {
-    my ($st) = @_;
-    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
-    my $layout = $factory->createVBox($msg_box);
-    my $align = $factory->createAlignment($layout, 3, 0);
-    $factory->createLabel( $align, $st, 1, 0);
-    $align = $factory->createAlignment($layout, 3, 0);
-    $factory->createPushButton($align, N("Ok"));
-    $msg_box->waitForEvent();
-
-    destroy $msg_box;
-}
-
-sub ask_OkCancel() {
-    my ($title, $text) = @_;
-    my $retVal = 0;
-
-    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
-    my $layout = $factory->createVBox($msg_box);
-
-    my $align = $factory->createAlignment($layout, 3, 0);
-    ## title with headings true
-    $factory->createLabel( $align, $title, 1, 0);
-    my $align = $factory->createLeft($layout);
-    $factory->createLabel( $align, $text, 0, 0);
-
-    $align = $factory->createRight($layout);
-    my $hbox = $factory->createHBox($align);
-    my $okButton = $factory->createPushButton($hbox, N("Ok"));
-    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
-
-    my $event = $msg_box->waitForEvent();
-
-    my $eventType = $event->eventType();
-
-    if ($eventType == $yui::YEvent::WidgetEvent) {
-        # widget selected
-        my $widget      = $event->widget();
-        $retVal = ($widget == $okButton);
-    }
-
-    destroy $msg_box;
-
-    return $retVal;
-}
-
-sub ask_YesOrNo() {
-    my ($title, $text) = @_;
-    my $retVal = "No";
-
-    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
-    my $layout = $factory->createVBox($msg_box);
-
-    my $align = $factory->createAlignment($layout, 3, 0);
-    ## title with headings true
-    $factory->createLabel( $align, $title, 1, 0);
-    my $align = $factory->createLeft($layout);
-    $factory->createLabel( $align, $text, 0, 0);
-
-    $align = $factory->createRight($layout);
-    my $hbox = $factory->createHBox($align);
-    my $yesButton = $factory->createPushButton($hbox, N("Yes"));
-    my $noButton  = $factory->createPushButton($hbox, N("No"));
-
-    my $event = $msg_box->waitForEvent();
-
-    my $eventType = $event->eventType();
-
-    if ($eventType == $yui::YEvent::WidgetEvent) {
-        # widget selected
-        my $widget      = $event->widget();
-        $retVal = ($widget == $yesButton) ? "Yes" : "No";
-    }
-
-    destroy $msg_box;
-
-    return $retVal;
-}
-
-### END interactive functions ###
 
 ### NOTE next code has to be removed after getting mail alert functionality
 =comment
