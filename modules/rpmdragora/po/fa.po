@@ -1,0 +1,3929 @@
+# translation of rpmdrake-fa.po to 
+# translation of rpmdrake-fa.po to Persian
+# translation of rpmdrake.po to Persian
+# Copyright (C) 2003, 2004, 2005 Free Software Foundation, Inc.
+# Abbas Izad <abbasizad@hotmail.com>, 2003, 2004, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rpmdrake-fa\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-09 17:13+0800\n"
+"PO-Revision-Date: 2005-02-06 09:05-0500\n"
+"Last-Translator: Abbas Izad <abbasizad@hotmail.com>\n"
+"Language-Team: Persian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#, c-format
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"لیست بروزسازی‌ها خالی است. این بدین معنی است که یا هیچ\n"
+"به‌روزسازیی برای بسته‌ی نصب شده بر رایانه‌ی شما وجود ندارد یا شما\n"
+"قبلاً همه‌ی آنها را نصب کرده‌اید."
+
+#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Management"
+msgstr "مدیریت نرم‌افزار"
+
+#: ../MageiaUpdate:151
+#, fuzzy, c-format
+msgid "Here is the list of software package updates"
+msgstr "بروزسازی بسته‌های نرم‌افزار"
+
+#: ../MageiaUpdate:158
+#, c-format
+msgid "Name"
+msgstr "نام"
+
+#: ../MageiaUpdate:159 ../rpmdrake:290
+#, fuzzy, c-format
+msgid "Version"
+msgstr "نسخه"
+
+#: ../MageiaUpdate:160 ../rpmdrake:294
+#, c-format
+msgid "Release"
+msgstr ""
+
+#: ../MageiaUpdate:161
+#, fuzzy, c-format
+msgid "Arch"
+msgstr "بایگانی"
+
+#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#, c-format
+msgid "Help"
+msgstr "راهنما"
+
+#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#, c-format
+msgid "Select all"
+msgstr "انتخاب همگی"
+
+#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#, c-format
+msgid "Update"
+msgstr "بروزسازی"
+
+#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#, c-format
+msgid "Quit"
+msgstr "ترک"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:62
+#, c-format
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:63
+#, fuzzy, c-format
+msgid "FTP"
+msgstr "Web/FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#, fuzzy, c-format
+msgid "Local"
+msgstr "پرونده‌های محلی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:65
+#, c-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:66
+#, c-format
+msgid "HTTPS"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#, c-format
+msgid "NFS"
+msgstr "NFS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:68
+#, fuzzy, c-format
+msgid "Removable"
+msgstr "برداشتن"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:69
+#, c-format
+msgid "rsync"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:72
+#, fuzzy, c-format
+msgid "Mirror list"
+msgstr "%s انتخابها"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:114
+#, c-format
+msgid "Choose media type"
+msgstr "نوع رسانه را انتخاب کنید"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:115
+#, c-format
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Full set of sources"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Update sources only"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:135
+#, c-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"این تلاش خواهد کرد تا همه منابع رسمی مربوط به توزیع شما (%s) را نصب کند.\n"
+"برای دریافت لیست آینه‌ها مجبورم با وب‌گاه ماندریبا تماس بگیرم.\n"
+"لطفاً کنترل کنید که شبکه شما اکنون در حال اجرا می‌باشد.\n"
+"\n"
+"آیا ادامه دهیم؟"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#, c-format
+msgid "Please wait, adding media..."
+msgstr "لطفا صبر کنید، در حال افزودن رسانه..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:168
+#, c-format
+msgid "Add a medium"
+msgstr "افزودن یک رسانه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Local files"
+msgstr "پرونده‌های محلی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, fuzzy, c-format
+msgid "Medium path:"
+msgstr "رسانه: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#, c-format
+msgid "FTP server"
+msgstr "کارگزار FTP "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#, c-format
+msgid "URL:"
+msgstr "نشانی اینترنتی:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#, fuzzy, c-format
+msgid "RSYNC server"
+msgstr "کارگزار FTP "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#, c-format
+msgid "HTTP server"
+msgstr "کارگزار‌ HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, fuzzy, c-format
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "دستگاه قابل انتقال"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Path or mount point:"
+msgstr "مسیر یا نقطه سوارسازی:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:194
+#, c-format
+msgid "Browse..."
+msgstr "مرور..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#, c-format
+msgid "Login:"
+msgstr "ثبت‌ورود:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "Password:"
+msgstr "گذرواژه:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:227
+#, fuzzy, c-format
+msgid "Medium name:"
+msgstr "رسانه: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:233
+#, c-format
+msgid "Create media for a whole distribution"
+msgstr "ایجاد کردن رسانه برای تمام توزیع"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:242
+#, fuzzy, c-format
+msgid "Tag this medium as an update medium"
+msgstr "انتخاب کردن رسانه‌ای که می‌خواهید بروزسازی کنید:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:252
+#, c-format
+msgid "You need to fill up at least the two first entries."
+msgstr "شما باید حداقل دو ورودی اول را پر کنید."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:256
+#, c-format
+msgid ""
+"There is already a medium by that name, do you\n"
+"really want to replace it?"
+msgstr ""
+"یک رسانه با آن نام از قبل وجود دارد،\n"
+"آیا واقعاً می‌خواهید آن را جایگزین کنید؟"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:268
+#, c-format
+msgid "Adding a medium:"
+msgstr "افزودن یک رسانه:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:270
+#, c-format
+msgid "Type of medium:"
+msgstr "نوع رسانه:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#, c-format
+msgid "Cancel"
+msgstr "لغو"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#, c-format
+msgid "Ok"
+msgstr "تأیید"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:337
+#, c-format
+msgid "Global options for package installation"
+msgstr "گزینه‌های جهانی برای نصب بسته..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "never"
+msgstr "هرگز"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "always"
+msgstr "همیشه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#, fuzzy, c-format
+msgid "Never"
+msgstr "هرگز"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#, c-format
+msgid "On-demand"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#, fuzzy, c-format
+msgid "Update-only"
+msgstr "بروزسازی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#, fuzzy, c-format
+msgid "Always"
+msgstr "همیشه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:355
+#, c-format
+msgid "Verify RPMs to be installed:"
+msgstr "تصدیق RPMs برای نصب شدن"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:360
+#, c-format
+msgid "Download program to use:"
+msgstr "بارگیری برنامه برای استفاده:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:367
+#, c-format
+msgid "XML meta-data download policy:"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:374
+#, c-format
+msgid ""
+"For remote media, specify when XML meta-data (file lists, changelogs & "
+"information) are downloaded."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:377
+#, c-format
+msgid "For remote media, XML meta-data are never downloaded."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:380
+#, c-format
+msgid "(This is the default)"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:381
+#, c-format
+msgid "The specific XML info file is downloaded when clicking on package."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:384
+#, c-format
+msgid ""
+"Updating media implies updating XML info files already required at least "
+"once."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:387
+#, c-format
+msgid "All XML info files are downloaded when adding or updating media."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:416
+#, c-format
+msgid "Source Removal"
+msgstr "برداشتن متن کد"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:418
+#, c-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr "آیا مطمئن هستید که می‌خواهید متن کد \"%s\" را بردارید؟"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:419
+#, fuzzy, c-format
+msgid "Are you sure you want to remove the following sources?"
+msgstr "آیا مطمئن هستید که می‌خواهید متن کد \"%s\" را بردارید؟"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:425
+#, c-format
+msgid "Please wait, removing medium..."
+msgstr "لطفا صبر کنید، در حال برداشتن رسانه..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:473
+#, c-format
+msgid "Edit a medium"
+msgstr "ویرایش یک رسانه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:480
+#, c-format
+msgid "Editing medium \"%s\":"
+msgstr "ویرایش رسانه‌ی \"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:484
+#, c-format
+msgid "Downloader:"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:496
+#, c-format
+msgid "Save changes"
+msgstr "ذخیره‌ی تغییرات"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:505
+#, c-format
+msgid "Proxy..."
+msgstr "پراکسی..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:517
+#, c-format
+msgid "You need to insert the medium to continue"
+msgstr "برای ادامه باید رسانه‌ای را به داخل دستگاه بگذارید"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:518
+#, c-format
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr "برای ذخیره‌ی تغییرات باید رسانه را درون دستگاه بگذارید."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:553
+#, c-format
+msgid "Configure proxies"
+msgstr "پیکربندی پراکسی‌ها"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:566
+#, c-format
+msgid "Proxy settings for media \"%s\""
+msgstr "تنظیمات پراکسی برای رسانه‌ی \"%s\""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:567
+#, c-format
+msgid "Global proxy settings"
+msgstr "تنظیمات جهانی پراکسی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:569
+#, c-format
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"اگر شما به یک پراکسی نیاز دارید، نام میزبان و یک درگاه دلخواه را وارد کنید "
+"(ترکیب: <proxyhost[:port]>):"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:572
+#, c-format
+msgid "Proxy hostname:"
+msgstr "نام میزبان پراکسی:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:575
+#, c-format
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr "شما می‌توانید یک کاربر/گذرواژه را برای تأیید هویت پراکسی مشخص کنید:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:578
+#, c-format
+msgid "User:"
+msgstr "کاربر:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Add a parallel group"
+msgstr "افزودن یک گروه موازی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Edit a parallel group"
+msgstr "ویرایش یک گروه موازی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Add a medium limit"
+msgstr "افزودن محدوده‌‌ی رسانه‌ای"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Choose a medium to add to the media limit:"
+msgstr "رسانه‌ای ‌را برای افزودن در محدوده رسانه‌ها انتخاب کنید:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Add a host"
+msgstr "افزودن یک میزبان"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "نام میزبان یا نشانی آی‌پی میزبان را برای افزودن تایپ کنید:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:729
+#, c-format
+msgid "Editing parallel group \"%s\":"
+msgstr "ویرایش گروه موازی \"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:733
+#, c-format
+msgid "Group name:"
+msgstr "نام گروه:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:734
+#, c-format
+msgid "Protocol:"
+msgstr "پایان‌نامه:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:736
+#, c-format
+msgid "Media limit:"
+msgstr "محدوده رسانه:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#, c-format
+msgid "Add"
+msgstr "افزودن"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:1139
+#, c-format
+msgid "Remove"
+msgstr "برداشتن"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:745
+#, c-format
+msgid "Hosts:"
+msgstr "میزبان‌ها:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:781
+#, c-format
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr "پیکربندی urpmi موازی (اجرای توزیعی urpmi)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Group"
+msgstr "گروه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Protocol"
+msgstr "پایان‌نامه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Media limit"
+msgstr "محدوده رسانه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:786
+#, c-format
+msgid "Command"
+msgstr "فرمان"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#, c-format
+msgid "(none)"
+msgstr "(هیچکدام)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:816
+#, c-format
+msgid "Edit..."
+msgstr "ویرایش"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:824
+#, c-format
+msgid "Add..."
+msgstr "افزودن..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:840
+#, c-format
+msgid "Manage keys for digital signatures of packages"
+msgstr "اداره‌ی کلیدها برای امضاهای دیجیتالی بسته‌ها"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#, c-format
+msgid "Medium"
+msgstr "رسانه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:853
+#, c-format
+msgid ""
+"_:cryptographic keys\n"
+"Keys"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:876
+#, c-format
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "هیچ نامی یافت نشد، کلیدی در دسته کلید rpm وجود ندارد!"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Add a key"
+msgstr "افزودن یک کلید"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Choose a key to add to the medium %s"
+msgstr "انتخاب یک کلید برای اضافه کردن به رسانه‌ی %s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:915
+#, c-format
+msgid "Remove a key"
+msgstr "برداشتن یک کلید"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:916
+#, c-format
+msgid ""
+"Are you sure you want to remove the key %s from medium %s?\n"
+"(name of the key: %s)"
+msgstr ""
+"آیا مطمئن هستید که می‌خواهید کلید %s را از رسانه‌ی %s بردارید؟\n"
+"(نام کلید: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#, c-format
+msgid "Configure media"
+msgstr "پیکربندی رسانه"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
+#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#, c-format
+msgid "/_File"
+msgstr "/_پرونده"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, fuzzy, c-format
+msgid "/_Update"
+msgstr "بروزسازی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, fuzzy, c-format
+msgid "<control>U"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "/Add a specific _media mirror"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, fuzzy, c-format
+msgid "<control>M"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, fuzzy, c-format
+msgid "/_Add a custom medium"
+msgstr "/_رسانه‌ی بروزسازی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, fuzzy, c-format
+msgid "<control>A"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, fuzzy, c-format
+msgid "/Close"
+msgstr "بستن"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, fuzzy, c-format
+msgid "<control>W"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
+#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
+#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Options"
+msgstr "/_گزینه‌ها"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, fuzzy, c-format
+msgid "/_Global options"
+msgstr "گزینه‌های جهانی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, fuzzy, c-format
+msgid "<control>G"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, fuzzy, c-format
+msgid "/Manage _keys"
+msgstr "اداره‌ی کلیدها..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, fuzzy, c-format
+msgid "<control>K"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, fuzzy, c-format
+msgid "/_Parallel"
+msgstr "موازی..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, fuzzy, c-format
+msgid "<control>P"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, fuzzy, c-format
+msgid "/P_roxy"
+msgstr "پراکسی..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, fuzzy, c-format
+msgid "<control>R"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#, c-format
+msgid "/_Help"
+msgstr "/_راهنما"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#, c-format
+msgid "/_Report Bug"
+msgstr "/_گزارش اشکال"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#, c-format
+msgid "/_About..."
+msgstr "/_درباره..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#, c-format
+msgid "Rpmdrake"
+msgstr "Rpmdrake"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#, c-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#, c-format
+msgid "Rpmdrake is the Mageia package management tool."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#, c-format
+msgid "Mageia"
+msgstr "ماندریبا لینوکس"
+
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#, c-format
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr "Abbas Izad <abbasizad@hotmail.com>\n"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#, c-format
+msgid "Enabled"
+msgstr "به‌کارافتاده؟"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1048
+#, fuzzy, c-format
+msgid "Updates"
+msgstr "بروزسازی"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1052
+#, c-format
+msgid "Type"
+msgstr "نوع"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1079
+#, c-format
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1105
+#, fuzzy, c-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"ناتوان در افزودن رسانه، خطاهائی گزارش داده شد:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1143
+#, c-format
+msgid "Edit"
+msgstr "ویرایش"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1191
+#, c-format
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+"بانک اطلاعات بسته‌ها قفل شده است. لطفاً برنامه‌های دیگر\n"
+"را که با بانک اطلاعات بسته‌ها کار می‌کنند ببندید.  آیا مدیر\n"
+"رسانه‌ی دیگری بر رومیزی دیگری دارید، یا اکنون در حال\n"
+"نصب بسته‌هاید؟)"
+
+#: ../Rpmdrake/formatting.pm:102
+#, fuzzy, c-format
+msgid "None (installed)"
+msgstr "نصب"
+
+#: ../Rpmdrake/formatting.pm:103
+#, c-format
+msgid "Unknown"
+msgstr "نامعلوم"
+
+#: ../Rpmdrake/formatting.pm:166
+#, c-format
+msgid "%s of additional disk space will be used."
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:167
+#, c-format
+msgid "%s of disk space will be freed."
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:172
+#, fuzzy, c-format
+msgid "%s of packages will be retrieved."
+msgstr "بعضی از بسته‌ها نمی‌توانند برداشته شوند"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results"
+msgstr "نتایج جستجو"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results (none)"
+msgstr "نتایج جستجو (هیچ)"
+
+#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/pkg.pm:188
+#, c-format
+msgid "(Not available)"
+msgstr "(وجود ندارد)"
+
+#: ../Rpmdrake/gui.pm:135
+#, fuzzy, c-format
+msgid "Security advisory"
+msgstr "بروزسازی‌های امنیتی"
+
+#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#, fuzzy, c-format
+msgid "No description"
+msgstr "در توضیحات"
+
+#: ../Rpmdrake/gui.pm:159
+#, c-format
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:160
+#, c-format
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:162
+#, fuzzy, c-format
+msgid "This package is not free software"
+msgstr "برای ارضای وابستگی‌ها، %Id بسته‌ی بدنبال آمده نصب خواهند شد:"
+
+#: ../Rpmdrake/gui.pm:165
+#, c-format
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:169
+#, c-format
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:174
+#, c-format
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:175
+#, c-format
+msgid "This is an unofficial update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:179
+#, c-format
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:196
+#, fuzzy, c-format
+msgid "Notice: "
+msgstr "اهمیت: "
+
+#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#, c-format
+msgid "Importance: "
+msgstr "اهمیت: "
+
+#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#, c-format
+msgid "Reason for update: "
+msgstr "دلیل برای بروزسازی:"
+
+#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#, c-format
+msgid "Version: "
+msgstr "نسخه: "
+
+#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#, c-format
+msgid "Currently installed version: "
+msgstr "نسخه‌ی نصب شده‌ی کنونی: "
+
+#: ../Rpmdrake/gui.pm:213
+#, fuzzy, c-format
+msgid "Group: "
+msgstr "گروه"
+
+#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#, c-format
+msgid "Architecture: "
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "Size: "
+msgstr "اندازه: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "%s KB"
+msgstr "%s کیلو‌بایت"
+
+#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#, c-format
+msgid "Medium: "
+msgstr "رسانه: "
+
+#: ../Rpmdrake/gui.pm:229
+#, c-format
+msgid "New dependencies:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:242
+#, c-format
+msgid "All dependencies installed."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:265
+#, fuzzy, c-format
+msgid "URL: "
+msgstr "نشانی اینترنتی:"
+
+#: ../Rpmdrake/gui.pm:298
+#, c-format
+msgid "Details:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:302
+#, c-format
+msgid "Files:"
+msgstr "پرونده‌ها:"
+
+#: ../Rpmdrake/gui.pm:304
+#, c-format
+msgid "Changelog:"
+msgstr "ثبت‌تغییرات:"
+
+#: ../Rpmdrake/gui.pm:319
+#, c-format
+msgid "Files:\n"
+msgstr "پرونده‌ها:\n"
+
+#: ../Rpmdrake/gui.pm:324
+#, c-format
+msgid "Changelog:\n"
+msgstr "ثبت‌تغییرات:\n"
+
+#: ../Rpmdrake/gui.pm:334
+#, c-format
+msgid "Name: "
+msgstr "نام: "
+
+#: ../Rpmdrake/gui.pm:344
+#, c-format
+msgid "Summary: "
+msgstr "خلاصه: "
+
+#: ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "Description: "
+msgstr "توصیف: "
+
+#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../rpmdrake.pm:942
+#, c-format
+msgid "Warning"
+msgstr "هشدار"
+
+#: ../Rpmdrake/gui.pm:363
+#, c-format
+msgid "The package \"%s\" was found."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:364
+#, c-format
+msgid "However this package is not in the package list."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:365
+#, c-format
+msgid "You may want to update your urpmi database."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:367
+#, fuzzy, c-format
+msgid "Matching packages:"
+msgstr "بسته‌بندی"
+
+#. -PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
+#. -PO: eg: "- rpmdrake (medium: "Main Release"
+#: ../Rpmdrake/gui.pm:372
+#, fuzzy, c-format
+msgid "- %s (medium: %s)"
+msgstr "%s از رسانه‌ی %s"
+
+#: ../Rpmdrake/gui.pm:563
+#, fuzzy, c-format
+msgid "Removing package %s would break your system"
+msgstr ""
+"برداشتن این بسته‌ها سیستم شما را می‌شکند، متأسفم:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:568
+#, c-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#, c-format
+msgid ""
+"Rpmdrake or one of its priority dependencies needs to be updated first. "
+"Rpmdrake will then restart."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#, c-format
+msgid "More information on package..."
+msgstr "اطلاعات بیشتر درباره‌ی بسته..."
+
+#: ../Rpmdrake/gui.pm:704
+#, c-format
+msgid "Please choose"
+msgstr "لطفاً انتخاب کنید"
+
+#: ../Rpmdrake/gui.pm:705
+#, fuzzy, c-format
+msgid "The following package is needed:"
+msgstr "یکی از بسته‌های به دنبال آمده مورد نیاز است:"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "One of the following packages is needed:"
+msgstr "یکی از بسته‌های بدنبال آمده لازم است:"
+
+#. -PO: Keep it short, this is gonna be on a button
+#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#, c-format
+msgid "More info"
+msgstr "اطلاعات بیشتر"
+
+#: ../Rpmdrake/gui.pm:727
+#, c-format
+msgid "Information on packages"
+msgstr "اطلاعات بسته‌ها"
+
+#: ../Rpmdrake/gui.pm:755
+#, c-format
+msgid "Checking dependencies of package..."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:760
+#, c-format
+msgid "Some additional packages need to be removed"
+msgstr "بعضی از بسته‌های اضافی لازم است برداشته شوند"
+
+#: ../Rpmdrake/gui.pm:771
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr "بسته(های) بدنبال آمده نیز لازم است بخاطر وابستگی‌هایشان برداشته شوند:"
+
+#: ../Rpmdrake/gui.pm:776
+#, c-format
+msgid "Some packages cannot be removed"
+msgstr "بعضی از بسته‌ها نمی‌توانند برداشته شوند"
+
+#: ../Rpmdrake/gui.pm:777
+#, c-format
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"برداشتن این بسته‌ها سیستم شما را می‌شکند، متأسفم:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"بسته‌های بدنبال آمده بخاطر وابستگی‌های آنها اکنون نباید انتخاب شوند:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:815
+#, c-format
+msgid "Additional packages needed"
+msgstr "بسته‌های بیشتری لازم است"
+
+#: ../Rpmdrake/gui.pm:816
+#, c-format
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"برای ارضای وابستگی‌ها، بسته‌(های) بدنبال آمده نیز باید\n"
+"نصب شود:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:824
+#, fuzzy, c-format
+msgid "Conflicting Packages"
+msgstr "بسته‌بندی"
+
+#: ../Rpmdrake/gui.pm:838
+#, c-format
+msgid "%s (belongs to the skip list)"
+msgstr "%s (به لیست نادیده گیری تعلق دارد)"
+
+#: ../Rpmdrake/gui.pm:842
+#, fuzzy, c-format
+msgid "One package cannot be installed"
+msgstr "بعضی از بسته‌ها نمی‌توانند نصب شوند"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "Some packages cannot be installed"
+msgstr "بعضی از بسته‌ها نمی‌توانند نصب شوند"
+
+#: ../Rpmdrake/gui.pm:844
+#, fuzzy, c-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"متأسفم، بسته(های) بدنبال آمده نمی‌تواند انتخاب شود:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:845
+#, fuzzy, c-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"متأسفم، بسته(های) بدنبال آمده نمی‌تواند انتخاب شود:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Some packages need to be removed"
+msgstr "بعضی بسته‌ها لازم است برداشته شوند"
+
+#: ../Rpmdrake/gui.pm:897
+#, fuzzy, c-format
+msgid "Some packages are selected."
+msgstr "بسته‌های بیش از اندازه انتخاب شده‌اند"
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:906
+#, c-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr "خطا: %s بنظر میرسد بطور فقط-خوانش سوار شده است."
+
+#: ../Rpmdrake/gui.pm:910
+#, c-format
+msgid "You need to select some packages first."
+msgstr "نخست باید بعضی از بسته‌ها را انتخاب کنید."
+
+#: ../Rpmdrake/gui.pm:915
+#, c-format
+msgid "Too many packages are selected"
+msgstr "بسته‌های بیش از اندازه انتخاب شده‌اند"
+
+#: ../Rpmdrake/gui.pm:916
+#, c-format
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+"هشدار: بنظر می‌رسد که در حال اقدام به اضافه کردن تعداد زیادی بسته هستید که\n"
+"ممکن است سیستم پرونده‌ی شما دیگر در طول یا بعد از نصب بسته فضای دیسک خالی\n"
+"نداشته باشد، این بخصوص خطرناک بوده و باید با احتیاط به آن توجه شود.\n"
+"\n"
+"آیا واقعاً می‌خواهید تمام بسته‌های انتخاب شده را نصب کنید؟"
+
+#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#, c-format
+msgid "Fatal error"
+msgstr "خطای مهلک"
+
+#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#, c-format
+msgid "A fatal error occurred: %s."
+msgstr "یک خطای مهلک رخ داد: %s."
+
+#: ../Rpmdrake/gui.pm:980
+#, c-format
+msgid "Please wait, listing packages..."
+msgstr "لطفا صبر کنید، در حال فهرست کردن بسته‌ها..."
+
+#: ../Rpmdrake/gui.pm:993
+#, c-format
+msgid "No update"
+msgstr "بدون بروزسازی"
+
+#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
+#: ../rpmdrake:369 ../rpmdrake:396
+#, c-format
+msgid "All"
+msgstr "همه"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#, c-format
+msgid "Upgradable"
+msgstr "قابل ارتقاء"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#, fuzzy, c-format
+msgid "Installed"
+msgstr "نصب"
+
+#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#, c-format
+msgid "Addable"
+msgstr "قابل افزودن"
+
+#: ../Rpmdrake/gui.pm:1044
+#, c-format
+msgid "Description not available for this package\n"
+msgstr "توضیحی برای این بسته در دسترس نیست\n"
+
+#: ../Rpmdrake/icon.pm:36
+#, c-format
+msgid "Accessibility"
+msgstr "قابل دست‌یابی"
+
+#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#, c-format
+msgid "Archiving"
+msgstr "بایگانی"
+
+#: ../Rpmdrake/icon.pm:38
+#, c-format
+msgid "Backup"
+msgstr "ذخیره‌ی پشتیبان"
+
+#: ../Rpmdrake/icon.pm:39
+#, c-format
+msgid "Cd burning"
+msgstr "نگارش سی‌دی"
+
+#: ../Rpmdrake/icon.pm:40
+#, c-format
+msgid "Compression"
+msgstr "فشرده‌سازی"
+
+#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#, c-format
+msgid "Other"
+msgstr "دیگری"
+
+#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Communications"
+msgstr "ارتباطات"
+
+#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#, c-format
+msgid "Bluetooth"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:45
+#, c-format
+msgid "Dial-Up"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:46
+#, c-format
+msgid "Fax"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:47
+#, c-format
+msgid "Mobile"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:48
+#, c-format
+msgid "Radio"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:49
+#, c-format
+msgid "Serial"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Telephony"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#, c-format
+msgid "Databases"
+msgstr "پایگاه‌های داده"
+
+#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Development"
+msgstr "توسعه برنامه"
+
+#: ../Rpmdrake/icon.pm:53
+#, c-format
+msgid "Basic"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:54
+#, c-format
+msgid "C"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:55
+#, c-format
+msgid "C++"
+msgstr "C++"
+
+#: ../Rpmdrake/icon.pm:56
+#, fuzzy, c-format
+msgid "C#"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:58
+#, c-format
+msgid "Erlang"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:59
+#, c-format
+msgid "GNOME and GTK+"
+msgstr "GNOME و GTK+"
+
+#: ../Rpmdrake/icon.pm:60
+#, c-format
+msgid "Java"
+msgstr "جاوا"
+
+#: ../Rpmdrake/icon.pm:61
+#, c-format
+msgid "KDE and Qt"
+msgstr "KDE و Qt"
+
+#: ../Rpmdrake/icon.pm:62
+#, c-format
+msgid "Kernel"
+msgstr "هسته"
+
+#: ../Rpmdrake/icon.pm:63
+#, c-format
+msgid "OCaml"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:65
+#, c-format
+msgid "Perl"
+msgstr "Perl"
+
+#: ../Rpmdrake/icon.pm:66
+#, c-format
+msgid "PHP"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:67
+#, c-format
+msgid "Python"
+msgstr "Python"
+
+#: ../Rpmdrake/icon.pm:68
+#, fuzzy, c-format
+msgid "Tools"
+msgstr "ابزار متن"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#, c-format
+msgid "X11"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Documentation"
+msgstr "نوشتار"
+
+#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#, c-format
+msgid "Editors"
+msgstr "ویرایشگرها"
+
+#: ../Rpmdrake/icon.pm:72
+#, c-format
+msgid "Education"
+msgstr "آموزش"
+
+#: ../Rpmdrake/icon.pm:73
+#, c-format
+msgid "Emulators"
+msgstr "شبیه‌سازها"
+
+#: ../Rpmdrake/icon.pm:74
+#, c-format
+msgid "File tools"
+msgstr "ابزار پرونده"
+
+#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Games"
+msgstr "بازی‌ها"
+
+#: ../Rpmdrake/icon.pm:76
+#, c-format
+msgid "Adventure"
+msgstr "ماجرا"
+
+#: ../Rpmdrake/icon.pm:77
+#, c-format
+msgid "Arcade"
+msgstr "آرکید"
+
+#: ../Rpmdrake/icon.pm:78
+#, c-format
+msgid "Boards"
+msgstr "تخته‌ها"
+
+#: ../Rpmdrake/icon.pm:79
+#, c-format
+msgid "Cards"
+msgstr "ورق‌ها"
+
+#: ../Rpmdrake/icon.pm:81
+#, c-format
+msgid "Puzzles"
+msgstr "پازل‌ها"
+
+#: ../Rpmdrake/icon.pm:82
+#, c-format
+msgid "Shooter"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:83
+#, c-format
+msgid "Sports"
+msgstr "ورزش‌ها"
+
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Strategy"
+msgstr "تاکتیک"
+
+#: ../Rpmdrake/icon.pm:85
+#, c-format
+msgid "Geography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:107
+#, c-format
+msgid "Graphical desktop"
+msgstr "رومیزی گرافیکی"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:89
+#, c-format
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+#: ../Rpmdrake/icon.pm:90
+#, c-format
+msgid "FVWM based"
+msgstr "بر پایه‌ی FVWM"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:93
+#, c-format
+msgid "GNOME"
+msgstr "گنوم"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:96
+#, c-format
+msgid "Icewm"
+msgstr "Icewm"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:99
+#, c-format
+msgid "KDE"
+msgstr "KDE"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:103
+#, c-format
+msgid "Sawfish"
+msgstr "اره‌ماهی"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:106
+#, c-format
+msgid "WindowMaker"
+msgstr "WindowMaker"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:109
+#, c-format
+msgid "Xfce"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:116
+#, c-format
+msgid "Graphics"
+msgstr "گرافیک‌ها"
+
+#: ../Rpmdrake/icon.pm:111
+#, c-format
+msgid "3D"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:114
+#, c-format
+msgid "Photography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:115
+#, fuzzy, c-format
+msgid "Scanning"
+msgstr "هشدار"
+
+#: ../Rpmdrake/icon.pm:116
+#, fuzzy, c-format
+msgid "Viewers"
+msgstr "نما"
+
+#: ../Rpmdrake/icon.pm:117
+#, c-format
+msgid "Monitoring"
+msgstr "پایشگری"
+
+#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#, c-format
+msgid "Multimedia"
+msgstr "چندرسانه‌ای"
+
+#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Video"
+msgstr "ویدیو"
+
+#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#, c-format
+msgid "Networking"
+msgstr "شبکه‌کاری"
+
+#: ../Rpmdrake/icon.pm:121
+#, c-format
+msgid "Chat"
+msgstr "گپ"
+
+#: ../Rpmdrake/icon.pm:122
+#, c-format
+msgid "File transfer"
+msgstr "انتقال‌ پرونده"
+
+#: ../Rpmdrake/icon.pm:123
+#, c-format
+msgid "IRC"
+msgstr "IRC"
+
+#: ../Rpmdrake/icon.pm:124
+#, c-format
+msgid "Instant messaging"
+msgstr "پیغام‌رسانی آنی"
+
+#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#, c-format
+msgid "Mail"
+msgstr "پست"
+
+#: ../Rpmdrake/icon.pm:126
+#, c-format
+msgid "News"
+msgstr "اخبار"
+
+#: ../Rpmdrake/icon.pm:128
+#, c-format
+msgid "Remote access"
+msgstr "دسترسی از دور دست"
+
+#: ../Rpmdrake/icon.pm:129
+#, c-format
+msgid "WWW"
+msgstr "وب"
+
+#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Office"
+msgstr "دفتر"
+
+#: ../Rpmdrake/icon.pm:131
+#, c-format
+msgid "Dictionary"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:132
+#, fuzzy, c-format
+msgid "Finance"
+msgstr "فرانسه"
+
+#: ../Rpmdrake/icon.pm:133
+#, fuzzy, c-format
+msgid "Management"
+msgstr "مدیریت نرم‌افزار"
+
+#: ../Rpmdrake/icon.pm:134
+#, c-format
+msgid "Organizer"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:136
+#, c-format
+msgid "Spreadsheet"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:137
+#, c-format
+msgid "Suite"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Word processor"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:139
+#, c-format
+msgid "Public Keys"
+msgstr "کلیدهای عمومی"
+
+#: ../Rpmdrake/icon.pm:140
+#, c-format
+msgid "Publishing"
+msgstr "منتشر کردن"
+
+#: ../Rpmdrake/icon.pm:141
+#, fuzzy, c-format
+msgid "Security"
+msgstr "بروزسازی‌های امنیتی"
+
+#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Sciences"
+msgstr "دانش‌ها"
+
+#: ../Rpmdrake/icon.pm:143
+#, c-format
+msgid "Astronomy"
+msgstr "نجوم"
+
+#: ../Rpmdrake/icon.pm:144
+#, c-format
+msgid "Biology"
+msgstr "زیست‌شناسی"
+
+#: ../Rpmdrake/icon.pm:145
+#, c-format
+msgid "Chemistry"
+msgstr "شیمی"
+
+#: ../Rpmdrake/icon.pm:146
+#, c-format
+msgid "Computer science"
+msgstr "دانش رایانه‌ای"
+
+#: ../Rpmdrake/icon.pm:147
+#, c-format
+msgid "Geosciences"
+msgstr "دانش زمین‌شناسی"
+
+#: ../Rpmdrake/icon.pm:148
+#, c-format
+msgid "Mathematics"
+msgstr "ریاضیات"
+
+#: ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Physics"
+msgstr "فیزیک"
+
+#: ../Rpmdrake/icon.pm:151
+#, c-format
+msgid "Shells"
+msgstr "پوسته‌ها"
+
+#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:158
+#, c-format
+msgid "Sound"
+msgstr "صوت"
+
+#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#, c-format
+msgid "Editors and Converters"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:154
+#, c-format
+msgid "Midi"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:155
+#, c-format
+msgid "Mixers"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#, c-format
+msgid "Players"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Utilities"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:158
+#, fuzzy, c-format
+msgid "Visualization"
+msgstr "بین‌المللی کردن"
+
+#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#, c-format
+msgid "System"
+msgstr "سیستم"
+
+#: ../Rpmdrake/icon.pm:160
+#, c-format
+msgid "Base"
+msgstr "پایه"
+
+#: ../Rpmdrake/icon.pm:161
+#, c-format
+msgid "Cluster"
+msgstr "Cluster"
+
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#, c-format
+msgid "Configuration"
+msgstr "پیکربندی"
+
+#: ../Rpmdrake/icon.pm:163
+#, c-format
+msgid "Boot and Init"
+msgstr "آغازگری و مقداردهی"
+
+#: ../Rpmdrake/icon.pm:164
+#, c-format
+msgid "Hardware"
+msgstr "سخت‌افزار"
+
+#: ../Rpmdrake/icon.pm:167
+#, c-format
+msgid "Packaging"
+msgstr "بسته‌بندی"
+
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#, c-format
+msgid "Printing"
+msgstr "چاپ"
+
+#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "Fonts"
+msgstr "قلم‌ها"
+
+#: ../Rpmdrake/icon.pm:170
+#, c-format
+msgid "Console"
+msgstr "کنسول"
+
+#: ../Rpmdrake/icon.pm:171
+#, c-format
+msgid "True type"
+msgstr "نوع حقیقی"
+
+#: ../Rpmdrake/icon.pm:172
+#, c-format
+msgid "Type1"
+msgstr "نوع۱"
+
+#: ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "X11 bitmap"
+msgstr "X11 bitmap"
+
+#: ../Rpmdrake/icon.pm:174
+#, c-format
+msgid "Internationalization"
+msgstr "بین‌المللی کردن"
+
+#: ../Rpmdrake/icon.pm:175
+#, c-format
+msgid "Kernel and hardware"
+msgstr "هسته و سخت‌افزار"
+
+#: ../Rpmdrake/icon.pm:176
+#, c-format
+msgid "Libraries"
+msgstr "کتابخانه‌ها"
+
+#: ../Rpmdrake/icon.pm:178
+#, c-format
+msgid "Servers"
+msgstr "کارگزارها"
+
+#: ../Rpmdrake/icon.pm:182
+#, c-format
+msgid "Terminals"
+msgstr "پایانه‌ها"
+
+#: ../Rpmdrake/icon.pm:183
+#, c-format
+msgid "Text tools"
+msgstr "ابزار متن"
+
+#: ../Rpmdrake/icon.pm:184
+#, c-format
+msgid "Toys"
+msgstr "اسباب‌بازی‌ها"
+
+#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Workstation"
+msgstr "ایستگاه‌کار"
+
+#: ../Rpmdrake/icon.pm:193
+#, c-format
+msgid "Console Tools"
+msgstr "ابزارهای کنسول"
+
+#: ../Rpmdrake/icon.pm:195
+#, c-format
+msgid "Game station"
+msgstr "ایستگاه بازی"
+
+#: ../Rpmdrake/icon.pm:196
+#, c-format
+msgid "Internet station"
+msgstr "ایستگاه اینترنت"
+
+#: ../Rpmdrake/icon.pm:197
+#, c-format
+msgid "Multimedia station"
+msgstr "ایستگاه چندرسانه‌ای"
+
+#: ../Rpmdrake/icon.pm:198
+#, c-format
+msgid "Network Computer (client)"
+msgstr "رایانه‌ی شبکه (کارگیر)"
+
+#: ../Rpmdrake/icon.pm:199
+#, c-format
+msgid "Office Workstation"
+msgstr "ایستگاه‌کار دفتری"
+
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Scientific Workstation"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Graphical Environment"
+msgstr "محیط گرافیکی"
+
+#: ../Rpmdrake/icon.pm:203
+#, c-format
+msgid "GNOME Workstation"
+msgstr "ایستگاه‌کار گنوم"
+
+#: ../Rpmdrake/icon.pm:204
+#, fuzzy, c-format
+msgid "IceWm Desktop"
+msgstr "رومیزی Plucker"
+
+#: ../Rpmdrake/icon.pm:205
+#, c-format
+msgid "KDE Workstation"
+msgstr "ایستگاه‌کار KDE "
+
+#: ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Other Graphical Desktops"
+msgstr "دیگر رومیزی‌های گرافیکی"
+
+#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Server"
+msgstr "کارگزار"
+
+#: ../Rpmdrake/icon.pm:211
+#, c-format
+msgid "DNS/NIS"
+msgstr "DNS/NIS"
+
+#: ../Rpmdrake/icon.pm:212
+#, c-format
+msgid "Database"
+msgstr "بانک ‌اطلاعات"
+
+#: ../Rpmdrake/icon.pm:213
+#, c-format
+msgid "Firewall/Router"
+msgstr "دیوار‌آتش/مسیریاب"
+
+#: ../Rpmdrake/icon.pm:215
+#, c-format
+msgid "Mail/Groupware/News"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:216
+#, c-format
+msgid "Network Computer server"
+msgstr "کارگزار شبکه‌ی رایانه"
+
+#: ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Web/FTP"
+msgstr "Web/FTP"
+
+#: ../Rpmdrake/init.pm:49
+#, c-format
+msgid "Usage: %s [OPTION]..."
+msgstr "طرز استفاده: %s [گزینه]..."
+
+#: ../Rpmdrake/init.pm:50
+#, c-format
+msgid "  --auto                 assume default answers to questions"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:51
+#, c-format
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:52
+#, c-format
+msgid "  --media=medium1,..     limit to given media"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:53
+#, c-format
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:54
+#, c-format
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:55
+#, c-format
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:56
+#, c-format
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:57
+#, fuzzy, c-format
+msgid "  --no-media-update      don't update media at startup"
+msgstr "  --update       -  فقط بروزسازی رسانه‌های بروزسازی.\n"
+
+#: ../Rpmdrake/init.pm:58
+#, fuzzy, c-format
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr "  --name         - فقط نام‌های بسته چاپ شود.\n"
+
+#: ../Rpmdrake/init.pm:59
+#, c-format
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:60
+#, c-format
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:61
+#, fuzzy, c-format
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr "  --run-as-root          استفاده از ریشه‌ی دیگری برای نصب rpm"
+
+#: ../Rpmdrake/init.pm:62
+#, fuzzy, c-format
+msgid "  --run-as-root          force to run as root"
+msgstr ""
+"\n"
+"                    گزارش شبح پشتیبان‌درایک\n"
+
+#: ../Rpmdrake/init.pm:63
+#, c-format
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr ""
+
+#: ../Rpmdrake/init.pm:64
+#, c-format
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:65
+#, fuzzy, c-format
+msgid "  --version              print this tool's version number\n"
+msgstr "  --help         - چاپ این پیغام راهنما.\n"
+
+#: ../Rpmdrake/init.pm:156
+#, c-format
+msgid "Running in user mode"
+msgstr "در حال اجرا در حالت کاربری"
+
+#: ../Rpmdrake/init.pm:157
+#, c-format
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"شما در حال راه انداختن این برنامه مانند یک کاربر عادی هستید.\n"
+"شما قادر نخواهید بود تغییراتی را بر سیستم انجام دهید، ولی هنوز\n"
+"می‌توانید پایگاه داده‌ی موجود را مرور کنید."
+
+#: ../Rpmdrake/pkg.pm:126
+#, c-format
+msgid "Getting information from XML meta-data from %s..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:130
+#, c-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../rpmdrake.pm:594
+#, c-format
+msgid "Please wait"
+msgstr "لطفاً صبر کنید"
+
+#: ../Rpmdrake/pkg.pm:147
+#, c-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:149
+#, c-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#, c-format
+msgid "Downloading package `%s'..."
+msgstr "بارگیری بسته `%s'..."
+
+#: ../Rpmdrake/pkg.pm:211
+#, c-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:212
+#, c-format
+msgid "        %s%% completed, speed = %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#, fuzzy, c-format
+msgid "Confirmation"
+msgstr "پیکربندی"
+
+#: ../Rpmdrake/pkg.pm:251
+#, c-format
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"برای گرفتن آخرین بسته‌های بروزسازی مجبورم با آینه تماس برقرار سازم.\n"
+"لطفاً کنترل کنید که شبکه شما اکنون در حال اجرا است.\n"
+"\n"
+"آیا ادامه دهیم؟"
+
+#: ../Rpmdrake/pkg.pm:255
+#, c-format
+msgid "Do not ask me next time"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:264
+#, c-format
+msgid "Already existing update media"
+msgstr "رسانه‌ی از قبل موجود بروزسازی"
+
+#: ../Rpmdrake/pkg.pm:265
+#, fuzzy, c-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"شما حداقل یک رسانه‌ی بروزسازی را از قبل پیکربندی کرده‌اید،\n"
+"اما تمام آنها اکنون از کار افتاده‌اند. شما باید مدیر رسانه‌های\n"
+"نرم‌افزار را برای به کار انداختن حداقل یکی از آنها اجرا کنید\n"
+" (آن را در ستون به‌کار‌افتاده؟ کنترل کنید).\n"
+"\n"
+"پس از آن %s را دوباره شروع کنید."
+
+#: ../Rpmdrake/pkg.pm:275
+#, c-format
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#, c-format
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"برای دریافت لیست آینه‌ها مجبورم با وب‌گاه ماندریبا تماس بگیرم.\n"
+"لطفاً کنترل کنید که شبکه شما اکنون در حال اجرا می‌باشد.\n"
+"\n"
+"آیا ادامه دهیم؟"
+
+#: ../Rpmdrake/pkg.pm:283
+#, c-format
+msgid "How to choose manually your mirror"
+msgstr "چگونگی انتخاب دستی آینه‌ی FTP خود"
+
+#: ../Rpmdrake/pkg.pm:284
+#, c-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"شما می‌توانید آینه‌ی مورد نظر خود را بطور دستی انتخاب کنید: برای انجام این "
+"کار،\n"
+"مدیر رسانه‌ی نرم‌افزار را اجرا کرده و سپس یک رسانه‌ی بروزسازی امنیتی\n"
+"را اضافه کنید.\n"
+"\n"
+"پس از آن %s را دوباره شروع کنید."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#, c-format
+msgid "Package installation..."
+msgstr "نصب بسته..."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#, c-format
+msgid "Initializing..."
+msgstr "مقداردهی..."
+
+#: ../Rpmdrake/pkg.pm:452
+#, fuzzy, c-format
+msgid "Reading updates description"
+msgstr "در توضیحات"
+
+#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#, c-format
+msgid "Please wait, finding available packages..."
+msgstr "لطفا صبر کنید، در حال یافتن بسته‌های موجود..."
+
+#: ../Rpmdrake/pkg.pm:464
+#, fuzzy, c-format
+msgid "Please wait, listing base packages..."
+msgstr "لطفا صبر کنید، در حال فهرست کردن بسته‌ها..."
+
+#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#, c-format
+msgid "Error"
+msgstr "خطا"
+
+#: ../Rpmdrake/pkg.pm:477
+#, fuzzy, c-format
+msgid "Please wait, finding installed packages..."
+msgstr "لطفا صبر کنید، در حال یافتن بسته‌های موجود..."
+
+#: ../Rpmdrake/pkg.pm:594
+#, fuzzy, c-format
+msgid "Upgrade information"
+msgstr "اطلاعات عادی"
+
+#: ../Rpmdrake/pkg.pm:596
+#, c-format
+msgid "These packages come with upgrade information"
+msgstr "این بسته‌ها با اطلاعات ارتقائی آمده‌اند"
+
+#: ../Rpmdrake/pkg.pm:604
+#, fuzzy, c-format
+msgid "Upgrade information about this package"
+msgstr "اطلاعات بیشتر درباره‌ی بسته..."
+
+#: ../Rpmdrake/pkg.pm:607
+#, fuzzy, c-format
+msgid "Upgrade information about package %s"
+msgstr "اطلاعات بیشتر درباره‌ی بسته... [%s]"
+
+#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#, c-format
+msgid "All requested packages were installed successfully."
+msgstr "تمام بسته‌های تقاضا شده با موفقیت نصب شده‌اند."
+
+#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#, c-format
+msgid "Problem during installation"
+msgstr "اشکال هنگام نصب"
+
+#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#, c-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"اشکالی هنگام نصب وجود داشت:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:653
+#, c-format
+msgid "Installation failed"
+msgstr "نصب شکست خورد"
+
+#: ../Rpmdrake/pkg.pm:676
+#, c-format
+msgid "Checking validity of requested packages..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:695
+#, c-format
+msgid "Unable to get source packages."
+msgstr "نمی‌توان بسته‌های منبع را دریافت کرد."
+
+#: ../Rpmdrake/pkg.pm:696
+#, c-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "نمی‌توان بسته‌های منبع را دریافت کرد، متأسفم. %s"
+
+#: ../Rpmdrake/pkg.pm:697
+#, c-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"خطا(های) گزارش شده:\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:715
+#, fuzzy, c-format
+msgid "The following package is going to be installed:"
+msgid_plural "The following %d packages are going to be installed:"
+msgstr[0] "برای ارضای وابستگی‌ها، %Id بسته‌ی بدنبال آمده نصب خواهند شد:"
+
+#: ../Rpmdrake/pkg.pm:721
+#, fuzzy, c-format
+msgid "Remove one package?"
+msgid_plural "Remove %d packages?"
+msgstr[0] "برداشتن یک کلید"
+
+#: ../Rpmdrake/pkg.pm:723
+#, fuzzy, c-format
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr ""
+"بسته‌های بدنبال آمده باید برداشته شوند تا بسته‌های دیگر بتوانند ارتقا یابند:"
+
+#: ../Rpmdrake/pkg.pm:724
+#, c-format
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+"بسته‌های بدنبال آمده باید برداشته شوند تا بسته‌های دیگر بتوانند ارتقا یابند:"
+
+#: ../Rpmdrake/pkg.pm:728
+#, fuzzy, c-format
+msgid "Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"آیا ادامه دهیم؟"
+
+#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#, fuzzy, c-format
+msgid "Orphan packages"
+msgstr "بسته‌بندی"
+
+#: ../Rpmdrake/pkg.pm:744
+#, fuzzy, c-format
+msgid "The following orphan package will be removed."
+msgid_plural "The following orphan packages will be removed."
+msgstr[0] "یکی از بسته‌های به دنبال آمده مورد نیاز است:"
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation..."
+msgstr "در حال آماده کردن نصب بسته‌ها..."
+
+#: ../Rpmdrake/pkg.pm:760
+#, fuzzy, c-format
+msgid "Preparing package installation transaction..."
+msgstr "در حال آماده کردن نصب بسته‌ها..."
+
+#: ../Rpmdrake/pkg.pm:763
+#, c-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr "در حال نصب بسته‌ی `%s' (%s/%s)..."
+
+#: ../Rpmdrake/pkg.pm:764
+#, c-format
+msgid "Total: %s/%s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:827
+#, c-format
+msgid "Change medium"
+msgstr "تعویض رسانه"
+
+#: ../Rpmdrake/pkg.pm:828
+#, fuzzy, c-format
+msgid "Please insert the medium named \"%s\""
+msgstr "لطفاً رسانه‌ی بنام \"%s\" را در دستگاه [%s] داخل کنید"
+
+#: ../Rpmdrake/pkg.pm:832
+#, c-format
+msgid "Verifying package signatures..."
+msgstr "در حال تصدیق امضای بسته‌ها..."
+
+#: ../Rpmdrake/pkg.pm:855
+#, fuzzy, c-format
+msgid "%d installation transactions failed"
+msgstr "نصب شکست خورد"
+
+#: ../Rpmdrake/pkg.pm:869
+#, c-format
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr "خطای غیر قابل تعمیر: هیچ بسته‌ای برای نصب پیدا نشد، متأسفم."
+
+#: ../Rpmdrake/pkg.pm:872
+#, c-format
+msgid "Inspecting configuration files..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:880
+#, c-format
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"نصب پایان یافت؛ همه چیز بدرستی نصب شد.\n"
+"\n"
+"بعضی از پرونده‌های پیکربندی مانند `.rpmnew' یا `.rpmsave', ایجاد شده‌اند\n"
+"شما می‌توانید بعضی از آنها را برای اقدامات لازم معاینه کنید:"
+
+#: ../Rpmdrake/pkg.pm:886
+#, c-format
+msgid "Looking for \"README\" files..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:919
+#, c-format
+msgid "RPM transaction %d/%d"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:920
+#, fuzzy, c-format
+msgid "Unselect all"
+msgstr "انتخاب همگی"
+
+#: ../Rpmdrake/pkg.pm:921
+#, c-format
+msgid "Details"
+msgstr "جزئیات"
+
+#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#, c-format
+msgid "Please wait, removing packages..."
+msgstr "لطفا صبر کنید، در حال برداشتن بسته‌ها..."
+
+#: ../Rpmdrake/pkg.pm:977
+#, c-format
+msgid "Problem during removal"
+msgstr "اشکال هنگام برداشتن"
+
+#: ../Rpmdrake/pkg.pm:978
+#, c-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"یک اشکال هنگام برداشتن بسته‌ها وجود داشت:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:985
+#, c-format
+msgid "Information"
+msgstr "اطلاعات"
+
+#: ../Rpmdrake/rpmnew.pm:82
+#, c-format
+msgid "Inspecting %s"
+msgstr "در حال بازرسی %s"
+
+#: ../Rpmdrake/rpmnew.pm:107
+#, c-format
+msgid "Changes:"
+msgstr "تغییرات:"
+
+#: ../Rpmdrake/rpmnew.pm:116
+#, c-format
+msgid ""
+"You can either remove the .%s file, use it as main file or do nothing. If "
+"unsure, keep the current file (\"%s\")."
+msgstr ""
+
+#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#, c-format
+msgid "Remove .%s"
+msgstr "برداشتن .%s"
+
+#: ../Rpmdrake/rpmnew.pm:126
+#, c-format
+msgid "Use .%s as main file"
+msgstr "استفاده از .%s مانند پرونده‌ی اصلی"
+
+#: ../Rpmdrake/rpmnew.pm:130
+#, c-format
+msgid "Do nothing"
+msgstr "هیچ کاری نکن"
+
+#: ../Rpmdrake/rpmnew.pm:158
+#, c-format
+msgid "Installation finished"
+msgstr "نصب پایان یافت"
+
+#: ../Rpmdrake/rpmnew.pm:173
+#, c-format
+msgid "Inspect..."
+msgstr "معاینه..."
+
+#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#, c-format
+msgid "Please wait, searching..."
+msgstr "لطفا صبر کنید، در حال جستجو..."
+
+#: ../gurpmi.addmedia:103
+#, c-format
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr ""
+
+#: ../gurpmi.addmedia:117
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"آیا ادامه دهیم؟"
+
+#: ../gurpmi.addmedia:121
+#, fuzzy, c-format
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"شما در شرف افزودن رسانه‌ی جدید بسته‌ها هستید، '%s'.\n"
+"این بدین معنی است که شما قادر خواهید بود بسته‌های نرم‌افزار\n"
+"جدیدی را به سیستم خود از آن رسانه‌ی جدید اضافه کنید."
+
+#: ../gurpmi.addmedia:125
+#, fuzzy, c-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"شما در شرف افزودن رسانه‌ی جدید بسته‌ها هستید، '%s'.\n"
+"این بدین معنی است که شما قادر خواهید بود بسته‌های نرم‌افزار\n"
+"جدیدی را به سیستم خود از آن رسانه‌ی جدید اضافه کنید."
+
+#: ../gurpmi.addmedia:128
+#, c-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+"شما در شرف افزودن رسانه‌ی جدید بسته‌ها هستید، '%s'.\n"
+"این بدین معنی است که شما قادر خواهید بود بسته‌های نرم‌افزار\n"
+"جدیدی را به سیستم خود از آن رسانه‌ی جدید اضافه کنید."
+
+#: ../gurpmi.addmedia:152
+#, fuzzy, c-format
+msgid "Successfully added media."
+msgstr "رسانه‌ی '%s' با موفقیت اضافه شد."
+
+#: ../gurpmi.addmedia:154
+#, fuzzy, c-format
+msgid "Successfully added media %s."
+msgstr "رسانه‌ی '%s' با موفقیت اضافه شد."
+
+#: ../gurpmi.addmedia:155
+#, c-format
+msgid "Successfully added medium `%s'."
+msgstr "رسانه‌ی '%s' با موفقیت اضافه شد."
+
+#: ../rpmdrake:107
+#, c-format
+msgid "Stop"
+msgstr "توقف"
+
+#: ../rpmdrake:141
+#, fuzzy, c-format
+msgid "no xml-info available for medium \"%s\""
+msgstr "کپی کردن پرونده برای رسانه `%s'..."
+
+#: ../rpmdrake:157 ../rpmdrake:185
+#, fuzzy, c-format
+msgid "Search aborted"
+msgstr "نتایج جستجو"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Selected"
+msgstr "انتخاب شده"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Not selected"
+msgstr "انتخاب نشده"
+
+#: ../rpmdrake:211
+#, fuzzy, c-format
+msgid "No search results."
+msgstr "نتایج جستجو"
+
+#: ../rpmdrake:212
+#, c-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+
+#: ../rpmdrake:246
+#, c-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr "انتخاب شده: %s / فضای دیسک آزاد: %s"
+
+#: ../rpmdrake:286
+#, fuzzy, c-format
+msgid "Package"
+msgstr "بسته‌بندی"
+
+#. -PO: "Architecture" but to be kept *small* !!!
+#: ../rpmdrake:300
+#, fuzzy, c-format
+msgid "Arch."
+msgstr "بایگانی"
+
+#. -PO: "Status" should be kept *small* !!!
+#: ../rpmdrake:328
+#, c-format
+msgid "Status"
+msgstr "وضعیت"
+
+#: ../rpmdrake:371
+#, c-format
+msgid "Not installed"
+msgstr "نصب نشده"
+
+#: ../rpmdrake:386
+#, c-format
+msgid "All packages, alphabetical"
+msgstr "همه‌ی بسته‌ها، الفبایی"
+
+#: ../rpmdrake:387
+#, c-format
+msgid "All packages, by group"
+msgstr "همه‌ی بسته‌ها، بوسیله‌ی گروه"
+
+#: ../rpmdrake:388
+#, c-format
+msgid "Leaves only, sorted by install date"
+msgstr "فقط مرتب شده با تاریخ نصب باقی بماند"
+
+#: ../rpmdrake:389
+#, c-format
+msgid "All packages, by update availability"
+msgstr "همه‌ی بسته‌ها، بوسیله در دسترسی بروزسازی آنها"
+
+#: ../rpmdrake:390
+#, c-format
+msgid "All packages, by selection state"
+msgstr "تمام بسته‌ها، بوسیله‌ی وضعیت انتخاب"
+
+#: ../rpmdrake:391
+#, c-format
+msgid "All packages, by size"
+msgstr "همه‌ی بسته‌ها، بوسیله اندازه"
+
+#: ../rpmdrake:392
+#, c-format
+msgid "All packages, by medium repository"
+msgstr "همه‌ی بسته‌ها، بوسیله انبار رسانه"
+
+#. -PO: Backports media are newer but less-tested versions of some packages in main
+#. -PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
+#: ../rpmdrake:400
+#, fuzzy, c-format
+msgid "Backports"
+msgstr "ذخیره‌ی پشتیبان"
+
+#: ../rpmdrake:401
+#, fuzzy, c-format
+msgid "Meta packages"
+msgstr "بسته‌بندی"
+
+#: ../rpmdrake:402
+#, c-format
+msgid "Packages with GUI"
+msgstr ""
+
+#: ../rpmdrake:403
+#, fuzzy, c-format
+msgid "All updates"
+msgstr "بروزسازی‌های عادی"
+
+#: ../rpmdrake:404
+#, c-format
+msgid "Security updates"
+msgstr "بروزسازی‌های امنیتی"
+
+#: ../rpmdrake:405
+#, c-format
+msgid "Bugfixes updates"
+msgstr "بروزسازی‌های اشکال‌زدایی‌"
+
+#: ../rpmdrake:406
+#, fuzzy, c-format
+msgid "General updates"
+msgstr "بروزسازی‌های عادی"
+
+#: ../rpmdrake:429
+#, c-format
+msgid "View"
+msgstr "نما"
+
+#: ../rpmdrake:457
+#, fuzzy, c-format
+msgid "Filter"
+msgstr "/_پرونده"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in names"
+msgstr "در نام‌ها"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in descriptions"
+msgstr "در توضیحات"
+
+#: ../rpmdrake:493
+#, fuzzy, c-format
+msgid "in summaries"
+msgstr "در نام‌ها"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in file names"
+msgstr "در نام‌های پرونده‌"
+
+#: ../rpmdrake:534
+#, c-format
+msgid "/_Select dependencies without asking"
+msgstr ""
+
+#: ../rpmdrake:537
+#, c-format
+msgid "Clear download cache after successful install"
+msgstr ""
+
+#: ../rpmdrake:538
+#, c-format
+msgid "/_Compute updates on startup"
+msgstr ""
+
+#: ../rpmdrake:539
+#, c-format
+msgid "Search in _full package names"
+msgstr ""
+
+#: ../rpmdrake:540
+#, c-format
+msgid "Use _regular expressions in searches"
+msgstr ""
+
+#: ../rpmdrake:546
+#, c-format
+msgid "/_Update media"
+msgstr "/_رسانه‌ی بروزسازی"
+
+#: ../rpmdrake:551
+#, c-format
+msgid "/_Reset the selection"
+msgstr "/_بازنشاندن انتخاب"
+
+#: ../rpmdrake:555
+#, c-format
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: ../rpmdrake:571
+#, c-format
+msgid "/Reload the _packages list"
+msgstr "/بارگذاری مجدد لیست _بسته‌ها"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "/_Quit"
+msgstr "/_ترک"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "<control>Q"
+msgstr "<control>Q"
+
+#: ../rpmdrake:591
+#, fuzzy, c-format
+msgid "/_Media Manager"
+msgstr "مدیر رسانه‌های نرم‌افزاری"
+
+#: ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Show automatically selected packages"
+msgstr "/_نشان دادن خودکار بسته‌های انتخاب شده"
+
+#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#, c-format
+msgid "/_View"
+msgstr "/_نما"
+
+#: ../rpmdrake:692
+#, c-format
+msgid "Find:"
+msgstr "یافتن:"
+
+#: ../rpmdrake:696
+#, c-format
+msgid "Please type in the string you want to search then press the <enter> key"
+msgstr ""
+
+#: ../rpmdrake:726
+#, c-format
+msgid "Apply"
+msgstr "اعمال"
+
+#: ../rpmdrake:745
+#, c-format
+msgid "Quick Introduction"
+msgstr ""
+
+#: ../rpmdrake:746
+#, c-format
+msgid "You can browse the packages through the categories tree on the left."
+msgstr ""
+
+#: ../rpmdrake:747
+#, c-format
+msgid ""
+"You can view information about a package by clicking on it on the right list."
+msgstr ""
+
+#: ../rpmdrake:748
+#, c-format
+msgid "To install, update or remove a package, just click on its \"checkbox\"."
+msgstr ""
+
+#: ../rpmdrake:793
+#, c-format
+msgid "rpmdrake is already running (pid: %s)"
+msgstr ""
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Software Update"
+msgstr "بروزسازی نرم‌افزار"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Mageia Update"
+msgstr "بروزسازی ماندریبا"
+
+#: ../rpmdrake.pm:148
+#, fuzzy, c-format
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr "لطفاً نشانی پست الکترونیکی خود را در زیر وارد کنید"
+
+#: ../rpmdrake.pm:149
+#, fuzzy, c-format
+msgid "User name:"
+msgstr "نام‌کاربر:"
+
+#: ../rpmdrake.pm:234
+#, c-format
+msgid "Software Packages Removal"
+msgstr "برداشتن بسته‌های نرم‌افزار"
+
+#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Packages Update"
+msgstr "بروزسازی بسته‌های نرم‌افزار"
+
+#: ../rpmdrake.pm:236
+#, c-format
+msgid "Software Packages Installation"
+msgstr "نصب بسته‌های نرم‌افزار"
+
+#: ../rpmdrake.pm:284
+#, c-format
+msgid "No"
+msgstr "نه"
+
+#: ../rpmdrake.pm:288
+#, c-format
+msgid "Yes"
+msgstr "بله"
+
+#: ../rpmdrake.pm:340
+#, c-format
+msgid "Info..."
+msgstr "اطلاعات..."
+
+#: ../rpmdrake.pm:465
+#, c-format
+msgid "Austria"
+msgstr "اطریش"
+
+#: ../rpmdrake.pm:466
+#, c-format
+msgid "Australia"
+msgstr "استرالیا"
+
+#: ../rpmdrake.pm:467
+#, c-format
+msgid "Belgium"
+msgstr "بلژیک"
+
+#: ../rpmdrake.pm:468
+#, c-format
+msgid "Brazil"
+msgstr "برزیل"
+
+#: ../rpmdrake.pm:469
+#, c-format
+msgid "Canada"
+msgstr "کانادا"
+
+#: ../rpmdrake.pm:470
+#, c-format
+msgid "Switzerland"
+msgstr "سوئیس"
+
+#: ../rpmdrake.pm:471
+#, c-format
+msgid "Costa Rica"
+msgstr "کوستا ریکا"
+
+#: ../rpmdrake.pm:472
+#, c-format
+msgid "Czech Republic"
+msgstr "جمهوری چک"
+
+#: ../rpmdrake.pm:473
+#, c-format
+msgid "Germany"
+msgstr "آلمان"
+
+#: ../rpmdrake.pm:474
+#, c-format
+msgid "Danmark"
+msgstr "دانمارک"
+
+#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#, c-format
+msgid "Greece"
+msgstr "یونان"
+
+#: ../rpmdrake.pm:476
+#, c-format
+msgid "Spain"
+msgstr "اسپانیا"
+
+#: ../rpmdrake.pm:477
+#, c-format
+msgid "Finland"
+msgstr "فنلاند"
+
+#: ../rpmdrake.pm:478
+#, c-format
+msgid "France"
+msgstr "فرانسه"
+
+#: ../rpmdrake.pm:480
+#, c-format
+msgid "Hungary"
+msgstr "مجارستان"
+
+#: ../rpmdrake.pm:481
+#, c-format
+msgid "Israel"
+msgstr "اسرائیل"
+
+#: ../rpmdrake.pm:482
+#, c-format
+msgid "Italy"
+msgstr "ایتالیا"
+
+#: ../rpmdrake.pm:483
+#, c-format
+msgid "Japan"
+msgstr "ژاپن"
+
+#: ../rpmdrake.pm:484
+#, c-format
+msgid "Korea"
+msgstr "کره"
+
+#: ../rpmdrake.pm:485
+#, c-format
+msgid "Netherlands"
+msgstr "هلند"
+
+#: ../rpmdrake.pm:486
+#, c-format
+msgid "Norway"
+msgstr "نروژ"
+
+#: ../rpmdrake.pm:487
+#, c-format
+msgid "Poland"
+msgstr "لهستان"
+
+#: ../rpmdrake.pm:488
+#, c-format
+msgid "Portugal"
+msgstr "پرتغال"
+
+#: ../rpmdrake.pm:489
+#, c-format
+msgid "Russia"
+msgstr "روسیه"
+
+#: ../rpmdrake.pm:490
+#, c-format
+msgid "Sweden"
+msgstr "سوئد"
+
+#: ../rpmdrake.pm:491
+#, c-format
+msgid "Singapore"
+msgstr "سنگاپور"
+
+#: ../rpmdrake.pm:492
+#, c-format
+msgid "Slovakia"
+msgstr "اسلواکی"
+
+#: ../rpmdrake.pm:493
+#, c-format
+msgid "Taiwan"
+msgstr "تایوان"
+
+#: ../rpmdrake.pm:494
+#, c-format
+msgid "United Kingdom"
+msgstr "بریتانیا"
+
+#: ../rpmdrake.pm:495
+#, c-format
+msgid "China"
+msgstr "چین"
+
+#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#, c-format
+msgid "United States"
+msgstr "ایالات متحده"
+
+#: ../rpmdrake.pm:579
+#, c-format
+msgid "Please wait, downloading mirror addresses."
+msgstr "لطفاً صبر کنید، در حال بارگیری نشانی‌های آینه‌ها."
+
+#: ../rpmdrake.pm:580
+#, c-format
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr "لطفاً صبر کنید، در حال بارگیری نشانی‌های آینه‌ها از وبگاه ماندریبا."
+
+#: ../rpmdrake.pm:601
+#, c-format
+msgid "retrieval of [%s] failed"
+msgstr ""
+
+#: ../rpmdrake.pm:623
+#, c-format
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"برای دریافت لیست آینه‌ها باید با اینترنت تماس گرفت.\n"
+"لطفاً کنترل کنید که شبکه شما اکنون در حال اجرا می‌باشد.\n"
+"\n"
+"آیا ادامه دهیم؟"
+
+#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#, fuzzy, c-format
+msgid "Mirror choice"
+msgstr "%s انتخابها"
+
+#: ../rpmdrake.pm:643
+#, c-format
+msgid "Error during download"
+msgstr "خطا هنگام بارگیری"
+
+#: ../rpmdrake.pm:645
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"هنگام بارگیری لیست آینه‌ها یک خطا وجود داشت:\n"
+"\n"
+"%s\n"
+"شبکه یا وبگاه شاید در دسترس نباشند.\n"
+"لطفاً بعداً دوباره امتحان کنید."
+
+#: ../rpmdrake.pm:650
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"هنگام بارگیری لیست آینه‌ها یک خطا وجود داشت:\n"
+"\n"
+"%s\n"
+"شبکه یا وبگاه ماندریبا شاید در دسترس نباشند.\n"
+"لطفاً بعداً دوباره امتحان کنید."
+
+#: ../rpmdrake.pm:660
+#, c-format
+msgid "No mirror"
+msgstr "هیچ آینه‌ای"
+
+#: ../rpmdrake.pm:662
+#, c-format
+msgid "I can't find any suitable mirror."
+msgstr "نمی‌توانم هیچ آینه مناسبی را پیدا کنم."
+
+#: ../rpmdrake.pm:663
+#, c-format
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"نمی‌توانم آینه‌ی مناسبی را پیدا کنم.\n"
+"\n"
+"دلایل زیادی برای این مشکل ممکن است وجود داشته باشند؛ در بیشتر موارد\n"
+"بدلیل عدم حمایت از ساختار پردازه‌گر شما بوسیله‌ی به‌روزسازی‌های رسمی\n"
+"لینوکس ماندریبا می‌باشد."
+
+#: ../rpmdrake.pm:682
+#, c-format
+msgid "Please choose the desired mirror."
+msgstr "لطفاً آینه‌ی مورد نظرتان را انتخاب کنید."
+
+#: ../rpmdrake.pm:723
+#, c-format
+msgid "Copying file for medium `%s'..."
+msgstr "کپی کردن پرونده برای رسانه `%s'..."
+
+#: ../rpmdrake.pm:726
+#, c-format
+msgid "Examining file of medium `%s'..."
+msgstr "آزمایش کردن پرونده‌ی رسانه‌ی `%s'..."
+
+#: ../rpmdrake.pm:729
+#, c-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "در حال آزمایش کردن پرونده‌ی دور دست رسانه‌ی `%s'..."
+
+#: ../rpmdrake.pm:733
+#, c-format
+msgid " done."
+msgstr " انجام شد."
+
+#: ../rpmdrake.pm:737
+#, c-format
+msgid " failed!"
+msgstr " شکست خورد!"
+
+#. -PO: We're downloading the said file from the said medium
+#: ../rpmdrake.pm:742
+#, c-format
+msgid "%s from medium %s"
+msgstr "%s از رسانه‌ی %s"
+
+#: ../rpmdrake.pm:746
+#, c-format
+msgid "Starting download of `%s'..."
+msgstr "در حال شروع بارگیری `%s'..."
+
+#: ../rpmdrake.pm:750
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr "بارگیری `%s'، زمان باقیمانده: %s، سرعت:%s"
+
+#: ../rpmdrake.pm:753
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr "بارگیری `%s'، سرعت:%s"
+
+#: ../rpmdrake.pm:764
+#, c-format
+msgid "Please wait, updating media..."
+msgstr "لطفا صبر کنید، در حال بروزسازی رسانه..."
+
+#: ../rpmdrake.pm:774
+#, fuzzy, c-format
+msgid "Canceled"
+msgstr "لغو"
+
+#: ../rpmdrake.pm:791
+#, c-format
+msgid "Error retrieving packages"
+msgstr "خطا در دریافت بسته‌ها"
+
+#: ../rpmdrake.pm:792
+#, c-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+"دریافت لیست بسته‌ها از رسانه‌ی `%s' غیر ممکن است.\n"
+"یا این رسانه‌ی بروزسازی درست پیکربندی نشده است، و در\n"
+"این صورت شما باید برای برداشتن و افزودن دوباره‌ی آن به\n"
+" منظور پیکربندی مجدد آن از مدیر رسانه‌ی نرم‌افزار استفاده\n"
+" کنید، یا آن اکنون در دسترس نیست و شما باید بعداً دوباره امتحان\n"
+" کنید. "
+
+#: ../rpmdrake.pm:823
+#, c-format
+msgid "Update media"
+msgstr "رسانه‌ی بروزسازی"
+
+#: ../rpmdrake.pm:828
+#, c-format
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+
+#: ../rpmdrake.pm:835
+#, c-format
+msgid "Select the media you wish to update:"
+msgstr "انتخاب کردن رسانه‌ای که می‌خواهید بروزسازی کنید:"
+
+#: ../rpmdrake.pm:881
+#, c-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"نمی‌توان رسانه را بروزسازی کرد؛ آن بطور خودکار از کار خواهد افتاد.\n"
+"\n"
+"خطاها:\n"
+"%s"
+
+#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#, c-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"ناتوان در افزودن رسانه، خطاهائی گزارش داده شد:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:925
+#, c-format
+msgid "Unable to create medium."
+msgstr "نمی‌توانم رسانه را ایجاد کنم."
+
+#: ../rpmdrake.pm:930
+#, c-format
+msgid "Failure when adding medium"
+msgstr "ناموفق بودن هنگام اضافه کردن رسانه"
+
+#: ../rpmdrake.pm:931
+#, c-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"اشکالی در افزودن رسانه وجود داشت:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:944
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+"رسانه‌ی شما `%s'، که برای بروزسازی استفاده می‌شود، با نسخه‌ی %s که شما اجرا "
+"می‌کنید (%s) تطابق ندارد.\n"
+"آن از کار انداخته خواهد شد."
+
+#: ../rpmdrake.pm:947
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+"رسانه‌ی شما `%s'، که برای بروزسازی استفاده می‌شود، با نسخه‌ی لینوکس ماندریبای "
+"که شما اجرا می‌کنید (%s) تطابق ندارد.\n"
+"آن از کار انداخته خواهد شد."
+
+#: ../rpmdrake.pm:978
+#, c-format
+msgid "Help launched in background"
+msgstr "راهنما در پس‌زمینه اجرا شد"
+
+#: ../rpmdrake.pm:979
+#, c-format
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr "پنجره‌ی راهنما شروع شده است، باید بزودی بر روی رومیزی شما ظاهر گردد."
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:1
+#, fuzzy
+msgid "A graphical front end for browsing installed & available packages"
+msgstr "یک ظاهر تصویری برای نصب بسته‌ها"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:2
+msgid "Browse Available Software"
+msgstr "مرور نرم‌افزار موجود"
+
+#: ../data/rpmdrake.desktop.in.h:1
+#, fuzzy
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr "یک ظاهر تصویری برای نصب بسته‌ها"
+
+#: ../data/rpmdrake.desktop.in.h:2
+#, fuzzy
+msgid "Install & Remove Software"
+msgstr "نصب نرم‌افزار"
+
+#: ../data/rpmdrake-sources.desktop.in.h:1
+msgid "Software Media Manager"
+msgstr "مدیر رسانه‌های نرم‌افزاری"
+
+#: ../mime/gurpmi.addmedia.desktop.in.h:1
+#, fuzzy
+msgid "Add urpmi media"
+msgstr "/_رسانه‌ی بروزسازی"
+
+#: ../mime/x-urpmi-media.desktop.in.h:1
+#, fuzzy
+msgid "Urpmi medium info"
+msgstr "بروزسازی رسانه"
+
+#~ msgid "Books"
+#~ msgstr "کتاب‌ها"
+
+#~ msgid "Computer books"
+#~ msgstr "کتاب‌های رایانه"
+
+#~ msgid "Faqs"
+#~ msgstr "پرسش‌های مداوم"
+
+#~ msgid "Howtos"
+#~ msgstr "چگونگی‌ها"
+
+#~ msgid "Literature"
+#~ msgstr "نوشتجات"
+
+#, fuzzy
+#~ msgid "  --root                 force to run as root"
+#~ msgstr ""
+#~ "\n"
+#~ "                    گزارش شبح پشتیبان‌درایک\n"
+
+#, fuzzy
+#~ msgid "(Deprecated)"
+#~ msgstr "انتخاب شده"
+
+#~ msgid "Find"
+#~ msgstr "یافتن"
+
+#, fuzzy
+#~ msgid "/Add _media"
+#~ msgstr "/_رسانه‌ی بروزسازی"
+
+#~ msgid "Welcome"
+#~ msgstr "خوش آمدید"
+
+#, fuzzy
+#~ msgid "Do you want to add media sources now?"
+#~ msgstr "آیا مطمئن هستید که می‌خواهید متن کد \"%s\" را بردارید؟"
+
+#~ msgid ""
+#~ "Welcome to the Software Media Manager!\n"
+#~ "\n"
+#~ "This tool will help you configure the packages media you wish to use on\n"
+#~ "your computer. They will then be available to install new software "
+#~ "package\n"
+#~ "or to perform updates."
+#~ msgstr ""
+#~ "به مدیر رسانه نرم‌افزار خوش آمدید!\n"
+#~ "\n"
+#~ "این ابزار به شما در پیکربندی رسانه‌های بسته‌هایی که می‌خواهید بر رایانه‌ی "
+#~ "خود\n"
+#~ "استفاده کنید کمک خواهد کرد. آنها سپس برای نصب بسته‌ی جدید نرم‌افزار یا \n"
+#~ "انجام بروزسازی در دسترس خواهند بود."
+
+#~ msgid ""
+#~ "Welcome to the software removal tool!\n"
+#~ "\n"
+#~ "This tool will help you choose which software you want to remove from\n"
+#~ "your computer."
+#~ msgstr ""
+#~ "به ابزار برداشتن نرم‌افزار خوش آمدید!\n"
+#~ "\n"
+#~ "این ابزار در انتخاب نرم‌افزاری که می‌خواهید از این رایانه بردارید\n"
+#~ "به شما کمک خواهد کرد."
+
+#~ msgid ""
+#~ "Welcome to %s!\n"
+#~ "\n"
+#~ "This tool will help you choose the updates you want to install on your\n"
+#~ "computer."
+#~ msgstr ""
+#~ "به %s خوش آمدید!\n"
+#~ "\n"
+#~ "این ابزار به شما در انتخاب بروزسازی‌هایی که می‌خواهید بر رایانه خود نصب\n"
+#~ "کنید کمک خواهد کرد."
+
+#~ msgid "Welcome to the software installation tool!"
+#~ msgstr "به ابزار نصب نرم‌افزار خوش آمدید!"
+
+#~ msgid ""
+#~ "Welcome to the software installation tool!\n"
+#~ "\n"
+#~ "Your Mandriva Linux system comes with several thousands of software\n"
+#~ "packages on CDROM or DVD. This tool will help you choose which software\n"
+#~ "you want to install on your computer."
+#~ msgstr ""
+#~ "به ابزار نصب نرم‌افزار خوش آمدید!\n"
+#~ "\n"
+#~ "سیستم لینوکس ماندریبا با چندین هزار بسته‌ی نرم‌افزار بر سی‌دی یا دی‌وی‌دی "
+#~ "عرضه\n"
+#~ "می‌شود. این ابزار به شما در انتخاب نرم‌افزاری که می‌خواهید بر رایانه‌ی خود "
+#~ "نصب\n"
+#~ "کنید کمک خواهد کرد."
+
+#~ msgid "Unable to add medium, wrong or missing arguments"
+#~ msgstr "ناتوان در افزودن رسانه، عدم وجود یا آرگومان‌های اشتباه"
+
+#~ msgid "%s choices"
+#~ msgstr "%s انتخابها"
+
+#~ msgid "Mandriva Linux choices"
+#~ msgstr "انتخاب‌های ماندریبا"
+
+#~ msgid "None"
+#~ msgstr "هيچکدام"
+
+#~ msgid ""
+#~ "Installation failed, some files are missing:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "You may want to update your media database."
+#~ msgstr ""
+#~ "نصب شکست خورد، بعضی از پرونده‌ها وجود ندارند:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "شما ممکن است بخواهید بانک اطلاعات رسانه‌ها را بروزسازی کنید."
+
+#~ msgid "Relative path to synthesis/hdlist:"
+#~ msgstr "مسیر نسبی به synthesis/hdlist:"
+
+#~ msgid "If left blank, synthesis/hdlist will be automatically probed"
+#~ msgstr "اگر خالی گذاشته شود، synthesis/hdlist بطور خودکار شناسایی خواهد شد"
+
+#~ msgid "Search"
+#~ msgstr "جستجو"
+
+#~ msgid "Clear"
+#~ msgstr "پاک کردن"
+
+#~ msgid "Download directory does not exist"
+#~ msgstr "شاخه‌ی بارگیری وجود ندارد"
+
+#~ msgid "Out of memory\n"
+#~ msgstr "کمبود حافظه\n"
+
+#~ msgid "Could not open output file in append mode"
+#~ msgstr "نمی‌توان پرونده‌ برونداد را در حالت پیوست باز کرد"
+
+#~ msgid "Unsupported protocol\n"
+#~ msgstr "پایان‌نامه فاقد پشتیبانی\n"
+
+#~ msgid "Failed init\n"
+#~ msgstr "شکست مقداردهی\n"
+
+#~ msgid "Bad URL format\n"
+#~ msgstr "قالب بد نشانی اینترنت\n"
+
+#~ msgid "Bad user format in URL\n"
+#~ msgstr "قالب بد کاربر در نشانی اینترنت\n"
+
+#~ msgid "Couldn't resolve proxy\n"
+#~ msgstr "پراکسی را نمی‌توان دریافت کرد\n"
+
+#~ msgid "Couldn't resolve host\n"
+#~ msgstr "میزبان را نمی‌توان دریافت کرد\n"
+
+#~ msgid "Couldn't connect\n"
+#~ msgstr "نمی‌توان اتصال برقرار کرد\n"
+
+#~ msgid "FTP unexpected server reply\n"
+#~ msgstr "جواب غیرمنتظره‌ی کارگزار FTP\n"
+
+#~ msgid "FTP access denied\n"
+#~ msgstr "دست‌یابی به FTP منع گردید\n"
+
+#~ msgid "FTP user password incorrect\n"
+#~ msgstr "گذرواژه‌ی کاربر FTP درست نیست\n"
+
+#~ msgid "FTP unexpected PASS reply\n"
+#~ msgstr "پاسخ غیرمنتظره‌ی گذرواژه به FTP\n"
+
+#~ msgid "FTP unexpected USER reply\n"
+#~ msgstr "پاسخ غیرمنتظره‌ی USER از FTP\n"
+
+#~ msgid "FTP unexpected PASV reply\n"
+#~ msgstr "پاسخ برای PASV غیرمنتظره از FTP\n"
+
+#~ msgid "FTP unexpected 227 format\n"
+#~ msgstr "قالب ۲۲۷ غیرمنتظره از FTP \n"
+
+#~ msgid "FTP can't get host\n"
+#~ msgstr "FTP نمی‌تواند میزبان را دریافت کند\n"
+
+#~ msgid "FTP can't reconnect\n"
+#~ msgstr "FTP نمی‌تواند ارتباط مجدد برقرار نماید\n"
+
+#~ msgid "FTP couldn't set binary\n"
+#~ msgstr "FTP نمی‌تواند binary را بگذارد \n"
+
+#~ msgid "Partial file\n"
+#~ msgstr "قسمتی از پرونده\n"
+
+#~ msgid "FTP couldn't RETR file\n"
+#~ msgstr "FTP نتوانست پرونده را دریافت کند\n"
+
+#~ msgid "FTP write error\n"
+#~ msgstr "خطای نگارش FTP\n"
+
+#~ msgid "FTP quote error\n"
+#~ msgstr "خطای مظنه FTP\n"
+
+#~ msgid "HTTP not found\n"
+#~ msgstr "HTTP یافت نشد\n"
+
+#~ msgid "Write error\n"
+#~ msgstr "خطای نگارش\n"
+
+#~ msgid "User name illegally specified\n"
+#~ msgstr "نام کاربر بطور غیرقانونی مشخص شده است\n"
+
+#~ msgid "FTP couldn't STOR file\n"
+#~ msgstr "FTP نتوانست پرونده را انبار کند\n"
+
+#~ msgid "Read error\n"
+#~ msgstr "خطای خواندن\n"
+
+#~ msgid "Time out\n"
+#~ msgstr "مدت تأخیر\n"
+
+#~ msgid "FTP couldn't set ASCII\n"
+#~ msgstr "FTP نتوانست ASCII را بگذارد\n"
+
+#~ msgid "FTP PORT failed\n"
+#~ msgstr "درگاه FTP شکست خورد\n"
+
+#~ msgid "FTP couldn't use REST\n"
+#~ msgstr "FTP نتوانست از REST استفاده کند\n"
+
+#~ msgid "FTP couldn't get size\n"
+#~ msgstr "FTP نتوانست اندازه را دریافت کند\n"
+
+#~ msgid "HTTP range error\n"
+#~ msgstr "خطای گستره HTTP\n"
+
+#~ msgid "HTTP POST error\n"
+#~ msgstr "خطای پست HTTP\n"
+
+#~ msgid "SSL connect error\n"
+#~ msgstr "خطای ارتباط SSL\n"
+
+#~ msgid "FTP bad download resume\n"
+#~ msgstr "ادامه‌ی بارگیری بد FTP\n"
+
+#~ msgid "File couldn't read file\n"
+#~ msgstr "پرونده نتوانست پرونده را بخواند\n"
+
+#~ msgid "LDAP cannot bind\n"
+#~ msgstr "LDAP نمی‌تواند وصل کند\n"
+
+#~ msgid "LDAP search failed\n"
+#~ msgstr "جستجوی LDAP شکست خورد\n"
+
+#~ msgid "Library not found\n"
+#~ msgstr "کتابخانه یافت نشد\n"
+
+#~ msgid "Function not found\n"
+#~ msgstr "تابع یافت نشد\n"
+
+#~ msgid "Aborted by callback\n"
+#~ msgstr "توسط callback سقط شد\n"
+
+#~ msgid "Bad function argument\n"
+#~ msgstr "آرگومان بد تابع\n"
+
+#~ msgid "Bad calling order\n"
+#~ msgstr "ترتیب بد فراخوانی\n"
+
+#~ msgid "HTTP Interface operation failed\n"
+#~ msgstr "عملیات واسط HTTP شکست خورد\n"
+
+#~ msgid "my_getpass() returns fail\n"
+#~ msgstr "شکست نتیجه‌ی تابع my_getpass()\n"
+
+#~ msgid "catch endless re-direct loops\n"
+#~ msgstr "گرفتن حلقه‌های بی‌انتهای هدایت-مجدد\n"
+
+#~ msgid "User specified an unknown option\n"
+#~ msgstr "کاربر یک گزینه‌ی ناشناس را مشخص کرده است\n"
+
+#~ msgid "Malformed telnet option\n"
+#~ msgstr "گزینه‌ی ناقص telnet\n"
+
+#~ msgid "removed after 7.7.3\n"
+#~ msgstr "بعد از ۷.۷.۳برداشته شد\n"
+
+#~ msgid "peer's certificate wasn't ok\n"
+#~ msgstr "گواهی همپایه درست نبود\n"
+
+#~ msgid "when this is a specific error\n"
+#~ msgstr "وقتی که این یک خطای مشخص است\n"
+
+#~ msgid "SSL crypto engine not found\n"
+#~ msgstr "موتور رمزگذار SSL یافت نشد\n"
+
+#~ msgid "can not set SSL crypto engine as default\n"
+#~ msgstr "نمی‌توان موتور رمزگذار SSL را مانند پیش‌فرض قرار داد\n"
+
+#~ msgid "failed sending network data\n"
+#~ msgstr "فرستادن داده‌های شبکه شکست خورد\n"
+
+#~ msgid "failure in receiving network data\n"
+#~ msgstr "دریافت داده‌های شبکه شکست خورد\n"
+
+#~ msgid "share is in use\n"
+#~ msgstr "اشتراک مورد استفاده می‌باشد\n"
+
+#~ msgid "problem with the local certificate\n"
+#~ msgstr "مشکلی با گواهی نامه محلی\n"
+
+#~ msgid "couldn't use specified cipher\n"
+#~ msgstr "رمزشکن مشخص شده نتوانست استفاده گردد\n"
+
+#~ msgid "problem with the CA cert (path?)\n"
+#~ msgstr "مشکل با گواهی CA (مسیر؟)\n"
+
+#~ msgid "Unrecognized transfer encoding\n"
+#~ msgstr "رمزگزاری انتقال ناشناخته\n"
+
+#~ msgid "Unknown error code %d\n"
+#~ msgstr "کد خطای ناشناس %d\n"
+
+#~ msgid ""
+#~ "This step enables you to add sources from a Mandriva Linux web or FTP "
+#~ "mirror.\n"
+#~ "\n"
+#~ "There are two kinds of official mirrors. You can choose to add sources "
+#~ "that\n"
+#~ "contain the complete set of packages of your distribution (usually a "
+#~ "superset\n"
+#~ "of what comes on the standard installation CDs), or sources that provide "
+#~ "the\n"
+#~ "official updates for your distribution. (You can add both, but you'll "
+#~ "have\n"
+#~ "to do this in two steps.)"
+#~ msgstr ""
+#~ "در این گام شما خواهید توانست منابعی را از یک وب لینوکس ماندریبا یا آینه "
+#~ "FTP اضافه کنید.\n"
+#~ "\n"
+#~ "دو نوع از آینه‌های رسمی وجود دارند. شما میتوانید منابعی را که حاوی مجموعه‌ "
+#~ "کاملی از\n"
+#~ " بسته‌های توزیع شما (معمولا یک سرمجموعه که با سی‌دی‌های نصب استاندارد \n"
+#~ " می‌آیند)، یا منابعی که بروزسازیهای رسمی توزیع شما عرضه میکنند.\n"
+#~ "(شما میتوانید هر دو را اضافه کنید، ولی مجبورید آن را در دو گام انجام "
+#~ "دهید.)"
+
+#~ msgid "Distribution sources"
+#~ msgstr "منابع انتشار"
+
+#~ msgid "Official updates"
+#~ msgstr "بروزسازی‌های رسمی"
+
+#~ msgid "Selected size: %d MB"
+#~ msgstr "اندازه‌ی انتخاب شده: %Id مگابایت"
+
+#, fuzzy
+#~ msgid "/_Automatically resolve queries"
+#~ msgstr "/_نشان دادن خودکار بسته‌های انتخاب شده"
+
+#~ msgid "Path:"
+#~ msgstr "مسیر:"
+
+#~ msgid "Add custom..."
+#~ msgstr "افزودن سفارشی..."
+
+#~ msgid "Update..."
+#~ msgstr "بروزسازی..."
+
+#~ msgid ""
+#~ "The following packages have bad signatures:\n"
+#~ "\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Do you want to continue installation?"
+#~ msgstr ""
+#~ "بسته‌های بدنبال آمده امضاهای بد دارند:\n"
+#~ "\n"
+#~ "%s\n"
+#~ "\n"
+#~ "آیا می‌خواهید نصب را ادامه دهید؟"
+
+#~ msgid "installing %s from %s"
+#~ msgstr "نصب %s از %s"
+
+#~ msgid "installing %s"
+#~ msgstr "نصب %s"
+
+#~ msgid "removing %s"
+#~ msgstr "برداشتن %s"
+
+#, fuzzy
+#~ msgid "Installation failed:"
+#~ msgstr "نصب شکست خورد"
+
+#~ msgid "Try installation without checking dependencies? (y/N) "
+#~ msgstr "تلاش برای نصب بدون بررسی وابستگی‌ها؟ (y/N) "
+
+#, fuzzy
+#~ msgid "Try harder to install (--force)? (y/N) "
+#~ msgstr "تلاش برای نصب حتی قویتر (--force)؟ (y/N) "
+
+#~ msgid "Preparing..."
+#~ msgstr "در حال آماده کردن..."
+
+#~ msgid "Message Passing"
+#~ msgstr "رد و بدل پیغام"
+
+#~ msgid "Queueing Services"
+#~ msgstr "سرویس‌های صف"
+
+#~ msgid "Deploiement"
+#~ msgstr "گسترش"
+
+#~ msgid "Deployment"
+#~ msgstr "گسترش"
+
+#~ msgid "Add a key..."
+#~ msgstr "افزودن یک کلید..."
+
+#~ msgid "Remove key"
+#~ msgstr "برداشتن کلید"
+
+#, fuzzy
+#~ msgid "  --version              output version information and exit"
+#~ msgstr ""
+#~ "\n"
+#~ "                    گزارش شبح پشتیبان‌درایک\n"
+
+#~ msgid "unable to access rpm file [%s]"
+#~ msgstr "ناتوان در دستیابی به پرونده‌ی rpm [%s]"
+
+#, fuzzy
+#~ msgid ""
+#~ "To satisfy dependencies, the following package is going to be installed:\n"
+#~ "%2$s\n"
+#~ msgid_plural ""
+#~ "To satisfy dependencies, the following %d packages are going to be "
+#~ "installed:\n"
+#~ "%s\n"
+#~ msgstr[0] ""
+#~ "برای ارضای وابستگیها, %Id بسته بدنبال آمده نصب خواهند شد:\n"
+#~ "%s\n"
+
+#~ msgid "Please wait, reading Package Database..."
+#~ msgstr "لطفا صبر کنید، در حال خواندن بانک اطلاعات بسته‌ها..."
+
+#, fuzzy
+#~ msgid "About Rpmdrake"
+#~ msgstr "Rpmdrake"
+
+#~ msgid "XFree86"
+#~ msgstr "XFree86"
+
+#~ msgid "No package found for installation."
+#~ msgstr "هیچ بسته‌ای برای نصب یافت نشد."
+
+#~ msgid "Maximum information"
+#~ msgstr "حداکثر اطلاعات"
+
+#~ msgid "everything was installed correctly"
+#~ msgstr "همه چیز بدرستی نصب شد"
+
+#~ msgid "Regenerate hdlist"
+#~ msgstr "تولید مجدد hdlist"
+
+#~ msgid "Please wait, generating hdlist..."
+#~ msgstr "لطفا صبر کنید، در حال تولید hdlist..."
+
+#~ msgid "Everything installed successfully"
+#~ msgstr "همه چیز با موفقیت نصب شد"
+
+#~ msgid "Keys"
+#~ msgstr "کلیدها"

@@ -1,0 +1,3616 @@
+# translation of rpmdrake to Galician
+# Copyright (C) 2000 Mandriva
+#
+# Jesús Bravo Álvarez <jba@pobox.com>, 2000.
+# Leandro Regueiro <leandro.regueiro@gmail.com>, 2004, 2005, 2006, 2008.
+#
+# Proxecto Trasno http://trasno.net
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rpmdrake-gl\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-09 17:13+0800\n"
+"PO-Revision-Date: 2008-04-14 17:38+0100\n"
+"Last-Translator: Leandro Regueiro <leandro DOT regueiro AT gmail DOT com>\n"
+"Language-Team: Galician <proxecto@trasno.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: gl\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#, c-format
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"A lista de actualizacións está baleira. Isto significa que non hai\n"
+"actualizacións dispoñibles para os paquetes que ten instalados\n"
+"no seu ordenador, ou que xa as instalou todas."
+
+#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Management"
+msgstr "Xestión de Software"
+
+#: ../MageiaUpdate:151
+#, c-format
+msgid "Here is the list of software package updates"
+msgstr "Aquí está a lista de actualización de paquetes de software"
+
+#: ../MageiaUpdate:158
+#, c-format
+msgid "Name"
+msgstr "Nome"
+
+#: ../MageiaUpdate:159 ../rpmdrake:290
+#, c-format
+msgid "Version"
+msgstr "Versión"
+
+#: ../MageiaUpdate:160 ../rpmdrake:294
+#, c-format
+msgid "Release"
+msgstr "Edición"
+
+#: ../MageiaUpdate:161
+#, c-format
+msgid "Arch"
+msgstr "Arquitectura"
+
+#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#, c-format
+msgid "Help"
+msgstr "Axuda"
+
+#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#, c-format
+msgid "Select all"
+msgstr "Seleccionar todo"
+
+#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#, c-format
+msgid "Update"
+msgstr "Actualizar"
+
+#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#, c-format
+msgid "Quit"
+msgstr "Saír"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:62
+#, c-format
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:63
+#, c-format
+msgid "FTP"
+msgstr "FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#, c-format
+msgid "Local"
+msgstr "Local"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:65
+#, c-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:66
+#, c-format
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#, c-format
+msgid "NFS"
+msgstr "NFS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:68
+#, c-format
+msgid "Removable"
+msgstr "Extraíble"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:69
+#, c-format
+msgid "rsync"
+msgstr "rsync"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:72
+#, c-format
+msgid "Mirror list"
+msgstr "Lista de sitios espello"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:114
+#, c-format
+msgid "Choose media type"
+msgstr "Escolla o tipo de soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:115
+#, c-format
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+"Para manter o seu sistema seguro e estable, debe polo menos configurar "
+"fontes para actualizacións de seguridade e estabilidade. Tamén pode escoller "
+"configurar un conxunto máis completo de fontes que inclúa tódolos "
+"repositorios oficiais de Mageia, dándolle acceso a máis software do que "
+"colle nos discos de Mageia. Escolla se configurar só fontes de "
+"actualización, ou o conxunto completo de fontes"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Full set of sources"
+msgstr "Conxunto completo de fontes"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Update sources only"
+msgstr "Só fontes de actualización"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:135
+#, c-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Isto intentará instalar tódalas fontes oficiais correspondentes á súa\n"
+"distribución (%s).\n"
+"\n"
+"Cómpre contactar co sitio web de Mageia para consegui-la lista de sitios "
+"espello.\n"
+"Verifique que a rede está activada e funcionando.\n"
+"\n"
+"Desexa continuar?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#, c-format
+msgid "Please wait, adding media..."
+msgstr "Agarde, engadindo o soporte..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:168
+#, c-format
+msgid "Add a medium"
+msgstr "Engadir un soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Local files"
+msgstr "Ficheiros locais"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Medium path:"
+msgstr "Ruta do soporte:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#, c-format
+msgid "FTP server"
+msgstr "Servidor FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#, c-format
+msgid "URL:"
+msgstr "URL:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#, c-format
+msgid "RSYNC server"
+msgstr "Servidor RSYNC"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#, c-format
+msgid "HTTP server"
+msgstr "Servidor HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, fuzzy, c-format
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "Dispositivo extraíble"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Path or mount point:"
+msgstr "Ruta ou punto de montaxe:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:194
+#, c-format
+msgid "Browse..."
+msgstr "Explorar..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#, c-format
+msgid "Login:"
+msgstr "Nome de usuario:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "Password:"
+msgstr "Contrasinal:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:227
+#, c-format
+msgid "Medium name:"
+msgstr "Nome do soporte:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:233
+#, c-format
+msgid "Create media for a whole distribution"
+msgstr "Crear soporte para unha distribución completa"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:242
+#, c-format
+msgid "Tag this medium as an update medium"
+msgstr "Etiquetar este soporte coma soporte de actualización"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:252
+#, c-format
+msgid "You need to fill up at least the two first entries."
+msgstr "Cómpre encher como minimo as dúas primeiras entradas."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:256
+#, c-format
+msgid ""
+"There is already a medium by that name, do you\n"
+"really want to replace it?"
+msgstr "Xa hai un soporte con este nome, ¿desexa substituilo?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:268
+#, c-format
+msgid "Adding a medium:"
+msgstr "Engadindo un soporte:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:270
+#, c-format
+msgid "Type of medium:"
+msgstr "Tipo de soporte:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#, c-format
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#, c-format
+msgid "Ok"
+msgstr "Aceptar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:337
+#, c-format
+msgid "Global options for package installation"
+msgstr "Opcións globais para a instalación de paquetes..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "never"
+msgstr "nunca"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "always"
+msgstr "sempre"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#, c-format
+msgid "Never"
+msgstr "Nunca"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#, c-format
+msgid "On-demand"
+msgstr "Baixo demanda"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#, c-format
+msgid "Update-only"
+msgstr "Só actualización"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#, c-format
+msgid "Always"
+msgstr "Sempre"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:355
+#, c-format
+msgid "Verify RPMs to be installed:"
+msgstr "Verificar os RPMs que se van instalar:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:360
+#, c-format
+msgid "Download program to use:"
+msgstr "Programa que se usa para descargar:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:367
+#, c-format
+msgid "XML meta-data download policy:"
+msgstr "Política de descarga de metadatos XML:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:374
+#, c-format
+msgid ""
+"For remote media, specify when XML meta-data (file lists, changelogs & "
+"information) are downloaded."
+msgstr ""
+"Para soportes remotos, especifica cando se descargan os metadatos XML "
+"(listas de ficheiros, rexistros de cambios e informacións)."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:377
+#, c-format
+msgid "For remote media, XML meta-data are never downloaded."
+msgstr "Para os soportes remotos, nunca se descargan os metadatos XML."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:380
+#, c-format
+msgid "(This is the default)"
+msgstr "(Isto é o predeterminado)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:381
+#, c-format
+msgid "The specific XML info file is downloaded when clicking on package."
+msgstr ""
+"O ficheiro de información XML específico descárgase ó premer no paquete."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:384
+#, c-format
+msgid ""
+"Updating media implies updating XML info files already required at least "
+"once."
+msgstr ""
+"Actualizar os soportes implica actualizar os ficheiros de información XML "
+"que foron requiridos alomenos unha vez."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:387
+#, c-format
+msgid "All XML info files are downloaded when adding or updating media."
+msgstr ""
+"Descárganse tódolos ficheiros de información XML ó engadir ou actualizar "
+"soportes."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:416
+#, c-format
+msgid "Source Removal"
+msgstr "Eliminación de Fontes"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:418
+#, c-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr "Está seguro de que desexa eliminar a fonte \"%s\"?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:419
+#, c-format
+msgid "Are you sure you want to remove the following sources?"
+msgstr "Está seguro de que desexa eliminar as seguintes fontes?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:425
+#, c-format
+msgid "Please wait, removing medium..."
+msgstr "Agarde, eliminando soporte..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:473
+#, c-format
+msgid "Edit a medium"
+msgstr "Editar un soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:480
+#, c-format
+msgid "Editing medium \"%s\":"
+msgstr "Editando o soporte \"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:484
+#, c-format
+msgid "Downloader:"
+msgstr "Descargador:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:496
+#, c-format
+msgid "Save changes"
+msgstr "Garda-los cambios"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:505
+#, c-format
+msgid "Proxy..."
+msgstr "Proxy..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:517
+#, c-format
+msgid "You need to insert the medium to continue"
+msgstr "Necesita inseri-lo soporte para continuar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:518
+#, c-format
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr ""
+"Para garda-los cambios, cómpre que o soporte estea inserido na unidade."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:553
+#, c-format
+msgid "Configure proxies"
+msgstr "Configura-los proxys"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:566
+#, c-format
+msgid "Proxy settings for media \"%s\""
+msgstr "Opcións do proxy para o soporte \"%s\""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:567
+#, c-format
+msgid "Global proxy settings"
+msgstr "Opcións globais do proxy"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:569
+#, c-format
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"Se necesita un proxy, introduza o nome de máquina e un porto opcional "
+"(sintaxe: <servidorproxy[:porto]>):"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:572
+#, c-format
+msgid "Proxy hostname:"
+msgstr "Nome de máquina do proxy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:575
+#, c-format
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr "Debe especificar un usuario/contrasinal para a autenticación no proxy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:578
+#, c-format
+msgid "User:"
+msgstr "Usuario:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Add a parallel group"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Edit a parallel group"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Add a medium limit"
+msgstr "Engadir un límite de soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Choose a medium to add to the media limit:"
+msgstr "Escolla un soporte ó que engadir o límite de soporte:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Add a host"
+msgstr "Engadir un servidor"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "Introduza o nome do servidor ou o enderezo IP para engadilo:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:729
+#, c-format
+msgid "Editing parallel group \"%s\":"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:733
+#, c-format
+msgid "Group name:"
+msgstr "Nome do grupo:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:734
+#, c-format
+msgid "Protocol:"
+msgstr "Protocolo:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:736
+#, c-format
+msgid "Media limit:"
+msgstr "Límite do soporte:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#, c-format
+msgid "Add"
+msgstr "Engadir"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:1139
+#, c-format
+msgid "Remove"
+msgstr "Eliminar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:745
+#, c-format
+msgid "Hosts:"
+msgstr "Máquinas:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:781
+#, c-format
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr "Configurar urpmi en paralelo (execución distribuida de urpmi)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Group"
+msgstr "Grupo"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Protocol"
+msgstr "Protocolo"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Media limit"
+msgstr "Límite do soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:786
+#, c-format
+msgid "Command"
+msgstr "Comando"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#, c-format
+msgid "(none)"
+msgstr "(ningún)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:816
+#, c-format
+msgid "Edit..."
+msgstr "Editar..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:824
+#, c-format
+msgid "Add..."
+msgstr "Engadir..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:840
+#, c-format
+msgid "Manage keys for digital signatures of packages"
+msgstr "Xestionar as claves das sinaturas dixitais dos paquetes"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#, c-format
+msgid "Medium"
+msgstr "Soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:853
+#, c-format
+msgid ""
+"_:cryptographic keys\n"
+"Keys"
+msgstr "Claves"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:876
+#, c-format
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "non se atopou o nome, a clave non existe no anel de claves de rpm!"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Add a key"
+msgstr "Engadir unha clave"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Choose a key to add to the medium %s"
+msgstr "Escolla unha clave para engadila ó soporte %s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:915
+#, c-format
+msgid "Remove a key"
+msgstr "Eliminar unha clave"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:916
+#, c-format
+msgid ""
+"Are you sure you want to remove the key %s from medium %s?\n"
+"(name of the key: %s)"
+msgstr ""
+"Está seguro de que desexa eliminar a clave %s do soporte %s?\n"
+"(nome da clave: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#, c-format
+msgid "Configure media"
+msgstr "Configura-lo soporte"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
+#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#, c-format
+msgid "/_File"
+msgstr "/_Ficheiro"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, c-format
+msgid "/_Update"
+msgstr "/_Actualizar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, c-format
+msgid "<control>U"
+msgstr "<control>U"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "/Add a specific _media mirror"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, fuzzy, c-format
+msgid "<control>M"
+msgstr "<control>U"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, c-format
+msgid "/_Add a custom medium"
+msgstr "/_Engadir un soporte personalizado"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, c-format
+msgid "<control>A"
+msgstr "<control>A"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, c-format
+msgid "/Close"
+msgstr "/Pechar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, c-format
+msgid "<control>W"
+msgstr "<control>W"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
+#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
+#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Options"
+msgstr "/_Opcións"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, c-format
+msgid "/_Global options"
+msgstr "/Opcións _globais"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, c-format
+msgid "<control>G"
+msgstr "<control>G"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, c-format
+msgid "/Manage _keys"
+msgstr "/_Xestionar as claves"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, c-format
+msgid "<control>K"
+msgstr "<control>K"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, c-format
+msgid "/_Parallel"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, c-format
+msgid "<control>P"
+msgstr "<control>P"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, c-format
+msgid "/P_roxy"
+msgstr "/P_roxy"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, c-format
+msgid "<control>R"
+msgstr "<control>R"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#, c-format
+msgid "/_Help"
+msgstr "/_Axuda"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#, c-format
+msgid "/_Report Bug"
+msgstr "/_Comunicar Erro"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#, c-format
+msgid "/_About..."
+msgstr "/_Acerca de..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#, c-format
+msgid "Rpmdrake"
+msgstr "Rpmdrake"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#, c-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr "Copyright (C) %s de Mandriva"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#, c-format
+msgid "Rpmdrake is the Mageia package management tool."
+msgstr "Rpmdrake é a ferramenta de xestión de paquetes de Mageia."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#, c-format
+msgid "Mageia"
+msgstr "Mageia"
+
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#, c-format
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr ""
+"Jesús Bravo Álvarez <jba@pobox.com>\n"
+"Leandro Regueiro <leandro.regueiro@gmail.com>\n"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#, c-format
+msgid "Enabled"
+msgstr "¿Habilitado"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1048
+#, c-format
+msgid "Updates"
+msgstr "Actualizacións"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1052
+#, c-format
+msgid "Type"
+msgstr "Tipo"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1079
+#, c-format
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+"Este soporte necesita ser actualizado para poder usalo. ¿Desexa actualizalo "
+"agora?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1105
+#, c-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Non foi posible actualizar o soporte, erros comunicados:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1143
+#, c-format
+msgid "Edit"
+msgstr "Editar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1191
+#, c-format
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+"A base de datos de paquetes está bloqueada. Por favor peche calquera\n"
+"outra aplicación que estea traballando ca base de datos de paquetes. \n"
+"¿Ten outro xestor de soportes noutro escritorio, ou está instalando\n"
+"paquetes agora mesmo?"
+
+#: ../Rpmdrake/formatting.pm:102
+#, c-format
+msgid "None (installed)"
+msgstr "Ningún (instalado)"
+
+#: ../Rpmdrake/formatting.pm:103
+#, c-format
+msgid "Unknown"
+msgstr "Descoñecido"
+
+#: ../Rpmdrake/formatting.pm:166
+#, c-format
+msgid "%s of additional disk space will be used."
+msgstr "vanse usar %s de espazo adicional no disco."
+
+#: ../Rpmdrake/formatting.pm:167
+#, c-format
+msgid "%s of disk space will be freed."
+msgstr "vanse liberar %s de espazo no disco."
+
+#: ../Rpmdrake/formatting.pm:172
+#, c-format
+msgid "%s of packages will be retrieved."
+msgstr "Vanse obter %s de paquetes."
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results"
+msgstr "Resultados da busca"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results (none)"
+msgstr "Resultados da busca (ningún)"
+
+#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/pkg.pm:188
+#, c-format
+msgid "(Not available)"
+msgstr "(Non dispoñible)"
+
+#: ../Rpmdrake/gui.pm:135
+#, c-format
+msgid "Security advisory"
+msgstr "Asesor de seguridade"
+
+#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "No description"
+msgstr "Sen descrición"
+
+#: ../Rpmdrake/gui.pm:159
+#, c-format
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:160
+#, c-format
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:162
+#, fuzzy, c-format
+msgid "This package is not free software"
+msgstr "Vaise instalar o seguinte paquete:"
+
+#: ../Rpmdrake/gui.pm:165
+#, c-format
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:169
+#, c-format
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:174
+#, c-format
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:175
+#, c-format
+msgid "This is an unofficial update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:179
+#, c-format
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:196
+#, fuzzy, c-format
+msgid "Notice: "
+msgstr "Importancia: "
+
+#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#, c-format
+msgid "Importance: "
+msgstr "Importancia: "
+
+#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#, c-format
+msgid "Reason for update: "
+msgstr "Razón para actualizar: "
+
+#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#, c-format
+msgid "Version: "
+msgstr "Versión: "
+
+#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#, c-format
+msgid "Currently installed version: "
+msgstr "Versión instalada: "
+
+#: ../Rpmdrake/gui.pm:213
+#, fuzzy, c-format
+msgid "Group: "
+msgstr "Grupo"
+
+#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#, c-format
+msgid "Architecture: "
+msgstr "Arquitectura: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "Size: "
+msgstr "Tamaño: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#, c-format
+msgid "Medium: "
+msgstr "Soporte: "
+
+#: ../Rpmdrake/gui.pm:229
+#, c-format
+msgid "New dependencies:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:242
+#, c-format
+msgid "All dependencies installed."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:265
+#, fuzzy, c-format
+msgid "URL: "
+msgstr "URL:"
+
+#: ../Rpmdrake/gui.pm:298
+#, c-format
+msgid "Details:"
+msgstr "Detalles:"
+
+#: ../Rpmdrake/gui.pm:302
+#, c-format
+msgid "Files:"
+msgstr "Ficheiros:"
+
+#: ../Rpmdrake/gui.pm:304
+#, c-format
+msgid "Changelog:"
+msgstr "Rexistro de cambios:"
+
+#: ../Rpmdrake/gui.pm:319
+#, c-format
+msgid "Files:\n"
+msgstr "Ficheiros:\n"
+
+#: ../Rpmdrake/gui.pm:324
+#, c-format
+msgid "Changelog:\n"
+msgstr "Rexistro de cambios:\n"
+
+#: ../Rpmdrake/gui.pm:334
+#, c-format
+msgid "Name: "
+msgstr "Nome: "
+
+#: ../Rpmdrake/gui.pm:344
+#, c-format
+msgid "Summary: "
+msgstr "Resumo: "
+
+#: ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "Description: "
+msgstr "Descrición: "
+
+#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../rpmdrake.pm:942
+#, c-format
+msgid "Warning"
+msgstr "Advertencia"
+
+#: ../Rpmdrake/gui.pm:363
+#, c-format
+msgid "The package \"%s\" was found."
+msgstr "Atopouse o paquete \"%s\"."
+
+#: ../Rpmdrake/gui.pm:364
+#, c-format
+msgid "However this package is not in the package list."
+msgstr "Ainda que este paquete non está na lista de paquetes."
+
+#: ../Rpmdrake/gui.pm:365
+#, c-format
+msgid "You may want to update your urpmi database."
+msgstr "Pode que desexe actualizar a súa base de datos de urpmi."
+
+#: ../Rpmdrake/gui.pm:367
+#, c-format
+msgid "Matching packages:"
+msgstr "Paquetes que coinciden:"
+
+#. -PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
+#. -PO: eg: "- rpmdrake (medium: "Main Release"
+#: ../Rpmdrake/gui.pm:372
+#, c-format
+msgid "- %s (medium: %s)"
+msgstr "- %s (soporte: %s)"
+
+#: ../Rpmdrake/gui.pm:563
+#, c-format
+msgid "Removing package %s would break your system"
+msgstr "Se se elimina o paquetes %s o sistema vaise estragar"
+
+#: ../Rpmdrake/gui.pm:568
+#, c-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+"O paquete \"%s\" está na lista de omitidos de urpmi.\n"
+"Desexa instalalo de tódolos xeitos?"
+
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#, c-format
+msgid ""
+"Rpmdrake or one of its priority dependencies needs to be updated first. "
+"Rpmdrake will then restart."
+msgstr ""
+"Precísase actualizar primeiro rpmdrake ou unha das súas dependencias "
+"prioritarias. Polo tanto vaise reiniciar rpmdrake."
+
+#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#, c-format
+msgid "More information on package..."
+msgstr "Máis información no paquete..."
+
+#: ../Rpmdrake/gui.pm:704
+#, c-format
+msgid "Please choose"
+msgstr "Escolla"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "The following package is needed:"
+msgstr "Necesítase o seguinte paquete:"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "One of the following packages is needed:"
+msgstr "Necesítase un dos seguintes paquetes:"
+
+#. -PO: Keep it short, this is gonna be on a button
+#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#, c-format
+msgid "More info"
+msgstr "Máis información"
+
+#: ../Rpmdrake/gui.pm:727
+#, c-format
+msgid "Information on packages"
+msgstr "Información nos paquetes"
+
+#: ../Rpmdrake/gui.pm:755
+#, c-format
+msgid "Checking dependencies of package..."
+msgstr "Verificando as dependencias do paquete..."
+
+#: ../Rpmdrake/gui.pm:760
+#, c-format
+msgid "Some additional packages need to be removed"
+msgstr "Cómpre eliminar algúns paquetes adicionais"
+
+#: ../Rpmdrake/gui.pm:771
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr ""
+"Por mor das súas dependencias, tamén cómpre eliminar o(s) seguinte(s) paquete"
+"(s):"
+
+#: ../Rpmdrake/gui.pm:776
+#, c-format
+msgid "Some packages cannot be removed"
+msgstr "Non se puideron eliminar algúns paquetes"
+
+#: ../Rpmdrake/gui.pm:777
+#, c-format
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"Se se eliminaran estes paquetes o sistema estropearíase, síntoo:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"Por mor das súas dependencias, deberíanse deseleccionar o(s)\n"
+"seguinte(s) paquete(s):\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:815
+#, c-format
+msgid "Additional packages needed"
+msgstr "Paquetes adicionais que cómpre instalar"
+
+#: ../Rpmdrake/gui.pm:816
+#, c-format
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"Para satisfacer as dependencias, tamén cómpre instalar o(s)\n"
+"seguinte(s) paquete(s):\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:824
+#, fuzzy, c-format
+msgid "Conflicting Packages"
+msgstr "Paquetes que coinciden:"
+
+#: ../Rpmdrake/gui.pm:838
+#, c-format
+msgid "%s (belongs to the skip list)"
+msgstr "%s (pertence á lista de omitir)"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "One package cannot be installed"
+msgstr "Non se puido instalar un paquete"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "Some packages cannot be installed"
+msgstr "Non se puideron instalar algúns paquetes"
+
+#: ../Rpmdrake/gui.pm:844
+#, c-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Síntoo, non se pode seleccionar o seguinte paquete:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:845
+#, c-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Síntoo, non se puideron seleccionar os seguintes paquetes:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Some packages need to be removed"
+msgstr "Cómpre eliminar algúns paquetes"
+
+#: ../Rpmdrake/gui.pm:897
+#, fuzzy, c-format
+msgid "Some packages are selected."
+msgstr "Están seleccionados demasiados paquetes"
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:906
+#, c-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr "Erro: semella que %s se montou coma de só lectura."
+
+#: ../Rpmdrake/gui.pm:910
+#, c-format
+msgid "You need to select some packages first."
+msgstr "Necesita seleccionar algún paquete primeiro."
+
+#: ../Rpmdrake/gui.pm:915
+#, c-format
+msgid "Too many packages are selected"
+msgstr "Están seleccionados demasiados paquetes"
+
+#: ../Rpmdrake/gui.pm:916
+#, c-format
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+"Advertencia: semella ser que está intentando engadir moitos\n"
+"paquetes e o seu sistema de ficheiros pode quedar sen espacio\n"
+"libre, durante ou despois da instalación; isto é especialmente\n"
+"perigoso e debería ser considerado con coidado.\n"
+"\n"
+"Desexa instalar tódolos paquetes seleccionados?"
+
+#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#, c-format
+msgid "Fatal error"
+msgstr "Erro moi grave"
+
+#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#, c-format
+msgid "A fatal error occurred: %s."
+msgstr "Ocorreu un erro moi grave: %s."
+
+#: ../Rpmdrake/gui.pm:980
+#, c-format
+msgid "Please wait, listing packages..."
+msgstr "Agarde, facendo a lista dos paquetes..."
+
+#: ../Rpmdrake/gui.pm:993
+#, c-format
+msgid "No update"
+msgstr "Sen actualización"
+
+#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
+#: ../rpmdrake:369 ../rpmdrake:396
+#, c-format
+msgid "All"
+msgstr "Todos"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#, c-format
+msgid "Upgradable"
+msgstr "Actualizable"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#, c-format
+msgid "Installed"
+msgstr "Instalado"
+
+#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#, c-format
+msgid "Addable"
+msgstr "Engadible"
+
+#: ../Rpmdrake/gui.pm:1044
+#, c-format
+msgid "Description not available for this package\n"
+msgstr "A descrición deste paquete non está dispoñible\n"
+
+#: ../Rpmdrake/icon.pm:36
+#, c-format
+msgid "Accessibility"
+msgstr "Accesibilidade"
+
+#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#, c-format
+msgid "Archiving"
+msgstr "Arquivado"
+
+#: ../Rpmdrake/icon.pm:38
+#, c-format
+msgid "Backup"
+msgstr "Copias de Seguridade"
+
+#: ../Rpmdrake/icon.pm:39
+#, c-format
+msgid "Cd burning"
+msgstr "Gravación de CDs"
+
+#: ../Rpmdrake/icon.pm:40
+#, c-format
+msgid "Compression"
+msgstr "Compresión"
+
+#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#, c-format
+msgid "Other"
+msgstr "Outros"
+
+#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Communications"
+msgstr "Comunicacións"
+
+#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#, c-format
+msgid "Bluetooth"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:45
+#, c-format
+msgid "Dial-Up"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:46
+#, c-format
+msgid "Fax"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:47
+#, c-format
+msgid "Mobile"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:48
+#, c-format
+msgid "Radio"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:49
+#, c-format
+msgid "Serial"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Telephony"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#, c-format
+msgid "Databases"
+msgstr "Bases de datos"
+
+#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Development"
+msgstr "Desenvolvemento"
+
+#: ../Rpmdrake/icon.pm:53
+#, c-format
+msgid "Basic"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:54
+#, c-format
+msgid "C"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:55
+#, c-format
+msgid "C++"
+msgstr "C++"
+
+#: ../Rpmdrake/icon.pm:56
+#, fuzzy, c-format
+msgid "C#"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:58
+#, c-format
+msgid "Erlang"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:59
+#, c-format
+msgid "GNOME and GTK+"
+msgstr "GNOME e GTK+"
+
+#: ../Rpmdrake/icon.pm:60
+#, c-format
+msgid "Java"
+msgstr "Java"
+
+#: ../Rpmdrake/icon.pm:61
+#, c-format
+msgid "KDE and Qt"
+msgstr "KDE e Qt"
+
+#: ../Rpmdrake/icon.pm:62
+#, c-format
+msgid "Kernel"
+msgstr "Kernel"
+
+#: ../Rpmdrake/icon.pm:63
+#, c-format
+msgid "OCaml"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:65
+#, c-format
+msgid "Perl"
+msgstr "Perl"
+
+#: ../Rpmdrake/icon.pm:66
+#, c-format
+msgid "PHP"
+msgstr "PHP"
+
+#: ../Rpmdrake/icon.pm:67
+#, c-format
+msgid "Python"
+msgstr "Python"
+
+#: ../Rpmdrake/icon.pm:68
+#, fuzzy, c-format
+msgid "Tools"
+msgstr "Utilidades de texto"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#, c-format
+msgid "X11"
+msgstr "X11"
+
+#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Documentation"
+msgstr "Documentación"
+
+#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#, c-format
+msgid "Editors"
+msgstr "Editores"
+
+#: ../Rpmdrake/icon.pm:72
+#, c-format
+msgid "Education"
+msgstr "Educación"
+
+#: ../Rpmdrake/icon.pm:73
+#, c-format
+msgid "Emulators"
+msgstr "Emuladores"
+
+#: ../Rpmdrake/icon.pm:74
+#, c-format
+msgid "File tools"
+msgstr "Utilidades de ficheiros"
+
+#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Games"
+msgstr "Xogos"
+
+#: ../Rpmdrake/icon.pm:76
+#, c-format
+msgid "Adventure"
+msgstr "Aventura"
+
+#: ../Rpmdrake/icon.pm:77
+#, c-format
+msgid "Arcade"
+msgstr "Arcade"
+
+#: ../Rpmdrake/icon.pm:78
+#, c-format
+msgid "Boards"
+msgstr "Taboleiros"
+
+#: ../Rpmdrake/icon.pm:79
+#, c-format
+msgid "Cards"
+msgstr "Cartas"
+
+#: ../Rpmdrake/icon.pm:81
+#, c-format
+msgid "Puzzles"
+msgstr "Crebacabezas"
+
+#: ../Rpmdrake/icon.pm:82
+#, c-format
+msgid "Shooter"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:83
+#, c-format
+msgid "Sports"
+msgstr "Deportes"
+
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Strategy"
+msgstr "Estratexia"
+
+#: ../Rpmdrake/icon.pm:85
+#, c-format
+msgid "Geography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:107
+#, c-format
+msgid "Graphical desktop"
+msgstr "Escritorio gráfico"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:89
+#, c-format
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+#: ../Rpmdrake/icon.pm:90
+#, c-format
+msgid "FVWM based"
+msgstr "Baseado en FVWM"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:93
+#, c-format
+msgid "GNOME"
+msgstr "GNOME"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:96
+#, c-format
+msgid "Icewm"
+msgstr "Icewm"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:99
+#, c-format
+msgid "KDE"
+msgstr "KDE"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:103
+#, c-format
+msgid "Sawfish"
+msgstr "Sawfish"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:106
+#, c-format
+msgid "WindowMaker"
+msgstr "WindowMaker"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:109
+#, c-format
+msgid "Xfce"
+msgstr "Xfce"
+
+#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:116
+#, c-format
+msgid "Graphics"
+msgstr "Gráficos"
+
+#: ../Rpmdrake/icon.pm:111
+#, c-format
+msgid "3D"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:114
+#, c-format
+msgid "Photography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:115
+#, fuzzy, c-format
+msgid "Scanning"
+msgstr "Advertencia"
+
+#: ../Rpmdrake/icon.pm:116
+#, fuzzy, c-format
+msgid "Viewers"
+msgstr "Ver"
+
+#: ../Rpmdrake/icon.pm:117
+#, c-format
+msgid "Monitoring"
+msgstr "Monitorización"
+
+#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#, c-format
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Video"
+msgstr "Video"
+
+#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#, c-format
+msgid "Networking"
+msgstr "Rede"
+
+#: ../Rpmdrake/icon.pm:121
+#, c-format
+msgid "Chat"
+msgstr "Chat"
+
+#: ../Rpmdrake/icon.pm:122
+#, c-format
+msgid "File transfer"
+msgstr "Transferencia de ficheiros"
+
+#: ../Rpmdrake/icon.pm:123
+#, c-format
+msgid "IRC"
+msgstr "IRC"
+
+#: ../Rpmdrake/icon.pm:124
+#, c-format
+msgid "Instant messaging"
+msgstr "Mensaxería instantánea"
+
+#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#, c-format
+msgid "Mail"
+msgstr "Correo-e"
+
+#: ../Rpmdrake/icon.pm:126
+#, c-format
+msgid "News"
+msgstr "Novas"
+
+#: ../Rpmdrake/icon.pm:128
+#, c-format
+msgid "Remote access"
+msgstr "Acceso Remoto"
+
+#: ../Rpmdrake/icon.pm:129
+#, c-format
+msgid "WWW"
+msgstr "WWW"
+
+#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Office"
+msgstr "Oficina"
+
+#: ../Rpmdrake/icon.pm:131
+#, c-format
+msgid "Dictionary"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:132
+#, fuzzy, c-format
+msgid "Finance"
+msgstr "Francia"
+
+#: ../Rpmdrake/icon.pm:133
+#, fuzzy, c-format
+msgid "Management"
+msgstr "Xestión de Software"
+
+#: ../Rpmdrake/icon.pm:134
+#, c-format
+msgid "Organizer"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:136
+#, c-format
+msgid "Spreadsheet"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:137
+#, c-format
+msgid "Suite"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Word processor"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:139
+#, c-format
+msgid "Public Keys"
+msgstr "Claves Públicas"
+
+#: ../Rpmdrake/icon.pm:140
+#, c-format
+msgid "Publishing"
+msgstr "Publicación"
+
+#: ../Rpmdrake/icon.pm:141
+#, fuzzy, c-format
+msgid "Security"
+msgstr "Actualizacións de seguridade"
+
+#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Sciences"
+msgstr "Ciencias"
+
+#: ../Rpmdrake/icon.pm:143
+#, c-format
+msgid "Astronomy"
+msgstr "Astronomía"
+
+#: ../Rpmdrake/icon.pm:144
+#, c-format
+msgid "Biology"
+msgstr "Bioloxía"
+
+#: ../Rpmdrake/icon.pm:145
+#, c-format
+msgid "Chemistry"
+msgstr "Química"
+
+#: ../Rpmdrake/icon.pm:146
+#, c-format
+msgid "Computer science"
+msgstr "Informática"
+
+#: ../Rpmdrake/icon.pm:147
+#, c-format
+msgid "Geosciences"
+msgstr "Ciencias da Terra"
+
+#: ../Rpmdrake/icon.pm:148
+#, c-format
+msgid "Mathematics"
+msgstr "Matemáticas"
+
+#: ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Physics"
+msgstr "Física"
+
+#: ../Rpmdrake/icon.pm:151
+#, c-format
+msgid "Shells"
+msgstr "Shells"
+
+#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:158
+#, c-format
+msgid "Sound"
+msgstr "Son"
+
+#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#, c-format
+msgid "Editors and Converters"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:154
+#, c-format
+msgid "Midi"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:155
+#, c-format
+msgid "Mixers"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#, c-format
+msgid "Players"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Utilities"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:158
+#, fuzzy, c-format
+msgid "Visualization"
+msgstr "Internacionalización"
+
+#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#, c-format
+msgid "System"
+msgstr "Sistema"
+
+#: ../Rpmdrake/icon.pm:160
+#, c-format
+msgid "Base"
+msgstr "Base"
+
+#: ../Rpmdrake/icon.pm:161
+#, c-format
+msgid "Cluster"
+msgstr "Cluster"
+
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#, c-format
+msgid "Configuration"
+msgstr "Configuración"
+
+#: ../Rpmdrake/icon.pm:163
+#, c-format
+msgid "Boot and Init"
+msgstr "Arrinque e Inicio"
+
+#: ../Rpmdrake/icon.pm:164
+#, c-format
+msgid "Hardware"
+msgstr "Hardware"
+
+#: ../Rpmdrake/icon.pm:167
+#, c-format
+msgid "Packaging"
+msgstr "Empaquetado"
+
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#, c-format
+msgid "Printing"
+msgstr "Impresión"
+
+#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "Fonts"
+msgstr "Fontes"
+
+#: ../Rpmdrake/icon.pm:170
+#, c-format
+msgid "Console"
+msgstr "Consola"
+
+#: ../Rpmdrake/icon.pm:171
+#, c-format
+msgid "True type"
+msgstr "True type"
+
+#: ../Rpmdrake/icon.pm:172
+#, c-format
+msgid "Type1"
+msgstr "Type1"
+
+#: ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "X11 bitmap"
+msgstr "Mapa de bits X11"
+
+#: ../Rpmdrake/icon.pm:174
+#, c-format
+msgid "Internationalization"
+msgstr "Internacionalización"
+
+#: ../Rpmdrake/icon.pm:175
+#, c-format
+msgid "Kernel and hardware"
+msgstr "Kernel e hardware"
+
+#: ../Rpmdrake/icon.pm:176
+#, c-format
+msgid "Libraries"
+msgstr "Librarías"
+
+#: ../Rpmdrake/icon.pm:178
+#, c-format
+msgid "Servers"
+msgstr "Servidores"
+
+#: ../Rpmdrake/icon.pm:182
+#, c-format
+msgid "Terminals"
+msgstr "Terminais"
+
+#: ../Rpmdrake/icon.pm:183
+#, c-format
+msgid "Text tools"
+msgstr "Utilidades de texto"
+
+#: ../Rpmdrake/icon.pm:184
+#, c-format
+msgid "Toys"
+msgstr "Entretementos"
+
+#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Workstation"
+msgstr "Estación de traballo"
+
+#: ../Rpmdrake/icon.pm:193
+#, c-format
+msgid "Console Tools"
+msgstr "Ferramentas de Consola"
+
+#: ../Rpmdrake/icon.pm:195
+#, c-format
+msgid "Game station"
+msgstr "Estación de xogos"
+
+#: ../Rpmdrake/icon.pm:196
+#, c-format
+msgid "Internet station"
+msgstr "Estación de Internet"
+
+#: ../Rpmdrake/icon.pm:197
+#, c-format
+msgid "Multimedia station"
+msgstr "Estación multimedia"
+
+#: ../Rpmdrake/icon.pm:198
+#, c-format
+msgid "Network Computer (client)"
+msgstr "Ordenador de Rede (cliente)"
+
+#: ../Rpmdrake/icon.pm:199
+#, c-format
+msgid "Office Workstation"
+msgstr "Estación de Traballo de Oficina"
+
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Scientific Workstation"
+msgstr "Estación de Traballo Científica"
+
+#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Graphical Environment"
+msgstr "Ambiente Gráfico"
+
+#: ../Rpmdrake/icon.pm:203
+#, c-format
+msgid "GNOME Workstation"
+msgstr "Estación de Traballo GNOME"
+
+#: ../Rpmdrake/icon.pm:204
+#, c-format
+msgid "IceWm Desktop"
+msgstr "Escritorio IceWm"
+
+#: ../Rpmdrake/icon.pm:205
+#, c-format
+msgid "KDE Workstation"
+msgstr "Estación de Traballo KDE"
+
+#: ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Other Graphical Desktops"
+msgstr "Outros Escritorios Gráficos"
+
+#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Server"
+msgstr "Servidor"
+
+#: ../Rpmdrake/icon.pm:211
+#, c-format
+msgid "DNS/NIS"
+msgstr "DNS/NIS"
+
+#: ../Rpmdrake/icon.pm:212
+#, c-format
+msgid "Database"
+msgstr "Bases de datos"
+
+#: ../Rpmdrake/icon.pm:213
+#, c-format
+msgid "Firewall/Router"
+msgstr "Cortalumes/Encamiñador"
+
+#: ../Rpmdrake/icon.pm:215
+#, c-format
+msgid "Mail/Groupware/News"
+msgstr "Correo/Groupware/Novas"
+
+#: ../Rpmdrake/icon.pm:216
+#, c-format
+msgid "Network Computer server"
+msgstr "Servidor de Redes de Ordenadores"
+
+#: ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Web/FTP"
+msgstr "Web/FTP"
+
+#: ../Rpmdrake/init.pm:49
+#, c-format
+msgid "Usage: %s [OPTION]..."
+msgstr "Uso: %s [OPCIÓNS]..."
+
+#: ../Rpmdrake/init.pm:50
+#, c-format
+msgid "  --auto                 assume default answers to questions"
+msgstr ""
+"  --auto                 asume a resposta predeterminada para as preguntas"
+
+#: ../Rpmdrake/init.pm:51
+#, c-format
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+"  --changelog-first      amosa o rexistro de cambios (changelog) antes da "
+"lista de ficheiros na ventá de descrición"
+
+#: ../Rpmdrake/init.pm:52
+#, c-format
+msgid "  --media=medium1,..     limit to given media"
+msgstr "  --media=soporte1,..    limitar ó soporte dado"
+
+#: ../Rpmdrake/init.pm:53
+#, c-format
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+"  --merge-all-rpmnew     intentar fusionar tódolos ficheiros .rpmnew/."
+"rpmsave atopados"
+
+#: ../Rpmdrake/init.pm:54
+#, c-format
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+"  --mode=MODO            establece o modo (install (predeterminado), remove, "
+"update)"
+
+#: ../Rpmdrake/init.pm:55
+#, c-format
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+"  --justdb               actualiza a base de datos, pero non modifica o "
+"sistema de ficheiros"
+
+#: ../Rpmdrake/init.pm:56
+#, c-format
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+"  --no-confirmation      non facer a primeira pregunta de confirmación no "
+"modo de actualización"
+
+#: ../Rpmdrake/init.pm:57
+#, c-format
+msgid "  --no-media-update      don't update media at startup"
+msgstr "  --no-media-update      non actualizar os soportes ó iniciar"
+
+#: ../Rpmdrake/init.pm:58
+#, c-format
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr "  --no-verify-rpm        non verificar as sinaturas dos paquetes"
+
+#: ../Rpmdrake/init.pm:59
+#, c-format
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:60
+#, c-format
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr "  --rpm-root=path        usa outra raíz para a instalación de rpm"
+
+#: ../Rpmdrake/init.pm:61
+#, c-format
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr ""
+"  --urpmi-root           usar outra raíz para a instalación de rpms e para a "
+"base de datos de urpmi"
+
+#: ../Rpmdrake/init.pm:62
+#, c-format
+msgid "  --run-as-root          force to run as root"
+msgstr "  --run-as-root          forza a execución coma root"
+
+#: ../Rpmdrake/init.pm:63
+#, c-format
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr "  --search=pkg           executa unha busca para \"pkg\""
+
+#: ../Rpmdrake/init.pm:64
+#, c-format
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+"  --test                 só verifica se se pode rematar correctamente a "
+"instalación"
+
+#: ../Rpmdrake/init.pm:65
+#, c-format
+msgid "  --version              print this tool's version number\n"
+msgstr "  --version              amosa o número de versión desta ferramenta\n"
+
+#: ../Rpmdrake/init.pm:156
+#, c-format
+msgid "Running in user mode"
+msgstr "Executando en modo usuario"
+
+#: ../Rpmdrake/init.pm:157
+#, c-format
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"Está executando o programa coma un usuario normal.\n"
+"Non poderá facer modificacións no sistema,\n"
+"pero ainda poderá explora-la base de datos existente."
+
+#: ../Rpmdrake/pkg.pm:126
+#, c-format
+msgid "Getting information from XML meta-data from %s..."
+msgstr "Obtendo información dos metadatos XML dende %s..."
+
+#: ../Rpmdrake/pkg.pm:130
+#, c-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr "Obtendo '%s' dos metadatos XML..."
+
+#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../rpmdrake.pm:594
+#, c-format
+msgid "Please wait"
+msgstr "Por favor, agarde"
+
+#: ../Rpmdrake/pkg.pm:147
+#, c-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+"Non hai información xml do soporte \"%s\", só resultado parcial para o "
+"paquete %s"
+
+#: ../Rpmdrake/pkg.pm:149
+#, c-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+"Non hai información xml do soporte \"%s\", non foi posible devolver ningún "
+"resultado para o paquete %s"
+
+#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#, c-format
+msgid "Downloading package `%s'..."
+msgstr "Descargando o paquete `%s'..."
+
+#: ../Rpmdrake/pkg.pm:211
+#, c-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr "        %s%%/%s completado, ETA = %s, velocidade = %s"
+
+#: ../Rpmdrake/pkg.pm:212
+#, c-format
+msgid "        %s%% completed, speed = %s"
+msgstr "        %s%% completado, velocidade = %s"
+
+#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Confirmation"
+msgstr "Confirmación"
+
+#: ../Rpmdrake/pkg.pm:251
+#, c-format
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Necesito contactar co sitio espello para conseguir as últimas actualizacións "
+"dos paquetes.\n"
+"Verifique que a súa rede está activada.\n"
+"\n"
+"Desexa continuar?"
+
+#: ../Rpmdrake/pkg.pm:255
+#, c-format
+msgid "Do not ask me next time"
+msgstr "Non preguntarme a vindeira vez"
+
+#: ../Rpmdrake/pkg.pm:264
+#, c-format
+msgid "Already existing update media"
+msgstr "O soporte de actualización xa existe"
+
+#: ../Rpmdrake/pkg.pm:265
+#, c-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"Ten como mínimo un soporte de actualización configurado,\n"
+" pero todos eles están deshabilitados. Debe executar o\n"
+" Xestor de Soportes de Software para activar como mínimo\n"
+" un (márqueo na columna \"%s\").\n"
+"\n"
+"Despois, reinicie \"%s\"."
+
+#: ../Rpmdrake/pkg.pm:275
+#, c-format
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+"Non configurou ningún soporte de actualización. MageiaUpdate non pode operar "
+"sen ningún soporte de actualización."
+
+#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#, c-format
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Cómpre contactar co sitio web de Mageia para consegui-la lista de sitios "
+"espello.\n"
+"Verifique que a rede está activada e funcionando.\n"
+"Desexa continuar?"
+
+#: ../Rpmdrake/pkg.pm:283
+#, c-format
+msgid "How to choose manually your mirror"
+msgstr "Cómo escoller manualmente un espello"
+
+#: ../Rpmdrake/pkg.pm:284
+#, c-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"Debe escoller tamén o sitio espello desexado a man: para facelo,\n"
+"execute o Xestor de Soportes de Software, e despois engada\n"
+"un soporte `Actualizacións de Seguridade'.\n"
+"\n"
+"Despois, reinicie %s."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#, c-format
+msgid "Package installation..."
+msgstr "Instalación de paquetes..."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#, c-format
+msgid "Initializing..."
+msgstr "Iniciando..."
+
+#: ../Rpmdrake/pkg.pm:452
+#, c-format
+msgid "Reading updates description"
+msgstr "Lendo as descricións das actualizacións"
+
+#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#, c-format
+msgid "Please wait, finding available packages..."
+msgstr "Por favor agarde, buscando os paquetes dispoñibles..."
+
+#: ../Rpmdrake/pkg.pm:464
+#, c-format
+msgid "Please wait, listing base packages..."
+msgstr "Agarde, listando os paquetes básicos..."
+
+#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#, c-format
+msgid "Error"
+msgstr "Erro"
+
+#: ../Rpmdrake/pkg.pm:477
+#, c-format
+msgid "Please wait, finding installed packages..."
+msgstr "Agarde, buscando os paquetes instalados..."
+
+#: ../Rpmdrake/pkg.pm:594
+#, c-format
+msgid "Upgrade information"
+msgstr "Información de actualización"
+
+#: ../Rpmdrake/pkg.pm:596
+#, c-format
+msgid "These packages come with upgrade information"
+msgstr "Estes paquetes veñen con información de actualización"
+
+#: ../Rpmdrake/pkg.pm:604
+#, c-format
+msgid "Upgrade information about this package"
+msgstr "Información de actualización deste paquete"
+
+#: ../Rpmdrake/pkg.pm:607
+#, c-format
+msgid "Upgrade information about package %s"
+msgstr "Información de actualización do paquete %s"
+
+#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#, c-format
+msgid "All requested packages were installed successfully."
+msgstr "Tódolos paquetes solicitados foron instalados con éxito."
+
+#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#, c-format
+msgid "Problem during installation"
+msgstr "Problema durante a instalación"
+
+#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#, c-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"Houbo un problema durante a instalación:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:653
+#, c-format
+msgid "Installation failed"
+msgstr "Fallo na instalación"
+
+#: ../Rpmdrake/pkg.pm:676
+#, c-format
+msgid "Checking validity of requested packages..."
+msgstr "Verificando a validez dos paquetes solicitados..."
+
+#: ../Rpmdrake/pkg.pm:695
+#, c-format
+msgid "Unable to get source packages."
+msgstr "Non é posible consegui-los paquetes fonte."
+
+#: ../Rpmdrake/pkg.pm:696
+#, c-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "Non é posible consegui-los paquetes fonte, síntoo. %s"
+
+#: ../Rpmdrake/pkg.pm:697
+#, c-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"Erro(s) comunicado(s):\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:715
+#, c-format
+msgid "The following package is going to be installed:"
+msgid_plural "The following %d packages are going to be installed:"
+msgstr[0] "Vaise instalar o seguinte paquete:"
+msgstr[1] "Vanse instalar os seguintes %d paquetes:"
+
+#: ../Rpmdrake/pkg.pm:721
+#, c-format
+msgid "Remove one package?"
+msgid_plural "Remove %d packages?"
+msgstr[0] "Eliminar un paquete?"
+msgstr[1] "Eliminar %d paquetes?"
+
+#: ../Rpmdrake/pkg.pm:723
+#, c-format
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr "Cómpre eliminar o seguinte paquete para actualizar outros:"
+
+#: ../Rpmdrake/pkg.pm:724
+#, c-format
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+"Teñen que eliminarse os seguintes paquetes para poder actualizar outros:"
+
+#: ../Rpmdrake/pkg.pm:728
+#, c-format
+msgid "Is it ok to continue?"
+msgstr "Desexa continuar?"
+
+#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#, fuzzy, c-format
+msgid "Orphan packages"
+msgstr "Metapaquetes"
+
+#: ../Rpmdrake/pkg.pm:744
+#, fuzzy, c-format
+msgid "The following orphan package will be removed."
+msgid_plural "The following orphan packages will be removed."
+msgstr[0] "Necesítase o seguinte paquete:"
+msgstr[1] "Necesítase o seguinte paquete:"
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation..."
+msgstr "Preparando a instalación dos paquetes..."
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation transaction..."
+msgstr "Preparando a transacción de instalación do paquete..."
+
+#: ../Rpmdrake/pkg.pm:763
+#, c-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr "Instalando o paquete `%s' (%s/%s)..."
+
+#: ../Rpmdrake/pkg.pm:764
+#, c-format
+msgid "Total: %s/%s"
+msgstr "Total: %s/%s"
+
+#: ../Rpmdrake/pkg.pm:827
+#, c-format
+msgid "Change medium"
+msgstr "Cambia-lo soporte"
+
+#: ../Rpmdrake/pkg.pm:828
+#, c-format
+msgid "Please insert the medium named \"%s\""
+msgstr "Insira o soporte chamado \"%s\""
+
+#: ../Rpmdrake/pkg.pm:832
+#, c-format
+msgid "Verifying package signatures..."
+msgstr "Verificando as sinaturas dos paquetes..."
+
+#: ../Rpmdrake/pkg.pm:855
+#, c-format
+msgid "%d installation transactions failed"
+msgstr "fallaron %d transaccións de instalación"
+
+#: ../Rpmdrake/pkg.pm:869
+#, c-format
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr "Erro sen solución: non se atopou o paquete para a súa instalación."
+
+#: ../Rpmdrake/pkg.pm:872
+#, c-format
+msgid "Inspecting configuration files..."
+msgstr "Examinando os ficheiros de configuración..."
+
+#: ../Rpmdrake/pkg.pm:880
+#, c-format
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"A instalación rematou; todo se instalou correctamente.\n"
+"\n"
+"Creáronse algúns ficheiros de configuración coma `.rpmnew' ou\n"
+"`.rpmsave', agora pode examinar algún deles para tomar medidas:"
+
+#: ../Rpmdrake/pkg.pm:886
+#, c-format
+msgid "Looking for \"README\" files..."
+msgstr "Buscando ficheiros \"README\"..."
+
+#: ../Rpmdrake/pkg.pm:919
+#, c-format
+msgid "RPM transaction %d/%d"
+msgstr "Transacción RPM %d/%d"
+
+#: ../Rpmdrake/pkg.pm:920
+#, c-format
+msgid "Unselect all"
+msgstr "Deseleccionar todo"
+
+#: ../Rpmdrake/pkg.pm:921
+#, c-format
+msgid "Details"
+msgstr "Detalles"
+
+#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#, c-format
+msgid "Please wait, removing packages..."
+msgstr "Agarde, eliminando paquetes..."
+
+#: ../Rpmdrake/pkg.pm:977
+#, c-format
+msgid "Problem during removal"
+msgstr "Problema durante a eliminación"
+
+#: ../Rpmdrake/pkg.pm:978
+#, c-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"Houbo un problema durante a eliminación dos paquetes:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:985
+#, c-format
+msgid "Information"
+msgstr "Información"
+
+#: ../Rpmdrake/rpmnew.pm:82
+#, c-format
+msgid "Inspecting %s"
+msgstr "Examinando %s"
+
+#: ../Rpmdrake/rpmnew.pm:107
+#, c-format
+msgid "Changes:"
+msgstr "Cambios:"
+
+#: ../Rpmdrake/rpmnew.pm:116
+#, c-format
+msgid ""
+"You can either remove the .%s file, use it as main file or do nothing. If "
+"unsure, keep the current file (\"%s\")."
+msgstr ""
+"Pode eliminar o ficheiro .%s, usalo coma ficheiro principal ou non facer "
+"nada. Se non está seguro, manteña o ficheiro actual (\"%s\")."
+
+#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#, c-format
+msgid "Remove .%s"
+msgstr "Eliminar .%s"
+
+#: ../Rpmdrake/rpmnew.pm:126
+#, c-format
+msgid "Use .%s as main file"
+msgstr "Usar .%s coma ficheiro principal"
+
+#: ../Rpmdrake/rpmnew.pm:130
+#, c-format
+msgid "Do nothing"
+msgstr "Non facer nada"
+
+#: ../Rpmdrake/rpmnew.pm:158
+#, c-format
+msgid "Installation finished"
+msgstr "Instalación rematada"
+
+#: ../Rpmdrake/rpmnew.pm:173
+#, c-format
+msgid "Inspect..."
+msgstr "Examinar..."
+
+#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#, c-format
+msgid "Please wait, searching..."
+msgstr "Agarde, buscando..."
+
+#: ../gurpmi.addmedia:103
+#, c-format
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr "<url> incorrecto (para un directorio local, a ruta debe ser absoluta)"
+
+#: ../gurpmi.addmedia:117
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"Desexa continuar?"
+
+#: ../gurpmi.addmedia:121
+#, fuzzy, c-format
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"Está a piques de engadir un novo soporte de paquete, %s.\n"
+"Isto significa que poderá engadir novos paquetes de software\n"
+"ó seu sistema dende este novo soporte."
+
+#: ../gurpmi.addmedia:125
+#, c-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"Está a piques de engadir un novo soporte de paquete, %s.\n"
+"Isto significa que poderá engadir novos paquetes de software\n"
+"ó seu sistema dende este novo soporte."
+
+#: ../gurpmi.addmedia:128
+#, c-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+"Está a piques de engadir un novo soporte de paquetes, `%s'.\n"
+"Isto significa que poderá engadir novos paquetes de software\n"
+"ó seu sistema dende este novo soporte."
+
+#: ../gurpmi.addmedia:152
+#, fuzzy, c-format
+msgid "Successfully added media."
+msgstr "O soporte %s engadiuse con éxito."
+
+#: ../gurpmi.addmedia:154
+#, c-format
+msgid "Successfully added media %s."
+msgstr "O soporte %s engadiuse con éxito."
+
+#: ../gurpmi.addmedia:155
+#, c-format
+msgid "Successfully added medium `%s'."
+msgstr "O soporte `%s' engadiuse con éxito."
+
+#: ../rpmdrake:107
+#, c-format
+msgid "Stop"
+msgstr "Parar"
+
+#: ../rpmdrake:141
+#, c-format
+msgid "no xml-info available for medium \"%s\""
+msgstr "non hai ningún xml-info dispoñible para o soporte \"%s\""
+
+#: ../rpmdrake:157 ../rpmdrake:185
+#, c-format
+msgid "Search aborted"
+msgstr "Busca abortada"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Selected"
+msgstr "Seleccionado"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Not selected"
+msgstr "Non seleccionado"
+
+#: ../rpmdrake:211
+#, fuzzy, c-format
+msgid "No search results."
+msgstr "Resultados da busca"
+
+#: ../rpmdrake:212
+#, c-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+
+#: ../rpmdrake:246
+#, c-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr "Seleccionado: %s / Espacio libre no disco: %s"
+
+#: ../rpmdrake:286
+#, c-format
+msgid "Package"
+msgstr "Paquete"
+
+#. -PO: "Architecture" but to be kept *small* !!!
+#: ../rpmdrake:300
+#, c-format
+msgid "Arch."
+msgstr "Arq."
+
+#. -PO: "Status" should be kept *small* !!!
+#: ../rpmdrake:328
+#, c-format
+msgid "Status"
+msgstr "Estado"
+
+#: ../rpmdrake:371
+#, c-format
+msgid "Not installed"
+msgstr "Non instalado"
+
+#: ../rpmdrake:386
+#, c-format
+msgid "All packages, alphabetical"
+msgstr "Tódolos paquetes, por orde alfabética"
+
+#: ../rpmdrake:387
+#, c-format
+msgid "All packages, by group"
+msgstr "Tódolos paquetes, por grupo"
+
+#: ../rpmdrake:388
+#, c-format
+msgid "Leaves only, sorted by install date"
+msgstr ""
+
+#: ../rpmdrake:389
+#, c-format
+msgid "All packages, by update availability"
+msgstr "Tódolos paquetes, por dispoñibilidade da actualización"
+
+#: ../rpmdrake:390
+#, c-format
+msgid "All packages, by selection state"
+msgstr "Tódolos paquetes, por estado da selección"
+
+#: ../rpmdrake:391
+#, c-format
+msgid "All packages, by size"
+msgstr "Tódolos paquetes, por tamaño"
+
+#: ../rpmdrake:392
+#, c-format
+msgid "All packages, by medium repository"
+msgstr "Tódolos paquetes, por soporte"
+
+#. -PO: Backports media are newer but less-tested versions of some packages in main
+#. -PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
+#: ../rpmdrake:400
+#, c-format
+msgid "Backports"
+msgstr ""
+
+#: ../rpmdrake:401
+#, c-format
+msgid "Meta packages"
+msgstr "Metapaquetes"
+
+#: ../rpmdrake:402
+#, c-format
+msgid "Packages with GUI"
+msgstr "Paquetes con GUI"
+
+#: ../rpmdrake:403
+#, c-format
+msgid "All updates"
+msgstr "Tódalas actualizacións"
+
+#: ../rpmdrake:404
+#, c-format
+msgid "Security updates"
+msgstr "Actualizacións de seguridade"
+
+#: ../rpmdrake:405
+#, c-format
+msgid "Bugfixes updates"
+msgstr "Actualizacións de correccións de erros"
+
+#: ../rpmdrake:406
+#, c-format
+msgid "General updates"
+msgstr "Actualizacións xerais"
+
+#: ../rpmdrake:429
+#, c-format
+msgid "View"
+msgstr "Ver"
+
+#: ../rpmdrake:457
+#, c-format
+msgid "Filter"
+msgstr "Filtro"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in names"
+msgstr "nos nomes"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in descriptions"
+msgstr "nas descricións"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in summaries"
+msgstr "nos resumos"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in file names"
+msgstr "nos nomes dos ficheiros"
+
+#: ../rpmdrake:534
+#, c-format
+msgid "/_Select dependencies without asking"
+msgstr "/_Seleccionar as dependencias sen preguntar"
+
+#: ../rpmdrake:537
+#, c-format
+msgid "Clear download cache after successful install"
+msgstr ""
+
+#: ../rpmdrake:538
+#, c-format
+msgid "/_Compute updates on startup"
+msgstr ""
+
+#: ../rpmdrake:539
+#, c-format
+msgid "Search in _full package names"
+msgstr ""
+
+#: ../rpmdrake:540
+#, c-format
+msgid "Use _regular expressions in searches"
+msgstr ""
+
+#: ../rpmdrake:546
+#, c-format
+msgid "/_Update media"
+msgstr "/_Actualiza-lo soporte"
+
+#: ../rpmdrake:551
+#, c-format
+msgid "/_Reset the selection"
+msgstr "/_Deseleccionar"
+
+#: ../rpmdrake:555
+#, c-format
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: ../rpmdrake:571
+#, c-format
+msgid "/Reload the _packages list"
+msgstr "/Recarga-la lista de _paquetes"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "/_Quit"
+msgstr "/_Saír"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "<control>Q"
+msgstr "<control>Q"
+
+#: ../rpmdrake:591
+#, c-format
+msgid "/_Media Manager"
+msgstr "/_Xestor de Soportes"
+
+#: ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Show automatically selected packages"
+msgstr "/Amosa-los paquetes _seleccionados automáticamente"
+
+#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#, c-format
+msgid "/_View"
+msgstr "/Video"
+
+#: ../rpmdrake:692
+#, c-format
+msgid "Find:"
+msgstr "Atopar:"
+
+#: ../rpmdrake:696
+#, c-format
+msgid "Please type in the string you want to search then press the <enter> key"
+msgstr ""
+
+#: ../rpmdrake:726
+#, c-format
+msgid "Apply"
+msgstr "Aplicar"
+
+#: ../rpmdrake:745
+#, c-format
+msgid "Quick Introduction"
+msgstr "Introducción Rápida"
+
+#: ../rpmdrake:746
+#, c-format
+msgid "You can browse the packages through the categories tree on the left."
+msgstr ""
+"Pode explorar os paquetes a través da árbore de categorías da esquerda."
+
+#: ../rpmdrake:747
+#, c-format
+msgid ""
+"You can view information about a package by clicking on it on the right list."
+msgstr ""
+"Pode ver a información sobre un paquete premendo nel na lista da dereita."
+
+#: ../rpmdrake:748
+#, c-format
+msgid "To install, update or remove a package, just click on its \"checkbox\"."
+msgstr ""
+"Para instalar, actualizar ou eliminar un paquete, só ten que premer no seu "
+"\"cadro de verificación\"."
+
+#: ../rpmdrake:793
+#, c-format
+msgid "rpmdrake is already running (pid: %s)"
+msgstr ""
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Software Update"
+msgstr "Actualización de Software"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Mageia Update"
+msgstr "Actualización de Mageia"
+
+#: ../rpmdrake.pm:148
+#, c-format
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr "Introduza as súas credenciais para acceder ó proxy\n"
+
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "User name:"
+msgstr "Nome de usuario:"
+
+#: ../rpmdrake.pm:234
+#, c-format
+msgid "Software Packages Removal"
+msgstr "Eliminación de Paquetes de Software"
+
+#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Packages Update"
+msgstr "Actualización de Paquetes de Software"
+
+#: ../rpmdrake.pm:236
+#, c-format
+msgid "Software Packages Installation"
+msgstr "Instalación de Paquetes de Software"
+
+#: ../rpmdrake.pm:284
+#, c-format
+msgid "No"
+msgstr "Non"
+
+#: ../rpmdrake.pm:288
+#, c-format
+msgid "Yes"
+msgstr "Si"
+
+#: ../rpmdrake.pm:340
+#, c-format
+msgid "Info..."
+msgstr "Información..."
+
+#: ../rpmdrake.pm:465
+#, c-format
+msgid "Austria"
+msgstr "Austria"
+
+#: ../rpmdrake.pm:466
+#, c-format
+msgid "Australia"
+msgstr "Australia"
+
+#: ../rpmdrake.pm:467
+#, c-format
+msgid "Belgium"
+msgstr "Bélxica"
+
+#: ../rpmdrake.pm:468
+#, c-format
+msgid "Brazil"
+msgstr "Brasil"
+
+#: ../rpmdrake.pm:469
+#, c-format
+msgid "Canada"
+msgstr "Canadá"
+
+#: ../rpmdrake.pm:470
+#, c-format
+msgid "Switzerland"
+msgstr "Suiza"
+
+#: ../rpmdrake.pm:471
+#, c-format
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: ../rpmdrake.pm:472
+#, c-format
+msgid "Czech Republic"
+msgstr "República Checa"
+
+#: ../rpmdrake.pm:473
+#, c-format
+msgid "Germany"
+msgstr "Alemaña"
+
+#: ../rpmdrake.pm:474
+#, c-format
+msgid "Danmark"
+msgstr "Dinamarca"
+
+#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#, c-format
+msgid "Greece"
+msgstr "Grecia"
+
+#: ../rpmdrake.pm:476
+#, c-format
+msgid "Spain"
+msgstr "España"
+
+#: ../rpmdrake.pm:477
+#, c-format
+msgid "Finland"
+msgstr "Finlandia"
+
+#: ../rpmdrake.pm:478
+#, c-format
+msgid "France"
+msgstr "Francia"
+
+#: ../rpmdrake.pm:480
+#, c-format
+msgid "Hungary"
+msgstr "Hungria"
+
+#: ../rpmdrake.pm:481
+#, c-format
+msgid "Israel"
+msgstr "Israel"
+
+#: ../rpmdrake.pm:482
+#, c-format
+msgid "Italy"
+msgstr "Italia"
+
+#: ../rpmdrake.pm:483
+#, c-format
+msgid "Japan"
+msgstr "Xapón"
+
+#: ../rpmdrake.pm:484
+#, c-format
+msgid "Korea"
+msgstr "Corea"
+
+#: ../rpmdrake.pm:485
+#, c-format
+msgid "Netherlands"
+msgstr "Países Baixos"
+
+#: ../rpmdrake.pm:486
+#, c-format
+msgid "Norway"
+msgstr "Noruega"
+
+#: ../rpmdrake.pm:487
+#, c-format
+msgid "Poland"
+msgstr "Polonia"
+
+#: ../rpmdrake.pm:488
+#, c-format
+msgid "Portugal"
+msgstr "Portugal"
+
+#: ../rpmdrake.pm:489
+#, c-format
+msgid "Russia"
+msgstr "Rusia"
+
+#: ../rpmdrake.pm:490
+#, c-format
+msgid "Sweden"
+msgstr "Suecia"
+
+#: ../rpmdrake.pm:491
+#, c-format
+msgid "Singapore"
+msgstr "Singapur"
+
+#: ../rpmdrake.pm:492
+#, c-format
+msgid "Slovakia"
+msgstr "Eslovaquia"
+
+#: ../rpmdrake.pm:493
+#, c-format
+msgid "Taiwan"
+msgstr "Taiwán"
+
+#: ../rpmdrake.pm:494
+#, c-format
+msgid "United Kingdom"
+msgstr "Reino Unido"
+
+#: ../rpmdrake.pm:495
+#, c-format
+msgid "China"
+msgstr "China"
+
+#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#, c-format
+msgid "United States"
+msgstr "Estados Unidos"
+
+#: ../rpmdrake.pm:579
+#, c-format
+msgid "Please wait, downloading mirror addresses."
+msgstr "Agarde, descargando os enderezos dos sitios espello."
+
+#: ../rpmdrake.pm:580
+#, c-format
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr ""
+"Por favor agarde, descargando os enderezos dos espellos dende o sitio web de "
+"Mageia."
+
+#: ../rpmdrake.pm:601
+#, c-format
+msgid "retrieval of [%s] failed"
+msgstr "fallou a obtención de [%s]"
+
+#: ../rpmdrake.pm:623
+#, c-format
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Cómpre acceder á Internet para consegui-la lista de sitios espello.\n"
+"Verifique que a rede está activada e funcionando.\n"
+"Desexa continuar?"
+
+#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#, c-format
+msgid "Mirror choice"
+msgstr "Eleccións de sitio espello"
+
+#: ../rpmdrake.pm:643
+#, c-format
+msgid "Error during download"
+msgstr "Erro durante a descarga"
+
+#: ../rpmdrake.pm:645
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"Ocorreu un erro durante a descarga da lista dos sitios espello:\n"
+"\n"
+"%s\n"
+"Pode ser que a rede ou o sitio web non estean dispoñibles.\n"
+"Inténteo de novo máis tarde."
+
+#: ../rpmdrake.pm:650
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"Ocorreu un erro durante a descarga da lista de espellos:\n"
+"\n"
+"%s\n"
+"Pode ser que a rede ou o sitio web de Mageia non estean dispoñibles.\n"
+"Por favor inténteo de novo máis tarde."
+
+#: ../rpmdrake.pm:660
+#, c-format
+msgid "No mirror"
+msgstr "Non hai sitios espello"
+
+#: ../rpmdrake.pm:662
+#, c-format
+msgid "I can't find any suitable mirror."
+msgstr "Non se puido atopar ningún sitio espello axeitado."
+
+#: ../rpmdrake.pm:663
+#, c-format
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"Non podo atopar ningún espello adecuado.\n"
+"\n"
+"Pode haber moitas razóns para este problema; a máis frecuente é\n"
+"que a arquitectura do seu procesador non estea soportada polas\n"
+"Actualizacións Oficiais de Mageia."
+
+#: ../rpmdrake.pm:682
+#, c-format
+msgid "Please choose the desired mirror."
+msgstr "Por favor escolla o espello que desexe."
+
+#: ../rpmdrake.pm:723
+#, c-format
+msgid "Copying file for medium `%s'..."
+msgstr ""
+
+#: ../rpmdrake.pm:726
+#, c-format
+msgid "Examining file of medium `%s'..."
+msgstr "Examinando o ficheiro do soporte `%s'..."
+
+#: ../rpmdrake.pm:729
+#, c-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "Examinando o ficheiro remoto do soporte `%s'..."
+
+#: ../rpmdrake.pm:733
+#, c-format
+msgid " done."
+msgstr " feito."
+
+#: ../rpmdrake.pm:737
+#, c-format
+msgid " failed!"
+msgstr " ¡fallou!"
+
+#. -PO: We're downloading the said file from the said medium
+#: ../rpmdrake.pm:742
+#, c-format
+msgid "%s from medium %s"
+msgstr "%s dende o soporte %s"
+
+#: ../rpmdrake.pm:746
+#, c-format
+msgid "Starting download of `%s'..."
+msgstr "Iniciando a descarga de `%s'..."
+
+#: ../rpmdrake.pm:750
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+"Descarga de `%s'\n"
+"tempo restante:%s, velocidade:%s"
+
+#: ../rpmdrake.pm:753
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+"Descarga de `%s'\n"
+"velocidade:%s"
+
+#: ../rpmdrake.pm:764
+#, c-format
+msgid "Please wait, updating media..."
+msgstr "Por favor agarde, actualizando o soporte..."
+
+#: ../rpmdrake.pm:774
+#, fuzzy, c-format
+msgid "Canceled"
+msgstr "Cancelar"
+
+#: ../rpmdrake.pm:791
+#, c-format
+msgid "Error retrieving packages"
+msgstr "Erro ó recuperar os paquetes"
+
+#: ../rpmdrake.pm:792
+#, c-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+"Foi imposible recuperar a lista de novos paquetes dende o soporte\n"
+"`%s'. Pode ser que este soporte de actualización estea desconfigurado,\n"
+"neste caso debería usar o Xestor de Soportes de Software para eliminalo e\n"
+"volvelo engadir para volvelo configurar, ou pode ser que actualmente non\n"
+"estea dispoñible e debería intentalo máis tarde."
+
+#: ../rpmdrake.pm:823
+#, c-format
+msgid "Update media"
+msgstr "Actualiza-lo soporte"
+
+#: ../rpmdrake.pm:828
+#, c-format
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+"Non se atopou ningún soporte activo. Debe habiliitar algún soporte para "
+"poder actualizalo."
+
+#: ../rpmdrake.pm:835
+#, c-format
+msgid "Select the media you wish to update:"
+msgstr "Seleccione o soporte que quere actualizar:"
+
+#: ../rpmdrake.pm:881
+#, c-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"Non foi posible actualizar o soporte; deshabilitarase automáticamente.\n"
+"\n"
+"Erros:\n"
+"%s"
+
+#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#, c-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Non foi posible engadir o soporte, erros comunicados:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:925
+#, c-format
+msgid "Unable to create medium."
+msgstr "Non foi posible crea-lo soporte."
+
+#: ../rpmdrake.pm:930
+#, c-format
+msgid "Failure when adding medium"
+msgstr "Fallo ó engadi-lo soporte"
+
+#: ../rpmdrake.pm:931
+#, c-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"Houbo un problema ó engadi-lo soporte:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:944
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+"O soporte `%s', que se usa para actualizacións, non concorda ca versión de %"
+"s que está executando (%s).\n"
+"Vaise deshabilitar."
+
+#: ../rpmdrake.pm:947
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+"O soporte `%s', que se usa para actualizacións, non concorda ca versión de "
+"Mageia que está executando (%s).\n"
+"Vaise deshabilitar."
+
+#: ../rpmdrake.pm:978
+#, c-format
+msgid "Help launched in background"
+msgstr "A axuda lanzouse en segundo plano"
+
+#: ../rpmdrake.pm:979
+#, c-format
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr "Xa se iniciou a fiestra de axuda, e amosarase en pouco tempo."
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:1
+msgid "A graphical front end for browsing installed & available packages"
+msgstr ""
+"Unha interface gráfica para explorar os paquetes instalados e dispoñibles"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:2
+msgid "Browse Available Software"
+msgstr "Explora-lo Software Dispoñible"
+
+#: ../data/rpmdrake.desktop.in.h:1
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr "Unha interface gráfica para instalar, eliminar e actualizar paquetes"
+
+#: ../data/rpmdrake.desktop.in.h:2
+msgid "Install & Remove Software"
+msgstr "Instalar & Eliminar Software"
+
+#: ../data/rpmdrake-sources.desktop.in.h:1
+msgid "Software Media Manager"
+msgstr "Xestor de Soportes de Software"
+
+#: ../mime/gurpmi.addmedia.desktop.in.h:1
+msgid "Add urpmi media"
+msgstr "Engadir soportes de urpmi"
+
+#: ../mime/x-urpmi-media.desktop.in.h:1
+msgid "Urpmi medium info"
+msgstr "Información de soporte de urpmi"
+
+#~ msgid "Books"
+#~ msgstr "Libros"
+
+#~ msgid "Computer books"
+#~ msgstr "Libros de informática"
+
+#~ msgid "Faqs"
+#~ msgstr "Faqs"
+
+#~ msgid "Howtos"
+#~ msgstr "Howtos"
+
+#~ msgid "Literature"
+#~ msgstr "Literatura"
+
+#~ msgid "  --root                 force to run as root"
+#~ msgstr "  --root                 forza a execución coma root"
+
+#~ msgid "(Deprecated)"
+#~ msgstr "(Obsoleto)"
+
+#, fuzzy
+#~ msgid ""
+#~ "  --no-splash            don't ask first confirmation question in update "
+#~ "mode"
+#~ msgstr ""
+#~ "  --no-confirmation      non facer a primeira pregunta de confirmación no "
+#~ "modo de actualización"
+
+#~ msgid "Find"
+#~ msgstr "Atopar"
+
+#, fuzzy
+#~ msgid "/Add _media"
+#~ msgstr "/_Actualiza-lo soporte"
+
+#~ msgid "Welcome"
+#~ msgstr "Benvid@"
+
+#, fuzzy
+#~ msgid "The software installation tool can set up media sources."
+#~ msgstr "A ferramenta de instalación de software pode configurar fontes "
+
+#, fuzzy
+#~ msgid "Do you want to add media sources now?"
+#~ msgstr "Desexa engadir agora fontes de                ?"
+
+#~ msgid ""
+#~ "Welcome to the Software Media Manager!\n"
+#~ "\n"
+#~ "This tool will help you configure the packages media you wish to use on\n"
+#~ "your computer. They will then be available to install new software "
+#~ "package\n"
+#~ "or to perform updates."
+#~ msgstr ""
+#~ "Benvid@ ó Xestor de Soportes de Software!\n"
+#~ "\n"
+#~ "Esta ferramenta axudaralle a configura-los soportes de paquetes que "
+#~ "desexa\n"
+#~ "usar no seu ordenador. Despois estarán dispoñibles para instalar novos\n"
+#~ "paquetes de software ou levar a cabo actualizacións."
+
+#~ msgid ""
+#~ "Welcome to the software removal tool!\n"
+#~ "\n"
+#~ "This tool will help you choose which software you want to remove from\n"
+#~ "your computer."
+#~ msgstr ""
+#~ "¡Benvid@ á ferramenta de eliminación de software!\n"
+#~ "\n"
+#~ "Esta ferramenta axudaralle a escolle-lo software que desexa eliminar\n"
+#~ "do seu ordenador."
+
+#~ msgid ""
+#~ "Welcome to %s!\n"
+#~ "\n"
+#~ "This tool will help you choose the updates you want to install on your\n"
+#~ "computer."
+#~ msgstr ""
+#~ "¡Benvid@ a %s!\n"
+#~ "\n"
+#~ "Esta ferramenta axudaralle a escolle-las actualizacións que desexa\n"
+#~ "instalar no seu ordenador."
+
+#~ msgid "Welcome to the software installation tool!"
+#~ msgstr "Benvid@ á ferramenta de instalación de software!"
+
+#~ msgid ""
+#~ "Welcome to the software installation tool!\n"
+#~ "\n"
+#~ "Your Mandriva Linux system comes with several thousands of software\n"
+#~ "packages on CDROM or DVD. This tool will help you choose which software\n"
+#~ "you want to install on your computer."
+#~ msgstr ""
+#~ "¡Benvid@ á ferramenta de instalación de softwarel!\n"
+#~ "\n"
+#~ "O seu sistema Mandriva Linux ven con varios centos de paquetes de\n"
+#~ "software en CDROM ou DVD. Esta ferramenta axudaralle a escolle-lo\n"
+#~ "software que desexa instalar no seu ordenador."
+
+#~ msgid "Unable to add medium, wrong or missing arguments"
+#~ msgstr ""
+#~ "Non foi posible engadir o soporte, faltan argumentos ou estes son "
+#~ "incorrectos"
+
+#~ msgid "Tree Mode"
+#~ msgstr "Modo Árbore"

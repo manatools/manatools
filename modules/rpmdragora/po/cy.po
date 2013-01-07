@@ -1,0 +1,3862 @@
+#
+# Welsh translation of %s
+# Copyright (C) 1999 Free Software Foundation, Inc.
+# Dafydd Tomos <d@fydd.org>, 1999.
+# Rhoslyn Prys <rhoslyn.prys@ntlworld.com>, 2002
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rpmdrake\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-09 17:13+0800\n"
+"PO-Revision-Date: 2009-08-24 20:03-0000\n"
+"Last-Translator: Rhoslyn Prys <rprys@yahoo.com>\n"
+"Language-Team: Cymraeg/Welsh <post@meddal.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Poedit-Language: Welsh\n"
+"X-Poedit-Country: UK\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#, c-format
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"Mae'r rhestr diweddariadau'n wag. Mae hyn yn golygu un ai\n"
+"nad oes diweddariad ar gyfer y pecynnau ar eich cyfrifiadur,\n"
+"neu rydych wedi eu gosod i gyd yn barod."
+
+#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Management"
+msgstr "Rheoli Meddalwedd"
+
+#: ../MageiaUpdate:151
+#, c-format
+msgid "Here is the list of software package updates"
+msgstr "Dyma restr o ddiweddariadau pecynnau meddalwedd"
+
+#: ../MageiaUpdate:158
+#, c-format
+msgid "Name"
+msgstr "Enw"
+
+#: ../MageiaUpdate:159 ../rpmdrake:290
+#, c-format
+msgid "Version"
+msgstr "Fersiwn "
+
+#: ../MageiaUpdate:160 ../rpmdrake:294
+#, c-format
+msgid "Release"
+msgstr "Ryddhau"
+
+#: ../MageiaUpdate:161
+#, c-format
+msgid "Arch"
+msgstr "Arch"
+
+#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#, c-format
+msgid "Help"
+msgstr "Cymorth"
+
+#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#, c-format
+msgid "Select all"
+msgstr "Dewis popeth"
+
+#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#, c-format
+msgid "Update"
+msgstr "Diweddaru"
+
+#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#, c-format
+msgid "Quit"
+msgstr "Gadael"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:62
+#, c-format
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:63
+#, c-format
+msgid "FTP"
+msgstr "FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#, c-format
+msgid "Local"
+msgstr "Lleol"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:65
+#, c-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:66
+#, c-format
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#, c-format
+msgid "NFS"
+msgstr "NFS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:68
+#, c-format
+msgid "Removable"
+msgstr "Tynadwy"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:69
+#, c-format
+msgid "rsync"
+msgstr "rsync"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:72
+#, c-format
+msgid "Mirror list"
+msgstr "Rhestr drychau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:114
+#, c-format
+msgid "Choose media type"
+msgstr "Dewis y math o gyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:115
+#, c-format
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+"Er mwyn cadw eich system yn ddiogel a chadarn, rhaid gosod ffynonellau ar "
+"gyfer \n"
+"diweddariadau diogelwch a sefydlogrwydd. Gallwch hefyd ddewis i osod "
+"adnoddau\n"
+"ehangach sy'n cynnwys storfa swyddogol Mageia, sy'n cynnig mwy o feddalwedd\n"
+"na all fynd ar ddisgiau Mageia. Dewiswch p'un ai i ffurfweddu ffynonellau "
+"diweddaru\n"
+"yn unig neu'r set lawn o ffynonellau."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Full set of sources"
+msgstr "Set lawn o ffynonellau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Update sources only"
+msgstr "Diweddaru ffynonellau'n unig"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:135
+#, c-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Bydd yn ceisio gosod yr holl ffynonellau swyddogol sy'n cyd-fynd\n"
+"â'ch dosbarthiad (%s).\n"
+"\n"
+"Mae angen i mi gysylltu â safle gwe Mageia i gael y rhestr\n"
+"drychau. Gwiriwch fod eich rhwydwaith ar gael.\n"
+"\n"
+"Parhau?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#, c-format
+msgid "Please wait, adding media..."
+msgstr "Arhoswch, ychwanegu cyfrwng..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:168
+#, c-format
+msgid "Add a medium"
+msgstr "Ychwanegu cyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Local files"
+msgstr "Ffeiliau lleol"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Medium path:"
+msgstr "Llwybr y cyfrwng:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#, c-format
+msgid "FTP server"
+msgstr "Gweinydd FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#, c-format
+msgid "URL:"
+msgstr "URL:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#, c-format
+msgid "RSYNC server"
+msgstr "Gweinydd RSYNC"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#, c-format
+msgid "HTTP server"
+msgstr "Gweinydd HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "Dyfais symudol (CD-ROM, DVD, ...)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Path or mount point:"
+msgstr "Llwybr neu bwynt gosod:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:194
+#, c-format
+msgid "Browse..."
+msgstr "Pori..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#, c-format
+msgid "Login:"
+msgstr "Mewngofnod:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "Password:"
+msgstr "Cyfrinair:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:227
+#, c-format
+msgid "Medium name:"
+msgstr "Enw'r cyfrwng:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:233
+#, c-format
+msgid "Create media for a whole distribution"
+msgstr "Creu cyfrwng ar gyfer dosbarthiad cyfan"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:242
+#, c-format
+msgid "Tag this medium as an update medium"
+msgstr "Tagio'r cyfrwng fel cyfrwng diweddaru"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:252
+#, c-format
+msgid "You need to fill up at least the two first entries."
+msgstr "Mae angen llanw y ddau gofnod cyntaf, o leiaf."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:256
+#, c-format
+msgid ""
+"There is already a medium by that name, do you\n"
+"really want to replace it?"
+msgstr ""
+"Mae yna gyfrwng o'r enw yna eisoes, hoffech chi\n"
+"ei amnewid?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:268
+#, c-format
+msgid "Adding a medium:"
+msgstr "Ychwanegu cyfrwng:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:270
+#, c-format
+msgid "Type of medium:"
+msgstr "Math o gyfrwng:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#, c-format
+msgid "Cancel"
+msgstr "Diddymu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#, c-format
+msgid "Ok"
+msgstr "Iawn"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:337
+#, c-format
+msgid "Global options for package installation"
+msgstr "Dewisiadau eang ar gyfer gosod pecynnau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "never"
+msgstr "byth"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "always"
+msgstr "bob tro"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#, c-format
+msgid "Never"
+msgstr "Byth"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#, c-format
+msgid "On-demand"
+msgstr "Ar alw"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#, c-format
+msgid "Update-only"
+msgstr "Diweddaru yn unig"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#, c-format
+msgid "Always"
+msgstr "Bob tro"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:355
+#, c-format
+msgid "Verify RPMs to be installed:"
+msgstr "Gwirio RPMau i'w gosod:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:360
+#, c-format
+msgid "Download program to use:"
+msgstr "Llwytho rhaglen i lawr i'w defnyddio:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:367
+#, c-format
+msgid "XML meta-data download policy:"
+msgstr "Polisi llwytho i lawr meta data XML:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:374
+#, c-format
+msgid ""
+"For remote media, specify when XML meta-data (file lists, changelogs & "
+"information) are downloaded."
+msgstr ""
+"Ar gyfer cyfrwng pell, pennwch pryd fydd metadata XML (rhestrau ffeiliau, "
+"cofnod newid a gwybodaeth) yn cael eu llwytho i lawr."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:377
+#, c-format
+msgid "For remote media, XML meta-data are never downloaded."
+msgstr ""
+"Ar gyfer cyfrwng pell, nid yw meta data XML byth yn cael eu llwytho i lawr."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:380
+#, c-format
+msgid "(This is the default)"
+msgstr "(Dyma'r rhagosodedig)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:381
+#, c-format
+msgid "The specific XML info file is downloaded when clicking on package."
+msgstr "Mae'r ffeil XML penodol yn cael ei llwytho i lawr wrth glicio'r pecyn."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:384
+#, c-format
+msgid ""
+"Updating media implies updating XML info files already required at least "
+"once."
+msgstr ""
+"Mae diweddaru'r cyfrwng yn awgrymu diweddaru'r ffeiliau gwybodaeth XML "
+"angenrheidiol o leiaf unwaith."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:387
+#, c-format
+msgid "All XML info files are downloaded when adding or updating media."
+msgstr ""
+"Mae pob ffeil gwybodaeth XML yn cael eu llwytho i lawr wrth ychwanegu neu "
+"ddiweddaru cyfrwng."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:416
+#, c-format
+msgid "Source Removal"
+msgstr "Tynnu'r Ffynhonnell"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:418
+#, c-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr "Ydych chi'n siŵr eich bod eisiau tynnu ffynhonnell \"%s\"?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:419
+#, c-format
+msgid "Are you sure you want to remove the following sources?"
+msgstr "Ydych chi'n siŵr eich bod eisiau tynnu ffynonellau canlynol?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:425
+#, c-format
+msgid "Please wait, removing medium..."
+msgstr "Arhoswch, tynnu cyfrwng..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:473
+#, c-format
+msgid "Edit a medium"
+msgstr "Golygu'r cyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:480
+#, c-format
+msgid "Editing medium \"%s\":"
+msgstr "Golygu ffynhonnell \"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:484
+#, c-format
+msgid "Downloader:"
+msgstr "Llwythwr i Lawr:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:496
+#, c-format
+msgid "Save changes"
+msgstr "Cadw newidiadau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:505
+#, c-format
+msgid "Proxy..."
+msgstr "Dirprwy..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:517
+#, c-format
+msgid "You need to insert the medium to continue"
+msgstr "Rhaid gosod y cyfrwng i mewn i barhau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:518
+#, c-format
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr "Er mwyn cadw'r newidiadau, rhaid gosod y cyfrwng yn y gyrrwr."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:553
+#, c-format
+msgid "Configure proxies"
+msgstr "Ffurfweddu'r dirprwyon"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:566
+#, c-format
+msgid "Proxy settings for media \"%s\""
+msgstr "Gosodiadau dirprwy ar gyfer cyfrwng \"%s\""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:567
+#, c-format
+msgid "Global proxy settings"
+msgstr "Gosodiadau dirprwy eang"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:569
+#, c-format
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"Os oes angen dirprwy arnoch, rhowch enw gwesteiwr a phorth dewisol "
+"(cystrawen: <proxyhost[:port]>):"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:572
+#, c-format
+msgid "Proxy hostname:"
+msgstr "Enw gwesteiwr y dirprwy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:575
+#, c-format
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr "Mae modd i chi enwi defnyddiwr/cyfrinair ar gyfer dilysiad dirprwy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:578
+#, c-format
+msgid "User:"
+msgstr "Defnyddiwr:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Add a parallel group"
+msgstr "Ychwanegu grŵp paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Edit a parallel group"
+msgstr "Golygu grŵp paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Add a medium limit"
+msgstr "Ychwanegu terfyn cyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Choose a medium to add to the media limit:"
+msgstr "Dewiswch gyfrwng i ychwanegu at derfyn y cyfrwng:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Add a host"
+msgstr "Ychwanegu gwesteiwr:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "Teipiwch enw gwesteiwr neu IP y gwestai i'w ychwanegu:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:729
+#, c-format
+msgid "Editing parallel group \"%s\":"
+msgstr "Golygu grŵp paralel\"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:733
+#, c-format
+msgid "Group name:"
+msgstr "Enw grŵp:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:734
+#, c-format
+msgid "Protocol:"
+msgstr "Protocol:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:736
+#, c-format
+msgid "Media limit:"
+msgstr "Terfyn cyfrwng:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#, c-format
+msgid "Add"
+msgstr "Ychwanegu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:1139
+#, c-format
+msgid "Remove"
+msgstr "Tynnu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:745
+#, c-format
+msgid "Hosts:"
+msgstr "Gwesteion:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:781
+#, c-format
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr "Ffurfweddu urpmi paralel (dosbarthiad gweithredol o urpmi)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Group"
+msgstr "Grŵp"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Protocol"
+msgstr "Protocol"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Media limit"
+msgstr "Terfyn cyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:786
+#, c-format
+msgid "Command"
+msgstr "Gorchymyn"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#, c-format
+msgid "(none)"
+msgstr "(dim)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:816
+#, c-format
+msgid "Edit..."
+msgstr "Golygu..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:824
+#, c-format
+msgid "Add..."
+msgstr "Ychwanegu..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:840
+#, c-format
+msgid "Manage keys for digital signatures of packages"
+msgstr "Rheoli allweddi pecynnau digidol "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#, c-format
+msgid "Medium"
+msgstr "Cyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:853
+#, c-format
+msgid ""
+"_:cryptographic keys\n"
+"Keys"
+msgstr ""
+"_:cryptographic keys\n"
+"Allweddi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:876
+#, c-format
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "heb ganfod enw, nid yw'r allwedd yn bodoli yng nghylch allwedd rpm"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Add a key"
+msgstr "Ychwanegu allwedd"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Choose a key to add to the medium %s"
+msgstr "Dewis bysell ti ychwanegu at gyfrwng %s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:915
+#, c-format
+msgid "Remove a key"
+msgstr "Tynnu allwedd"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:916
+#, c-format
+msgid ""
+"Are you sure you want to remove the key %s from medium %s?\n"
+"(name of the key: %s)"
+msgstr ""
+"Ydych chi'n siŵr eich bod eisiau tynnu allwedd %s o gyfrwng %s?\n"
+"(enw'r allwedd: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#, c-format
+msgid "Configure media"
+msgstr "Ffurfweddu'r cyfrwng"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
+#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#, c-format
+msgid "/_File"
+msgstr "/_Ffeil"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, c-format
+msgid "/_Update"
+msgstr "/_Diweddaru"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, c-format
+msgid "<control>U"
+msgstr "<control>U"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "/Add a specific _media mirror"
+msgstr "/Add a specific _media mirror"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "<control>M"
+msgstr "<control>M"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, c-format
+msgid "/_Add a custom medium"
+msgstr "/_Ychwanegu cyfrwng addasu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, c-format
+msgid "<control>A"
+msgstr "<control>A"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, c-format
+msgid "/Close"
+msgstr "/Cau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, c-format
+msgid "<control>W"
+msgstr "<control>W"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
+#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
+#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Options"
+msgstr "/_Dewisiadau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, c-format
+msgid "/_Global options"
+msgstr "/_Dewisiadau eang..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, c-format
+msgid "<control>G"
+msgstr "<control>G"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, c-format
+msgid "/Manage _keys"
+msgstr "/_Rheoli allweddi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, c-format
+msgid "<control>K"
+msgstr "<control>K"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, c-format
+msgid "/_Parallel"
+msgstr "/_Paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, c-format
+msgid "<control>P"
+msgstr "<control>P"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, c-format
+msgid "/P_roxy"
+msgstr "/_Dirprwy..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, c-format
+msgid "<control>R"
+msgstr "<control>R"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#, c-format
+msgid "/_Help"
+msgstr "/_Cymorth"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#, c-format
+msgid "/_Report Bug"
+msgstr "/_Adrodd ar Wall"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#, c-format
+msgid "/_About..."
+msgstr "/_Ynghylch..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#, c-format
+msgid "Rpmdrake"
+msgstr "Rpmdrake"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#, c-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr "Hawlfraint (C) %s Mageia"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#, c-format
+msgid "Rpmdrake is the Mageia package management tool."
+msgstr "Rpmdrake yw offeryn rheoli pecynnau Mageia."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#, c-format
+msgid "Mageia"
+msgstr "Mageia"
+
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#, c-format
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr "_: Rhoslyn Prys post@meddal.com\n"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#, c-format
+msgid "Enabled"
+msgstr "Galluogwyd"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1048
+#, c-format
+msgid "Updates"
+msgstr "Diweddariadau"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1052
+#, c-format
+msgid "Type"
+msgstr "Math"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1079
+#, c-format
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr "Mae angen diweddaru'r cyfrwng i fod yn ddefnyddiol. Diweddaru?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1105
+#, c-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Methu diweddaru cyfrwng, gwallau cofnodwyd:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1143
+#, c-format
+msgid "Edit"
+msgstr "Golygu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1191
+#, c-format
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+"Mae cronfa ddata'r pecynnau wedi cau. Crëwch raglenni eraill\n"
+"sy'n gweithio ar y gronfa ddata. oes gennych chi reolwr cyfrwng\n"
+"arall ar fwrdd gwaith arall, neu a ydych yn gosod pecynnau\n"
+" eraill hefyd?"
+
+#: ../Rpmdrake/formatting.pm:102
+#, c-format
+msgid "None (installed)"
+msgstr "Dim (gosod)"
+
+#: ../Rpmdrake/formatting.pm:103
+#, c-format
+msgid "Unknown"
+msgstr "Anhysbys"
+
+#: ../Rpmdrake/formatting.pm:166
+#, c-format
+msgid "%s of additional disk space will be used."
+msgstr "Bydd %s o le ychwanegol ar ddisg yn cael ei ddefnyddio."
+
+#: ../Rpmdrake/formatting.pm:167
+#, c-format
+msgid "%s of disk space will be freed."
+msgstr "Bydd %s o le ar ddisg ar gael."
+
+#: ../Rpmdrake/formatting.pm:172
+#, c-format
+msgid "%s of packages will be retrieved."
+msgstr "Bydd %s o becynnau'n cael eu hadfer"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results"
+msgstr "Canlyniadau'r chwilio"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results (none)"
+msgstr "Canlyniadau'r chwilio (dim)"
+
+#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/pkg.pm:188
+#, c-format
+msgid "(Not available)"
+msgstr "(Dim ar gael)"
+
+#: ../Rpmdrake/gui.pm:135
+#, c-format
+msgid "Security advisory"
+msgstr "Diweddariadau diogelwch"
+
+#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "No description"
+msgstr "Dim disgrifiad"
+
+#: ../Rpmdrake/gui.pm:159
+#, c-format
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:160
+#, c-format
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:162
+#, fuzzy, c-format
+msgid "This package is not free software"
+msgstr "Mae'r pecyn canlynol yn mynd i gael ei osod:"
+
+#: ../Rpmdrake/gui.pm:165
+#, c-format
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:169
+#, c-format
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:174
+#, c-format
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:175
+#, c-format
+msgid "This is an unofficial update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:179
+#, c-format
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:196
+#, fuzzy, c-format
+msgid "Notice: "
+msgstr "Pwysigrwydd: "
+
+#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#, c-format
+msgid "Importance: "
+msgstr "Pwysigrwydd: "
+
+#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#, c-format
+msgid "Reason for update: "
+msgstr "Rheswm am y diweddariad:"
+
+#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#, c-format
+msgid "Version: "
+msgstr "Fersiwn: "
+
+#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#, c-format
+msgid "Currently installed version: "
+msgstr "Fersiwn sydd wedi ei osod ar hyn o bryd:"
+
+#: ../Rpmdrake/gui.pm:213
+#, c-format
+msgid "Group: "
+msgstr "Grŵp:"
+
+#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#, c-format
+msgid "Architecture: "
+msgstr "Pensaernïaeth:"
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "Size: "
+msgstr "Maint: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#, c-format
+msgid "Medium: "
+msgstr "Cyfrwng:"
+
+#: ../Rpmdrake/gui.pm:229
+#, c-format
+msgid "New dependencies:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:242
+#, c-format
+msgid "All dependencies installed."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:265
+#, c-format
+msgid "URL: "
+msgstr "URL:"
+
+#: ../Rpmdrake/gui.pm:298
+#, c-format
+msgid "Details:"
+msgstr "Manylion:"
+
+#: ../Rpmdrake/gui.pm:302
+#, c-format
+msgid "Files:"
+msgstr "Ffeiliau:"
+
+#: ../Rpmdrake/gui.pm:304
+#, c-format
+msgid "Changelog:"
+msgstr "Cofnod Newid:"
+
+#: ../Rpmdrake/gui.pm:319
+#, c-format
+msgid "Files:\n"
+msgstr "Ffeiliau:\n"
+
+#: ../Rpmdrake/gui.pm:324
+#, c-format
+msgid "Changelog:\n"
+msgstr "Cofnod Newid:\n"
+
+#: ../Rpmdrake/gui.pm:334
+#, c-format
+msgid "Name: "
+msgstr "Enw: "
+
+#: ../Rpmdrake/gui.pm:344
+#, c-format
+msgid "Summary: "
+msgstr "Crynodeb: "
+
+#: ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "Description: "
+msgstr "Disgrifiadau: "
+
+#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../rpmdrake.pm:942
+#, c-format
+msgid "Warning"
+msgstr "Rhybudd"
+
+#: ../Rpmdrake/gui.pm:363
+#, c-format
+msgid "The package \"%s\" was found."
+msgstr "Mae'r pecyn \"%s\" wedi ei ganfod."
+
+#: ../Rpmdrake/gui.pm:364
+#, c-format
+msgid "However this package is not in the package list."
+msgstr "Er hynny, nid yw'r pecyn ar y rhestr pecynnau."
+
+#: ../Rpmdrake/gui.pm:365
+#, c-format
+msgid "You may want to update your urpmi database."
+msgstr "Efallai eich bod angen diweddaru cronfa ddata urpmi."
+
+#: ../Rpmdrake/gui.pm:367
+#, c-format
+msgid "Matching packages:"
+msgstr "Pecynnau cyfatebol"
+
+#. -PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
+#. -PO: eg: "- rpmdrake (medium: "Main Release"
+#: ../Rpmdrake/gui.pm:372
+#, c-format
+msgid "- %s (medium: %s)"
+msgstr "- %s (cyfrwng: %s)"
+
+#: ../Rpmdrake/gui.pm:563
+#, c-format
+msgid "Removing package %s would break your system"
+msgstr "Bydd tynnu'r pecyn %s yn torri eich system"
+
+#: ../Rpmdrake/gui.pm:568
+#, c-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+"Mae'r pecyn \"%s\" yn rhestr hepgor urpmi.\n"
+"Hoffech chi ei ddewis beth bynnag?"
+
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#, c-format
+msgid ""
+"Rpmdrake or one of its priority dependencies needs to be updated first. "
+"Rpmdrake will then restart."
+msgstr ""
+"Mae rpmdrake neu un o'i ddibyniaethau angen ei ddiweddaru yn gyntaf. Bydd "
+"rpmdrake yn ail gychwyn."
+
+#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#, c-format
+msgid "More information on package..."
+msgstr "Rhagor o wybodaeth ar becyn..."
+
+#: ../Rpmdrake/gui.pm:704
+#, c-format
+msgid "Please choose"
+msgstr "Dewiswch"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "The following package is needed:"
+msgstr "Mae angen y pecyn canlynol:"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "One of the following packages is needed:"
+msgstr "Mae angen un o'r pecynnau canlynol:"
+
+#. -PO: Keep it short, this is gonna be on a button
+#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#, c-format
+msgid "More info"
+msgstr "Rhagor"
+
+#: ../Rpmdrake/gui.pm:727
+#, c-format
+msgid "Information on packages"
+msgstr "Gwybodaeth am becynnau"
+
+#: ../Rpmdrake/gui.pm:755
+#, c-format
+msgid "Checking dependencies of package..."
+msgstr "Gwirio dibyniaethau'r pecyn..."
+
+#: ../Rpmdrake/gui.pm:760
+#, c-format
+msgid "Some additional packages need to be removed"
+msgstr "Mae angen tynnu rhai pecynnau ychwanegol"
+
+#: ../Rpmdrake/gui.pm:771
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr "Oherwydd eu dibyniaethau, rhaid tynnu'r pecynnau canlynol  hefyd:"
+
+#: ../Rpmdrake/gui.pm:776
+#, c-format
+msgid "Some packages cannot be removed"
+msgstr "Nid oes modd tynnu rhai pecynnau"
+
+#: ../Rpmdrake/gui.pm:777
+#, c-format
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"Bydd tynnu'r pecynnau hyn yn torri eich system, sori\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"Oherwydd eu dibyniaethau, rhaid i'r pecyn(nau) canlynol gael\n"
+"eu dad-ddewis nawr:\n"
+
+#: ../Rpmdrake/gui.pm:815
+#, c-format
+msgid "Additional packages needed"
+msgstr "Pecynnau ychwanegol angenrheidiol"
+
+#: ../Rpmdrake/gui.pm:816
+#, c-format
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"I fodloni dibyniaethau, mae angen gosod y pecyn(nau) canlynol\n"
+"hefyd:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:824
+#, c-format
+msgid "Conflicting Packages"
+msgstr "Pecynnau sy'n Gwrthdaro"
+
+#: ../Rpmdrake/gui.pm:838
+#, c-format
+msgid "%s (belongs to the skip list)"
+msgstr "%s (perthyn i'r rhestr hepgor)"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "One package cannot be installed"
+msgstr "Nid oes modd gosod un pecyn"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "Some packages cannot be installed"
+msgstr "Nid oes modd gosod rhai pecynnau"
+
+#: ../Rpmdrake/gui.pm:844
+#, c-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Yn anffodus, nid oes modd dewis y pecyn canlynol:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:845
+#, c-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Yn anffodus, nid oes modd dewis y pecyn(nau) canlynol:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Some packages need to be removed"
+msgstr "Rhaid tynnu rhai pecynnau"
+
+#: ../Rpmdrake/gui.pm:897
+#, fuzzy, c-format
+msgid "Some packages are selected."
+msgstr "Mae gormod o becynnau wedi eu dewis"
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:906
+#, c-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr "Gwall: %s i weld wedi ei osod fel darllen yn unig."
+
+#: ../Rpmdrake/gui.pm:910
+#, c-format
+msgid "You need to select some packages first."
+msgstr "Rhaid dewis rhai pecynnau'n gyntaf."
+
+#: ../Rpmdrake/gui.pm:915
+#, c-format
+msgid "Too many packages are selected"
+msgstr "Mae gormod o becynnau wedi eu dewis"
+
+#: ../Rpmdrake/gui.pm:916
+#, c-format
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr "Rhybudd:"
+
+#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#, c-format
+msgid "Fatal error"
+msgstr "Gwall terfynol"
+
+#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#, c-format
+msgid "A fatal error occurred: %s."
+msgstr "Digwyddodd gwall terfynol:%s."
+
+#: ../Rpmdrake/gui.pm:980
+#, c-format
+msgid "Please wait, listing packages..."
+msgstr "Arhoswch, rhestri pecynnau..."
+
+#: ../Rpmdrake/gui.pm:993
+#, c-format
+msgid "No update"
+msgstr "Dim diweddariad"
+
+#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
+#: ../rpmdrake:369 ../rpmdrake:396
+#, c-format
+msgid "All"
+msgstr "Popeth"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#, c-format
+msgid "Upgradable"
+msgstr "Diweddariadwy"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#, c-format
+msgid "Installed"
+msgstr "Gosodwyd"
+
+#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#, c-format
+msgid "Addable"
+msgstr "Ychwanegadwy"
+
+#: ../Rpmdrake/gui.pm:1044
+#, c-format
+msgid "Description not available for this package\n"
+msgstr "Dim disgrifiad ar gael i'r pecyn hwn\n"
+
+#: ../Rpmdrake/icon.pm:36
+#, c-format
+msgid "Accessibility"
+msgstr "Hygyrchedd"
+
+#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#, c-format
+msgid "Archiving"
+msgstr "Archifo"
+
+#: ../Rpmdrake/icon.pm:38
+#, c-format
+msgid "Backup"
+msgstr "Wrth Gefn"
+
+#: ../Rpmdrake/icon.pm:39
+#, c-format
+msgid "Cd burning"
+msgstr "Llosgi CD"
+
+#: ../Rpmdrake/icon.pm:40
+#, c-format
+msgid "Compression"
+msgstr "Cywasgiad"
+
+#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#, c-format
+msgid "Other"
+msgstr "Arall"
+
+#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Communications"
+msgstr "Cyfathrebu"
+
+#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#, c-format
+msgid "Bluetooth"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:45
+#, c-format
+msgid "Dial-Up"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:46
+#, c-format
+msgid "Fax"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:47
+#, c-format
+msgid "Mobile"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:48
+#, c-format
+msgid "Radio"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:49
+#, c-format
+msgid "Serial"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Telephony"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#, c-format
+msgid "Databases"
+msgstr "Cronfeydd Data"
+
+#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Development"
+msgstr "Datblygiad"
+
+#: ../Rpmdrake/icon.pm:53
+#, c-format
+msgid "Basic"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:54
+#, c-format
+msgid "C"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:55
+#, c-format
+msgid "C++"
+msgstr "C++"
+
+#: ../Rpmdrake/icon.pm:56
+#, fuzzy, c-format
+msgid "C#"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:58
+#, c-format
+msgid "Erlang"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:59
+#, c-format
+msgid "GNOME and GTK+"
+msgstr "GNOME a GTK+"
+
+#: ../Rpmdrake/icon.pm:60
+#, c-format
+msgid "Java"
+msgstr "Java"
+
+#: ../Rpmdrake/icon.pm:61
+#, c-format
+msgid "KDE and Qt"
+msgstr "KDE a Qt"
+
+#: ../Rpmdrake/icon.pm:62
+#, c-format
+msgid "Kernel"
+msgstr "Cnewyllyn"
+
+#: ../Rpmdrake/icon.pm:63
+#, c-format
+msgid "OCaml"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:65
+#, c-format
+msgid "Perl"
+msgstr "Perl"
+
+#: ../Rpmdrake/icon.pm:66
+#, c-format
+msgid "PHP"
+msgstr "PHP"
+
+#: ../Rpmdrake/icon.pm:67
+#, c-format
+msgid "Python"
+msgstr "Python"
+
+#: ../Rpmdrake/icon.pm:68
+#, fuzzy, c-format
+msgid "Tools"
+msgstr "Offer testun"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#, c-format
+msgid "X11"
+msgstr "X11"
+
+#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Documentation"
+msgstr "Dogfennaeth"
+
+#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#, c-format
+msgid "Editors"
+msgstr "Golygyddion"
+
+#: ../Rpmdrake/icon.pm:72
+#, c-format
+msgid "Education"
+msgstr "Addysg"
+
+#: ../Rpmdrake/icon.pm:73
+#, c-format
+msgid "Emulators"
+msgstr "Efelychwyr"
+
+#: ../Rpmdrake/icon.pm:74
+#, c-format
+msgid "File tools"
+msgstr "Offer ffeiliau"
+
+#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Games"
+msgstr "Gemau"
+
+#: ../Rpmdrake/icon.pm:76
+#, c-format
+msgid "Adventure"
+msgstr "Antur"
+
+#: ../Rpmdrake/icon.pm:77
+#, c-format
+msgid "Arcade"
+msgstr "Arcêd"
+
+#: ../Rpmdrake/icon.pm:78
+#, c-format
+msgid "Boards"
+msgstr "Byrddau"
+
+#: ../Rpmdrake/icon.pm:79
+#, c-format
+msgid "Cards"
+msgstr "Cardiau"
+
+#: ../Rpmdrake/icon.pm:81
+#, c-format
+msgid "Puzzles"
+msgstr "Posau"
+
+#: ../Rpmdrake/icon.pm:82
+#, c-format
+msgid "Shooter"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:83
+#, c-format
+msgid "Sports"
+msgstr "Chwaraeon"
+
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Strategy"
+msgstr "Strategaeth"
+
+#: ../Rpmdrake/icon.pm:85
+#, c-format
+msgid "Geography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:107
+#, c-format
+msgid "Graphical desktop"
+msgstr "Bwrdd gwaith graffigol"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:89
+#, c-format
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+#: ../Rpmdrake/icon.pm:90
+#, c-format
+msgid "FVWM based"
+msgstr "FVWM seiliedig"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:93
+#, c-format
+msgid "GNOME"
+msgstr "GNOME"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:96
+#, c-format
+msgid "Icewm"
+msgstr "Icewm"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:99
+#, c-format
+msgid "KDE"
+msgstr "KDE"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:103
+#, c-format
+msgid "Sawfish"
+msgstr "Sawfish"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:106
+#, c-format
+msgid "WindowMaker"
+msgstr "WindowMaker"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:109
+#, c-format
+msgid "Xfce"
+msgstr "Xfce"
+
+#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:116
+#, c-format
+msgid "Graphics"
+msgstr "Graffigau"
+
+#: ../Rpmdrake/icon.pm:111
+#, c-format
+msgid "3D"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:114
+#, c-format
+msgid "Photography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:115
+#, fuzzy, c-format
+msgid "Scanning"
+msgstr "Rhybudd"
+
+#: ../Rpmdrake/icon.pm:116
+#, fuzzy, c-format
+msgid "Viewers"
+msgstr "Golwg"
+
+#: ../Rpmdrake/icon.pm:117
+#, c-format
+msgid "Monitoring"
+msgstr "Monitro"
+
+#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#, c-format
+msgid "Multimedia"
+msgstr "Amlgyfrwng"
+
+#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Video"
+msgstr "Fideo"
+
+#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#, c-format
+msgid "Networking"
+msgstr "Rhwydweithio"
+
+#: ../Rpmdrake/icon.pm:121
+#, c-format
+msgid "Chat"
+msgstr "Sgwrs"
+
+#: ../Rpmdrake/icon.pm:122
+#, c-format
+msgid "File transfer"
+msgstr "Trosglwyddo ffeiliau"
+
+#: ../Rpmdrake/icon.pm:123
+#, c-format
+msgid "IRC"
+msgstr "IRC"
+
+#: ../Rpmdrake/icon.pm:124
+#, c-format
+msgid "Instant messaging"
+msgstr "Negesu Chwim"
+
+#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#, c-format
+msgid "Mail"
+msgstr "E-bost"
+
+#: ../Rpmdrake/icon.pm:126
+#, c-format
+msgid "News"
+msgstr "Newyddion"
+
+#: ../Rpmdrake/icon.pm:128
+#, c-format
+msgid "Remote access"
+msgstr "Mynediad pell"
+
+#: ../Rpmdrake/icon.pm:129
+#, c-format
+msgid "WWW"
+msgstr "WWW"
+
+#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Office"
+msgstr "Swyddfa"
+
+#: ../Rpmdrake/icon.pm:131
+#, c-format
+msgid "Dictionary"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:132
+#, fuzzy, c-format
+msgid "Finance"
+msgstr "Ffrainc"
+
+#: ../Rpmdrake/icon.pm:133
+#, fuzzy, c-format
+msgid "Management"
+msgstr "Rheoli Meddalwedd"
+
+#: ../Rpmdrake/icon.pm:134
+#, c-format
+msgid "Organizer"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:136
+#, c-format
+msgid "Spreadsheet"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:137
+#, c-format
+msgid "Suite"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Word processor"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:139
+#, c-format
+msgid "Public Keys"
+msgstr "Allweddi Cyhoeddus"
+
+#: ../Rpmdrake/icon.pm:140
+#, c-format
+msgid "Publishing"
+msgstr "Cyhoeddi"
+
+#: ../Rpmdrake/icon.pm:141
+#, fuzzy, c-format
+msgid "Security"
+msgstr "Diweddariadau diogelwch"
+
+#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Sciences"
+msgstr "Gwyddorau"
+
+#: ../Rpmdrake/icon.pm:143
+#, c-format
+msgid "Astronomy"
+msgstr "Astroleg"
+
+#: ../Rpmdrake/icon.pm:144
+#, c-format
+msgid "Biology"
+msgstr "Bywydeg"
+
+#: ../Rpmdrake/icon.pm:145
+#, c-format
+msgid "Chemistry"
+msgstr "Cemeg"
+
+#: ../Rpmdrake/icon.pm:146
+#, c-format
+msgid "Computer science"
+msgstr "Gwyddor Cyfrifiadureg"
+
+#: ../Rpmdrake/icon.pm:147
+#, c-format
+msgid "Geosciences"
+msgstr "Gwyddorau Daear"
+
+#: ../Rpmdrake/icon.pm:148
+#, c-format
+msgid "Mathematics"
+msgstr "Mathemateg"
+
+#: ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Physics"
+msgstr "Ffiseg"
+
+#: ../Rpmdrake/icon.pm:151
+#, c-format
+msgid "Shells"
+msgstr "Cregyn"
+
+#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:158
+#, c-format
+msgid "Sound"
+msgstr "Sain"
+
+#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#, c-format
+msgid "Editors and Converters"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:154
+#, c-format
+msgid "Midi"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:155
+#, c-format
+msgid "Mixers"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#, c-format
+msgid "Players"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Utilities"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:158
+#, fuzzy, c-format
+msgid "Visualization"
+msgstr "Rhyngwladoli"
+
+#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#, c-format
+msgid "System"
+msgstr "System"
+
+#: ../Rpmdrake/icon.pm:160
+#, c-format
+msgid "Base"
+msgstr "Sail"
+
+#: ../Rpmdrake/icon.pm:161
+#, c-format
+msgid "Cluster"
+msgstr "Clwstwr"
+
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#, c-format
+msgid "Configuration"
+msgstr "Ffurfweddu"
+
+#: ../Rpmdrake/icon.pm:163
+#, c-format
+msgid "Boot and Init"
+msgstr "Cychwyn ac Ymgychwyn"
+
+#: ../Rpmdrake/icon.pm:164
+#, c-format
+msgid "Hardware"
+msgstr "Caledwedd"
+
+#: ../Rpmdrake/icon.pm:167
+#, c-format
+msgid "Packaging"
+msgstr "Pecynnu"
+
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#, c-format
+msgid "Printing"
+msgstr "Argraffu"
+
+#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "Fonts"
+msgstr "Ffontiau"
+
+#: ../Rpmdrake/icon.pm:170
+#, c-format
+msgid "Console"
+msgstr "Consol"
+
+#: ../Rpmdrake/icon.pm:171
+#, c-format
+msgid "True type"
+msgstr "True type"
+
+#: ../Rpmdrake/icon.pm:172
+#, c-format
+msgid "Type1"
+msgstr "Math 1"
+
+#: ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "X11 bitmap"
+msgstr "Didfap X11"
+
+#: ../Rpmdrake/icon.pm:174
+#, c-format
+msgid "Internationalization"
+msgstr "Rhyngwladoli"
+
+#: ../Rpmdrake/icon.pm:175
+#, c-format
+msgid "Kernel and hardware"
+msgstr "Cnewyllyn a chaledwedd."
+
+#: ../Rpmdrake/icon.pm:176
+#, c-format
+msgid "Libraries"
+msgstr "Llyfrgelloedd"
+
+#: ../Rpmdrake/icon.pm:178
+#, c-format
+msgid "Servers"
+msgstr "Gweinyddion"
+
+#: ../Rpmdrake/icon.pm:182
+#, c-format
+msgid "Terminals"
+msgstr "Terfynellau"
+
+#: ../Rpmdrake/icon.pm:183
+#, c-format
+msgid "Text tools"
+msgstr "Offer testun"
+
+#: ../Rpmdrake/icon.pm:184
+#, c-format
+msgid "Toys"
+msgstr "Teganau"
+
+#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Workstation"
+msgstr "Man Gwaith"
+
+#: ../Rpmdrake/icon.pm:193
+#, c-format
+msgid "Console Tools"
+msgstr "Offer y Consol"
+
+#: ../Rpmdrake/icon.pm:195
+#, c-format
+msgid "Game station"
+msgstr "Man chwarae"
+
+#: ../Rpmdrake/icon.pm:196
+#, c-format
+msgid "Internet station"
+msgstr "Man Rhyngrwyd"
+
+#: ../Rpmdrake/icon.pm:197
+#, c-format
+msgid "Multimedia station"
+msgstr "Man aml-gyfrwng"
+
+#: ../Rpmdrake/icon.pm:198
+#, c-format
+msgid "Network Computer (client)"
+msgstr "Cyfrifiadur Rhwydwaith (cleient)"
+
+#: ../Rpmdrake/icon.pm:199
+#, c-format
+msgid "Office Workstation"
+msgstr "Gweithfan Swyddfa"
+
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Scientific Workstation"
+msgstr "Man Gwaith Gwyddonol"
+
+#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Graphical Environment"
+msgstr "Amgylchedd Graffig"
+
+#: ../Rpmdrake/icon.pm:203
+#, c-format
+msgid "GNOME Workstation"
+msgstr "Man Gwaith Gnome"
+
+#: ../Rpmdrake/icon.pm:204
+#, c-format
+msgid "IceWm Desktop"
+msgstr "Bwrdd Gwaith IceWm"
+
+#: ../Rpmdrake/icon.pm:205
+#, c-format
+msgid "KDE Workstation"
+msgstr "Man Gwaith KDE"
+
+#: ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Other Graphical Desktops"
+msgstr "Byrddau Gwaith Graffigol Eraill"
+
+#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Server"
+msgstr "Gweinydd"
+
+#: ../Rpmdrake/icon.pm:211
+#, c-format
+msgid "DNS/NIS"
+msgstr "DNS/NIS"
+
+#: ../Rpmdrake/icon.pm:212
+#, c-format
+msgid "Database"
+msgstr "Cronfa Ddata"
+
+#: ../Rpmdrake/icon.pm:213
+#, c-format
+msgid "Firewall/Router"
+msgstr "Mur Gwarchod/Llwybrydd"
+
+#: ../Rpmdrake/icon.pm:215
+#, c-format
+msgid "Mail/Groupware/News"
+msgstr "E-bost/Grwpwar/Newyddion"
+
+#: ../Rpmdrake/icon.pm:216
+#, c-format
+msgid "Network Computer server"
+msgstr "Gweinydd Cyfrifiadur Rhwydwaith"
+
+#: ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Web/FTP"
+msgstr "Gwe/FTP"
+
+#: ../Rpmdrake/init.pm:49
+#, c-format
+msgid "Usage: %s [OPTION]..."
+msgstr "Defnyddi: %s [DEWIS]..."
+
+#: ../Rpmdrake/init.pm:50
+#, c-format
+msgid "  --auto                 assume default answers to questions"
+msgstr "  --auto                 derbyn atebion rhagosodedig i gwestiynau"
+
+#: ../Rpmdrake/init.pm:51
+#, c-format
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+"  --changelog-first      dangos cofnod newid cyn filelist yn y ffenestr "
+"disgrifio"
+
+#: ../Rpmdrake/init.pm:52
+#, c-format
+msgid "  --media=medium1,..     limit to given media"
+msgstr "  --media=medium1,..     terfyn i'r cyfrwng hwn"
+
+#: ../Rpmdrake/init.pm:53
+#, c-format
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr "  --merge-all-rpmnew     cynnig uno pob ffeil  .rpmnew/.rpmsave"
+
+#: ../Rpmdrake/init.pm:54
+#, c-format
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+"  --mode=MODE            gosod modd (gosod (rhagosodedig), tynnu, diweddaru)"
+
+#: ../Rpmdrake/init.pm:55
+#, c-format
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+"  --justdb               diweddaru'r gronfa ddata ond nid newid y system "
+"ffeil"
+
+#: ../Rpmdrake/init.pm:56
+#, c-format
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+"  --no-confirmation      peidio gofyn cwestiwn cadarnhau ym modd diweddaru"
+
+#: ../Rpmdrake/init.pm:57
+#, c-format
+msgid "  --no-media-update      don't update media at startup"
+msgstr "  --no-media-update    peidio diweddaru cyfrwng wrth gychwyn"
+
+#: ../Rpmdrake/init.pm:58
+#, c-format
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr "  --no-verify-rpm        peidio gwirio llofnod pecynnau"
+
+#: ../Rpmdrake/init.pm:59
+#, c-format
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+"  --parallel=alias,host  ym modd paralel, defnyddio grŵp \"alias\" , "
+"defnyddio peiriant  \"host\" i ddangos deps angenrheidiol"
+
+#: ../Rpmdrake/init.pm:60
+#, c-format
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr "  --rpm-root=path        defnyddio root arall ar gyfer gosod rpm"
+
+#: ../Rpmdrake/init.pm:61
+#, c-format
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr ""
+"  --urpmi-root                 defnyddio root arall ar gyfer gosod urpmi db "
+"ac rpm."
+
+#: ../Rpmdrake/init.pm:62
+#, c-format
+msgid "  --run-as-root          force to run as root"
+msgstr "  --run-as-root          gorfodi ei redeg fel root"
+
+#: ../Rpmdrake/init.pm:63
+#, c-format
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr "  --search=pkg           chwilio am \"pkg\""
+
+#: ../Rpmdrake/init.pm:64
+#, c-format
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr "  --test                 dim ond dilysu os mae modd gosod yn gywir"
+
+#: ../Rpmdrake/init.pm:65
+#, c-format
+msgid "  --version              print this tool's version number\n"
+msgstr "  --version              argraffu rhif fersiwn yr offeryn\n"
+
+#: ../Rpmdrake/init.pm:156
+#, c-format
+msgid "Running in user mode"
+msgstr "Rhedeg ym modd defnyddiwr"
+
+#: ../Rpmdrake/init.pm:157
+#, c-format
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"Rydych yn cychwyn y rhaglen fel defnyddiwr cyffredin.\n"
+"Ni fydd modd i chi greu newidiadau i'r system.\n"
+"ond bydd modd i chi bori'r gronfa ddata presennol."
+
+#: ../Rpmdrake/pkg.pm:126
+#, c-format
+msgid "Getting information from XML meta-data from %s..."
+msgstr "Tynnu gwybodaeth meta data XML o ffeil %s..."
+
+#: ../Rpmdrake/pkg.pm:130
+#, c-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr "Tynnu '%s' o meta data XML..."
+
+#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../rpmdrake.pm:594
+#, c-format
+msgid "Please wait"
+msgstr "Arhoswch"
+
+#: ../Rpmdrake/pkg.pm:147
+#, c-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+"Dim gwybodaeth xml ar gyfer cyfrwng \"%s\", dim ond canlyniad rhannol ar "
+"gyfer pecyn %s"
+
+#: ../Rpmdrake/pkg.pm:149
+#, c-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+"Dim gwybodaeth xml ar gyfer cyfrwng \"%s\", dim canlyniad ar gyfer pecyn %s"
+
+#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#, c-format
+msgid "Downloading package `%s'..."
+msgstr "Llwytho pecynnau i lawr ' %s'..."
+
+#: ../Rpmdrake/pkg.pm:211
+#, c-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr "        %s%% o %s wedi ei gwblhau, Amser = %s, cyflymder = %s"
+
+#: ../Rpmdrake/pkg.pm:212
+#, c-format
+msgid "        %s%% completed, speed = %s"
+msgstr "        %s%% wedi ei gwblhau, cyflymder = %s"
+
+#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Confirmation"
+msgstr "Gwiriad"
+
+#: ../Rpmdrake/pkg.pm:251
+#, c-format
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Rhaid i mi gysylltu â'r drych i gael y diweddariad diogelwch diweddaraf.\n"
+"Gwiriwch fod y rhyngrwyd yn rhedeg.\n"
+"\n"
+"Parhau?"
+
+#: ../Rpmdrake/pkg.pm:255
+#, c-format
+msgid "Do not ask me next time"
+msgstr "Peidio gofyn y tro nesaf"
+
+#: ../Rpmdrake/pkg.pm:264
+#, c-format
+msgid "Already existing update media"
+msgstr "Cyfrwng diweddaru sy'n bod eisoes"
+
+#: ../Rpmdrake/pkg.pm:265
+#, c-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"Mae gennych o leiaf un cyfrwng diweddaru wedi ei ffurfweddu,\n"
+"ond mae'n nhw i gyd wedi eu hanalluogi. Dylech redeg y Rheolwr\n"
+"Cyfrwng Meddalwedd i alluogi o leiaf un (gwirio yn y golofn \"%s\")\n"
+"\n"
+"\n"
+"Yna ail gychwyn %s."
+
+#: ../Rpmdrake/pkg.pm:275
+#, c-format
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+"Nid oes gennych gyfrwng diweddaru wedi ei ffurfweddu. Nid yw MageiaUpdate yn "
+"gallu gweithredu heb gyfrwng diweddaru."
+
+#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#, c-format
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Mae angen i mi gysylltu â safle gwe Mageia i gael y rhestr\n"
+"drychau. Gwiriwch fod eich rhwydwaith yn rhedeg.\n"
+"\n"
+"Parhau?"
+
+#: ../Rpmdrake/pkg.pm:283
+#, c-format
+msgid "How to choose manually your mirror"
+msgstr "Sut i ddewis drych gyda llaw."
+
+#: ../Rpmdrake/pkg.pm:284
+#, c-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"Cewch ddewis eich drych eich hun, i wneud hynny\n"
+"cychwynnwch y Rheolwr Cyfryngau Meddalwedd, ac ychwanegu\n"
+"cyfrwng 'Diweddariadau Diogelwch'.\n"
+"\n"
+"Yna ailgychwynnwch %s."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#, c-format
+msgid "Package installation..."
+msgstr "Gosod pecynnau..."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#, c-format
+msgid "Initializing..."
+msgstr "Ymgychwyn..."
+
+#: ../Rpmdrake/pkg.pm:452
+#, c-format
+msgid "Reading updates description"
+msgstr "Darllen disgrifiad diweddariadau"
+
+#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#, c-format
+msgid "Please wait, finding available packages..."
+msgstr "Arhoswch, canfod pecynnau sydd ar gael..."
+
+#: ../Rpmdrake/pkg.pm:464
+#, c-format
+msgid "Please wait, listing base packages..."
+msgstr "Arhoswch, rhestri pecynnau sail..."
+
+#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#, c-format
+msgid "Error"
+msgstr "Gwall"
+
+#: ../Rpmdrake/pkg.pm:477
+#, c-format
+msgid "Please wait, finding installed packages..."
+msgstr "Arhoswch, canfod pecynnau sydd wedi eu gosod..."
+
+#: ../Rpmdrake/pkg.pm:594
+#, c-format
+msgid "Upgrade information"
+msgstr "Gwybodaeth uwchraddio"
+
+#: ../Rpmdrake/pkg.pm:596
+#, c-format
+msgid "These packages come with upgrade information"
+msgstr "Mae gan y pecynnau wybodaeth uwchraddio"
+
+#: ../Rpmdrake/pkg.pm:604
+#, c-format
+msgid "Upgrade information about this package"
+msgstr "Gwybodaeth uwchraddio am y pecyn hwn"
+
+#: ../Rpmdrake/pkg.pm:607
+#, c-format
+msgid "Upgrade information about package %s"
+msgstr "Gwybodaeth uwchraddio am becyn %s"
+
+#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#, c-format
+msgid "All requested packages were installed successfully."
+msgstr "Gosodwyd pob pecyn angenrheidiol yn llwyddiannus."
+
+#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#, c-format
+msgid "Problem during installation"
+msgstr "Anhawster wrth osod"
+
+#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#, c-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"Digwyddodd anhawster wrth osod pecyn:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:653
+#, c-format
+msgid "Installation failed"
+msgstr "Methodd y gosodiad"
+
+#: ../Rpmdrake/pkg.pm:676
+#, c-format
+msgid "Checking validity of requested packages..."
+msgstr "Gwirio dilysrwydd y pecynnau..."
+
+#: ../Rpmdrake/pkg.pm:695
+#, c-format
+msgid "Unable to get source packages."
+msgstr "Methu estyn pecynnau ffynhonnell."
+
+#: ../Rpmdrake/pkg.pm:696
+#, c-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "Methu estyn pecynnau ffynhonnell, %s"
+
+#: ../Rpmdrake/pkg.pm:697
+#, c-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"Gwall(au) wedi eu hadrodd:\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:715
+#, c-format
+msgid "The following package is going to be installed:"
+msgid_plural "The following %d packages are going to be installed:"
+msgstr[0] "Mae'r pecyn canlynol yn mynd i gael ei osod:"
+msgstr[1] "Mae'r %d pecynu canlynol yn mynd i gael eu gosod:"
+
+#: ../Rpmdrake/pkg.pm:721
+#, c-format
+msgid "Remove one package?"
+msgid_plural "Remove %d packages?"
+msgstr[0] "Tynnu un pecyn?"
+msgstr[1] "Tynnu %d pecyn?"
+
+#: ../Rpmdrake/pkg.pm:723
+#, c-format
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr "Cafodd y pecyn canlynol ei dynnu i eraill gael eu diweddaru:"
+
+#: ../Rpmdrake/pkg.pm:724
+#, c-format
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr "Rhaid i'r pecynnau canlynol gael eu tynnu i eraill gael eu diweddaru:"
+
+#: ../Rpmdrake/pkg.pm:728
+#, c-format
+msgid "Is it ok to continue?"
+msgstr "Ydi hi'n iawn parhau?"
+
+#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#, c-format
+msgid "Orphan packages"
+msgstr "Pecynnau amddifad"
+
+#: ../Rpmdrake/pkg.pm:744
+#, c-format
+msgid "The following orphan package will be removed."
+msgid_plural "The following orphan packages will be removed."
+msgstr[0] "Bydd y pecyn amddifad canlynol yn cael ei dynnu."
+msgstr[1] "Bydd y pecynnau amddifad canlynol yn cael eu tynnu."
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation..."
+msgstr "Paratoi pecynnau i'w gosod..."
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation transaction..."
+msgstr "Paratoi trafod gosod pecyn..."
+
+#: ../Rpmdrake/pkg.pm:763
+#, c-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr "Gosod pecyn `%s' (%s/%s)..."
+
+#: ../Rpmdrake/pkg.pm:764
+#, c-format
+msgid "Total: %s/%s"
+msgstr "Cyfanswm: %s/%s"
+
+#: ../Rpmdrake/pkg.pm:827
+#, c-format
+msgid "Change medium"
+msgstr "Newid cyfrwng"
+
+#: ../Rpmdrake/pkg.pm:828
+#, c-format
+msgid "Please insert the medium named \"%s\""
+msgstr "Rhowch gyfrwng \"%s\" i mewn"
+
+#: ../Rpmdrake/pkg.pm:832
+#, c-format
+msgid "Verifying package signatures..."
+msgstr "Gwirio llofnodion pecynnau ..."
+
+#: ../Rpmdrake/pkg.pm:855
+#, c-format
+msgid "%d installation transactions failed"
+msgstr "Methodd trafod gosod %d"
+
+#: ../Rpmdrake/pkg.pm:869
+#, c-format
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr "Gwall anadferadwy: dim pecyn wedi ei ganfod ar gyfer y gosod."
+
+#: ../Rpmdrake/pkg.pm:872
+#, c-format
+msgid "Inspecting configuration files..."
+msgstr "Darllen ffeiliau ffurfweddu..."
+
+#: ../Rpmdrake/pkg.pm:880
+#, c-format
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"Mae'r gosod wedi gorffen; cafodd popeth ei osod yn gywir.\n"
+"\n"
+"Cafodd rhai ffeiliau ffurfweddu eu creu fel  `.rpmnew' neu `.rpmsave',\n"
+"mae modd eu harchwilio i weithredu arnynt:"
+
+#: ../Rpmdrake/pkg.pm:886
+#, c-format
+msgid "Looking for \"README\" files..."
+msgstr "Chwilio am ffeiliau \"README\" ..."
+
+#: ../Rpmdrake/pkg.pm:919
+#, c-format
+msgid "RPM transaction %d/%d"
+msgstr "Trafodiad RPM %d/%d"
+
+#: ../Rpmdrake/pkg.pm:920
+#, c-format
+msgid "Unselect all"
+msgstr "Dad ddewis popeth"
+
+#: ../Rpmdrake/pkg.pm:921
+#, c-format
+msgid "Details"
+msgstr "Manylion"
+
+#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#, c-format
+msgid "Please wait, removing packages..."
+msgstr "Arhoswch, tynnu'r pecynnau..."
+
+#: ../Rpmdrake/pkg.pm:977
+#, c-format
+msgid "Problem during removal"
+msgstr "Problem wrth dynnu"
+
+#: ../Rpmdrake/pkg.pm:978
+#, c-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"Digwyddodd gwall wrth dynnu pecyn:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:985
+#, c-format
+msgid "Information"
+msgstr "Gwybodaeth"
+
+#: ../Rpmdrake/rpmnew.pm:82
+#, c-format
+msgid "Inspecting %s"
+msgstr "Archwilio %s"
+
+#: ../Rpmdrake/rpmnew.pm:107
+#, c-format
+msgid "Changes:"
+msgstr "Newidiadau:"
+
+#: ../Rpmdrake/rpmnew.pm:116
+#, c-format
+msgid ""
+"You can either remove the .%s file, use it as main file or do nothing. If "
+"unsure, keep the current file (\"%s\")."
+msgstr ""
+"Mae modd un ai tynnu'r ffel .%s, ei defnyddio fel y brif ffeil neu gwneud "
+"dim. Os ydych cyn ansicr, cadwch y ffeil bresennol (\"%s\")"
+
+#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#, c-format
+msgid "Remove .%s"
+msgstr "Tynnu .%s"
+
+#: ../Rpmdrake/rpmnew.pm:126
+#, c-format
+msgid "Use .%s as main file"
+msgstr "Defnyddio .%s fel y brif ffeil"
+
+#: ../Rpmdrake/rpmnew.pm:130
+#, c-format
+msgid "Do nothing"
+msgstr "Gwneud dim"
+
+#: ../Rpmdrake/rpmnew.pm:158
+#, c-format
+msgid "Installation finished"
+msgstr "Gorffennodd y gosodiad"
+
+#: ../Rpmdrake/rpmnew.pm:173
+#, c-format
+msgid "Inspect..."
+msgstr "Archwilio..."
+
+#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#, c-format
+msgid "Please wait, searching..."
+msgstr "Arhoswch, chwilio..."
+
+#: ../gurpmi.addmedia:103
+#, c-format
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr "cyfeiriadur <url> gwallus (rhaid i'r llwybr fod yn absoliwt)"
+
+#: ../gurpmi.addmedia:117
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"Parhau?"
+
+#: ../gurpmi.addmedia:121
+#, fuzzy, c-format
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"Rydych ar fin gosod cyfrwng pecynnau newydd, %s.\n"
+"Mae hyn yn golygu y bydd modd gosod pecynnau meddalwedd\n"
+"newydd i'ch system o'r cyfrwng hwnnw."
+
+#: ../gurpmi.addmedia:125
+#, c-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"Rydych ar fin gosod cyfrwng pecynnau newydd, %s.\n"
+"Mae hyn yn golygu y bydd modd gosod pecynnau meddalwedd\n"
+"newydd i'ch system o'r cyfrwng hwnnw."
+
+#: ../gurpmi.addmedia:128
+#, c-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+"Rydych ar fin gosod cyfrwng pecynnau newydd, %s'.\n"
+"Mae hyn yn golygu y bydd modd gosod pecynnau meddalwedd\n"
+"newydd i'ch system o'r cyfrwng hwnnw."
+
+#: ../gurpmi.addmedia:152
+#, c-format
+msgid "Successfully added media."
+msgstr "Llwyddiant wrth ychwanegu cyfrwng."
+
+#: ../gurpmi.addmedia:154
+#, c-format
+msgid "Successfully added media %s."
+msgstr "Llwyddiant wrth ychwanegu cyfrwng %s."
+
+#: ../gurpmi.addmedia:155
+#, c-format
+msgid "Successfully added medium `%s'."
+msgstr "Llwyddiant wrth ychwanegu cyfrwng '%s'"
+
+#: ../rpmdrake:107
+#, c-format
+msgid "Stop"
+msgstr "Atal"
+
+#: ../rpmdrake:141
+#, c-format
+msgid "no xml-info available for medium \"%s\""
+msgstr "dim xml-info ar gael ar gyfer cyfrwng \"%s\""
+
+#: ../rpmdrake:157 ../rpmdrake:185
+#, c-format
+msgid "Search aborted"
+msgstr "Atal y chwilio"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Selected"
+msgstr "Dewiswyd"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Not selected"
+msgstr "Heb ei ddewis"
+
+#: ../rpmdrake:211
+#, c-format
+msgid "No search results."
+msgstr "Dim canlyniadau chwilio"
+
+#: ../rpmdrake:212
+#, c-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+"Dim canlyniadau chwilio. Efallai'r hoffech chi newid i'r golwg '%s' ac i'r "
+"hidl '%s'."
+
+#: ../rpmdrake:246
+#, c-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr "Dewiswyd: %s / Lle gwag ar ddisg: %s"
+
+#: ../rpmdrake:286
+#, c-format
+msgid "Package"
+msgstr "Pecyn"
+
+#. -PO: "Architecture" but to be kept *small* !!!
+#: ../rpmdrake:300
+#, c-format
+msgid "Arch."
+msgstr "Arch."
+
+#. -PO: "Status" should be kept *small* !!!
+#: ../rpmdrake:328
+#, c-format
+msgid "Status"
+msgstr "Statws"
+
+#: ../rpmdrake:371
+#, c-format
+msgid "Not installed"
+msgstr "Heb eu gosod"
+
+#: ../rpmdrake:386
+#, c-format
+msgid "All packages, alphabetical"
+msgstr "Pob pecyn, trefn yr wyddor"
+
+#: ../rpmdrake:387
+#, c-format
+msgid "All packages, by group"
+msgstr "Pob pecyn, yn ôl grŵp"
+
+#: ../rpmdrake:388
+#, c-format
+msgid "Leaves only, sorted by install date"
+msgstr "Gadael, yn ôl dyddiad gosod"
+
+#: ../rpmdrake:389
+#, c-format
+msgid "All packages, by update availability"
+msgstr "Pob pecyn, yn ôl diweddariad"
+
+#: ../rpmdrake:390
+#, c-format
+msgid "All packages, by selection state"
+msgstr "Pob pecyn, yn ôl dyddiad dewis"
+
+#: ../rpmdrake:391
+#, c-format
+msgid "All packages, by size"
+msgstr "Pob pecyn, yn ôl maint"
+
+#: ../rpmdrake:392
+#, c-format
+msgid "All packages, by medium repository"
+msgstr "Pob pecyn, yn ôl yn ôl ffynhonnell eu storfa"
+
+#. -PO: Backports media are newer but less-tested versions of some packages in main
+#. -PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
+#: ../rpmdrake:400
+#, c-format
+msgid "Backports"
+msgstr "Ad-ddiweddaru"
+
+#: ../rpmdrake:401
+#, c-format
+msgid "Meta packages"
+msgstr "Pecynnau meta"
+
+#: ../rpmdrake:402
+#, c-format
+msgid "Packages with GUI"
+msgstr "Pecynnau sydd â rhyngwyneb"
+
+#: ../rpmdrake:403
+#, c-format
+msgid "All updates"
+msgstr "Pob diweddariad"
+
+#: ../rpmdrake:404
+#, c-format
+msgid "Security updates"
+msgstr "Diweddariadau diogelwch"
+
+#: ../rpmdrake:405
+#, c-format
+msgid "Bugfixes updates"
+msgstr "Diweddariad cywiro gwallau"
+
+#: ../rpmdrake:406
+#, c-format
+msgid "General updates"
+msgstr "Diweddariadau cyffredinol"
+
+#: ../rpmdrake:429
+#, c-format
+msgid "View"
+msgstr "Golwg"
+
+#: ../rpmdrake:457
+#, c-format
+msgid "Filter"
+msgstr "Hidl"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in names"
+msgstr "mewn enwau"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in descriptions"
+msgstr "mewn disgrifiadau"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in summaries"
+msgstr "mewn crynodebau"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in file names"
+msgstr "mewn enwau ffeil"
+
+#: ../rpmdrake:534
+#, c-format
+msgid "/_Select dependencies without asking"
+msgstr "/_Dewis dibyniaethau heb ofyn"
+
+#: ../rpmdrake:537
+#, c-format
+msgid "Clear download cache after successful install"
+msgstr "Clirio'r storfa llwytho i lawr ar ôl gosod yn llwyddiannus"
+
+#: ../rpmdrake:538
+#, c-format
+msgid "/_Compute updates on startup"
+msgstr "/_Cyfrifo diweddariadau wrth gychwyn"
+
+#: ../rpmdrake:539
+#, c-format
+msgid "Search in _full package names"
+msgstr ""
+
+#: ../rpmdrake:540
+#, c-format
+msgid "Use _regular expressions in searches"
+msgstr ""
+
+#: ../rpmdrake:546
+#, c-format
+msgid "/_Update media"
+msgstr "/Diweddaru'r _cyfrwng"
+
+#: ../rpmdrake:551
+#, c-format
+msgid "/_Reset the selection"
+msgstr "/Ailosod y _dewis"
+
+#: ../rpmdrake:555
+#, c-format
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: ../rpmdrake:571
+#, c-format
+msgid "/Reload the _packages list"
+msgstr "/_Ail-lwytho'r rhestr pecynnau"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "/_Quit"
+msgstr "/_Gadael"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "<control>Q"
+msgstr "<control>Q"
+
+#: ../rpmdrake:591
+#, c-format
+msgid "/_Media Manager"
+msgstr "/_Rheolwr Cyfrwng"
+
+#: ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Show automatically selected packages"
+msgstr "/_Dangoswch y pecynnau dewis awtomatig"
+
+#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#, c-format
+msgid "/_View"
+msgstr "/_Golwg"
+
+#: ../rpmdrake:692
+#, c-format
+msgid "Find:"
+msgstr "Canfod:"
+
+#: ../rpmdrake:696
+#, c-format
+msgid "Please type in the string you want to search then press the <enter> key"
+msgstr "Teipiwch y llinyn i chwilio amdani ac yna pwyso bysell <enter>"
+
+#: ../rpmdrake:726
+#, c-format
+msgid "Apply"
+msgstr "Gosod"
+
+#: ../rpmdrake:745
+#, c-format
+msgid "Quick Introduction"
+msgstr "Cyflwyniad Cyflym"
+
+#: ../rpmdrake:746
+#, c-format
+msgid "You can browse the packages through the categories tree on the left."
+msgstr "Gallwch edrych ar y pecynnau drwy'r rhestr categorïau ar y chwith."
+
+#: ../rpmdrake:747
+#, c-format
+msgid ""
+"You can view information about a package by clicking on it on the right list."
+msgstr ""
+"Gallwch ddarllen gwybodaeth am y pecynnau drwy glicio ar y rhestr ar y dde."
+
+#: ../rpmdrake:748
+#, c-format
+msgid "To install, update or remove a package, just click on its \"checkbox\"."
+msgstr "I osod, diweddaru neu dynnu rhaglen, cliciwch ar ei \"flwch ticio\"."
+
+#: ../rpmdrake:793
+#, c-format
+msgid "rpmdrake is already running (pid: %s)"
+msgstr ""
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Software Update"
+msgstr "Diweddaru Meddalwedd"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Mageia Update"
+msgstr "Diweddaru Mageia"
+
+#: ../rpmdrake.pm:148
+#, c-format
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr "Rhowch eich hawl i gael mynediad dirprwy\n"
+
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "User name:"
+msgstr "Enw Defnyddiwr:"
+
+#: ../rpmdrake.pm:234
+#, c-format
+msgid "Software Packages Removal"
+msgstr "Tynnu Pecynnau Meddalwedd"
+
+#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Packages Update"
+msgstr "Diweddaru Pecynnau Meddalwedd"
+
+#: ../rpmdrake.pm:236
+#, c-format
+msgid "Software Packages Installation"
+msgstr "Gosod Pecynnau Meddalwedd"
+
+#: ../rpmdrake.pm:284
+#, c-format
+msgid "No"
+msgstr "Na"
+
+#: ../rpmdrake.pm:288
+#, c-format
+msgid "Yes"
+msgstr "Iawn"
+
+#: ../rpmdrake.pm:340
+#, c-format
+msgid "Info..."
+msgstr "Gwybodaeth..."
+
+#: ../rpmdrake.pm:465
+#, c-format
+msgid "Austria"
+msgstr "Awstria"
+
+#: ../rpmdrake.pm:466
+#, c-format
+msgid "Australia"
+msgstr "Awstralia"
+
+#: ../rpmdrake.pm:467
+#, c-format
+msgid "Belgium"
+msgstr "Gwlad Belg"
+
+#: ../rpmdrake.pm:468
+#, c-format
+msgid "Brazil"
+msgstr "Brasil"
+
+#: ../rpmdrake.pm:469
+#, c-format
+msgid "Canada"
+msgstr "Canada"
+
+#: ../rpmdrake.pm:470
+#, c-format
+msgid "Switzerland"
+msgstr "Y Swistir"
+
+#: ../rpmdrake.pm:471
+#, c-format
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: ../rpmdrake.pm:472
+#, c-format
+msgid "Czech Republic"
+msgstr "Gweriniaeth Tsiec"
+
+#: ../rpmdrake.pm:473
+#, c-format
+msgid "Germany"
+msgstr "Yr Almaen"
+
+#: ../rpmdrake.pm:474
+#, c-format
+msgid "Danmark"
+msgstr "Denmarc"
+
+#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#, c-format
+msgid "Greece"
+msgstr "Groeg"
+
+#: ../rpmdrake.pm:476
+#, c-format
+msgid "Spain"
+msgstr "Sbaen"
+
+#: ../rpmdrake.pm:477
+#, c-format
+msgid "Finland"
+msgstr "Ffindir"
+
+#: ../rpmdrake.pm:478
+#, c-format
+msgid "France"
+msgstr "Ffrainc"
+
+#: ../rpmdrake.pm:480
+#, c-format
+msgid "Hungary"
+msgstr "Hwngari"
+
+#: ../rpmdrake.pm:481
+#, c-format
+msgid "Israel"
+msgstr "Israel"
+
+#: ../rpmdrake.pm:482
+#, c-format
+msgid "Italy"
+msgstr "Yr Eidal"
+
+#: ../rpmdrake.pm:483
+#, c-format
+msgid "Japan"
+msgstr "Siapan"
+
+#: ../rpmdrake.pm:484
+#, c-format
+msgid "Korea"
+msgstr "Corea"
+
+#: ../rpmdrake.pm:485
+#, c-format
+msgid "Netherlands"
+msgstr "Yr Iseldiroedd"
+
+#: ../rpmdrake.pm:486
+#, c-format
+msgid "Norway"
+msgstr "Norwy"
+
+#: ../rpmdrake.pm:487
+#, c-format
+msgid "Poland"
+msgstr "Gwlad Pwyl"
+
+#: ../rpmdrake.pm:488
+#, c-format
+msgid "Portugal"
+msgstr "Portiwgal"
+
+#: ../rpmdrake.pm:489
+#, c-format
+msgid "Russia"
+msgstr "Rwsia"
+
+#: ../rpmdrake.pm:490
+#, c-format
+msgid "Sweden"
+msgstr "Sweden"
+
+#: ../rpmdrake.pm:491
+#, c-format
+msgid "Singapore"
+msgstr "Singapore"
+
+#: ../rpmdrake.pm:492
+#, c-format
+msgid "Slovakia"
+msgstr "Slofacia"
+
+#: ../rpmdrake.pm:493
+#, c-format
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: ../rpmdrake.pm:494
+#, c-format
+msgid "United Kingdom"
+msgstr "Y Deyrnas Unedig"
+
+#: ../rpmdrake.pm:495
+#, c-format
+msgid "China"
+msgstr "Tsiena"
+
+#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#, c-format
+msgid "United States"
+msgstr "Yr Unol Daleithiau"
+
+#: ../rpmdrake.pm:579
+#, c-format
+msgid "Please wait, downloading mirror addresses."
+msgstr "Arhoswch, llwytho i lawr cyfeiriadau drychau."
+
+#: ../rpmdrake.pm:580
+#, c-format
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr "Arhoswch, llwytho i lawr cyfeiriadau drychau o safle gwe Mageia."
+
+#: ../rpmdrake.pm:601
+#, c-format
+msgid "retrieval of [%s] failed"
+msgstr "methodd estyn [%s]"
+
+#: ../rpmdrake.pm:623
+#, c-format
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Mae angen i mi gysylltu â'r rhyngrwyd i gael y rhestr\n"
+"drychau. Gwiriwch fod eich rhwydwaith yn rhedeg.\n"
+"\n"
+"Parhau?"
+
+#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#, c-format
+msgid "Mirror choice"
+msgstr "Dewis drychau"
+
+#: ../rpmdrake.pm:643
+#, c-format
+msgid "Error during download"
+msgstr "Gwall wrth lwytho i lawr"
+
+#: ../rpmdrake.pm:645
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"Cafwyd gwall wrth lwytho'r rhestr drych i lawr:\n"
+"\n"
+"%s\n"
+"Nid yw'r rhwydwaith, neu'r safle, ar gael.\n"
+"Ceisiwch eto."
+
+#: ../rpmdrake.pm:650
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"Cafwyd gwall wrth lwytho'r rhestr drych i lawr:\n"
+"\n"
+"%s\n"
+"Nid yw'r rhwydwaith, neu safle Mageia, ar gael.\n"
+"Ceisiwch eto."
+
+#: ../rpmdrake.pm:660
+#, c-format
+msgid "No mirror"
+msgstr "Dim drych"
+
+#: ../rpmdrake.pm:662
+#, c-format
+msgid "I can't find any suitable mirror."
+msgstr "Methu canfod drych addas."
+
+#: ../rpmdrake.pm:663
+#, c-format
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"Methu canfod drych addas.\n"
+"\n"
+"Gall fod amryw o resymau; y mwyaf tebygol yw'r achos pan nad\n"
+"yw pensaernïaeth eich prosesydd yn cael ei gynnal gan Diweddariadau\n"
+"Swyddogol Mageia."
+
+#: ../rpmdrake.pm:682
+#, c-format
+msgid "Please choose the desired mirror."
+msgstr "Dewiswch ddrych"
+
+#: ../rpmdrake.pm:723
+#, c-format
+msgid "Copying file for medium `%s'..."
+msgstr "Copïo ffeil fel ar gyfer cyfrwng '%s'..."
+
+#: ../rpmdrake.pm:726
+#, c-format
+msgid "Examining file of medium `%s'..."
+msgstr "Archwilio ffeil cyfrwng '%s'..."
+
+#: ../rpmdrake.pm:729
+#, c-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "Archwilio ffeil bell y cyfrwng '%s'..."
+
+#: ../rpmdrake.pm:733
+#, c-format
+msgid " done."
+msgstr " gorffen.."
+
+#: ../rpmdrake.pm:737
+#, c-format
+msgid " failed!"
+msgstr " methwyd!"
+
+#. -PO: We're downloading the said file from the said medium
+#: ../rpmdrake.pm:742
+#, c-format
+msgid "%s from medium %s"
+msgstr "%s o gyfrwng %s"
+
+#: ../rpmdrake.pm:746
+#, c-format
+msgid "Starting download of `%s'..."
+msgstr "Cychwyn llwytho %s i lawr..."
+
+#: ../rpmdrake.pm:750
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+"Llwytho '%s' i lawr\n"
+"amser yn weddill:%s, cyflymdra:%s"
+
+#: ../rpmdrake.pm:753
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+"Llwytho '%s' i lawr\n"
+"cyflymdra:%s"
+
+#: ../rpmdrake.pm:764
+#, c-format
+msgid "Please wait, updating media..."
+msgstr "Arhoswch, diweddaru cyfrwng..."
+
+#: ../rpmdrake.pm:774
+#, c-format
+msgid "Canceled"
+msgstr "Diddymwyd"
+
+#: ../rpmdrake.pm:791
+#, c-format
+msgid "Error retrieving packages"
+msgstr "Gwall estyn pecynnau"
+
+#: ../rpmdrake.pm:792
+#, c-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+"Mae'n amhosibl estyn y rhestr o becynnau newydd o gyfrwng '%s'.\n"
+"Un ai mae'r cyfrwng wedi ei gam ffurfweddu ac os felly dylech ddefnyddio'r\n"
+"Rheolwr Cyfrwng Meddalwedd i'w dynnu a'i ailosod fel bo modd ei ail "
+"ffurfweddu,\n"
+"neu nid oes modd ei gyrraedd ar hyn o bryd a dylech geisio eto \n"
+"rhywbryd."
+
+#: ../rpmdrake.pm:823
+#, c-format
+msgid "Update media"
+msgstr "Diweddaru'r cyfrwng"
+
+#: ../rpmdrake.pm:828
+#, c-format
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr "Heb ganfod cyfrwng byw. Rhaid galluogi cyfrwng i'w diweddaru."
+
+#: ../rpmdrake.pm:835
+#, c-format
+msgid "Select the media you wish to update:"
+msgstr "Dewiswch y cyfrwng i'w diweddaru:"
+
+#: ../rpmdrake.pm:881
+#, c-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"Methu diweddaru'r cyfrwng; bydd yn cael ei anablu'n awtomatig.\n"
+"\n"
+"Gwallau:\n"
+"%s"
+
+#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#, c-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Methu ychwanegu cyfrwng, gwallau:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:925
+#, c-format
+msgid "Unable to create medium."
+msgstr "Methu creu cyfrwng."
+
+#: ../rpmdrake.pm:930
+#, c-format
+msgid "Failure when adding medium"
+msgstr "Methu ychwanegu cyfrwng"
+
+#: ../rpmdrake.pm:931
+#, c-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"Digwyddodd anhawster wrth ychwanegu cyfrwng:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:944
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+"Nid yw eich cyfrwng '%s', ar gyfer diweddariadau, yn cydweddu â'r fersiwn o %"
+"s rydych yn ei redeg (%s).\n"
+"Bydd yn cael ei anablu."
+
+#: ../rpmdrake.pm:947
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+"Nid yw eich cyfrwng '%s', ar gyfer diweddariadau, yn cydweddu â'r fersiwn o "
+"Mageia rydych yn ei redeg (%s).\n"
+"Bydd yn cael ei anablu."
+
+#: ../rpmdrake.pm:978
+#, c-format
+msgid "Help launched in background"
+msgstr "Cymorth wedi ei gychwyn yn y cefndir"
+
+#: ../rpmdrake.pm:979
+#, c-format
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr ""
+"Mae'r ffenestr cymorth wedi ei hagor, dylai ymddangos ar eich bwrdd gwaith "
+"cyn hir."
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:1
+msgid "A graphical front end for browsing installed & available packages"
+msgstr "Gwyneb graffigol ar gyfer gosod, tynnu a diweddaru pecynnau"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:2
+msgid "Browse Available Software"
+msgstr "Pori'r Holl Feddalwedd"
+
+#: ../data/rpmdrake.desktop.in.h:1
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr ""
+"Gwyneb graffigol ar gyfer pori pecynnau sydd wedi eu gosod ac sydd ar gael"
+
+#: ../data/rpmdrake.desktop.in.h:2
+msgid "Install & Remove Software"
+msgstr "Gosod a Thynnu  Meddalwedd"
+
+#: ../data/rpmdrake-sources.desktop.in.h:1
+msgid "Software Media Manager"
+msgstr "Rheolwr Cyfrwng Meddalwedd"
+
+#: ../mime/gurpmi.addmedia.desktop.in.h:1
+msgid "Add urpmi media"
+msgstr "Ychwanegu cyfrwng urpmi"
+
+#: ../mime/x-urpmi-media.desktop.in.h:1
+msgid "Urpmi medium info"
+msgstr "Gwybodaeth cyfrwng urpmi"
+
+#~ msgid "Books"
+#~ msgstr "Llyfrau"
+
+#~ msgid "Computer books"
+#~ msgstr "Llyfrau cyfrifiadurol"
+
+#~ msgid "Faqs"
+#~ msgstr "Cwestiynau poblogaidd"
+
+#~ msgid "Howtos"
+#~ msgstr "Howtos"
+
+#~ msgid "Literature"
+#~ msgstr "Llenyddiaeth"
+
+#~ msgid "  --root                 force to run as root"
+#~ msgstr "  --root                 gorfodi ei redeg fel root"
+
+#~ msgid "(Deprecated)"
+#~ msgstr "(Anaddas)"
+
+#~ msgid ""
+#~ "  --no-splash            don't ask first confirmation question in update "
+#~ "mode"
+#~ msgstr ""
+#~ "  --no-splash      peidio gofyn cwestiwn cadarnhau ym modd diweddaru"
+
+#~ msgid "Find"
+#~ msgstr "Canfod"
+
+#~ msgid "/Add _media"
+#~ msgstr "/Ychwanegu'r _cyfrwng"
+
+#~ msgid "Welcome"
+#~ msgstr "Croeso"
+
+#~ msgid "The software installation tool can set up media sources."
+#~ msgstr "Mae'r offeryn gosod meddalwedd yn gallu gosod ffynonellau cyfryngau"
+
+#~ msgid "Do you want to add media sources now?"
+#~ msgstr ""
+#~ "Ydych chi'n siŵr eich bod eisiau ychwanegu ffynonellau cyfrwng nawr?"
+
+#~ msgid ""
+#~ "Welcome to the Software Media Manager!\n"
+#~ "\n"
+#~ "This tool will help you configure the packages media you wish to use on\n"
+#~ "your computer. They will then be available to install new software "
+#~ "package\n"
+#~ "or to perform updates."
+#~ msgstr ""
+#~ "Croeso i'r Rheolwr Cyfrwng Pecynnau!\n"
+#~ "\n"
+#~ "Bydd yr offeryn yn eich cynorthwyo i ffurfweddu cyfrwng y pecynnau\n"
+#~ "rydych am eu defnyddio ar eich cyfrifiadur. Byddant ar gael i'w gosod "
+#~ "fel\n"
+#~ "pecynnau newydd neu er mwyn diweddaru."
+
+#~ msgid ""
+#~ "Welcome to the software removal tool!\n"
+#~ "\n"
+#~ "This tool will help you choose which software you want to remove from\n"
+#~ "your computer."
+#~ msgstr ""
+#~ "Croeso i'r offeryn tynnu meddalwedd!\n"
+#~ "\n"
+#~ "Bydd yr offeryn hwn yn eich cynorthwyo i ddewis pa feddalwedd rydych\n"
+#~ "am ei dynnu oddi ar eich cyfrifiadur."
+
+#~ msgid ""
+#~ "Welcome to %s!\n"
+#~ "\n"
+#~ "This tool will help you choose the updates you want to install on your\n"
+#~ "computer."
+#~ msgstr ""
+#~ "Croeso i %s!\n"
+#~ "Bydd yr offeryn hwn yn eich cynorthwyo i ddewis diweddariadau i'w gosod\n"
+#~ "ar eich cyfrifiadur."
+
+#~ msgid "Welcome to the software installation tool!"
+#~ msgstr "Croeso i'r offeryn gosod meddalwedd!"
+
+#~ msgid ""
+#~ "Welcome to the software installation tool!\n"
+#~ "\n"
+#~ "Your Mandriva Linux system comes with several thousands of software\n"
+#~ "packages on CDROM or DVD. This tool will help you choose which software\n"
+#~ "you want to install on your computer."
+#~ msgstr ""
+#~ "Croeso i'r offeryn gosod meddalwedd!\n"
+#~ "\n"
+#~ "Mae eich system Mandriva Linux yn cynnwys rhai miloedd o becynnau\n"
+#~ "meddalwedd ar CDROM neu DVD.  Bydd yr offeryn hwn yn eich cynorthwyo\n"
+#~ "i ddewis pa feddalwedd i osod ar eich cyfrifiadur."
+
+#~ msgid "Unable to add medium, wrong or missing arguments"
+#~ msgstr "Methu ychwanegu cyfrwng, ymresymiadau anghywir neu goll."
+
+#~ msgid "Tree Mode"
+#~ msgstr "Modd Coeden"
+
+#~ msgid "%s choices"
+#~ msgstr "%s dewis"
+
+#~ msgid "Mandriva Linux choices"
+#~ msgstr "Dewisiadau Mandriva Linux"
+
+#~ msgid "None"
+#~ msgstr "Dim"
+
+#~ msgid ""
+#~ "Installation failed, some files are missing:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "You may want to update your media database."
+#~ msgstr ""
+#~ "Methodd y gosod, mae rhai ffeiliau ar goll.\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Efallai'r hoffech ddiweddaru eich cronfa ddata o gyfryngau."
+
+#~ msgid "Relative path to synthesis/hdlist:"
+#~ msgstr "Llwybr perthynol i synthesis/hdlist:"
+
+#~ msgid "If left blank, synthesis/hdlist will be automatically probed"
+#~ msgstr "Os yn wag bydd synthesis/hdlistyn cael ei holi'n awtomatic"
+
+#~ msgid "Could not create temporary directory '%s'"
+#~ msgstr "Methu creu'r cyfeiriadur dros dro '%s'"
+
+#~ msgid "Search"
+#~ msgstr "Chwilio"
+
+#~ msgid "Clear"
+#~ msgstr "Clirio"
+
+#~ msgid "Download directory does not exist"
+#~ msgstr "Rhaid i'r cyfeiriadur lle bwriedir gofod y llwytho i lawr fodoli"
+
+#~ msgid "Out of memory\n"
+#~ msgstr "Dim cof\n"
+
+#~ msgid "Could not open output file in append mode"
+#~ msgstr "Methu agor ffeil allbwn i'r modd atodi"
+
+#~ msgid "Unsupported protocol\n"
+#~ msgstr "Protocol nad yw'n cael ei gynnal\n"
+
+#~ msgid "Failed init\n"
+#~ msgstr "Methodd y cychwyn\n"
+
+#~ msgid "Bad URL format\n"
+#~ msgstr "Fformat URL gwallus\n"
+
+#~ msgid "Bad user format in URL\n"
+#~ msgstr "Fformat defnyddiwr gwael yn yr URL\n"
+
+#~ msgid "Couldn't resolve proxy\n"
+#~ msgstr "Methu dadelfennu'r dirprwy\n"
+
+#~ msgid "Couldn't resolve host\n"
+#~ msgstr "Methu dadelfennu'r gwesteiwr\n"
+
+#~ msgid "Couldn't connect\n"
+#~ msgstr "Methu cysylltu\n"
+
+#~ msgid "FTP unexpected server reply\n"
+#~ msgstr "Ateb annisgwyl gan y gweinydd FTP\n"
+
+#~ msgid "FTP access denied\n"
+#~ msgstr "Mynediad FTP wedi ei wrthod\n"
+
+#~ msgid "FTP user password incorrect\n"
+#~ msgstr "Cyfrinair defnyddiwr FTP yn anghywir\n"
+
+#~ msgid "FTP unexpected PASS reply\n"
+#~ msgstr "Ateb PASS annisgwyl FTP\n"
+
+#~ msgid "FTP unexpected USER reply\n"
+#~ msgstr "Ateb USER gweinydd FTP\n"
+
+#~ msgid "FTP unexpected PASV reply\n"
+#~ msgstr "Ateb PASV gweinydd FTP\n"
+
+#~ msgid "FTP unexpected 227 format\n"
+#~ msgstr "Fformat rhyfedd 227 FTP\n"
+
+#~ msgid "FTP can't get host\n"
+#~ msgstr "Methu canfod gwesteiwr FTP\n"
+
+#~ msgid "FTP can't reconnect\n"
+#~ msgstr "FTP yn methu ailgysylltu\n"
+
+#~ msgid "FTP couldn't set binary\n"
+#~ msgstr "FTP yn methu gosod deuaidd\n"
+
+#~ msgid "Partial file\n"
+#~ msgstr "Rhan o ffeil\n"
+
+#~ msgid "FTP couldn't RETR file\n"
+#~ msgstr "FTP yn methu RETR ffeil\n"
+
+#~ msgid "FTP write error\n"
+#~ msgstr "Gwall ysgrifennu FTP\n"
+
+#~ msgid "FTP quote error\n"
+#~ msgstr "Gwall dyfynnu FTP\n"
+
+#~ msgid "HTTP not found\n"
+#~ msgstr "http  heb ganfod\n"
+
+#~ msgid "Write error\n"
+#~ msgstr "Gwall ysgrifennu\n"
+
+#~ msgid "User name illegally specified\n"
+#~ msgstr "Enw defnyddiwr wedi ei bennu'n anghyfreithlon\n"
+
+#~ msgid "FTP couldn't STOR file\n"
+#~ msgstr "FTP yn methu STOR ffeil\n"
+
+#~ msgid "Read error\n"
+#~ msgstr "Gwall darllen\n"
+
+#~ msgid "Time out\n"
+#~ msgstr "Amser allan\n"
+
+#~ msgid "FTP couldn't set ASCII\n"
+#~ msgstr "FTP yn methu gosod ASCII\n"
+
+#~ msgid "FTP PORT failed\n"
+#~ msgstr "Methodd PORT ftp\n"
+
+#~ msgid "FTP couldn't use REST\n"
+#~ msgstr "FTP yn methu gosod REST\n"
+
+#~ msgid "FTP couldn't get size\n"
+#~ msgstr "FTP yn methu canfod maint\n"
+
+#~ msgid "HTTP range error\n"
+#~ msgstr "Gwall amrediad FTP\n"
+
+#~ msgid "HTTP POST error\n"
+#~ msgstr "Gwall POST HTTP\n"
+
+#~ msgid "SSL connect error\n"
+#~ msgstr "Gwall cysylltiad ssl\n"
+
+#~ msgid "FTP bad download resume\n"
+#~ msgstr "FTP yn methu ailgychwyn llwytho i lawr\n"
+
+#~ msgid "File couldn't read file\n"
+#~ msgstr "Y ffeil yn methu darllen ffeil\n"
+
+#~ msgid "LDAP cannot bind\n"
+#~ msgstr "LDAP yn methu amlapio\n"
+
+#~ msgid "LDAP search failed\n"
+#~ msgstr "Methodd chwilio LDAP\n"
+
+#~ msgid "Library not found\n"
+#~ msgstr "Llyfrgell  heb ei ganfod\n"
+
+#~ msgid "Function not found\n"
+#~ msgstr "Heb ganfod swyddogaeth\n"
+
+#~ msgid "Aborted by callback\n"
+#~ msgstr "Atal gan callback\n"
+
+#~ msgid "Bad function argument\n"
+#~ msgstr "Arg swyddogaeth wael\n"
+
+#~ msgid "Bad calling order\n"
+#~ msgstr "Trefn galw gwallus\n"
+
+#~ msgid "HTTP Interface operation failed\n"
+#~ msgstr "Methodd gweithrediad rhyngwyneb HTTP\n"
+
+#~ msgid "my_getpass() returns fail\n"
+#~ msgstr "Methodd dychweliad my_getpass()\n"
+
+#~ msgid "catch endless re-direct loops\n"
+#~ msgstr "cipio cylchedd ailgyfeirio diddiwedd\n"
+
+#~ msgid "User specified an unknown option\n"
+#~ msgstr "Enwodd y defnyddiwr ddewis anhysbys\n"
+
+#~ msgid "Malformed telnet option\n"
+#~ msgstr "Dewis telnet anffurfiedig\n"
+
+#~ msgid "removed after 7.7.3\n"
+#~ msgstr "tynnwyd ar ôl 7.7.3\n"
+
+#~ msgid "peer's certificate wasn't ok\n"
+#~ msgstr "nid oedd y dystysgrif gyfoed yn iawn\n"
+
+#~ msgid "when this is a specific error\n"
+#~ msgstr "pan yw hwn yn wall penodol\n"
+
+#~ msgid "SSL crypto engine not found\n"
+#~ msgstr "Heb ganfod peiriant cudd SSL\n"
+
+#~ msgid "can not set SSL crypto engine as default\n"
+#~ msgstr "methu gosod peiriant cudd SSL fel rhagosodedig\n"
+
+#~ msgid "failed sending network data\n"
+#~ msgstr "methu anfon data rhwydwaith\n"
+
+#~ msgid "failure in receiving network data\n"
+#~ msgstr "methu derbyn data rhwydwaith\n"
+
+#~ msgid "share is in use\n"
+#~ msgstr "rhannu'n cael ei ddefnyddio\n"
+
+#~ msgid "problem with the local certificate\n"
+#~ msgstr "anhawster gyda'r dystysgrif leol\n"
+
+#~ msgid "couldn't use specified cipher\n"
+#~ msgstr "methu defnyddio'r seiffer enwyd\n"
+
+#~ msgid "problem with the CA cert (path?)\n"
+#~ msgstr "anhawster gyda thystysgrif CA (llwybr?)\n"
+
+#~ msgid "Unrecognized transfer encoding\n"
+#~ msgstr "Amgodio trosglwyddo anhysbys\n"
+
+#~ msgid "Unknown error code %d\n"
+#~ msgstr "Gwall cod anhysbys %d\n"
+
+#~ msgid ""
+#~ "This step enables you to add sources from a Mandriva Linux web or FTP "
+#~ "mirror.\n"
+#~ "\n"
+#~ "There are two kinds of official mirrors. You can choose to add sources "
+#~ "that\n"
+#~ "contain the complete set of packages of your distribution (usually a "
+#~ "superset\n"
+#~ "of what comes on the standard installation CDs), or sources that provide "
+#~ "the\n"
+#~ "official updates for your distribution. (You can add both, but you'll "
+#~ "have\n"
+#~ "to do this in two steps.)"
+#~ msgstr ""
+#~ "Dyma sut mae ychwanegu ffynonellau o safle neu ddrych FTP Mandriva Linux\n"
+#~ "\n"
+#~ "Mae yna ddau fath o ddrych swyddogol. Gallwch ddewis i ychwanegu "
+#~ "ffynonellau\n"
+#~ "sy'n cynnwys set gyfan o becynnau ar gyfer eich dosbarthiad (fel rheol "
+#~ "uwch set\n"
+#~ "o'r hyn sydd ar y CDau gosod safonol), neu ffynonellau sy'n darparu'r "
+#~ "diweddariadau\n"
+#~ "swyddogol eich dosbarthiad.. (Mae modd ychwanegu'r ddau ond bydd rhaid "
+#~ "gwneud\n"
+#~ "hyn mewn dau gam)"
+
+#~ msgid "Distribution sources"
+#~ msgstr "Ffynonellau dosbarthu"
+
+#~ msgid "Official updates"
+#~ msgstr "Diweddariadau swyddogol"
+
+#~ msgid "  --pkg-nosel=pkg1,..    show only these packages"
+#~ msgstr "  --pkg-nosel=pkg1,..    dangos y pecynnau yma'n unig"
+
+#~ msgid "  --pkg-sel=pkg1,..      preselect these packages"
+#~ msgstr "  --pkg-sel=pkg1,..      rhag ddewis y pecynnau yma"
+
+#~ msgid "Selected size: %d MB"
+#~ msgstr "Maint dewiswyd: %d MB"
+
+#~ msgid "/Do _not remove any package from the cache"
+#~ msgstr "Peidio _tynnu unrhyw becyn o'r storfa"

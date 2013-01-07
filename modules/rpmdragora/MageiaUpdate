@@ -1,0 +1,290 @@
+#!/usr/bin/perl
+#*****************************************************************************
+#
+#  Copyright (c) 2002 Guillaume Cottenceau
+#  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
+#  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
+#  Copyright (c) 2005-2007 Mandriva SA
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License version 2, as
+#  published by the Free Software Foundation.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+#
+#*****************************************************************************
+#
+# $Id: MageiaUpdate 261845 2009-10-13 12:33:58Z tv $
+
+use strict;
+use MDK::Common::Func 'any';
+use lib qw(/usr/lib/libDrakX);
+use common;
+
+use Rpmdrake::init;
+use standalone;  #- standalone must be loaded very first, for 'explanations', but after rpmdrake::init
+use rpmdrake;
+use Rpmdrake::gui;
+use Rpmdrake::rpmnew;
+use Rpmdrake::formatting;
+use Rpmdrake::pkg;
+use Rpmdrake::widgets;
+
+#use mygtk2 qw(gtknew);  #- do not import anything else, especially gtkadd() which conflicts with ugtk2 one
+#use ugtk2 qw(:all);
+use Gtk2::SimpleList;
+
+# make Rpmdrake::gui aware MageiaUpdate do not use the same columns ids as rpmdrake:
+%pkg_columns = (
+    image => 0,
+    selected => 1,
+    text => 2,
+    short_name => 3,
+    version => 4,
+    release => 5,
+    'arch' => 6,
+    importance => 7,
+);
+
+$ugtk2::wm_icon = get_icon('MageiaUpdate', "title-$MODE");
+
+our $w;
+our $statusbar;
+
+warn_about_user_mode();
+
+my (%data, $initialized);
+
+my %update_icons = (
+    security => 'security-update',
+    bugfix => 'bugfix-update',
+    normal => 'general-update',
+);
+
+my %icons_cache;
+
+sub refresh_packages_list {
+    my ($list, $info, $button) = @_;
+    # select packages to update:
+    my @requested = sort grep { $pkgs->{$_}{pkg} } @filtered_pkgs;
+
+    # don't select packages in skip list:
+    if (!$initialized) {
+        undef $pkgs->{$_}{selected} foreach @requested;
+        my @selectable = grep { !$pkgs->{$_}{pkg}->flag_skip } @requested;
+        toggle($list, @selectable) if @selectable;
+        $initialized = 1;
+    }
+
+    my $i;
+    @{$list->{data}} = map {
+        $data{$_} = $i++;
+        my $summary = get_summary($_);
+        my ($name, $version, $release, $arch) = split_fullname($_);
+        my $pkg = $pkgs->{$_};
+        my $raw_medium = pkg2medium($pkg->{pkg}, $urpm);
+        my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
+        my $icon;
+        my $importance = $medium && $descriptions->{$medium}{$name}{importance};
+        if ($importance) {
+            $icon = $icons_cache{$importance} ||= gtknew('Pixbuf', file => $update_icons{$importance});
+        }
+        [ $icon, $pkgs->{$_}{selected}, $_, format_name_n_summary($name, $summary), $version, $release, $arch, $importance ];
+    } @requested;
+    gtktext_insert($info,
+      formatAlaTeX(N("The list of updates is empty. This means that either there is
+no available update for the packages installed on your computer,
+or you already installed all of them."))) if !@{$list->{data}};
+    $button->set_sensitive(scalar(@{$list->{data}}));
+}
+
+sub toggle {
+    my ($list, @names) = @_;
+    my $name = $names[0];
+    my $val = $pkgs->{$name}{selected};
+    my $old_status = $val ? 'to_install' : 'to_update';
+    my $done;
+    my $pkg = $pkgs->{$name}{pkg};
+    return if !$pkg;
+    $pkg->set_flag_skip(0);
+    toggle_nodes($w->{real_window}->window, $list->get_model, sub {
+                     my ($leaf, $_state, $_model) = @_;
+                     $done = 1;
+                     $list->{data}[$data{$leaf}][$pkg_columns{selected}] = $pkgs->{$name}{selected};
+                 },
+                 $old_status, @names);
+    # handle canceling:
+    $list->{data}[$data{$name}][$pkg_columns{selected}] = !$list->{data}[$data{$name}][$pkg_columns{selected}] if !$done;
+}
+
+$w = ugtk2->new(N("Software Management"));
+$w->{rwindow}->show_all if $::isEmbedded;
+$::main_window = $w->{real_window};
+
+sub quit() {
+    ($mandrivaupdate_width->[0], $mandrivaupdate_height->[0]) = $::w->{real_window}->get_size;
+    real_quit();
+}
+
+sub run_treeview_dialog {
+    my ($callback_action) = @_;
+
+    my ($list, $info, $update_button);
+
+    my $rootwin_height = second(gtkroot()->get_size);
+    my $is_small_screen = $rootwin_height <= 480;
+
+    compute_main_window_size($w);
+
+    gtkadd(
+	$w->{window},
+	gtkpack_(
+	    gtknew('VBox', spacing => 3),
+	    if_(!$is_small_screen, 0, getbanner()),
+              0, gtknew('Title2', label => N("Here is the list of software package updates"), width => 600),
+         1, create_vpaned(
+                 gtknew('ScrolledWindow', width => $typical_width*0.9, height => $is_small_screen ? 150 : 200,
+                        child => $list = Gtk2::SimpleList->new(
+                            " " => 'pixbuf',
+                            " " . " " . " "    => 'bool', #N("Selected")
+                            '' => 'hidden',
+                            " " . N("Name") . " "        => 'markup', #N("Name")
+                            " " . N("Version") . " "        => 'text',
+                            " " . N("Release") . " "        => 'text',
+                            " " . N("Arch") . " "        => 'text',
+                            '' => 'hidden',
+                        ),
+                    ),
+                 
+             gtknew('ScrolledWindow', width => $typical_width*0.9,
+                    child => $info = Gtk2::Mdv::TextView->new, height => $is_small_screen ? 150 : 190,
+                ),
+             resize1 => 1,
+         ),
+              0, gtkset_size_request(Gtk2::HSeparator->new, -1, 5),
+		    0, gtkpack_(
+			gtknew('HBox', spacing => 20),
+			0, gtksignal_connect(
+			    Gtk2::Button->new(but_(N("Help"))),
+			    clicked => sub { rpmdrake::open_help($MODE) },
+			),
+			0, gtksignal_connect(
+			    Gtk2::Button->new(but_(N("Select all"))),
+			    clicked => sub {
+                       toggle_all({
+                           widgets => {
+                               detail_list => $list,
+                               detail_list_model => $list->get_model
+                           },
+                       }, 1);
+                       refresh_packages_list($list, $info, $update_button);
+                   },
+			),
+               1, gtknew('Label'),
+			0, my $action_button = gtksignal_connect(
+			    $update_button = Gtk2::Button->new(but_(N("Update"))),
+			    clicked => sub {
+                                my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
+                                $initialized = 0 if !$res;
+                                refresh_packages_list($list, $info, $update_button);
+                            },
+			),
+			0, gtksignal_connect(
+			    Gtk2::Button->new(but_(N("Quit"))),
+			    clicked => \&quit,
+			),
+		    ),
+	    #0, $statusbar = Gtk2::Statusbar->new,
+	),
+    );
+    $statusbar = Gtk2::Statusbar->new;
+
+    $list->get_model->set_sort_func($pkg_columns{image} + 1, sub {
+                                        my ($store, $treeiter1, $treeiter2) = @_;
+                                        $store->get_value($treeiter1, $pkg_columns{importance}) cmp
+                                          $store->get_value($treeiter2, $pkg_columns{importance});
+                                    });
+
+
+    $list->set_rules_hint(1);
+    my $pix_col = $list->get_column($pkg_columns{image});
+    $pix_col->set_fixed_width(32);
+    my $bool_col = $list->get_column($pkg_columns{selected});
+    $bool_col->set_fixed_width(24);
+    $bool_col->set_sizing('fixed');
+    $bool_col->set_sort_column_id($pkg_columns{selected});
+
+    # -1 because actual widget count differs from TreeModel one due to the hidden column:
+    foreach (@pkg_columns{qw(short_name version release arch)}) {
+        my $col = $list->get_column($_-1);
+        ($col->get_cell_renderers)[0]->set_property('xpad', '6');
+        $col->set_sizing('autosize');
+        $col->set_sort_column_id($_);
+    }
+
+    my $pretty_column = $list->get_column($pkg_columns{short_name}-1);
+    $pretty_column->set_resizable(1);
+    ($pretty_column->get_cell_renderers)[0]->set_property('ellipsize', 'end');
+    $pretty_column->set_property('expand', '1');
+
+    $list->get_selection->signal_connect(changed => sub {
+                                             my ($model, $iter) = $_[0]->get_selected;
+                                             $model && $iter or return;
+                                             gtktext_insert($info, get_info($model->get($iter, $pkg_columns{text}), $w->{real_window}->window));
+                                             $info->scroll_to_iter($info->get_buffer->get_start_iter, 0, 0, 0, 0);
+                                         });
+
+    $w->{rwindow}->set_default_size(-1, 500) if !$::isEmbedded;
+
+    if ($mandrivaupdate_width->[0] && $mandrivaupdate_height->[0]) {
+        # so that we can shrink back:
+        $w->{real_window}->set_default_size($mandrivaupdate_width->[0], $mandrivaupdate_height->[0]);
+    }
+    $w->{rwindow}->show_all;
+    $w->{rwindow}->set_sensitive(0);
+
+    # ensure treeview get realized so that ->get_selection returns something
+    $list->realize;
+    gtkflush();
+
+    $filter->[0] = 'all'; # default filter: availlable updates
+    $Rpmdrake::pkg::probe_only_for_updates = 1; # faster startup
+    pkgs_provider('all_updates', pure_updates => 1); # default mode
+
+    refresh_packages_list($list, $info, $update_button);
+
+    my $cell = ($bool_col->get_cell_renderers)[0];
+    $cell->signal_connect(toggled => sub {
+	my ($_cell, $text_path) = @_;
+	my $name = $list->{data}[$text_path][$pkg_columns{text}];
+	gtkset_mousecursor_wait($w->{real_window}->window);
+	my $_guard = before_leaving(sub { gtkset_mousecursor_normal($w->{real_window}->window) });
+	toggle($list, $name);
+    });
+    $action_button->set_sensitive(0) if $>;
+
+    $w->{rwindow}->set_sensitive(1);
+
+    $w->main;
+}
+
+
+# -=-=-=---=-=-=---=-=-=-- main -=-=-=---=-=-=---=-=-=-
+
+do_merge_if_needed();
+
+readconf();
+
+init();
+run_treeview_dialog(\&perform_installation);
+
+writeconf();
+
+myexit(0);

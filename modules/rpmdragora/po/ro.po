@@ -1,0 +1,3585 @@
+# Translation of rpmdrake.po to Romanian
+# Copyright (c) 2010-2012 Mageia
+#
+# Vă rugăm să nu actualizaţi fișierul, cu excepția cazului în care sînteți
+# sigur de calitatea traducerii dumneavoastră, de gramatică și de ortografie.
+# Acestea din urmă sînt de prea multe ori aproximative.
+# Corectarea lor ulterioară nu are nici un alt rezultat decît acela de
+# pierdere de timp pentru toata lumea.
+#
+# VĂ RUGĂM SĂ RESPECTAȚI SEMNELE DE PUNCTUAȚIE ALE LIMBII ROMÂNE!
+#
+# Nu suprimați spațiul care urmează unui semn de punctuație de sfîrșit de
+# frază; trebuie respectată versiunea originală. În acest caz, este foarte
+# probabil ca programul să afișeze un mesaj la sfîrșit. Suprimînd acel spațiu,
+# cele două cuvintele vor fi afișate legat.
+#
+# Traduceți de manieră INTELIGENTĂ (de ce nu și prin comparație cu alte
+# traduceri ale acestui fișier în alte limbi) și nu cuvînt cu cuvînt. Unele
+# astfel de traduceri nu au nici un sens în limba română.
+#
+# ATENȚIE LA FONTURILE UTILIZATE! Pentru a reda corect diacriticele folosiți
+# disponerea tastaturii românească standard, codarea de caractere UTF-8 și
+# asigurați-vă că fonturile utilizate sînt cu virgulițe, NU CU SEDILE!
+# Exemplu:
+#          font incorect (cu sedile): şŞ ţŢ
+#          font corect (cu virgule): șȘ țȚ
+#
+# Pentru a vă asigura că folosiți fonturile corecte, vizitați:
+#          http://i18n.ro/Fonturi_romanesti/testare
+#
+# Vă mulțumim pentru înțelegere.
+#                                                       Echipa de traducători,
+#                                                       www.MageiaUsers.ro
+#
+# Traducători de-a lungul timpului:
+# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2010 - 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rpmdrake\n"
+"POT-Creation-Date: 2012-11-09 17:13+0800\n"
+"PO-Revision-Date: 2012-04-24 00:34+0100\n"
+"Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
+"Language-Team: ROMANIAN <cfrussen@yahoo.co.uk>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : (n==0 || (n%100 > 0 && n%100 < "
+"20)) ? 1 : 2)\n"
+"X-Poedit-Language: Romanian\n"
+"X-Poedit-Country: ROMANIA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#, c-format
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"Lista actualizărilor este goală. Aceasta înseamnă că nu există\n"
+"actualizări disponibile pentru pachetele instalate pe acest calculator,\n"
+"sau că le-ați instalat deja pe toate."
+
+#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Management"
+msgstr "Gestionare aplicații"
+
+#: ../MageiaUpdate:151
+#, c-format
+msgid "Here is the list of software package updates"
+msgstr "Iată lista cu actualizări de pachete"
+
+#: ../MageiaUpdate:158
+#, c-format
+msgid "Name"
+msgstr "Denumire"
+
+#: ../MageiaUpdate:159 ../rpmdrake:290
+#, c-format
+msgid "Version"
+msgstr "Versiune"
+
+#: ../MageiaUpdate:160 ../rpmdrake:294
+#, c-format
+msgid "Release"
+msgstr "Ediție"
+
+#: ../MageiaUpdate:161
+#, c-format
+msgid "Arch"
+msgstr "Arh."
+
+#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#, c-format
+msgid "Help"
+msgstr "Ajutor"
+
+#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#, c-format
+msgid "Select all"
+msgstr "Selectează tot"
+
+#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#, c-format
+msgid "Update"
+msgstr "Actualizează"
+
+#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#, c-format
+msgid "Quit"
+msgstr "Terminare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:62
+#, c-format
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:63
+#, c-format
+msgid "FTP"
+msgstr "FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#, c-format
+msgid "Local"
+msgstr "Fișiere locale"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:65
+#, c-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:66
+#, c-format
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#, c-format
+msgid "NFS"
+msgstr "NFS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:68
+#, c-format
+msgid "Removable"
+msgstr "Amovibile"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:69
+#, c-format
+msgid "rsync"
+msgstr "rsync"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:72
+#, c-format
+msgid "Mirror list"
+msgstr "Lista serverelor alternative"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:114
+#, c-format
+msgid "Choose media type"
+msgstr "Alegeți tipul mediului"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:115
+#, c-format
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+"În scopul de a vă menține sistemul sigur și stabil, trebuie să vă "
+"configurați un set minim\n"
+"de surse oficiale pentru actualizările de securitate și stabilitate. Puteți "
+"alege, de asemenea,\n"
+"să configurați și un set mai complet de surse care includ depozitele "
+"oficiale Mageia,\n"
+"oferindu-vă acces la mai multe programe decît pot încăpea pe discurile "
+"Mageia.\n"
+"Vă rugăm să alegeți să configurați ori surse de actualizare,  ori setul\n"
+"complet de surse."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Full set of sources"
+msgstr "Setul complet de surse"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Update sources only"
+msgstr "Numai sursele pentru actualizare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:135
+#, c-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Se va încerca instalarea tuturor surselor oficiale\n"
+"corespunzătoare distribuției curente (%s).\n"
+"\n"
+"Trebuie contactat situl Mageia pentru obținerea listei serverelor "
+"alternative.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#, c-format
+msgid "Please wait, adding media..."
+msgstr "Așteptați vă rog, se adaugă mediul..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:168
+#, c-format
+msgid "Add a medium"
+msgstr "Adaugă un mediu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Local files"
+msgstr "Fișiere locale"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Medium path:"
+msgstr "Calea mediului:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#, c-format
+msgid "FTP server"
+msgstr "Server FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#, c-format
+msgid "URL:"
+msgstr "URL:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#, c-format
+msgid "RSYNC server"
+msgstr "Server RSYNC"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#, c-format
+msgid "HTTP server"
+msgstr "Server HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "Dispozitiv amovibil (CD-ROM, DVD, ...)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Path or mount point:"
+msgstr "Calea sau punctul de montare:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:194
+#, c-format
+msgid "Browse..."
+msgstr "Navigare..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#, c-format
+msgid "Login:"
+msgstr "Autentificare:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "Password:"
+msgstr "Parolă:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:227
+#, c-format
+msgid "Medium name:"
+msgstr "Numele mediului:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:233
+#, c-format
+msgid "Create media for a whole distribution"
+msgstr "Creează mediile pentru întreaga distribuție"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:242
+#, c-format
+msgid "Tag this medium as an update medium"
+msgstr "Marchează acest mediu ca mediu de actualizare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:252
+#, c-format
+msgid "You need to fill up at least the two first entries."
+msgstr "Trebuie să completați cel puțin primele două intrări."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:256
+#, c-format
+msgid ""
+"There is already a medium by that name, do you\n"
+"really want to replace it?"
+msgstr ""
+"Există deja un mediu cu numele indicat,\n"
+"chiar doriți să-l înlocuiți?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:268
+#, c-format
+msgid "Adding a medium:"
+msgstr "Se adaugă un mediu:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:270
+#, c-format
+msgid "Type of medium:"
+msgstr "Tipul mediului:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#, c-format
+msgid "Cancel"
+msgstr "Anulează"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#, c-format
+msgid "Ok"
+msgstr "OK"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:337
+#, c-format
+msgid "Global options for package installation"
+msgstr "Opțiuni globale pentru instalarea pachetelor"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "never"
+msgstr "niciodată"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "always"
+msgstr "întotdeauna"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#, c-format
+msgid "Never"
+msgstr "Niciodată"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#, c-format
+msgid "On-demand"
+msgstr "La cerere"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#, c-format
+msgid "Update-only"
+msgstr "Numai actualizare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#, c-format
+msgid "Always"
+msgstr "Întotdeauna"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:355
+#, c-format
+msgid "Verify RPMs to be installed:"
+msgstr "Verifică pachetele RPM de instalat: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:360
+#, c-format
+msgid "Download program to use:"
+msgstr "Utilitarul de descărcare folosit:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:367
+#, c-format
+msgid "XML meta-data download policy:"
+msgstr "Politica de descărcare a metadatelor XML:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:374
+#, c-format
+msgid ""
+"For remote media, specify when XML meta-data (file lists, changelogs & "
+"information) are downloaded."
+msgstr ""
+"Stabiliți cînd vor fi descărcate metadatele XML (liste de fișiere, jurnale "
+"de modificări & informații) din mediile distante."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:377
+#, c-format
+msgid "For remote media, XML meta-data are never downloaded."
+msgstr ""
+"Pentru mediile distante, metadatele XML nu vor fi descărcate niciodată."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:380
+#, c-format
+msgid "(This is the default)"
+msgstr "(Acțiune implicită)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:381
+#, c-format
+msgid "The specific XML info file is downloaded when clicking on package."
+msgstr ""
+"Fișierul de informații XML specifice va fi descărcat la selectarea "
+"pachetului."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:384
+#, c-format
+msgid ""
+"Updating media implies updating XML info files already required at least "
+"once."
+msgstr ""
+"Actualizarea mediilor implică actualizarea fișierelor XML deja cerute cel "
+"puțin odată. "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:387
+#, c-format
+msgid "All XML info files are downloaded when adding or updating media."
+msgstr ""
+"Toate fișierele XML sînt descărcate la adăugarea sau actualizarea mediilor."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:416
+#, c-format
+msgid "Source Removal"
+msgstr "Înlăturare surse"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:418
+#, c-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr "Sigur doriți să înlăturați sursa „%s”?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:419
+#, c-format
+msgid "Are you sure you want to remove the following sources?"
+msgstr "Sigur doriți să înlăturați sursele următoare?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:425
+#, c-format
+msgid "Please wait, removing medium..."
+msgstr "Așteptați, se înlătură mediul..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:473
+#, c-format
+msgid "Edit a medium"
+msgstr "Editați un mediu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:480
+#, c-format
+msgid "Editing medium \"%s\":"
+msgstr "Se editează mediul „%s”:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:484
+#, c-format
+msgid "Downloader:"
+msgstr "Descărcător:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:496
+#, c-format
+msgid "Save changes"
+msgstr "Salvează modificările"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:505
+#, c-format
+msgid "Proxy..."
+msgstr "Proxy..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:517
+#, c-format
+msgid "You need to insert the medium to continue"
+msgstr "Trebuie să inserați mediul pentru a continua"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:518
+#, c-format
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr "Pentru a salva modificările, trebuie să inserați mediul în unitate."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:553
+#, c-format
+msgid "Configure proxies"
+msgstr "Configurare proxy"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:566
+#, c-format
+msgid "Proxy settings for media \"%s\""
+msgstr "Parametrii de proxy pentru mediul „%s”"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:567
+#, c-format
+msgid "Global proxy settings"
+msgstr "Parametri de proxy globali"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:569
+#, c-format
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"Dacă este nevoie de proxy, introduceți numele gazdei și opțional un port "
+"(sintaxă: <gazdăproxy[:port]>):"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:572
+#, c-format
+msgid "Proxy hostname:"
+msgstr "Nume proxy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:575
+#, c-format
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr "Puteți specifica un utilizator/parolă pentru autentificarea la proxy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:578
+#, c-format
+msgid "User:"
+msgstr "Utilizator:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Add a parallel group"
+msgstr "Adăugați un grup paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Edit a parallel group"
+msgstr "Editați un grup paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Add a medium limit"
+msgstr "Adăugați o limită mediului"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Choose a medium to add to the media limit:"
+msgstr "Selectați un mediu pentru adăugare la limita mediilor:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Add a host"
+msgstr "Adăugați o gazdă"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "Introduceți numele sau adresa IP a gazdei ce va fi adăugată:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:729
+#, c-format
+msgid "Editing parallel group \"%s\":"
+msgstr "Se editează grupul paralel „%s”:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:733
+#, c-format
+msgid "Group name:"
+msgstr "Nume grup:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:734
+#, c-format
+msgid "Protocol:"
+msgstr "Protocol:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:736
+#, c-format
+msgid "Media limit:"
+msgstr "Limita mediilor:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#, c-format
+msgid "Add"
+msgstr "Adaugă"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:1139
+#, c-format
+msgid "Remove"
+msgstr "Înlătură"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:745
+#, c-format
+msgid "Hosts:"
+msgstr "Gazde:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:781
+#, c-format
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr "Configurare urpmi paralel (execuție distribuită de urpmi)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Group"
+msgstr "Grup"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Protocol"
+msgstr "Protocol"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Media limit"
+msgstr "Limită medii"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:786
+#, c-format
+msgid "Command"
+msgstr "Comandă"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#, c-format
+msgid "(none)"
+msgstr "(neant)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:816
+#, c-format
+msgid "Edit..."
+msgstr "Editare..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:824
+#, c-format
+msgid "Add..."
+msgstr "Adăugare..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:840
+#, c-format
+msgid "Manage keys for digital signatures of packages"
+msgstr "Gestionați cheile pentru semnăturile digitale ale pachetelor"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#, c-format
+msgid "Medium"
+msgstr "Mediu"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:853
+#, c-format
+msgid ""
+"_:cryptographic keys\n"
+"Keys"
+msgstr ""
+"_:chei de criptare\n"
+"Chei"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:876
+#, c-format
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "nu s-a găsit numele, cheia nu există în portcheiul rpm!"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Add a key"
+msgstr "Adaugă o cheie"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Choose a key to add to the medium %s"
+msgstr "Alegeți o cheie pentru a o adăuga mediului %s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:915
+#, c-format
+msgid "Remove a key"
+msgstr "Înlătură o cheie"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:916
+#, c-format
+msgid ""
+"Are you sure you want to remove the key %s from medium %s?\n"
+"(name of the key: %s)"
+msgstr ""
+"Sigur doriți să înlăturați cheia %s de pe mediul %s?\n"
+"(numele cheii: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#, c-format
+msgid "Configure media"
+msgstr "Configurare medii"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
+#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#, c-format
+msgid "/_File"
+msgstr "/_Fișier"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, c-format
+msgid "/_Update"
+msgstr "/_Actualizare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, c-format
+msgid "<control>U"
+msgstr "<control>U"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "/Add a specific _media mirror"
+msgstr "/Adaugă un server alternativ de _medii specifice"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "<control>M"
+msgstr "<control>M"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, c-format
+msgid "/_Add a custom medium"
+msgstr "/_Adaugă un mediu personalizat"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, c-format
+msgid "<control>A"
+msgstr "<control>A"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, c-format
+msgid "/Close"
+msgstr "/Închide"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, c-format
+msgid "<control>W"
+msgstr "<control>W"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
+#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
+#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Options"
+msgstr "/_Opțiuni"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, c-format
+msgid "/_Global options"
+msgstr "/Opțiuni _globale"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, c-format
+msgid "<control>G"
+msgstr "<control>G"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, c-format
+msgid "/Manage _keys"
+msgstr "/Gestionați _cheile"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, c-format
+msgid "<control>K"
+msgstr "<control>K"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, c-format
+msgid "/_Parallel"
+msgstr "/_Paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, c-format
+msgid "<control>P"
+msgstr "<control>P"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, c-format
+msgid "/P_roxy"
+msgstr "/P_roxy"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, c-format
+msgid "<control>R"
+msgstr "<control>R"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#, c-format
+msgid "/_Help"
+msgstr "/_Ajutor"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#, c-format
+msgid "/_Report Bug"
+msgstr "/_Raportare eroare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#, c-format
+msgid "/_About..."
+msgstr "/_Despre..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#, c-format
+msgid "Rpmdrake"
+msgstr "Rpmdrake"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#, c-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr "Drepturi de autor (C) %s Mandriva"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#, c-format
+msgid "Rpmdrake is the Mageia package management tool."
+msgstr "Rpmdrake este gestionarul de pachete Mageia."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#, c-format
+msgid "Mageia"
+msgstr "Mageia"
+
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#, c-format
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr ""
+"Alexandru HARTMANN <ahartmann@as-computer.de>, 1999.\n"
+"Pascal RIGAUX <pixel@mandriva.com>, 1999.\n"
+"Florin GRAD <florin@mandrakesoft.com>, 2000.\n"
+"Harald ERSCH <hersch@romatsa.ro>, 2002.\n"
+"Ovidiu CONSTANTIN <ovidiu.constantin@gmx.net>, 2003.\n"
+"Harald ERSCH <harald@ersch.ro>, 2003, 2004.\n"
+"Adrian BERINDEI <berindei_adrian@yahoo.com>, 2004.\n"
+"Ovidiu CONSTANTIN <ovidiusoft@gmail.com>, 2004.\n"
+"Cristian Ionuţ PÎRÎU <piriu.cristian@rdslink.ro>, 2008.\n"
+"Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2008, 2009, 2010, 2011.\n"
+"Dan Marian JOIȚA <djmarian4u@yahoo.com>, 2011.\n"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#, c-format
+msgid "Enabled"
+msgstr "Activat"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1048
+#, c-format
+msgid "Updates"
+msgstr "Actualizări"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1052
+#, c-format
+msgid "Type"
+msgstr "Tip"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1079
+#, c-format
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+"Acest mediu trebuie actualizat pentru a fi utilizabil. Îl actualizați acum?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1105
+#, c-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Mediul nu poate fi actualizat, erorile raportate:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1143
+#, c-format
+msgid "Edit"
+msgstr "Editează"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1191
+#, c-format
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+"Baza de date cu pachete este blocată. Închideți celelalte\n"
+"aplicații care lucrează cu baza de date. Aveți alt gestionar de\n"
+"pachete pe alt birou, sau instalați alte pachete în același\n"
+"timp?"
+
+#: ../Rpmdrake/formatting.pm:102
+#, c-format
+msgid "None (installed)"
+msgstr "Nimic (instalat)"
+
+#: ../Rpmdrake/formatting.pm:103
+#, c-format
+msgid "Unknown"
+msgstr "Necunoscut"
+
+#: ../Rpmdrake/formatting.pm:166
+#, c-format
+msgid "%s of additional disk space will be used."
+msgstr "%s adiționali din spațiul de pe disc vor fi utilizați."
+
+#: ../Rpmdrake/formatting.pm:167
+#, c-format
+msgid "%s of disk space will be freed."
+msgstr "%s din spațiul de pe disc vor fi eliberați."
+
+#: ../Rpmdrake/formatting.pm:172
+#, c-format
+msgid "%s of packages will be retrieved."
+msgstr "%s de pachete vor fi preluați."
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results"
+msgstr "Rezultatele căutării"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results (none)"
+msgstr "Rezultatele căutării (nimic)"
+
+#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/pkg.pm:188
+#, c-format
+msgid "(Not available)"
+msgstr "(Indisponibil)"
+
+#: ../Rpmdrake/gui.pm:135
+#, c-format
+msgid "Security advisory"
+msgstr "Buletin de securitate"
+
+#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "No description"
+msgstr "Nici o descriere"
+
+#: ../Rpmdrake/gui.pm:159
+#, c-format
+msgid "It is <b>not supported</b> by Mageia."
+msgstr "Acest pachet <b>nu este suportat<b> de Mageia."
+
+#: ../Rpmdrake/gui.pm:160
+#, c-format
+msgid "It may <b>break</b> your system."
+msgstr "Ar putea <b>strica</b> sistemul."
+
+#: ../Rpmdrake/gui.pm:162
+#, c-format
+msgid "This package is not free software"
+msgstr "Acest pachet nu este un program liber"
+
+#: ../Rpmdrake/gui.pm:165
+#, c-format
+msgid "This package contains a new version that was backported."
+msgstr "Acest pachet conține o versiune nouă ce a fost retroportată."
+
+#: ../Rpmdrake/gui.pm:169
+#, c-format
+msgid "This package is a potential candidate for an update."
+msgstr "Acest pachet este un candidat potențial pentru o actualizare."
+
+#: ../Rpmdrake/gui.pm:174
+#, c-format
+msgid "This is an official update which is supported by Mageia."
+msgstr "Aceasta este o actualizare oficială și este suportată de Mageia."
+
+#: ../Rpmdrake/gui.pm:175
+#, c-format
+msgid "This is an unofficial update."
+msgstr "Aceasta este o actualizare neoficială."
+
+#: ../Rpmdrake/gui.pm:179
+#, c-format
+msgid "This is an official package supported by Mageia"
+msgstr "Acesta este un pachet oficial suportat de Mageia"
+
+#: ../Rpmdrake/gui.pm:196
+#, c-format
+msgid "Notice: "
+msgstr "Aviz: "
+
+#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#, c-format
+msgid "Importance: "
+msgstr "Importanță: "
+
+#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#, c-format
+msgid "Reason for update: "
+msgstr "Motivul actualizării: "
+
+#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#, c-format
+msgid "Version: "
+msgstr "Versiune: "
+
+#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#, c-format
+msgid "Currently installed version: "
+msgstr "Versiunea curentă instalată: "
+
+#: ../Rpmdrake/gui.pm:213
+#, c-format
+msgid "Group: "
+msgstr "Grup: "
+
+#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#, c-format
+msgid "Architecture: "
+msgstr "Arhitectură: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "Size: "
+msgstr "Mărime: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "%s KB"
+msgstr "%s Ko"
+
+#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#, c-format
+msgid "Medium: "
+msgstr "Mediu: "
+
+#: ../Rpmdrake/gui.pm:229
+#, c-format
+msgid "New dependencies:"
+msgstr "Dependențe noi: "
+
+#: ../Rpmdrake/gui.pm:242
+#, c-format
+msgid "All dependencies installed."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:265
+#, c-format
+msgid "URL: "
+msgstr "URL: "
+
+#: ../Rpmdrake/gui.pm:298
+#, c-format
+msgid "Details:"
+msgstr "Detalii: "
+
+#: ../Rpmdrake/gui.pm:302
+#, c-format
+msgid "Files:"
+msgstr "Fișiere: "
+
+#: ../Rpmdrake/gui.pm:304
+#, c-format
+msgid "Changelog:"
+msgstr "Jurnal modificări: "
+
+#: ../Rpmdrake/gui.pm:319
+#, c-format
+msgid "Files:\n"
+msgstr "Fișiere:\n"
+
+#: ../Rpmdrake/gui.pm:324
+#, c-format
+msgid "Changelog:\n"
+msgstr "Jurnal modificări:\n"
+
+#: ../Rpmdrake/gui.pm:334
+#, c-format
+msgid "Name: "
+msgstr "Nume: "
+
+#: ../Rpmdrake/gui.pm:344
+#, c-format
+msgid "Summary: "
+msgstr "Sumar: "
+
+#: ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "Description: "
+msgstr "Descriere: "
+
+#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../rpmdrake.pm:942
+#, c-format
+msgid "Warning"
+msgstr "Avertisment"
+
+#: ../Rpmdrake/gui.pm:363
+#, c-format
+msgid "The package \"%s\" was found."
+msgstr "S-a găsit pachetul „%s”."
+
+#: ../Rpmdrake/gui.pm:364
+#, c-format
+msgid "However this package is not in the package list."
+msgstr "Totuși, acest pachet nu este în lista de pachete."
+
+#: ../Rpmdrake/gui.pm:365
+#, c-format
+msgid "You may want to update your urpmi database."
+msgstr "Ați putea actualiza baza de date urpmi."
+
+#: ../Rpmdrake/gui.pm:367
+#, c-format
+msgid "Matching packages:"
+msgstr "Pachete potrivite: "
+
+#. -PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
+#. -PO: eg: "- rpmdrake (medium: "Main Release"
+#: ../Rpmdrake/gui.pm:372
+#, c-format
+msgid "- %s (medium: %s)"
+msgstr "- %s (mediu: %s)"
+
+#: ../Rpmdrake/gui.pm:563
+#, c-format
+msgid "Removing package %s would break your system"
+msgstr "Înlăturarea pachetului %s ar corupe sistemul"
+
+#: ../Rpmdrake/gui.pm:568
+#, c-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+"Pachetul „%s” este pe lista urpmi de pachete omise.\n"
+"Sigur doriți să-l selectați?"
+
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#, c-format
+msgid ""
+"Rpmdrake or one of its priority dependencies needs to be updated first. "
+"Rpmdrake will then restart."
+msgstr ""
+"Rpmdrake sau una din dependențele sale prioritare trebuiesc întîi "
+"actualizate. Apoi rpmdrake va reporni."
+
+#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#, c-format
+msgid "More information on package..."
+msgstr "Mai multe informații despre pachet..."
+
+#: ../Rpmdrake/gui.pm:704
+#, c-format
+msgid "Please choose"
+msgstr "Alegeți vă rog"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "The following package is needed:"
+msgstr "Pachetul următor este necesar:"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "One of the following packages is needed:"
+msgstr "Unul din următoarele pachete este necesar:"
+
+#. -PO: Keep it short, this is gonna be on a button
+#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#, c-format
+msgid "More info"
+msgstr "Mai multe informații"
+
+#: ../Rpmdrake/gui.pm:727
+#, c-format
+msgid "Information on packages"
+msgstr "Informații despre pachete"
+
+#: ../Rpmdrake/gui.pm:755
+#, c-format
+msgid "Checking dependencies of package..."
+msgstr "Se verifică dependențele pachetelor..."
+
+#: ../Rpmdrake/gui.pm:760
+#, c-format
+msgid "Some additional packages need to be removed"
+msgstr "Cîteva pachete adiționale trebuiesc înlăturate"
+
+#: ../Rpmdrake/gui.pm:771
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr ""
+"Datorită interdependențelor, următoarele pachete trebuiesc de asemenea "
+"înlăturate:"
+
+#: ../Rpmdrake/gui.pm:776
+#, c-format
+msgid "Some packages cannot be removed"
+msgstr "Cîteva pachete nu pot fi înlăturate"
+
+#: ../Rpmdrake/gui.pm:777
+#, c-format
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"Înlăturarea acestor pachete ar corupe sistemul, regrete:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"Datorită interdependențelor, următoarele pachete trebuiesc deselectate "
+"acum:\n"
+
+#: ../Rpmdrake/gui.pm:815
+#, c-format
+msgid "Additional packages needed"
+msgstr "Pachete adiționale necesare"
+
+#: ../Rpmdrake/gui.pm:816
+#, c-format
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"Pentru satisfacerea dependențelor, următoarele pachete trebuiesc\n"
+"de asemenea instalate:\n"
+
+#: ../Rpmdrake/gui.pm:824
+#, c-format
+msgid "Conflicting Packages"
+msgstr "Pachete în conflict"
+
+#: ../Rpmdrake/gui.pm:838
+#, c-format
+msgid "%s (belongs to the skip list)"
+msgstr "%s (este în lista de omisiuni)"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "One package cannot be installed"
+msgstr "Un pachet nu poate fi instalat"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "Some packages cannot be installed"
+msgstr "Cîteva pachete nu pot fi instalate"
+
+#: ../Rpmdrake/gui.pm:844
+#, c-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Regrete, următorul pachet nu poate fi selectat:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:845
+#, c-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Regrete, următoarele pachete nu pot fi selectate:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Some packages need to be removed"
+msgstr "Cîteva pachete trebuiesc înlăturate"
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Some packages are selected."
+msgstr "Sînt selectate cîteva pachete."
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Do you really want to quit?"
+msgstr "Sigur doriți să părăsiți?"
+
+#: ../Rpmdrake/gui.pm:906
+#, c-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr "Eroare: %s pare montat numai în citire."
+
+#: ../Rpmdrake/gui.pm:910
+#, c-format
+msgid "You need to select some packages first."
+msgstr "Trebuie să selectați mai întîi niște pachete."
+
+#: ../Rpmdrake/gui.pm:915
+#, c-format
+msgid "Too many packages are selected"
+msgstr "Sînt selectate prea multe pachete"
+
+#: ../Rpmdrake/gui.pm:916
+#, c-format
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+"Avertisment: se pare că încercați să adăugați atît de multe\n"
+"pachete încît sistemul ar putea rămîne fără spațiu liber,\n"
+"în timpul sau după instalarea pachetelor;\n"
+"acest lucru este periculos și trebuie să aveți grijă.\n"
+"\n"
+"Sigur doriți să instalați pachetele selectate?"
+
+#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#, c-format
+msgid "Fatal error"
+msgstr "Eroare fatală"
+
+#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#, c-format
+msgid "A fatal error occurred: %s."
+msgstr "A apărut o eroare fatală: %s."
+
+#: ../Rpmdrake/gui.pm:980
+#, c-format
+msgid "Please wait, listing packages..."
+msgstr "Așteptați, se listează pachetele..."
+
+#: ../Rpmdrake/gui.pm:993
+#, c-format
+msgid "No update"
+msgstr "Nu sînt actualizări"
+
+#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
+#: ../rpmdrake:369 ../rpmdrake:396
+#, c-format
+msgid "All"
+msgstr "Toate"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#, c-format
+msgid "Upgradable"
+msgstr "Actualizabile"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#, c-format
+msgid "Installed"
+msgstr "Instalate"
+
+#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#, c-format
+msgid "Addable"
+msgstr "Noi"
+
+#: ../Rpmdrake/gui.pm:1044
+#, c-format
+msgid "Description not available for this package\n"
+msgstr "Descriere indisponibilă pentru acest pachet\n"
+
+#: ../Rpmdrake/icon.pm:36
+#, c-format
+msgid "Accessibility"
+msgstr "Accesibilitate"
+
+#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#, c-format
+msgid "Archiving"
+msgstr "Arhivare"
+
+#: ../Rpmdrake/icon.pm:38
+#, c-format
+msgid "Backup"
+msgstr "Salvgardare"
+
+#: ../Rpmdrake/icon.pm:39
+#, c-format
+msgid "Cd burning"
+msgstr "Inscripționare de CD"
+
+#: ../Rpmdrake/icon.pm:40
+#, c-format
+msgid "Compression"
+msgstr "Comprimare"
+
+#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#, c-format
+msgid "Other"
+msgstr "Diverse"
+
+#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Communications"
+msgstr "Telecomunicații"
+
+#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#, c-format
+msgid "Bluetooth"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:45
+#, c-format
+msgid "Dial-Up"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:46
+#, c-format
+msgid "Fax"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:47
+#, c-format
+msgid "Mobile"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:48
+#, c-format
+msgid "Radio"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:49
+#, c-format
+msgid "Serial"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Telephony"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#, c-format
+msgid "Databases"
+msgstr "Baze de date"
+
+#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Development"
+msgstr "Dezvoltare"
+
+#: ../Rpmdrake/icon.pm:53
+#, c-format
+msgid "Basic"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:54
+#, c-format
+msgid "C"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:55
+#, c-format
+msgid "C++"
+msgstr "C++"
+
+#: ../Rpmdrake/icon.pm:56
+#, fuzzy, c-format
+msgid "C#"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:58
+#, c-format
+msgid "Erlang"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:59
+#, c-format
+msgid "GNOME and GTK+"
+msgstr "GNOME și GTK+"
+
+#: ../Rpmdrake/icon.pm:60
+#, c-format
+msgid "Java"
+msgstr "Java"
+
+#: ../Rpmdrake/icon.pm:61
+#, c-format
+msgid "KDE and Qt"
+msgstr "KDE și Qt"
+
+#: ../Rpmdrake/icon.pm:62
+#, c-format
+msgid "Kernel"
+msgstr "Nucleu"
+
+#: ../Rpmdrake/icon.pm:63
+#, c-format
+msgid "OCaml"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:65
+#, c-format
+msgid "Perl"
+msgstr "Perl"
+
+#: ../Rpmdrake/icon.pm:66
+#, c-format
+msgid "PHP"
+msgstr "PHP"
+
+#: ../Rpmdrake/icon.pm:67
+#, c-format
+msgid "Python"
+msgstr "Python"
+
+#: ../Rpmdrake/icon.pm:68
+#, fuzzy, c-format
+msgid "Tools"
+msgstr "Unelte pentru text"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#, c-format
+msgid "X11"
+msgstr "X11"
+
+#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Documentation"
+msgstr "Documentație"
+
+#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#, c-format
+msgid "Editors"
+msgstr "Editoare"
+
+#: ../Rpmdrake/icon.pm:72
+#, c-format
+msgid "Education"
+msgstr "Educație"
+
+#: ../Rpmdrake/icon.pm:73
+#, c-format
+msgid "Emulators"
+msgstr "Emulatoare"
+
+#: ../Rpmdrake/icon.pm:74
+#, c-format
+msgid "File tools"
+msgstr "Unelte pentru fișiere"
+
+#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Games"
+msgstr "Jocuri"
+
+#: ../Rpmdrake/icon.pm:76
+#, c-format
+msgid "Adventure"
+msgstr "Aventură"
+
+#: ../Rpmdrake/icon.pm:77
+#, c-format
+msgid "Arcade"
+msgstr "Arcade"
+
+#: ../Rpmdrake/icon.pm:78
+#, c-format
+msgid "Boards"
+msgstr "Table"
+
+#: ../Rpmdrake/icon.pm:79
+#, c-format
+msgid "Cards"
+msgstr "Cărți"
+
+#: ../Rpmdrake/icon.pm:81
+#, c-format
+msgid "Puzzles"
+msgstr "Enigme"
+
+#: ../Rpmdrake/icon.pm:82
+#, c-format
+msgid "Shooter"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:83
+#, c-format
+msgid "Sports"
+msgstr "Sporturi"
+
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Strategy"
+msgstr "Strategie"
+
+#: ../Rpmdrake/icon.pm:85
+#, c-format
+msgid "Geography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:107
+#, c-format
+msgid "Graphical desktop"
+msgstr "Birou grafic"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:89
+#, c-format
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+#: ../Rpmdrake/icon.pm:90
+#, c-format
+msgid "FVWM based"
+msgstr "Bazat pe FVWM"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:93
+#, c-format
+msgid "GNOME"
+msgstr "GNOME"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:96
+#, c-format
+msgid "Icewm"
+msgstr "Icewm"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:99
+#, c-format
+msgid "KDE"
+msgstr "KDE"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:103
+#, c-format
+msgid "Sawfish"
+msgstr "Sawfish"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:106
+#, c-format
+msgid "WindowMaker"
+msgstr "WindowMaker"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:109
+#, c-format
+msgid "Xfce"
+msgstr "Xfce"
+
+#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:116
+#, c-format
+msgid "Graphics"
+msgstr "Grafică"
+
+#: ../Rpmdrake/icon.pm:111
+#, c-format
+msgid "3D"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:114
+#, c-format
+msgid "Photography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:115
+#, fuzzy, c-format
+msgid "Scanning"
+msgstr "Avertisment"
+
+#: ../Rpmdrake/icon.pm:116
+#, fuzzy, c-format
+msgid "Viewers"
+msgstr "Vizualizare"
+
+#: ../Rpmdrake/icon.pm:117
+#, c-format
+msgid "Monitoring"
+msgstr "Supraveghere"
+
+#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#, c-format
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Video"
+msgstr "Video"
+
+#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#, c-format
+msgid "Networking"
+msgstr "Rețea"
+
+#: ../Rpmdrake/icon.pm:121
+#, c-format
+msgid "Chat"
+msgstr "Discuții"
+
+#: ../Rpmdrake/icon.pm:122
+#, c-format
+msgid "File transfer"
+msgstr "Transfer de fișiere"
+
+#: ../Rpmdrake/icon.pm:123
+#, c-format
+msgid "IRC"
+msgstr "IRC"
+
+#: ../Rpmdrake/icon.pm:124
+#, c-format
+msgid "Instant messaging"
+msgstr "Mesagerie instantanee"
+
+#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#, c-format
+msgid "Mail"
+msgstr "Poștă electronică"
+
+#: ../Rpmdrake/icon.pm:126
+#, c-format
+msgid "News"
+msgstr "Știri"
+
+#: ../Rpmdrake/icon.pm:128
+#, c-format
+msgid "Remote access"
+msgstr "Acces la distanță"
+
+#: ../Rpmdrake/icon.pm:129
+#, c-format
+msgid "WWW"
+msgstr "WWW"
+
+#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Office"
+msgstr "Birotică"
+
+#: ../Rpmdrake/icon.pm:131
+#, c-format
+msgid "Dictionary"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:132
+#, fuzzy, c-format
+msgid "Finance"
+msgstr "Franța"
+
+#: ../Rpmdrake/icon.pm:133
+#, fuzzy, c-format
+msgid "Management"
+msgstr "Gestionare aplicații"
+
+#: ../Rpmdrake/icon.pm:134
+#, c-format
+msgid "Organizer"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:136
+#, c-format
+msgid "Spreadsheet"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:137
+#, c-format
+msgid "Suite"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Word processor"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:139
+#, c-format
+msgid "Public Keys"
+msgstr "Chei publice"
+
+#: ../Rpmdrake/icon.pm:140
+#, c-format
+msgid "Publishing"
+msgstr "Publicistică"
+
+#: ../Rpmdrake/icon.pm:141
+#, fuzzy, c-format
+msgid "Security"
+msgstr "Actualizări de securitate"
+
+#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Sciences"
+msgstr "Științifice"
+
+#: ../Rpmdrake/icon.pm:143
+#, c-format
+msgid "Astronomy"
+msgstr "Astronomie"
+
+#: ../Rpmdrake/icon.pm:144
+#, c-format
+msgid "Biology"
+msgstr "Biologie"
+
+#: ../Rpmdrake/icon.pm:145
+#, c-format
+msgid "Chemistry"
+msgstr "Chimie"
+
+#: ../Rpmdrake/icon.pm:146
+#, c-format
+msgid "Computer science"
+msgstr "Informatică"
+
+#: ../Rpmdrake/icon.pm:147
+#, c-format
+msgid "Geosciences"
+msgstr "Geografie"
+
+#: ../Rpmdrake/icon.pm:148
+#, c-format
+msgid "Mathematics"
+msgstr "Matematică"
+
+#: ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Physics"
+msgstr "Fizică"
+
+#: ../Rpmdrake/icon.pm:151
+#, c-format
+msgid "Shells"
+msgstr "Interpretoare"
+
+#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:158
+#, c-format
+msgid "Sound"
+msgstr "Sunet"
+
+#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#, c-format
+msgid "Editors and Converters"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:154
+#, c-format
+msgid "Midi"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:155
+#, c-format
+msgid "Mixers"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#, c-format
+msgid "Players"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Utilities"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:158
+#, fuzzy, c-format
+msgid "Visualization"
+msgstr "Internaționalizare"
+
+#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#, c-format
+msgid "System"
+msgstr "Sistem"
+
+#: ../Rpmdrake/icon.pm:160
+#, c-format
+msgid "Base"
+msgstr "Bază"
+
+#: ../Rpmdrake/icon.pm:161
+#, c-format
+msgid "Cluster"
+msgstr "Cluster"
+
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#, c-format
+msgid "Configuration"
+msgstr "Configurare"
+
+#: ../Rpmdrake/icon.pm:163
+#, c-format
+msgid "Boot and Init"
+msgstr "Pornire și Inițializare"
+
+#: ../Rpmdrake/icon.pm:164
+#, c-format
+msgid "Hardware"
+msgstr "Componente materiale"
+
+#: ../Rpmdrake/icon.pm:167
+#, c-format
+msgid "Packaging"
+msgstr "Împachetare"
+
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#, c-format
+msgid "Printing"
+msgstr "Tipărire"
+
+#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "Fonts"
+msgstr "Fonturi"
+
+#: ../Rpmdrake/icon.pm:170
+#, c-format
+msgid "Console"
+msgstr "Consolă"
+
+#: ../Rpmdrake/icon.pm:171
+#, c-format
+msgid "True type"
+msgstr "True Type"
+
+#: ../Rpmdrake/icon.pm:172
+#, c-format
+msgid "Type1"
+msgstr "Type1"
+
+#: ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "X11 bitmap"
+msgstr "Bitmap X11"
+
+#: ../Rpmdrake/icon.pm:174
+#, c-format
+msgid "Internationalization"
+msgstr "Internaționalizare"
+
+#: ../Rpmdrake/icon.pm:175
+#, c-format
+msgid "Kernel and hardware"
+msgstr "Nucleu și componente materiale"
+
+#: ../Rpmdrake/icon.pm:176
+#, c-format
+msgid "Libraries"
+msgstr "Biblioteci"
+
+#: ../Rpmdrake/icon.pm:178
+#, c-format
+msgid "Servers"
+msgstr "Servere"
+
+#: ../Rpmdrake/icon.pm:182
+#, c-format
+msgid "Terminals"
+msgstr "Terminale"
+
+#: ../Rpmdrake/icon.pm:183
+#, c-format
+msgid "Text tools"
+msgstr "Unelte pentru text"
+
+#: ../Rpmdrake/icon.pm:184
+#, c-format
+msgid "Toys"
+msgstr "Jucării"
+
+#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Workstation"
+msgstr "Stație de lucru"
+
+#: ../Rpmdrake/icon.pm:193
+#, c-format
+msgid "Console Tools"
+msgstr "Unelte de consolă"
+
+#: ../Rpmdrake/icon.pm:195
+#, c-format
+msgid "Game station"
+msgstr "Calculator pentru jocuri"
+
+#: ../Rpmdrake/icon.pm:196
+#, c-format
+msgid "Internet station"
+msgstr "Calculator pentru Internet"
+
+#: ../Rpmdrake/icon.pm:197
+#, c-format
+msgid "Multimedia station"
+msgstr "Calculator multimedia"
+
+#: ../Rpmdrake/icon.pm:198
+#, c-format
+msgid "Network Computer (client)"
+msgstr "Calculator în rețea (client)"
+
+#: ../Rpmdrake/icon.pm:199
+#, c-format
+msgid "Office Workstation"
+msgstr "Stație de lucru pentru birotică"
+
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Scientific Workstation"
+msgstr "Stație de lucru științifică"
+
+#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Graphical Environment"
+msgstr "Mediu grafic"
+
+#: ../Rpmdrake/icon.pm:203
+#, c-format
+msgid "GNOME Workstation"
+msgstr "Stație de lucru GNOME"
+
+#: ../Rpmdrake/icon.pm:204
+#, c-format
+msgid "IceWm Desktop"
+msgstr "Birou IceWm"
+
+#: ../Rpmdrake/icon.pm:205
+#, c-format
+msgid "KDE Workstation"
+msgstr "Stație de lucru KDE"
+
+#: ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Other Graphical Desktops"
+msgstr "Alte medii grafice"
+
+#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Server"
+msgstr "Server"
+
+#: ../Rpmdrake/icon.pm:211
+#, c-format
+msgid "DNS/NIS"
+msgstr "DNS/NIS"
+
+#: ../Rpmdrake/icon.pm:212
+#, c-format
+msgid "Database"
+msgstr "Baze de date"
+
+#: ../Rpmdrake/icon.pm:213
+#, c-format
+msgid "Firewall/Router"
+msgstr "Parafoc/Ruter"
+
+#: ../Rpmdrake/icon.pm:215
+#, c-format
+msgid "Mail/Groupware/News"
+msgstr "Poștă/Lucru colaborativ/Știri"
+
+#: ../Rpmdrake/icon.pm:216
+#, c-format
+msgid "Network Computer server"
+msgstr "Server în rețea"
+
+#: ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Web/FTP"
+msgstr "Web/FTP"
+
+#: ../Rpmdrake/init.pm:49
+#, c-format
+msgid "Usage: %s [OPTION]..."
+msgstr "Utilizare: %s [OPȚIUNI]..."
+
+#: ../Rpmdrake/init.pm:50
+#, c-format
+msgid "  --auto                 assume default answers to questions"
+msgstr "  --auto                acordă răspunsurile implicite la întrebări"
+
+#: ../Rpmdrake/init.pm:51
+#, c-format
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+"  --changelog-first      afișează istoricul modificărilor înaintea listei de "
+"fișiere în fereastra descriptivă   "
+
+#: ../Rpmdrake/init.pm:52
+#, c-format
+msgid "  --media=medium1,..     limit to given media"
+msgstr "  --media=medium1,..     limitează la mediile date"
+
+#: ../Rpmdrake/init.pm:53
+#, c-format
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+"  --merge-all-rpmnew     propune fuzionarea tuturor fișierelor .rpmnew/."
+"rpmsave găsite"
+
+#: ../Rpmdrake/init.pm:54
+#, c-format
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+"  --mode=MODE            definește modul (instalare (implicit), înlăturare, "
+"actualizare)"
+
+#: ../Rpmdrake/init.pm:55
+#, c-format
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+"  --justdb             se actualizează doar baza de date, dar nu se modifică "
+"sistemul de fișiere"
+
+#: ../Rpmdrake/init.pm:56
+#, c-format
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr "  --no-confirmation     nu se cere confirmare în modul actualizare"
+
+#: ../Rpmdrake/init.pm:57
+#, c-format
+msgid "  --no-media-update      don't update media at startup"
+msgstr "  --no-media-update      nu se actualizează mediile la lansare"
+
+#: ../Rpmdrake/init.pm:58
+#, c-format
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr "  --no-verify-rpm         nu se verifică semnăturile pachetelor"
+
+#: ../Rpmdrake/init.pm:59
+#, c-format
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+"  --parallel=alias,host    în modul paralel, utilizează grupul „alias”, "
+"utilizează mașina „host” pentru a vizualiza dependențele"
+
+#: ../Rpmdrake/init.pm:60
+#, c-format
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr ""
+"  --rpm-root=path        utilizează o altă cale rădăcină pentru instalarea "
+"lui rpm"
+
+#: ../Rpmdrake/init.pm:61
+#, c-format
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr ""
+"  --urpmi-root           utilizează o altă cale rădăcină pentru instalarea "
+"lui rpm și a bazei sale de date"
+
+#: ../Rpmdrake/init.pm:62
+#, c-format
+msgid "  --run-as-root          force to run as root"
+msgstr "  --run-as-root         forțează rularea ca root"
+
+#: ../Rpmdrake/init.pm:63
+#, c-format
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr "  --search=pkg          lansează căutarea pentru „pkg”"
+
+#: ../Rpmdrake/init.pm:64
+#, c-format
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+"  --test                verifică dacă instalarea poate fi îndeplinită corect"
+
+#: ../Rpmdrake/init.pm:65
+#, c-format
+msgid "  --version              print this tool's version number\n"
+msgstr "  --version              afișează versiunea acestui utilitar\n"
+
+#: ../Rpmdrake/init.pm:156
+#, c-format
+msgid "Running in user mode"
+msgstr "Rulare în mod utilizator"
+
+#: ../Rpmdrake/init.pm:157
+#, c-format
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"Lansați acest program cu un utilizator obișnuit.\n"
+"Nu veți putea modifica sistemul, dar veți putea\n"
+"naviga prin baza de date existentă."
+
+#: ../Rpmdrake/pkg.pm:126
+#, c-format
+msgid "Getting information from XML meta-data from %s..."
+msgstr "Se obțin informații din metadatele XML din %s..."
+
+#: ../Rpmdrake/pkg.pm:130
+#, c-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr "Se obține „%s” din metadatele XML..."
+
+#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../rpmdrake.pm:594
+#, c-format
+msgid "Please wait"
+msgstr "Așteptați vă rog"
+
+#: ../Rpmdrake/pkg.pm:147
+#, c-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+"Nu există informații XML pentru mediul „%s”, numai rezultate parțiale pentru "
+"pachetul %s"
+
+#: ../Rpmdrake/pkg.pm:149
+#, c-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+"Nu există informații XML pentru mediul „%s”, nu se poate întoarce nici un "
+"rezultat pentru pachetul %s"
+
+#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#, c-format
+msgid "Downloading package `%s'..."
+msgstr "Se descarcă pachetul „%s”..."
+
+#: ../Rpmdrake/pkg.pm:211
+#, c-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr "        %s%% din %s totali, TES = %s, viteză = %s"
+
+#: ../Rpmdrake/pkg.pm:212
+#, c-format
+msgid "        %s%% completed, speed = %s"
+msgstr "        %s%% complet, viteză = %s"
+
+#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Confirmation"
+msgstr "Confirmare"
+
+#: ../Rpmdrake/pkg.pm:251
+#, c-format
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Trebuie contact serverul alternativ pentru a obține cele mai recente "
+"actualizări.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
+
+#: ../Rpmdrake/pkg.pm:255
+#, c-format
+msgid "Do not ask me next time"
+msgstr "Nu mai întreba data viitoare"
+
+#: ../Rpmdrake/pkg.pm:264
+#, c-format
+msgid "Already existing update media"
+msgstr "Mediile de actualizare există deja"
+
+#: ../Rpmdrake/pkg.pm:265
+#, c-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"Aveți configurate mai multe medii de actualizare, dar toate\n"
+"sînt dezactivate. Ar trebui să activați cel puțin unul, lansînd\n"
+"„Gestionarul de medii” (verificați în coloana „%s”).\n"
+"\n"
+"Apoi reporniți „%s”."
+
+#: ../Rpmdrake/pkg.pm:275
+#, c-format
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+"Nu aveți configurat nici un mediu cu actualizări. MageiaUpdate nu poate "
+"funcționa fără un mediu cu actualizări."
+
+#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#, c-format
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Trebuie contactat situl Mageia pentru obținerea listei serverelor "
+"alternative.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
+
+#: ../Rpmdrake/pkg.pm:283
+#, c-format
+msgid "How to choose manually your mirror"
+msgstr "Cum să selectați manual serverul alternativ"
+
+#: ../Rpmdrake/pkg.pm:284
+#, c-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"De asemenea, puteți selecta și manual serverul alternativ:\n"
+"pentru aceasta lansați „Gestionarul de medii” și adăugați un \n"
+"mediu de tip „Actualizări de securitate”.\n"
+"\n"
+"Apoi reporniți %s."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#, c-format
+msgid "Package installation..."
+msgstr "Instalare pachete..."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#, c-format
+msgid "Initializing..."
+msgstr "Inițializare..."
+
+#: ../Rpmdrake/pkg.pm:452
+#, c-format
+msgid "Reading updates description"
+msgstr "Se citesc descrierile actualizărilor"
+
+#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#, c-format
+msgid "Please wait, finding available packages..."
+msgstr "Așteptați, se caută pachetele disponibile..."
+
+#: ../Rpmdrake/pkg.pm:464
+#, c-format
+msgid "Please wait, listing base packages..."
+msgstr "Așteptați, se listează pachetele de bază..."
+
+#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#, c-format
+msgid "Error"
+msgstr "Eroare"
+
+#: ../Rpmdrake/pkg.pm:477
+#, c-format
+msgid "Please wait, finding installed packages..."
+msgstr "Așteptați, se caută pachetele instalate..."
+
+#: ../Rpmdrake/pkg.pm:594
+#, c-format
+msgid "Upgrade information"
+msgstr "Informații de actualizare"
+
+#: ../Rpmdrake/pkg.pm:596
+#, c-format
+msgid "These packages come with upgrade information"
+msgstr "Aceste pachete conțin informații de actualizare"
+
+#: ../Rpmdrake/pkg.pm:604
+#, c-format
+msgid "Upgrade information about this package"
+msgstr "Informații despre actualizarea pachetului"
+
+#: ../Rpmdrake/pkg.pm:607
+#, c-format
+msgid "Upgrade information about package %s"
+msgstr "Informații despre actualizarea pachetului %s"
+
+#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#, c-format
+msgid "All requested packages were installed successfully."
+msgstr "Toate pachetele cerute au fost instalate cu succes."
+
+#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#, c-format
+msgid "Problem during installation"
+msgstr "Problemă în timpul instalării"
+
+#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#, c-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"S-a întîlnit o problemă în timpul instalării:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:653
+#, c-format
+msgid "Installation failed"
+msgstr "Instalare eșuată"
+
+#: ../Rpmdrake/pkg.pm:676
+#, c-format
+msgid "Checking validity of requested packages..."
+msgstr "Se verifică validitatea pachetelor cerute..."
+
+#: ../Rpmdrake/pkg.pm:695
+#, c-format
+msgid "Unable to get source packages."
+msgstr "Nu se pot prelua pachetele sursă."
+
+#: ../Rpmdrake/pkg.pm:696
+#, c-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "Nu se pot prelua pachetele sursă, regrete. %s"
+
+#: ../Rpmdrake/pkg.pm:697
+#, c-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"Erori raportate:\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:715
+#, c-format
+msgid "The following package is going to be installed:"
+msgid_plural "The following %d packages are going to be installed:"
+msgstr[0] "Pachetul următor va fi instalat:"
+msgstr[1] "Următoarele %d pachete vor fi instalate:"
+msgstr[2] "Următoarele %d de pachete vor fi instalate:"
+
+#: ../Rpmdrake/pkg.pm:721
+#, c-format
+msgid "Remove one package?"
+msgid_plural "Remove %d packages?"
+msgstr[0] "Înlăturați un pachet?"
+msgstr[1] "Înlăturați %d pachete?"
+msgstr[2] "Înlăturați %d de pachete?"
+
+#: ../Rpmdrake/pkg.pm:723
+#, c-format
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr ""
+"Pachetul următor trebuie înlăturat pentru ca celelalte să fie actualizate:"
+
+#: ../Rpmdrake/pkg.pm:724
+#, c-format
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+"Pachetele următoare trebuiesc înlăturate pentru ca celelalte să fie "
+"actualizate:"
+
+#: ../Rpmdrake/pkg.pm:728
+#, c-format
+msgid "Is it ok to continue?"
+msgstr "Se poate continua?"
+
+#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#, c-format
+msgid "Orphan packages"
+msgstr "Pachete orfane"
+
+#: ../Rpmdrake/pkg.pm:744
+#, c-format
+msgid "The following orphan package will be removed."
+msgid_plural "The following orphan packages will be removed."
+msgstr[0] "Pachetul orfan următor va fi înlăturat."
+msgstr[1] "Pachetele orfane următoare vor fi înlăturate."
+msgstr[2] "Pachetele orfane următoare vor fi înlăturate."
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation..."
+msgstr "Se pregătește instalarea pachetelor..."
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation transaction..."
+msgstr "Se pregătește operația de instalare a pachetelor..."
+
+#: ../Rpmdrake/pkg.pm:763
+#, c-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr "Se instalează pachetul „%s” (%s/%s)..."
+
+#: ../Rpmdrake/pkg.pm:764
+#, c-format
+msgid "Total: %s/%s"
+msgstr "Total: %s/%s"
+
+#: ../Rpmdrake/pkg.pm:827
+#, c-format
+msgid "Change medium"
+msgstr "Schimbare de mediu"
+
+#: ../Rpmdrake/pkg.pm:828
+#, c-format
+msgid "Please insert the medium named \"%s\""
+msgstr "Inserați mediul numit „%s”  "
+
+#: ../Rpmdrake/pkg.pm:832
+#, c-format
+msgid "Verifying package signatures..."
+msgstr "Se verifică semnăturile pachetelor..."
+
+#: ../Rpmdrake/pkg.pm:855
+#, c-format
+msgid "%d installation transactions failed"
+msgstr "%d operații de instalare eșuate"
+
+#: ../Rpmdrake/pkg.pm:869
+#, c-format
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr ""
+"Eroare irecuperabilă: nu s-a găsit nici un pachet pentru instalare, regrete."
+
+#: ../Rpmdrake/pkg.pm:872
+#, c-format
+msgid "Inspecting configuration files..."
+msgstr "Se inspectează fișierele de configurare..."
+
+#: ../Rpmdrake/pkg.pm:880
+#, c-format
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"Instalarea s-a terminat; totul a fost instalat cu succes.\n"
+"\n"
+"Unele fișiere de configurare au fost create ca „.rpmnew” sau „.rpmsave”,\n"
+"le puteți inspecta acum pentru a decide acțiunile ulterioare:"
+
+#: ../Rpmdrake/pkg.pm:886
+#, c-format
+msgid "Looking for \"README\" files..."
+msgstr "Se caută fișierele „README” ..."
+
+#: ../Rpmdrake/pkg.pm:919
+#, c-format
+msgid "RPM transaction %d/%d"
+msgstr "Operația RPM %d/%d"
+
+#: ../Rpmdrake/pkg.pm:920
+#, c-format
+msgid "Unselect all"
+msgstr "Deselectează tot"
+
+#: ../Rpmdrake/pkg.pm:921
+#, c-format
+msgid "Details"
+msgstr "Detalii"
+
+#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#, c-format
+msgid "Please wait, removing packages..."
+msgstr "Așteptați, se înlătură pachetele..."
+
+#: ../Rpmdrake/pkg.pm:977
+#, c-format
+msgid "Problem during removal"
+msgstr "Problemă în timpul înlăturării"
+
+#: ../Rpmdrake/pkg.pm:978
+#, c-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"S-a întîlnit o problemă în timpul înlăturării pachetelor:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:985
+#, c-format
+msgid "Information"
+msgstr "Informații"
+
+#: ../Rpmdrake/rpmnew.pm:82
+#, c-format
+msgid "Inspecting %s"
+msgstr "Se inspectează %s"
+
+#: ../Rpmdrake/rpmnew.pm:107
+#, c-format
+msgid "Changes:"
+msgstr "Modificări:"
+
+#: ../Rpmdrake/rpmnew.pm:116
+#, c-format
+msgid ""
+"You can either remove the .%s file, use it as main file or do nothing. If "
+"unsure, keep the current file (\"%s\")."
+msgstr ""
+"Puteți înlătura fișierul .%s , utiliza ca fișier primar sau să nu faceți "
+"nimic. Păstrați fișierul curent („%s”) dacă nu sînteți sigur."
+
+#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#, c-format
+msgid "Remove .%s"
+msgstr "Înlătură .%s"
+
+#: ../Rpmdrake/rpmnew.pm:126
+#, c-format
+msgid "Use .%s as main file"
+msgstr "Utilizează .%s ca fișier principal"
+
+#: ../Rpmdrake/rpmnew.pm:130
+#, c-format
+msgid "Do nothing"
+msgstr "Nu fă nimic"
+
+#: ../Rpmdrake/rpmnew.pm:158
+#, c-format
+msgid "Installation finished"
+msgstr "Instalare terminată"
+
+#: ../Rpmdrake/rpmnew.pm:173
+#, c-format
+msgid "Inspect..."
+msgstr "Inspectare..."
+
+#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#, c-format
+msgid "Please wait, searching..."
+msgstr "Așteptați, se caută..."
+
+#: ../gurpmi.addmedia:103
+#, c-format
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr "<url> greșit (pentru directorul local, calea trebuie să fie absolută)"
+
+#: ../gurpmi.addmedia:117
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"Se poate continua?"
+
+#: ../gurpmi.addmedia:121
+#, c-format
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"Sînteți pe cale să adăugați un nou mediu de pachete.\n"
+"Asta înseamnă că veți putea instala în sistem noi pachete\n"
+"cu programe de pe acest mediu."
+
+#: ../gurpmi.addmedia:125
+#, c-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"Sînteți pe cale să adăugați un nou mediu de pachete, %s.\n"
+"Asta înseamnă că vă veți putea instala în sistem noi pachete\n"
+"cu programe de pe acest mediu."
+
+#: ../gurpmi.addmedia:128
+#, c-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+"Sînteți pe cale să adăugați un nou mediu de pachete, „%s”.\n"
+"Asta înseamnă că vă veți putea instala în sistem noi pachete\n"
+"cu programe de pe acest mediu."
+
+#: ../gurpmi.addmedia:152
+#, c-format
+msgid "Successfully added media."
+msgstr "Mediu adăugat cu succes."
+
+#: ../gurpmi.addmedia:154
+#, c-format
+msgid "Successfully added media %s."
+msgstr "Mediul %s a fost adăugat cu succes."
+
+#: ../gurpmi.addmedia:155
+#, c-format
+msgid "Successfully added medium `%s'."
+msgstr "Mediul „%s” a fost adăugat cu succes."
+
+#: ../rpmdrake:107
+#, c-format
+msgid "Stop"
+msgstr "Oprește"
+
+#: ../rpmdrake:141
+#, c-format
+msgid "no xml-info available for medium \"%s\""
+msgstr "nu sînt informații XML pentru mediul „%s”"
+
+#: ../rpmdrake:157 ../rpmdrake:185
+#, c-format
+msgid "Search aborted"
+msgstr "Căutare abandonată"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Selected"
+msgstr "Selectate"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Not selected"
+msgstr "Neselectate"
+
+#: ../rpmdrake:211
+#, c-format
+msgid "No search results."
+msgstr "Căutare fără rezultate."
+
+#: ../rpmdrake:212
+#, c-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+"Căutare fără rezultate. Poate doriți să comutați pe vizualizarea „%s” și pe "
+"filtrul „%s”"
+
+#: ../rpmdrake:246
+#, c-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr "Selectate: %s / Spațiu liber pe disc: %s"
+
+#: ../rpmdrake:286
+#, c-format
+msgid "Package"
+msgstr "Pachet"
+
+#. -PO: "Architecture" but to be kept *small* !!!
+#: ../rpmdrake:300
+#, c-format
+msgid "Arch."
+msgstr "Arh."
+
+#. -PO: "Status" should be kept *small* !!!
+#: ../rpmdrake:328
+#, c-format
+msgid "Status"
+msgstr "Stare"
+
+#: ../rpmdrake:371
+#, c-format
+msgid "Not installed"
+msgstr "Neinstalat"
+
+#: ../rpmdrake:386
+#, c-format
+msgid "All packages, alphabetical"
+msgstr "Toate pachetele, ordine alfabetică"
+
+#: ../rpmdrake:387
+#, c-format
+msgid "All packages, by group"
+msgstr "Toate pachetele, ordonate după grup"
+
+#: ../rpmdrake:388
+#, c-format
+msgid "Leaves only, sorted by install date"
+msgstr "Numai ramurile, ordonate după data instalării"
+
+#: ../rpmdrake:389
+#, c-format
+msgid "All packages, by update availability"
+msgstr "Toate pachetele, ordonate după disponibilitatea actualizărilor"
+
+#: ../rpmdrake:390
+#, c-format
+msgid "All packages, by selection state"
+msgstr "Toate pachetele, ordonate după starea selecției"
+
+#: ../rpmdrake:391
+#, c-format
+msgid "All packages, by size"
+msgstr "Toate pachetele, ordonate după mărime"
+
+#: ../rpmdrake:392
+#, c-format
+msgid "All packages, by medium repository"
+msgstr "Toate pachetele, ordonate după mediul sursă"
+
+#. -PO: Backports media are newer but less-tested versions of some packages in main
+#. -PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
+#: ../rpmdrake:400
+#, c-format
+msgid "Backports"
+msgstr "Retroportări"
+
+#: ../rpmdrake:401
+#, c-format
+msgid "Meta packages"
+msgstr "Meta pachete"
+
+#: ../rpmdrake:402
+#, c-format
+msgid "Packages with GUI"
+msgstr "Pachete cu GUI"
+
+#: ../rpmdrake:403
+#, c-format
+msgid "All updates"
+msgstr "Toate actualizările"
+
+#: ../rpmdrake:404
+#, c-format
+msgid "Security updates"
+msgstr "Actualizări de securitate"
+
+#: ../rpmdrake:405
+#, c-format
+msgid "Bugfixes updates"
+msgstr "Actualizări cu corectări de erori"
+
+#: ../rpmdrake:406
+#, c-format
+msgid "General updates"
+msgstr "Actualizări generale"
+
+#: ../rpmdrake:429
+#, c-format
+msgid "View"
+msgstr "Vizualizare"
+
+#: ../rpmdrake:457
+#, c-format
+msgid "Filter"
+msgstr "Filtru"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in names"
+msgstr "în denumiri"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in descriptions"
+msgstr "în descrieri"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in summaries"
+msgstr "în rezumate"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in file names"
+msgstr "în denumirile fișierelor"
+
+#: ../rpmdrake:534
+#, c-format
+msgid "/_Select dependencies without asking"
+msgstr "/_Selectează dependențele fără confirmare"
+
+#: ../rpmdrake:537
+#, c-format
+msgid "Clear download cache after successful install"
+msgstr "Curăță spațiul temporar de descărcare după o instalare reușită"
+
+#: ../rpmdrake:538
+#, c-format
+msgid "/_Compute updates on startup"
+msgstr "/_Procesează actualizările la pornire"
+
+#: ../rpmdrake:539
+#, c-format
+msgid "Search in _full package names"
+msgstr "Caută în denumirile _complete de pachete"
+
+#: ../rpmdrake:540
+#, c-format
+msgid "Use _regular expressions in searches"
+msgstr "Utilizează expresii _regulate în căutări"
+
+#: ../rpmdrake:546
+#, c-format
+msgid "/_Update media"
+msgstr "/_Actualizează mediile"
+
+#: ../rpmdrake:551
+#, c-format
+msgid "/_Reset the selection"
+msgstr "/_Resetează selecția"
+
+#: ../rpmdrake:555
+#, c-format
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: ../rpmdrake:571
+#, c-format
+msgid "/Reload the _packages list"
+msgstr "/Reîncarcă lista _pachetelor"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "/_Quit"
+msgstr "/_Terminare"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "<control>Q"
+msgstr "<control>Q"
+
+#: ../rpmdrake:591
+#, c-format
+msgid "/_Media Manager"
+msgstr "/_Gestionar de medii"
+
+#: ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Show automatically selected packages"
+msgstr "/_Arată pachetele selectate automat"
+
+#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#, c-format
+msgid "/_View"
+msgstr "/_Vizualizare"
+
+#: ../rpmdrake:692
+#, c-format
+msgid "Find:"
+msgstr "Caută:"
+
+#: ../rpmdrake:696
+#, c-format
+msgid "Please type in the string you want to search then press the <enter> key"
+msgstr "Tastați șirul pe care doriți să-l căutați și apăsați tasta <enter>"
+
+#: ../rpmdrake:726
+#, c-format
+msgid "Apply"
+msgstr "Aplică"
+
+#: ../rpmdrake:745
+#, c-format
+msgid "Quick Introduction"
+msgstr "Introducere rapidă"
+
+#: ../rpmdrake:746
+#, c-format
+msgid "You can browse the packages through the categories tree on the left."
+msgstr ""
+"Puteți explora pachetele prin arborescența categoriilor de pachete din "
+"partea stîngă. "
+
+#: ../rpmdrake:747
+#, c-format
+msgid ""
+"You can view information about a package by clicking on it on the right list."
+msgstr ""
+"Puteți vizualiza informații despre un pachet făcînd clic pe el în lista din "
+"dreapta."
+
+#: ../rpmdrake:748
+#, c-format
+msgid "To install, update or remove a package, just click on its \"checkbox\"."
+msgstr ""
+"Pentru a instala, actualiza sau înlătura un pachet, bifați-i căsuța "
+"corespunzătoare."
+
+#: ../rpmdrake:793
+#, c-format
+msgid "rpmdrake is already running (pid: %s)"
+msgstr "rpmdrake rulează deja (pid: %s)"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Software Update"
+msgstr "Actualizare aplicații"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Mageia Update"
+msgstr "Actualizări Mageia"
+
+#: ../rpmdrake.pm:148
+#, c-format
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr "Introduceți acreditarea pentru accesul la proxy\n"
+
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "User name:"
+msgstr "Nume utilizator:"
+
+#: ../rpmdrake.pm:234
+#, c-format
+msgid "Software Packages Removal"
+msgstr "Înlăturare pachete"
+
+#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Packages Update"
+msgstr "Actualizare pachete"
+
+#: ../rpmdrake.pm:236
+#, c-format
+msgid "Software Packages Installation"
+msgstr "Instalare pachete"
+
+#: ../rpmdrake.pm:284
+#, c-format
+msgid "No"
+msgstr "Nu"
+
+#: ../rpmdrake.pm:288
+#, c-format
+msgid "Yes"
+msgstr "Da"
+
+#: ../rpmdrake.pm:340
+#, c-format
+msgid "Info..."
+msgstr "Informații... "
+
+#: ../rpmdrake.pm:465
+#, c-format
+msgid "Austria"
+msgstr "Austria"
+
+#: ../rpmdrake.pm:466
+#, c-format
+msgid "Australia"
+msgstr "Australia"
+
+#: ../rpmdrake.pm:467
+#, c-format
+msgid "Belgium"
+msgstr "Belgia"
+
+#: ../rpmdrake.pm:468
+#, c-format
+msgid "Brazil"
+msgstr "Brazilia"
+
+#: ../rpmdrake.pm:469
+#, c-format
+msgid "Canada"
+msgstr "Canada"
+
+#: ../rpmdrake.pm:470
+#, c-format
+msgid "Switzerland"
+msgstr "Elveția"
+
+#: ../rpmdrake.pm:471
+#, c-format
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: ../rpmdrake.pm:472
+#, c-format
+msgid "Czech Republic"
+msgstr "Cehia"
+
+#: ../rpmdrake.pm:473
+#, c-format
+msgid "Germany"
+msgstr "Germania"
+
+#: ../rpmdrake.pm:474
+#, c-format
+msgid "Danmark"
+msgstr "Danemarca"
+
+#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#, c-format
+msgid "Greece"
+msgstr "Grecia"
+
+#: ../rpmdrake.pm:476
+#, c-format
+msgid "Spain"
+msgstr "Spania"
+
+#: ../rpmdrake.pm:477
+#, c-format
+msgid "Finland"
+msgstr "Finlanda"
+
+#: ../rpmdrake.pm:478
+#, c-format
+msgid "France"
+msgstr "Franța"
+
+#: ../rpmdrake.pm:480
+#, c-format
+msgid "Hungary"
+msgstr "Ungaria"
+
+#: ../rpmdrake.pm:481
+#, c-format
+msgid "Israel"
+msgstr "Israel"
+
+#: ../rpmdrake.pm:482
+#, c-format
+msgid "Italy"
+msgstr "Italia"
+
+#: ../rpmdrake.pm:483
+#, c-format
+msgid "Japan"
+msgstr "Japonia"
+
+#: ../rpmdrake.pm:484
+#, c-format
+msgid "Korea"
+msgstr "Coreea"
+
+#: ../rpmdrake.pm:485
+#, c-format
+msgid "Netherlands"
+msgstr "Olanda"
+
+#: ../rpmdrake.pm:486
+#, c-format
+msgid "Norway"
+msgstr "Norvegia"
+
+#: ../rpmdrake.pm:487
+#, c-format
+msgid "Poland"
+msgstr "Polonia"
+
+#: ../rpmdrake.pm:488
+#, c-format
+msgid "Portugal"
+msgstr "Portugalia"
+
+#: ../rpmdrake.pm:489
+#, c-format
+msgid "Russia"
+msgstr "Rusia"
+
+#: ../rpmdrake.pm:490
+#, c-format
+msgid "Sweden"
+msgstr "Suedia"
+
+#: ../rpmdrake.pm:491
+#, c-format
+msgid "Singapore"
+msgstr "Singapore"
+
+#: ../rpmdrake.pm:492
+#, c-format
+msgid "Slovakia"
+msgstr "Slovacia"
+
+#: ../rpmdrake.pm:493
+#, c-format
+msgid "Taiwan"
+msgstr "Taiwan"
+
+#: ../rpmdrake.pm:494
+#, c-format
+msgid "United Kingdom"
+msgstr "Marea Britanie"
+
+#: ../rpmdrake.pm:495
+#, c-format
+msgid "China"
+msgstr "China"
+
+#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#, c-format
+msgid "United States"
+msgstr "Statele Unite"
+
+#: ../rpmdrake.pm:579
+#, c-format
+msgid "Please wait, downloading mirror addresses."
+msgstr "Așteptați, se descarcă adresele serverelor alternative."
+
+#: ../rpmdrake.pm:580
+#, c-format
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr ""
+"Așteptați vă rog, se descarcă adresele serverelor alternative de pe situl "
+"Mageia."
+
+#: ../rpmdrake.pm:601
+#, c-format
+msgid "retrieval of [%s] failed"
+msgstr "preluarea lui [%s] a eșuat"
+
+#: ../rpmdrake.pm:623
+#, c-format
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Trebuie accesat Internetul pentru a obține lista serverelor alternative.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
+
+#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#, c-format
+msgid "Mirror choice"
+msgstr "Alegere servere alternative"
+
+#: ../rpmdrake.pm:643
+#, c-format
+msgid "Error during download"
+msgstr "Eroare în timpul descărcării"
+
+#: ../rpmdrake.pm:645
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"S-a întîlnit o eroare la descărcarea listei serverelor alternative:\n"
+"\n"
+"%s\n"
+"Probabil rețeaua sau situl web nu sînt disponibile.\n"
+"Reîncercați mai tîrziu."
+
+#: ../rpmdrake.pm:650
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"A fost o eroare la descărcarea listei serverelor alternative:\n"
+"\n"
+"%s\n"
+"Rețeaua, sau situl Mageia, pot fi indisponibile.\n"
+"Vă rugăm să încercați mai tîrziu."
+
+#: ../rpmdrake.pm:660
+#, c-format
+msgid "No mirror"
+msgstr "Nu există servere alternative"
+
+#: ../rpmdrake.pm:662
+#, c-format
+msgid "I can't find any suitable mirror."
+msgstr "Nu s-a găsit nici un server alternativ potrivit. "
+
+#: ../rpmdrake.pm:663
+#, c-format
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"Nu s-a găsit nici un server alternativ potrivit.\n"
+"\n"
+"Poate fi multe cauze pentru această problemă; cel mai frecvent este\n"
+"cazul cînd arhitectura procesorului actual nu este suportată\n"
+"de actualizările oficiale."
+
+#: ../rpmdrake.pm:682
+#, c-format
+msgid "Please choose the desired mirror."
+msgstr "Alegeți serverul alternativ dorit."
+
+#: ../rpmdrake.pm:723
+#, c-format
+msgid "Copying file for medium `%s'..."
+msgstr "Se copiază fișierul mediului „%s”..."
+
+#: ../rpmdrake.pm:726
+#, c-format
+msgid "Examining file of medium `%s'..."
+msgstr "Se examinează fișierul mediului „%s”..."
+
+#: ../rpmdrake.pm:729
+#, c-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "Se examinează fișierul distant al mediului „%s”..."
+
+#: ../rpmdrake.pm:733
+#, c-format
+msgid " done."
+msgstr " terminat."
+
+#: ../rpmdrake.pm:737
+#, c-format
+msgid " failed!"
+msgstr " eșuat!"
+
+#. -PO: We're downloading the said file from the said medium
+#: ../rpmdrake.pm:742
+#, c-format
+msgid "%s from medium %s"
+msgstr "%s de pe mediul %s"
+
+#: ../rpmdrake.pm:746
+#, c-format
+msgid "Starting download of `%s'..."
+msgstr "Se pornește descărcarea lui „%s”..."
+
+#: ../rpmdrake.pm:750
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+"Se descarcă „%s”\n"
+"timp rămas: %s, viteză: %s"
+
+#: ../rpmdrake.pm:753
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+"Se descarcă „%s”\n"
+"viteză: %s"
+
+#: ../rpmdrake.pm:764
+#, c-format
+msgid "Please wait, updating media..."
+msgstr "Așteptați, se actualizează mediul..."
+
+#: ../rpmdrake.pm:774
+#, c-format
+msgid "Canceled"
+msgstr "Anulat"
+
+#: ../rpmdrake.pm:791
+#, c-format
+msgid "Error retrieving packages"
+msgstr "Eroare la preluarea pachetelor"
+
+#: ../rpmdrake.pm:792
+#, c-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+"Este imposibil de preluat lista noilor pachete de pe mediul\n"
+"„%s”. Fie acest mediu de actualizare este configurat greșit, și în acest\n"
+"caz ar trebui să utilizați „Gestionarul de medii” să-l înlăturați și să-l "
+"readăugați\n"
+"ca să-l puteți reconfigura, fie este indisponibil momentan și ar trebui să\n"
+"încercați mai tîrziu."
+
+#: ../rpmdrake.pm:823
+#, c-format
+msgid "Update media"
+msgstr "Actualizare medii"
+
+#: ../rpmdrake.pm:828
+#, c-format
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+"Nu există medii active. Trebuie mai întîi să activați mediile pentru a le "
+"putea actualiza."
+
+#: ../rpmdrake.pm:835
+#, c-format
+msgid "Select the media you wish to update:"
+msgstr "Selectați mediile pe care doriți să le actualizați:"
+
+#: ../rpmdrake.pm:881
+#, c-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"Nu se poate actualiza mediul; acesta va fi dezactivat automat.\n"
+"\n"
+"Erori:\n"
+"%s"
+
+#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#, c-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Nu se poate adăuga mediul, erorile raportate:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:925
+#, c-format
+msgid "Unable to create medium."
+msgstr "Nu se poate crea mediul."
+
+#: ../rpmdrake.pm:930
+#, c-format
+msgid "Failure when adding medium"
+msgstr "Adăugare de mediu eșuată"
+
+#: ../rpmdrake.pm:931
+#, c-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"S-a întîlnit o problemă la adăugarea mediului:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:944
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+"Mediul „%s”, utilizat pentru actualizări, este incompatibil cu versiunea %s "
+"instalată (%s).\n"
+"Va fi dezactivat."
+
+#: ../rpmdrake.pm:947
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+"Mediul „%s”, utilizat pentru actualizări, nu se potrivește cu versiunea de "
+"Mageia pe care o aveți (%s).\n"
+"Acesta va fi dezactivat."
+
+#: ../rpmdrake.pm:978
+#, c-format
+msgid "Help launched in background"
+msgstr "Ajutorul a fost lansat în fundal"
+
+#: ../rpmdrake.pm:979
+#, c-format
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr "Fereastra de ajutor a fost lansată, va apărea în scurt timp pe ecran."
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:1
+msgid "A graphical front end for browsing installed & available packages"
+msgstr ""
+"O interfață grafică pentru explorarea pachetelor instalate & disponibile"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:2
+msgid "Browse Available Software"
+msgstr "Explorați aplicațiile disponibile"
+
+#: ../data/rpmdrake.desktop.in.h:1
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr ""
+"O interfață grafică pentru instalarea, înlăturarea și actualizarea pachetelor"
+
+#: ../data/rpmdrake.desktop.in.h:2
+msgid "Install & Remove Software"
+msgstr "Instalați & Înlăturați aplicații"
+
+#: ../data/rpmdrake-sources.desktop.in.h:1
+msgid "Software Media Manager"
+msgstr "Gestionar de medii"
+
+#: ../mime/gurpmi.addmedia.desktop.in.h:1
+msgid "Add urpmi media"
+msgstr "Adăugați medii urpmi"
+
+#: ../mime/x-urpmi-media.desktop.in.h:1
+msgid "Urpmi medium info"
+msgstr "Informațiile mediului urpmi"
+
+#~ msgid "Books"
+#~ msgstr "Cărți"
+
+#~ msgid "Computer books"
+#~ msgstr "Cărți despre calculatoare"
+
+#~ msgid "Faqs"
+#~ msgstr "Întrebări frecvente"
+
+#~ msgid "Howtos"
+#~ msgstr "Îndrumare"
+
+#~ msgid "Literature"
+#~ msgstr "Literatură"
+
+#~ msgid "No non installed dependency."
+#~ msgstr "Nici o dependență neinstalată."

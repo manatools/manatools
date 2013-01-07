@@ -1,0 +1,4072 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Free Software Foundation, Inc.
+# Naim Daka <naim70@freesurf.ch>, 2002.
+#
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rpmdrake 1.3\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-09 17:13+0800\n"
+"PO-Revision-Date: 2002-11-27 21:45:+0100\n"
+"Last-Translator: Naim Daka <naim70@freesurf>\n"
+"Language-Team: Albanian <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"Language: sq\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#, c-format
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"Lista e azhurnimeve, është e zbrazët. Që d.m.th. se\n"
+"asnjë nga pakot e instaluara, nuk janë azhurnuar në kompjuterin tuaj\n"
+"ose ju i keni instaluar më heret ato."
+
+#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Management"
+msgstr "Menagjuesi Softver"
+
+#: ../MageiaUpdate:151
+#, fuzzy, c-format
+msgid "Here is the list of software package updates"
+msgstr "Zhdukja e Pakove Software"
+
+#: ../MageiaUpdate:158
+#, c-format
+msgid "Name"
+msgstr "Emri"
+
+#: ../MageiaUpdate:159 ../rpmdrake:290
+#, fuzzy, c-format
+msgid "Version"
+msgstr "Versioni"
+
+#: ../MageiaUpdate:160 ../rpmdrake:294
+#, c-format
+msgid "Release"
+msgstr ""
+
+#: ../MageiaUpdate:161
+#, fuzzy, c-format
+msgid "Arch"
+msgstr "Arkivimi"
+
+#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#, c-format
+msgid "Help"
+msgstr "Ndihmë"
+
+#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#, fuzzy, c-format
+msgid "Select all"
+msgstr "Zgjedhur"
+
+#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#, c-format
+msgid "Update"
+msgstr "Azhurnimi"
+
+#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#, c-format
+msgid "Quit"
+msgstr "Braktise"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:62
+#, c-format
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:63
+#, fuzzy, c-format
+msgid "FTP"
+msgstr "Web/FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#, fuzzy, c-format
+msgid "Local"
+msgstr "Skedaret lokale"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:65
+#, c-format
+msgid "HTTP"
+msgstr "HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:66
+#, c-format
+msgid "HTTPS"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#, c-format
+msgid "NFS"
+msgstr "NFS"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:68
+#, fuzzy, c-format
+msgid "Removable"
+msgstr "Zhduke"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:69
+#, c-format
+msgid "rsync"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:72
+#, c-format
+msgid "Mirror list"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:114
+#, c-format
+msgid "Choose media type"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:115
+#, c-format
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Full set of sources"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, fuzzy, c-format
+msgid "Update sources only"
+msgstr "Azhurnimi i burimit"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:135
+#, fuzzy, c-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Më duhet të kontaktoj adresën web të Mageia, për të pranuar listën e "
+"pasqyreve.\n"
+"Ju lutemi verifikone rrjetin, nëse ai punon si duhet.\n"
+"\n"
+"A pajtoheni për të vazhduar?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#, fuzzy, c-format
+msgid "Please wait, adding media..."
+msgstr "Një moment ju lutemi, azhurnimi i burimeve..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:168
+#, c-format
+msgid "Add a medium"
+msgstr "Shtoje një burim"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Local files"
+msgstr "Skedaret lokale"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, fuzzy, c-format
+msgid "Medium path:"
+msgstr "Burimi: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#, c-format
+msgid "FTP server"
+msgstr "Serveri FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#, c-format
+msgid "URL:"
+msgstr "URL:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#, fuzzy, c-format
+msgid "RSYNC server"
+msgstr "Serveri FTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#, c-format
+msgid "HTTP server"
+msgstr "Serveri HTTP"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, fuzzy, c-format
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "Mjet i lëvizshëm"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Path or mount point:"
+msgstr "Shtegu apo pika montuese:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:194
+#, c-format
+msgid "Browse..."
+msgstr "Shfletues..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#, c-format
+msgid "Login:"
+msgstr "Login:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "Password:"
+msgstr "Parulla:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:227
+#, fuzzy, c-format
+msgid "Medium name:"
+msgstr "Burimi: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:233
+#, c-format
+msgid "Create media for a whole distribution"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:242
+#, fuzzy, c-format
+msgid "Tag this medium as an update medium"
+msgstr "Zgjedhni burimin të cilin dëshironi t'azhurnoni:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:252
+#, c-format
+msgid "You need to fill up at least the two first entries."
+msgstr "Ju duhet ti mbushni më së paku dy hyrje të para."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:256
+#, c-format
+msgid ""
+"There is already a medium by that name, do you\n"
+"really want to replace it?"
+msgstr ""
+"Një burim tjetër ekziston me të njëjtin emër, a dëshironi\n"
+"me të vërtetë ta zëvendësoni atë?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:268
+#, c-format
+msgid "Adding a medium:"
+msgstr "Shtimi i një burimi:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:270
+#, c-format
+msgid "Type of medium:"
+msgstr "Tip i burimit:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#, c-format
+msgid "Cancel"
+msgstr "Anulo"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#, c-format
+msgid "Ok"
+msgstr "Ok"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:337
+#, fuzzy, c-format
+msgid "Global options for package installation"
+msgstr "Pregatitje për instalimin e pakove..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "never"
+msgstr "asnjëherë"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "always"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#, fuzzy, c-format
+msgid "Never"
+msgstr "asnjëherë"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#, c-format
+msgid "On-demand"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#, fuzzy, c-format
+msgid "Update-only"
+msgstr "Azhurnimi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#, c-format
+msgid "Always"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:355
+#, fuzzy, c-format
+msgid "Verify RPMs to be installed:"
+msgstr "Disa nga pakot nuk mund të instalohen"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:360
+#, fuzzy, c-format
+msgid "Download program to use:"
+msgstr "Shkarkimi i `%s', shpejtësia:%s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:367
+#, c-format
+msgid "XML meta-data download policy:"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:374
+#, c-format
+msgid ""
+"For remote media, specify when XML meta-data (file lists, changelogs & "
+"information) are downloaded."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:377
+#, c-format
+msgid "For remote media, XML meta-data are never downloaded."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:380
+#, c-format
+msgid "(This is the default)"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:381
+#, c-format
+msgid "The specific XML info file is downloaded when clicking on package."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:384
+#, c-format
+msgid ""
+"Updating media implies updating XML info files already required at least "
+"once."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:387
+#, c-format
+msgid "All XML info files are downloaded when adding or updating media."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:416
+#, fuzzy, c-format
+msgid "Source Removal"
+msgstr "Zhdukja e Pakove Software"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:418
+#, fuzzy, c-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr ""
+"A jeni i sigurt për zhdukjen e çelësit %s nga burimi %s?\n"
+"(emri i çelësit: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:419
+#, fuzzy, c-format
+msgid "Are you sure you want to remove the following sources?"
+msgstr ""
+"A jeni i sigurt për zhdukjen e çelësit %s nga burimi %s?\n"
+"(emri i çelësit: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:425
+#, c-format
+msgid "Please wait, removing medium..."
+msgstr "Një moment ju lutemi, zhdukja e burimit..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:473
+#, c-format
+msgid "Edit a medium"
+msgstr "Botoje një burim"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:480
+#, c-format
+msgid "Editing medium \"%s\":"
+msgstr "Botimi i burimit \"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:484
+#, c-format
+msgid "Downloader:"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:496
+#, c-format
+msgid "Save changes"
+msgstr "Shpëtoi ndryshimet"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:505
+#, c-format
+msgid "Proxy..."
+msgstr "Proxy..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:517
+#, c-format
+msgid "You need to insert the medium to continue"
+msgstr "Ju duhet të futni burimin për të vazhduar më tutje"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:518
+#, c-format
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr ""
+"Më në fund për ti regjistruar ndryshimet, ju duhet ta futni burimin në "
+"lexues."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:553
+#, c-format
+msgid "Configure proxies"
+msgstr "Konfigurimi i proxies"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:566
+#, c-format
+msgid "Proxy settings for media \"%s\""
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:567
+#, c-format
+msgid "Global proxy settings"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:569
+#, c-format
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"Nëse keni nevojë për proxy, futni emrin e makinës dhe të portës zgjedhëse"
+"(sintaksa është:<emri-i-makinës[:porta]>):"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:572
+#, c-format
+msgid "Proxy hostname:"
+msgstr "Emri i serverit proxy:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:575
+#, c-format
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr ""
+"Ju keni mundësi të përdorni një emër të përdoruesit/parullën për tu\n"
+"lidhur në serverin proxy"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:578
+#, c-format
+msgid "User:"
+msgstr "Përdoruesi:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Add a parallel group"
+msgstr "Shtoje një grup paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Edit a parallel group"
+msgstr "Botoje grupin paralel"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Add a medium limit"
+msgstr "Shtoni një burim të kufizuar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Choose a medium to add to the media limit:"
+msgstr "Zgjedheni një burim për ta shtuar në një media të kufizuar:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Add a host"
+msgstr "Shtimi i një ftuesi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "Tip në emrin e ftuesit apo në adresën IP të ftuesit të shtuar:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:729
+#, c-format
+msgid "Editing parallel group \"%s\":"
+msgstr "Botimi i grupit paralel \"%s\":"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:733
+#, c-format
+msgid "Group name:"
+msgstr "Emri i grupit:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:734
+#, c-format
+msgid "Protocol:"
+msgstr "Protokoli:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:736
+#, c-format
+msgid "Media limit:"
+msgstr "Burim i kufizuar:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#, c-format
+msgid "Add"
+msgstr "Shtoje"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:1139
+#, c-format
+msgid "Remove"
+msgstr "Zhduke"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:745
+#, c-format
+msgid "Hosts:"
+msgstr "Ftuesit:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:781
+#, c-format
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr "Konfiguroje urpmi paralel (ekzekutim i shpërndarë për urpmi)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Group"
+msgstr "Grupi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Protocol"
+msgstr "Protokoli"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Media limit"
+msgstr "Medi e kufizuar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:786
+#, c-format
+msgid "Command"
+msgstr "Urdhër"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#, c-format
+msgid "(none)"
+msgstr "(asnjë)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:816
+#, c-format
+msgid "Edit..."
+msgstr "Botues..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:824
+#, c-format
+msgid "Add..."
+msgstr "Shtoje..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:840
+#, c-format
+msgid "Manage keys for digital signatures of packages"
+msgstr "Menagjim i çelësave me nënshkrim digjital të pakove"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#, c-format
+msgid "Medium"
+msgstr "Burimi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:853
+#, c-format
+msgid ""
+"_:cryptographic keys\n"
+"Keys"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:876
+#, c-format
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "asnjë emër i gjetur, çelësi nuk ekziston në zilën rpm!"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Add a key"
+msgstr "Shtoje një çelës"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Choose a key to add to the medium %s"
+msgstr "Zgjedheni një çelës për ta shtuar në një burim %s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:915
+#, c-format
+msgid "Remove a key"
+msgstr "Zhduke çelësin"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:916
+#, c-format
+msgid ""
+"Are you sure you want to remove the key %s from medium %s?\n"
+"(name of the key: %s)"
+msgstr ""
+"A jeni i sigurt për zhdukjen e çelësit %s nga burimi %s?\n"
+"(emri i çelësit: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#, c-format
+msgid "Configure media"
+msgstr "Konfiguroje burimin"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
+#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#, c-format
+msgid "/_File"
+msgstr "/_Skedare"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, fuzzy, c-format
+msgid "/_Update"
+msgstr "Azhurnimi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, fuzzy, c-format
+msgid "<control>U"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "/Add a specific _media mirror"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, fuzzy, c-format
+msgid "<control>M"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, fuzzy, c-format
+msgid "/_Add a custom medium"
+msgstr "/_Azhurnim i burimit"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, fuzzy, c-format
+msgid "<control>A"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, fuzzy, c-format
+msgid "/Close"
+msgstr "Mbylle"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, fuzzy, c-format
+msgid "<control>W"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
+#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
+#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Options"
+msgstr "/_Opcionet"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, fuzzy, c-format
+msgid "/_Global options"
+msgstr "/_Opcionet"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, fuzzy, c-format
+msgid "<control>G"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, fuzzy, c-format
+msgid "/Manage _keys"
+msgstr "Menagjimi i çelësave..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, fuzzy, c-format
+msgid "<control>K"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, fuzzy, c-format
+msgid "/_Parallel"
+msgstr "Paralel..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, fuzzy, c-format
+msgid "<control>P"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, fuzzy, c-format
+msgid "/P_roxy"
+msgstr "Proxy..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, fuzzy, c-format
+msgid "<control>R"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#, c-format
+msgid "/_Help"
+msgstr "/_Ndihmë"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#, c-format
+msgid "/_Report Bug"
+msgstr "/_Raport Bug(i)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#, c-format
+msgid "/_About..."
+msgstr "/_Në lidhje me..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#, c-format
+msgid "Rpmdrake"
+msgstr "Rpmdrake"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#, c-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#, c-format
+msgid "Rpmdrake is the Mageia package management tool."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#, fuzzy, c-format
+msgid "Mageia"
+msgstr "Mageia Online"
+
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#, c-format
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#, c-format
+msgid "Enabled"
+msgstr "Aktivizuar"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1048
+#, fuzzy, c-format
+msgid "Updates"
+msgstr "Azhurnimi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1052
+#, c-format
+msgid "Type"
+msgstr "Tipi"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1079
+#, c-format
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1105
+#, c-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1143
+#, c-format
+msgid "Edit"
+msgstr "Botoje"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1191
+#, c-format
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:102
+#, fuzzy, c-format
+msgid "None (installed)"
+msgstr "Instaloje"
+
+#: ../Rpmdrake/formatting.pm:103
+#, c-format
+msgid "Unknown"
+msgstr "I pa njoftur"
+
+#: ../Rpmdrake/formatting.pm:166
+#, c-format
+msgid "%s of additional disk space will be used."
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:167
+#, c-format
+msgid "%s of disk space will be freed."
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:172
+#, fuzzy, c-format
+msgid "%s of packages will be retrieved."
+msgstr "Disa nga pakot nuk mund të zhduken"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results"
+msgstr "Kërkues i rezultateve"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results (none)"
+msgstr "Rezultatet e hetimeve (asnjë)"
+
+#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/pkg.pm:188
+#, c-format
+msgid "(Not available)"
+msgstr "(I nxënë)"
+
+#: ../Rpmdrake/gui.pm:135
+#, fuzzy, c-format
+msgid "Security advisory"
+msgstr "Azhurnimet e sigurisë"
+
+#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "No description"
+msgstr "Asnjë përshkrim"
+
+#: ../Rpmdrake/gui.pm:159
+#, c-format
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:160
+#, c-format
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:162
+#, fuzzy, c-format
+msgid "This package is not free software"
+msgstr "Një nga pakot vijuese është e nevojshme:"
+
+#: ../Rpmdrake/gui.pm:165
+#, c-format
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:169
+#, c-format
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:174
+#, c-format
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:175
+#, c-format
+msgid "This is an unofficial update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:179
+#, c-format
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:196
+#, fuzzy, c-format
+msgid "Notice: "
+msgstr "Burimi: "
+
+#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#, c-format
+msgid "Importance: "
+msgstr "Rëndësia: "
+
+#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#, c-format
+msgid "Reason for update: "
+msgstr "Arësyja për azhurnim: "
+
+#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#, c-format
+msgid "Version: "
+msgstr "Versioni: "
+
+#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#, c-format
+msgid "Currently installed version: "
+msgstr "Versioni i tanishëm i instaluar: "
+
+#: ../Rpmdrake/gui.pm:213
+#, fuzzy, c-format
+msgid "Group: "
+msgstr "Grupi"
+
+#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#, c-format
+msgid "Architecture: "
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "Size: "
+msgstr "Madhësia: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#, c-format
+msgid "Medium: "
+msgstr "Burimi: "
+
+#: ../Rpmdrake/gui.pm:229
+#, c-format
+msgid "New dependencies:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:242
+#, c-format
+msgid "All dependencies installed."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:265
+#, fuzzy, c-format
+msgid "URL: "
+msgstr "URL:"
+
+#: ../Rpmdrake/gui.pm:298
+#, c-format
+msgid "Details:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:302
+#, c-format
+msgid "Files:"
+msgstr "Skedaret:"
+
+#: ../Rpmdrake/gui.pm:304
+#, c-format
+msgid "Changelog:"
+msgstr "Changelog:"
+
+#: ../Rpmdrake/gui.pm:319
+#, c-format
+msgid "Files:\n"
+msgstr "Skedaret:\n"
+
+#: ../Rpmdrake/gui.pm:324
+#, c-format
+msgid "Changelog:\n"
+msgstr "Changelog:\n"
+
+#: ../Rpmdrake/gui.pm:334
+#, c-format
+msgid "Name: "
+msgstr "Emri: "
+
+#: ../Rpmdrake/gui.pm:344
+#, c-format
+msgid "Summary: "
+msgstr "Titulli: "
+
+#: ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "Description: "
+msgstr "Përshkrimi: "
+
+#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../rpmdrake.pm:942
+#, c-format
+msgid "Warning"
+msgstr "Kujdes"
+
+#: ../Rpmdrake/gui.pm:363
+#, c-format
+msgid "The package \"%s\" was found."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:364
+#, c-format
+msgid "However this package is not in the package list."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:365
+#, c-format
+msgid "You may want to update your urpmi database."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:367
+#, fuzzy, c-format
+msgid "Matching packages:"
+msgstr "Paketim"
+
+#. -PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
+#. -PO: eg: "- rpmdrake (medium: "Main Release"
+#: ../Rpmdrake/gui.pm:372
+#, fuzzy, c-format
+msgid "- %s (medium: %s)"
+msgstr "%s për burimin %s"
+
+#: ../Rpmdrake/gui.pm:563
+#, fuzzy, c-format
+msgid "Removing package %s would break your system"
+msgstr ""
+"Zhdukja e këtyre pakove do të dëmtojë sistemin tuaj, kemi ndjesë:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:568
+#, c-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#, c-format
+msgid ""
+"Rpmdrake or one of its priority dependencies needs to be updated first. "
+"Rpmdrake will then restart."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#, c-format
+msgid "More information on package..."
+msgstr "Më shumë informacione mbi pakon..."
+
+#: ../Rpmdrake/gui.pm:704
+#, c-format
+msgid "Please choose"
+msgstr "Ju lutemi zgjedheni"
+
+#: ../Rpmdrake/gui.pm:705
+#, fuzzy, c-format
+msgid "The following package is needed:"
+msgstr "Një nga pakot vijuese është e nevojshme:"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "One of the following packages is needed:"
+msgstr "Një nga pakot e radhitura nevojitet:"
+
+#. -PO: Keep it short, this is gonna be on a button
+#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#, c-format
+msgid "More info"
+msgstr "Më shumë informacione"
+
+#: ../Rpmdrake/gui.pm:727
+#, c-format
+msgid "Information on packages"
+msgstr "Informacion mbi pakon"
+
+#: ../Rpmdrake/gui.pm:755
+#, c-format
+msgid "Checking dependencies of package..."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:760
+#, c-format
+msgid "Some additional packages need to be removed"
+msgstr "Disa nga pakot e mbledhura duhet të zhduken"
+
+#: ../Rpmdrake/gui.pm:771
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr ""
+"Me rastin e mbushjes së mvarësisë, pako(t) e radhitura duhet të zhduken:"
+
+#: ../Rpmdrake/gui.pm:776
+#, c-format
+msgid "Some packages cannot be removed"
+msgstr "Disa nga pakot nuk mund të zhduken"
+
+#: ../Rpmdrake/gui.pm:777
+#, c-format
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"Zhdukja e këtyre pakove do të dëmtojë sistemin tuaj, kemi ndjesë:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"Me rastin e mbushjes së mvarësisë, pako(t) e radhitura nuk duhet të zgjidhen "
+"tani:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:815
+#, c-format
+msgid "Additional packages needed"
+msgstr "Keni nevojë për pakot shtuese"
+
+#: ../Rpmdrake/gui.pm:816
+#, c-format
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"Me rastin e mbushjes së mvarësisë, pako(t) e radhitura duhet të\n"
+"instalohen:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:824
+#, fuzzy, c-format
+msgid "Conflicting Packages"
+msgstr "Paketim"
+
+#: ../Rpmdrake/gui.pm:838
+#, c-format
+msgid "%s (belongs to the skip list)"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:842
+#, fuzzy, c-format
+msgid "One package cannot be installed"
+msgstr "Disa nga pakot nuk mund të instalohen"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "Some packages cannot be installed"
+msgstr "Disa nga pakot nuk mund të instalohen"
+
+#: ../Rpmdrake/gui.pm:844
+#, fuzzy, c-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Kemi ndjesë, pako(t) e radhitur(a) nuk mundë të zgjedhe(n):\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:845
+#, fuzzy, c-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"Kemi ndjesë, pako(t) e radhitur(a) nuk mundë të zgjedhe(n):\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Some packages need to be removed"
+msgstr "Disa pako duhet të zhduken"
+
+#: ../Rpmdrake/gui.pm:897
+#, fuzzy, c-format
+msgid "Some packages are selected."
+msgstr "Numër shumë i madhë i pakove të zgjedhura"
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:906
+#, c-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:910
+#, c-format
+msgid "You need to select some packages first."
+msgstr "Ju duhet ti zgjedhni disa pako në fillim."
+
+#: ../Rpmdrake/gui.pm:915
+#, c-format
+msgid "Too many packages are selected"
+msgstr "Numër shumë i madhë i pakove të zgjedhura"
+
+#: ../Rpmdrake/gui.pm:916
+#, c-format
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+"Kujdes: me sa duket ju jeni duke u munduar të instaloni një numër të\n"
+"madhë të pakove, është e mundur që disku i juaj të mos ketë vendë të\n"
+"mjaftueshëm për to, mbasandej apo gjatë instalimit; kjo metodë është\n"
+"tejet e rrezikshme, e cila duhet të shqyrtohet me kujdes të madhë.\n"
+"\n"
+"A me të vërtetë dëshironi t'instaloni të gjitha pakot e zgjedhura?"
+
+#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#, c-format
+msgid "Fatal error"
+msgstr "Gabim fatal"
+
+#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#, c-format
+msgid "A fatal error occurred: %s."
+msgstr "Një gabim fatal është paraqitur: %s."
+
+#: ../Rpmdrake/gui.pm:980
+#, c-format
+msgid "Please wait, listing packages..."
+msgstr "Një moment ju lutemi, numërimi i pakove..."
+
+#: ../Rpmdrake/gui.pm:993
+#, c-format
+msgid "No update"
+msgstr "Asnjë azhurnim"
+
+#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
+#: ../rpmdrake:369 ../rpmdrake:396
+#, c-format
+msgid "All"
+msgstr "Gjitha"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#, c-format
+msgid "Upgradable"
+msgstr "Azhurnuar"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#, fuzzy, c-format
+msgid "Installed"
+msgstr "Instaloje"
+
+#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#, c-format
+msgid "Addable"
+msgstr "Të reja"
+
+#: ../Rpmdrake/gui.pm:1044
+#, c-format
+msgid "Description not available for this package\n"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:36
+#, c-format
+msgid "Accessibility"
+msgstr "Mundësi për hyrje"
+
+#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#, c-format
+msgid "Archiving"
+msgstr "Arkivimi"
+
+#: ../Rpmdrake/icon.pm:38
+#, c-format
+msgid "Backup"
+msgstr "Regjitrim"
+
+#: ../Rpmdrake/icon.pm:39
+#, c-format
+msgid "Cd burning"
+msgstr "Cd gdhendësi"
+
+#: ../Rpmdrake/icon.pm:40
+#, c-format
+msgid "Compression"
+msgstr "Compresim"
+
+#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#, c-format
+msgid "Other"
+msgstr "Tjetri"
+
+#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Communications"
+msgstr "Komunikimet"
+
+#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#, c-format
+msgid "Bluetooth"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:45
+#, c-format
+msgid "Dial-Up"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:46
+#, c-format
+msgid "Fax"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:47
+#, c-format
+msgid "Mobile"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:48
+#, c-format
+msgid "Radio"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:49
+#, c-format
+msgid "Serial"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Telephony"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#, c-format
+msgid "Databases"
+msgstr "Bazë e të dhënave"
+
+#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Development"
+msgstr "Zhvillimi"
+
+#: ../Rpmdrake/icon.pm:53
+#, c-format
+msgid "Basic"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:54
+#, c-format
+msgid "C"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:55
+#, c-format
+msgid "C++"
+msgstr "C++"
+
+#: ../Rpmdrake/icon.pm:56
+#, fuzzy, c-format
+msgid "C#"
+msgstr "C"
+
+#: ../Rpmdrake/icon.pm:58
+#, c-format
+msgid "Erlang"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:59
+#, c-format
+msgid "GNOME and GTK+"
+msgstr "GNOME dhe GTK+"
+
+#: ../Rpmdrake/icon.pm:60
+#, c-format
+msgid "Java"
+msgstr "Java"
+
+#: ../Rpmdrake/icon.pm:61
+#, c-format
+msgid "KDE and Qt"
+msgstr "KDE dhe Qt"
+
+#: ../Rpmdrake/icon.pm:62
+#, c-format
+msgid "Kernel"
+msgstr "Bërthama"
+
+#: ../Rpmdrake/icon.pm:63
+#, c-format
+msgid "OCaml"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:65
+#, c-format
+msgid "Perl"
+msgstr "Perl"
+
+#: ../Rpmdrake/icon.pm:66
+#, c-format
+msgid "PHP"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:67
+#, c-format
+msgid "Python"
+msgstr "Python"
+
+#: ../Rpmdrake/icon.pm:68
+#, fuzzy, c-format
+msgid "Tools"
+msgstr "Vegla teksti"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#, c-format
+msgid "X11"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Documentation"
+msgstr "Dokumentacioni"
+
+#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#, c-format
+msgid "Editors"
+msgstr "Botuesit"
+
+#: ../Rpmdrake/icon.pm:72
+#, c-format
+msgid "Education"
+msgstr "Edukim"
+
+#: ../Rpmdrake/icon.pm:73
+#, c-format
+msgid "Emulators"
+msgstr "Imituesit"
+
+#: ../Rpmdrake/icon.pm:74
+#, c-format
+msgid "File tools"
+msgstr "Vegla skedaresh"
+
+#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Games"
+msgstr "Lojërat"
+
+#: ../Rpmdrake/icon.pm:76
+#, c-format
+msgid "Adventure"
+msgstr "Aventurë"
+
+#: ../Rpmdrake/icon.pm:77
+#, c-format
+msgid "Arcade"
+msgstr "Arkade"
+
+#: ../Rpmdrake/icon.pm:78
+#, c-format
+msgid "Boards"
+msgstr "Boards"
+
+#: ../Rpmdrake/icon.pm:79
+#, c-format
+msgid "Cards"
+msgstr "Letrat"
+
+#: ../Rpmdrake/icon.pm:81
+#, c-format
+msgid "Puzzles"
+msgstr "Enigmat"
+
+#: ../Rpmdrake/icon.pm:82
+#, c-format
+msgid "Shooter"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:83
+#, c-format
+msgid "Sports"
+msgstr "Sportet"
+
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Strategy"
+msgstr "Strategji"
+
+#: ../Rpmdrake/icon.pm:85
+#, c-format
+msgid "Geography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:107
+#, c-format
+msgid "Graphical desktop"
+msgstr "Tryezë Grafike"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:89
+#, c-format
+msgid "Enlightenment"
+msgstr "Ndriçimi"
+
+#: ../Rpmdrake/icon.pm:90
+#, c-format
+msgid "FVWM based"
+msgstr "FVWM i bazuar"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:93
+#, c-format
+msgid "GNOME"
+msgstr "GNOME"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:96
+#, c-format
+msgid "Icewm"
+msgstr "Icewm"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:99
+#, c-format
+msgid "KDE"
+msgstr "KDE"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:103
+#, c-format
+msgid "Sawfish"
+msgstr "Sawfish"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:106
+#, c-format
+msgid "WindowMaker"
+msgstr "WindowMaker"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:109
+#, c-format
+msgid "Xfce"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:116
+#, c-format
+msgid "Graphics"
+msgstr "Grafike"
+
+#: ../Rpmdrake/icon.pm:111
+#, c-format
+msgid "3D"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:114
+#, c-format
+msgid "Photography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:115
+#, fuzzy, c-format
+msgid "Scanning"
+msgstr "Kujdes"
+
+#: ../Rpmdrake/icon.pm:116
+#, fuzzy, c-format
+msgid "Viewers"
+msgstr "Paraqitja"
+
+#: ../Rpmdrake/icon.pm:117
+#, c-format
+msgid "Monitoring"
+msgstr "Vështrimi"
+
+#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#, c-format
+msgid "Multimedia"
+msgstr "Multimedia"
+
+#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Video"
+msgstr "Video"
+
+#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#, c-format
+msgid "Networking"
+msgstr "Punimi i rrjetit"
+
+#: ../Rpmdrake/icon.pm:121
+#, c-format
+msgid "Chat"
+msgstr "Chat"
+
+#: ../Rpmdrake/icon.pm:122
+#, c-format
+msgid "File transfer"
+msgstr "Transferoje skedaren"
+
+#: ../Rpmdrake/icon.pm:123
+#, c-format
+msgid "IRC"
+msgstr "IRC"
+
+#: ../Rpmdrake/icon.pm:124
+#, c-format
+msgid "Instant messaging"
+msgstr "Lajmërim i çastit"
+
+#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#, c-format
+msgid "Mail"
+msgstr "Mail"
+
+#: ../Rpmdrake/icon.pm:126
+#, c-format
+msgid "News"
+msgstr "Lajmet"
+
+#: ../Rpmdrake/icon.pm:128
+#, c-format
+msgid "Remote access"
+msgstr "Hyrje të largëta"
+
+#: ../Rpmdrake/icon.pm:129
+#, c-format
+msgid "WWW"
+msgstr "WWW"
+
+#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Office"
+msgstr "Zyre"
+
+#: ../Rpmdrake/icon.pm:131
+#, c-format
+msgid "Dictionary"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:132
+#, fuzzy, c-format
+msgid "Finance"
+msgstr "Franca"
+
+#: ../Rpmdrake/icon.pm:133
+#, fuzzy, c-format
+msgid "Management"
+msgstr "Menagjuesi Softver"
+
+#: ../Rpmdrake/icon.pm:134
+#, c-format
+msgid "Organizer"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:136
+#, c-format
+msgid "Spreadsheet"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:137
+#, c-format
+msgid "Suite"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Word processor"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:139
+#, c-format
+msgid "Public Keys"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:140
+#, c-format
+msgid "Publishing"
+msgstr "Publikimi"
+
+#: ../Rpmdrake/icon.pm:141
+#, fuzzy, c-format
+msgid "Security"
+msgstr "Azhurnimet e sigurisë"
+
+#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Sciences"
+msgstr "Shkencat"
+
+#: ../Rpmdrake/icon.pm:143
+#, c-format
+msgid "Astronomy"
+msgstr "Astronomia"
+
+#: ../Rpmdrake/icon.pm:144
+#, c-format
+msgid "Biology"
+msgstr "Biologjia"
+
+#: ../Rpmdrake/icon.pm:145
+#, c-format
+msgid "Chemistry"
+msgstr "Kimia"
+
+#: ../Rpmdrake/icon.pm:146
+#, c-format
+msgid "Computer science"
+msgstr "Shkencë kompjuterike"
+
+#: ../Rpmdrake/icon.pm:147
+#, c-format
+msgid "Geosciences"
+msgstr "Gjeoshkencore"
+
+#: ../Rpmdrake/icon.pm:148
+#, c-format
+msgid "Mathematics"
+msgstr "Matematikët"
+
+#: ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Physics"
+msgstr "Fizikët"
+
+#: ../Rpmdrake/icon.pm:151
+#, c-format
+msgid "Shells"
+msgstr "Shellet"
+
+#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:158
+#, c-format
+msgid "Sound"
+msgstr "Zëri"
+
+#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#, c-format
+msgid "Editors and Converters"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:154
+#, c-format
+msgid "Midi"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:155
+#, c-format
+msgid "Mixers"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#, c-format
+msgid "Players"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Utilities"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:158
+#, fuzzy, c-format
+msgid "Visualization"
+msgstr "Internacionalizimi"
+
+#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#, c-format
+msgid "System"
+msgstr "Sistemi"
+
+#: ../Rpmdrake/icon.pm:160
+#, c-format
+msgid "Base"
+msgstr "Bazuar"
+
+#: ../Rpmdrake/icon.pm:161
+#, c-format
+msgid "Cluster"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#, c-format
+msgid "Configuration"
+msgstr "Konfigurim"
+
+#: ../Rpmdrake/icon.pm:163
+#, c-format
+msgid "Boot and Init"
+msgstr "Boot dhe Init"
+
+#: ../Rpmdrake/icon.pm:164
+#, c-format
+msgid "Hardware"
+msgstr "Hardver"
+
+#: ../Rpmdrake/icon.pm:167
+#, c-format
+msgid "Packaging"
+msgstr "Paketim"
+
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#, c-format
+msgid "Printing"
+msgstr "Stampimi"
+
+#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "Fonts"
+msgstr "Polisat"
+
+#: ../Rpmdrake/icon.pm:170
+#, c-format
+msgid "Console"
+msgstr "Kosnola"
+
+#: ../Rpmdrake/icon.pm:171
+#, c-format
+msgid "True type"
+msgstr "Tip i vërtet"
+
+#: ../Rpmdrake/icon.pm:172
+#, c-format
+msgid "Type1"
+msgstr "Tip1"
+
+#: ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "X11 bitmap"
+msgstr "X11 bitmap"
+
+#: ../Rpmdrake/icon.pm:174
+#, c-format
+msgid "Internationalization"
+msgstr "Internacionalizimi"
+
+#: ../Rpmdrake/icon.pm:175
+#, c-format
+msgid "Kernel and hardware"
+msgstr "Bërthama dhe hardveri"
+
+#: ../Rpmdrake/icon.pm:176
+#, c-format
+msgid "Libraries"
+msgstr "Bibliotekat"
+
+#: ../Rpmdrake/icon.pm:178
+#, c-format
+msgid "Servers"
+msgstr "Serverët"
+
+#: ../Rpmdrake/icon.pm:182
+#, c-format
+msgid "Terminals"
+msgstr "Terminalet"
+
+#: ../Rpmdrake/icon.pm:183
+#, c-format
+msgid "Text tools"
+msgstr "Vegla teksti"
+
+#: ../Rpmdrake/icon.pm:184
+#, c-format
+msgid "Toys"
+msgstr "Lodrat"
+
+#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Workstation"
+msgstr "Stacion punues"
+
+#: ../Rpmdrake/icon.pm:193
+#, c-format
+msgid "Console Tools"
+msgstr "Vegla në konsolë"
+
+#: ../Rpmdrake/icon.pm:195
+#, c-format
+msgid "Game station"
+msgstr "Stacion Lojërash"
+
+#: ../Rpmdrake/icon.pm:196
+#, c-format
+msgid "Internet station"
+msgstr "Stacion Interneti"
+
+#: ../Rpmdrake/icon.pm:197
+#, c-format
+msgid "Multimedia station"
+msgstr "Stacion Multimedia"
+
+#: ../Rpmdrake/icon.pm:198
+#, c-format
+msgid "Network Computer (client)"
+msgstr "Kompjuter Rrjeti (klient)"
+
+#: ../Rpmdrake/icon.pm:199
+#, c-format
+msgid "Office Workstation"
+msgstr "Stacioni Punues në Tryezë"
+
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Scientific Workstation"
+msgstr "Stacioni Punues Shkencor"
+
+#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Graphical Environment"
+msgstr "Mjedis Grafikë"
+
+#: ../Rpmdrake/icon.pm:203
+#, c-format
+msgid "GNOME Workstation"
+msgstr "Stacioni punues Gnome"
+
+#: ../Rpmdrake/icon.pm:204
+#, fuzzy, c-format
+msgid "IceWm Desktop"
+msgstr "Tryeza"
+
+#: ../Rpmdrake/icon.pm:205
+#, c-format
+msgid "KDE Workstation"
+msgstr "Stacioni punues KDE"
+
+#: ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Other Graphical Desktops"
+msgstr "Mjedise të Tjera Grafike në Tryezë"
+
+#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Server"
+msgstr "Server"
+
+#: ../Rpmdrake/icon.pm:211
+#, c-format
+msgid "DNS/NIS"
+msgstr "DNS/NIS"
+
+#: ../Rpmdrake/icon.pm:212
+#, c-format
+msgid "Database"
+msgstr "Bazë e të dhënave"
+
+#: ../Rpmdrake/icon.pm:213
+#, c-format
+msgid "Firewall/Router"
+msgstr "Murë-i-Zjarrtë/Router"
+
+#: ../Rpmdrake/icon.pm:215
+#, c-format
+msgid "Mail/Groupware/News"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:216
+#, c-format
+msgid "Network Computer server"
+msgstr "Server Kompjuter Rrjeti"
+
+#: ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Web/FTP"
+msgstr "Web/FTP"
+
+#: ../Rpmdrake/init.pm:49
+#, c-format
+msgid "Usage: %s [OPTION]..."
+msgstr "Përdorim: %s [OPCIONI...]"
+
+#: ../Rpmdrake/init.pm:50
+#, c-format
+msgid "  --auto                 assume default answers to questions"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:51
+#, c-format
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:52
+#, c-format
+msgid "  --media=medium1,..     limit to given media"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:53
+#, c-format
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:54
+#, c-format
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:55
+#, c-format
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:56
+#, c-format
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:57
+#, c-format
+msgid "  --no-media-update      don't update media at startup"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:58
+#, c-format
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:59
+#, c-format
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:60
+#, c-format
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:61
+#, fuzzy, c-format
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr ""
+"  --wget                 përdore wget për rikuperimin e skedareve në "
+"distancë."
+
+#: ../Rpmdrake/init.pm:62
+#, c-format
+msgid "  --run-as-root          force to run as root"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:63
+#, c-format
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr ""
+
+#: ../Rpmdrake/init.pm:64
+#, c-format
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:65
+#, fuzzy, c-format
+msgid "  --version              print this tool's version number\n"
+msgstr "  --help         - shtype këtë lajmë ndihmues.\n"
+
+#: ../Rpmdrake/init.pm:156
+#, c-format
+msgid "Running in user mode"
+msgstr "Nisje në mod të përdoruesit"
+
+#: ../Rpmdrake/init.pm:157
+#, c-format
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"Ju jeni duke e ngarkuar këtë program sikur përdorues normal.\n"
+"Ju nuk keni mundësi ti përmbushni ndryshimet në sistem, mirëpo\n"
+"ju mund ta vështroini ende bazën e të dhënave ekzistuese."
+
+#: ../Rpmdrake/pkg.pm:126
+#, c-format
+msgid "Getting information from XML meta-data from %s..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:130
+#, c-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../rpmdrake.pm:594
+#, c-format
+msgid "Please wait"
+msgstr "Një moment ju lutemi"
+
+#: ../Rpmdrake/pkg.pm:147
+#, c-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:149
+#, c-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#, c-format
+msgid "Downloading package `%s'..."
+msgstr "Shkarkimi i pakos `%s'..."
+
+#: ../Rpmdrake/pkg.pm:211
+#, c-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:212
+#, c-format
+msgid "        %s%% completed, speed = %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#, fuzzy, c-format
+msgid "Confirmation"
+msgstr "Konfigurimi"
+
+#: ../Rpmdrake/pkg.pm:251
+#, c-format
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Kamë nevojë që ta kontaktoj pasqyrën, dhe të pranojë infomacione të \n"
+"reja mbi azhurnimin. Verifikoni rrjetin dhe funksionimin e tij.\n"
+"\n"
+"A dëshironi të vazhdoni?"
+
+#: ../Rpmdrake/pkg.pm:255
+#, c-format
+msgid "Do not ask me next time"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:264
+#, c-format
+msgid "Already existing update media"
+msgstr "Burimet azhurnuese veqse ekzistojnë"
+
+#: ../Rpmdrake/pkg.pm:265
+#, fuzzy, c-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"Ju posedoni më së paku një burim azhurnues të konfiguruar, mirëpo ata\n"
+"janë momentalisht të dezaktivizuara. Ju duhet ta nisni Software Sources\n"
+"Manager që t'aktivizoni më së paku një (kuti në kolonën e shënuar\n"
+"Aktivizoje?).\n"
+"\n"
+"Dhe, riniseni %s."
+
+#: ../Rpmdrake/pkg.pm:275
+#, c-format
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#, c-format
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Më duhet të kontaktoj adresën web të Mageia, për të pranuar listën e "
+"pasqyreve.\n"
+"Ju lutemi verifikone rrjetin, nëse ai punon si duhet.\n"
+"\n"
+"A pajtoheni për të vazhduar?"
+
+#: ../Rpmdrake/pkg.pm:283
+#, c-format
+msgid "How to choose manually your mirror"
+msgstr "Si ta zgjedhni pasqyrën tuaj vetë"
+
+#: ../Rpmdrake/pkg.pm:284
+#, c-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"Ju mund ta zgjedhni cilën do pasqyrë nga ana juaj: për t'ia arritur,\n"
+"niseni Software Sources Manager, dhe shtojeni një burim 'Azhurnim i\n"
+"Sigurisë'.\n"
+"\n"
+"Dhe, riniseni %s."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#, c-format
+msgid "Package installation..."
+msgstr "Instalimi i pakos..."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#, c-format
+msgid "Initializing..."
+msgstr "Inicializimi..."
+
+#: ../Rpmdrake/pkg.pm:452
+#, fuzzy, c-format
+msgid "Reading updates description"
+msgstr "mes përshkrimeve"
+
+#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#, c-format
+msgid "Please wait, finding available packages..."
+msgstr "Një moment ju lutemi, gjetja e pakove të lira..."
+
+#: ../Rpmdrake/pkg.pm:464
+#, fuzzy, c-format
+msgid "Please wait, listing base packages..."
+msgstr "Një moment ju lutemi, numërimi i pakove..."
+
+#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#, c-format
+msgid "Error"
+msgstr "Gabim"
+
+#: ../Rpmdrake/pkg.pm:477
+#, fuzzy, c-format
+msgid "Please wait, finding installed packages..."
+msgstr "Një moment ju lutemi, gjetja e pakove të lira..."
+
+#: ../Rpmdrake/pkg.pm:594
+#, fuzzy, c-format
+msgid "Upgrade information"
+msgstr "Infomacion normale"
+
+#: ../Rpmdrake/pkg.pm:596
+#, c-format
+msgid "These packages come with upgrade information"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:604
+#, fuzzy, c-format
+msgid "Upgrade information about this package"
+msgstr "Më shumë informacione mbi pakon..."
+
+#: ../Rpmdrake/pkg.pm:607
+#, fuzzy, c-format
+msgid "Upgrade information about package %s"
+msgstr "Më shumë informacione mbi pakon..."
+
+#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#, c-format
+msgid "All requested packages were installed successfully."
+msgstr "Të gjitha pakot e zgjedhura janë instaluar si duhet."
+
+#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#, c-format
+msgid "Problem during installation"
+msgstr "Një problem është paraqitur gjatë instalimit"
+
+#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#, c-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"Një problem është paraqitur gjatë instalimit:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:653
+#, c-format
+msgid "Installation failed"
+msgstr "Instalimi dështoi"
+
+#: ../Rpmdrake/pkg.pm:676
+#, c-format
+msgid "Checking validity of requested packages..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:695
+#, c-format
+msgid "Unable to get source packages."
+msgstr "E pa mundur marrja e burimeve mbi pakot."
+
+#: ../Rpmdrake/pkg.pm:696
+#, c-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "E pa mundur marrja e burimeve mbi pakot, kemi ndjesë. %s"
+
+#: ../Rpmdrake/pkg.pm:697
+#, c-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"Gabim(et) i(e) raportuar(a):\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:715
+#, fuzzy, c-format
+msgid "The following package is going to be installed:"
+msgid_plural "The following %d packages are going to be installed:"
+msgstr[0] "Një nga pakot vijuese është e nevojshme:"
+msgstr[1] "Një nga pakot vijuese është e nevojshme:"
+
+#: ../Rpmdrake/pkg.pm:721
+#, fuzzy, c-format
+msgid "Remove one package?"
+msgid_plural "Remove %d packages?"
+msgstr[0] "Zhduke çelësin"
+msgstr[1] "Zhduke çelësin"
+
+#: ../Rpmdrake/pkg.pm:723
+#, fuzzy, c-format
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr ""
+"Pakot e radhitura, duhet të zhduken që të tjerat të azhurnohen:\n"
+"\n"
+"%s\n"
+"\n"
+"\n"
+"A dëshironi të vazhdoni?"
+
+#: ../Rpmdrake/pkg.pm:724
+#, fuzzy, c-format
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+"Pakot a radhitura duhet të zhduken që të tjerat të azhurnohen:\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:728
+#, fuzzy, c-format
+msgid "Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"A pajtoheni për të vazhduar?"
+
+#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#, fuzzy, c-format
+msgid "Orphan packages"
+msgstr "Paketim"
+
+#: ../Rpmdrake/pkg.pm:744
+#, fuzzy, c-format
+msgid "The following orphan package will be removed."
+msgid_plural "The following orphan packages will be removed."
+msgstr[0] "Një nga pakot vijuese është e nevojshme:"
+msgstr[1] "Një nga pakot vijuese është e nevojshme:"
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation..."
+msgstr "Pregatitje për instalimin e pakove..."
+
+#: ../Rpmdrake/pkg.pm:760
+#, fuzzy, c-format
+msgid "Preparing package installation transaction..."
+msgstr "Pregatitje për instalimin e pakove..."
+
+#: ../Rpmdrake/pkg.pm:763
+#, c-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr "Instalimi i pakos `%s' (%s/%s)..."
+
+#: ../Rpmdrake/pkg.pm:764
+#, c-format
+msgid "Total: %s/%s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:827
+#, c-format
+msgid "Change medium"
+msgstr "Ndrryshim i burimit"
+
+#: ../Rpmdrake/pkg.pm:828
+#, fuzzy, c-format
+msgid "Please insert the medium named \"%s\""
+msgstr "Ju lutemi futni emrin e burimit \"%s\" në mjetin [%s]"
+
+#: ../Rpmdrake/pkg.pm:832
+#, c-format
+msgid "Verifying package signatures..."
+msgstr "Verifikimi i nënshkrimeve të pakove..."
+
+#: ../Rpmdrake/pkg.pm:855
+#, c-format
+msgid "%d installation transactions failed"
+msgstr "Instalimi i transmetimit të %d dështio"
+
+#: ../Rpmdrake/pkg.pm:869
+#, c-format
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr "Gabim i pa mbuluar: asnjë pako e gjetur për instalim, kemi ndjesë."
+
+#: ../Rpmdrake/pkg.pm:872
+#, c-format
+msgid "Inspecting configuration files..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:880
+#, c-format
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"Instalimi përfundoi; gjdo gjë është instaluar si duhet.\n"
+"\n"
+"Disa konfigurime të skedareve janë krijuar si `.rpmnew' ose `.rpmsave',\n"
+"ju mund ti verifikoni ato, që në fund të vendosni çfarë dëshironi të bëni: "
+
+#: ../Rpmdrake/pkg.pm:886
+#, c-format
+msgid "Looking for \"README\" files..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:919
+#, c-format
+msgid "RPM transaction %d/%d"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:920
+#, fuzzy, c-format
+msgid "Unselect all"
+msgstr "Zgjedhur"
+
+#: ../Rpmdrake/pkg.pm:921
+#, c-format
+msgid "Details"
+msgstr "Detajet"
+
+#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#, c-format
+msgid "Please wait, removing packages..."
+msgstr "Një moment ju lutemi, zhdukja pakove..."
+
+#: ../Rpmdrake/pkg.pm:977
+#, c-format
+msgid "Problem during removal"
+msgstr "Një problem është paraqitur gjatë zhdukjes"
+
+#: ../Rpmdrake/pkg.pm:978
+#, c-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"Një problem është paraqitur gjatë zhdukjes së pakove:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:985
+#, c-format
+msgid "Information"
+msgstr "Informacion"
+
+#: ../Rpmdrake/rpmnew.pm:82
+#, c-format
+msgid "Inspecting %s"
+msgstr "Inspektimi i %s"
+
+#: ../Rpmdrake/rpmnew.pm:107
+#, c-format
+msgid "Changes:"
+msgstr "Ndryshimet:"
+
+#: ../Rpmdrake/rpmnew.pm:116
+#, c-format
+msgid ""
+"You can either remove the .%s file, use it as main file or do nothing. If "
+"unsure, keep the current file (\"%s\")."
+msgstr ""
+
+#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#, c-format
+msgid "Remove .%s"
+msgstr "Zhduke .%s"
+
+#: ../Rpmdrake/rpmnew.pm:126
+#, c-format
+msgid "Use .%s as main file"
+msgstr "Përdore .%s si skedare kryesore"
+
+#: ../Rpmdrake/rpmnew.pm:130
+#, c-format
+msgid "Do nothing"
+msgstr "Asnjë veprim"
+
+#: ../Rpmdrake/rpmnew.pm:158
+#, c-format
+msgid "Installation finished"
+msgstr "Instalimi përfundoi"
+
+#: ../Rpmdrake/rpmnew.pm:173
+#, c-format
+msgid "Inspect..."
+msgstr "Inspektim..."
+
+#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#, c-format
+msgid "Please wait, searching..."
+msgstr "Një moment, hetimet në vazhdim e sipër..."
+
+#: ../gurpmi.addmedia:103
+#, c-format
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr ""
+
+#: ../gurpmi.addmedia:117
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"A pajtoheni për të vazhduar?"
+
+#: ../gurpmi.addmedia:121
+#, c-format
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+
+#: ../gurpmi.addmedia:125
+#, c-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+
+#: ../gurpmi.addmedia:128
+#, c-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+
+#: ../gurpmi.addmedia:152
+#, c-format
+msgid "Successfully added media."
+msgstr ""
+
+#: ../gurpmi.addmedia:154
+#, c-format
+msgid "Successfully added media %s."
+msgstr ""
+
+#: ../gurpmi.addmedia:155
+#, c-format
+msgid "Successfully added medium `%s'."
+msgstr ""
+
+#: ../rpmdrake:107
+#, c-format
+msgid "Stop"
+msgstr "Ndale"
+
+#: ../rpmdrake:141
+#, fuzzy, c-format
+msgid "no xml-info available for medium \"%s\""
+msgstr "Kopjimi i skedares për burimin `%s'..."
+
+#: ../rpmdrake:157 ../rpmdrake:185
+#, fuzzy, c-format
+msgid "Search aborted"
+msgstr "Kërkues i rezultateve"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Selected"
+msgstr "Zgjedhur"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Not selected"
+msgstr "I pa zgjedhur"
+
+#: ../rpmdrake:211
+#, fuzzy, c-format
+msgid "No search results."
+msgstr "Kërkues i rezultateve"
+
+#: ../rpmdrake:212
+#, c-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+
+#: ../rpmdrake:246
+#, c-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr "Zgjedhur: %s / Hapësirë e lirë në disk: %s"
+
+#: ../rpmdrake:286
+#, fuzzy, c-format
+msgid "Package"
+msgstr "Paketim"
+
+#. -PO: "Architecture" but to be kept *small* !!!
+#: ../rpmdrake:300
+#, fuzzy, c-format
+msgid "Arch."
+msgstr "Arkivimi"
+
+#. -PO: "Status" should be kept *small* !!!
+#: ../rpmdrake:328
+#, c-format
+msgid "Status"
+msgstr "Statusi"
+
+#: ../rpmdrake:371
+#, c-format
+msgid "Not installed"
+msgstr "I pa instaluar"
+
+#: ../rpmdrake:386
+#, c-format
+msgid "All packages, alphabetical"
+msgstr "Gjitha pakot, të radhitura simbas alfabetit"
+
+#: ../rpmdrake:387
+#, c-format
+msgid "All packages, by group"
+msgstr "Gjitha pakot, simbas grupit"
+
+#: ../rpmdrake:388
+#, c-format
+msgid "Leaves only, sorted by install date"
+msgstr "Vetëm lejimet, të renditura simbas datës së instalimit"
+
+#: ../rpmdrake:389
+#, c-format
+msgid "All packages, by update availability"
+msgstr "Gjitha pakot, simbas azhurnimit janë të lira"
+
+#: ../rpmdrake:390
+#, c-format
+msgid "All packages, by selection state"
+msgstr "Gjitha pakot, e zgjedhura simbas gjendjes së tyre"
+
+#: ../rpmdrake:391
+#, c-format
+msgid "All packages, by size"
+msgstr "Gjitha pakot, simbas madhësisë"
+
+#: ../rpmdrake:392
+#, c-format
+msgid "All packages, by medium repository"
+msgstr "Gjitha pakot, simbas burimit të depozuar"
+
+#. -PO: Backports media are newer but less-tested versions of some packages in main
+#. -PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
+#: ../rpmdrake:400
+#, fuzzy, c-format
+msgid "Backports"
+msgstr "Regjitrim"
+
+#: ../rpmdrake:401
+#, fuzzy, c-format
+msgid "Meta packages"
+msgstr "Paketim"
+
+#: ../rpmdrake:402
+#, c-format
+msgid "Packages with GUI"
+msgstr ""
+
+#: ../rpmdrake:403
+#, fuzzy, c-format
+msgid "All updates"
+msgstr "Azhurnimet normale"
+
+#: ../rpmdrake:404
+#, c-format
+msgid "Security updates"
+msgstr "Azhurnimet e sigurisë"
+
+#: ../rpmdrake:405
+#, c-format
+msgid "Bugfixes updates"
+msgstr "Korigjimi i bug(it) azhurnues"
+
+#: ../rpmdrake:406
+#, fuzzy, c-format
+msgid "General updates"
+msgstr "Azhurnimet normale"
+
+#: ../rpmdrake:429
+#, c-format
+msgid "View"
+msgstr "Paraqitja"
+
+#: ../rpmdrake:457
+#, fuzzy, c-format
+msgid "Filter"
+msgstr "/_Skedare"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in names"
+msgstr "mes emrave"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in descriptions"
+msgstr "mes përshkrimeve"
+
+#: ../rpmdrake:493
+#, fuzzy, c-format
+msgid "in summaries"
+msgstr "mes emrave"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in file names"
+msgstr "mes emrave të skedareve"
+
+#: ../rpmdrake:534
+#, c-format
+msgid "/_Select dependencies without asking"
+msgstr ""
+
+#: ../rpmdrake:537
+#, c-format
+msgid "Clear download cache after successful install"
+msgstr ""
+
+#: ../rpmdrake:538
+#, c-format
+msgid "/_Compute updates on startup"
+msgstr ""
+
+#: ../rpmdrake:539
+#, c-format
+msgid "Search in _full package names"
+msgstr ""
+
+#: ../rpmdrake:540
+#, c-format
+msgid "Use _regular expressions in searches"
+msgstr ""
+
+#: ../rpmdrake:546
+#, c-format
+msgid "/_Update media"
+msgstr "/_Azhurnim i burimit"
+
+#: ../rpmdrake:551
+#, c-format
+msgid "/_Reset the selection"
+msgstr "/_Vërja e zgjedhjeve në fillim"
+
+#: ../rpmdrake:555
+#, c-format
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: ../rpmdrake:571
+#, c-format
+msgid "/Reload the _packages list"
+msgstr "/_Ringarkoje listën e pakove"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "/_Quit"
+msgstr "/_Braktise"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "<control>Q"
+msgstr "<control>Q"
+
+#: ../rpmdrake:591
+#, fuzzy, c-format
+msgid "/_Media Manager"
+msgstr "Menagjues i Burimit Softver"
+
+#: ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Show automatically selected packages"
+msgstr "/_Paraqiti automatikisht pakot e zgjedhura"
+
+#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#, c-format
+msgid "/_View"
+msgstr "/_Paraqitja"
+
+#: ../rpmdrake:692
+#, c-format
+msgid "Find:"
+msgstr "Gjej:"
+
+#: ../rpmdrake:696
+#, c-format
+msgid "Please type in the string you want to search then press the <enter> key"
+msgstr ""
+
+#: ../rpmdrake:726
+#, c-format
+msgid "Apply"
+msgstr "Aplikoje"
+
+#: ../rpmdrake:745
+#, c-format
+msgid "Quick Introduction"
+msgstr ""
+
+#: ../rpmdrake:746
+#, c-format
+msgid "You can browse the packages through the categories tree on the left."
+msgstr ""
+
+#: ../rpmdrake:747
+#, c-format
+msgid ""
+"You can view information about a package by clicking on it on the right list."
+msgstr ""
+
+#: ../rpmdrake:748
+#, c-format
+msgid "To install, update or remove a package, just click on its \"checkbox\"."
+msgstr ""
+
+#: ../rpmdrake:793
+#, c-format
+msgid "rpmdrake is already running (pid: %s)"
+msgstr ""
+
+#: ../rpmdrake.pm:121
+#, fuzzy, c-format
+msgid "Software Update"
+msgstr "Zhdukja e Pakove Software"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Mageia Update"
+msgstr "Azhurnimi Mageia"
+
+#: ../rpmdrake.pm:148
+#, fuzzy, c-format
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr "Ju lutemi futni adresën tuaj e-mail këtu"
+
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "User name:"
+msgstr "Emri i përdoruesit:"
+
+#: ../rpmdrake.pm:234
+#, c-format
+msgid "Software Packages Removal"
+msgstr "Zhdukja e Pakove Software"
+
+#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#, fuzzy, c-format
+msgid "Software Packages Update"
+msgstr "Zhdukja e Pakove Software"
+
+#: ../rpmdrake.pm:236
+#, c-format
+msgid "Software Packages Installation"
+msgstr "Instalimi i Pakove Software"
+
+#: ../rpmdrake.pm:284
+#, c-format
+msgid "No"
+msgstr "Jo"
+
+#: ../rpmdrake.pm:288
+#, c-format
+msgid "Yes"
+msgstr "Po"
+
+#: ../rpmdrake.pm:340
+#, c-format
+msgid "Info..."
+msgstr "Infomacion..."
+
+#: ../rpmdrake.pm:465
+#, c-format
+msgid "Austria"
+msgstr "Austria"
+
+#: ../rpmdrake.pm:466
+#, c-format
+msgid "Australia"
+msgstr "Australia"
+
+#: ../rpmdrake.pm:467
+#, c-format
+msgid "Belgium"
+msgstr "Belgjika"
+
+#: ../rpmdrake.pm:468
+#, c-format
+msgid "Brazil"
+msgstr "Brazili"
+
+#: ../rpmdrake.pm:469
+#, c-format
+msgid "Canada"
+msgstr "Kanada"
+
+#: ../rpmdrake.pm:470
+#, c-format
+msgid "Switzerland"
+msgstr "Zvicërra"
+
+#: ../rpmdrake.pm:471
+#, c-format
+msgid "Costa Rica"
+msgstr "Kosta Rika"
+
+#: ../rpmdrake.pm:472
+#, c-format
+msgid "Czech Republic"
+msgstr "Republika Çeke"
+
+#: ../rpmdrake.pm:473
+#, c-format
+msgid "Germany"
+msgstr "Gjermania"
+
+#: ../rpmdrake.pm:474
+#, c-format
+msgid "Danmark"
+msgstr "Danimarka"
+
+#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#, c-format
+msgid "Greece"
+msgstr "Greqia"
+
+#: ../rpmdrake.pm:476
+#, c-format
+msgid "Spain"
+msgstr "Spanja"
+
+#: ../rpmdrake.pm:477
+#, c-format
+msgid "Finland"
+msgstr "Finlanda"
+
+#: ../rpmdrake.pm:478
+#, c-format
+msgid "France"
+msgstr "Franca"
+
+#: ../rpmdrake.pm:480
+#, c-format
+msgid "Hungary"
+msgstr "Hungaria"
+
+#: ../rpmdrake.pm:481
+#, c-format
+msgid "Israel"
+msgstr "Izraeli"
+
+#: ../rpmdrake.pm:482
+#, c-format
+msgid "Italy"
+msgstr "Italia"
+
+#: ../rpmdrake.pm:483
+#, c-format
+msgid "Japan"
+msgstr "Japonia"
+
+#: ../rpmdrake.pm:484
+#, c-format
+msgid "Korea"
+msgstr "Korea"
+
+#: ../rpmdrake.pm:485
+#, c-format
+msgid "Netherlands"
+msgstr "Holanda"
+
+#: ../rpmdrake.pm:486
+#, c-format
+msgid "Norway"
+msgstr "Norvegjia"
+
+#: ../rpmdrake.pm:487
+#, c-format
+msgid "Poland"
+msgstr "Polonia"
+
+#: ../rpmdrake.pm:488
+#, c-format
+msgid "Portugal"
+msgstr "Portugalia"
+
+#: ../rpmdrake.pm:489
+#, c-format
+msgid "Russia"
+msgstr "Rusia"
+
+#: ../rpmdrake.pm:490
+#, c-format
+msgid "Sweden"
+msgstr "Suedia"
+
+#: ../rpmdrake.pm:491
+#, c-format
+msgid "Singapore"
+msgstr "Singapurit"
+
+#: ../rpmdrake.pm:492
+#, c-format
+msgid "Slovakia"
+msgstr "Sllovakia"
+
+#: ../rpmdrake.pm:493
+#, c-format
+msgid "Taiwan"
+msgstr "Taivani"
+
+#: ../rpmdrake.pm:494
+#, c-format
+msgid "United Kingdom"
+msgstr "Britania e Madhe"
+
+#: ../rpmdrake.pm:495
+#, c-format
+msgid "China"
+msgstr "Kina"
+
+#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#, c-format
+msgid "United States"
+msgstr "Shtetet e Bashkuara"
+
+#: ../rpmdrake.pm:579
+#, fuzzy, c-format
+msgid "Please wait, downloading mirror addresses."
+msgstr ""
+"Një moment ju lutemi, shkarkimi i adresave të pasqyreve nga web siti Mageia."
+
+#: ../rpmdrake.pm:580
+#, c-format
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr ""
+"Një moment ju lutemi, shkarkimi i adresave të pasqyreve nga web siti Mageia."
+
+#: ../rpmdrake.pm:601
+#, c-format
+msgid "retrieval of [%s] failed"
+msgstr ""
+
+#: ../rpmdrake.pm:623
+#, fuzzy, c-format
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"Më duhet të kontaktoj adresën web të Mageia, për të pranuar listën e "
+"pasqyreve.\n"
+"Ju lutemi verifikone rrjetin, nëse ai punon si duhet.\n"
+"\n"
+"A pajtoheni për të vazhduar?"
+
+#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#, c-format
+msgid "Mirror choice"
+msgstr ""
+
+#: ../rpmdrake.pm:643
+#, c-format
+msgid "Error during download"
+msgstr "Gabim gjatë shkarkimit"
+
+#: ../rpmdrake.pm:645
+#, fuzzy, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"Një gabim është paraqitur gjatë shkarkimit të listës së pasqyreve:\n"
+"\n"
+"%s\n"
+"Rrjeti apo adresa web e Mageia, e mundur të jenë të nxënë\n"
+"Ju lutemi provoni më vonë."
+
+#: ../rpmdrake.pm:650
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"Një gabim është paraqitur gjatë shkarkimit të listës së pasqyreve:\n"
+"\n"
+"%s\n"
+"Rrjeti apo adresa web e Mageia, e mundur të jenë të nxënë\n"
+"Ju lutemi provoni më vonë."
+
+#: ../rpmdrake.pm:660
+#, c-format
+msgid "No mirror"
+msgstr "Asnjë pasqyre"
+
+#: ../rpmdrake.pm:662
+#, c-format
+msgid "I can't find any suitable mirror."
+msgstr ""
+
+#: ../rpmdrake.pm:663
+#, c-format
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"E pa mundur gjetja e një pasqyre.\n"
+"\n"
+"Mund të jenë shumë arësye; më e shpeshta është\n"
+"mbi të gjitha, arkitektura e procesorit tuaj nuk mundë të\n"
+"përkrahet nga Azhurnimi i Mageia Zyrëtar"
+
+#: ../rpmdrake.pm:682
+#, c-format
+msgid "Please choose the desired mirror."
+msgstr "Zgjedheni pasqyrën tuaj."
+
+#: ../rpmdrake.pm:723
+#, c-format
+msgid "Copying file for medium `%s'..."
+msgstr "Kopjimi i skedares për burimin `%s'..."
+
+#: ../rpmdrake.pm:726
+#, c-format
+msgid "Examining file of medium `%s'..."
+msgstr "Verifikimi i skedarës së burimit `%s'..."
+
+#: ../rpmdrake.pm:729
+#, c-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "Verifikimi i skedarës së largët të burimit `%s'..."
+
+#: ../rpmdrake.pm:733
+#, c-format
+msgid " done."
+msgstr " bërë."
+
+#: ../rpmdrake.pm:737
+#, c-format
+msgid " failed!"
+msgstr " dështoi!"
+
+#. -PO: We're downloading the said file from the said medium
+#: ../rpmdrake.pm:742
+#, c-format
+msgid "%s from medium %s"
+msgstr "%s për burimin %s"
+
+#: ../rpmdrake.pm:746
+#, c-format
+msgid "Starting download of `%s'..."
+msgstr "Nisja e shkarkimit të `%s'..."
+
+#: ../rpmdrake.pm:750
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+"Shkarkimi i `%s'\n"
+"koha e kaluar:%s, shpejtësia:%s"
+
+#: ../rpmdrake.pm:753
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+"Shkarkimi i `%s'\n"
+"shpejtësia:%s"
+
+#: ../rpmdrake.pm:764
+#, c-format
+msgid "Please wait, updating media..."
+msgstr "Një moment ju lutemi, azhurnimi i burimeve..."
+
+#: ../rpmdrake.pm:774
+#, fuzzy, c-format
+msgid "Canceled"
+msgstr "Anulo"
+
+#: ../rpmdrake.pm:791
+#, c-format
+msgid "Error retrieving packages"
+msgstr ""
+
+#: ../rpmdrake.pm:792
+#, c-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+
+#: ../rpmdrake.pm:823
+#, c-format
+msgid "Update media"
+msgstr "Azhurnim i burimit"
+
+#: ../rpmdrake.pm:828
+#, c-format
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+
+#: ../rpmdrake.pm:835
+#, c-format
+msgid "Select the media you wish to update:"
+msgstr "Zgjedhni burimin të cilin dëshironi t'azhurnoni:"
+
+#: ../rpmdrake.pm:881
+#, c-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"I pa mundur azhurnimi i burimit; do të shkëputet automatikisht.\n"
+"\n"
+"Gabimet:\n"
+"%s"
+
+#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#, c-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: ../rpmdrake.pm:925
+#, c-format
+msgid "Unable to create medium."
+msgstr "I pa mundur krijimi i burimit."
+
+#: ../rpmdrake.pm:930
+#, fuzzy, c-format
+msgid "Failure when adding medium"
+msgstr "Një moment ju lutemi, shtimi i një burimi..."
+
+#: ../rpmdrake.pm:931
+#, fuzzy, c-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"Një problem është paraqitur gjatë instalimit:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:944
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+
+#: ../rpmdrake.pm:947
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+
+#: ../rpmdrake.pm:978
+#, c-format
+msgid "Help launched in background"
+msgstr "Ndihma është ngarkuar në ekranin e prapaskenës"
+
+#: ../rpmdrake.pm:979
+#, c-format
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr ""
+"Dritarja ndihmuese është nisur, ajo do të çfaqet së shpejti në tryezën tuaj."
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:1
+#, fuzzy
+msgid "A graphical front end for browsing installed & available packages"
+msgstr "Interfac grafike për instalimin e pakove (RPM)"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:2
+msgid "Browse Available Software"
+msgstr "Shfletues i Lirë për Softverin"
+
+#: ../data/rpmdrake.desktop.in.h:1
+#, fuzzy
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr "Interfac grafike për instalimin e pakove (RPM)"
+
+#: ../data/rpmdrake.desktop.in.h:2
+#, fuzzy
+msgid "Install & Remove Software"
+msgstr "Instaloje Softverin"
+
+#: ../data/rpmdrake-sources.desktop.in.h:1
+msgid "Software Media Manager"
+msgstr "Menagjues i Burimit Softver"
+
+#: ../mime/gurpmi.addmedia.desktop.in.h:1
+#, fuzzy
+msgid "Add urpmi media"
+msgstr "/_Azhurnim i burimit"
+
+#: ../mime/x-urpmi-media.desktop.in.h:1
+#, fuzzy
+msgid "Urpmi medium info"
+msgstr "Azhurnim i burimit"
+
+#~ msgid "Books"
+#~ msgstr "Librat"
+
+#~ msgid "Computer books"
+#~ msgstr "Libra për kompjuter"
+
+#~ msgid "Faqs"
+#~ msgstr "Faqs"
+
+#~ msgid "Howtos"
+#~ msgstr "Howtos"
+
+#~ msgid "Literature"
+#~ msgstr "Literatura"
+
+#, fuzzy
+#~ msgid "(Deprecated)"
+#~ msgstr "Zgjedhur"
+
+#~ msgid "Find"
+#~ msgstr "Gjej"
+
+#, fuzzy
+#~ msgid "/Add _media"
+#~ msgstr "/_Azhurnim i burimit"
+
+#~ msgid "Welcome"
+#~ msgstr "Mirësevini"
+
+#, fuzzy
+#~ msgid "Do you want to add media sources now?"
+#~ msgstr ""
+#~ "A jeni i sigurt për zhdukjen e çelësit %s nga burimi %s?\n"
+#~ "(emri i çelësit: %s)"
+
+#~ msgid ""
+#~ "Welcome to the Software Media Manager!\n"
+#~ "\n"
+#~ "This tool will help you configure the packages media you wish to use on\n"
+#~ "your computer. They will then be available to install new software "
+#~ "package\n"
+#~ "or to perform updates."
+#~ msgstr ""
+#~ "Mirësevini në Menagjerin e Burimeve Softver!\n"
+#~ "\n"
+#~ "Kjo vegël do të ju ndihmojë në konfigurimin e pakove në burime, të cilat\n"
+#~ "ju dëshironi ti përdorni në kompjuterin tuaj. Ato do të ju mundësojnë\n"
+#~ "instalimin e pakove të reja softver ose azhurnimin e tyre."
+
+#~ msgid ""
+#~ "Welcome to the software removal tool!\n"
+#~ "\n"
+#~ "This tool will help you choose which software you want to remove from\n"
+#~ "your computer."
+#~ msgstr ""
+#~ "Mirësevini tek vegla softver për zhdukje!\n"
+#~ "\n"
+#~ "Kjo vegël do të ju ndihmojë në zhdukjen e softverëve të dëshiruar nga "
+#~ "kompjuteri juaj."
+
+#~ msgid ""
+#~ "Welcome to %s!\n"
+#~ "\n"
+#~ "This tool will help you choose the updates you want to install on your\n"
+#~ "computer."
+#~ msgstr ""
+#~ "Mirësevini në %s!\n"
+#~ "\n"
+#~ "Kjo vegël do të ju ndihmojë për intalimin e azhurnimeve të zgjedhura në\n"
+#~ "kompjuterit tuaj."
+
+#~ msgid ""
+#~ "Welcome to the software installation tool!\n"
+#~ "\n"
+#~ "Your Mandriva Linux system comes with several thousands of software\n"
+#~ "packages on CDROM or DVD. This tool will help you choose which software\n"
+#~ "you want to install on your computer."
+#~ msgstr ""
+#~ "Mirësevini në instalimin me vegël softver!\n"
+#~ "\n"
+#~ "Sistemi i juaj Mandriva Linux është i furnizuar me mijëra pako\n"
+#~ "sofver, në CDROM ose DVD. Kjo vegël do të ju ndihmojë për të zgjedhur, "
+#~ "cilin\n"
+#~ "sofver dëshironi ta instaloni në kompjuterin tuaj."
+
+#~ msgid "Mandriva Linux choices"
+#~ msgstr "Mundësit Mandriva Linux"
+
+#~ msgid "None"
+#~ msgstr "Asnjëri"
+
+#~ msgid ""
+#~ "Installation failed, some files are missing:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "You may want to update your media database."
+#~ msgstr ""
+#~ "Instalimi dështoi, disa skedare mungojnë:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "A dëshironi ti azhurnoni burimet e bazës së të dhënave."
+
+#~ msgid "Relative path to synthesis/hdlist:"
+#~ msgstr "Shtegu që ka të bëjë me synthesis/hdlist:"
+
+#~ msgid "If left blank, synthesis/hdlist will be automatically probed"
+#~ msgstr ""
+#~ "Nëse e leni të zbrazta, sintezat/lista-hd do të verifikohet automatikisht"
+
+#~ msgid "Search"
+#~ msgstr "Hulumto"
+
+#~ msgid "Clear"
+#~ msgstr "Pastro"
+
+#~ msgid "Download directory does not exist"
+#~ msgstr "Shkarkimi i repertorin nuk ekziston"
+
+#~ msgid "Out of memory\n"
+#~ msgstr "Jashtë memorisë\n"
+
+#~ msgid "Could not open output file in append mode"
+#~ msgstr "Nuk mund ta hapë skedaren në modë shtues"
+
+#~ msgid "Unsupported protocol\n"
+#~ msgstr "Protokol i pa përkrahur\n"
+
+#~ msgid "Failed init\n"
+#~ msgstr "Hyrje e gabuar\n"
+
+#~ msgid "Bad URL format\n"
+#~ msgstr "Formë e pa pranuar për URL\n"
+
+#~ msgid "Bad user format in URL\n"
+#~ msgstr "Formë përdoruesi e pa pranuar për URL\n"
+
+#~ msgid "Couldn't resolve proxy\n"
+#~ msgstr "Nuk mund ta rregulloj proxy\n"
+
+#~ msgid "Couldn't resolve host\n"
+#~ msgstr "Nuk mund ta rregulloj ftuesin\n"
+
+#~ msgid "Couldn't connect\n"
+#~ msgstr "Nuk mund te lidhet\n"
+
+#~ msgid "FTP unexpected server reply\n"
+#~ msgstr "Serev FTP i pa pranueshëm riprovo\n"
+
+#~ msgid "FTP access denied\n"
+#~ msgstr "Hyrja FTP nuk ekziston\n"
+
+#~ msgid "FTP user password incorrect\n"
+#~ msgstr "Përdoruesi dhe parulla për FTP nuk janë korrekt\n"
+
+#~ msgid "FTP unexpected PASS reply\n"
+#~ msgstr "PARULLA FTP nuk pranohet riprovo\n"
+
+#~ msgid "FTP unexpected USER reply\n"
+#~ msgstr "PËRDORUESI FTP nuk pranohet riprovo\n"
+
+#~ msgid "FTP unexpected PASV reply\n"
+#~ msgstr "PASV FTP nuk pranohet riprovo\n"
+
+#~ msgid "FTP unexpected 227 format\n"
+#~ msgstr "Forma e FTP 227 nuk pranohet\n"
+
+#~ msgid "FTP can't get host\n"
+#~ msgstr "FTP nuk mund të lidhet me ftuesin\n"
+
+#~ msgid "FTP can't reconnect\n"
+#~ msgstr "FTP num mund të rilidhet\n"
+
+#~ msgid "FTP couldn't set binary\n"
+#~ msgstr "FTP binar nuk mund të paraqitet\n"
+
+#~ msgid "Partial file\n"
+#~ msgstr "Skedare e prirë\n"
+
+#~ msgid "FTP couldn't RETR file\n"
+#~ msgstr "FTP nuk mund RETR skedaren\n"
+
+#~ msgid "FTP write error\n"
+#~ msgstr "Gabim gjatë shkrimit të FTP\n"
+
+#~ msgid "FTP quote error\n"
+#~ msgstr "Deklarim i gabimit FTP\n"
+
+#~ msgid "HTTP not found\n"
+#~ msgstr "HTTP nuk gjindet\n"
+
+#~ msgid "Write error\n"
+#~ msgstr "Shkrim i gabuar\n"
+
+#~ msgid "User name illegally specified\n"
+#~ msgstr "Specifikim ilegal i emrit të përdoruesit\n"
+
+#~ msgid "FTP couldn't STOR file\n"
+#~ msgstr "FTP nuk mund ta STOR skedaren\n"
+
+#~ msgid "Read error\n"
+#~ msgstr "Lexim i gabuar\n"
+
+#~ msgid "Time out\n"
+#~ msgstr "Orë e jashtme\n"
+
+#~ msgid "FTP couldn't set ASCII\n"
+#~ msgstr "FTP nuk mund ta paraqet ASCII\n"
+
+#~ msgid "FTP PORT failed\n"
+#~ msgstr "PORT FTP dështoi\n"
+
+#~ msgid "FTP couldn't use REST\n"
+#~ msgstr "FTP nuk mund ta përdor REST\n"
+
+#~ msgid "FTP couldn't get size\n"
+#~ msgstr "FTP nuk mund ta pranoj madhësinë\n"
+
+#~ msgid "HTTP range error\n"
+#~ msgstr "Gagim i rreshtimit HTTP\n"
+
+#~ msgid "HTTP POST error\n"
+#~ msgstr "Gabim i POST HTTP\n"
+
+#~ msgid "SSL connect error\n"
+#~ msgstr "Gabim i lidhjes SSL\n"
+
+#~ msgid "FTP bad download resume\n"
+#~ msgstr "Shkarkim përmledhës i pa pranuar FTP\n"
+
+#~ msgid "File couldn't read file\n"
+#~ msgstr "Skedarja nuk mund ta lexoj skedaren\n"
+
+#~ msgid "LDAP cannot bind\n"
+#~ msgstr "LDAP nuk mund të lidhet\n"
+
+#~ msgid "LDAP search failed\n"
+#~ msgstr "Hulumtim i dështuar për LDAP\n"
+
+#~ msgid "Library not found\n"
+#~ msgstr "Bilioteka mungon\n"
+
+#~ msgid "Function not found\n"
+#~ msgstr "Funksioni mungon\n"
+
+#~ msgid "Aborted by callback\n"
+#~ msgstr "Ndërpritje me thirrje të mbrapme\n"
+
+#~ msgid "Bad function argument\n"
+#~ msgstr "Argument i pa pranuar për funksionin\n"
+
+#~ msgid "Bad calling order\n"
+#~ msgstr "Urdhër thirrës i pa pranuar\n"
+
+#~ msgid "HTTP Interface operation failed\n"
+#~ msgstr "Operacioni i Interfacit HTTP dështoi\n"
+
+#~ msgid "my_getpass() returns fail\n"
+#~ msgstr "my_getpass() u përgjigj me dështim\n"
+
+#~ msgid "catch endless re-direct loops\n"
+#~ msgstr "kapi ridirecionet e lakuara pa fund\n"
+
+#~ msgid "User specified an unknown option\n"
+#~ msgstr "Specifikim i përdoruesit në opcion të pa njoftur\n"
+
+#~ msgid "Malformed telnet option\n"
+#~ msgstr "Opcioni telnet është formuar gabimisht\n"
+
+#~ msgid "removed after 7.7.3\n"
+#~ msgstr "zhduket mbas 7.7.3\n"
+
+#~ msgid "peer's certificate wasn't ok\n"
+#~ msgstr "Certifikata çifte nuk është në rregull\n"
+
+#~ msgid "when this is a specific error\n"
+#~ msgstr "kur ky është një gabim specifik\n"
+
+#~ msgid "SSL crypto engine not found\n"
+#~ msgstr "motori kriptografik SSL mungon\n"
+
+#~ msgid "can not set SSL crypto engine as default\n"
+#~ msgstr "nuk mund ta paraqes motorin kriptografik SSL me marrëveshje\n"
+
+#~ msgid "failed sending network data\n"
+#~ msgstr "dështim gjatë dërgimit të të dhënave të rrjetit\n"
+
+#~ msgid "failure in receiving network data\n"
+#~ msgstr "dështim gjatë pranimit të të dhënave të rrjetit\n"
+
+#~ msgid "share is in use\n"
+#~ msgstr "shpërndarja është në përdorim e sipër\n"
+
+#~ msgid "problem with the local certificate\n"
+#~ msgstr "problem me certifikatën lokale\n"
+
+#~ msgid "couldn't use specified cipher\n"
+#~ msgstr "nuk mund ta përdori shifrën e specifikuar\n"
+
+#~ msgid "problem with the CA cert (path?)\n"
+#~ msgstr "problem i sigurt me CA (shtegu?)\n"
+
+#~ msgid "Unrecognized transfer encoding\n"
+#~ msgstr "Transferim i pa njoftur kodues\n"
+
+#~ msgid "Unknown error code %d\n"
+#~ msgstr "Kod gabimi i pa njoftur %d\n"
+
+#, fuzzy
+#~ msgid "Official updates"
+#~ msgstr "Azhurnimet normale"
+
+#~ msgid "Selected size: %d MB"
+#~ msgstr "Madhësia e zgjedhur: %d MB"
+
+#, fuzzy
+#~ msgid "/_Automatically resolve queries"
+#~ msgstr "/_Paraqiti automatikisht pakot e zgjedhura"
+
+#~ msgid "Path:"
+#~ msgstr "Shtegu:"
+
+#, fuzzy
+#~ msgid "Add custom..."
+#~ msgstr "Shtoje..."
+
+#~ msgid "Update..."
+#~ msgstr "Azhurnimi..."
+
+#~ msgid ""
+#~ "The following packages have bad signatures:\n"
+#~ "\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Do you want to continue installation?"
+#~ msgstr ""
+#~ "Pakot e radhitura, posedojnë nënshkrime të pa pranuara:\n"
+#~ "\n"
+#~ "%s\n"
+#~ "\n"
+#~ "A dëshironi të vazhdoni?"
+
+#, fuzzy
+#~ msgid "installing %s from %s"
+#~ msgstr "instalimi i %s"
+
+#~ msgid "installing %s"
+#~ msgstr "instalimi i %s"
+
+#~ msgid "removing %s"
+#~ msgstr "zhdukja e %s"
+
+#, fuzzy
+#~ msgid "Installation failed:"
+#~ msgstr "Instalimi dështio"
+
+#~ msgid "Try installation without checking dependencies? (y/N) "
+#~ msgstr "Tento një instalim pa verifikimin e mvarësive? (p/J) "
+
+#, fuzzy
+#~ msgid "Try harder to install (--force)? (y/N) "
+#~ msgstr "Tento një instalim më të forcuar (--force)? (p/J) "
+
+#~ msgid "Preparing..."
+#~ msgstr "Përgatitje..."
+
+#, fuzzy
+#~ msgid "Deploiement"
+#~ msgstr "Ndërtimi"
+
+#, fuzzy
+#~ msgid "Deployment"
+#~ msgstr "Ndërtimi"
+
+#~ msgid "Add a key..."
+#~ msgstr "Shtoje një çelës..."
+
+#~ msgid "Remove key"
+#~ msgstr "Zhduke çelësin"
+
+#~ msgid "unable to access rpm file [%s]"
+#~ msgstr "e pa mundur hyrja në skedaren rpm [%s]"
+
+#, fuzzy
+#~ msgid ""
+#~ "To satisfy dependencies, the following package is going to be installed:\n"
+#~ "%2$s\n"
+#~ msgid_plural ""
+#~ "To satisfy dependencies, the following %d packages are going to be "
+#~ "installed:\n"
+#~ "%s\n"
+#~ msgstr[0] ""
+#~ "Me rastin e mbushjes së mvarësisë, pako(t) e radhitura duhet të\n"
+#~ "instalohen:\n"
+#~ "\n"
+#~ msgstr[1] ""
+#~ "Me rastin e mbushjes së mvarësisë, pako(t) e radhitura duhet të\n"
+#~ "instalohen:\n"
+#~ "\n"
+
+#~ msgid "Please wait, reading Package Database..."
+#~ msgstr "Një moment ju lutemi, leximi në pakot e bazës së të dhënave..."
+
+#, fuzzy
+#~ msgid "About Rpmdrake"
+#~ msgstr "Rpmdrake"
+
+#~ msgid "XFree86"
+#~ msgstr "XFree86"
+
+#~ msgid "No package found for installation."
+#~ msgstr "Asnjë pako s'është gjetur për Instalim"
+
+#~ msgid "Maximum information"
+#~ msgstr "Infomacione maksimale"
+
+#~ msgid "everything was installed correctly"
+#~ msgstr "gjdo gjë është instaluar si duhet"
+
+#~ msgid "Regenerate hdlist"
+#~ msgstr "Riprodhim i listës hd"
+
+#~ msgid "Please wait, generating hdlist..."
+#~ msgstr "Një moment ju lutemi, prodhimi i listës hd..."
+
+#~ msgid "Everything installed successfully"
+#~ msgstr "Gjdo gjë është instaluar si duhet"
+
+#~ msgid "Keys"
+#~ msgstr "Çelësat"
+
+#~ msgid "<no description>"
+#~ msgstr "<asnjë përshkrim>"
+
+#~ msgid "Choose a mirror..."
+#~ msgstr "Zgjedheni një pasqyre..."
+
+#~ msgid "Reset the selection"
+#~ msgstr "Vërja e zgjedhjeve në fillim"
+
+#~ msgid "Reload the packages list"
+#~ msgstr "Ringarkoje listën e pakove"
+
+#~ msgid "Mandrake Update"
+#~ msgstr "Azhurnimi Mandrake"
+
+#~ msgid "Please wait, updating medium..."
+#~ msgstr "Ju lutemi një moment, azhurnimi i burimit..."
+
+#~ msgid "System/Configuration/Other"
+#~ msgstr "Sistemi/Konfigurimi/Tjetër"
+
+#~ msgid "System/Configuration/Networking"
+#~ msgstr "Sistemi/Konfigurimi/Rrjeti"
+
+#~ msgid "System/Configuration/Hardware"
+#~ msgstr "Sistemi/Konfigurimi/Hardveri"
+
+#~ msgid "Development/Python"
+#~ msgstr "Ndërtimi/Python"
+
+#~ msgid "System/Configuration/Boot and Init"
+#~ msgstr "Sistemi/Konfigurimi/Boot dhe Hyrja"
+
+#~ msgid "Graphical desktop/WindowMaker"
+#~ msgstr "Treyzë grafike/WindowMaker"
+
+#~ msgid "Development/Other"
+#~ msgstr "Ndërtimi/Tjetër"
+
+#~ msgid "System/Fonts/Type1"
+#~ msgstr "Sistemi/Polisa/Tipi1"
+
+#~ msgid "Development/Databases"
+#~ msgstr "Ndërtimi/I Bazës së të dhënave"
+
+#~ msgid "Books/Other"
+#~ msgstr "Librat/Tjetër"
+
+#~ msgid "Graphical desktop/FVWM based"
+#~ msgstr "Tryezë grafike/E bazuar me FVWM"
+
+#~ msgid "Networking/News"
+#~ msgstr "Punim rrjeti/Lajmet"
+
+#~ msgid "Development/Kernel"
+#~ msgstr "Ndërtimi/Bërthama"
+
+#~ msgid "Networking/Chat"
+#~ msgstr "Punim rrjeti/Chat"
+
+#~ msgid "Development/Perl"
+#~ msgstr "Ndërtimi/Perl"
+
+#~ msgid "Graphical desktop/Icewm"
+#~ msgstr "Tryezë grafike/Icewm"
+
+#~ msgid "Games/Other"
+#~ msgstr "Lojërat/Tjetër"
+
+#~ msgid "Networking/Other"
+#~ msgstr "Punim rrjeti/Tjetër"
+
+#~ msgid "Development/Java"
+#~ msgstr "Ndërtimi/Java"
+
+#~ msgid "Graphical desktop/Sawfish"
+#~ msgstr "Tryezë grafike/Sawfish"
+
+#~ msgid "Archiving/Backup"
+#~ msgstr "Arkivimi/Regjistrim"
+
+#~ msgid "Networking/WWW"
+#~ msgstr "punim rrjeti/WWW"
+
+#~ msgid "System/Fonts/Console"
+#~ msgstr "Sistemi/Polisat/Konsola"
+
+#~ msgid "Networking/Mail"
+#~ msgstr "Punim rrjeti/Mail"
+
+#~ msgid "Graphical desktop/GNOME"
+#~ msgstr "Tryezë grafike/GNOME"
+
+#~ msgid "System/Configuration/Printing"
+#~ msgstr "Sistemi/Konfigurimi/Stampimi"
+
+#~ msgid "System/Configuration/Packaging"
+#~ msgstr "Sistemi/Konfigurimi/Paketimi"
+
+#~ msgid "Graphical desktop/Other"
+#~ msgstr "Tryezë grafike/Tjetër"
+
+#~ msgid "System/Fonts/True type"
+#~ msgstr "Sistemi/Polisat/Tip i vërtet"
+
+#~ msgid "%s conflicts with %s"
+#~ msgstr "%s është në konflikt me %s"
+
+#~ msgid "unknown package "
+#~ msgstr "pako a pa njoftur"
+
+#~ msgid "Examining distant file of media `%s'..."
+#~ msgstr "Verifikimi i burimit të largët të skedares `%s'..."
+
+#~ msgid "Save and quit"
+#~ msgstr "Shpëtoje dhe braktise"
+
+#~ msgid "by size"
+#~ msgstr "simbas madhësisë"
+
+#~ msgid "Source"
+#~ msgstr "Burimi"
+
+#~ msgid ""
+#~ "some packages failed to install\n"
+#~ "correctly"
+#~ msgstr ""
+#~ "disa pako nuk janë instaluar\n"
+#~ "si duhet"
+
+#~ msgid "Please wait, removing packages to allow others to be upgraded..."
+#~ msgstr ""
+#~ "Një moment ju lutemi, të mbaroj zhdukjen e pakove, që të tjerat të mund "
+#~ "të azhurnohen..."
+
+#~ msgid "A required program is missing (grpmi). Check your installation."
+#~ msgstr "Një program i nevojshëm mungon (grmpi). Verifikone instalimin tuaj."
+
+#~ msgid "Program missing"
+#~ msgstr "Programi mungon"
+
+#~ msgid ""
+#~ "There was an error while adding the update medium via urpmi.\n"
+#~ "\n"
+#~ "This may be due to a broken or temporary unavailable mirror, or when "
+#~ "your\n"
+#~ "Mandriva Linux version (%s) is not yet / no more supported by Mandrake "
+#~ "Linux\n"
+#~ "Official Updates.\n"
+#~ "\n"
+#~ "Do you want to try another mirror?"
+#~ msgstr ""
+#~ "Një gabim është paraqitur gjatë shtimit të azhurnimit, via urpmi.\n"
+#~ "\n"
+#~ "Kjo mundë të ndodhë ngase pasqyrja nuk është e lirë momentalishtë ose,\n"
+#~ "nëse versioni i Mandriva Linux (%s) nuk është në përkrahje / apo nuk "
+#~ "përkrahet fare nga Mandriva Linux\n"
+#~ "Azhurnim zyrtarë.\n"
+#~ "\n"
+#~ "A dëshironi të provoni një pasqyre tjetër?"
+
+#~ msgid "Error adding update medium"
+#~ msgstr "Gabim gjatë shtimit të burimit azhurnues"
+
+#~ msgid "Please wait, contacting mirror to initialize updates packages."
+#~ msgstr ""
+#~ "Një moment ju lutemi, kyqje në pasqyre që më në fund ti gjeni pakot për "
+#~ "ti azhurnuar."
+
+#~ msgid ""
+#~ "There was an unrecoverable error while updating packages information."
+#~ msgstr ""
+#~ "Një gabim fatal është paraqitur gjatë azhrunimit, të pakove me "
+#~ "infomacione."
+
+#~ msgid "Error updating medium"
+#~ msgstr "Gabim mbi azhurnimin e burimit"
+
+#~ msgid "Please wait, contacting mirror to update packages information."
+#~ msgstr ""
+#~ "Një moment ju lutemi, kyqje në pasqyre, që më në fund të bëhet azhurnimi "
+#~ "i informacoineve mbi pakot"
+
+#~ msgid "Everything already installed (is this supposed to happen at all?"
+#~ msgstr ""
+#~ "Janë instaluar më heret (a është dashur, të arrihej me të vërtet e tërë "
+#~ "kjo?"
+
+#~ msgid "Everything already installed."
+#~ msgstr "Janë instaluar më heret"

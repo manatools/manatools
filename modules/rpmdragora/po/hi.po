@@ -1,0 +1,3952 @@
+# translation of rpmdrake-hi.po to Hindi, India
+# translation of rpmdrake-hi.po to हिन्दी, भारत (Hindi, India)
+# Copyright (C) 2003,2004, 2005 Free Software Foundation, Inc.
+# धनञ्जय शर्मा (Dhananjaya Sharma), 2004, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: rpmdrake-hi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-11-09 17:13+0800\n"
+"PO-Revision-Date: 2005-08-21 15:37+0530\n"
+"Last-Translator: धनञ्जय शर्मा (Dhananjaya Sharma)\n"
+"Language-Team: Hindi, India\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Generator: KBabel 1.10\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+
+#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#, c-format
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"अपडेटस की सूची रिक्त है। इसका मतलब है कि या तो उन पैकेजों के लिए, जिन्हें आपने\n"
+"अपने कम्पूयटर पर संसाधित किया है, कोई अपडेट उपलब्ध नहीं है या आपने इन सभी\n"
+"को संसाधित कर लिया है।"
+
+#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Management"
+msgstr "सॉफ़्टवेयर प्रबंधक"
+
+#: ../MageiaUpdate:151
+#, fuzzy, c-format
+msgid "Here is the list of software package updates"
+msgstr "सॉफ़्टवेयर पैकजों का अपडेट"
+
+#: ../MageiaUpdate:158
+#, c-format
+msgid "Name"
+msgstr "नाम"
+
+#: ../MageiaUpdate:159 ../rpmdrake:290
+#, fuzzy, c-format
+msgid "Version"
+msgstr "संस्मरण"
+
+#: ../MageiaUpdate:160 ../rpmdrake:294
+#, c-format
+msgid "Release"
+msgstr ""
+
+#: ../MageiaUpdate:161
+#, fuzzy, c-format
+msgid "Arch"
+msgstr "पुरालेखण"
+
+#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#, c-format
+msgid "Help"
+msgstr "सहायता"
+
+#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#, c-format
+msgid "Select all"
+msgstr "सभी का चयन"
+
+#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#, c-format
+msgid "Update"
+msgstr "अपडेट"
+
+#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#, c-format
+msgid "Quit"
+msgstr "निकास"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:62
+#, c-format
+msgid "CD-ROM"
+msgstr "सीडी-रॉम"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:63
+#, fuzzy, c-format
+msgid "FTP"
+msgstr "वेब/एफ़०टी०पी०"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#, fuzzy, c-format
+msgid "Local"
+msgstr "स्थानीय संचिकाऐं"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:65
+#, c-format
+msgid "HTTP"
+msgstr "एचटीटीपी"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:66
+#, c-format
+msgid "HTTPS"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#, c-format
+msgid "NFS"
+msgstr "एनएफ़एस"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:68
+#, fuzzy, c-format
+msgid "Removable"
+msgstr "हटायें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:69
+#, c-format
+msgid "rsync"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:72
+#, fuzzy, c-format
+msgid "Mirror list"
+msgstr "%s पसन्दें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:114
+#, c-format
+msgid "Choose media type"
+msgstr "माध्यम के प्रकार को चुनें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:115
+#, c-format
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Full set of sources"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:122
+#, c-format
+msgid "Update sources only"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:135
+#, c-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"आपके वितरण (%s) के लिए सभी अधिकारिक स्रोतों को संसाधित करने का \n"
+"यह प्रयास करेगा । \n"
+"\n"
+"मुझे मैनड्रिव सॉफ़्ट वेब स्थल से समरूप प्रणालियों की सूची के लिए सम्पर्क करना होगा।\n"
+"कृपया सुनिश्चित करें कि आपका नेटवर्क अभी चलायमान है। \n"
+"\n"
+"क्या अब जारी रख्ना ठीक है?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#, c-format
+msgid "Please wait, adding media..."
+msgstr "कृपया प्रतीक्षा करें, माध्यम को जोड़ा जा रहा है..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:168
+#, c-format
+msgid "Add a medium"
+msgstr "एक माध्यम को जोड़े"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, c-format
+msgid "Local files"
+msgstr "स्थानीय संचिकाऐं"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:172
+#, fuzzy, c-format
+msgid "Medium path:"
+msgstr "माध्यम: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#, c-format
+msgid "FTP server"
+msgstr "एफ़०टी०पी० सर्वर"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#, c-format
+msgid "URL:"
+msgstr "यू०आर०एल०:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#, fuzzy, c-format
+msgid "RSYNC server"
+msgstr "एफ़०टी०पी० सर्वर"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#, c-format
+msgid "HTTP server"
+msgstr "एच०टी०टी०पी० सर्वर"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, fuzzy, c-format
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "हटाने-योग्य साधन"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:176
+#, c-format
+msgid "Path or mount point:"
+msgstr "पथ या आरोह बिन्दू:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:194
+#, c-format
+msgid "Browse..."
+msgstr "देखें..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#, c-format
+msgid "Login:"
+msgstr "संत्र-आरम्भ:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "Password:"
+msgstr "कूट-शब्द:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:227
+#, fuzzy, c-format
+msgid "Medium name:"
+msgstr "माध्यम: "
+
+#: ../Rpmdrake/edit_urpm_sources.pm:233
+#, c-format
+msgid "Create media for a whole distribution"
+msgstr "एक सम्पूर्ण वितरण के लिए माध्यम का चयन"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:242
+#, fuzzy, c-format
+msgid "Tag this medium as an update medium"
+msgstr "अपडेटों के लिए इस माध्यम में खोजें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:252
+#, c-format
+msgid "You need to fill up at least the two first entries."
+msgstr "आपको कम-से-कम प्रथम और द्वितीय प्रवीष्ठयों को भरना चाहिए।"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:256
+#, c-format
+msgid ""
+"There is already a medium by that name, do you\n"
+"really want to replace it?"
+msgstr ""
+"इस नाम का एक माध्यम पहले से विद्यमान है,\n"
+"क्या आप वास्तव में इसे बदलना चाहते है?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:268
+#, c-format
+msgid "Adding a medium:"
+msgstr "एक माध्यम को जोड़े:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:270
+#, c-format
+msgid "Type of medium:"
+msgstr "माध्यम का प्रकार:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#, c-format
+msgid "Cancel"
+msgstr "निरस्त"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#, c-format
+msgid "Ok"
+msgstr "ठीक"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:337
+#, c-format
+msgid "Global options for package installation"
+msgstr "पैकेज संसाधन के लिए ग्लोबल विकल्प"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "never"
+msgstr "कभी नहीं"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:339
+#, c-format
+msgid "always"
+msgstr "सदैव"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#, fuzzy, c-format
+msgid "Never"
+msgstr "कभी नहीं"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#, c-format
+msgid "On-demand"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#, fuzzy, c-format
+msgid "Update-only"
+msgstr "अपडेट"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#, fuzzy, c-format
+msgid "Always"
+msgstr "सदैव"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:355
+#, c-format
+msgid "Verify RPMs to be installed:"
+msgstr "संसाधित किये जाने वाले आरपीएमो का सत्यापन:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:360
+#, c-format
+msgid "Download program to use:"
+msgstr "डॉउनलोड के लिए उपयोग किये जाने वाला प्रोग्राम:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:367
+#, c-format
+msgid "XML meta-data download policy:"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:374
+#, c-format
+msgid ""
+"For remote media, specify when XML meta-data (file lists, changelogs & "
+"information) are downloaded."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:377
+#, c-format
+msgid "For remote media, XML meta-data are never downloaded."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:380
+#, c-format
+msgid "(This is the default)"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:381
+#, c-format
+msgid "The specific XML info file is downloaded when clicking on package."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:384
+#, c-format
+msgid ""
+"Updating media implies updating XML info files already required at least "
+"once."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:387
+#, c-format
+msgid "All XML info files are downloaded when adding or updating media."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:416
+#, c-format
+msgid "Source Removal"
+msgstr "स्रोत को हटाना"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:418
+#, c-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr "क्या आप वास्तव में स्रोत \"%s\" को हटाना चाहते है?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:419
+#, fuzzy, c-format
+msgid "Are you sure you want to remove the following sources?"
+msgstr "क्या आप वास्तव में स्रोत \"%s\" को हटाना चाहते है?"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:425
+#, c-format
+msgid "Please wait, removing medium..."
+msgstr "कॄपया प्रतिक्षा करें, माध्यम को हटाया जा रहा है..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:473
+#, c-format
+msgid "Edit a medium"
+msgstr "एक माध्यम को संपादित करें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:480
+#, c-format
+msgid "Editing medium \"%s\":"
+msgstr "\"%s\" माध्यम का संपादन किया जा रहा है:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:484
+#, c-format
+msgid "Downloader:"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:496
+#, c-format
+msgid "Save changes"
+msgstr "परिवर्तनों को सुरक्षित करें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:505
+#, c-format
+msgid "Proxy..."
+msgstr "प्रोक्सी..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:517
+#, c-format
+msgid "You need to insert the medium to continue"
+msgstr "जारी रखने के लिए, आपको इस माध्यम को अन्दर डालना होगा"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:518
+#, c-format
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr "परिवर्तनों को सुरक्षित करने के लिए, आपको इस माध्यम को ड्राइव में डालना होगा।"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:553
+#, c-format
+msgid "Configure proxies"
+msgstr "प्रोक्सियों की संरचना"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:566
+#, c-format
+msgid "Proxy settings for media \"%s\""
+msgstr "\"%s\" माध्यम हेतु प्रोक्सी समायोजनायें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:567
+#, c-format
+msgid "Global proxy settings"
+msgstr "सार्वभौम प्रोक्सी समायोजनायें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:569
+#, c-format
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"यदि आपको एक प्रोक्सी की आवश्यकता है, तो एक होस्ट का नाम और एक ऐच्छिक पोर्ट "
+"बतायेंनिर्देश वाक्य रचना:<प्रोक्सी होस्ट[:पोर्ट]> (syntax:<proxyhost[:port]>):"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:572
+#, c-format
+msgid "Proxy hostname:"
+msgstr "प्रोक्सी होस्ट का नाम:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:575
+#, c-format
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr "आप को प्रोक्सी की प्रमाणिकता के लिए एक उपयोगकर्ता/कूट-शब्द को बताना होगा:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:578
+#, c-format
+msgid "User:"
+msgstr "उपयोगकर्ता:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Add a parallel group"
+msgstr "एक सामानान्तर समूह को जोड़े"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:674
+#, c-format
+msgid "Edit a parallel group"
+msgstr "एक समानान्तर समूह का संपादन करें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Add a medium limit"
+msgstr "एक माध्यम की सीमा को जोड़े"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:698
+#, c-format
+msgid "Choose a medium to add to the media limit:"
+msgstr "मीडीया सीमा में जोड़ने के लिए, एक माध्यम का चयन करे:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Add a host"
+msgstr "एक होस्ट को जोड़े"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:715
+#, c-format
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "जोड़ने के लिए, होस्ट का नाम या आई०पी पता टाइप करें:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:729
+#, c-format
+msgid "Editing parallel group \"%s\":"
+msgstr "\"%s\" सामान्तर समूह का संपादन किया जा रहा है:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:733
+#, c-format
+msgid "Group name:"
+msgstr "समूह का नाम:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:734
+#, c-format
+msgid "Protocol:"
+msgstr "प्रोटोकाल"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:736
+#, c-format
+msgid "Media limit:"
+msgstr "माध्यम सीमा:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#, c-format
+msgid "Add"
+msgstr "जोड़े"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:1139
+#, c-format
+msgid "Remove"
+msgstr "हटायें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:745
+#, c-format
+msgid "Hosts:"
+msgstr "होस्ट्स:"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:781
+#, c-format
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr ""
+"समानान्तर यू०आर०पी०एम०आई० को संरचनित करें (यू०आर०पी०एम०आई० का अलग-अलग निष्पादन)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Group"
+msgstr "समूह"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Protocol"
+msgstr "प्रोटोकाल"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:785
+#, c-format
+msgid "Media limit"
+msgstr "मीडीया सीमा"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:786
+#, c-format
+msgid "Command"
+msgstr "निर्देश"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#, c-format
+msgid "(none)"
+msgstr "(कुछ नहीं)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:816
+#, c-format
+msgid "Edit..."
+msgstr "सपांदन"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:824
+#, c-format
+msgid "Add..."
+msgstr "जोड़े..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:840
+#, c-format
+msgid "Manage keys for digital signatures of packages"
+msgstr "पैकेजों के अंकीय हस्ताक्षरों के लिए, कुँजीयों का प्रबंधन करें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#, c-format
+msgid "Medium"
+msgstr "माध्यम"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:853
+#, c-format
+msgid ""
+"_:cryptographic keys\n"
+"Keys"
+msgstr ""
+"_:cryptographic keys\n"
+"कुँजीयां"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:876
+#, c-format
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "कोई नाम नहीं मिला, कुँजी आर०पी०एम० की-रिंग में विद्यमान नहीं है!"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Add a key"
+msgstr "एक कुँजी जोड़े"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:896
+#, c-format
+msgid "Choose a key to add to the medium %s"
+msgstr "%s माध्यम में जोड़ने के लिए, एक कुँजी का चयन करें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:915
+#, c-format
+msgid "Remove a key"
+msgstr "एक कुँजी को हटायें"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:916
+#, c-format
+msgid ""
+"Are you sure you want to remove the key %s from medium %s?\n"
+"(name of the key: %s)"
+msgstr ""
+"क्या आप वास्तव में %s माध्यम से %s कुँजी को हटाना चाहते है?\n"
+"(कुँजी का नाम: %s)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#, c-format
+msgid "Configure media"
+msgstr "माध्यम संरचना"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
+#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#, c-format
+msgid "/_File"
+msgstr "/संचिका (_F)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, fuzzy, c-format
+msgid "/_Update"
+msgstr "अपडेट"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#, fuzzy, c-format
+msgid "<control>U"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, c-format
+msgid "/Add a specific _media mirror"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#, fuzzy, c-format
+msgid "<control>M"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, fuzzy, c-format
+msgid "/_Add a custom medium"
+msgstr "/माध्यम का अपडेट (_U)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#, fuzzy, c-format
+msgid "<control>A"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, fuzzy, c-format
+msgid "/Close"
+msgstr "बन्द"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#, fuzzy, c-format
+msgid "<control>W"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
+#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
+#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Options"
+msgstr "/विकल्प(_O)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, fuzzy, c-format
+msgid "/_Global options"
+msgstr "ग्लोबल विकल्प..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#, fuzzy, c-format
+msgid "<control>G"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, fuzzy, c-format
+msgid "/Manage _keys"
+msgstr "कुँजीयों का प्रबंध करें..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#, fuzzy, c-format
+msgid "<control>K"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, fuzzy, c-format
+msgid "/_Parallel"
+msgstr "समानान्तर..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#, fuzzy, c-format
+msgid "<control>P"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, fuzzy, c-format
+msgid "/P_roxy"
+msgstr "प्रोक्सी..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#, fuzzy, c-format
+msgid "<control>R"
+msgstr "<control>Q"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#, c-format
+msgid "/_Help"
+msgstr "/सहायता(_H)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#, c-format
+msgid "/_Report Bug"
+msgstr "/दोष के बारे में बतायें (_R)"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#, c-format
+msgid "/_About..."
+msgstr "/के बारे में (_A)..."
+
+#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#, c-format
+msgid "Rpmdrake"
+msgstr "आरपीएमड्रैक"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#, c-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#, c-format
+msgid "Rpmdrake is the Mageia package management tool."
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#, c-format
+msgid "Mageia"
+msgstr "मैनड्रैकलिनक्स"
+
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#, c-format
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr "धनञ्जय शर्मा (Dhananjaya Sharma)\n"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#, c-format
+msgid "Enabled"
+msgstr "सक्रिय"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1048
+#, c-format
+msgid "Updates"
+msgstr "सभी अपडेट"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1052
+#, c-format
+msgid "Type"
+msgstr "प्रकार"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1079
+#, c-format
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1105
+#, fuzzy, c-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"माध्यम को जोड़ने में असमर्थ, त्रुटियां रिपोर्ट की गई:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1143
+#, c-format
+msgid "Edit"
+msgstr "संपादन"
+
+#: ../Rpmdrake/edit_urpm_sources.pm:1191
+#, c-format
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+"पैकेजो का डाटाबेस ताला-बन्द है । कृपया पैकेजो के डाटाबेस के साथ\n"
+"कार्य कर रहे हुए अन्य कार्यक्रमों को समाप्त करें ।. क्या आपके पास \n"
+"दूसरे डेस्कटाप पर अन्य माध्यम प्रबंधक है, या आप वर्तमान में साथ-साथ\n"
+"पैकेजो को संसाधित कर रहे है?)"
+
+#: ../Rpmdrake/formatting.pm:102
+#, fuzzy, c-format
+msgid "None (installed)"
+msgstr "संसाधन"
+
+#: ../Rpmdrake/formatting.pm:103
+#, c-format
+msgid "Unknown"
+msgstr "अज्ञात"
+
+#: ../Rpmdrake/formatting.pm:166
+#, c-format
+msgid "%s of additional disk space will be used."
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:167
+#, c-format
+msgid "%s of disk space will be freed."
+msgstr ""
+
+#: ../Rpmdrake/formatting.pm:172
+#, fuzzy, c-format
+msgid "%s of packages will be retrieved."
+msgstr "कुछ पैकेजों को हटाया नहीं जा सकता है"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results"
+msgstr "खोज के परिणाम"
+
+#: ../Rpmdrake/gui.pm:77
+#, c-format
+msgid "Search results (none)"
+msgstr "खोज के परिणाम (कुछ नहीं)"
+
+#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/pkg.pm:188
+#, c-format
+msgid "(Not available)"
+msgstr "(उपलब्ध नहीं है)"
+
+#: ../Rpmdrake/gui.pm:135
+#, fuzzy, c-format
+msgid "Security advisory"
+msgstr "सुरक्षा अपडेटस"
+
+#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "No description"
+msgstr "कोई वर्णन नहीं"
+
+#: ../Rpmdrake/gui.pm:159
+#, c-format
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:160
+#, c-format
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:162
+#, fuzzy, c-format
+msgid "This package is not free software"
+msgstr "निम्नलिखित में से एक पैकेज की आवश्यकता है:"
+
+#: ../Rpmdrake/gui.pm:165
+#, c-format
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:169
+#, c-format
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:174
+#, c-format
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:175
+#, c-format
+msgid "This is an unofficial update."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:179
+#, c-format
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:196
+#, fuzzy, c-format
+msgid "Notice: "
+msgstr "महत्त्व: "
+
+#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#, c-format
+msgid "Importance: "
+msgstr "महत्त्व: "
+
+#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#, c-format
+msgid "Reason for update: "
+msgstr "अपडेट करने का कारण: "
+
+#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#, c-format
+msgid "Version: "
+msgstr "संस्मरण: "
+
+#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#, c-format
+msgid "Currently installed version: "
+msgstr "वर्तमान संसाधित संस्मरण:  "
+
+#: ../Rpmdrake/gui.pm:213
+#, fuzzy, c-format
+msgid "Group: "
+msgstr "समूह"
+
+#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#, c-format
+msgid "Architecture: "
+msgstr "वास्तु:"
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "Size: "
+msgstr "आकार: "
+
+#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#, c-format
+msgid "%s KB"
+msgstr "%s के०बी०"
+
+#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#, c-format
+msgid "Medium: "
+msgstr "माध्यम: "
+
+#: ../Rpmdrake/gui.pm:229
+#, c-format
+msgid "New dependencies:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:242
+#, c-format
+msgid "All dependencies installed."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:265
+#, fuzzy, c-format
+msgid "URL: "
+msgstr "यू०आर०एल०:"
+
+#: ../Rpmdrake/gui.pm:298
+#, c-format
+msgid "Details:"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:302
+#, c-format
+msgid "Files:"
+msgstr "सचिकाऐं:"
+
+#: ../Rpmdrake/gui.pm:304
+#, c-format
+msgid "Changelog:"
+msgstr "परिवर्तन रोजानामचा:"
+
+#: ../Rpmdrake/gui.pm:319
+#, c-format
+msgid "Files:\n"
+msgstr "सचिकाऐं:\n"
+
+#: ../Rpmdrake/gui.pm:324
+#, c-format
+msgid "Changelog:\n"
+msgstr "परिवर्तन रोजानामचा:\n"
+
+#: ../Rpmdrake/gui.pm:334
+#, c-format
+msgid "Name: "
+msgstr "नाम: "
+
+#: ../Rpmdrake/gui.pm:344
+#, c-format
+msgid "Summary: "
+msgstr "सारांश: "
+
+#: ../Rpmdrake/gui.pm:350
+#, c-format
+msgid "Description: "
+msgstr "विवरण: "
+
+#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../rpmdrake.pm:942
+#, c-format
+msgid "Warning"
+msgstr "चेतावनी"
+
+#: ../Rpmdrake/gui.pm:363
+#, c-format
+msgid "The package \"%s\" was found."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:364
+#, c-format
+msgid "However this package is not in the package list."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:365
+#, c-format
+msgid "You may want to update your urpmi database."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:367
+#, fuzzy, c-format
+msgid "Matching packages:"
+msgstr "पैकेजिंग"
+
+#. -PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
+#. -PO: eg: "- rpmdrake (medium: "Main Release"
+#: ../Rpmdrake/gui.pm:372
+#, fuzzy, c-format
+msgid "- %s (medium: %s)"
+msgstr "%s माध्यम से %s"
+
+#: ../Rpmdrake/gui.pm:563
+#, fuzzy, c-format
+msgid "Removing package %s would break your system"
+msgstr ""
+"क्षमा करें, इन पैकेजों को हटाने से आपकी प्रणाली नष्ट हो जायेगी:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:568
+#, c-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#, c-format
+msgid ""
+"Rpmdrake or one of its priority dependencies needs to be updated first. "
+"Rpmdrake will then restart."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#, c-format
+msgid "More information on package..."
+msgstr "पैकेज पर और ज्यादा सूचना..."
+
+#: ../Rpmdrake/gui.pm:704
+#, c-format
+msgid "Please choose"
+msgstr "कृपया चयन करें"
+
+#: ../Rpmdrake/gui.pm:705
+#, fuzzy, c-format
+msgid "The following package is needed:"
+msgstr "निम्नलिखित में से एक पैकेज की आवश्यकता है:"
+
+#: ../Rpmdrake/gui.pm:705
+#, c-format
+msgid "One of the following packages is needed:"
+msgstr "निम्नलिखित पैकेजों में से एक की आवश्यकता है:"
+
+#. -PO: Keep it short, this is gonna be on a button
+#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#, c-format
+msgid "More info"
+msgstr "और सूचना"
+
+#: ../Rpmdrake/gui.pm:727
+#, c-format
+msgid "Information on packages"
+msgstr "पैकेजों के बारे में सूचना"
+
+#: ../Rpmdrake/gui.pm:755
+#, c-format
+msgid "Checking dependencies of package..."
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:760
+#, c-format
+msgid "Some additional packages need to be removed"
+msgstr "कुछ अतिरिक्त पैकेजों को भी हटाना होगा"
+
+#: ../Rpmdrake/gui.pm:771
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr "अपनी अधिनताओं के कारण, निम्नलिखित पैकेज (पैकेजों) को भी  हटाना होगा:"
+
+#: ../Rpmdrake/gui.pm:776
+#, c-format
+msgid "Some packages cannot be removed"
+msgstr "कुछ पैकेजों को हटाया नहीं जा सकता है"
+
+#: ../Rpmdrake/gui.pm:777
+#, c-format
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"क्षमा करें, इन पैकेजों को हटाने से आपकी प्रणाली नष्ट हो जायेगी:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#, c-format
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"निम्नलिखित पैकेज(पैकेजों) को, उनकी अधिनताओं के कारण, \n"
+"अभी अचयनित किया जाना चाहिए:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:815
+#, c-format
+msgid "Additional packages needed"
+msgstr "अतिरिक्त पैकेजों की आवश्यकता है"
+
+#: ../Rpmdrake/gui.pm:816
+#, c-format
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"अधिनताओं को सन्तुष्ट करने के लिए, निम्नलिखित पैकेज (पैकेजों)\n"
+"को भी संसाधित करना पड़ेगा:\n"
+"\n"
+
+#: ../Rpmdrake/gui.pm:824
+#, fuzzy, c-format
+msgid "Conflicting Packages"
+msgstr "पैकेजिंग"
+
+#: ../Rpmdrake/gui.pm:838
+#, c-format
+msgid "%s (belongs to the skip list)"
+msgstr "%s (छोड़ी जाने वाली सूची में सम्मिलित है)"
+
+#: ../Rpmdrake/gui.pm:842
+#, fuzzy, c-format
+msgid "One package cannot be installed"
+msgstr "कुछ पैकेजों को संसाधित नहीं किया जा सका"
+
+#: ../Rpmdrake/gui.pm:842
+#, c-format
+msgid "Some packages cannot be installed"
+msgstr "कुछ पैकेजों को संसाधित नहीं किया जा सका"
+
+#: ../Rpmdrake/gui.pm:844
+#, fuzzy, c-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"क्षमा करें, निम्नलिखित पैकेज (पैकेजों) का चयन नहीं किया जा सका:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:845
+#, fuzzy, c-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"क्षमा करें, निम्नलिखित पैकेज (पैकेजों) का चयन नहीं किया जा सका:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#, c-format
+msgid "Some packages need to be removed"
+msgstr "कुछ पैकेजों को हटाना चाहिए"
+
+#: ../Rpmdrake/gui.pm:897
+#, fuzzy, c-format
+msgid "Some packages are selected."
+msgstr "बहुत ज्यादा पैकेजों का चयन कर लिया गया है"
+
+#: ../Rpmdrake/gui.pm:897
+#, c-format
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: ../Rpmdrake/gui.pm:906
+#, c-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr "त्रुटि: सम्भवता %s को सिर्फ़-पढ़ने-के लिए माउन्ट किया गया लगता है ।"
+
+#: ../Rpmdrake/gui.pm:910
+#, c-format
+msgid "You need to select some packages first."
+msgstr "आपको पहिले कुछ पैकेजों का चयन करना चाहिए।"
+
+#: ../Rpmdrake/gui.pm:915
+#, c-format
+msgid "Too many packages are selected"
+msgstr "बहुत ज्यादा पैकेजों का चयन कर लिया गया है"
+
+#: ../Rpmdrake/gui.pm:916
+#, c-format
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+"चेतावनी: ऐसा लगता है कि आप इतने ज्यादा पैकेजों को जोड़ने\n"
+"का प्रयास कर रहे है कि पैकेजों के संसाधन के दौरान या बाद में\n"
+"आपकी संचिका-प्रणाली में मुक्त डिस्क-स्थान नहीं रह जायेगा।\n"
+"यह विशेष खतरनाक है और बहुत सावधानी के साथ करना चाहिए।\n"
+"\n"
+"क्या आप वास्तव में सभी चुनें हुए पैकेजों को संसाधित करना चाहते है?"
+
+#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#, c-format
+msgid "Fatal error"
+msgstr "घातक त्रुटि"
+
+#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#, c-format
+msgid "A fatal error occurred: %s."
+msgstr "एक घातक त्रुटि घटित हुई है: %s "
+
+#: ../Rpmdrake/gui.pm:980
+#, c-format
+msgid "Please wait, listing packages..."
+msgstr "कृपया प्रतीक्षा करें, पैकेजों की सूची को दिखाया जा रहा है..."
+
+#: ../Rpmdrake/gui.pm:993
+#, c-format
+msgid "No update"
+msgstr "कोई अपडेट नहीं"
+
+#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
+#: ../rpmdrake:369 ../rpmdrake:396
+#, c-format
+msgid "All"
+msgstr "सभी"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#, c-format
+msgid "Upgradable"
+msgstr "अपग्रेडेबल"
+
+#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#, fuzzy, c-format
+msgid "Installed"
+msgstr "संसाधन"
+
+#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#, c-format
+msgid "Addable"
+msgstr "जोड़ने-योग्य"
+
+#: ../Rpmdrake/gui.pm:1044
+#, c-format
+msgid "Description not available for this package\n"
+msgstr "इस पैकेज हेतु विवरण उपलब्ध नहीं है\n"
+
+#: ../Rpmdrake/icon.pm:36
+#, c-format
+msgid "Accessibility"
+msgstr "प्रवेश-योग्यता"
+
+#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#, c-format
+msgid "Archiving"
+msgstr "पुरालेखण"
+
+#: ../Rpmdrake/icon.pm:38
+#, c-format
+msgid "Backup"
+msgstr "बैक-अप"
+
+#: ../Rpmdrake/icon.pm:39
+#, c-format
+msgid "Cd burning"
+msgstr "सी०डी० लेखन"
+
+#: ../Rpmdrake/icon.pm:40
+#, c-format
+msgid "Compression"
+msgstr "संकुचन"
+
+#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#, c-format
+msgid "Other"
+msgstr "अन्य"
+
+#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Communications"
+msgstr "संचार"
+
+#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#, c-format
+msgid "Bluetooth"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:45
+#, c-format
+msgid "Dial-Up"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:46
+#, c-format
+msgid "Fax"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:47
+#, c-format
+msgid "Mobile"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:48
+#, c-format
+msgid "Radio"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:49
+#, c-format
+msgid "Serial"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:50
+#, c-format
+msgid "Telephony"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#, c-format
+msgid "Databases"
+msgstr "अनेक डाटाबेस"
+
+#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Development"
+msgstr "विकास"
+
+#: ../Rpmdrake/icon.pm:53
+#, c-format
+msgid "Basic"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:54
+#, c-format
+msgid "C"
+msgstr "सी०"
+
+#: ../Rpmdrake/icon.pm:55
+#, c-format
+msgid "C++"
+msgstr "सी०++"
+
+#: ../Rpmdrake/icon.pm:56
+#, fuzzy, c-format
+msgid "C#"
+msgstr "सी०"
+
+#: ../Rpmdrake/icon.pm:58
+#, c-format
+msgid "Erlang"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:59
+#, c-format
+msgid "GNOME and GTK+"
+msgstr "जीनोम और जी०टी०के०+"
+
+#: ../Rpmdrake/icon.pm:60
+#, c-format
+msgid "Java"
+msgstr "जावा"
+
+#: ../Rpmdrake/icon.pm:61
+#, c-format
+msgid "KDE and Qt"
+msgstr "के०डी०ई० और क्यू०टी०"
+
+#: ../Rpmdrake/icon.pm:62
+#, c-format
+msgid "Kernel"
+msgstr "कर्नल"
+
+#: ../Rpmdrake/icon.pm:63
+#, c-format
+msgid "OCaml"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:65
+#, c-format
+msgid "Perl"
+msgstr "पर्ल"
+
+#: ../Rpmdrake/icon.pm:66
+#, c-format
+msgid "PHP"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:67
+#, c-format
+msgid "Python"
+msgstr "पायथन"
+
+#: ../Rpmdrake/icon.pm:68
+#, fuzzy, c-format
+msgid "Tools"
+msgstr "टेक्टस टूल्स"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#, c-format
+msgid "X11"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#, c-format
+msgid "Documentation"
+msgstr "प्रलेखन"
+
+#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#, c-format
+msgid "Editors"
+msgstr "अनेक संपादक"
+
+#: ../Rpmdrake/icon.pm:72
+#, c-format
+msgid "Education"
+msgstr "शिक्षा"
+
+#: ../Rpmdrake/icon.pm:73
+#, c-format
+msgid "Emulators"
+msgstr "प्रतिस्पर्धक (एमयुलेटरस)"
+
+#: ../Rpmdrake/icon.pm:74
+#, c-format
+msgid "File tools"
+msgstr "संचिका टूल्स"
+
+#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Games"
+msgstr "खेल"
+
+#: ../Rpmdrake/icon.pm:76
+#, c-format
+msgid "Adventure"
+msgstr "साहसिक कार्य"
+
+#: ../Rpmdrake/icon.pm:77
+#, c-format
+msgid "Arcade"
+msgstr "आरकेड"
+
+#: ../Rpmdrake/icon.pm:78
+#, c-format
+msgid "Boards"
+msgstr "बोर्डस"
+
+#: ../Rpmdrake/icon.pm:79
+#, c-format
+msgid "Cards"
+msgstr "कार्डस"
+
+#: ../Rpmdrake/icon.pm:81
+#, c-format
+msgid "Puzzles"
+msgstr "पहेलियां"
+
+#: ../Rpmdrake/icon.pm:82
+#, c-format
+msgid "Shooter"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:83
+#, c-format
+msgid "Sports"
+msgstr "खेल-कूद"
+
+#: ../Rpmdrake/icon.pm:84
+#, c-format
+msgid "Strategy"
+msgstr "नीति"
+
+#: ../Rpmdrake/icon.pm:85
+#, c-format
+msgid "Geography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:107
+#, c-format
+msgid "Graphical desktop"
+msgstr "सचित्र डेस्कटाप"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:89
+#, c-format
+msgid "Enlightenment"
+msgstr "इनलाइटन-मेन्ट"
+
+#: ../Rpmdrake/icon.pm:90
+#, c-format
+msgid "FVWM based"
+msgstr "एफ़०वी०डब्लू०एम० पर आधारित"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:93
+#, c-format
+msgid "GNOME"
+msgstr "गनोम"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:96
+#, c-format
+msgid "Icewm"
+msgstr "आईसीईडब्लूएम"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:99
+#, c-format
+msgid "KDE"
+msgstr "के०डी०ई०"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:103
+#, c-format
+msgid "Sawfish"
+msgstr "साफ़िस"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:106
+#, c-format
+msgid "WindowMaker"
+msgstr "विंडोमेकर"
+
+#. -PO: This is a package/product name. Only translate it if needed:
+#: ../Rpmdrake/icon.pm:109
+#, c-format
+msgid "Xfce"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:116
+#, c-format
+msgid "Graphics"
+msgstr "लेखा-चित्र (ग्राफ़िक्स)"
+
+#: ../Rpmdrake/icon.pm:111
+#, c-format
+msgid "3D"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:114
+#, c-format
+msgid "Photography"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:115
+#, fuzzy, c-format
+msgid "Scanning"
+msgstr "चेतावनी"
+
+#: ../Rpmdrake/icon.pm:116
+#, fuzzy, c-format
+msgid "Viewers"
+msgstr "वीडीओ"
+
+#: ../Rpmdrake/icon.pm:117
+#, c-format
+msgid "Monitoring"
+msgstr "निर्देशन"
+
+#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#, c-format
+msgid "Multimedia"
+msgstr "मल्टीमीडिया"
+
+#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Video"
+msgstr "वीडीओ"
+
+#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#, c-format
+msgid "Networking"
+msgstr "नेटवर्किंग"
+
+#: ../Rpmdrake/icon.pm:121
+#, c-format
+msgid "Chat"
+msgstr "वार्तालाप"
+
+#: ../Rpmdrake/icon.pm:122
+#, c-format
+msgid "File transfer"
+msgstr "संचिका स्थानान्तरण"
+
+#: ../Rpmdrake/icon.pm:123
+#, c-format
+msgid "IRC"
+msgstr "आई०आर०सी०"
+
+#: ../Rpmdrake/icon.pm:124
+#, c-format
+msgid "Instant messaging"
+msgstr "त्वरित संदेशवाहन"
+
+#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#, c-format
+msgid "Mail"
+msgstr "पत्र"
+
+#: ../Rpmdrake/icon.pm:126
+#, c-format
+msgid "News"
+msgstr "समाचार"
+
+#: ../Rpmdrake/icon.pm:128
+#, c-format
+msgid "Remote access"
+msgstr "सुदूर पहुँच"
+
+#: ../Rpmdrake/icon.pm:129
+#, c-format
+msgid "WWW"
+msgstr "डब्लू०डब्लू०डब्लू०"
+
+#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Office"
+msgstr "कार्यालय"
+
+#: ../Rpmdrake/icon.pm:131
+#, c-format
+msgid "Dictionary"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:132
+#, fuzzy, c-format
+msgid "Finance"
+msgstr "फ़्रांस"
+
+#: ../Rpmdrake/icon.pm:133
+#, fuzzy, c-format
+msgid "Management"
+msgstr "सॉफ़्टवेयर प्रबंधक"
+
+#: ../Rpmdrake/icon.pm:134
+#, c-format
+msgid "Organizer"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:136
+#, c-format
+msgid "Spreadsheet"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:137
+#, c-format
+msgid "Suite"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:138
+#, c-format
+msgid "Word processor"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:139
+#, c-format
+msgid "Public Keys"
+msgstr "सार्वजनिक कुँजियां"
+
+#: ../Rpmdrake/icon.pm:140
+#, c-format
+msgid "Publishing"
+msgstr "प्रकाशन"
+
+#: ../Rpmdrake/icon.pm:141
+#, fuzzy, c-format
+msgid "Security"
+msgstr "सुरक्षा अपडेटस"
+
+#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Sciences"
+msgstr "विज्ञान"
+
+#: ../Rpmdrake/icon.pm:143
+#, c-format
+msgid "Astronomy"
+msgstr "खगोल विज्ञान"
+
+#: ../Rpmdrake/icon.pm:144
+#, c-format
+msgid "Biology"
+msgstr "जीव विज्ञान"
+
+#: ../Rpmdrake/icon.pm:145
+#, c-format
+msgid "Chemistry"
+msgstr "रसायन विज्ञान"
+
+#: ../Rpmdrake/icon.pm:146
+#, c-format
+msgid "Computer science"
+msgstr "कम्पूयटर विज्ञान"
+
+#: ../Rpmdrake/icon.pm:147
+#, c-format
+msgid "Geosciences"
+msgstr "भू-विज्ञान"
+
+#: ../Rpmdrake/icon.pm:148
+#, c-format
+msgid "Mathematics"
+msgstr "गणित"
+
+#: ../Rpmdrake/icon.pm:150
+#, c-format
+msgid "Physics"
+msgstr "भौतिक-विज्ञान"
+
+#: ../Rpmdrake/icon.pm:151
+#, c-format
+msgid "Shells"
+msgstr "प्रकोष्ठ (सेल)"
+
+#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:158
+#, c-format
+msgid "Sound"
+msgstr "ध्वनि"
+
+#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#, c-format
+msgid "Editors and Converters"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:154
+#, c-format
+msgid "Midi"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:155
+#, c-format
+msgid "Mixers"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#, c-format
+msgid "Players"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#, c-format
+msgid "Utilities"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:158
+#, fuzzy, c-format
+msgid "Visualization"
+msgstr "अंतर-राष्ट्रयीकरण "
+
+#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#, c-format
+msgid "System"
+msgstr "प्रणाली"
+
+#: ../Rpmdrake/icon.pm:160
+#, c-format
+msgid "Base"
+msgstr "आधार"
+
+#: ../Rpmdrake/icon.pm:161
+#, c-format
+msgid "Cluster"
+msgstr "कलस्टर"
+
+#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#, c-format
+msgid "Configuration"
+msgstr "संरचना"
+
+#: ../Rpmdrake/icon.pm:163
+#, c-format
+msgid "Boot and Init"
+msgstr "बूट और इन्टि"
+
+#: ../Rpmdrake/icon.pm:164
+#, c-format
+msgid "Hardware"
+msgstr "हार्डवेयर"
+
+#: ../Rpmdrake/icon.pm:167
+#, c-format
+msgid "Packaging"
+msgstr "पैकेजिंग"
+
+#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#, c-format
+msgid "Printing"
+msgstr "मुद्रण"
+
+#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "Fonts"
+msgstr "फ़ोन्टस"
+
+#: ../Rpmdrake/icon.pm:170
+#, c-format
+msgid "Console"
+msgstr "कन्सोल"
+
+#: ../Rpmdrake/icon.pm:171
+#, c-format
+msgid "True type"
+msgstr "वास्तविक प्रकार (ट्रू टाइप)"
+
+#: ../Rpmdrake/icon.pm:172
+#, c-format
+msgid "Type1"
+msgstr "प्रकार१"
+
+#: ../Rpmdrake/icon.pm:173
+#, c-format
+msgid "X11 bitmap"
+msgstr "X11 बिट मानचित्र"
+
+#: ../Rpmdrake/icon.pm:174
+#, c-format
+msgid "Internationalization"
+msgstr "अंतर-राष्ट्रयीकरण "
+
+#: ../Rpmdrake/icon.pm:175
+#, c-format
+msgid "Kernel and hardware"
+msgstr "कर्नल और हार्डवेयर"
+
+#: ../Rpmdrake/icon.pm:176
+#, c-format
+msgid "Libraries"
+msgstr "अनेक लेखागार"
+
+#: ../Rpmdrake/icon.pm:178
+#, c-format
+msgid "Servers"
+msgstr "अनेक सर्वर"
+
+#: ../Rpmdrake/icon.pm:182
+#, c-format
+msgid "Terminals"
+msgstr "टर्मिनल्स"
+
+#: ../Rpmdrake/icon.pm:183
+#, c-format
+msgid "Text tools"
+msgstr "टेक्टस टूल्स"
+
+#: ../Rpmdrake/icon.pm:184
+#, c-format
+msgid "Toys"
+msgstr "खिलौने"
+
+#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Workstation"
+msgstr "कार्यकेंद्र"
+
+#: ../Rpmdrake/icon.pm:193
+#, c-format
+msgid "Console Tools"
+msgstr "कन्सोल के औज़ार"
+
+#: ../Rpmdrake/icon.pm:195
+#, c-format
+msgid "Game station"
+msgstr "खेल स्टेशन"
+
+#: ../Rpmdrake/icon.pm:196
+#, c-format
+msgid "Internet station"
+msgstr "इन्टरनेट केन्द्र"
+
+#: ../Rpmdrake/icon.pm:197
+#, c-format
+msgid "Multimedia station"
+msgstr "मल्टीमीडीया केन्द्र"
+
+#: ../Rpmdrake/icon.pm:198
+#, c-format
+msgid "Network Computer (client)"
+msgstr "नेटवर्क कम्प्यूटर (ग्राहक)"
+
+#: ../Rpmdrake/icon.pm:199
+#, c-format
+msgid "Office Workstation"
+msgstr "ऑफ़िस कार्यकेन्द्र"
+
+#: ../Rpmdrake/icon.pm:200
+#, c-format
+msgid "Scientific Workstation"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Graphical Environment"
+msgstr "सचित्र वातावरण"
+
+#: ../Rpmdrake/icon.pm:203
+#, c-format
+msgid "GNOME Workstation"
+msgstr "गनोम कार्यकेन्द्र"
+
+#: ../Rpmdrake/icon.pm:204
+#, fuzzy, c-format
+msgid "IceWm Desktop"
+msgstr "डेस्कटाप"
+
+#: ../Rpmdrake/icon.pm:205
+#, c-format
+msgid "KDE Workstation"
+msgstr "केडीई कार्यकेन्द्र"
+
+#: ../Rpmdrake/icon.pm:206
+#, c-format
+msgid "Other Graphical Desktops"
+msgstr "अन्य सचित्र डेस्कटाप"
+
+#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Server"
+msgstr "सर्वर"
+
+#: ../Rpmdrake/icon.pm:211
+#, fuzzy, c-format
+msgid "DNS/NIS"
+msgstr "डीएनएस"
+
+#: ../Rpmdrake/icon.pm:212
+#, c-format
+msgid "Database"
+msgstr "डाटाबेस"
+
+#: ../Rpmdrake/icon.pm:213
+#, c-format
+msgid "Firewall/Router"
+msgstr "अग्नि-भीतिका/रूटर"
+
+#: ../Rpmdrake/icon.pm:215
+#, c-format
+msgid "Mail/Groupware/News"
+msgstr ""
+
+#: ../Rpmdrake/icon.pm:216
+#, c-format
+msgid "Network Computer server"
+msgstr "नेटवर्क कम्प्यूटर सर्वर"
+
+#: ../Rpmdrake/icon.pm:217
+#, c-format
+msgid "Web/FTP"
+msgstr "वेब/एफ़०टी०पी०"
+
+#: ../Rpmdrake/init.pm:49
+#, c-format
+msgid "Usage: %s [OPTION]..."
+msgstr "उपयोगिता: %s [विकल्पों का नाम]..."
+
+#: ../Rpmdrake/init.pm:50
+#, c-format
+msgid "  --auto                 assume default answers to questions"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:51
+#, c-format
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+"  --changelog-first      विवरण खिड़की में फ़ाइलसूची के पहिले  परिवर्तनलॉग दिखाना"
+
+#: ../Rpmdrake/init.pm:52
+#, c-format
+msgid "  --media=medium1,..     limit to given media"
+msgstr "  --media=medium1,..     दिये गये माध्यम के लिए सीमा"
+
+#: ../Rpmdrake/init.pm:53
+#, c-format
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+"  --merge-all-rpmnew     सभी पायी गयी .rpmnew/.rpmsave फ़ाइलों के विलय के लिए "
+"प्रस्ताव"
+
+#: ../Rpmdrake/init.pm:54
+#, c-format
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+"  --mode=MODE            विधा को स्थापित करना (संसाधन (डिफ़ाल्ट), हटाना, अपडेट)"
+
+#: ../Rpmdrake/init.pm:55
+#, c-format
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:56
+#, c-format
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr "  --no-confirmation      अपडेट विधा में सबसे पहिले पुष्टि प्रश्न को ना पूछें"
+
+#: ../Rpmdrake/init.pm:57
+#, c-format
+msgid "  --no-media-update      don't update media at startup"
+msgstr "   --no-media-update       - शुरुवात में माध्यम को अपडेट ना करें"
+
+#: ../Rpmdrake/init.pm:58
+#, c-format
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr "  --no-verify-rpm       पैकेजों के हस्ताक्षरों को सत्यापित ना करें"
+
+#: ../Rpmdrake/init.pm:59
+#, c-format
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+"  --parallel=alias,host  सामान्तर विधा में रहना, \"alias\" समूह का उपयोग करना, "
+"\"host\" मशीन को आश्रित्ताओं को दिखाने के लिए उपयोग करना"
+
+#: ../Rpmdrake/init.pm:60
+#, c-format
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:61
+#, fuzzy, c-format
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr "  --run-as-root          आरपीएम संसाधन के लिए अन्य रूट का उपयोग"
+
+#: ../Rpmdrake/init.pm:62
+#, c-format
+msgid "  --run-as-root          force to run as root"
+msgstr "  --run-as-root          रूट जैसे चलाने के लिए बाध्य करना"
+
+#: ../Rpmdrake/init.pm:63
+#, c-format
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr "  --search=pkg           \"pkg\" के लिए खोज़ चलाना"
+
+#: ../Rpmdrake/init.pm:64
+#, c-format
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+
+#: ../Rpmdrake/init.pm:65
+#, fuzzy, c-format
+msgid "  --version              print this tool's version number\n"
+msgstr "  --help         - यह सहायता संदेश मुद्रित करें\n"
+
+#: ../Rpmdrake/init.pm:156
+#, c-format
+msgid "Running in user mode"
+msgstr "उपयोगकर्ता विधा में चलायमान"
+
+#: ../Rpmdrake/init.pm:157
+#, c-format
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"आप इस कार्यक्रम की शुरूवात एक सामान्य उपयोगकर्ता की भांति कर रहे है।\n"
+"आप इस प्रणाली पर परिवर्तनों को नहीं कर पायेगें,\n"
+"पर आप विद्यमान डाटाबेस को फ़िर भी देख सकते है।"
+
+#: ../Rpmdrake/pkg.pm:126
+#, c-format
+msgid "Getting information from XML meta-data from %s..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:130
+#, c-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../rpmdrake.pm:594
+#, c-format
+msgid "Please wait"
+msgstr "कृपया प्रतीक्षा करें"
+
+#: ../Rpmdrake/pkg.pm:147
+#, c-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:149
+#, c-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#, c-format
+msgid "Downloading package `%s'..."
+msgstr "`%s' पैकेज को डॉउनलोड किया जा रहा है..."
+
+#: ../Rpmdrake/pkg.pm:211
+#, c-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:212
+#, c-format
+msgid "        %s%% completed, speed = %s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#, fuzzy, c-format
+msgid "Confirmation"
+msgstr "संरचना"
+
+#: ../Rpmdrake/pkg.pm:251
+#, c-format
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"ंंमुझे नवीनतम अपडेट पैकेजों को प्राप्त करने के लिए, किसी समरूप प्रणाली से सम्पर्क करना होगा।\n"
+"कृपया जाँच करें कि आपका नेटवर्क अभी चल रहा है।\n"
+"\n"
+"क्या जारी रखना ठीक है?"
+
+#: ../Rpmdrake/pkg.pm:255
+#, c-format
+msgid "Do not ask me next time"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:264
+#, c-format
+msgid "Already existing update media"
+msgstr "अपडेट किया हुआ माध्यम पहले से विद्यमान है"
+
+#: ../Rpmdrake/pkg.pm:265
+#, fuzzy, c-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"आपने पहिले से ही कम-से-कम एक अपडेट माध्यम को संरचित कर रक्खा है, परन्तु\n"
+"वह सभी इस समय निष्क्रिय है। इनमें से कम-से-कम एक को सक्रिय बनाने के लिए,\n"
+"आपको सॉफ़्टवेयर मीडीया प्रबंधक को चलाना चाहिए।\n"
+"(सक्रिय (Enabled?) कालम में देखें)\n"
+"\n"
+"इसके बाद, %s को पुनः आरम्भ करें।"
+
+#: ../Rpmdrake/pkg.pm:275
+#, c-format
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#, c-format
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"मुझे मैनड्रिव सॉफ़्ट वेब स्थल से समरूप प्रणालियों की सूची के लिए सम्पर्क करना होगा।\n"
+"कृपया सुनिश्चित करें कि आपका नेटवर्क अभी चलायमान है। \n"
+"\n"
+"क्या अब जारी रख्ना ठीक है?"
+
+#: ../Rpmdrake/pkg.pm:283
+#, c-format
+msgid "How to choose manually your mirror"
+msgstr "आपकी समरूप प्रणाली(mirror) को स्वंम कैसे चयन करें"
+
+#: ../Rpmdrake/pkg.pm:284
+#, c-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"आप स्वंम भी आपकी पसन्दीदा समरूप प्रणाली का चयन कर सकते है:\n"
+"ऐसा करने के लिए, सॉफ़्टवेयर मीडीया प्रबंधक को आरम्भ करें, और फ़िर\n"
+"एक 'सुरक्षा अपडेटस' माध्यम को जोड़े।\n"
+"\n"
+"इसके बाद, %s को पुनः आरम्भ करें।"
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#, c-format
+msgid "Package installation..."
+msgstr "पैकेज संसाधन..."
+
+#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#, c-format
+msgid "Initializing..."
+msgstr "आरंभीकरण..."
+
+#: ../Rpmdrake/pkg.pm:452
+#, fuzzy, c-format
+msgid "Reading updates description"
+msgstr "विवरणों में"
+
+#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#, c-format
+msgid "Please wait, finding available packages..."
+msgstr "कृपया प्रतीक्षा करें, उपलब्ध पैकेजों को पता लगाया जा रहा है..."
+
+#: ../Rpmdrake/pkg.pm:464
+#, fuzzy, c-format
+msgid "Please wait, listing base packages..."
+msgstr "कृपया प्रतीक्षा करें, पैकेजों की सूची को दिखाया जा रहा है..."
+
+#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#, c-format
+msgid "Error"
+msgstr "त्रुटि"
+
+#: ../Rpmdrake/pkg.pm:477
+#, fuzzy, c-format
+msgid "Please wait, finding installed packages..."
+msgstr "कृपया प्रतीक्षा करें, उपलब्ध पैकेजों को पता लगाया जा रहा है..."
+
+#: ../Rpmdrake/pkg.pm:594
+#, fuzzy, c-format
+msgid "Upgrade information"
+msgstr "सामान्य जानकारी"
+
+#: ../Rpmdrake/pkg.pm:596
+#, c-format
+msgid "These packages come with upgrade information"
+msgstr "ये पैकेज अपग्रेड सूचना के सहित आते है"
+
+#: ../Rpmdrake/pkg.pm:604
+#, fuzzy, c-format
+msgid "Upgrade information about this package"
+msgstr "पैकेज पर और ज्यादा सूचना..."
+
+#: ../Rpmdrake/pkg.pm:607
+#, fuzzy, c-format
+msgid "Upgrade information about package %s"
+msgstr "पैकेज पर और अधिक सूचना... [%s]"
+
+#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#, c-format
+msgid "All requested packages were installed successfully."
+msgstr "सभी निवेदित पैकेजों को सफ़लता-पूर्वक संसाधित किया गया।"
+
+#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#, c-format
+msgid "Problem during installation"
+msgstr "संसाधन के दौरान समस्या"
+
+#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#, c-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"संसाधन के दौरान, एक समस्या थी:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:653
+#, c-format
+msgid "Installation failed"
+msgstr "संसाधन असफ़ल"
+
+#: ../Rpmdrake/pkg.pm:676
+#, c-format
+msgid "Checking validity of requested packages..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:695
+#, c-format
+msgid "Unable to get source packages."
+msgstr "स्रोत्र पैकेजों को प्राप्त करनें में असमर्थ"
+
+#: ../Rpmdrake/pkg.pm:696
+#, c-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "स्रोत्र पैकेजों को प्राप्त करनें में असमर्थ, क्षमा करें। %s"
+
+#: ../Rpmdrake/pkg.pm:697
+#, c-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"त्रुटि(त्रुटियां) बतायी गई:\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:715
+#, fuzzy, c-format
+msgid "The following package is going to be installed:"
+msgid_plural "The following %d packages are going to be installed:"
+msgstr[0] "निम्नलिखित में से एक पैकेज की आवश्यकता है:"
+msgstr[1] "निम्नलिखित में से एक पैकेज की आवश्यकता है:"
+
+#: ../Rpmdrake/pkg.pm:721
+#, fuzzy, c-format
+msgid "Remove one package?"
+msgid_plural "Remove %d packages?"
+msgstr[0] "एक कुँजी को हटायें"
+msgstr[1] "एक कुँजी को हटायें"
+
+#: ../Rpmdrake/pkg.pm:723
+#, fuzzy, c-format
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr ""
+"अन्य पैकेजों को उन्नयन करने के लिए, निम्नलिखित पैकेजों को हटाना पड़ेगा:\n"
+"\n"
+"%s\n"
+"\n"
+"क्या जारी रखना ठीक है?"
+
+#: ../Rpmdrake/pkg.pm:724
+#, fuzzy, c-format
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+"अन्य पैकजों को उन्नयन करने के लिए, निम्नलिखित पैकेजों हटाना होगा:\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:728
+#, fuzzy, c-format
+msgid "Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"क्या जारी रखना ठीक है?"
+
+#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#, fuzzy, c-format
+msgid "Orphan packages"
+msgstr "पैकेजिंग"
+
+#: ../Rpmdrake/pkg.pm:744
+#, fuzzy, c-format
+msgid "The following orphan package will be removed."
+msgid_plural "The following orphan packages will be removed."
+msgstr[0] "निम्नलिखित में से एक पैकेज की आवश्यकता है:"
+msgstr[1] "निम्नलिखित में से एक पैकेज की आवश्यकता है:"
+
+#: ../Rpmdrake/pkg.pm:760
+#, c-format
+msgid "Preparing package installation..."
+msgstr "पैकेजों के संसाधन की तैयारी की जा रही है..."
+
+#: ../Rpmdrake/pkg.pm:760
+#, fuzzy, c-format
+msgid "Preparing package installation transaction..."
+msgstr "पैकेजों के संसाधन की तैयारी की जा रही है..."
+
+#: ../Rpmdrake/pkg.pm:763
+#, c-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr "`%s' (%s/%s) पैकेज को संसाधित किया जा रहा है..."
+
+#: ../Rpmdrake/pkg.pm:764
+#, c-format
+msgid "Total: %s/%s"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:827
+#, c-format
+msgid "Change medium"
+msgstr "माध्यम परिवर्तित करें"
+
+#: ../Rpmdrake/pkg.pm:828
+#, fuzzy, c-format
+msgid "Please insert the medium named \"%s\""
+msgstr "कृपया \"%s\" नामक माध्यम को [%s] साधन प्रणाली (डिवाइस) में डालें"
+
+#: ../Rpmdrake/pkg.pm:832
+#, c-format
+msgid "Verifying package signatures..."
+msgstr "पैकेजों के हस्ताक्षर प्रमाणित किये जा रहे है..."
+
+#: ../Rpmdrake/pkg.pm:855
+#, c-format
+msgid "%d installation transactions failed"
+msgstr "%d संसाधन क्रिया-कलाप असफ़ल"
+
+#: ../Rpmdrake/pkg.pm:869
+#, c-format
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr "असाध्य त्रुटि: संसाधन के लिए कोई पैकेज नहीं मिला, क्षमा करें।"
+
+#: ../Rpmdrake/pkg.pm:872
+#, c-format
+msgid "Inspecting configuration files..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:880
+#, c-format
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"संसाधन सम्पन्न हुआ; सबकुछ भली-भांति संसाधित किया गया.\n"
+"\n"
+"कुछ संरचना संचिकाओं का `.rpmnew' या `.rpmsave' की भांति निर्माण किया गया है,\n"
+"आप इनमें में कुछ का निरीक्षण, कार्यों को करने के लिए कर सकते है:"
+
+#: ../Rpmdrake/pkg.pm:886
+#, c-format
+msgid "Looking for \"README\" files..."
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:919
+#, c-format
+msgid "RPM transaction %d/%d"
+msgstr ""
+
+#: ../Rpmdrake/pkg.pm:920
+#, fuzzy, c-format
+msgid "Unselect all"
+msgstr "सभी का चयन"
+
+#: ../Rpmdrake/pkg.pm:921
+#, c-format
+msgid "Details"
+msgstr "विस्तृत विवरण"
+
+#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#, c-format
+msgid "Please wait, removing packages..."
+msgstr "कृपया प्रतीक्षा करें, पैकेज हटाये जा रहे है..."
+
+#: ../Rpmdrake/pkg.pm:977
+#, c-format
+msgid "Problem during removal"
+msgstr "हटाने के दौरान समस्या"
+
+#: ../Rpmdrake/pkg.pm:978
+#, c-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"पैकेजों को हटाने के दौरान, एक समस्या थी:\n"
+"\n"
+"%s"
+
+#: ../Rpmdrake/pkg.pm:985
+#, c-format
+msgid "Information"
+msgstr "सूचना"
+
+#: ../Rpmdrake/rpmnew.pm:82
+#, c-format
+msgid "Inspecting %s"
+msgstr "%s की जाँच की जा रही है"
+
+#: ../Rpmdrake/rpmnew.pm:107
+#, c-format
+msgid "Changes:"
+msgstr "परिवर्तन:"
+
+#: ../Rpmdrake/rpmnew.pm:116
+#, c-format
+msgid ""
+"You can either remove the .%s file, use it as main file or do nothing. If "
+"unsure, keep the current file (\"%s\")."
+msgstr ""
+
+#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#, c-format
+msgid "Remove .%s"
+msgstr ".%s को हटाये"
+
+#: ../Rpmdrake/rpmnew.pm:126
+#, c-format
+msgid "Use .%s as main file"
+msgstr ".%s को मुख्य संचिका की भांति उपयोग करें"
+
+#: ../Rpmdrake/rpmnew.pm:130
+#, c-format
+msgid "Do nothing"
+msgstr "कुछ नहीं करें"
+
+#: ../Rpmdrake/rpmnew.pm:158
+#, c-format
+msgid "Installation finished"
+msgstr "संसाधन समाप्त"
+
+#: ../Rpmdrake/rpmnew.pm:173
+#, c-format
+msgid "Inspect..."
+msgstr "जाँच की जा रही है..."
+
+#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#, c-format
+msgid "Please wait, searching..."
+msgstr "कृपया प्रतीक्षा करें, खोज जारी है..."
+
+#: ../gurpmi.addmedia:103
+#, c-format
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr ""
+
+#: ../gurpmi.addmedia:117
+#, c-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"%s\n"
+"\n"
+"क्या जारी रखना ठीक है?"
+
+#: ../gurpmi.addmedia:121
+#, fuzzy, c-format
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"आप अब एक नये पैकेजों के माध्यम `%s' को जोड़ने जा रहे है ।\n"
+"इसका अर्थ है कि आप अपने तंत्र में नये सॉफ़्टवेयर पैकेजों को इस नये माध्यम से जोड़ने में समर्थ होगें ।"
+
+#: ../gurpmi.addmedia:125
+#, fuzzy, c-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+"आप अब एक नये पैकेजों के माध्यम `%s' को जोड़ने जा रहे है ।\n"
+"इसका अर्थ है कि आप अपने तंत्र में नये सॉफ़्टवेयर पैकेजों को इस नये माध्यम से जोड़ने में समर्थ होगें ।"
+
+#: ../gurpmi.addmedia:128
+#, c-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+"आप अब एक नये पैकेजों के माध्यम `%s' को जोड़ने जा रहे है ।\n"
+"इसका अर्थ है कि आप अपने तंत्र में नये सॉफ़्टवेयर पैकेजों को इस नये माध्यम से जोड़ने में समर्थ होगें ।"
+
+#: ../gurpmi.addmedia:152
+#, fuzzy, c-format
+msgid "Successfully added media."
+msgstr "`%s' माध्यम को सफ़लतापूर्वक जोड़ा गया ।"
+
+#: ../gurpmi.addmedia:154
+#, fuzzy, c-format
+msgid "Successfully added media %s."
+msgstr "`%s' माध्यम को सफ़लतापूर्वक जोड़ा गया ।"
+
+#: ../gurpmi.addmedia:155
+#, c-format
+msgid "Successfully added medium `%s'."
+msgstr "`%s' माध्यम को सफ़लतापूर्वक जोड़ा गया ।"
+
+#: ../rpmdrake:107
+#, c-format
+msgid "Stop"
+msgstr "रूको"
+
+#: ../rpmdrake:141
+#, fuzzy, c-format
+msgid "no xml-info available for medium \"%s\""
+msgstr "`%s' माध्यम के लिए संचिका की प्रतिलिपि बनाई जा रही है..."
+
+#: ../rpmdrake:157 ../rpmdrake:185
+#, fuzzy, c-format
+msgid "Search aborted"
+msgstr "खोज के परिणाम"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Selected"
+msgstr "चयन किया गया"
+
+#: ../rpmdrake:204
+#, c-format
+msgid "Not selected"
+msgstr "चयन नहीं किया गया"
+
+#: ../rpmdrake:211
+#, fuzzy, c-format
+msgid "No search results."
+msgstr "खोज के परिणाम"
+
+#: ../rpmdrake:212
+#, c-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+
+#: ../rpmdrake:246
+#, c-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr "चुना गया:  %s / मुक्त डिस्क स्थान: %s"
+
+#: ../rpmdrake:286
+#, fuzzy, c-format
+msgid "Package"
+msgstr "पैकेजिंग"
+
+#. -PO: "Architecture" but to be kept *small* !!!
+#: ../rpmdrake:300
+#, fuzzy, c-format
+msgid "Arch."
+msgstr "पुरालेखण"
+
+#. -PO: "Status" should be kept *small* !!!
+#: ../rpmdrake:328
+#, c-format
+msgid "Status"
+msgstr "स्थिति"
+
+#: ../rpmdrake:371
+#, c-format
+msgid "Not installed"
+msgstr "संसाधन नहीं किया गया है"
+
+#: ../rpmdrake:386
+#, c-format
+msgid "All packages, alphabetical"
+msgstr "सभी पैकेज, वर्णमाला के क्रम में"
+
+#: ../rpmdrake:387
+#, c-format
+msgid "All packages, by group"
+msgstr "सभी पैकेज, समूहों के क्रम में"
+
+#: ../rpmdrake:388
+#, c-format
+msgid "Leaves only, sorted by install date"
+msgstr "सिर्फ़ लीवस, संसाधन तिथि के क्रम में "
+
+#: ../rpmdrake:389
+#, c-format
+msgid "All packages, by update availability"
+msgstr "सभी पैकेज, अपडेट की उपलब्धता पर आधारित"
+
+#: ../rpmdrake:390
+#, c-format
+msgid "All packages, by selection state"
+msgstr "सभी पैकेज, चयन अवस्था के क्रम में "
+
+#: ../rpmdrake:391
+#, c-format
+msgid "All packages, by size"
+msgstr "सभी पैकेज, आकार के क्रम में"
+
+#: ../rpmdrake:392
+#, c-format
+msgid "All packages, by medium repository"
+msgstr "सभी पैकेज, माध्यम भन्डार के क्रम में"
+
+#. -PO: Backports media are newer but less-tested versions of some packages in main
+#. -PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
+#: ../rpmdrake:400
+#, fuzzy, c-format
+msgid "Backports"
+msgstr "बैक-अप"
+
+#: ../rpmdrake:401
+#, fuzzy, c-format
+msgid "Meta packages"
+msgstr "पैकेजिंग"
+
+#: ../rpmdrake:402
+#, c-format
+msgid "Packages with GUI"
+msgstr ""
+
+#: ../rpmdrake:403
+#, fuzzy, c-format
+msgid "All updates"
+msgstr "सामान्य अपडेटस"
+
+#: ../rpmdrake:404
+#, c-format
+msgid "Security updates"
+msgstr "सुरक्षा अपडेटस"
+
+#: ../rpmdrake:405
+#, c-format
+msgid "Bugfixes updates"
+msgstr "दोष-निवारक अपडेटस"
+
+#: ../rpmdrake:406
+#, fuzzy, c-format
+msgid "General updates"
+msgstr "सामान्य अपडेटस"
+
+#: ../rpmdrake:429
+#, c-format
+msgid "View"
+msgstr "वीडीओ"
+
+#: ../rpmdrake:457
+#, fuzzy, c-format
+msgid "Filter"
+msgstr "/संचिका (_F)"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in names"
+msgstr "नामों में"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in descriptions"
+msgstr "विवरणों में"
+
+#: ../rpmdrake:493
+#, fuzzy, c-format
+msgid "in summaries"
+msgstr "नामों में"
+
+#: ../rpmdrake:493
+#, c-format
+msgid "in file names"
+msgstr "संचिका के नामों में"
+
+#: ../rpmdrake:534
+#, c-format
+msgid "/_Select dependencies without asking"
+msgstr ""
+
+#: ../rpmdrake:537
+#, c-format
+msgid "Clear download cache after successful install"
+msgstr ""
+
+#: ../rpmdrake:538
+#, c-format
+msgid "/_Compute updates on startup"
+msgstr ""
+
+#: ../rpmdrake:539
+#, c-format
+msgid "Search in _full package names"
+msgstr ""
+
+#: ../rpmdrake:540
+#, c-format
+msgid "Use _regular expressions in searches"
+msgstr ""
+
+#: ../rpmdrake:546
+#, c-format
+msgid "/_Update media"
+msgstr "/माध्यम का अपडेट (_U)"
+
+#: ../rpmdrake:551
+#, c-format
+msgid "/_Reset the selection"
+msgstr "/चयन का रीसेट (_R)"
+
+#: ../rpmdrake:555
+#, c-format
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: ../rpmdrake:571
+#, c-format
+msgid "/Reload the _packages list"
+msgstr "/पैकेजों की सूची का रीलोड (_p)"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "/_Quit"
+msgstr "/निर्गम(_Q)"
+
+#: ../rpmdrake:572
+#, c-format
+msgid "<control>Q"
+msgstr "<control>Q"
+
+#: ../rpmdrake:591
+#, fuzzy, c-format
+msgid "/_Media Manager"
+msgstr "सॉफ़्टवेयर मीडीया प्रबंधक"
+
+#: ../rpmdrake:595 ../rpmdrake:671
+#, c-format
+msgid "/_Show automatically selected packages"
+msgstr "/स्वतः चयनित पैकेजों को दिखायें (_S)"
+
+#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#, c-format
+msgid "/_View"
+msgstr "/वीडीओ"
+
+#: ../rpmdrake:692
+#, c-format
+msgid "Find:"
+msgstr "प्राप्त:"
+
+#: ../rpmdrake:696
+#, c-format
+msgid "Please type in the string you want to search then press the <enter> key"
+msgstr ""
+
+#: ../rpmdrake:726
+#, c-format
+msgid "Apply"
+msgstr "प्रयोग करें"
+
+#: ../rpmdrake:745
+#, c-format
+msgid "Quick Introduction"
+msgstr ""
+
+#: ../rpmdrake:746
+#, c-format
+msgid "You can browse the packages through the categories tree on the left."
+msgstr ""
+
+#: ../rpmdrake:747
+#, c-format
+msgid ""
+"You can view information about a package by clicking on it on the right list."
+msgstr ""
+
+#: ../rpmdrake:748
+#, c-format
+msgid "To install, update or remove a package, just click on its \"checkbox\"."
+msgstr ""
+
+#: ../rpmdrake:793
+#, c-format
+msgid "rpmdrake is already running (pid: %s)"
+msgstr ""
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Software Update"
+msgstr "सॉफ़्टवेयर अपडेट"
+
+#: ../rpmdrake.pm:121
+#, c-format
+msgid "Mageia Update"
+msgstr "मैनड्रिव लिनक्स अपडेट"
+
+#: ../rpmdrake.pm:148
+#, c-format
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr "कृपया प्रोक्सी पर पहुँच पाने के लिए अपने अधिकार-पत्र बताएँ\n"
+
+#: ../rpmdrake.pm:149
+#, c-format
+msgid "User name:"
+msgstr "उपयोगकर्ता नाम:"
+
+#: ../rpmdrake.pm:234
+#, c-format
+msgid "Software Packages Removal"
+msgstr "सॉफ़्तवेयर पैकजों का निरस्तीकरण"
+
+#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#, c-format
+msgid "Software Packages Update"
+msgstr "सॉफ़्टवेयर पैकजों का अपडेट"
+
+#: ../rpmdrake.pm:236
+#, c-format
+msgid "Software Packages Installation"
+msgstr "सॉफ़्टवेयर पैकेजों का संसाधन"
+
+#: ../rpmdrake.pm:284
+#, c-format
+msgid "No"
+msgstr "नहीं"
+
+#: ../rpmdrake.pm:288
+#, c-format
+msgid "Yes"
+msgstr "हाँ"
+
+#: ../rpmdrake.pm:340
+#, c-format
+msgid "Info..."
+msgstr "सूचना..."
+
+#: ../rpmdrake.pm:465
+#, c-format
+msgid "Austria"
+msgstr "आस्ट्रिया"
+
+#: ../rpmdrake.pm:466
+#, c-format
+msgid "Australia"
+msgstr "आस्ट्रेलिया"
+
+#: ../rpmdrake.pm:467
+#, c-format
+msgid "Belgium"
+msgstr "बेल्जियम"
+
+#: ../rpmdrake.pm:468
+#, c-format
+msgid "Brazil"
+msgstr "ब्राज़ील"
+
+#: ../rpmdrake.pm:469
+#, c-format
+msgid "Canada"
+msgstr "कनाडा"
+
+#: ../rpmdrake.pm:470
+#, c-format
+msgid "Switzerland"
+msgstr "Switzerland"
+
+#: ../rpmdrake.pm:471
+#, c-format
+msgid "Costa Rica"
+msgstr "कोस्टारिका"
+
+#: ../rpmdrake.pm:472
+#, c-format
+msgid "Czech Republic"
+msgstr "ज़ेक रिपब्लिक"
+
+#: ../rpmdrake.pm:473
+#, c-format
+msgid "Germany"
+msgstr "जर्मनी"
+
+#: ../rpmdrake.pm:474
+#, c-format
+msgid "Danmark"
+msgstr "डेनमार्क"
+
+#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#, c-format
+msgid "Greece"
+msgstr "ग्रीस"
+
+#: ../rpmdrake.pm:476
+#, c-format
+msgid "Spain"
+msgstr "स्पेन"
+
+#: ../rpmdrake.pm:477
+#, c-format
+msgid "Finland"
+msgstr "फ़िनलैण्ड"
+
+#: ../rpmdrake.pm:478
+#, c-format
+msgid "France"
+msgstr "फ़्रांस"
+
+#: ../rpmdrake.pm:480
+#, c-format
+msgid "Hungary"
+msgstr "हंगरी"
+
+#: ../rpmdrake.pm:481
+#, c-format
+msgid "Israel"
+msgstr "इजरायल"
+
+#: ../rpmdrake.pm:482
+#, c-format
+msgid "Italy"
+msgstr "इटली"
+
+#: ../rpmdrake.pm:483
+#, c-format
+msgid "Japan"
+msgstr "जापान"
+
+#: ../rpmdrake.pm:484
+#, c-format
+msgid "Korea"
+msgstr "कोरिया"
+
+#: ../rpmdrake.pm:485
+#, c-format
+msgid "Netherlands"
+msgstr "नीदरलैण्ड"
+
+#: ../rpmdrake.pm:486
+#, c-format
+msgid "Norway"
+msgstr "नार्वे"
+
+#: ../rpmdrake.pm:487
+#, c-format
+msgid "Poland"
+msgstr "पोलैण्ड"
+
+#: ../rpmdrake.pm:488
+#, c-format
+msgid "Portugal"
+msgstr "पुर्तगाल"
+
+#: ../rpmdrake.pm:489
+#, c-format
+msgid "Russia"
+msgstr "सोवियत रूस"
+
+#: ../rpmdrake.pm:490
+#, c-format
+msgid "Sweden"
+msgstr "स्वीडन"
+
+#: ../rpmdrake.pm:491
+#, c-format
+msgid "Singapore"
+msgstr "Singapore"
+
+#: ../rpmdrake.pm:492
+#, c-format
+msgid "Slovakia"
+msgstr "Slovakia"
+
+#: ../rpmdrake.pm:493
+#, c-format
+msgid "Taiwan"
+msgstr "ताईवान"
+
+#: ../rpmdrake.pm:494
+#, c-format
+msgid "United Kingdom"
+msgstr "ब्रिटेन"
+
+#: ../rpmdrake.pm:495
+#, c-format
+msgid "China"
+msgstr "चीन"
+
+#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#, c-format
+msgid "United States"
+msgstr "अमेरिका"
+
+#: ../rpmdrake.pm:579
+#, c-format
+msgid "Please wait, downloading mirror addresses."
+msgstr "कृपया प्रतीक्षा करें, मिरर पतों को डॉउनलोड किये जा रहे है। "
+
+#: ../rpmdrake.pm:580
+#, c-format
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr ""
+"कृपया प्रतीक्षा करें, मैनड्रिव सॉफ़्ट वेब स्थल से समरूप प्रणालियों के पते डॉउनलोड किये जा रहे "
+"है। "
+
+#: ../rpmdrake.pm:601
+#, c-format
+msgid "retrieval of [%s] failed"
+msgstr ""
+
+#: ../rpmdrake.pm:623
+#, c-format
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"मिरर सूची को प्राप्त करने के लिए मुझे इंटरनेट तक पहुँच की आवश्यकता है।\n"
+"कृपया सुनिश्चित करें कि आपका नेटवर्क अभी चलायमान है। \n"
+"\n"
+"क्या अब जारी रख्ना ठीक है?"
+
+#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#, fuzzy, c-format
+msgid "Mirror choice"
+msgstr "%s पसन्दें"
+
+#: ../rpmdrake.pm:643
+#, c-format
+msgid "Error during download"
+msgstr "डॉउनलोड के दौरान त्रूटि"
+
+#: ../rpmdrake.pm:645
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"समरूप प्रणालियों की सूची को डॉउनलोड करने के दौरान एक त्रुटि हुई :\n"
+"\n"
+"%s\n"
+"नेटवर्क या वेब-स्थल हो सकता है कि उपलब्ध ना हो।\n"
+"कृपया कुछ समय उपरान्त पुनः प्रयास करें।"
+
+#: ../rpmdrake.pm:650
+#, c-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"\n"
+"%s\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+"समरूप प्रणालियों की सूची को डॉउनलोड करने के दौरान एक त्रुटि हुई है:\n"
+"\n"
+"%s\n"
+"नेटवर्क या मैनड्रिव सॉफ़्ट वेब-स्थल हो सकता है कि उपलब्ध नहीं है।\n"
+"कृपया कुछ समय उपरान्त पुनः प्रयास करें।"
+
+#: ../rpmdrake.pm:660
+#, c-format
+msgid "No mirror"
+msgstr "कोई समरूप प्रणाली उपलब्ध नहीं"
+
+#: ../rpmdrake.pm:662
+#, c-format
+msgid "I can't find any suitable mirror."
+msgstr "मै किसी अनुरूप मिरर को नहीं खोज सका ।"
+
+#: ../rpmdrake.pm:663
+#, c-format
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"मुझे कोई उचित समरूप प्रणाली नहीं मिल सकी।\n"
+"\n"
+"इस समस्या के अनेक कारण हो सकते है; सबसे ज्यादा बारम्बार होने वाले स्थिति है\n"
+"जब मैनड्रिव लिनक्स अधिकारिक अपडेटस , आपके संसाधक (प्रोसेसर) की संरचना को \n"
+"समर्थित नहीं करते हो।"
+
+#: ../rpmdrake.pm:682
+#, c-format
+msgid "Please choose the desired mirror."
+msgstr "कृपया इच्छित समरूप प्रणाली का चयन करें।"
+
+#: ../rpmdrake.pm:723
+#, c-format
+msgid "Copying file for medium `%s'..."
+msgstr "`%s' माध्यम के लिए संचिका की प्रतिलिपि बनाई जा रही है..."
+
+#: ../rpmdrake.pm:726
+#, c-format
+msgid "Examining file of medium `%s'..."
+msgstr "`%s' माध्यम की संचिका का निरीक्षण हो रहा है..."
+
+#: ../rpmdrake.pm:729
+#, c-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "`%s' माध्यम की सूदूर संचिका का निरीक्षण किया जा रहा है..."
+
+#: ../rpmdrake.pm:733
+#, c-format
+msgid " done."
+msgstr "किया गया।"
+
+#: ../rpmdrake.pm:737
+#, c-format
+msgid " failed!"
+msgstr "असफ़ल!"
+
+#. -PO: We're downloading the said file from the said medium
+#: ../rpmdrake.pm:742
+#, c-format
+msgid "%s from medium %s"
+msgstr "%s माध्यम से %s"
+
+#: ../rpmdrake.pm:746
+#, c-format
+msgid "Starting download of `%s'..."
+msgstr "`%s' का डॉउनलोड आरम्भ हो रहा है..."
+
+#: ../rpmdrake.pm:750
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+"`%s' का डॉउनलोड\n"
+"समय अनुमान:%s, गति:%s"
+
+#: ../rpmdrake.pm:753
+#, c-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+"`%s' का डॉउनलोड\n"
+"गति:%s"
+
+#: ../rpmdrake.pm:764
+#, c-format
+msgid "Please wait, updating media..."
+msgstr "कृपया प्रतीक्षा करें, माध्यम अपडेट किया जा रहा है..."
+
+#: ../rpmdrake.pm:774
+#, fuzzy, c-format
+msgid "Canceled"
+msgstr "निरस्त"
+
+#: ../rpmdrake.pm:791
+#, c-format
+msgid "Error retrieving packages"
+msgstr "पैकेजों को पुनःप्राप्त करने में त्रुटि"
+
+#: ../rpmdrake.pm:792
+#, c-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+"`%s' माध्यम से नये पैकेजों की सूची को पुनःप्राप्त करना असम्भव है\n"
+"या तो यह अपडेट माध्यम भली-भांति से नहीं संरचित है, और\n"
+"इस अवस्था में आपको सॉफ़्टवेयर माध्यम प्रबंधक का उपयोग करके\n"
+"इसे हटाना चाहिए और इस पुनः संरचित करने हेतु, पुनः जोड़ना चाहिए\n"
+"या फ़िर वर्तमान में पहुँच से बाहर है और आपको कुछ समय पश्चात \n"
+"पुनः प्रयास करना चाहिए।"
+
+#: ../rpmdrake.pm:823
+#, c-format
+msgid "Update media"
+msgstr "माध्यम को अपडेट करें"
+
+#: ../rpmdrake.pm:828
+#, c-format
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+
+#: ../rpmdrake.pm:835
+#, c-format
+msgid "Select the media you wish to update:"
+msgstr "उस माध्यम का चयन करें जिसे आप अपडेट करना चाहते है:"
+
+#: ../rpmdrake.pm:881
+#, c-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"ंमाध्यम को अपडेट करने में असमर्थ; यह स्वतः ही निष्क्रिय हो जायेगी.\n"
+"\n"
+"त्रुटियां:\n"
+"%s"
+
+#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#, c-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"माध्यम को जोड़ने में असमर्थ, त्रुटियां रिपोर्ट की गई:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:925
+#, c-format
+msgid "Unable to create medium."
+msgstr "माध्यम का निर्माण करने में असमर्थ।"
+
+#: ../rpmdrake.pm:930
+#, c-format
+msgid "Failure when adding medium"
+msgstr "असफ़लता जब माध्यम को जोड़ा जा रहा था..."
+
+#: ../rpmdrake.pm:931
+#, c-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"माध्यम को जोड़ने में एक समस्या थी:\n"
+"\n"
+"%s"
+
+#: ../rpmdrake.pm:944
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+"अपडेटों के लिए उपयोग में लाये जाने वाला, आपके माध्यम `%s', आपके %s के संस्करण के साथ मेल "
+"नहीं खाता है,  आप (%s) चला रहे है ।\n"
+"इसे निष्क्रिय कर दिया जायेगा ।"
+
+#: ../rpmdrake.pm:947
+#, c-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+"आपका माध्यम `%s', जिसका का उपयोग अपडेटों हेतु किया जा रहा है, मैनड्रिव लिनक्स का "
+"संस्मरण, जिसे आप चला रहे है (%s), के साथ मेल नहीं खा रहा है। \n"
+"इसे निष्क्रिय कर दिया जायेगा ।"
+
+#: ../rpmdrake.pm:978
+#, c-format
+msgid "Help launched in background"
+msgstr "सहायता पृष्टभूमि में आरम्भ है"
+
+#: ../rpmdrake.pm:979
+#, c-format
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr "सहायता विंडो शुरू हो चुकी है, थोड़ी देर में यह आपकी डेस्कटाप पर दिखाई देगी।"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:1
+#, fuzzy
+msgid "A graphical front end for browsing installed & available packages"
+msgstr "पैकेजों का संसाधन करने के लिए एक ग्राफ़िक्ल फ़्रन्ट एन्ड"
+
+#: ../data/rpmdrake-browse-only.desktop.in.h:2
+msgid "Browse Available Software"
+msgstr "उपलब्ध सॉफ़्टवेयर को ब्राउज करें"
+
+#: ../data/rpmdrake.desktop.in.h:1
+#, fuzzy
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr "पैकेजों का संसाधन करने के लिए एक ग्राफ़िक्ल फ़्रन्ट एन्ड"
+
+#: ../data/rpmdrake.desktop.in.h:2
+#, fuzzy
+msgid "Install & Remove Software"
+msgstr "सॉफ़्टवेयर संसाधन"
+
+#: ../data/rpmdrake-sources.desktop.in.h:1
+msgid "Software Media Manager"
+msgstr "सॉफ़्टवेयर मीडीया प्रबंधक"
+
+#: ../mime/gurpmi.addmedia.desktop.in.h:1
+#, fuzzy
+msgid "Add urpmi media"
+msgstr "/माध्यम का अपडेट (_U)"
+
+#: ../mime/x-urpmi-media.desktop.in.h:1
+#, fuzzy
+msgid "Urpmi medium info"
+msgstr "माध्यम को अपडेट करें"
+
+#~ msgid "Books"
+#~ msgstr "पुस्तकें"
+
+#~ msgid "Computer books"
+#~ msgstr "कम्पूयटर पुस्तकें"
+
+#~ msgid "Faqs"
+#~ msgstr "बारम्बार पूछे जाने वाले प्रश्न"
+
+#~ msgid "Howtos"
+#~ msgstr "कैसे-करें"
+
+#~ msgid "Literature"
+#~ msgstr "साहित्य"
+
+#~ msgid "  --root                 force to run as root"
+#~ msgstr "  --root                 रूट जैसे चलाने के लिए बाध्य करना"
+
+#, fuzzy
+#~ msgid "(Deprecated)"
+#~ msgstr "चयन किया गया"
+
+#, fuzzy
+#~ msgid ""
+#~ "  --no-splash            don't ask first confirmation question in update "
+#~ "mode"
+#~ msgstr "  --no-confirmation      अपडेट विधा में सबसे पहिले पुष्टि प्रश्न को ना पूछें"
+
+#~ msgid "Find"
+#~ msgstr "प्राप्त"
+
+#, fuzzy
+#~ msgid "/Add _media"
+#~ msgstr "/माध्यम का अपडेट (_U)"
+
+#~ msgid "Welcome"
+#~ msgstr "स्वागत"
+
+#, fuzzy
+#~ msgid "Do you want to add media sources now?"
+#~ msgstr "क्या आप वास्तव में स्रोत \"%s\" को हटाना चाहते है?"
+
+#~ msgid ""
+#~ "Welcome to the Software Media Manager!\n"
+#~ "\n"
+#~ "This tool will help you configure the packages media you wish to use on\n"
+#~ "your computer. They will then be available to install new software "
+#~ "package\n"
+#~ "or to perform updates."
+#~ msgstr ""
+#~ "सॉफ़्टवेयर मीडीया मैनेज़र में स्वागत!\n"
+#~ "\n"
+#~ "यह टूल आपकी सहायता उन पैकेजों को संरचित करने में करेगा, जिन्हें आप अपने कम्पयूटर पर\n"
+#~ "उपयोग करना चाहते है। यह सभी, तब नये सॉफ़्टवेयर पैकेजों को संसाधित करने में या अपडेट्स\n"
+#~ "को करने के लिए उपलब्ध होगें।"
+
+#~ msgid ""
+#~ "Welcome to the software removal tool!\n"
+#~ "\n"
+#~ "This tool will help you choose which software you want to remove from\n"
+#~ "your computer."
+#~ msgstr ""
+#~ "सॉफ़्टवेयर निरस्तीकरण टूल में स्वागत!\n"
+#~ "\n"
+#~ "यह टूल, उन सॉफ़्टवेयरों को चयन करने में आपकी मदद करेगा, \n"
+#~ "जिन्हें आप अपने कम्पूयटर से हटाना चाहते है।"
+
+#~ msgid ""
+#~ "Welcome to %s!\n"
+#~ "\n"
+#~ "This tool will help you choose the updates you want to install on your\n"
+#~ "computer."
+#~ msgstr ""
+#~ "%s में स्वागत!\n"
+#~ "\n"
+#~ "यह टूल, उन अपडेटस को चयन करने में आपकी मदद करेगा, \n"
+#~ "जिन्हें आप अपने कम्पूयटर पर संसाधित करना चाहते है।"
+
+#~ msgid "Welcome to the software installation tool!"
+#~ msgstr "सॉफ़्टवेयर संसाधन टूल में आपका स्वागत !"
+
+#~ msgid ""
+#~ "Welcome to the software installation tool!\n"
+#~ "\n"
+#~ "Your Mandriva Linux system comes with several thousands of software\n"
+#~ "packages on CDROM or DVD. This tool will help you choose which software\n"
+#~ "you want to install on your computer."
+#~ msgstr ""
+#~ "सॉफ़्टवेयर संसाधन टूल में स्वागत!\n"
+#~ "\n"
+#~ "आपकी मैनड्रिव लिनक्स प्रणाली के साथ असंख्य सॉफ़्टवेयर पैकेज सीडीरॉम या डी०वी०डी० पर "
+#~ "आते है।\n"
+#~ "यह टूल, उन सॉफ़्टवेयरों को चयन करने में आपकी मदद करेगा, \n"
+#~ "जिन्हें आप अपने कम्पूयटर पर संसाधित करना चाहते है।"
+
+#~ msgid "Unable to add medium, wrong or missing arguments"
+#~ msgstr "माध्यम को जोड़ने में असमर्थ, गलत या विलुप्त आर्गूमेन्टस"
+
+#~ msgid "%s choices"
+#~ msgstr "%s पसन्दें"
+
+#~ msgid "Mandriva Linux choices"
+#~ msgstr "मैनड्रिव की पसन्द"
+
+#~ msgid "None"
+#~ msgstr "कुछ नहीं"
+
+#~ msgid ""
+#~ "Installation failed, some files are missing:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "You may want to update your media database."
+#~ msgstr ""
+#~ "संसाधन असफ़ल, कुछ संचिकाऐ विलुप्त है:\n"
+#~ "%s\n"
+#~ "\n"
+#~ "आपको आपने मीडीया डाटाबेस को अपडेट करना चाहिए।"
+
+#~ msgid "Relative path to synthesis/hdlist:"
+#~ msgstr "कृत्रिमता/हार्ड-डिस्क सूची के लिए सापेक्ष पथ:"
+
+#~ msgid "If left blank, synthesis/hdlist will be automatically probed"
+#~ msgstr "यदि खाली छोड़ दिया जाए, तो कॄत्रिमता/हार्डडिस्क सूची स्वतः ही परिक्षित होगी"
+
+#~ msgid "Search"
+#~ msgstr "खोज"
+
+#~ msgid "Clear"
+#~ msgstr "साफ़ करना "
+
+#~ msgid "Download directory does not exist"
+#~ msgstr "डॉउनलोड निर्देशिका विद्यमान नहीं है"
+
+#~ msgid "Out of memory\n"
+#~ msgstr "स्मृति समाप्त\n"
+
+#~ msgid "Could not open output file in append mode"
+#~ msgstr "आउटपुट संचिका को जोड़ विधा में खोला नहीं जा सका"
+
+#~ msgid "Unsupported protocol\n"
+#~ msgstr "असमर्थित प्रोटोकाल\n"
+
+#~ msgid "Failed init\n"
+#~ msgstr "इन्टि असफ़ल\n"
+
+#~ msgid "Bad URL format\n"
+#~ msgstr "निकृष्ट यू०आर०एल० संरूप\n"
+
+#~ msgid "Bad user format in URL\n"
+#~ msgstr "यू०आर०एल० में निकृष्ट उपयोगकर्तासंरूप\n"
+
+#~ msgid "Couldn't resolve proxy\n"
+#~ msgstr "प्रोक्सी का विश्लेषण नहीं किया जा सका\n"
+
+#~ msgid "Couldn't resolve host\n"
+#~ msgstr "होस्ट का विश्लेषण नहीं किया जा सका\n"
+
+#~ msgid "Couldn't connect\n"
+#~ msgstr "सम्पर्क स्थापित नहीं हो सका\n"
+
+#~ msgid "FTP unexpected server reply\n"
+#~ msgstr "एफ़०टी०पी० आकस्मिक सर्वर उत्तर\n"
+
+#~ msgid "FTP access denied\n"
+#~ msgstr "एफ़०टी०पी० पहुँच निषेध\n"
+
+#~ msgid "FTP user password incorrect\n"
+#~ msgstr "एफ़०टी०पी० उपयोगकर्ता कूट-शब्द अशुद्ध\n"
+
+#~ msgid "FTP unexpected PASS reply\n"
+#~ msgstr "एफ़०टी०पी० आकस्मिक पॉस उत्तर\n"
+
+#~ msgid "FTP unexpected USER reply\n"
+#~ msgstr "एफ़०टी०पी० आकस्मिक उपयोगकर्ता उत्तर\n"
+
+#~ msgid "FTP unexpected PASV reply\n"
+#~ msgstr "एफ़०टी०पी० आकस्मिक पीऐएसवी उत्तर\n"
+
+#~ msgid "FTP unexpected 227 format\n"
+#~ msgstr "एफ़०टी०पी० आकस्मिक २२७ संरूप\n"
+
+#~ msgid "FTP can't get host\n"
+#~ msgstr "एफ़०टी०पी० को होस्ट नहीं मिल सका\n"
+
+#~ msgid "FTP can't reconnect\n"
+#~ msgstr "एफ़०टी०पी० पुनः सम्पर्क नहीं कर सका\n"
+
+#~ msgid "FTP couldn't set binary\n"
+#~ msgstr "एफ़०टी०पी० बायनरी को स्थापित नहीं कर सका\n"
+
+#~ msgid "Partial file\n"
+#~ msgstr "अपूर्ण संचिका\n"
+
+#~ msgid "FTP couldn't RETR file\n"
+#~ msgstr "एफ़०टी०पी०, संचिका RETR नहीं कर सका\n"
+
+#~ msgid "FTP write error\n"
+#~ msgstr "एफ़०टी०पी० लेखन त्रुटि\n"
+
+#~ msgid "FTP quote error\n"
+#~ msgstr "एफ़०टी०पी० उद्धरण त्रुटि\n"
+
+#~ msgid "HTTP not found\n"
+#~ msgstr "एच०टी०टी०पी० नहीं मिला\n"
+
+#~ msgid "Write error\n"
+#~ msgstr "लेखन त्रुटि\n"
+
+#~ msgid "User name illegally specified\n"
+#~ msgstr "उपयोगकर्ता का नाम दोष-पूर्ण तरीके से बताया गया है\n"
+
+#~ msgid "FTP couldn't STOR file\n"
+#~ msgstr "एफ़०टी०पी०, संचिका STOR नहीं कर सका\n"
+
+#~ msgid "Read error\n"
+#~ msgstr "पाठय त्रुटि\n"
+
+#~ msgid "Time out\n"
+#~ msgstr "समय समाप्त\n"
+
+#~ msgid "FTP couldn't set ASCII\n"
+#~ msgstr "एफ़०टी०पी०, ASCII को स्थापित नहीं कर सका\n"
+
+#~ msgid "FTP PORT failed\n"
+#~ msgstr "एफ़०टी०पी० पोर्ट असफ़ल\n"
+
+#~ msgid "FTP couldn't use REST\n"
+#~ msgstr "एफ़०टी०पी०, REST का उपयोग नहीं कर सका\n"
+
+#~ msgid "FTP couldn't get size\n"
+#~ msgstr "एफ़०टी०पी०, आकार की जानकारी नहीं पा सका\n"
+
+#~ msgid "HTTP range error\n"
+#~ msgstr "एच०टी०टी०पी० फ़ैलाव त्रुटि\n"
+
+#~ msgid "HTTP POST error\n"
+#~ msgstr "एच०टी०टी०पी० पोस्ट त्रुटि\n"
+
+#~ msgid "SSL connect error\n"
+#~ msgstr "एस०एस०एल सम्पर्क त्रुटि\n"
+
+#~ msgid "FTP bad download resume\n"
+#~ msgstr "एफ़०टी०पी निकृष्ट डॉउनलोड पुनः आरम्भ\n"
+
+#~ msgid "File couldn't read file\n"
+#~ msgstr "फ़ॉइल संचिका को नहीं पढ़ सका\n"
+
+#~ msgid "LDAP cannot bind\n"
+#~ msgstr "एल०डी०ऐ०पी० बांध नहीं सका\n"
+
+#~ msgid "LDAP search failed\n"
+#~ msgstr "एल०डी०ऐ०पी० खोज असफ़ल\n"
+
+#~ msgid "Library not found\n"
+#~ msgstr "लेखागार नहीं मिला\n"
+
+#~ msgid "Function not found\n"
+#~ msgstr "फ़लन नहीं मिला\n"
+
+#~ msgid "Aborted by callback\n"
+#~ msgstr "कॉलबैक के द्वारा विफ़लन\n"
+
+#~ msgid "Bad function argument\n"
+#~ msgstr "निकृष्ट फ़लन मान\n"
+
+#~ msgid "Bad calling order\n"
+#~ msgstr "निकृष्ट आह्वान क्रम\n"
+
+#~ msgid "HTTP Interface operation failed\n"
+#~ msgstr "एच०टी०टी०पी० इन्टरफ़ेस प्रचालन असफ़ल\n"
+
+#~ msgid "my_getpass() returns fail\n"
+#~ msgstr "my_getpass() प्रतिउत्तर असफ़ल\n"
+
+#~ msgid "catch endless re-direct loops\n"
+#~ msgstr "अंतहीन पुनः निर्दिष्ट लूपों को पकड़ें\n"
+
+#~ msgid "User specified an unknown option\n"
+#~ msgstr "उपयोगकर्ता ने एक अज्ञात विकल्प बताया है\n"
+
+#~ msgid "Malformed telnet option\n"
+#~ msgstr "भ्रष्ट टेलनेट विकल्प\n"
+
+#~ msgid "removed after 7.7.3\n"
+#~ msgstr "७।७।३ के बाद हटाया गया\n"
+
+#~ msgid "peer's certificate wasn't ok\n"
+#~ msgstr "पिअर् का प्रमाणपत्र ठीक नहीं है\n"
+
+#~ msgid "when this is a specific error\n"
+#~ msgstr "जब यह एक आसामान्य त्रुटि है\n"
+
+#~ msgid "SSL crypto engine not found\n"
+#~ msgstr "एस०एस०एल० क्रिपटो इंजन नहीं मिला\n"
+
+#~ msgid "can not set SSL crypto engine as default\n"
+#~ msgstr "एस०एस०एल० क्रिपटो इंजन को डिफ़ॉल्ट जैसा स्थापित किया जा सका\n"
+
+#~ msgid "failed sending network data\n"
+#~ msgstr "नेटवर्क डाटा को प्रेषण में असफ़ल\n"
+
+#~ msgid "failure in receiving network data\n"
+#~ msgstr "नेटवर्क डाटा को प्राप्त करने में असफ़लता\n"
+
+#~ msgid "share is in use\n"
+#~ msgstr "सहभाजीता उपयोग में है\n"
+
+#~ msgid "problem with the local certificate\n"
+#~ msgstr "स्थानीय प्रमाणपत्र के साथ सामस्या\n"
+
+#~ msgid "couldn't use specified cipher\n"
+#~ msgstr "निर्दिष्ट किया हुए कूटलेखन का उपयोग नहीं हो सका\n"
+
+#~ msgid "problem with the CA cert (path?)\n"
+#~ msgstr "सी०ऐ० प्रमाणपत्र (पथ?) के साथ सामस्या\n"
+
+#~ msgid "Unrecognized transfer encoding\n"
+#~ msgstr "अज्ञात स्थानान्तरण कूटलेखन\n"
+
+#~ msgid "Unknown error code %d\n"
+#~ msgstr "अज्ञात त्रुटि कूट %d\n"
+
+#~ msgid ""
+#~ "This step enables you to add sources from a Mandriva Linux web or FTP "
+#~ "mirror.\n"
+#~ "\n"
+#~ "There are two kinds of official mirrors. You can choose to add sources "
+#~ "that\n"
+#~ "contain the complete set of packages of your distribution (usually a "
+#~ "superset\n"
+#~ "of what comes on the standard installation CDs), or sources that provide "
+#~ "the\n"
+#~ "official updates for your distribution. (You can add both, but you'll "
+#~ "have\n"
+#~ "to do this in two steps.)"
+#~ msgstr ""
+#~ "यह चरण आपको एक मैनड्रिव लिनक्स वेब या एफ़टीपी मिरर से स्रोतों को जोड़ने में समर्थ "
+#~ "बनाता है ।\n"
+#~ "\n"
+#~ "दो प्रकार की अधिकारिक मिरर प्रणालियां होती है । आप चुन सकते है उन स्रोतो को जिनमें "
+#~ "कि\n"
+#~ "आपके वितरण के पैकेजों का एक सम्पूर्ण सेट होता है (सामान्यता एक सुपर-सेट\n"
+#~ "जैसा जो कि सामान्य संसाधन सीडीयों के साथ आता है), या वे स्रोत जो कि आपके वितरण के "
+#~ "लिए\n"
+#~ "अधिकारिक अपडेटों को प्रदान करते है। (आप दोनों को भी जोड़ सकते है, परन्तु ऐसा करने के "
+#~ "लिए\n"
+#~ "आपको दो बार में इसे करना होगा ।)"
+
+#~ msgid "Distribution sources"
+#~ msgstr "वितरण के स्रोत"
+
+#~ msgid "Official updates"
+#~ msgstr "अधिकारिक अपडेटस"
+
+#~ msgid "  --pkg-nosel=pkg1,..    show only these packages"
+#~ msgstr "  --pkg-nosel=pkg1,..    सिर्फ़ इन पैकेजों को दिखाएँ"
+
+#~ msgid "  --pkg-sel=pkg1,..      preselect these packages"
+#~ msgstr "  --pkg-sel=pkg1,..      इन पैकेजों को पहिले से चयन करें"
+
+#~ msgid "Selected size: %d MB"
+#~ msgstr "चुना हुआ आकार: %d एम०बी०"
+
+#, fuzzy
+#~ msgid "/_Automatically resolve queries"
+#~ msgstr "/स्वतः चयनित पैकेजों को दिखायें (_S)"
+
+#~ msgid "Path:"
+#~ msgstr "पथ:"
+
+#~ msgid "Add custom..."
+#~ msgstr "कस्टम जोड़े..."
+
+#~ msgid "Update..."
+#~ msgstr "अपडेट..."
+
+#~ msgid ""
+#~ "The following packages have bad signatures:\n"
+#~ "\n"
+#~ "%s\n"
+#~ "\n"
+#~ "Do you want to continue installation?"
+#~ msgstr ""
+#~ "निम्नलिखित पैकेजों के हस्ताक्षर अनुचित है:\n"
+#~ "\n"
+#~ "%s\n"
+#~ "\n"
+#~ "क्या आप संसाधन जारी रख्ना चाहते है?"
+
+#~ msgid "installing %s from %s"
+#~ msgstr "%s को %s से संसाधित किया जा रहा है"
+
+#~ msgid "installing %s"
+#~ msgstr "%s का संसाधन किया जा रहा है"
+
+#~ msgid "removing %s"
+#~ msgstr "%s को हटाया जा रहा है"
+
+#, fuzzy
+#~ msgid "Installation failed:"
+#~ msgstr "संसाधन असफ़ल"
+
+#~ msgid "Try installation without checking dependencies? (y/N) "
+#~ msgstr "संसाधन का प्रयास बिना आधिनताओं की जाँच किये हुए किया जाये?  (हाँ/ना)(y/N) "
+
+#, fuzzy
+#~ msgid "Try harder to install (--force)? (y/N) "
+#~ msgstr "संसाधन का प्रयास और जोर से (बलपूर्वक) किया जाये (--force)?  (हाँ/ना)(y/N) "
+
+#~ msgid "Preparing..."
+#~ msgstr "तैयारी की जा रही है..."
+
+#~ msgid "Message Passing"
+#~ msgstr "संदेश आगे देना"
+
+#~ msgid "Queueing Services"
+#~ msgstr "कतार सेवायें"
+
+#~ msgid "Deploiement"
+#~ msgstr "डिप्लोईमेन्ट"
+
+#~ msgid "Deployment"
+#~ msgstr "डिप्लोईमेन्ट"
+
+#~ msgid "Add a key..."
+#~ msgstr "एक कुँजी जोड़े..."
+
+#~ msgid "Remove key"
+#~ msgstr "कुँजी को हटायें"
+
+#, fuzzy
+#~ msgid "  --version              output version information and exit"
+#~ msgstr "  --root                 रूट जैसे चलाने के लिए बाध्य करना"
+
+#~ msgid "unable to access rpm file [%s]"
+#~ msgstr "[%s] आरपीएम संचिका तक पहुँचने में असमर्थ"
+
+#, fuzzy
+#~ msgid ""
+#~ "To satisfy dependencies, the following package is going to be installed:\n"
+#~ "%2$s\n"
+#~ msgid_plural ""
+#~ "To satisfy dependencies, the following %d packages are going to be "
+#~ "installed:\n"
+#~ "%s\n"
+#~ msgstr[0] ""
+#~ "अधीनताओं को सन्तुष्ट करने के लिए, निम्नलिखित %d पैकेजों का संसाधन होने जा रहा है:\n"
+#~ "%s\n"
+#~ msgstr[1] ""
+#~ "अधीनताओं को सन्तुष्ट करने के लिए, निम्नलिखित %d पैकेजों का संसाधन होने जा रहा है:\n"
+#~ "%s\n"
+
+#~ msgid "Please wait, reading Package Database..."
+#~ msgstr "कृपया प्रतीक्षा करें, पैकेज डाटाबेस पढ़ा जा रहा है..."
+
+#~ msgid "XFree86"
+#~ msgstr "एक्सफ़्री-८६"
+
+#~ msgid "No package found for installation."
+#~ msgstr "संसाधन के लिए कोई पैकेज नहीं मिला"
+
+#~ msgid "Maximum information"
+#~ msgstr "सबसे ज्यादा जानकारी"
+
+#~ msgid "everything was installed correctly"
+#~ msgstr "सबकुछ भली-भांति संसाधित किया गया"
+
+#~ msgid "Regenerate hdlist"
+#~ msgstr "हार्डडिस्क सूची का पुनः निर्माण करें"
+
+#~ msgid "Please wait, generating hdlist..."
+#~ msgstr "कृपया प्रतीक्षा करें, हार्ड-डिस्क सूची का निर्माण किया जा रहा है..."
+
+#~ msgid "Everything installed successfully"
+#~ msgstr "सबकुछ सफ़लता-पूर्वक संसाधित किया गया"

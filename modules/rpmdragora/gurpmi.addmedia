@@ -1,0 +1,160 @@
+#!/usr/bin/perl
+#*****************************************************************************
+# 
+#  Copyright (c) 2004 Guillaume Cottenceau (gc at mandrakesoft dot com)
+#  Copyright (c) 2006-2007 Thierry Vignaud <tvignaud@mandriva.com>
+#  Copyright (c) 2004-2007 Mandriva SA
+# 
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License version 2, as
+#  published by the Free Software Foundation.
+# 
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+# 
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+# 
+#*****************************************************************************
+#
+# $Id: gurpmi.addmedia 261187 2009-10-01 14:44:34Z tv $
+
+use strict;
+
+BEGIN {
+    @ARGV == 0 || "@ARGV" =~ /-h/ and do {
+        print "usage: gurpmi.addmedia [options] <name> <url> [with <relative_path>]
+where <url> is one of
+       [file:/]/<path>
+       ftp://<login>:<password>\@<host>/<path>
+       ftp://<host>/<path>
+       http://<host>/<path>
+       removable://<path>
+
+and [options] are from
+  --distrib        install a set of media from a distribution
+  --silent-success don't show popup window on success
+  --update         create an update medium,
+                   or discard non-update media (when used with --distrib)
+  --mirrorlist     <url> is a mirror list
+";
+        exit(0);
+    };
+}
+use Rpmdrake::init;
+use Rpmdrake::open_db;
+
+use lib qw(/usr/lib/libDrakX);
+use urpm::media;
+use common;
+use any;
+
+any::set_wm_hints_if_needed();
+
+require_root_capability();
+
+use rpmdrake;
+use Getopt::Long;
+
+#use ugtk2 qw(:all);
+$::isStandalone = 1;
+
+readconf();
+
+my $fromfile;
+if (@ARGV == 1 && $ARGV[0] =~ /\.urpmi-media$/) {
+    @ARGV = map { s/^\s*//; s/\s*$//; $_ } split /\n/, cat_($ARGV[0]);
+    $fromfile = 1;
+}
+
+my ($update, $distrib, $silent_success) = (0, 0, 0);
+my ($mirrorlist, $with_dir);
+
+GetOptions(
+    'update'	     => \$update,
+    'distrib'       => \$distrib,
+    'silent-success' => \$silent_success,
+    'mirrorlist=s'     => \$mirrorlist,
+    'urpmi-root=s'      => \$::rpmdrake_options{'urpmi-root'}[0],
+);
+
+# compatibility with -update:
+if ($ARGV[0] =~ /^-?-update/) {
+    $update = 1;
+    shift @ARGV;
+}
+
+my @addmedia_args;
+my @names;
+
+while (@ARGV) {
+    my ($name, $url) = @ARGV;
+
+    if ($mirrorlist) {
+	($with_dir, $url) = ($url, undef);
+    } elsif ($distrib) {
+	($name, $url) = ('', $name);
+    } elsif ($url !~ m,^(([^:]*):/)?/,) {
+	interactive_msg('gurpmi.addmedia',
+			escape_text_for_TextView_markup_format(
+                            N("bad <url> (for local directory, the path must be absolute)") . "\n\n$url"));
+	myexit(-1);
+    }
+    push @addmedia_args, [ $name, $url ];
+    push @names, $name;
+    shift @ARGV foreach 1 .. 2;
+}
+
+if ($mirrorlist && $distrib && !@addmedia_args) {
+    @addmedia_args = [ '' ];
+}
+
+$fromfile and do {
+    interactive_msg('gurpmi.addmedia',
+N("%s
+
+Is it ok to continue?",
+$distrib || !@names
+? N("You are about to add new package media.
+That means you will be able to add new software packages
+to your system from these new media.")
+: 1 < @names
+? N("You are about to add new package medium, %s.
+That means you will be able to add new software packages
+to your system from these new media.", join ", ", @names)
+: N("You are about to add a new package medium, `%s'.
+That means you will be able to add new software packages
+to your system from that new medium.", $names[0])
+),
+    yesno => 1) or myexit(-1);
+};
+
+my $urpm = fast_open_urpmi_db();
+my $success = 1;
+foreach (@addmedia_args) {
+    #- NB: that short circuits
+    $success = $success && add_medium_and_check(
+	$urpm,
+	{ distrib => $distrib },
+	$_->[0],
+	$_->[1],
+	if_(!$distrib, undef),
+	if_($update, update => $update, only_updates => $update),
+	mirrorlist => $mirrorlist,
+	if_($with_dir, 'with-dir' => $with_dir),
+    );
+}
+if ($success) {
+    my $message =
+      $distrib ? N("Successfully added media.")
+        : @names > 1
+	    ? N("Successfully added media %s.", join ", ", @names)
+	    : N("Successfully added medium `%s'.", $names[0]);
+    interactive_msg('gurpmi.addmedia', $message) if !$silent_success;
+    myexit(0);
+} else {
+    myexit(-1);
+}

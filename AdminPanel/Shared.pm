@@ -123,8 +123,8 @@ sub ask_YesOrNo {
 
     $align = $factory->createRight($layout);
     my $hbox = $factory->createHBox($align);
-    my $yesButton = $factory->createPushButton($hbox, N("Yes"));
-    my $noButton  = $factory->createPushButton($hbox, N("No"));
+    my $yesButton = $factory->createPushButton($hbox, "Yes");
+    my $noButton  = $factory->createPushButton($hbox, "No");
 
     my $event = $msg_box->waitForEvent();
 
