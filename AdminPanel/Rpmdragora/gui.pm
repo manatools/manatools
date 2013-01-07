@@ -40,6 +40,7 @@ use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Rpmdragora::init;
 use AdminPanel::Rpmdragora::icon;
 use AdminPanel::Rpmdragora::pkg;
+use AdminPanel::Shared;
 use feature 'state';
 
 our @EXPORT = qw(
@@ -417,62 +418,39 @@ sub set_leaf_state {
 
 sub grep_unselected { grep { exists $pkgs->{$_} && !$pkgs->{$_}{selected} } @_ }
 
-my %groups_tree;
+my %groups_tree = ();
 
 sub add_parent {
     my ($tree, $root, $state) = @_;
     $tree or return undef;
     $root or return undef;
     my $parent = 0;
-    my $parentItem = 0;
     my @items = split('\|', $root);
     my $i = 0;
     for my $item (@items) {
+        $item = trim($item);
 		my $treeItem = new yui::YTreeItem($item, 0);
 		if($i == 0){
 			$parent = $item;
-			$parentItem = $treeItem;
-			if(!defined($groups_tree{$item})) {
-				$groups_tree{$parent} = ();
-				$tree->addItem($treeItem);
+			if(!defined($groups_tree{$parent})) {
+				$groups_tree{$parent} = {
+                    parent => $treeItem,
+                    children => ()
+                };
+				$tree->addItem($groups_tree{$parent}{'parent'});
 			}
 		}else{
-			if(!grep {$_ eq $item} @{$groups_tree{$parent}}){
-				push @{$groups_tree{$parent}}, $item;
-			}
-			#$treeItem = new yui::YTreeItem($parentItem, $item, 0);
-			$parentItem->addChild($treeItem);
+            #if(any { $_ ne $item } @{$groups_tree{$parent}{'children'}}){
+            #    push @{$groups_tree{$parent}{'children'}}, $item;
+            #}
+            if(!defined($groups_tree{$parent}{'children'}{$item})){
+                $groups_tree{$parent}{'children'}{$item} = $treeItem;
+			    $groups_tree{$parent}{'parent'}->addChild($treeItem);
+            }
 		}
 		$i++;
 	}
     $tree->rebuildTree();
-    #use Data::Dumper;
-	#my @chiavi = keys %groups_tree;
-	#for(keys %groups_tree){
-	#	print $_."\n";
-	#	print Dumper($groups_tree{$_});
-	#}
-    # ORIGINAL
-    #if (my $w = $wtree{$root}) { return $w }
-    #my $s; 
-    #foreach (split '\|', $root) {
-        #my $s2 = $s ? "$s|$_" : $_;
-        #$wtree{$s2} ||=do {
-            ##my $pixbuf = get_icon($s2, $s);
-            ##my $iter = $w->{tree_model}->append_set($s ? add_parent($s, $state) : undef,
-            ##                                        [ $grp_columns{label} => $_, if_($pixbuf, $grp_columns{icon} => $pixbuf) ]);
-            ##my $iter = $w->{tree}->addItem($s ? add_parent($s, $state) : undef);
-            ##my $item = new yui::YTreeItem($s ? add_parent($s, $state) : undef, 0);
-            #print "S: $root :: $s :: $2 \n";
-            #my $item = new yui::YTreeItem($s, 0);
-            #my $iter = $w->{tree}->currentItem()->addChild($item);
-            #$w->{tree}->rebuildTree();
-            #$iter;
-        #};
-        #$s = $s2;
-    #}
-    ##set_node_state($wtree{$s}, $state, $w->{tree_model}); #- use this state by default as tree is building. #
-    #$wtree{$s};
 }
 
 sub add_node {
