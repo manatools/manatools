@@ -108,6 +108,7 @@ our $dont_show_selections;
 BEGIN { unshift @::textdomains, qw(rpmdragora urpmi rpm-summary-main rpm-summary-contrib rpm-summary-devel rpm-summary-non-free) }
 
 use yui;
+use Glib;
 #ugtk2::add_icon_path('/usr/share/rpmdragora/icons');
 
 Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
