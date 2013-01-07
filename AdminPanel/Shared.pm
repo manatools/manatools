@@ -29,7 +29,8 @@ our @EXPORT = qw(warningMsgBox
          msgBox
          infoMsgBox
          ask_YesOrNo
-         ask_OkCancel);
+         ask_OkCancel
+         trim);
 
 sub warningMsgBox {
     my ($st) = @_;
@@ -139,6 +140,13 @@ sub ask_YesOrNo {
     destroy $msg_box;
 
     return $retVal;
+}
+
+sub trim {
+    my ($st) = shift;
+    $st =~s /^\s+//g;
+    $st =~s /\s+$//g;
+    return $st;
 }
 
 1;
