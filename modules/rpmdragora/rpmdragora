@@ -212,7 +212,6 @@ sub do_search($$$$$$$) {
     my $iter;
     if (@search_results) {
         @search_results = sort_packages(@search_results);
-        print "RESULTS: @search_results\n";
         $elems{$results_ok} = [ map { [ $_, $results_ok ] } @search_results ];
         $iter = $options->{add_parent}->($results_ok);
         $options->{add_nodes}->(map { [ $_, $results_ok . ($options->{tree_mode} eq 'by_presence'
@@ -504,6 +503,7 @@ sub run_treeview_dialog {
     $view_box->addItem($views{security});
     $view_box->addItem($views{normal});
     $view_box->addItem($views{backports}) if($is_backports);
+    $view_box->setNotify(1);
 
     $options->{tree_submode} ||= $default_list_mode;
     $options->{tree_subflat} ||= $options->{state}{flat};
@@ -930,6 +930,7 @@ sub run_treeview_dialog {
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
             my $widget      = $event->widget();
+
             if($widget == $reset_search_button) {
                 $find_entry->setValue('');
                 reset_search();
@@ -944,7 +945,8 @@ sub run_treeview_dialog {
                 do_action($options, $callback_action, $info);
             }
             elsif ($widget == $view_box) {
-                my $val = $_[0]->get_text;
+                my $val = $view_box->selectedItem()->label();
+                $old_value="" if(!defined($old_value));
                 return if $val eq $old_value; # workarounding gtk+ sending us sometimes twice events
                 $old_value = $val;
                 $default_list_mode = $rviews{$val};
@@ -992,7 +994,7 @@ sub run_treeview_dialog {
         else {
         ### any other events
             if ($event->item()) {
-                print $event->item()->label() . "\n";
+                #print $event->item()->label() . "\n";
                 # items
                 if ($event->item()->label() eq $mnuItemExit->label()) {
                     #menu File->Quit
