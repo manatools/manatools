@@ -423,7 +423,7 @@ my %groups_tree = ();
 sub add_parent {
     my ($tree, $root, $state) = @_;
     $tree or return undef;
-    $root or return undef;
+    #$root or return undef;
     my $parent = 0;
     my @items = split('\|', $root);
     my $i = 0;
@@ -487,6 +487,7 @@ sub update_size {
     my ($common) = shift @_;
     if ($w->{status}) {
         my $new_label = $common->{get_status}();
+        $prev_label="" if(!defined($prev_label));
         $prev_label ne $new_label and $w->{status}->setText($prev_label = $new_label);
     }
 }
@@ -536,14 +537,15 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{clear_all_caches} = $clear_all_caches;
     $common->{delete_all} = sub {
-	$clear_all_caches->();
-	#$w->{detail_list_model}->clear;
-	#$w->{tree_model}->clear;
+	    $clear_all_caches->();
+        $w->{detail_list}->deleteAllItems() if($w->{detail_list}->hasItems());
+	    $w->{tree}->deleteAllItems() if($w->{tree}->hasItems());
+        %groups_tree = ();
     };
     $common->{rebuild_tree} = sub {
-	$common->{delete_all}->();
-	$common->{build_tree}($common->{state}{flat}, $common->{tree_mode});
-	update_size($common);
+	    $common->{delete_all}->();
+	    $common->{build_tree}($common->{state}{flat}, $common->{tree_mode});
+	    update_size($common);
     };
     $common->{delete_category} = sub {
 	my ($cat) = @_;
@@ -559,8 +561,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{add_nodes} = sub {
 	my (@nodes) = @_;
-	print "@nodes\n";
-	#$w->{detail_list}->clear;
+	$w->{detail_list}->deleteAllItems();
 	#$w->{detail_list}->scroll_to_point(0, 0);
 	add_node($_->[0], $_->[1], $_->[2]) foreach @nodes;
 	update_size($common);
@@ -1000,7 +1001,6 @@ sub build_tree {
     undef $force_rebuild;
     my @elems;
     my $wait; $wait = statusbar_msg(N("Please wait, listing packages...")) if $MODE ne 'update';
-    #gtkflush();
     {
         my @keys = @filtered_pkgs;
         if (member($mode, qw(all_updates security bugfix normal))) {
@@ -1010,7 +1010,7 @@ sub build_tree {
                   || ! $descriptions->{$name}{importance};
             } @keys;
             if (@keys == 0) {
-                add_node($tree, '', N("(none)"), { nochild => 1 });
+                add_node('', N("(none)"), { nochild => 1 });
                 state $explanation_only_once;
                 $explanation_only_once or interactive_msg(N("No update"),
                                                           N("The list of updates is empty. This means that either there is
@@ -1037,10 +1037,10 @@ or you already installed all of them."));
         by_medium => sub { sort { $a->[2] <=> $b->[2] || uc($a->[0]) cmp uc($b->[0]) } @_ },
     );
     if ($flat) {
-        add_node($_->[0], '') foreach $sortmethods{$::mode->[0] || 'flat'}->(@elems);
+        add_node($tree->currentItem()->label(), '') foreach $sortmethods{$::mode->[0] || 'flat'}->(@elems);
     } else {
         if (0 && $MODE eq 'update') {
-            add_node($tree, $_->[0], N("All")) foreach $sortmethods{flat}->(@elems);
+            add_node($tree->currentItem()->label(), $_->[0], N("All")) foreach $sortmethods{flat}->(@elems);
             $tree->expand_row($tree_model->get_path($tree_model->get_iter_first), 0);
         } elsif ($::mode->[0] eq 'by_source') {
              _build_tree($tree, $elems, $sortmethods{by_medium}->(map {
