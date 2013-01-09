@@ -29,6 +29,7 @@ use strict;
 use MDK::Common::Func 'any';
 use lib qw(/usr/lib/libDrakX);
 use common;
+use English;
 BEGIN { $::no_global_argv_parsing = 1 }
 require urpm::args;
 
@@ -155,11 +156,14 @@ our $changelog_first = $rpmdragora::changelog_first_config->[0];
 $changelog_first = 1 if $rpmdragora_options{'changelog-first'};
 
 sub warn_about_user_mode() {
-    $> and (AdminPanel::rpmdragora::interactive_msg(N("Running in user mode"),
-                            N("You are launching this program as a normal user.
-You will not be able to perform modifications on the system,
-but you may still browse the existing database."), yesno => 1, text => { no => N("Cancel"), yes => N("Ok") })
-        or AdminPanel::rpmdragora::myexit(0));
+    my $title = N("Running in user mode");
+    my $msg = N("You are launching this program as a normal user.
+              You will not be able to perform modifications on the system,
+              but you may still browse the existing database.");
+    if(($EUID != 0) and (!AdminPanel::rpmdragora::interactive_msg($title, $msg))) {
+        return 0;
+    }
+    return 1;
 }
 
 sub init() {

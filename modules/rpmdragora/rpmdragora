@@ -1034,7 +1034,10 @@ $my_win = $factory->createMainDialog;
 
 readconf();
 
-warn_about_user_mode();
+if(!warn_about_user_mode()) {
+    quit();
+    exit(0);
+}
 
 do_merge_if_needed();
 
@@ -1044,5 +1047,3 @@ init();
 run_treeview_dialog(\&perform_installation);
 
 writeconf();
-
-myexit(0);

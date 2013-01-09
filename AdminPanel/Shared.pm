@@ -22,6 +22,8 @@ package AdminPanel::Shared;
 use strict;
 use warnings;
 use diagnostics;
+use lib qw(/usr/lib/libDrakX);
+use common;
 use yui;
 use base qw(Exporter);
 
@@ -100,7 +102,7 @@ sub ask_OkCancel {
     if ($eventType == $yui::YEvent::WidgetEvent) {
         # widget selected
         my $widget      = $event->widget();
-        $retVal = ($widget == $okButton);
+        $retVal = ($widget == $okButton) ? 1 : 0;
     }
 
     destroy $msg_box;
@@ -110,7 +112,7 @@ sub ask_OkCancel {
 
 sub ask_YesOrNo {
     my ($title, $text) = @_;
-    my $retVal = "No";
+    my $retVal = 0;
     my $factory = yui::YUI::widgetFactory;
 
     my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
@@ -124,8 +126,8 @@ sub ask_YesOrNo {
 
     $align = $factory->createRight($layout);
     my $hbox = $factory->createHBox($align);
-    my $yesButton = $factory->createPushButton($hbox, "Yes");
-    my $noButton  = $factory->createPushButton($hbox, "No");
+    my $yesButton = $factory->createPushButton($hbox, N("Yes"));
+    my $noButton  = $factory->createPushButton($hbox, N("No"));
 
     my $event = $msg_box->waitForEvent();
 
@@ -134,7 +136,7 @@ sub ask_YesOrNo {
     if ($eventType == $yui::YEvent::WidgetEvent) {
         # widget selected
         my $widget      = $event->widget();
-        $retVal = ($widget == $yesButton) ? "Yes" : "No";
+        $retVal = ($widget == $yesButton) ? 1 : 0;
     }
 
     destroy $msg_box;
@@ -174,10 +176,10 @@ sub trim {
 
        shows a dialog with two buttons (Yes/No)
 
-=head3 return value(string)
+=head3 return bool
 
 =head2 ask_OkCancel
 
        shows a dialog with to buttons (Ok/Cancel)
 
-=head3 return value(string)
+=head3 return bool

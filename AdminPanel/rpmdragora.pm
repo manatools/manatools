@@ -249,9 +249,7 @@ sub getbanner() {
 # - 1 if if Yes/Ok
 sub interactive_msg {
     my ($title, $contents, %options) = @_;
-    my $retVal = ask_YesOrNo($title, $contents);
-    return 1 if($retVal eq "Yes");
-    return 0;
+    return ask_YesOrNo($title, $contents);
 =comment
     $options{transient} ||= $::main_window if $::main_window;
     local $::isEmbedded;
