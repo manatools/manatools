@@ -157,9 +157,10 @@ $changelog_first = 1 if $rpmdragora_options{'changelog-first'};
 
 sub warn_about_user_mode() {
     my $title = N("Running in user mode");
-    my $msg = N("You are launching this program as a normal user.
-              You will not be able to perform modifications on the system,
-              but you may still browse the existing database.");
+    my $msg = N("You are launching this program as a normal user.\n".
+                "You will not be able to perform modifications on the system,\n".
+                "but you may still browse the existing database.");
+
     if(($EUID != 0) and (!AdminPanel::rpmdragora::interactive_msg($title, $msg))) {
         return 0;
     }

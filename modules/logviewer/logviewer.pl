@@ -33,6 +33,7 @@ use yui;
 
 #use AdminPanel::Privileges;
 use AdminPanel::Shared;
+use AdminPanel::LogViewer::init;
 
 ### TODO icon 
 my $wm_icon = "/usr/share/mcc/themes/default/logdrake-mdk.png";
@@ -70,6 +71,11 @@ my $optFactory = yui::YUI::optionalWidgetFactory;
 
 ### MAIN DIALOG ###
 my $my_win = $factory->createMainDialog;
+
+if(!warn_about_user_mode()) {
+    quit();
+    exit(0);
+}
 
 
 my %files = (
