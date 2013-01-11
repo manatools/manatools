@@ -65,6 +65,9 @@ our @EXPORT = qw(
                     do_action
                     get_info
                     get_summary
+                    group_has_parent
+                    group_parent
+                    groups_tree
                     is_locale_available
                     node_state
                     pkgs_provider
@@ -404,11 +407,15 @@ my ($common, $w, %wtree, %ptree, %pix);
 sub set_node_state {
     my ($iter, $state, $model) = @_;
     return if $state eq 'XXX' || !$state;
-    $pix{$state} ||= gtkcreate_pixbuf('state_' . $state);
-    $model->set($iter, $pkg_columns{state_icon} => $pix{$state});
-    $model->set($iter, $pkg_columns{state} => $state);
-    $model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
-    $model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
+    #$pix{$state} ||= gtkcreate_pixbuf('state_' . $state);
+    #$model->set($iter, $pkg_columns{state_icon} => $pix{$state});
+    #$model->set($iter, $pkg_columns{state} => $state);
+    #$model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
+    #$model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
+    $iter->addCell('',"/home/matteo/workspace/AdminPanel/trunk/modules/rpmdragora/icons/state_$state.png");
+    $iter->addCell($state,'');
+    $iter->addCell("".to_bool(member($state, qw(base installed to_install))),'');
+    $iter->addCell("".to_bool($state ne 'base'),'');
 }
 
 sub set_leaf_state {
@@ -460,14 +467,24 @@ sub add_node {
         my $iter;
         if (is_a_package($leaf)) {
             my ($name, $version, $release, $arch) = split_fullname($leaf);
-            $iter = $w->{detail_list_model}->append_set([ $pkg_columns{text} => $leaf,
-                                                          $pkg_columns{short_name} => format_name_n_summary($name, get_summary($leaf)),
-                                                          $pkg_columns{version} => $version,
-                                                          $pkg_columns{release} => $release,
-                                                          $pkg_columns{arch} => $arch,
-                                                      ]);
-            set_node_state($iter, $state, $w->{detail_list_model});
-             $ptree{$leaf} = [ $iter ];
+            #OLD $iter = $w->{detail_list_model}->append_set([ $pkg_columns{text} => $leaf,
+            #                                              $pkg_columns{short_name} => format_name_n_summary($name, get_summary($leaf)),
+            #                                              $pkg_columns{version} => $version,
+            #                                              $pkg_columns{release} => $release,
+            #                                              $pkg_columns{arch} => $arch,
+            #                                          ]);
+            $name = "" if(!defined($name));
+            $version = "" if(!defined($version));
+            $release = "" if(!defined($release));
+            $arch = "" if(!defined($arch));
+            my $newTableItem = new yui::YTableItem($leaf, 
+                                                   format_name_n_summary($name, get_summary($leaf)),
+                                                   $version,
+                                                   $release,
+                                                   $arch);
+            $w->{detail_list}->addItem($newTableItem);
+            set_node_state($newTableItem, $state, $w->{detail_list_model});
+            $ptree{$leaf} = [ $newTableItem->label() ];
         } else {
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             push @{$wtree{$leaf}}, $iter;
@@ -563,7 +580,9 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
 	my (@nodes) = @_;
 	$w->{detail_list}->deleteAllItems();
 	#$w->{detail_list}->scroll_to_point(0, 0);
-	add_node($_->[0], $_->[1], $_->[2]) foreach @nodes;
+    foreach(@nodes){
+	    add_node($_->[0], $_->[1], $_->[2]);
+    }
 	update_size($common);
     };
     
@@ -1040,7 +1059,9 @@ or you already installed all of them."));
         add_node($tree->currentItem()->label(), '') foreach $sortmethods{$::mode->[0] || 'flat'}->(@elems);
     } else {
         if (0 && $MODE eq 'update') {
-            add_node($tree->currentItem()->label(), $_->[0], N("All")) foreach $sortmethods{flat}->(@elems);
+            foreach ($sortmethods{flat}->(@elems)){
+                add_node($tree->currentItem()->label(), $_->[0], N("All")) 
+            }
             $tree->expand_row($tree_model->get_path($tree_model->get_iter_first), 0);
         } elsif ($::mode->[0] eq 'by_source') {
              _build_tree($tree, $elems, $sortmethods{by_medium}->(map {
@@ -1055,6 +1076,7 @@ or you already installed all of them."));
               } $sortmethods{flat}->(@elems));
         } else {
             _build_tree($tree, $elems, @elems);
+            # INFO: $elems contains references to the packages of the group, see _build_tree
         }
     }
     statusbar_msg_remove($wait) if defined $wait;
@@ -1079,6 +1101,32 @@ sub run_help_callback {
     my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
     run_program::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
+}
+
+sub groups_tree {
+    return %groups_tree;
+}
+
+sub group_has_parent {
+    my ($group) = shift;
+    return (defined($groups_tree{$group}{parent}));
+}
+
+sub group_parent {
+    my ($group) = shift;
+    # if group is a parent itself return it
+    # who use group_parent have to take care of the comparison
+    # between a group and its parent
+    # e.g. group System has groups_tree{'System'}{parent}->label() = 'System'
+    return $groups_tree{$group}{parent} if(group_has_parent($group));
+    for my $sup (keys %groups_tree){
+        for my $item(keys %{$groups_tree{$sup}{children}}){
+            if($item eq $group){
+                return $groups_tree{$sup}{parent};
+            }
+        }
+    }
+    return undef;
 }
 
 1;

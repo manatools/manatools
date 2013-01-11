@@ -29,6 +29,7 @@ use utf8;
 use POSIX qw(strftime);
 use AdminPanel::rpmdragora;
 use lib qw(/usr/lib/libDrakX);
+use MDK::Common::Various; # included for internal_error subroutine
 use common;
 #use ugtk2 qw(escape_text_for_TextView_markup_format);
 
@@ -53,6 +54,19 @@ our @EXPORT = qw(
                     urpm_name
             );
 
+
+sub escape_text_for_TextView_markup_format {
+    my ($str) = @_;
+    my %rules = ('&' => '&amp;',
+                 '<' => '&lt;',
+                 '>' => '&gt;',
+    );
+    eval { $str =~ s!([&<>])!$rules{$1}!g }; #^(&(amp|lt|gt);)!!) {
+    if (my $err = $@) {
+        internal_error("$err\n$str");
+    }
+    $str;
+}
 
 # from rpmtools, #37482:
 sub ensure_utf8 {

@@ -95,6 +95,40 @@ sub filterbox_callback {
         $options->{rebuild_tree}->();
     }
 }
+my $current_group = -1;
+sub tree_callback {
+    my ($selection, $options) = @_;
+    #OLD my ($model, $iter) = $tree->currentItem();
+    #OLD return if !$iter;
+    #state $current_group;
+    #OLD my $new_group = $model->get_path_str($iter);
+    #my $new_group = $selection->index();
+    #$current_group = -1 if(!defined($current_group));
+    #return if $current_group eq $new_group && !$force_displaying_group;
+    undef $force_displaying_group;
+    #$current_group = $new_group;
+    #OLD $model && $iter or return;
+    $selection or return;
+    #OLD my $group = $model->get($iter, 0);
+    my $group = $selection->label();
+    # documentation reference for ->parent() method
+    # http://doc.opensuse.org/projects/libyui/HEAD/classYItem.html#af78069741ce6b64f7512bc08b5bc857b
+    # WARNING: it seems that parent method don't return 0 if there is no parent :-(
+    # WARNING: it seems that parent method actually don't work at all :-/
+    #DO NOT WORK my $parent = $selection->parent();
+    my $parent = group_parent($group);
+    while (defined($parent)) {
+        last if($parent->label() eq $group);
+        $group = join('|', $parent->label(), $group);
+        $parent = group_parent();
+    }
+    if(!$selection->hasChildren()){
+        #$detail_list->window->freeze_updates;
+        $options->{add_nodes}->(@{$elems{$group}});
+        #$detail_list->window->thaw_updates if $detail_list->window;
+    }
+    return;
+}
 
 sub do_search($$$$$$$) {
     my ($find_entry, $tree, $tree_model, $options, $current_search_type, $urpm, $pkgs) = @_;
@@ -327,6 +361,7 @@ sub run_treeview_dialog {
     # Tree for groups
     $tree = $factory->createTree($hbox_middle, "");
     $tree->setWeight(0,20);
+    $tree->setNotify(1);
     #OLD $tree->get_selection->set_mode('browse');
 
     #OLD $tree->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::MDV::CellRendererPixWithLabel->new, 'pixbuf' => $grp_columns{icon}, label => $grp_columns{label}));
@@ -957,17 +992,9 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $filter_box) {
                 filterbox_callback($filter_box->selectedItem()->label(), \%$options, \%rfilters);
-                #state $oldval;
-                #my $val = $filter_box->selectedItem()->label();
-                #return if $val eq $oldval; # workarounding gtk+ sending us sometimes twice events
-                #$oldval = $val;
-                #$val = $rfilters{$val};
-                #if ($filter->[0] ne $val) {
-                #    $filter->[0] = $val;
-                #    reset_search();
-                #    slow_func($::main_window, sub { switch_pkg_list_mode($default_list_mode) });
-                #    $options->{rebuild_tree}->();
-                #}
+            }
+            elsif ($widget == $tree) {
+                tree_callback($tree->currentItem(),\%$options);
             }
             elsif ($widget == $file_menu && $mnuItemUpdateMedia) {
                 update_sources_interactive($urpm, transient => $my_win)
@@ -1001,7 +1028,7 @@ sub run_treeview_dialog {
         else {
         ### any other events
             if ($event->item()) {
-                #print $event->item()->label() . "\n";
+                # print $event->item()->label() . "\n";
                 # items
                 if ($event->item()->label() eq $mnuItemExit->label()) {
                     #menu File->Quit
