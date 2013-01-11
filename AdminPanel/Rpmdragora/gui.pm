@@ -412,8 +412,7 @@ sub set_node_state {
     #$model->set($iter, $pkg_columns{state} => $state);
     #$model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
     #$model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
-    $iter->addCell('',"/home/matteo/workspace/AdminPanel/trunk/modules/rpmdragora/icons/state_$state.png");
-    $iter->addCell($state,'');
+    $iter->addCell($state,"/home/matteo/workspace/AdminPanel/trunk/modules/rpmdragora/icons/state_$state.png");
     $iter->addCell("".to_bool(member($state, qw(base installed to_install))),'');
     $iter->addCell("".to_bool($state ne 'base'),'');
 }
@@ -477,13 +476,12 @@ sub add_node {
             $version = "" if(!defined($version));
             $release = "" if(!defined($release));
             $arch = "" if(!defined($arch));
-            my $newTableItem = new yui::YTableItem($leaf, 
-                                                   format_name_n_summary($name, get_summary($leaf)),
+            my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
                                                    $version,
                                                    $release,
                                                    $arch);
             $w->{detail_list}->addItem($newTableItem);
-            set_node_state($newTableItem, $state, $w->{detail_list_model});
+            set_node_state($newTableItem, $state, $w->{detail_list});
             $ptree{$leaf} = [ $newTableItem->label() ];
         } else {
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
