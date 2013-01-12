@@ -32,6 +32,9 @@ use lib qw(/usr/lib/libDrakX);
 use common;
 use utf8;
 
+# TO WORKAROUND LOCALIZATION ISSUE
+use AdminPanel::Rpmdragora::localization;
+
 use AdminPanel::Rpmdragora::init;
 use standalone;  #- standalone must be loaded very first, for 'explanations', but after rpmdragora::init
 use AdminPanel::rpmdragora;

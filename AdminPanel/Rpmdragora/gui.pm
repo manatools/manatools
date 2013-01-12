@@ -33,6 +33,10 @@ use strict;
 our @ISA = qw(Exporter);
 use lib qw(/usr/lib/libDrakX);
 use common;
+
+# TO WORKAROUND LOCALIZATION ISSUE
+use AdminPanel::Rpmdragora::localization;
+
 use yui;
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::open_db;
@@ -412,7 +416,7 @@ sub set_node_state {
     #$model->set($iter, $pkg_columns{state} => $state);
     #$model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
     #$model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
-    $iter->addCell($state,"/home/matteo/workspace/AdminPanel/trunk/modules/rpmdragora/icons/state_$state.png");
+    $iter->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png");
     $iter->addCell("".to_bool(member($state, qw(base installed to_install))),'');
     $iter->addCell("".to_bool($state ne 'base'),'');
 }
@@ -434,10 +438,12 @@ sub add_parent {
     my @items = split('\|', $root);
     my $i = 0;
     for my $item (@items) {
+        chomp $item;
         $item = trim($item);
-		my $treeItem = new yui::YTreeItem($item, 0);
+		my $treeItem; 
 		if($i == 0){
 			$parent = $item;
+		    $treeItem = new yui::YTreeItem($item,get_icon($item,0),0);
 			if(!defined($groups_tree{$parent})) {
 				$groups_tree{$parent} = {
                     parent => $treeItem,
@@ -450,6 +456,7 @@ sub add_parent {
             #    push @{$groups_tree{$parent}{'children'}}, $item;
             #}
             if(!defined($groups_tree{$parent}{'children'}{$item})){
+		        $treeItem = new yui::YTreeItem($item,get_icon($item,$parent),0);
                 $groups_tree{$parent}{'children'}{$item} = $treeItem;
 			    $groups_tree{$parent}{'parent'}->addChild($treeItem);
             }
@@ -476,16 +483,17 @@ sub add_node {
             $version = "" if(!defined($version));
             $release = "" if(!defined($release));
             $arch = "" if(!defined($arch));
-            my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
+            #my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
+            my $newTableItem = new yui::YTableItem($name."\n".$leaf,
                                                    $version,
                                                    $release,
                                                    $arch);
-            $w->{detail_list}->addItem($newTableItem);
             set_node_state($newTableItem, $state, $w->{detail_list});
+            $w->{detail_list}->addItem($newTableItem);
             $ptree{$leaf} = [ $newTableItem->label() ];
         } else {
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
-            push @{$wtree{$leaf}}, $iter;
+            #push @{$wtree{$leaf}}, $iter;
         }
     } else {
         my $parent = add_parent($w->{tree}, $root, $state);
@@ -1107,7 +1115,8 @@ sub groups_tree {
 
 sub group_has_parent {
     my ($group) = shift;
-    return (defined($groups_tree{$group}{parent}));
+    return 0 if(!defined($group));
+    return defined($groups_tree{$group}{parent});
 }
 
 sub group_parent {
@@ -1119,7 +1128,7 @@ sub group_parent {
     return $groups_tree{$group}{parent} if(group_has_parent($group));
     for my $sup (keys %groups_tree){
         for my $item(keys %{$groups_tree{$sup}{children}}){
-            if($item eq $group){
+            if(defined($group) && ($item eq $group)){
                 return $groups_tree{$sup}{parent};
             }
         }
