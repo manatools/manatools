@@ -28,6 +28,7 @@ use strict;
 our @ISA = qw(Exporter);
 use lib qw(/usr/lib/libDrakX);
 use common;
+use POSIX;
 
 # TO WORKAROUND LOCALIZATION ISSUE
 use AdminPanel::Rpmdragora::localization;
@@ -224,7 +225,7 @@ my %group_icons = (
 sub get_icon {
     my ($group, $parent) = @_;
     my $path;
-    if($parent == 0){
+    if(isdigit($parent) && $parent == 0){
         $path = '/usr/share/icons/';
     }else{
         $path = '/usr/share/icons/mini/';
