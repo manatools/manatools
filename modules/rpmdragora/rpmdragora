@@ -549,6 +549,7 @@ sub run_treeview_dialog {
     $view_box->addItem($views{normal});
     $view_box->addItem($views{backports}) if($is_backports);
     $view_box->setNotify(1);
+    $view_box->selectItem($view_box->findItem($views{$default_list_mode})) if(defined($views{$default_list_mode}));
 
     $options->{tree_submode} ||= $default_list_mode;
     $options->{tree_subflat} ||= $options->{state}{flat};
