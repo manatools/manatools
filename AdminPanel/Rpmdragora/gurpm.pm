@@ -25,8 +25,6 @@ package AdminPanel::Rpmdragora::gurpm;
 #
 # $Id: gurpm.pm 255450 2009-04-03 16:00:16Z tv $
 
-package AdminPanel::Rpmdragora::gurpm;
-
 use strict;
 use lib qw(/usr/lib/libDrakX);
 use yui;
@@ -47,7 +45,7 @@ sub new {
     #my $mainw = bless(ugtk2->new($title, %options, default_width => 600, width => 600), $self);
     $self->{factory} = yui::YUI::widgetFactory;
     $self->{mainw} = $self->{factory}->createPopupDialog();
-    $::main_window = $self->{mainw};
+    #$::main_window = $self->{mainw};
     $self->{vbox} = $self->{factory}->createVBox($self->{mainw});
     #OLD $mainw->{label} = gtknew('Label', text => $initializing, alignment => [ 0.5, 0 ]);
     $self->{label} = $self->{factory}->createLabel($self->{vbox}, $initializing);
@@ -66,27 +64,34 @@ sub new {
     #$mainw->{real_window}->show_all;
     #select(undef, undef, undef, 0.1);  #- hackish :-(
     #$mainw->SUPER::sync;
+    $self->{mainw}->pollEvent();
+    $self->flush();
+    $self;
+}
+
+sub flush {
+    my ($self) = @_;
     $self->{mainw}->recalcLayout();
     $self->{mainw}->doneMultipleChanges();
-    $self;
 }
 
 sub label {
     my ($self, $label) = @_;
     $self->{label} = $self->{factory}->createLabel($self->{vbox},$label);
     #select(undef, undef, undef, 0.1);  #- hackish :-(
-    #$self->flush;
+    $self->flush();
 }
 
 sub progress {
     my ($self, $value) = @_;
     state $time;
+    $time = 0 if(!defined($time));
     $value = 0 if $value < 0;
     $value = 100 if 1 < $value;
     $self->{progressbar}->setValue($value);
     return if Time::HiRes::clock_gettime() - $time < 0.333;
     $time = Time::HiRes::clock_gettime();
-    #$self->flush;
+    $self->flush();
 }
 
 sub DESTROY {
@@ -111,8 +116,7 @@ sub validate_cancel {
     }
     #$self->{cancel}->set_sensitive(1);
     #$self->{cancel}->show;
-    $self->{mainw}->recalcLayout();
-    $self->{mainw}->doneMultipleChanges();
+    $self->flush();
 }
 
 sub invalidate_cancel {

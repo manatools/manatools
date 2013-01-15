@@ -314,6 +314,7 @@ sub update_pbar {
     return if !$total;          # don't die if there's no source
     $count++;
     $new_stage = $level+($limit-$level)*$count/$total;
+    $prev_stage = 0 if(!defined($prev_stage));
     if ($prev_stage + 0.01*100 < $new_stage) {
         $prev_stage = $new_stage;
         $gurpm->progress($new_stage);
@@ -324,6 +325,7 @@ sub update_pbar {
 sub get_installed_packages {
     my ($urpm, $db, $all_pkgs, $gurpm) = @_;
 
+    $urpm->{global_config}{'prohibit-remove'} = '' if(!defined($urpm->{global_config}{'prohibit-remove'}));
     my @base = ("basesystem", split /,\s*/, $urpm->{global_config}{'prohibit-remove'});
     my (%base, %basepackages, @installed_pkgs, @processed_base);
     reset_pbar_count(0.33);
