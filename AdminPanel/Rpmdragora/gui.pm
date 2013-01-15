@@ -37,7 +37,6 @@ use common;
 # TO WORKAROUND LOCALIZATION ISSUE
 use AdminPanel::Rpmdragora::localization;
 
-use yui;
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
@@ -45,6 +44,7 @@ use AdminPanel::Rpmdragora::init;
 use AdminPanel::Rpmdragora::icon;
 use AdminPanel::Rpmdragora::pkg;
 use AdminPanel::Shared;
+use yui;
 use feature 'state';
 
 our @EXPORT = qw(
@@ -443,12 +443,10 @@ sub add_parent {
 		my $treeItem; 
 		if($i == 0){
 			$parent = $item;
-		    $treeItem = new yui::YTreeItem($item,get_icon($item,0),0);
+		    $treeItem = new yui::YTreeItem($item,get_icon_path($item,0),0);
 			if(!defined($groups_tree{$parent})) {
-				$groups_tree{$parent} = {
-                    parent => $treeItem,
-                    children => ()
-                };
+				$groups_tree{$parent}{parent} = $treeItem;
+				$groups_tree{$parent}{children} = ();
 				$tree->addItem($groups_tree{$parent}{'parent'});
 			}
 		}else{
@@ -456,7 +454,7 @@ sub add_parent {
             #    push @{$groups_tree{$parent}{'children'}}, $item;
             #}
             if(!defined($groups_tree{$parent}{'children'}{$item})){
-		        $treeItem = new yui::YTreeItem($item,get_icon($item,$parent),0);
+		        $treeItem = new yui::YTreeItem($item,get_icon_path($item,$parent),0);
                 $groups_tree{$parent}{'children'}{$item} = $treeItem;
 			    $groups_tree{$parent}{'parent'}->addChild($treeItem);
             }
@@ -1021,6 +1019,7 @@ sub build_tree {
     my ($tree, $tree_model, $elems, $options, $force_rebuild, $flat, $mode) = @_;
     state $old_mode;
     $mode = $options->{rmodes}{$mode} || $mode;
+    $old_mode = '' if(!defined($old_mode));
     return if $old_mode eq $mode && !$force_rebuild;
     $old_mode = $mode;
     undef $force_rebuild;

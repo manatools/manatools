@@ -27,13 +27,13 @@ package AdminPanel::Rpmdragora::icon;
 use strict;
 our @ISA = qw(Exporter);
 use lib qw(/usr/lib/libDrakX);
-use common;
 use POSIX;
+use common;
 
 # TO WORKAROUND LOCALIZATION ISSUE
 use AdminPanel::Rpmdragora::localization;
 
-our @EXPORT = qw(get_icon);
+our @EXPORT = qw(get_icon_path);
 #- /usr/share/rpmlint/config (duplicates are normal, so that we are not too far away from .py)
 my %group_icons = (
 	N("All") => 'system_section',
@@ -222,7 +222,7 @@ my %group_icons = (
 
     );
 
-sub get_icon {
+sub get_icon_path {
     my ($group, $parent) = @_;
     my $path;
     if(isdigit($parent) && $parent == 0){

@@ -65,7 +65,8 @@ my %elems;
 
 my $old_value;
 sub viewbox_callback {
-    my ($selection, $options, %wanted_categories) = @_;
+    my %wanted_categories = ();
+    my ($selection, $options, $wanted_categories) = @_;
     my $val = $selection;
     $old_value="" if(!defined($old_value));
     return if $val eq $old_value; # workarounding gtk+ sending us sometimes twice events
@@ -1022,7 +1023,7 @@ sub run_treeview_dialog {
                 my $tree_selection = $tree->currentItem();
             }
             elsif ($widget == $file_menu && $mnuItemReloadPackagesList) {
-                $reload_db_and_clear_all;
+                $reload_db_and_clear_all->();
             }
             elsif ($widget == $QuitButton) {
                 quit();
