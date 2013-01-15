@@ -363,13 +363,8 @@ sub fatal_msg {
 
 sub wait_msg {
     my ($msg, %options) = @_;
-    #return msgBox("Please wait");
     #OLD my $mainw = ugtk2->new(N("Please wait"), grab => 1, if_(exists $options{transient}, transient => $options{transient}));
-    my $factory = yui::YUI::widgetFactory;
-    my $mainw = $factory->createPopupDialog();
     #$mainw->{real_window}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
-    my $vbox = $factory->createVBox($mainw);
-    my $title = $factory->createLabel($vbox, N("Please wait"));
     #my $label = $factory->createLabel($vbox, $msg);
     #OLD my $label = ref($msg) =~ /^Gtk/ ? $msg : Gtk2::WrappedLabel->new($msg);
     #gtkadd(
@@ -380,11 +375,15 @@ sub wait_msg {
 	#    if_(exists $options{widgets}, @{$options{widgets}}),
 	#)
     #);
-    #$mainw->sync;
-    #gtkset_mousecursor_wait($mainw->{rwindow}->window) unless $options{no_wait_cursor};
-    #$mainw->flush;
-    $mainw->recalcLayout();
-    $mainw->doneMultipleChanges();
+    my $factory = yui::YUI::widgetFactory;
+    my $mainw = $factory->createPopupDialog();
+    my $vbox = $factory->createVBox($mainw);
+    my $title = $factory->createLabel($vbox, N("Please wait"));
+    #$mainw->recalcLayout();
+    #$mainw->doneMultipleChanges();
+    $mainw->pollEvent();
+    #$mainw->recalcLayout();
+    #$mainw->doneMultipleChanges();
     $mainw;
 }
 
