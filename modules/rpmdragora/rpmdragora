@@ -134,6 +134,23 @@ sub tree_callback {
     return;
 }
 
+sub detaillist_callback {
+    my ($selection, $info, $options) = @_;
+    $info->setValue("");
+    $info->setValue("<h2>".N("Informations")."</h2>");
+    my @data = get_info($options->{table_item_list}[$selection->index()],$info->parent()->parent());
+    for(@{$data[0]}){
+        if(ref $_ ne "ARRAY"){
+            $info->setValue($info->value()."<br />$_");
+        }else{
+            $info->setValue($info->value()."<br />");
+            for my $subitem(@{$_}){
+                $info->setValue($info->value()."<br />&nbsp;&nbsp;&nbsp;".$subitem);
+            }
+        }
+    }
+}
+
 sub do_search($$$$$$$) {
     my ($find_entry, $tree, $tree_model, $options, $current_search_type, $urpm, $pkgs) = @_;
     my $entry = $find_entry->value() or return;
@@ -452,6 +469,7 @@ sub run_treeview_dialog {
 
     $detail_list = $factory->createTable($hbox_middle,$detail_list_header);
     $detail_list->setWeight(0,50);
+    $detail_list->setNotify(1);
     #OLD compute_main_window_size($w);
 
 =comment
@@ -620,7 +638,9 @@ sub run_treeview_dialog {
     $find_entry->setWeight(0,10);
 
     #OLD my $info = Gtk2::Mdv::TextView->new;
-    my $info = $factory->createMultiLineEdit($hbox_bottom,"");
+    #my $info = $factory->createMultiLineEdit($hbox_bottom,"");
+    my $info = $factory->createRichText($hbox_bottom,"");
+    #$info->setDisabled();
     $info->setWeight(0,40);
     $info->setWeight(1,40);
     #OLD $info->set_left_margin(2);
@@ -1000,6 +1020,9 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $tree) {
                 tree_callback($tree->currentItem(),\%$options);
+            }
+            elsif ($widget == $detail_list){
+                detaillist_callback($detail_list->selectedItem(), $info, \%$options);
             }
             elsif ($widget == $file_menu && $mnuItemUpdateMedia) {
                 update_sources_interactive($urpm, transient => $my_win)

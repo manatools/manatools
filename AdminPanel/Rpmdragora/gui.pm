@@ -149,13 +149,11 @@ sub get_advisory_link {
 
 sub get_description {
     my ($pkg, $update_descr) = @_;
-    @{ ugtk2::markup_to_TextView_format(join("\n",
-                                             (eval {
-                                                 escape_text_for_TextView_markup_format(
-                                                     $pkg->{description}
-                                                       || $update_descr->{description});
-                                             } || '<i>' . N("No description") . '</i>')
-                                         )) };
+
+    join("<br />",
+        (eval {
+            $pkg->{description} || $update_descr->{description};
+            } || '<i>'. N("No description").'</i>'));
 }
 
 sub get_string_from_keywords {
@@ -196,39 +194,31 @@ sub get_main_text {
 
     my $txt = get_string_from_keywords($medium, $fullname);
  
-    ugtk2::markup_to_TextView_format(
-        # force align "name - summary" to the right with RTL languages (#33603):
-        if_(lang::text_direction_rtl(), "\x{200f}") .
-          join("\n",
-               format_header(join(' - ', $name, $summary)) .
-                 # workaround gtk+ bug where GtkTextView wronly limit embedded widget size to bigger line's width (#25533):
-                 "\x{200b} \x{feff}" . ' ' x 120,
-               if_($txt, format_field(N("Notice: ")) . $txt),
-               if_($is_update, # is it an update?
-                   format_field(N("Importance: ")) . format_update_field($update_descr->{importance}),
-                   format_field(N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
-               ),
-               ''  # extra empty line
-           ));
+    join("<br />",
+        format_header(join(' - ', $name, $summary)) .
+            if_($txt, format_field(N("Notice: ")) . $txt),
+            if_($is_update, # is it an update?
+            format_field(N("Importance: ")) . format_update_field($update_descr->{importance}),
+            format_field(N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
+            ),
+            ''  # extra empty line
+        );
 }
 
 sub get_details {
     my ($pkg, $upkg, $installed_version, $raw_medium) = @_;
-    my $a = ugtk2::markup_to_TextView_format(
-        $spacing . join("\n$spacing",
-                        format_field(N("Version: ")) . $upkg->EVR,
-                        ($upkg->flag_installed ?
-                           format_field(N("Currently installed version: ")) . $installed_version : ()
-                        ),
-                        format_field(N("Group: ")) . translate_group($upkg->group),
-                        format_field(N("Architecture: ")) . $upkg->arch,
-                        format_field(N("Size: ")) . N("%s KB", int($upkg->size/1024)),
-                        eval { format_field(N("Medium: ")) . $raw_medium->{name} },
-                    ),
-    );
+    my @details = ();
+    push @details, format_field(N("Version: ")) . $upkg->EVR;
+    push @details, format_field(N("Currently installed version: ")) . $installed_version if($upkg->flag_installed);
+    push @details, format_field(N("Group: ")) . translate_group($upkg->group);
+    push @details, format_field(N("Architecture: ")) . $upkg->arch;
+    push @details, format_field(N("Size: ")) . N("%s KB", int($upkg->size/1024));
+    push @details, eval { format_field(N("Medium: ")) . $raw_medium->{name} };
+
     my @link = get_url_link($upkg, $pkg);
-    push @$a, @link if @link;
-    $a;
+    push @details, join("<br />&nbsp;&nbsp;&nbsp;",@link) if(@link);
+    unshift @details, "<br />&nbsp;&nbsp;&nbsp;";
+    join("<br />&nbsp;&nbsp;&nbsp;", @details);
 }
 
 sub get_new_deps {
@@ -271,10 +261,8 @@ sub get_url_link {
 
     return if !$url;
 
-    my @a =
-      (@{ ugtk2::markup_to_TextView_format(format_field("\n$spacing" . N("URL: "))) },
-        [ my $link = gtkshow(Gtk2::LinkButton->new($url, $url)) ]);
-    $link->set_uri_hook(\&run_help_callback);
+    my @a;
+    push @a, format_field(N("URL: "))."${spacing}$url";
     @a;
 }
 
@@ -298,24 +286,27 @@ sub format_pkg_simplifiedinfo {
     # discard update fields if not matching:
     my $is_update = ($upkg->flag_upgrade && $update_descr && $update_descr->{pre});
     my $summary = get_summary($key);
-    my $s = get_main_text($raw_medium, $key, $name, $summary, $is_update, $update_descr);
+    my $dummy_string = get_main_text($raw_medium, $key, $name, $summary, $is_update, $update_descr);
+    my $s;
+    push @$s, $dummy_string;
     push @$s, get_advisory_link($update_descr) if $is_update;
 
     push @$s, get_description($pkg, $update_descr);
     push @$s, [ "\n" ];
     my $installed_version = eval { find_installed_version($upkg) };
 
-    push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field(N("Details:")))),
-                       gtknew('TextView', text => get_details($pkg, $upkg, $installed_version, $raw_medium))) ];
-    $details_exp->set_use_markup(1);
+    #push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field(N("Details:")))),
+    #                   gtknew('TextView', text => get_details($pkg, $upkg, $installed_version, $raw_medium))) ];
+    push @$s, join("\n", format_field(N("Details:"))."\n".get_details($pkg, $upkg, $installed_version, $raw_medium));
+    #$details_exp->set_use_markup(1);
     push @$s, [ "\n\n" ];
-    push @$s, [ build_expander($pkg, N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
+    #push @$s, [ build_expander($pkg, N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
     push @$s, [ "\n\n" ];
-    push @$s, [ build_expander($pkg, N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
+    #push @$s, [ build_expander($pkg, N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
 
     push @$s, [ "\n\n" ];
     if ($upkg->id) { # If not installed
-        push @$s, get_new_deps($urpm, $upkg);
+        #    push @$s, get_new_deps($urpm, $upkg);
     }
     $s;
 }
@@ -406,7 +397,7 @@ sub node_state {
                : 'uninstalled');
 }
 
-my ($common, $w, %wtree, %ptree, %pix);
+my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
 
 sub set_node_state {
     my ($iter, $state, $model) = @_;
@@ -482,13 +473,14 @@ sub add_node {
             $release = "" if(!defined($release));
             $arch = "" if(!defined($arch));
             #my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
-            my $newTableItem = new yui::YTableItem($name."\n".$leaf,
+            my $newTableItem = new yui::YTableItem($name."\n".get_summary($leaf),
                                                    $version,
                                                    $release,
                                                    $arch);
             set_node_state($newTableItem, $state, $w->{detail_list});
             $w->{detail_list}->addItem($newTableItem);
             $ptree{$leaf} = [ $newTableItem->label() ];
+            $table_item_list[$newTableItem->index()] = $leaf;
         } else {
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             #push @{$wtree{$leaf}}, $iter;
@@ -549,12 +541,15 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     ($common) = @_;
     $w = $common->{widgets};
 
+    $common->{table_item_list} = \@table_item_list;
+
     $w->{detail_list} ||= $w->{tree};
     #$w->{detail_list_model} ||= $w->{tree_model};
 
     $common->{add_parent} = \&add_parent;
     my $clear_all_caches = sub {
 	%ptree = %wtree = ();
+    @table_item_list = ();
     };
     $common->{clear_all_caches} = $clear_all_caches;
     $common->{delete_all} = sub {
