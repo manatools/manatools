@@ -216,6 +216,7 @@ sub do_search($$$$$$$) {
         #),
         #);
         #$searchw->sync;
+        $searchw->pollEvent();
         $searchw->recalcLayout();
         $searchw->doneMultipleChanges();
         # should probably not account backports packages or find a way to search them:
@@ -304,7 +305,7 @@ sub do_search($$$$$$$) {
     if (@search_results) {
         @search_results = sort_packages(@search_results);
         $elems{$results_ok} = [ map { [ $_, $results_ok ] } @search_results ];
-        $iter = $options->{add_parent}->($results_ok);
+        $iter = $options->{add_parent}->($tree, $results_ok);
         $options->{add_nodes}->(map { [ $_, $results_ok . ($options->{tree_mode} eq 'by_presence'
                                  ? '|' . ($pkgs->{$_}{pkg}->flag_installed ? N("Upgradable") : N("Addable"))
                                  : ($options->{tree_mode} eq 'by_selection'
@@ -312,7 +313,7 @@ sub do_search($$$$$$$) {
                                     : ''))
                       ] } @search_results);
     } else {
-        $iter = $options->{add_parent}->($results_none);
+        $iter = $options->{add_parent}->($tree, $results_none);
         # clear package list:
         $options->{add_nodes}->();
         my $string = $default_list_mode eq 'all' && $filter->[0] eq 'all' ? N("No search results.") :
@@ -357,7 +358,7 @@ sub run_treeview_dialog {
         get_status => sub {
             N("Selected: %s / Free disk space: %s", formatXiB($size_selected), formatXiB($size_free*1024));
         },
-        rebuild_tree => sub {},
+        rebuild_tree => sub { $tree->rebuildTree(); },
     };
 
     my $vbox = $factory->createVBox($my_win);
