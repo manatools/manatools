@@ -614,6 +614,7 @@ sub run_treeview_dialog {
     $filter_box->addItem($filters{all});
     $filter_box->addItem($filters{installed});
     $filter_box->addItem($filters{non_installed});
+    $filter_box->selectItem($filter_box->findItem($filters{$filter->[0]})) if(defined($filters{$filter->[0]}));
     $filter_box->setNotify(1);
 
     my @search_types = qw(normal descriptions summaries files);
