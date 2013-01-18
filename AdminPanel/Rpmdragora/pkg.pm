@@ -569,7 +569,7 @@ sub get_pkgs {
 
     my @meta_pkgs = grep { /^task-|^basesystem/ } keys %all_pkgs;
  
-    my @gui_pkgs = map { chomp; $_ } cat_('/usr/share/rpmdragora/gui.lst');
+    my @gui_pkgs = map { chomp; $_ } cat_('/usr/share/rpmdrake/gui.lst');
     # add meta packages to GUI packages list (which expect basic names not fullnames):
     push @gui_pkgs, map { (split_fullname($_))[0] } @meta_pkgs;
 
