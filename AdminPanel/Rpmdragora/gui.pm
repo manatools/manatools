@@ -408,8 +408,14 @@ sub set_node_state {
     #$model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
     #$model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
     $iter->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png");
-    $iter->addCell("".to_bool(member($state, qw(base installed to_install))),'');
-    $iter->addCell("".to_bool($state ne 'base'),'');
+    if(to_bool(member($state, qw(base installed to_install)))){
+        $iter->cell(0)->setLabel('x');
+    }else{
+        $iter->cell(0)->setLabel('');
+    }
+    if(!to_bool($state ne 'base')){
+        $iter->cell(0)->setLabel('-');
+    }
 }
 
 sub set_leaf_state {
@@ -473,7 +479,8 @@ sub add_node {
             $release = "" if(!defined($release));
             $arch = "" if(!defined($arch));
             #my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
-            my $newTableItem = new yui::YTableItem($name."\n".get_summary($leaf),
+            my $newTableItem = new yui::YTableItem($state,
+                                                   $name."\n".get_summary($leaf),
                                                    $version,
                                                    $release,
                                                    $arch);

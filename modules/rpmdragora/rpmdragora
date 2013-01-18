@@ -411,6 +411,8 @@ sub run_treeview_dialog {
     #$col_sel->set_sizing('fixed');
     #$col_sel->set_sort_column_id($pkg_columns{selected});
 
+    $detail_list_header->addColumn('');
+
     my $display_arch_col = to_bool(arch() =~ /64/);
     my @columns = (qw(name version release), if_($display_arch_col, 'arch'));
 
