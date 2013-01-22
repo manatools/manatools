@@ -6,16 +6,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rpmdrake\n"
 "POT-Creation-Date: 2012-11-09 17:13+0800\n"
-"PO-Revision-Date: 2012-01-16 16:21+0000\n"
-"Last-Translator: Oliver Burger <oliver.bgr@googlemail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2013-01-22 23:36+0200\n"
+"Last-Translator: Numan Demirdöğen <if.gnu.linux@gmail.com>\n"
+"Language-Team: LANGUAGE <i18n-tr@ml.mageia.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: tr\n"
 "Plural-Forms: nplurals=1; plural=0\n"
 
-#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#: ../MageiaUpdate:102
+#: ../Rpmdrake/gui.pm:994
 #, c-format
 msgid ""
 "The list of updates is empty. This means that either there is\n"
@@ -26,7 +27,10 @@ msgstr ""
 "güncelleme olmadığı ya da bütün güncellemeleri yüklediğiniz anlamına\n"
 "gelir."
 
-#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#: ../MageiaUpdate:127
+#: ../rpmdrake:97
+#: ../rpmdrake:797
+#: ../rpmdrake.pm:239
 #, c-format
 msgid "Software Management"
 msgstr "Yazılım Yönetimi"
@@ -41,12 +45,14 @@ msgstr "Burada yazılım paketi güncellemelerinin bir listesini bulabilirsiniz"
 msgid "Name"
 msgstr "İsim"
 
-#: ../MageiaUpdate:159 ../rpmdrake:290
+#: ../MageiaUpdate:159
+#: ../rpmdrake:290
 #, c-format
 msgid "Version"
 msgstr "Sürüm"
 
-#: ../MageiaUpdate:160 ../rpmdrake:294
+#: ../MageiaUpdate:160
+#: ../rpmdrake:294
 #, c-format
 msgid "Release"
 msgstr "Yayım"
@@ -56,22 +62,28 @@ msgstr "Yayım"
 msgid "Arch"
 msgstr "Mimari"
 
-#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#: ../MageiaUpdate:175
+#: ../Rpmdrake/edit_urpm_sources.pm:1168
 #, c-format
 msgid "Help"
 msgstr "Yardım"
 
-#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#: ../MageiaUpdate:179
+#: ../rpmdrake:719
+#: ../rpmdrake.pm:852
 #, c-format
 msgid "Select all"
 msgstr "Tümünü Seç"
 
-#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#: ../MageiaUpdate:192
+#: ../rpmdrake.pm:856
 #, c-format
 msgid "Update"
 msgstr "Güncelle"
 
-#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#: ../MageiaUpdate:200
+#: ../rpmdrake:730
+#: ../rpmdrake:793
 #, c-format
 msgid "Quit"
 msgstr "Çık"
@@ -86,7 +98,8 @@ msgstr "CD-ROM"
 msgid "FTP"
 msgstr "FTP"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#: ../Rpmdrake/edit_urpm_sources.pm:64
+#: ../Rpmdrake/edit_urpm_sources.pm:74
 #, c-format
 msgid "Local"
 msgstr "Yerel"
@@ -101,7 +114,8 @@ msgstr "HTTP"
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#: ../Rpmdrake/edit_urpm_sources.pm:67
+#: ../Rpmdrake/edit_urpm_sources.pm:70
 #, c-format
 msgid "NFS"
 msgstr "NFS"
@@ -129,23 +143,17 @@ msgstr "Veri kaynağı türünü seçin"
 #: ../Rpmdrake/edit_urpm_sources.pm:115
 #, c-format
 msgid ""
-"In order to keep your system secure and stable, you must at a minimum set "
-"up\n"
-"sources for official security and stability updates. You can also choose to "
-"set\n"
+"In order to keep your system secure and stable, you must at a minimum set up\n"
+"sources for official security and stability updates. You can also choose to set\n"
 "up a fuller set of sources which includes the complete official Mageia\n"
 "repositories, giving you access to more software than can fit on the Mageia\n"
-"discs. Please choose whether to configure update sources only, or the full "
-"set\n"
+"discs. Please choose whether to configure update sources only, or the full set\n"
 "of sources."
 msgstr ""
-"Sisteminizi güvende ve kararlı tutmak için, en azından resmi güvenlik ve "
-"kararlılık\n"
+"Sisteminizi güvende ve kararlı tutmak için, en azından resmi güvenlik ve kararlılık\n"
 "güncellemeleri için güncelleme kaynaklarını ayarlamalısınız. Ayrıca Mageia \n"
-"disklerine sığacak, resmi Mageia depolarının tamamını içeren tam kaynak seti "
-"ayarlayabilirsiniz\n"
-"Lütfen, sadece güncelleme kaynaklarını mı yoksa tam kaynak setini mi "
-"yapılandıracağınızı\n"
+"disklerine sığacak, resmi Mageia depolarının tamamını içeren tam kaynak seti ayarlayabilirsiniz\n"
+"Lütfen, sadece güncelleme kaynaklarını mı yoksa tam kaynak setini mi yapılandıracağınızı\n"
 "seçin."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:122
@@ -177,7 +185,8 @@ msgstr ""
 "\n"
 "Devam etmek için her şey tamam mı?"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#: ../Rpmdrake/edit_urpm_sources.pm:145
+#: ../Rpmdrake/edit_urpm_sources.pm:160
 #, c-format
 msgid "Please wait, adding media..."
 msgstr "Lütfen bekleyin, yazılım kaynağı ekleniyor..."
@@ -202,8 +211,10 @@ msgstr "Yazılım kaynağı yolu:"
 msgid "FTP server"
 msgstr "FTP sunucusu"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
-#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#: ../Rpmdrake/edit_urpm_sources.pm:483
 #, c-format
 msgid "URL:"
 msgstr "URL:"
@@ -238,7 +249,8 @@ msgstr "Gözat..."
 msgid "Login:"
 msgstr "Kullanıcı adı:"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#: ../Rpmdrake/edit_urpm_sources.pm:583
 #: ../rpmdrake.pm:149
 #, c-format
 msgid "Password:"
@@ -283,24 +295,45 @@ msgstr "Bir yazılım kaynağı ekleniyor:"
 msgid "Type of medium:"
 msgstr "Yazılım kaynağı türü:"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
-#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
-#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
-#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
-#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
-#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#: ../Rpmdrake/edit_urpm_sources.pm:280
+#: ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492
+#: ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600
+#: ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766
+#: ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:205
+#: ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357
+#: ../rpmdrake.pm:698
+#: ../rpmdrake.pm:771
+#: ../rpmdrake.pm:848
 #, c-format
 msgid "Cancel"
 msgstr "İptal"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
-#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
-#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
-#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
-#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
-#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
-#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
-#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#: ../Rpmdrake/edit_urpm_sources.pm:282
+#: ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663
+#: ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832
+#: ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169
+#: ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736
+#: ../Rpmdrake/gui.pm:741
+#: ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614
+#: ../Rpmdrake/pkg.pm:829
+#: ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140
+#: ../rpmdrake.pm:293
+#: ../rpmdrake.pm:360
+#: ../rpmdrake.pm:698
 #, c-format
 msgid "Ok"
 msgstr "Tamam"
@@ -320,22 +353,26 @@ msgstr "hiç"
 msgid "always"
 msgstr "her zaman"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#: ../Rpmdrake/edit_urpm_sources.pm:344
+#: ../Rpmdrake/edit_urpm_sources.pm:376
 #, c-format
 msgid "Never"
 msgstr "Hiç"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#: ../Rpmdrake/edit_urpm_sources.pm:345
+#: ../Rpmdrake/edit_urpm_sources.pm:379
 #, c-format
 msgid "On-demand"
 msgstr "İstenirse"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#: ../Rpmdrake/edit_urpm_sources.pm:346
+#: ../Rpmdrake/edit_urpm_sources.pm:383
 #, c-format
 msgid "Update-only"
 msgstr "Sadece-güncelle"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#: ../Rpmdrake/edit_urpm_sources.pm:347
+#: ../Rpmdrake/edit_urpm_sources.pm:386
 #, c-format
 msgid "Always"
 msgstr "Her zaman"
@@ -357,12 +394,8 @@ msgstr "XML meta-verisi indirme kuralı:"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:374
 #, c-format
-msgid ""
-"For remote media, specify when XML meta-data (file lists, changelogs & "
-"information) are downloaded."
-msgstr ""
-"Uzak ortam için, ne zaman XML meta-verisinin (dosya listeleri, değişim "
-"günlükleri & bilgiler) indirileceğini belirleyin."
+msgid "For remote media, specify when XML meta-data (file lists, changelogs & information) are downloaded."
+msgstr "Uzak ortam için, ne zaman XML meta-verisinin (dosya listeleri, değişim günlükleri & bilgiler) indirileceğini belirleyin."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:377
 #, c-format
@@ -381,19 +414,13 @@ msgstr "Pakete tıklandığında ilgili XML bilgi dosyası indirilir."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:384
 #, c-format
-msgid ""
-"Updating media implies updating XML info files already required at least "
-"once."
-msgstr ""
-"Yazılım kaynağını güncellemek en azından bir kez XML bilgi dosyalarını "
-"güncellemeyi içerir."
+msgid "Updating media implies updating XML info files already required at least once."
+msgstr "Yazılım kaynağını güncellemek en azından bir kez XML bilgi dosyalarını güncellemeyi içerir."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:387
 #, c-format
 msgid "All XML info files are downloaded when adding or updating media."
-msgstr ""
-"Yazılım kaynağı eklendiğinde veya güncellendiğinde tüm XML bilgi dosyaları "
-"indirilir."
+msgstr "Yazılım kaynağı eklendiğinde veya güncellendiğinde tüm XML bilgi dosyaları indirilir."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:416
 #, c-format
@@ -447,8 +474,7 @@ msgstr "Devam etmek için ortamı takmanız gerekli"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:518
 #, c-format
-msgid ""
-"In order to save the changes, you need to insert the medium in the drive."
+msgid "In order to save the changes, you need to insert the medium in the drive."
 msgstr "Değişiklikleri kaydetmek için ortamı sürücüye takın."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:553
@@ -468,12 +494,8 @@ msgstr "Genel vekil sunucu ayarları"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:569
 #, c-format
-msgid ""
-"If you need a proxy, enter the hostname and an optional port (syntax: "
-"<proxyhost[:port]>):"
-msgstr ""
-"Bir vekil sunucuya ihtiyacınız varsa makine adı ve isteğe bağlı olarak portu "
-"girin (söz dizimi:<vekil sunucu[:port]>):"
+msgid "If you need a proxy, enter the hostname and an optional port (syntax: <proxyhost[:port]>):"
+msgstr "Bir vekil sunucuya ihtiyacınız varsa makine adı ve isteğe bağlı olarak portu girin (söz dizimi:<vekil sunucu[:port]>):"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:572
 #, c-format
@@ -483,8 +505,7 @@ msgstr "Vekil sunucu adı:"
 #: ../Rpmdrake/edit_urpm_sources.pm:575
 #, c-format
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
-"Vekil sunucu kimlik denetimi için kullanıcı adı/parola belirtebilirsiniz:"
+msgstr "Vekil sunucu kimlik denetimi için kullanıcı adı/parola belirtebilirsiniz:"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:578
 #, c-format
@@ -541,14 +562,18 @@ msgstr "Protokol:"
 msgid "Media limit:"
 msgstr "Yazılım kaynağı sınırlaması:"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
-#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#: ../Rpmdrake/edit_urpm_sources.pm:741
+#: ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934
+#: ../Rpmdrake/edit_urpm_sources.pm:1149
 #, c-format
 msgid "Add"
 msgstr "Ekle"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
-#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:742
+#: ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812
+#: ../Rpmdrake/edit_urpm_sources.pm:938
 #: ../Rpmdrake/edit_urpm_sources.pm:1139
 #, c-format
 msgid "Remove"
@@ -584,9 +609,14 @@ msgstr "Yazılım kaynağı sınırlaması"
 msgid "Command"
 msgstr "Komut"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
-#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
-#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#: ../Rpmdrake/edit_urpm_sources.pm:796
+#: ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991
+#: ../Rpmdrake/pkg.pm:114
+#: ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175
+#: ../Rpmdrake/pkg.pm:196
+#: ../Rpmdrake/rpmnew.pm:81
 #, c-format
 msgid "(none)"
 msgstr "(hiçbiri)"
@@ -606,7 +636,8 @@ msgstr "Ekle..."
 msgid "Manage keys for digital signatures of packages"
 msgstr "Paketlerin dijital imza anahtarlarını yönet"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#: ../Rpmdrake/edit_urpm_sources.pm:846
+#: ../Rpmdrake/edit_urpm_sources.pm:1055
 #, c-format
 msgid "Medium"
 msgstr "Yazılım kaynağı"
@@ -647,15 +678,22 @@ msgstr ""
 "%s anahtarını, %s kaynağından kaldırmak istediğinize emin misiniz?\n"
 "(Anahtarın adı: %s)"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#: ../Rpmdrake/edit_urpm_sources.pm:955
+#: ../Rpmdrake/edit_urpm_sources.pm:1132
 #, c-format
 msgid "Configure media"
 msgstr "Yazılım kaynağını yapılandır"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
-#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
-#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
-#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#: ../Rpmdrake/edit_urpm_sources.pm:962
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#: ../rpmdrake:543
+#: ../rpmdrake:546
+#: ../rpmdrake:551
+#: ../rpmdrake:571
+#: ../rpmdrake:572
 #, c-format
 msgid "/_File"
 msgstr "/_Dosya"
@@ -700,11 +738,20 @@ msgstr "/Kapat"
 msgid "<control>W"
 msgstr "<control>W"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
-#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
-#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
-#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
-#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#: ../Rpmdrake/edit_urpm_sources.pm:967
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#: ../rpmdrake:534
+#: ../rpmdrake:536
+#: ../rpmdrake:538
+#: ../rpmdrake:539
+#: ../rpmdrake:540
+#: ../rpmdrake:575
+#: ../rpmdrake:591
+#: ../rpmdrake:595
+#: ../rpmdrake:671
 #, c-format
 msgid "/_Options"
 msgstr "/_Seçenekler"
@@ -749,46 +796,58 @@ msgstr "/V_ekil Sunucu"
 msgid "<control>R"
 msgstr "<control>R"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
-#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
-#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#: ../Rpmdrake/edit_urpm_sources.pm:973
+#: ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975
+#: ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619
+#: ../rpmdrake:620
+#: ../rpmdrake:621
+#: ../rpmdrake:622
 #, c-format
 msgid "/_Help"
 msgstr "/_Yardım"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#: ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../rpmdrake:620
 #, c-format
 msgid "/_Report Bug"
 msgstr "/_Hata raporla"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#: ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:622
 #, c-format
 msgid "/_About..."
 msgstr "/_Hakkında..."
 
-#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#: ../Rpmdrake/edit_urpm_sources.pm:979
+#: ../rpmdrake:625
 #, c-format
 msgid "Rpmdrake"
 msgstr "Rpmdrake"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#: ../Rpmdrake/edit_urpm_sources.pm:981
+#: ../rpmdrake:627
 #, c-format
 msgid "Copyright (C) %s by Mandriva"
 msgstr "Copyright (C) %s bir Mandriva ürünüdür."
 
-#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#: ../Rpmdrake/edit_urpm_sources.pm:983
+#: ../rpmdrake:629
 #, c-format
 msgid "Rpmdrake is the Mageia package management tool."
 msgstr "Rpmdrake, Mageia paket yönetim aracıdır."
 
-#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#: ../Rpmdrake/edit_urpm_sources.pm:985
+#: ../rpmdrake:631
 #, c-format
 msgid "Mageia"
 msgstr "Mageia"
 
 #. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
 #. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#: ../Rpmdrake/edit_urpm_sources.pm:990
+#: ../rpmdrake:636
 #, c-format
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
@@ -798,7 +857,8 @@ msgstr ""
 "Taha Özket <taha.ozket@obss.net> , 2007\n"
 "Atilla ÖNTAŞ <atilla_ontas@mandriva.org> , 2008-2010\n"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#: ../Rpmdrake/edit_urpm_sources.pm:1045
+#: ../Rpmdrake/pkg.pm:270
 #, c-format
 msgid "Enabled"
 msgstr "Etkin"
@@ -882,7 +942,9 @@ msgstr "Arama sonuçları"
 msgid "Search results (none)"
 msgstr "Arama sonuçları (hiçbiri)"
 
-#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/gui.pm:123
+#: ../Rpmdrake/gui.pm:322
+#: ../Rpmdrake/gui.pm:324
 #: ../Rpmdrake/pkg.pm:188
 #, c-format
 msgid "(Not available)"
@@ -893,7 +955,8 @@ msgstr "(Erişilemez)"
 msgid "Security advisory"
 msgstr "Güvenlik tavsiyesi"
 
-#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#: ../Rpmdrake/gui.pm:147
+#: ../Rpmdrake/gui.pm:350
 #, c-format
 msgid "No description"
 msgstr "Tanımlanmamış"
@@ -943,22 +1006,26 @@ msgstr "Bu, Mageia tarafından desteklenen resmi bir pakettir."
 msgid "Notice: "
 msgstr "Önem: "
 
-#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#: ../Rpmdrake/gui.pm:198
+#: ../Rpmdrake/gui.pm:340
 #, c-format
 msgid "Importance: "
 msgstr "Önem: "
 
-#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#: ../Rpmdrake/gui.pm:199
+#: ../Rpmdrake/gui.pm:348
 #, c-format
 msgid "Reason for update: "
 msgstr "Güncelleme nedeni: "
 
-#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#: ../Rpmdrake/gui.pm:209
+#: ../Rpmdrake/gui.pm:335
 #, c-format
 msgid "Version: "
 msgstr "Sürümü: "
 
-#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#: ../Rpmdrake/gui.pm:211
+#: ../Rpmdrake/gui.pm:330
 #, c-format
 msgid "Currently installed version: "
 msgstr "Kurulu olan sürüm: "
@@ -968,22 +1035,27 @@ msgstr "Kurulu olan sürüm: "
 msgid "Group: "
 msgstr "Grup:"
 
-#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#: ../Rpmdrake/gui.pm:214
+#: ../Rpmdrake/gui.pm:336
 #, c-format
 msgid "Architecture: "
 msgstr "Mimari: "
 
-#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#: ../Rpmdrake/gui.pm:215
+#: ../Rpmdrake/gui.pm:337
 #, c-format
 msgid "Size: "
 msgstr "Boyut: "
 
-#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#: ../Rpmdrake/gui.pm:215
+#: ../Rpmdrake/gui.pm:337
 #, c-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#: ../Rpmdrake/gui.pm:216
+#: ../Rpmdrake/gui.pm:329
+#: ../rpmdrake.pm:903
 #, c-format
 msgid "Medium: "
 msgstr "Yazılım kaynağı: "
@@ -996,7 +1068,7 @@ msgstr "Yeni Bağımlılıklar:"
 #: ../Rpmdrake/gui.pm:242
 #, c-format
 msgid "All dependencies installed."
-msgstr ""
+msgstr "Tüm bağımlılıklar yüklendi."
 
 #: ../Rpmdrake/gui.pm:265
 #, c-format
@@ -1043,9 +1115,15 @@ msgstr "Özet: "
 msgid "Description: "
 msgstr "Tanım: "
 
-#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
-#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
-#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../Rpmdrake/gui.pm:361
+#: ../Rpmdrake/gui.pm:562
+#: ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574
+#: ../Rpmdrake/pkg.pm:839
+#: ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863
+#: ../rpmdrake:793
+#: ../rpmdrake.pm:828
 #: ../rpmdrake.pm:942
 #, c-format
 msgid "Warning"
@@ -1092,16 +1170,15 @@ msgstr ""
 "\"%s\" paketi urpmi yoksay listesinde.\n"
 "Yine de bunu seçmek istiyor musunuz?"
 
-#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#: ../Rpmdrake/gui.pm:574
+#: ../Rpmdrake/pkg.pm:714
 #, c-format
-msgid ""
-"Rpmdrake or one of its priority dependencies needs to be updated first. "
-"Rpmdrake will then restart."
-msgstr ""
-"Rpmdrake veya öncelikli bağımlılıklarından birinin ilk olarak güncellenmesi "
-"gerekiyor. Rpmdrake yeniden başlatılacak."
+msgid "Rpmdrake or one of its priority dependencies needs to be updated first. Rpmdrake will then restart."
+msgstr "Rpmdrake veya öncelikli bağımlılıklarından birinin ilk olarak güncellenmesi gerekiyor. Rpmdrake yeniden başlatılacak."
 
-#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#: ../Rpmdrake/gui.pm:702
+#: ../Rpmdrake/gui.pm:732
+#: ../Rpmdrake/gui.pm:734
 #, c-format
 msgid "More information on package..."
 msgstr "Paket hakkında daha fazla bilgi..."
@@ -1122,7 +1199,8 @@ msgid "One of the following packages is needed:"
 msgstr "Aşağıdaki paketlerden birine ihtiyaç var:"
 
 #. -PO: Keep it short, this is gonna be on a button
-#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#: ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:725
 #, c-format
 msgid "More info"
 msgstr "Daha fazla bilgi"
@@ -1144,9 +1222,7 @@ msgstr "Bazı ek paketlerin kaldırılması gerekiyor"
 
 #: ../Rpmdrake/gui.pm:771
 #, c-format
-msgid ""
-"Because of their dependencies, the following package(s) also need to be "
-"removed:"
+msgid "Because of their dependencies, the following package(s) also need to be removed:"
 msgstr "Bağımlılıkları nedeniyle şu paketlerin de kaldırılması gerekiyor:"
 
 #: ../Rpmdrake/gui.pm:776
@@ -1163,11 +1239,11 @@ msgstr ""
 "Bu paketleri kaldırmak sisteminizin çökmesine sebep olabilir, üzgünüm:\n"
 "\n"
 
-#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#: ../Rpmdrake/gui.pm:786
+#: ../Rpmdrake/gui.pm:863
 #, c-format
 msgid ""
-"Because of their dependencies, the following package(s) must be unselected "
-"now:\n"
+"Because of their dependencies, the following package(s) must be unselected now:\n"
 "\n"
 msgstr ""
 "Bağımlılıkları nedeniyle şu paketlerin seçili\n"
@@ -1182,8 +1258,7 @@ msgstr "Ek paketlere ihtiyaç var"
 #: ../Rpmdrake/gui.pm:816
 #, c-format
 msgid ""
-"To satisfy dependencies, the following package(s) also need to be "
-"installed:\n"
+"To satisfy dependencies, the following package(s) also need to be installed:\n"
 "\n"
 msgstr ""
 "Bağımlılıkları korumak için, şu paketlerin de yüklenmesi\n"
@@ -1232,7 +1307,8 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#: ../Rpmdrake/gui.pm:862
+#: ../Rpmdrake/pkg.pm:718
 #, c-format
 msgid "Some packages need to be removed"
 msgstr "Bazı paketlerin kaldırılması gerekiyor"
@@ -1278,12 +1354,15 @@ msgstr ""
 "\n"
 "Bütün seçili paketleri gerçekten yüklemek istiyor musunuz?"
 
-#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#: ../Rpmdrake/gui.pm:943
+#: ../Rpmdrake/open_db.pm:84
 #, c-format
 msgid "Fatal error"
 msgstr "Ölümcül hata"
 
-#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#: ../Rpmdrake/gui.pm:944
+#: ../Rpmdrake/open_db.pm:85
+#: ../Rpmdrake/pkg.pm:469
 #, c-format
 msgid "A fatal error occurred: %s."
 msgstr "Bir ölümcül hata oluştu: %s."
@@ -1298,23 +1377,29 @@ msgstr "Lütfen bekleyin, paketler listeleniyor..."
 msgid "No update"
 msgstr "Güncelleme yok"
 
-#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
-#: ../rpmdrake:369 ../rpmdrake:396
+#: ../Rpmdrake/gui.pm:1021
+#: ../Rpmdrake/icon.pm:35
+#: ../rpmdrake:213
+#: ../rpmdrake:369
+#: ../rpmdrake:396
 #, c-format
 msgid "All"
 msgstr "Hepsi"
 
-#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#: ../Rpmdrake/gui.pm:1031
+#: ../rpmdrake:202
 #, c-format
 msgid "Upgradable"
 msgstr "Yükseltilebilir"
 
-#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#: ../Rpmdrake/gui.pm:1031
+#: ../rpmdrake:370
 #, c-format
 msgid "Installed"
 msgstr "Kurulu"
 
-#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#: ../Rpmdrake/gui.pm:1032
+#: ../rpmdrake:202
 #, c-format
 msgid "Addable"
 msgstr "Eklenebilir"
@@ -1329,8 +1414,11 @@ msgstr "Bu paket için tanımlama yok\n"
 msgid "Accessibility"
 msgstr "Erişilebilirlik"
 
-#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
-#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#: ../Rpmdrake/icon.pm:37
+#: ../Rpmdrake/icon.pm:38
+#: ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40
+#: ../Rpmdrake/icon.pm:41
 #, c-format
 msgid "Archiving"
 msgstr "Arşivleme"
@@ -1350,67 +1438,95 @@ msgstr "Cd yazımı"
 msgid "Compression"
 msgstr "Sıkıştırma"
 
-#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
-#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
-#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#: ../Rpmdrake/icon.pm:41
+#: ../Rpmdrake/icon.pm:64
+#: ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100
+#: ../Rpmdrake/icon.pm:113
+#: ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:149
+#: ../Rpmdrake/icon.pm:166
 #, c-format
 msgid "Other"
 msgstr "Diğer"
 
-#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
-#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
-#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#: ../Rpmdrake/icon.pm:42
+#: ../Rpmdrake/icon.pm:43
+#: ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45
+#: ../Rpmdrake/icon.pm:46
+#: ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48
+#: ../Rpmdrake/icon.pm:49
+#: ../Rpmdrake/icon.pm:50
 #, c-format
 msgid "Communications"
 msgstr "İletişim"
 
-#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:43
+#: ../Rpmdrake/icon.pm:44
 #, c-format
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: ../Rpmdrake/icon.pm:45
 #, c-format
 msgid "Dial-Up"
-msgstr ""
+msgstr "Çevirmeli"
 
 #: ../Rpmdrake/icon.pm:46
 #, c-format
 msgid "Fax"
-msgstr ""
+msgstr "Faks"
 
 #: ../Rpmdrake/icon.pm:47
 #, c-format
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 #: ../Rpmdrake/icon.pm:48
 #, c-format
 msgid "Radio"
-msgstr ""
+msgstr "Radyo"
 
 #: ../Rpmdrake/icon.pm:49
 #, c-format
 msgid "Serial"
-msgstr ""
+msgstr "Dizisel"
 
 #: ../Rpmdrake/icon.pm:50
 #, c-format
 msgid "Telephony"
-msgstr ""
+msgstr "Telefon"
 
-#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:51
+#: ../Rpmdrake/icon.pm:57
 #, c-format
 msgid "Databases"
 msgstr "Veritabanları"
 
-#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
-#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
-#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
-#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
-#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
-#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
-#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#: ../Rpmdrake/icon.pm:52
+#: ../Rpmdrake/icon.pm:53
+#: ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55
+#: ../Rpmdrake/icon.pm:56
+#: ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58
+#: ../Rpmdrake/icon.pm:59
+#: ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61
+#: ../Rpmdrake/icon.pm:62
+#: ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64
+#: ../Rpmdrake/icon.pm:65
+#: ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67
+#: ../Rpmdrake/icon.pm:68
+#: ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207
+#: ../Rpmdrake/icon.pm:208
+#: ../Rpmdrake/icon.pm:209
 #, c-format
 msgid "Development"
 msgstr "Geliştirme"
@@ -1418,7 +1534,7 @@ msgstr "Geliştirme"
 #: ../Rpmdrake/icon.pm:53
 #, c-format
 msgid "Basic"
-msgstr ""
+msgstr "Temel"
 
 #: ../Rpmdrake/icon.pm:54
 #, c-format
@@ -1431,14 +1547,14 @@ msgid "C++"
 msgstr "C++"
 
 #: ../Rpmdrake/icon.pm:56
-#, fuzzy, c-format
+#, c-format
 msgid "C#"
-msgstr "C"
+msgstr "C#"
 
 #: ../Rpmdrake/icon.pm:58
 #, c-format
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: ../Rpmdrake/icon.pm:59
 #, c-format
@@ -1463,7 +1579,7 @@ msgstr "Çekirdek"
 #: ../Rpmdrake/icon.pm:63
 #, c-format
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: ../Rpmdrake/icon.pm:65
 #, c-format
@@ -1481,22 +1597,26 @@ msgid "Python"
 msgstr "Python"
 
 #: ../Rpmdrake/icon.pm:68
-#, fuzzy, c-format
+#, c-format
 msgid "Tools"
-msgstr "Metin araçları"
+msgstr "Araçlar"
 
 #. -PO: This is a package/product name. Only translate it if needed:
-#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#: ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:181
 #, c-format
 msgid "X11"
 msgstr "X11"
 
-#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#: ../Rpmdrake/icon.pm:70
+#: ../Rpmdrake/icon.pm:194
+#: ../Rpmdrake/icon.pm:209
 #, c-format
 msgid "Documentation"
 msgstr "Belgeler"
 
-#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:71
+#: ../Rpmdrake/icon.pm:112
 #, c-format
 msgid "Editors"
 msgstr "Düzenleyiciler"
@@ -1509,16 +1629,22 @@ msgstr "Eğitim"
 #: ../Rpmdrake/icon.pm:73
 #, c-format
 msgid "Emulators"
-msgstr "Emülatörler"
+msgstr "Öykünücüler"
 
 #: ../Rpmdrake/icon.pm:74
 #, c-format
 msgid "File tools"
 msgstr "Dosya araçları"
 
-#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
-#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
-#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:75
+#: ../Rpmdrake/icon.pm:76
+#: ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78
+#: ../Rpmdrake/icon.pm:79
+#: ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81
+#: ../Rpmdrake/icon.pm:82
+#: ../Rpmdrake/icon.pm:83
 #: ../Rpmdrake/icon.pm:84
 #, c-format
 msgid "Games"
@@ -1552,7 +1678,7 @@ msgstr "Bulmacalar"
 #: ../Rpmdrake/icon.pm:82
 #, c-format
 msgid "Shooter"
-msgstr ""
+msgstr "Nişancı"
 
 #: ../Rpmdrake/icon.pm:83
 #, c-format
@@ -1567,11 +1693,17 @@ msgstr "Strateji"
 #: ../Rpmdrake/icon.pm:85
 #, c-format
 msgid "Geography"
-msgstr ""
+msgstr "Coğrafya"
 
-#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
-#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
-#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:86
+#: ../Rpmdrake/icon.pm:87
+#: ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91
+#: ../Rpmdrake/icon.pm:94
+#: ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100
+#: ../Rpmdrake/icon.pm:101
+#: ../Rpmdrake/icon.pm:104
 #: ../Rpmdrake/icon.pm:107
 #, c-format
 msgid "Graphical desktop"
@@ -1624,8 +1756,12 @@ msgstr "WindowMaker"
 msgid "Xfce"
 msgstr "Xfce"
 
-#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
-#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:110
+#: ../Rpmdrake/icon.pm:111
+#: ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113
+#: ../Rpmdrake/icon.pm:114
+#: ../Rpmdrake/icon.pm:115
 #: ../Rpmdrake/icon.pm:116
 #, c-format
 msgid "Graphics"
@@ -1634,43 +1770,54 @@ msgstr "Grafikler"
 #: ../Rpmdrake/icon.pm:111
 #, c-format
 msgid "3D"
-msgstr ""
+msgstr "3D"
 
 #: ../Rpmdrake/icon.pm:114
 #, c-format
 msgid "Photography"
-msgstr ""
+msgstr "Fotoğraf"
 
 #: ../Rpmdrake/icon.pm:115
-#, fuzzy, c-format
+#, c-format
 msgid "Scanning"
-msgstr "Uyarı"
+msgstr "Taranıyor"
 
 #: ../Rpmdrake/icon.pm:116
-#, fuzzy, c-format
+#, c-format
 msgid "Viewers"
-msgstr "Görünüm"
+msgstr "Görüntüleyiciler"
 
 #: ../Rpmdrake/icon.pm:117
 #, c-format
 msgid "Monitoring"
 msgstr "İzleme"
 
-#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#: ../Rpmdrake/icon.pm:118
+#: ../Rpmdrake/icon.pm:119
 #, c-format
 msgid "Multimedia"
 msgstr "Çoklu Ortam"
 
-#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
-#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#: ../Rpmdrake/icon.pm:119
+#: ../Rpmdrake/icon.pm:185
+#: ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187
+#: ../Rpmdrake/icon.pm:188
 #, c-format
 msgid "Video"
 msgstr "Video"
 
-#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
-#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
-#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
-#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#: ../Rpmdrake/icon.pm:120
+#: ../Rpmdrake/icon.pm:121
+#: ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123
+#: ../Rpmdrake/icon.pm:124
+#: ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126
+#: ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129
+#: ../Rpmdrake/icon.pm:165
 #, c-format
 msgid "Networking"
 msgstr "Ağ"
@@ -1695,7 +1842,8 @@ msgstr "IRC"
 msgid "Instant messaging"
 msgstr "Anında mesajlaşma"
 
-#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#: ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:214
 #, c-format
 msgid "Mail"
 msgstr "Posta"
@@ -1715,9 +1863,15 @@ msgstr "Uzaktan erişim"
 msgid "WWW"
 msgstr "WWW"
 
-#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
-#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
-#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#: ../Rpmdrake/icon.pm:130
+#: ../Rpmdrake/icon.pm:131
+#: ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133
+#: ../Rpmdrake/icon.pm:134
+#: ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136
+#: ../Rpmdrake/icon.pm:137
+#: ../Rpmdrake/icon.pm:138
 #, c-format
 msgid "Office"
 msgstr "Ofis"
@@ -1725,37 +1879,37 @@ msgstr "Ofis"
 #: ../Rpmdrake/icon.pm:131
 #, c-format
 msgid "Dictionary"
-msgstr ""
+msgstr "Sözlük"
 
 #: ../Rpmdrake/icon.pm:132
-#, fuzzy, c-format
+#, c-format
 msgid "Finance"
-msgstr "Fransa"
+msgstr "Mali durum"
 
 #: ../Rpmdrake/icon.pm:133
-#, fuzzy, c-format
+#, c-format
 msgid "Management"
-msgstr "Yazılım Yönetimi"
+msgstr "Yönetim"
 
 #: ../Rpmdrake/icon.pm:134
 #, c-format
 msgid "Organizer"
-msgstr ""
+msgstr "Düzenleyici"
 
 #: ../Rpmdrake/icon.pm:136
 #, c-format
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Hesap tablosu"
 
 #: ../Rpmdrake/icon.pm:137
 #, c-format
 msgid "Suite"
-msgstr ""
+msgstr "Takım"
 
 #: ../Rpmdrake/icon.pm:138
 #, c-format
 msgid "Word processor"
-msgstr ""
+msgstr "Kelime işlemci"
 
 #: ../Rpmdrake/icon.pm:139
 #, c-format
@@ -1768,13 +1922,19 @@ msgid "Publishing"
 msgstr "Yayınlama"
 
 #: ../Rpmdrake/icon.pm:141
-#, fuzzy, c-format
+#, c-format
 msgid "Security"
-msgstr "Güvenlik güncellemeleri"
+msgstr "Güvenlik"
 
-#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
-#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
-#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#: ../Rpmdrake/icon.pm:142
+#: ../Rpmdrake/icon.pm:143
+#: ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145
+#: ../Rpmdrake/icon.pm:146
+#: ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148
+#: ../Rpmdrake/icon.pm:149
+#: ../Rpmdrake/icon.pm:150
 #, c-format
 msgid "Sciences"
 msgstr "Bilimler"
@@ -1819,50 +1979,71 @@ msgstr "Fizik"
 msgid "Shells"
 msgstr "Kabuklar"
 
-#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
-#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:152
+#: ../Rpmdrake/icon.pm:153
+#: ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155
+#: ../Rpmdrake/icon.pm:156
+#: ../Rpmdrake/icon.pm:157
 #: ../Rpmdrake/icon.pm:158
 #, c-format
 msgid "Sound"
 msgstr "Ses"
 
-#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:153
+#: ../Rpmdrake/icon.pm:186
 #, c-format
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Metin düzenleyiciler ve Dönüştürücüler"
 
 #: ../Rpmdrake/icon.pm:154
 #, c-format
 msgid "Midi"
-msgstr ""
+msgstr "Midi"
 
 #: ../Rpmdrake/icon.pm:155
 #, c-format
 msgid "Mixers"
-msgstr ""
+msgstr "Karıştırıcılar"
 
-#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#: ../Rpmdrake/icon.pm:156
+#: ../Rpmdrake/icon.pm:187
 #, c-format
 msgid "Players"
-msgstr ""
+msgstr "Oynatıcılar"
 
-#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#: ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:188
 #, c-format
 msgid "Utilities"
-msgstr ""
+msgstr "Yardımcı Uygulamalar"
 
 #: ../Rpmdrake/icon.pm:158
-#, fuzzy, c-format
+#, c-format
 msgid "Visualization"
-msgstr "Yerelleştirme"
+msgstr "Görselleştirme"
 
-#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
-#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
-#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
-#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
-#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
-#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
-#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#: ../Rpmdrake/icon.pm:159
+#: ../Rpmdrake/icon.pm:160
+#: ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162
+#: ../Rpmdrake/icon.pm:163
+#: ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165
+#: ../Rpmdrake/icon.pm:166
+#: ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168
+#: ../Rpmdrake/icon.pm:169
+#: ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172
+#: ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174
+#: ../Rpmdrake/icon.pm:175
+#: ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177
+#: ../Rpmdrake/icon.pm:178
+#: ../Rpmdrake/icon.pm:179
 #, c-format
 msgid "System"
 msgstr "Sistem"
@@ -1875,11 +2056,16 @@ msgstr "Temel"
 #: ../Rpmdrake/icon.pm:161
 #, c-format
 msgid "Cluster"
-msgstr "Dizi"
+msgstr "Küme"
 
-#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
-#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
-#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#: ../Rpmdrake/icon.pm:162
+#: ../Rpmdrake/icon.pm:163
+#: ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165
+#: ../Rpmdrake/icon.pm:166
+#: ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168
+#: ../Rpmdrake/icon.pm:192
 #, c-format
 msgid "Configuration"
 msgstr "Yapılandırma"
@@ -1899,13 +2085,17 @@ msgstr "Donanım"
 msgid "Packaging"
 msgstr "Paketleme"
 
-#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#: ../Rpmdrake/icon.pm:168
+#: ../Rpmdrake/icon.pm:177
 #, c-format
 msgid "Printing"
 msgstr "Yazdırma"
 
-#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
-#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:169
+#: ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172
+#: ../Rpmdrake/icon.pm:173
 #, c-format
 msgid "Fonts"
 msgstr "Yazı Tipleri"
@@ -1965,9 +2155,15 @@ msgstr "Metin araçları"
 msgid "Toys"
 msgstr "Oyuncaklar"
 
-#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
-#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
-#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:191
+#: ../Rpmdrake/icon.pm:192
+#: ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194
+#: ../Rpmdrake/icon.pm:195
+#: ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197
+#: ../Rpmdrake/icon.pm:198
+#: ../Rpmdrake/icon.pm:199
 #: ../Rpmdrake/icon.pm:200
 #, c-format
 msgid "Workstation"
@@ -2008,8 +2204,11 @@ msgstr "Ofis İş İstasyonu"
 msgid "Scientific Workstation"
 msgstr "Bilimsel İş İstasyonu"
 
-#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
-#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#: ../Rpmdrake/icon.pm:201
+#: ../Rpmdrake/icon.pm:203
+#: ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205
+#: ../Rpmdrake/icon.pm:206
 #, c-format
 msgid "Graphical Environment"
 msgstr "Grafik Ortamı"
@@ -2034,9 +2233,14 @@ msgstr "KDE İş İstasyonu"
 msgid "Other Graphical Desktops"
 msgstr "Diğer Görsel Masaüstleri"
 
-#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
-#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
-#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#: ../Rpmdrake/icon.pm:210
+#: ../Rpmdrake/icon.pm:211
+#: ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213
+#: ../Rpmdrake/icon.pm:214
+#: ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216
+#: ../Rpmdrake/icon.pm:217
 #, c-format
 msgid "Server"
 msgstr "Sunucu"
@@ -2083,12 +2287,8 @@ msgstr "  --auto                 sorulara varsayılan cevapları ver"
 
 #: ../Rpmdrake/init.pm:51
 #, c-format
-msgid ""
-"  --changelog-first      display changelog before filelist in the "
-"description window"
-msgstr ""
-"  --changelog-first     açıklama penceresinde dosya listesinden önce "
-"değişiklik günlüklerini göster"
+msgid "  --changelog-first      display changelog before filelist in the description window"
+msgstr "  --changelog-first     açıklama penceresinde dosya listesinden önce değişiklik günlüklerini göster"
 
 #: ../Rpmdrake/init.pm:52
 #, c-format
@@ -2097,32 +2297,23 @@ msgstr "  --media=medium1,..     verilen yazılım kaynağına sınırla"
 
 #: ../Rpmdrake/init.pm:53
 #, c-format
-msgid ""
-"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
-msgstr ""
-"  --merge-all-rpmnew     bulunan bütün .rpmnew/.rpmsave dosyalarını birleştir"
+msgid "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr "  --merge-all-rpmnew     bulunan bütün .rpmnew/.rpmsave dosyalarını birleştir"
 
 #: ../Rpmdrake/init.pm:54
 #, c-format
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
-msgstr ""
-"  --mode=MODE            kip belirler (kur (ön tanımlı), kaldır, güncelle)"
+msgstr "  --mode=MODE            kip belirler (kur (ön tanımlı), kaldır, güncelle)"
 
 #: ../Rpmdrake/init.pm:55
 #, c-format
-msgid ""
-"  --justdb               update the database, but do not modify the "
-"filesystem"
-msgstr ""
-"  --justdb              veritabanını güncelle; ancak dosya sistemini "
-"değiştirme"
+msgid "  --justdb               update the database, but do not modify the filesystem"
+msgstr "  --justdb              veritabanını güncelle; ancak dosya sistemini değiştirme"
 
 #: ../Rpmdrake/init.pm:56
 #, c-format
-msgid ""
-"  --no-confirmation      don't ask first confirmation question in update mode"
-msgstr ""
-"  --no-confirmation      Güncelleme kipinde ilk onaylama sorusunu sorma"
+msgid "  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr "  --no-confirmation      Güncelleme kipinde ilk onaylama sorusunu sorma"
 
 #: ../Rpmdrake/init.pm:57
 #, c-format
@@ -2136,25 +2327,18 @@ msgstr "  --no-verify-rpm        rpm paket imzalarını doğrulama"
 
 #: ../Rpmdrake/init.pm:59
 #, c-format
-msgid ""
-"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
-"\" machine to show needed deps"
-msgstr ""
-"  --parallel=diğer adı,paralel kipte sun, \"alias\" grubunu kullan, gereken "
-"bağımlılıkları göstermek için \"host\" makinesini kullan"
+msgid "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host\" machine to show needed deps"
+msgstr "  --parallel=diğer adı,paralel kipte sun, \"alias\" grubunu kullan, gereken bağımlılıkları göstermek için \"host\" makinesini kullan"
 
 #: ../Rpmdrake/init.pm:60
 #, c-format
 msgid "  --rpm-root=path        use another root for rpm installation"
-msgstr ""
-"  --rpm-root=yol        rpm kurulumu için bir başka kök kullanıcı kullan"
+msgstr "  --rpm-root=yol        rpm kurulumu için bir başka kök kullanıcı kullan"
 
 #: ../Rpmdrake/init.pm:61
 #, c-format
-msgid ""
-"  --urpmi-root           use another root for urpmi db & rpm installation"
-msgstr ""
-"  --urpmi-root           urpmi db & rpm kurulumu için bir başka kök kullan"
+msgid "  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr "  --urpmi-root           urpmi db & rpm kurulumu için bir başka kök kullan"
 
 #: ../Rpmdrake/init.pm:62
 #, c-format
@@ -2168,11 +2352,8 @@ msgstr "  --search=pkg           \"pkg\" için arama yap"
 
 #: ../Rpmdrake/init.pm:64
 #, c-format
-msgid ""
-"  --test                 only verify if the installation can be achieved "
-"correctly"
-msgstr ""
-"  --test                sadece kurulumun doğru yapılabilirliğini denetle"
+msgid "  --test                 only verify if the installation can be achieved correctly"
+msgstr "  --test                sadece kurulumun doğru yapılabilirliğini denetle"
 
 #: ../Rpmdrake/init.pm:65
 #, c-format
@@ -2205,8 +2386,12 @@ msgstr "%s' den XML meta-verisi'nden bilgi alınıyor..."
 msgid "Getting '%s' from XML meta-data..."
 msgstr "XML meta-verisi'nden '%s' alınıyor..."
 
-#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
-#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../Rpmdrake/pkg.pm:133
+#: ../Rpmdrake/pkg.pm:437
+#: ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944
+#: ../rpmdrake:134
+#: ../rpmdrake.pm:385
 #: ../rpmdrake.pm:594
 #, c-format
 msgid "Please wait"
@@ -2215,19 +2400,15 @@ msgstr "Lütfen bekleyin"
 #: ../Rpmdrake/pkg.pm:147
 #, c-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
-msgstr ""
-"\"%s\" yazılım kaynağı için xml bilgisi yok; sadece paket %s için bir parça "
-"sonuç."
+msgstr "\"%s\" yazılım kaynağı için xml bilgisi yok; sadece paket %s için bir parça sonuç."
 
 #: ../Rpmdrake/pkg.pm:149
 #, c-format
-msgid ""
-"No xml info for medium \"%s\", unable to return any result for package %s"
-msgstr ""
-"\"%s\" yazılım kaynağı için xml bilgisi yok; paket %s için bir sonuç "
-"döndürülemiyor."
+msgid "No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr "\"%s\" yazılım kaynağı için xml bilgisi yok; paket %s için bir sonuç döndürülemiyor."
 
-#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#: ../Rpmdrake/pkg.pm:204
+#: ../Rpmdrake/pkg.pm:209
 #, c-format
 msgid "Downloading package `%s'..."
 msgstr "'%s' paketi indiriliyor..."
@@ -2242,7 +2423,8 @@ msgstr "        %s%% /  %s tamamlandı, Kalan Süre = %s, Hız = %s"
 msgid "        %s%% completed, speed = %s"
 msgstr "        %s%% tamamlandı, Hız = %s"
 
-#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#: ../Rpmdrake/pkg.pm:250
+#: ../Rpmdrake/pkg.pm:718
 #, c-format
 msgid "Confirmation"
 msgstr "Onaylama"
@@ -2281,22 +2463,18 @@ msgid ""
 "Then, restart \"%s\"."
 msgstr ""
 "Zaten en az bir tane yapılandırılmış güncelleme ortamınız var, fakat şu\n"
-"anda hiçbiri aktif değil. Yazılım Kaynak Yöneticisini çalıştırmalı ve "
-"bunlardan\n"
+"anda hiçbiri aktif değil. Yazılım Kaynak Yöneticisini çalıştırmalı ve bunlardan\n"
 "en az birini aktif yapmalısınız( \"%s\" kutucuğuna \n"
 "bakın)\n"
 "Sonra, \"%s\" yeniden başlatın."
 
 #: ../Rpmdrake/pkg.pm:275
 #, c-format
-msgid ""
-"You have no configured update media. MageiaUpdate cannot operate without any "
-"update media."
-msgstr ""
-"Yapılandırılmış bir güncelleme yazılım kaynağı yok. MageiaUpdate bir "
-"güncelleme yazılım kaynağı olmadan çalışamaz."
+msgid "You have no configured update media. MageiaUpdate cannot operate without any update media."
+msgstr "Yapılandırılmış bir güncelleme yazılım kaynağı yok. MageiaUpdate bir güncelleme yazılım kaynağı olmadan çalışamaz."
 
-#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#: ../Rpmdrake/pkg.pm:276
+#: ../rpmdrake.pm:627
 #, c-format
 msgid ""
 "I need to contact the Mageia website to get the mirror list.\n"
@@ -2324,18 +2502,20 @@ msgid ""
 "Then, restart %s."
 msgstr ""
 "Kendi belirlediğiniz yansıyı da seçebilirsiniz:bunu yapmak için\n"
-"Yazılım Yazılım kaynağı Yöneticisini çalıştırın, sonra bir güvenli "
-"güncelleme\n"
+"Yazılım Yazılım kaynağı Yöneticisini çalıştırın, sonra bir güvenli güncelleme\n"
 "ortamı ekleyin.\n"
 "\n"
 "Sonra %s'yi tekrar çalıştırın."
 
-#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:437
+#: ../Rpmdrake/pkg.pm:737
 #, c-format
 msgid "Package installation..."
 msgstr "Paket Kurulumu..."
 
-#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#: ../Rpmdrake/pkg.pm:437
+#: ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944
 #, c-format
 msgid "Initializing..."
 msgstr "Başlatılıyor..."
@@ -2345,7 +2525,8 @@ msgstr "Başlatılıyor..."
 msgid "Reading updates description"
 msgstr "Güncelleme tanımı okunuyor"
 
-#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#: ../Rpmdrake/pkg.pm:458
+#: ../Rpmdrake/pkg.pm:493
 #, c-format
 msgid "Please wait, finding available packages..."
 msgstr "Lütfen bekleyin, erişilebilir paketler aranıyor..."
@@ -2355,8 +2536,12 @@ msgstr "Lütfen bekleyin, erişilebilir paketler aranıyor..."
 msgid "Please wait, listing base packages..."
 msgstr "Lütfen bekleyin, temel paketler listeleniyor..."
 
-#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
-#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#: ../Rpmdrake/pkg.pm:469
+#: ../Rpmdrake/pkg.pm:868
+#: ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815
+#: ../rpmdrake.pm:901
+#: ../rpmdrake.pm:925
 #, c-format
 msgid "Error"
 msgstr "Hata"
@@ -2386,17 +2571,21 @@ msgstr "Bu paket hakkında yükseltme bilgisi"
 msgid "Upgrade information about package %s"
 msgstr "Paket %s hakkında yükseltme bilgisi"
 
-#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#: ../Rpmdrake/pkg.pm:629
+#: ../Rpmdrake/pkg.pm:885
 #, c-format
 msgid "All requested packages were installed successfully."
 msgstr "İstenen paketler başarılı bir şekilde yüklendi."
 
-#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#: ../Rpmdrake/pkg.pm:633
+#: ../Rpmdrake/pkg.pm:854
 #, c-format
 msgid "Problem during installation"
 msgstr "Kurulum sırasında sorun oluştu"
 
-#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#: ../Rpmdrake/pkg.pm:634
+#: ../Rpmdrake/pkg.pm:654
+#: ../Rpmdrake/pkg.pm:856
 #, c-format
 msgid ""
 "There was a problem during the installation:\n"
@@ -2460,16 +2649,15 @@ msgstr "Diğerlerinin güncellenebilmesi için şu paketin kaldırılması gerek
 #: ../Rpmdrake/pkg.pm:724
 #, c-format
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr ""
-"Diğer paketlerin güncellenmesi için aşağıdaki paketlerin kaldırılması "
-"gerekiyor:"
+msgstr "Diğer paketlerin güncellenmesi için aşağıdaki paketlerin kaldırılması gerekiyor:"
 
 #: ../Rpmdrake/pkg.pm:728
 #, c-format
 msgid "Is it ok to continue?"
 msgstr "Devam etmek için her şey tamam mı ?"
 
-#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#: ../Rpmdrake/pkg.pm:744
+#: ../Rpmdrake/pkg.pm:928
 #, c-format
 msgid "Orphan packages"
 msgstr "Gereksiz paketler"
@@ -2523,8 +2711,7 @@ msgstr "%d kurulum yönergesi başarısız oldu"
 #: ../Rpmdrake/pkg.pm:869
 #, c-format
 msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr ""
-"Düzeltilemeyecek hata; yüklemek için herhangi bir paket bulunamadı,üzgünüm. "
+msgstr "Düzeltilemeyecek hata; yüklemek için herhangi bir paket bulunamadı,üzgünüm. "
 
 #: ../Rpmdrake/pkg.pm:872
 #, c-format
@@ -2564,7 +2751,8 @@ msgstr "Hiçbirini seçme"
 msgid "Details"
 msgstr "Ayrıntılar"
 
-#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#: ../Rpmdrake/pkg.pm:944
+#: ../Rpmdrake/pkg.pm:964
 #, c-format
 msgid "Please wait, removing packages..."
 msgstr "Lütfen bekleyin, paketler kaldırılıyor..."
@@ -2602,15 +2790,11 @@ msgstr "Değişiklikler:"
 
 #: ../Rpmdrake/rpmnew.pm:116
 #, c-format
-msgid ""
-"You can either remove the .%s file, use it as main file or do nothing. If "
-"unsure, keep the current file (\"%s\")."
-msgstr ""
-".%s dosyasını kaldırabilir, ana dosya olarak kullanabilir ya da hiç bir şey "
-"yapmayabilirsiniz. Emin değilseniz, şimdiki dosyayı (\"%s\") olduğu gibi "
-"bırakın."
+msgid "You can either remove the .%s file, use it as main file or do nothing. If unsure, keep the current file (\"%s\")."
+msgstr ".%s dosyasını kaldırabilir, ana dosya olarak kullanabilir ya da hiç bir şey yapmayabilirsiniz. Emin değilseniz, şimdiki dosyayı (\"%s\") olduğu gibi bırakın."
 
-#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#: ../Rpmdrake/rpmnew.pm:117
+#: ../Rpmdrake/rpmnew.pm:122
 #, c-format
 msgid "Remove .%s"
 msgstr "Kaldır .%s"
@@ -2635,7 +2819,8 @@ msgstr "Kurulum tamamlandı"
 msgid "Inspect..."
 msgstr "İncele..."
 
-#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#: ../Rpmdrake/rpmnew.pm:191
+#: ../rpmdrake:102
 #, c-format
 msgid "Please wait, searching..."
 msgstr "Lütfen bekleyin, aranıyor..."
@@ -2714,7 +2899,8 @@ msgstr "Dur"
 msgid "no xml-info available for medium \"%s\""
 msgstr "\"%s\" kaynağı için xml-bilgisi yok..."
 
-#: ../rpmdrake:157 ../rpmdrake:185
+#: ../rpmdrake:157
+#: ../rpmdrake:185
 #, c-format
 msgid "Search aborted"
 msgstr "Arama iptal edildi"
@@ -2736,12 +2922,8 @@ msgstr "Arama sonucu bulunmadı."
 
 #: ../rpmdrake:212
 #, c-format
-msgid ""
-"No search results. You may want to switch to the '%s' view and to the '%s' "
-"filter"
-msgstr ""
-"Arama sonucu bulunmadı. '%s' görünümüne ve '%s' süzgecine geçmek "
-"isteyebilirsiniz."
+msgid "No search results. You may want to switch to the '%s' view and to the '%s' filter"
+msgstr "Arama sonucu bulunmadı. '%s' görünümüne ve '%s' süzgecine geçmek isteyebilirsiniz."
 
 #: ../rpmdrake:246
 #, c-format
@@ -2910,7 +3092,7 @@ msgstr "/_Seçimi sıfırla"
 #: ../rpmdrake:555
 #, c-format
 msgid "Reset aborted (RPM DB is locked by another process)"
-msgstr ""
+msgstr "Yeniden başlatma durduruldu (RPM veri tabanı başka bir işlem tarafından kilitlendi)"
 
 #: ../rpmdrake:571
 #, c-format
@@ -2932,12 +3114,16 @@ msgstr "<control>Q"
 msgid "/_Media Manager"
 msgstr "/_Yazılım Yöneticisi"
 
-#: ../rpmdrake:595 ../rpmdrake:671
+#: ../rpmdrake:595
+#: ../rpmdrake:671
 #, c-format
 msgid "/_Show automatically selected packages"
 msgstr "/_Kendiliğinden seçilen paketleri göster"
 
-#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#: ../rpmdrake:609
+#: ../rpmdrake:612
+#: ../rpmdrake:617
+#: ../rpmdrake:649
 #, c-format
 msgid "/_View"
 msgstr "/_Görünüm"
@@ -2965,24 +3151,17 @@ msgstr "Hızlı Sunum"
 #: ../rpmdrake:746
 #, c-format
 msgid "You can browse the packages through the categories tree on the left."
-msgstr ""
-"Paketler arasında, sol yandaki sınıflandırma ağacını kullanarak "
-"gezebilirsiniz."
+msgstr "Paketler arasında, sol yandaki sınıflandırma ağacını kullanarak gezebilirsiniz."
 
 #: ../rpmdrake:747
 #, c-format
-msgid ""
-"You can view information about a package by clicking on it on the right list."
-msgstr ""
-"Sağ yandaki listede, üzerine tıklayarak bir paket hakkında bilgi "
-"alabilirsiniz."
+msgid "You can view information about a package by clicking on it on the right list."
+msgstr "Sağ yandaki listede, üzerine tıklayarak bir paket hakkında bilgi alabilirsiniz."
 
 #: ../rpmdrake:748
 #, c-format
 msgid "To install, update or remove a package, just click on its \"checkbox\"."
-msgstr ""
-"Bir paketi kurmak, güncellemek veya kaldırmak için yanındaki \"kutuyu\" "
-"işaretleyebilirsiniz."
+msgstr "Bir paketi kurmak, güncellemek veya kaldırmak için yanındaki \"kutuyu\" işaretleyebilirsiniz."
 
 #: ../rpmdrake:793
 #, c-format
@@ -3014,7 +3193,8 @@ msgstr "Kullanıcı ismi:"
 msgid "Software Packages Removal"
 msgstr "Yazılım Paketleri Kaldırma"
 
-#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#: ../rpmdrake.pm:235
+#: ../rpmdrake.pm:239
 #, c-format
 msgid "Software Packages Update"
 msgstr "Yazılım Paketleri Güncelleme"
@@ -3089,7 +3269,8 @@ msgstr "Almanya"
 msgid "Danmark"
 msgstr "Danimarka"
 
-#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#: ../rpmdrake.pm:475
+#: ../rpmdrake.pm:479
 #, c-format
 msgid "Greece"
 msgstr "Yunanistan"
@@ -3189,7 +3370,10 @@ msgstr "Birleşik Krallık"
 msgid "China"
 msgstr "Çin"
 
-#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#: ../rpmdrake.pm:496
+#: ../rpmdrake.pm:497
+#: ../rpmdrake.pm:498
+#: ../rpmdrake.pm:499
 #, c-format
 msgid "United States"
 msgstr "ABD"
@@ -3222,7 +3406,8 @@ msgstr ""
 "\n"
 "Devam etmek için her şey tamam mı?"
 
-#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#: ../rpmdrake.pm:631
+#: ../rpmdrake.pm:670
 #, c-format
 msgid "Mirror choice"
 msgstr "Yansı seçimi"
@@ -3366,15 +3551,13 @@ msgstr "Paketlerin alımında hata oluştu"
 msgid ""
 "It's impossible to retrieve the list of new packages from the media\n"
 "`%s'. Either this update media is misconfigured, and in this case\n"
-"you should use the Software Media Manager to remove it and re-add it in "
-"order\n"
+"you should use the Software Media Manager to remove it and re-add it in order\n"
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
 "`%s' yazılım kaynağından paket listesi alımı imkansız.Ya bu güncelleme\n"
 "yazılım kaynağı hatalı yapılandırılmış, ki bu durumda Yazılım Kaynağı\n"
-"Yöneticisi'nden onu kaldırmalı ve yeniden yapılandırmak için yeniden "
-"eklemelisiniz\n"
+"Yöneticisi'nden onu kaldırmalı ve yeniden yapılandırmak için yeniden eklemelisiniz\n"
 "ya da yazılım kaynağına şu an erişilemiyor ve daha sonra tekrar\n"
 "denemelisiniz."
 
@@ -3385,11 +3568,8 @@ msgstr "Yazılım kaynağı Güncelle"
 
 #: ../rpmdrake.pm:828
 #, c-format
-msgid ""
-"No active medium found. You must enable some media to be able to update them."
-msgstr ""
-"Etkin kaynak bulunamadı. Güncelleyebilmek için bir kaç yazılım kaynağını "
-"etkinleştirmelisiniz."
+msgid "No active medium found. You must enable some media to be able to update them."
+msgstr "Etkin kaynak bulunamadı. Güncelleyebilmek için bir kaç yazılım kaynağını etkinleştirmelisiniz."
 
 #: ../rpmdrake.pm:835
 #, c-format
@@ -3409,7 +3589,8 @@ msgstr ""
 "Hatalar:\n"
 "%s  "
 
-#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#: ../rpmdrake.pm:902
+#: ../rpmdrake.pm:913
 #, c-format
 msgid ""
 "Unable to add medium, errors reported:\n"
@@ -3444,23 +3625,19 @@ msgstr ""
 #: ../rpmdrake.pm:944
 #, c-format
 msgid ""
-"Your medium `%s', used for updates, does not match the version of %s you're "
-"running (%s).\n"
+"Your medium `%s', used for updates, does not match the version of %s you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"Güncellemeler için kullanılan `%s' ortamı kullandığınız %s sürümü ile "
-"eşleşmiyor (%s).\n"
+"Güncellemeler için kullanılan `%s' ortamı kullandığınız %s sürümü ile eşleşmiyor (%s).\n"
 "Devre dışı bırakılacak."
 
 #: ../rpmdrake.pm:947
 #, c-format
 msgid ""
-"Your medium `%s', used for updates, does not match the version of Mageia "
-"you're running (%s).\n"
+"Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"Güncelleme için kullanılan %s yazılım kaynağı, kullandığınız Mageia 'un "
-"herhangi bir sürümü ile eşleşmiyor (%s).\n"
+"Güncelleme için kullanılan %s yazılım kaynağı, kullandığınız Mageia 'un herhangi bir sürümü ile eşleşmiyor (%s).\n"
 "Devre dışı bırakılacak."
 
 #: ../rpmdrake.pm:978
@@ -3470,8 +3647,7 @@ msgstr "Yardım arka planda çalıştırıldı"
 
 #: ../rpmdrake.pm:979
 #, c-format
-msgid ""
-"The help window has been started, it should appear shortly on your desktop."
+msgid "The help window has been started, it should appear shortly on your desktop."
 msgstr "Yardım penceresi başlatıldı, masaüstünüzden kolayca ulaşabilirsiniz."
 
 #: ../data/rpmdrake-browse-only.desktop.in.h:1
