@@ -411,8 +411,6 @@ sub run_treeview_dialog {
     #$col_sel->set_sizing('fixed');
     #$col_sel->set_sort_column_id($pkg_columns{selected});
 
-    $detail_list_header->addColumn('', 3);
-
     my $display_arch_col = to_bool(arch() =~ /64/);
     my @columns = (qw(name version release), if_($display_arch_col, 'arch'));
 
@@ -470,7 +468,7 @@ sub run_treeview_dialog {
     #$pixcolumn->set_sort_column_id($pkg_columns{state});
     $detail_list_header->addColumn(N("Status"));
 
-    $detail_list = $factory->createTable($hbox_middle,$detail_list_header);
+    $detail_list = $factory->createTable($hbox_middle,$detail_list_header,1);
     $detail_list->setWeight(0,50);
     $detail_list->setNotify(1);
     #OLD compute_main_window_size($w);
