@@ -13,18 +13,19 @@ msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-11-09 17:13+0800\n"
-"PO-Revision-Date: 2010-10-20 22:00+0300\n"
-"Last-Translator: Alexander Kazancev <kazancas@mandriva.ru>\n"
+"PO-Revision-Date: 2013-03-31 17:18-0000\n"
+"Last-Translator: AlexL <loginov.alex.valer@gmail.com>\n"
 "Language-Team: Russian <gnu@mx.ru>\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: ru\n"
 "Plural-Forms: nplurals=2; plural=(n!=1);\n"
 "X-Generator: KBabel 1.11.4\n"
 "X-Language: ru_RU\n"
 
-#: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
+#: ../MageiaUpdate:102
+#: ../Rpmdrake/gui.pm:994
 #, c-format
 msgid ""
 "The list of updates is empty. This means that either there is\n"
@@ -35,7 +36,10 @@ msgstr ""
 "пакетов, установленных на вашем компьютере, либо они уже все\n"
 "установлены."
 
-#: ../MageiaUpdate:127 ../rpmdrake:97 ../rpmdrake:797 ../rpmdrake.pm:239
+#: ../MageiaUpdate:127
+#: ../rpmdrake:97
+#: ../rpmdrake:797
+#: ../rpmdrake.pm:239
 #, c-format
 msgid "Software Management"
 msgstr "Менеджер программ"
@@ -50,12 +54,14 @@ msgstr "Список пакетов с обновлениями программ
 msgid "Name"
 msgstr "Название"
 
-#: ../MageiaUpdate:159 ../rpmdrake:290
+#: ../MageiaUpdate:159
+#: ../rpmdrake:290
 #, c-format
 msgid "Version"
 msgstr "Версия"
 
-#: ../MageiaUpdate:160 ../rpmdrake:294
+#: ../MageiaUpdate:160
+#: ../rpmdrake:294
 #, c-format
 msgid "Release"
 msgstr "Релиз"
@@ -65,22 +71,28 @@ msgstr "Релиз"
 msgid "Arch"
 msgstr "Платформа"
 
-#: ../MageiaUpdate:175 ../Rpmdrake/edit_urpm_sources.pm:1168
+#: ../MageiaUpdate:175
+#: ../Rpmdrake/edit_urpm_sources.pm:1168
 #, c-format
 msgid "Help"
 msgstr "Справка"
 
-#: ../MageiaUpdate:179 ../rpmdrake:719 ../rpmdrake.pm:852
+#: ../MageiaUpdate:179
+#: ../rpmdrake:719
+#: ../rpmdrake.pm:852
 #, c-format
 msgid "Select all"
 msgstr "Выбрать все"
 
-#: ../MageiaUpdate:192 ../rpmdrake.pm:856
+#: ../MageiaUpdate:192
+#: ../rpmdrake.pm:856
 #, c-format
 msgid "Update"
 msgstr "Обновить"
 
-#: ../MageiaUpdate:200 ../rpmdrake:730 ../rpmdrake:793
+#: ../MageiaUpdate:200
+#: ../rpmdrake:730
+#: ../rpmdrake:793
 #, c-format
 msgid "Quit"
 msgstr "Выход"
@@ -95,7 +107,8 @@ msgstr "CD-ROM"
 msgid "FTP"
 msgstr "FTP"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:64 ../Rpmdrake/edit_urpm_sources.pm:74
+#: ../Rpmdrake/edit_urpm_sources.pm:64
+#: ../Rpmdrake/edit_urpm_sources.pm:74
 #, c-format
 msgid "Local"
 msgstr "Локальные файлы"
@@ -110,7 +123,8 @@ msgstr "HTTP"
 msgid "HTTPS"
 msgstr "HTTPS"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:67 ../Rpmdrake/edit_urpm_sources.pm:70
+#: ../Rpmdrake/edit_urpm_sources.pm:67
+#: ../Rpmdrake/edit_urpm_sources.pm:70
 #, c-format
 msgid "NFS"
 msgstr "NFS"
@@ -138,24 +152,18 @@ msgstr "Выберите тип источника"
 #: ../Rpmdrake/edit_urpm_sources.pm:115
 #, c-format
 msgid ""
-"In order to keep your system secure and stable, you must at a minimum set "
-"up\n"
-"sources for official security and stability updates. You can also choose to "
-"set\n"
+"In order to keep your system secure and stable, you must at a minimum set up\n"
+"sources for official security and stability updates. You can also choose to set\n"
 "up a fuller set of sources which includes the complete official Mageia\n"
 "repositories, giving you access to more software than can fit on the Mageia\n"
-"discs. Please choose whether to configure update sources only, or the full "
-"set\n"
+"discs. Please choose whether to configure update sources only, or the full set\n"
 "of sources."
 msgstr ""
 "Чтобы поддерживать систему в надёжном и защищённом состоянии, нужно как\n"
 "минимум настроить источники с официальными обновлениями безопасности. Можно\n"
-"также добавить полный набор источников, в который входят официальные "
-"репозитории\n"
-"пакетов Mageia, содержащие гораздо больше программного обеспечения, чем "
-"может\n"
-"поместиться на дисках с дистрибутивом. Выберите, какие источники нужно "
-"настроить."
+"также добавить полный набор источников, в который входят официальные репозитории\n"
+"пакетов Mageia, содержащие гораздо больше программного обеспечения, чем может\n"
+"поместиться на дисках с дистрибутивом. Выберите, какие источники нужно настроить."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:122
 #, c-format
@@ -186,7 +194,8 @@ msgstr ""
 "\n"
 "Продолжить?"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
+#: ../Rpmdrake/edit_urpm_sources.pm:145
+#: ../Rpmdrake/edit_urpm_sources.pm:160
 #, c-format
 msgid "Please wait, adding media..."
 msgstr "Подождите. Добавляется источник..."
@@ -211,8 +220,10 @@ msgstr "Путь к источнику:"
 msgid "FTP server"
 msgstr "Сервер FTP"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:173 ../Rpmdrake/edit_urpm_sources.pm:174
-#: ../Rpmdrake/edit_urpm_sources.pm:175 ../Rpmdrake/edit_urpm_sources.pm:483
+#: ../Rpmdrake/edit_urpm_sources.pm:173
+#: ../Rpmdrake/edit_urpm_sources.pm:174
+#: ../Rpmdrake/edit_urpm_sources.pm:175
+#: ../Rpmdrake/edit_urpm_sources.pm:483
 #, c-format
 msgid "URL:"
 msgstr "URL:"
@@ -247,7 +258,8 @@ msgstr "Найти..."
 msgid "Login:"
 msgstr "Логин:"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:221 ../Rpmdrake/edit_urpm_sources.pm:583
+#: ../Rpmdrake/edit_urpm_sources.pm:221
+#: ../Rpmdrake/edit_urpm_sources.pm:583
 #: ../rpmdrake.pm:149
 #, c-format
 msgid "Password:"
@@ -292,24 +304,45 @@ msgstr "Добавляется источник:"
 msgid "Type of medium:"
 msgstr "Тип источника:"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:280 ../Rpmdrake/edit_urpm_sources.pm:394
-#: ../Rpmdrake/edit_urpm_sources.pm:492 ../Rpmdrake/edit_urpm_sources.pm:519
-#: ../Rpmdrake/edit_urpm_sources.pm:600 ../Rpmdrake/edit_urpm_sources.pm:664
-#: ../Rpmdrake/edit_urpm_sources.pm:766 ../Rpmdrake/gui.pm:720
-#: ../Rpmdrake/init.pm:159 ../Rpmdrake/pkg.pm:205 ../Rpmdrake/pkg.pm:829
-#: ../rpmdrake.pm:357 ../rpmdrake.pm:698 ../rpmdrake.pm:771 ../rpmdrake.pm:848
+#: ../Rpmdrake/edit_urpm_sources.pm:280
+#: ../Rpmdrake/edit_urpm_sources.pm:394
+#: ../Rpmdrake/edit_urpm_sources.pm:492
+#: ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:600
+#: ../Rpmdrake/edit_urpm_sources.pm:664
+#: ../Rpmdrake/edit_urpm_sources.pm:766
+#: ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:205
+#: ../Rpmdrake/pkg.pm:829
+#: ../rpmdrake.pm:357
+#: ../rpmdrake.pm:698
+#: ../rpmdrake.pm:771
+#: ../rpmdrake.pm:848
 #, c-format
 msgid "Cancel"
 msgstr "Отмена"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:282 ../Rpmdrake/edit_urpm_sources.pm:396
-#: ../Rpmdrake/edit_urpm_sources.pm:519 ../Rpmdrake/edit_urpm_sources.pm:590
-#: ../Rpmdrake/edit_urpm_sources.pm:663 ../Rpmdrake/edit_urpm_sources.pm:759
-#: ../Rpmdrake/edit_urpm_sources.pm:832 ../Rpmdrake/edit_urpm_sources.pm:946
-#: ../Rpmdrake/edit_urpm_sources.pm:1169 ../Rpmdrake/gui.pm:720
-#: ../Rpmdrake/gui.pm:736 ../Rpmdrake/gui.pm:741 ../Rpmdrake/init.pm:159
-#: ../Rpmdrake/pkg.pm:614 ../Rpmdrake/pkg.pm:829 ../Rpmdrake/rpmnew.pm:181
-#: ../rpmdrake.pm:140 ../rpmdrake.pm:293 ../rpmdrake.pm:360 ../rpmdrake.pm:698
+#: ../Rpmdrake/edit_urpm_sources.pm:282
+#: ../Rpmdrake/edit_urpm_sources.pm:396
+#: ../Rpmdrake/edit_urpm_sources.pm:519
+#: ../Rpmdrake/edit_urpm_sources.pm:590
+#: ../Rpmdrake/edit_urpm_sources.pm:663
+#: ../Rpmdrake/edit_urpm_sources.pm:759
+#: ../Rpmdrake/edit_urpm_sources.pm:832
+#: ../Rpmdrake/edit_urpm_sources.pm:946
+#: ../Rpmdrake/edit_urpm_sources.pm:1169
+#: ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:736
+#: ../Rpmdrake/gui.pm:741
+#: ../Rpmdrake/init.pm:159
+#: ../Rpmdrake/pkg.pm:614
+#: ../Rpmdrake/pkg.pm:829
+#: ../Rpmdrake/rpmnew.pm:181
+#: ../rpmdrake.pm:140
+#: ../rpmdrake.pm:293
+#: ../rpmdrake.pm:360
+#: ../rpmdrake.pm:698
 #, c-format
 msgid "Ok"
 msgstr "ОК"
@@ -329,22 +362,26 @@ msgstr "никогда"
 msgid "always"
 msgstr "всегда"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:344 ../Rpmdrake/edit_urpm_sources.pm:376
+#: ../Rpmdrake/edit_urpm_sources.pm:344
+#: ../Rpmdrake/edit_urpm_sources.pm:376
 #, c-format
 msgid "Never"
 msgstr "Никогда"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:345 ../Rpmdrake/edit_urpm_sources.pm:379
+#: ../Rpmdrake/edit_urpm_sources.pm:345
+#: ../Rpmdrake/edit_urpm_sources.pm:379
 #, c-format
 msgid "On-demand"
 msgstr "По запросу"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:346 ../Rpmdrake/edit_urpm_sources.pm:383
+#: ../Rpmdrake/edit_urpm_sources.pm:346
+#: ../Rpmdrake/edit_urpm_sources.pm:383
 #, c-format
 msgid "Update-only"
 msgstr "Только обновить"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:347 ../Rpmdrake/edit_urpm_sources.pm:386
+#: ../Rpmdrake/edit_urpm_sources.pm:347
+#: ../Rpmdrake/edit_urpm_sources.pm:386
 #, c-format
 msgid "Always"
 msgstr "Всегда"
@@ -366,12 +403,8 @@ msgstr "Политика загрузки XML с метаданными:"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:374
 #, c-format
-msgid ""
-"For remote media, specify when XML meta-data (file lists, changelogs & "
-"information) are downloaded."
-msgstr ""
-"Укажите для удалённого источника, когда нужно загружать XML-файл с "
-"метаданными (списки файлов, журналы изменений и сведения)."
+msgid "For remote media, specify when XML meta-data (file lists, changelogs & information) are downloaded."
+msgstr "Укажите для удалённого источника, когда нужно загружать XML-файл с метаданными (списки файлов, журналы изменений и сведения)."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:377
 #, c-format
@@ -390,12 +423,8 @@ msgstr "После щелчка по файлу загружается XML-фа�
 
 #: ../Rpmdrake/edit_urpm_sources.pm:384
 #, c-format
-msgid ""
-"Updating media implies updating XML info files already required at least "
-"once."
-msgstr ""
-"Под обновлением источника подразумевается как минимум одно обновление XML-"
-"файлов."
+msgid "Updating media implies updating XML info files already required at least once."
+msgstr "Под обновлением источника подразумевается как минимум одно обновление XML-файлов."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:387
 #, c-format
@@ -454,8 +483,7 @@ msgstr "Вставьте носитель для продолжения"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:518
 #, c-format
-msgid ""
-"In order to save the changes, you need to insert the medium in the drive."
+msgid "In order to save the changes, you need to insert the medium in the drive."
 msgstr "Чтобы сохранить изменения, вставьте носитель в привод."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:553
@@ -475,12 +503,8 @@ msgstr "Общие настройки прокси"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:569
 #, c-format
-msgid ""
-"If you need a proxy, enter the hostname and an optional port (syntax: "
-"<proxyhost[:port]>):"
-msgstr ""
-"Если требуется прокси, введите имя сервера и, при необходимости, порт "
-"(синтаксис: <прокси-сервер[:порт]>):"
+msgid "If you need a proxy, enter the hostname and an optional port (syntax: <proxyhost[:port]>):"
+msgstr "Если требуется прокси, введите имя сервера и, при необходимости, порт (синтаксис: <прокси-сервер[:порт]>):"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:572
 #, c-format
@@ -490,8 +514,7 @@ msgstr "Имя прокси-сервера:"
 #: ../Rpmdrake/edit_urpm_sources.pm:575
 #, c-format
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
-"Можно указать пользователя/пароль для аутентификации на прокси-сервере:"
+msgstr "Можно указать пользователя/пароль для аутентификации на прокси-сервере:"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:578
 #, c-format
@@ -548,14 +571,18 @@ msgstr "Протокол:"
 msgid "Media limit:"
 msgstr "Предел источника:"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:741 ../Rpmdrake/edit_urpm_sources.pm:750
-#: ../Rpmdrake/edit_urpm_sources.pm:934 ../Rpmdrake/edit_urpm_sources.pm:1149
+#: ../Rpmdrake/edit_urpm_sources.pm:741
+#: ../Rpmdrake/edit_urpm_sources.pm:750
+#: ../Rpmdrake/edit_urpm_sources.pm:934
+#: ../Rpmdrake/edit_urpm_sources.pm:1149
 #, c-format
 msgid "Add"
 msgstr "Добавить"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:742 ../Rpmdrake/edit_urpm_sources.pm:751
-#: ../Rpmdrake/edit_urpm_sources.pm:812 ../Rpmdrake/edit_urpm_sources.pm:938
+#: ../Rpmdrake/edit_urpm_sources.pm:742
+#: ../Rpmdrake/edit_urpm_sources.pm:751
+#: ../Rpmdrake/edit_urpm_sources.pm:812
+#: ../Rpmdrake/edit_urpm_sources.pm:938
 #: ../Rpmdrake/edit_urpm_sources.pm:1139
 #, c-format
 msgid "Remove"
@@ -591,9 +618,14 @@ msgstr "Предел источника"
 msgid "Command"
 msgstr "Команда"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:796 ../Rpmdrake/formatting.pm:129
-#: ../Rpmdrake/gui.pm:991 ../Rpmdrake/pkg.pm:114 ../Rpmdrake/pkg.pm:162
-#: ../Rpmdrake/pkg.pm:175 ../Rpmdrake/pkg.pm:196 ../Rpmdrake/rpmnew.pm:81
+#: ../Rpmdrake/edit_urpm_sources.pm:796
+#: ../Rpmdrake/formatting.pm:129
+#: ../Rpmdrake/gui.pm:991
+#: ../Rpmdrake/pkg.pm:114
+#: ../Rpmdrake/pkg.pm:162
+#: ../Rpmdrake/pkg.pm:175
+#: ../Rpmdrake/pkg.pm:196
+#: ../Rpmdrake/rpmnew.pm:81
 #, c-format
 msgid "(none)"
 msgstr "(нет)"
@@ -613,7 +645,8 @@ msgstr "Добавить..."
 msgid "Manage keys for digital signatures of packages"
 msgstr "Управление ключами для цифровых подписей пакетов"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:846 ../Rpmdrake/edit_urpm_sources.pm:1055
+#: ../Rpmdrake/edit_urpm_sources.pm:846
+#: ../Rpmdrake/edit_urpm_sources.pm:1055
 #, c-format
 msgid "Medium"
 msgstr "Источник"
@@ -654,15 +687,22 @@ msgstr ""
 "Удалить ключ %s из источника %s?\n"
 "(имя ключа: %s)"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:955 ../Rpmdrake/edit_urpm_sources.pm:1132
+#: ../Rpmdrake/edit_urpm_sources.pm:955
+#: ../Rpmdrake/edit_urpm_sources.pm:1132
 #, c-format
 msgid "Configure media"
 msgstr "Настройка источника"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:962 ../Rpmdrake/edit_urpm_sources.pm:963
-#: ../Rpmdrake/edit_urpm_sources.pm:964 ../Rpmdrake/edit_urpm_sources.pm:965
-#: ../Rpmdrake/edit_urpm_sources.pm:966 ../rpmdrake:543 ../rpmdrake:546
-#: ../rpmdrake:551 ../rpmdrake:571 ../rpmdrake:572
+#: ../Rpmdrake/edit_urpm_sources.pm:962
+#: ../Rpmdrake/edit_urpm_sources.pm:963
+#: ../Rpmdrake/edit_urpm_sources.pm:964
+#: ../Rpmdrake/edit_urpm_sources.pm:965
+#: ../Rpmdrake/edit_urpm_sources.pm:966
+#: ../rpmdrake:543
+#: ../rpmdrake:546
+#: ../rpmdrake:551
+#: ../rpmdrake:571
+#: ../rpmdrake:572
 #, c-format
 msgid "/_File"
 msgstr "/_Файл"
@@ -707,11 +747,20 @@ msgstr "/Закрыть"
 msgid "<control>W"
 msgstr "<control>W"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:967 ../Rpmdrake/edit_urpm_sources.pm:968
-#: ../Rpmdrake/edit_urpm_sources.pm:969 ../Rpmdrake/edit_urpm_sources.pm:970
-#: ../Rpmdrake/edit_urpm_sources.pm:971 ../rpmdrake:534 ../rpmdrake:536
-#: ../rpmdrake:538 ../rpmdrake:539 ../rpmdrake:540 ../rpmdrake:575
-#: ../rpmdrake:591 ../rpmdrake:595 ../rpmdrake:671
+#: ../Rpmdrake/edit_urpm_sources.pm:967
+#: ../Rpmdrake/edit_urpm_sources.pm:968
+#: ../Rpmdrake/edit_urpm_sources.pm:969
+#: ../Rpmdrake/edit_urpm_sources.pm:970
+#: ../Rpmdrake/edit_urpm_sources.pm:971
+#: ../rpmdrake:534
+#: ../rpmdrake:536
+#: ../rpmdrake:538
+#: ../rpmdrake:539
+#: ../rpmdrake:540
+#: ../rpmdrake:575
+#: ../rpmdrake:591
+#: ../rpmdrake:595
+#: ../rpmdrake:671
 #, c-format
 msgid "/_Options"
 msgstr "/_Параметры"
@@ -756,51 +805,64 @@ msgstr "/П_рокси"
 msgid "<control>R"
 msgstr "<control>R"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:973 ../Rpmdrake/edit_urpm_sources.pm:974
-#: ../Rpmdrake/edit_urpm_sources.pm:975 ../Rpmdrake/edit_urpm_sources.pm:976
-#: ../rpmdrake:619 ../rpmdrake:620 ../rpmdrake:621 ../rpmdrake:622
+#: ../Rpmdrake/edit_urpm_sources.pm:973
+#: ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../Rpmdrake/edit_urpm_sources.pm:975
+#: ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:619
+#: ../rpmdrake:620
+#: ../rpmdrake:621
+#: ../rpmdrake:622
 #, c-format
 msgid "/_Help"
 msgstr "/_Справка"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:974 ../rpmdrake:620
+#: ../Rpmdrake/edit_urpm_sources.pm:974
+#: ../rpmdrake:620
 #, c-format
 msgid "/_Report Bug"
 msgstr "/С_ообщить об ошибке"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:976 ../rpmdrake:622
+#: ../Rpmdrake/edit_urpm_sources.pm:976
+#: ../rpmdrake:622
 #, c-format
 msgid "/_About..."
 msgstr "/О _программе..."
 
-#: ../Rpmdrake/edit_urpm_sources.pm:979 ../rpmdrake:625
+#: ../Rpmdrake/edit_urpm_sources.pm:979
+#: ../rpmdrake:625
 #, c-format
 msgid "Rpmdrake"
 msgstr "Rpmdrake"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:981 ../rpmdrake:627
+#: ../Rpmdrake/edit_urpm_sources.pm:981
+#: ../rpmdrake:627
 #, c-format
 msgid "Copyright (C) %s by Mandriva"
 msgstr "Copyright (C) %s Mandriva"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:983 ../rpmdrake:629
+#: ../Rpmdrake/edit_urpm_sources.pm:983
+#: ../rpmdrake:629
 #, c-format
 msgid "Rpmdrake is the Mageia package management tool."
 msgstr "Rpmdrake — это утилита Mageia для управления пакетами."
 
-#: ../Rpmdrake/edit_urpm_sources.pm:985 ../rpmdrake:631
+#: ../Rpmdrake/edit_urpm_sources.pm:985
+#: ../rpmdrake:631
 #, c-format
 msgid "Mageia"
 msgstr "Mageia"
 
 #. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
 #. -PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-#: ../Rpmdrake/edit_urpm_sources.pm:990 ../rpmdrake:636
+#: ../Rpmdrake/edit_urpm_sources.pm:990
+#: ../rpmdrake:636
 #, c-format
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr "Павел Марьянов <acid_jack@ukr.net>\n"
 
-#: ../Rpmdrake/edit_urpm_sources.pm:1045 ../Rpmdrake/pkg.pm:270
+#: ../Rpmdrake/edit_urpm_sources.pm:1045
+#: ../Rpmdrake/pkg.pm:270
 #, c-format
 msgid "Enabled"
 msgstr "Включён"
@@ -818,9 +880,7 @@ msgstr "Тип"
 #: ../Rpmdrake/edit_urpm_sources.pm:1079
 #, c-format
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr ""
-"Этот источник необходимо обновить, чтобы его можно было использовать. "
-"Обновить его сейчас?"
+msgstr "Этот источник необходимо обновить, чтобы его можно было использовать. Обновить его сейчас?"
 
 #: ../Rpmdrake/edit_urpm_sources.pm:1105
 #, c-format
@@ -886,7 +946,9 @@ msgstr "Результаты поиска"
 msgid "Search results (none)"
 msgstr "Результаты поиска (нет)"
 
-#: ../Rpmdrake/gui.pm:123 ../Rpmdrake/gui.pm:322 ../Rpmdrake/gui.pm:324
+#: ../Rpmdrake/gui.pm:123
+#: ../Rpmdrake/gui.pm:322
+#: ../Rpmdrake/gui.pm:324
 #: ../Rpmdrake/pkg.pm:188
 #, c-format
 msgid "(Not available)"
@@ -897,7 +959,8 @@ msgstr "(недоступно)"
 msgid "Security advisory"
 msgstr "Бюллетень безопасности"
 
-#: ../Rpmdrake/gui.pm:147 ../Rpmdrake/gui.pm:350
+#: ../Rpmdrake/gui.pm:147
+#: ../Rpmdrake/gui.pm:350
 #, c-format
 msgid "No description"
 msgstr "Описания нет"
@@ -947,22 +1010,26 @@ msgstr "Это официальные пакет, поддерживаемый M
 msgid "Notice: "
 msgstr "Заметка: "
 
-#: ../Rpmdrake/gui.pm:198 ../Rpmdrake/gui.pm:340
+#: ../Rpmdrake/gui.pm:198
+#: ../Rpmdrake/gui.pm:340
 #, c-format
 msgid "Importance: "
 msgstr "Важность: "
 
-#: ../Rpmdrake/gui.pm:199 ../Rpmdrake/gui.pm:348
+#: ../Rpmdrake/gui.pm:199
+#: ../Rpmdrake/gui.pm:348
 #, c-format
 msgid "Reason for update: "
 msgstr "Причина обновления:"
 
-#: ../Rpmdrake/gui.pm:209 ../Rpmdrake/gui.pm:335
+#: ../Rpmdrake/gui.pm:209
+#: ../Rpmdrake/gui.pm:335
 #, c-format
 msgid "Version: "
 msgstr "Версия: "
 
-#: ../Rpmdrake/gui.pm:211 ../Rpmdrake/gui.pm:330
+#: ../Rpmdrake/gui.pm:211
+#: ../Rpmdrake/gui.pm:330
 #, c-format
 msgid "Currently installed version: "
 msgstr "Установленная версия:"
@@ -972,22 +1039,27 @@ msgstr "Установленная версия:"
 msgid "Group: "
 msgstr "Группа:"
 
-#: ../Rpmdrake/gui.pm:214 ../Rpmdrake/gui.pm:336
+#: ../Rpmdrake/gui.pm:214
+#: ../Rpmdrake/gui.pm:336
 #, c-format
 msgid "Architecture: "
 msgstr "Архитектура: "
 
-#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#: ../Rpmdrake/gui.pm:215
+#: ../Rpmdrake/gui.pm:337
 #, c-format
 msgid "Size: "
 msgstr "Размер: "
 
-#: ../Rpmdrake/gui.pm:215 ../Rpmdrake/gui.pm:337
+#: ../Rpmdrake/gui.pm:215
+#: ../Rpmdrake/gui.pm:337
 #, c-format
 msgid "%s KB"
 msgstr "%s КБ"
 
-#: ../Rpmdrake/gui.pm:216 ../Rpmdrake/gui.pm:329 ../rpmdrake.pm:903
+#: ../Rpmdrake/gui.pm:216
+#: ../Rpmdrake/gui.pm:329
+#: ../rpmdrake.pm:903
 #, c-format
 msgid "Medium: "
 msgstr "Источник:"
@@ -1000,7 +1072,7 @@ msgstr "Новые зависимости:"
 #: ../Rpmdrake/gui.pm:242
 #, c-format
 msgid "All dependencies installed."
-msgstr ""
+msgstr "Установлены все зависимости."
 
 #: ../Rpmdrake/gui.pm:265
 #, c-format
@@ -1047,9 +1119,15 @@ msgstr "Сводка: "
 msgid "Description: "
 msgstr "Описание:"
 
-#: ../Rpmdrake/gui.pm:361 ../Rpmdrake/gui.pm:562 ../Rpmdrake/gui.pm:568
-#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:839 ../Rpmdrake/pkg.pm:849
-#: ../Rpmdrake/pkg.pm:863 ../rpmdrake:793 ../rpmdrake.pm:828
+#: ../Rpmdrake/gui.pm:361
+#: ../Rpmdrake/gui.pm:562
+#: ../Rpmdrake/gui.pm:568
+#: ../Rpmdrake/gui.pm:574
+#: ../Rpmdrake/pkg.pm:839
+#: ../Rpmdrake/pkg.pm:849
+#: ../Rpmdrake/pkg.pm:863
+#: ../rpmdrake:793
+#: ../rpmdrake.pm:828
 #: ../rpmdrake.pm:942
 #, c-format
 msgid "Warning"
@@ -1096,16 +1174,15 @@ msgstr ""
 "Пакет «%s» присутствует в списке игнорируемых.\n"
 "Всё равно выбрать его?"
 
-#: ../Rpmdrake/gui.pm:574 ../Rpmdrake/pkg.pm:714
+#: ../Rpmdrake/gui.pm:574
+#: ../Rpmdrake/pkg.pm:714
 #, c-format
-msgid ""
-"Rpmdrake or one of its priority dependencies needs to be updated first. "
-"Rpmdrake will then restart."
-msgstr ""
-"Сначала нужно обновить rpmdrake или одну из зависящих от него программ. "
-"После этого rpmdrake будет снова запущен."
+msgid "Rpmdrake or one of its priority dependencies needs to be updated first. Rpmdrake will then restart."
+msgstr "Сначала нужно обновить rpmdrake или одну из зависящих от него программ. После этого rpmdrake будет снова запущен."
 
-#: ../Rpmdrake/gui.pm:702 ../Rpmdrake/gui.pm:732 ../Rpmdrake/gui.pm:734
+#: ../Rpmdrake/gui.pm:702
+#: ../Rpmdrake/gui.pm:732
+#: ../Rpmdrake/gui.pm:734
 #, c-format
 msgid "More information on package..."
 msgstr "Дополнительная информация о пакете..."
@@ -1126,7 +1203,8 @@ msgid "One of the following packages is needed:"
 msgstr "Нужен один из следующих пакетов:"
 
 #. -PO: Keep it short, this is gonna be on a button
-#: ../Rpmdrake/gui.pm:720 ../Rpmdrake/gui.pm:725
+#: ../Rpmdrake/gui.pm:720
+#: ../Rpmdrake/gui.pm:725
 #, c-format
 msgid "More info"
 msgstr "Дополнительно"
@@ -1148,9 +1226,7 @@ msgstr "Некоторые дополнительные пакеты должн�
 
 #: ../Rpmdrake/gui.pm:771
 #, c-format
-msgid ""
-"Because of their dependencies, the following package(s) also need to be "
-"removed:"
+msgid "Because of their dependencies, the following package(s) also need to be removed:"
 msgstr "Из-за зависимостей следующие пакеты также должны быть удалены:"
 
 #: ../Rpmdrake/gui.pm:776
@@ -1167,11 +1243,11 @@ msgstr ""
 "Удаление этих пакетов нарушит работу всей системы:\n"
 "\n"
 
-#: ../Rpmdrake/gui.pm:786 ../Rpmdrake/gui.pm:863
+#: ../Rpmdrake/gui.pm:786
+#: ../Rpmdrake/gui.pm:863
 #, c-format
 msgid ""
-"Because of their dependencies, the following package(s) must be unselected "
-"now:\n"
+"Because of their dependencies, the following package(s) must be unselected now:\n"
 "\n"
 msgstr ""
 "Из-за зависимостей выбор следующих пакетов в данный момент\n"
@@ -1186,8 +1262,7 @@ msgstr "Требуются дополнительные пакеты"
 #: ../Rpmdrake/gui.pm:816
 #, c-format
 msgid ""
-"To satisfy dependencies, the following package(s) also need to be "
-"installed:\n"
+"To satisfy dependencies, the following package(s) also need to be installed:\n"
 "\n"
 msgstr ""
 "Для удовлетворения зависимостей должны быть установлены\n"
@@ -1236,7 +1311,8 @@ msgstr ""
 "\n"
 "%s"
 
-#: ../Rpmdrake/gui.pm:862 ../Rpmdrake/pkg.pm:718
+#: ../Rpmdrake/gui.pm:862
+#: ../Rpmdrake/pkg.pm:718
 #, c-format
 msgid "Some packages need to be removed"
 msgstr "Некоторые пакеты должны быть удалены"
@@ -1283,12 +1359,15 @@ msgstr ""
 "\n"
 "Установить все выбранные пакеты?"
 
-#: ../Rpmdrake/gui.pm:943 ../Rpmdrake/open_db.pm:84
+#: ../Rpmdrake/gui.pm:943
+#: ../Rpmdrake/open_db.pm:84
 #, c-format
 msgid "Fatal error"
 msgstr "Неисправимая ошибка"
 
-#: ../Rpmdrake/gui.pm:944 ../Rpmdrake/open_db.pm:85 ../Rpmdrake/pkg.pm:469
+#: ../Rpmdrake/gui.pm:944
+#: ../Rpmdrake/open_db.pm:85
+#: ../Rpmdrake/pkg.pm:469
 #, c-format
 msgid "A fatal error occurred: %s."
 msgstr "Произошла критическая ошибка: %s."
@@ -1303,23 +1382,29 @@ msgstr "Подождите, составляется список пакетов
 msgid "No update"
 msgstr "Обновлений нет"
 
-#: ../Rpmdrake/gui.pm:1021 ../Rpmdrake/icon.pm:35 ../rpmdrake:213
-#: ../rpmdrake:369 ../rpmdrake:396
+#: ../Rpmdrake/gui.pm:1021
+#: ../Rpmdrake/icon.pm:35
+#: ../rpmdrake:213
+#: ../rpmdrake:369
+#: ../rpmdrake:396
 #, c-format
 msgid "All"
 msgstr "Все"
 
-#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:202
+#: ../Rpmdrake/gui.pm:1031
+#: ../rpmdrake:202
 #, c-format
 msgid "Upgradable"
 msgstr "Можно обновить"
 
-#: ../Rpmdrake/gui.pm:1031 ../rpmdrake:370
+#: ../Rpmdrake/gui.pm:1031
+#: ../rpmdrake:370
 #, c-format
 msgid "Installed"
 msgstr "Установлен"
 
-#: ../Rpmdrake/gui.pm:1032 ../rpmdrake:202
+#: ../Rpmdrake/gui.pm:1032
+#: ../rpmdrake:202
 #, c-format
 msgid "Addable"
 msgstr "Можно добавить"
@@ -1334,8 +1419,11 @@ msgstr "Для данного пакета нет описания\n"
 msgid "Accessibility"
 msgstr "Удобство"
 
-#: ../Rpmdrake/icon.pm:37 ../Rpmdrake/icon.pm:38 ../Rpmdrake/icon.pm:39
-#: ../Rpmdrake/icon.pm:40 ../Rpmdrake/icon.pm:41
+#: ../Rpmdrake/icon.pm:37
+#: ../Rpmdrake/icon.pm:38
+#: ../Rpmdrake/icon.pm:39
+#: ../Rpmdrake/icon.pm:40
+#: ../Rpmdrake/icon.pm:41
 #, c-format
 msgid "Archiving"
 msgstr "Архивирование"
@@ -1355,67 +1443,95 @@ msgstr "Запись CD"
 msgid "Compression"
 msgstr "Сжатие"
 
-#: ../Rpmdrake/icon.pm:41 ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:80
-#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:127
-#: ../Rpmdrake/icon.pm:135 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:166
+#: ../Rpmdrake/icon.pm:41
+#: ../Rpmdrake/icon.pm:64
+#: ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:100
+#: ../Rpmdrake/icon.pm:113
+#: ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:149
+#: ../Rpmdrake/icon.pm:166
 #, c-format
 msgid "Other"
 msgstr "Другое"
 
-#: ../Rpmdrake/icon.pm:42 ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
-#: ../Rpmdrake/icon.pm:45 ../Rpmdrake/icon.pm:46 ../Rpmdrake/icon.pm:47
-#: ../Rpmdrake/icon.pm:48 ../Rpmdrake/icon.pm:49 ../Rpmdrake/icon.pm:50
+#: ../Rpmdrake/icon.pm:42
+#: ../Rpmdrake/icon.pm:43
+#: ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:45
+#: ../Rpmdrake/icon.pm:46
+#: ../Rpmdrake/icon.pm:47
+#: ../Rpmdrake/icon.pm:48
+#: ../Rpmdrake/icon.pm:49
+#: ../Rpmdrake/icon.pm:50
 #, c-format
 msgid "Communications"
 msgstr "Связь"
 
-#: ../Rpmdrake/icon.pm:43 ../Rpmdrake/icon.pm:44
+#: ../Rpmdrake/icon.pm:43
+#: ../Rpmdrake/icon.pm:44
 #, c-format
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: ../Rpmdrake/icon.pm:45
 #, c-format
 msgid "Dial-Up"
-msgstr ""
+msgstr "Коммутируемый доступ"
 
 #: ../Rpmdrake/icon.pm:46
 #, c-format
 msgid "Fax"
-msgstr ""
+msgstr "Факс"
 
 #: ../Rpmdrake/icon.pm:47
 #, c-format
 msgid "Mobile"
-msgstr ""
+msgstr "Мобильный"
 
 #: ../Rpmdrake/icon.pm:48
 #, c-format
 msgid "Radio"
-msgstr ""
+msgstr "Радио"
 
 #: ../Rpmdrake/icon.pm:49
 #, c-format
 msgid "Serial"
-msgstr ""
+msgstr "Последовательный"
 
 #: ../Rpmdrake/icon.pm:50
 #, c-format
 msgid "Telephony"
-msgstr ""
+msgstr "Телефония"
 
-#: ../Rpmdrake/icon.pm:51 ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:51
+#: ../Rpmdrake/icon.pm:57
 #, c-format
 msgid "Databases"
 msgstr "Базы данных"
 
-#: ../Rpmdrake/icon.pm:52 ../Rpmdrake/icon.pm:53 ../Rpmdrake/icon.pm:54
-#: ../Rpmdrake/icon.pm:55 ../Rpmdrake/icon.pm:56 ../Rpmdrake/icon.pm:57
-#: ../Rpmdrake/icon.pm:58 ../Rpmdrake/icon.pm:59 ../Rpmdrake/icon.pm:60
-#: ../Rpmdrake/icon.pm:61 ../Rpmdrake/icon.pm:62 ../Rpmdrake/icon.pm:63
-#: ../Rpmdrake/icon.pm:64 ../Rpmdrake/icon.pm:65 ../Rpmdrake/icon.pm:66
-#: ../Rpmdrake/icon.pm:67 ../Rpmdrake/icon.pm:68 ../Rpmdrake/icon.pm:69
-#: ../Rpmdrake/icon.pm:207 ../Rpmdrake/icon.pm:208 ../Rpmdrake/icon.pm:209
+#: ../Rpmdrake/icon.pm:52
+#: ../Rpmdrake/icon.pm:53
+#: ../Rpmdrake/icon.pm:54
+#: ../Rpmdrake/icon.pm:55
+#: ../Rpmdrake/icon.pm:56
+#: ../Rpmdrake/icon.pm:57
+#: ../Rpmdrake/icon.pm:58
+#: ../Rpmdrake/icon.pm:59
+#: ../Rpmdrake/icon.pm:60
+#: ../Rpmdrake/icon.pm:61
+#: ../Rpmdrake/icon.pm:62
+#: ../Rpmdrake/icon.pm:63
+#: ../Rpmdrake/icon.pm:64
+#: ../Rpmdrake/icon.pm:65
+#: ../Rpmdrake/icon.pm:66
+#: ../Rpmdrake/icon.pm:67
+#: ../Rpmdrake/icon.pm:68
+#: ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:207
+#: ../Rpmdrake/icon.pm:208
+#: ../Rpmdrake/icon.pm:209
 #, c-format
 msgid "Development"
 msgstr "Разработка"
@@ -1423,7 +1539,7 @@ msgstr "Разработка"
 #: ../Rpmdrake/icon.pm:53
 #, c-format
 msgid "Basic"
-msgstr ""
+msgstr "Бейсик"
 
 #: ../Rpmdrake/icon.pm:54
 #, c-format
@@ -1436,14 +1552,14 @@ msgid "C++"
 msgstr "C++"
 
 #: ../Rpmdrake/icon.pm:56
-#, fuzzy, c-format
+#, c-format
 msgid "C#"
-msgstr "C"
+msgstr "C#"
 
 #: ../Rpmdrake/icon.pm:58
 #, c-format
 msgid "Erlang"
-msgstr ""
+msgstr "Эрланг"
 
 #: ../Rpmdrake/icon.pm:59
 #, c-format
@@ -1468,7 +1584,7 @@ msgstr "Ядро"
 #: ../Rpmdrake/icon.pm:63
 #, c-format
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: ../Rpmdrake/icon.pm:65
 #, c-format
@@ -1486,22 +1602,26 @@ msgid "Python"
 msgstr "Python"
 
 #: ../Rpmdrake/icon.pm:68
-#, fuzzy, c-format
+#, c-format
 msgid "Tools"
-msgstr "Текстовые утилиты"
+msgstr "Утилиты"
 
 #. -PO: This is a package/product name. Only translate it if needed:
-#: ../Rpmdrake/icon.pm:69 ../Rpmdrake/icon.pm:181
+#: ../Rpmdrake/icon.pm:69
+#: ../Rpmdrake/icon.pm:181
 #, c-format
 msgid "X11"
 msgstr "X11"
 
-#: ../Rpmdrake/icon.pm:70 ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:209
+#: ../Rpmdrake/icon.pm:70
+#: ../Rpmdrake/icon.pm:194
+#: ../Rpmdrake/icon.pm:209
 #, c-format
 msgid "Documentation"
 msgstr "Документация"
 
-#: ../Rpmdrake/icon.pm:71 ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:71
+#: ../Rpmdrake/icon.pm:112
 #, c-format
 msgid "Editors"
 msgstr "Редакторы"
@@ -1521,9 +1641,15 @@ msgstr "Эмуляторы"
 msgid "File tools"
 msgstr "Файловые утилиты"
 
-#: ../Rpmdrake/icon.pm:75 ../Rpmdrake/icon.pm:76 ../Rpmdrake/icon.pm:77
-#: ../Rpmdrake/icon.pm:78 ../Rpmdrake/icon.pm:79 ../Rpmdrake/icon.pm:80
-#: ../Rpmdrake/icon.pm:81 ../Rpmdrake/icon.pm:82 ../Rpmdrake/icon.pm:83
+#: ../Rpmdrake/icon.pm:75
+#: ../Rpmdrake/icon.pm:76
+#: ../Rpmdrake/icon.pm:77
+#: ../Rpmdrake/icon.pm:78
+#: ../Rpmdrake/icon.pm:79
+#: ../Rpmdrake/icon.pm:80
+#: ../Rpmdrake/icon.pm:81
+#: ../Rpmdrake/icon.pm:82
+#: ../Rpmdrake/icon.pm:83
 #: ../Rpmdrake/icon.pm:84
 #, c-format
 msgid "Games"
@@ -1557,7 +1683,7 @@ msgstr "Головоломки"
 #: ../Rpmdrake/icon.pm:82
 #, c-format
 msgid "Shooter"
-msgstr ""
+msgstr "Стрелялки"
 
 #: ../Rpmdrake/icon.pm:83
 #, c-format
@@ -1572,11 +1698,17 @@ msgstr "Стратегии"
 #: ../Rpmdrake/icon.pm:85
 #, c-format
 msgid "Geography"
-msgstr ""
+msgstr "География"
 
-#: ../Rpmdrake/icon.pm:86 ../Rpmdrake/icon.pm:87 ../Rpmdrake/icon.pm:90
-#: ../Rpmdrake/icon.pm:91 ../Rpmdrake/icon.pm:94 ../Rpmdrake/icon.pm:97
-#: ../Rpmdrake/icon.pm:100 ../Rpmdrake/icon.pm:101 ../Rpmdrake/icon.pm:104
+#: ../Rpmdrake/icon.pm:86
+#: ../Rpmdrake/icon.pm:87
+#: ../Rpmdrake/icon.pm:90
+#: ../Rpmdrake/icon.pm:91
+#: ../Rpmdrake/icon.pm:94
+#: ../Rpmdrake/icon.pm:97
+#: ../Rpmdrake/icon.pm:100
+#: ../Rpmdrake/icon.pm:101
+#: ../Rpmdrake/icon.pm:104
 #: ../Rpmdrake/icon.pm:107
 #, c-format
 msgid "Graphical desktop"
@@ -1629,8 +1761,12 @@ msgstr "WindowMaker"
 msgid "Xfce"
 msgstr "Xfce"
 
-#: ../Rpmdrake/icon.pm:110 ../Rpmdrake/icon.pm:111 ../Rpmdrake/icon.pm:112
-#: ../Rpmdrake/icon.pm:113 ../Rpmdrake/icon.pm:114 ../Rpmdrake/icon.pm:115
+#: ../Rpmdrake/icon.pm:110
+#: ../Rpmdrake/icon.pm:111
+#: ../Rpmdrake/icon.pm:112
+#: ../Rpmdrake/icon.pm:113
+#: ../Rpmdrake/icon.pm:114
+#: ../Rpmdrake/icon.pm:115
 #: ../Rpmdrake/icon.pm:116
 #, c-format
 msgid "Graphics"
@@ -1639,43 +1775,54 @@ msgstr "Графика"
 #: ../Rpmdrake/icon.pm:111
 #, c-format
 msgid "3D"
-msgstr ""
+msgstr "3D"
 
 #: ../Rpmdrake/icon.pm:114
 #, c-format
 msgid "Photography"
-msgstr ""
+msgstr "Фотография"
 
 #: ../Rpmdrake/icon.pm:115
-#, fuzzy, c-format
+#, c-format
 msgid "Scanning"
-msgstr "Внимание"
+msgstr "Сканирование"
 
 #: ../Rpmdrake/icon.pm:116
-#, fuzzy, c-format
+#, c-format
 msgid "Viewers"
-msgstr "Вид"
+msgstr "Просмотрщики"
 
 #: ../Rpmdrake/icon.pm:117
 #, c-format
 msgid "Monitoring"
 msgstr "Мониторинг"
 
-#: ../Rpmdrake/icon.pm:118 ../Rpmdrake/icon.pm:119
+#: ../Rpmdrake/icon.pm:118
+#: ../Rpmdrake/icon.pm:119
 #, c-format
 msgid "Multimedia"
 msgstr "Мультимедиа"
 
-#: ../Rpmdrake/icon.pm:119 ../Rpmdrake/icon.pm:185 ../Rpmdrake/icon.pm:186
-#: ../Rpmdrake/icon.pm:187 ../Rpmdrake/icon.pm:188
+#: ../Rpmdrake/icon.pm:119
+#: ../Rpmdrake/icon.pm:185
+#: ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:187
+#: ../Rpmdrake/icon.pm:188
 #, c-format
 msgid "Video"
 msgstr "Видео"
 
-#: ../Rpmdrake/icon.pm:120 ../Rpmdrake/icon.pm:121 ../Rpmdrake/icon.pm:122
-#: ../Rpmdrake/icon.pm:123 ../Rpmdrake/icon.pm:124 ../Rpmdrake/icon.pm:125
-#: ../Rpmdrake/icon.pm:126 ../Rpmdrake/icon.pm:127 ../Rpmdrake/icon.pm:128
-#: ../Rpmdrake/icon.pm:129 ../Rpmdrake/icon.pm:165
+#: ../Rpmdrake/icon.pm:120
+#: ../Rpmdrake/icon.pm:121
+#: ../Rpmdrake/icon.pm:122
+#: ../Rpmdrake/icon.pm:123
+#: ../Rpmdrake/icon.pm:124
+#: ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:126
+#: ../Rpmdrake/icon.pm:127
+#: ../Rpmdrake/icon.pm:128
+#: ../Rpmdrake/icon.pm:129
+#: ../Rpmdrake/icon.pm:165
 #, c-format
 msgid "Networking"
 msgstr "Сеть"
@@ -1700,7 +1847,8 @@ msgstr "IRC"
 msgid "Instant messaging"
 msgstr "Обмен мгновенными сообщениями"
 
-#: ../Rpmdrake/icon.pm:125 ../Rpmdrake/icon.pm:214
+#: ../Rpmdrake/icon.pm:125
+#: ../Rpmdrake/icon.pm:214
 #, c-format
 msgid "Mail"
 msgstr "Почта"
@@ -1720,9 +1868,15 @@ msgstr "Удалённый доступ"
 msgid "WWW"
 msgstr "WWW"
 
-#: ../Rpmdrake/icon.pm:130 ../Rpmdrake/icon.pm:131 ../Rpmdrake/icon.pm:132
-#: ../Rpmdrake/icon.pm:133 ../Rpmdrake/icon.pm:134 ../Rpmdrake/icon.pm:135
-#: ../Rpmdrake/icon.pm:136 ../Rpmdrake/icon.pm:137 ../Rpmdrake/icon.pm:138
+#: ../Rpmdrake/icon.pm:130
+#: ../Rpmdrake/icon.pm:131
+#: ../Rpmdrake/icon.pm:132
+#: ../Rpmdrake/icon.pm:133
+#: ../Rpmdrake/icon.pm:134
+#: ../Rpmdrake/icon.pm:135
+#: ../Rpmdrake/icon.pm:136
+#: ../Rpmdrake/icon.pm:137
+#: ../Rpmdrake/icon.pm:138
 #, c-format
 msgid "Office"
 msgstr "Офис"
@@ -1730,37 +1884,37 @@ msgstr "Офис"
 #: ../Rpmdrake/icon.pm:131
 #, c-format
 msgid "Dictionary"
-msgstr ""
+msgstr "Словари"
 
 #: ../Rpmdrake/icon.pm:132
-#, fuzzy, c-format
+#, c-format
 msgid "Finance"
-msgstr "Франция"
+msgstr "Финансы"
 
 #: ../Rpmdrake/icon.pm:133
-#, fuzzy, c-format
+#, c-format
 msgid "Management"
-msgstr "Менеджер программ"
+msgstr "Управление"
 
 #: ../Rpmdrake/icon.pm:134
 #, c-format
 msgid "Organizer"
-msgstr ""
+msgstr "Органайзеры"
 
 #: ../Rpmdrake/icon.pm:136
 #, c-format
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Электронные таблицы"
 
 #: ../Rpmdrake/icon.pm:137
 #, c-format
 msgid "Suite"
-msgstr ""
+msgstr "Офисные пакеты"
 
 #: ../Rpmdrake/icon.pm:138
 #, c-format
 msgid "Word processor"
-msgstr ""
+msgstr "Текстовые процессоры"
 
 #: ../Rpmdrake/icon.pm:139
 #, c-format
@@ -1773,13 +1927,19 @@ msgid "Publishing"
 msgstr "Издательство"
 
 #: ../Rpmdrake/icon.pm:141
-#, fuzzy, c-format
+#, c-format
 msgid "Security"
-msgstr "Обновления по безопасности"
+msgstr "Безопасность"
 
-#: ../Rpmdrake/icon.pm:142 ../Rpmdrake/icon.pm:143 ../Rpmdrake/icon.pm:144
-#: ../Rpmdrake/icon.pm:145 ../Rpmdrake/icon.pm:146 ../Rpmdrake/icon.pm:147
-#: ../Rpmdrake/icon.pm:148 ../Rpmdrake/icon.pm:149 ../Rpmdrake/icon.pm:150
+#: ../Rpmdrake/icon.pm:142
+#: ../Rpmdrake/icon.pm:143
+#: ../Rpmdrake/icon.pm:144
+#: ../Rpmdrake/icon.pm:145
+#: ../Rpmdrake/icon.pm:146
+#: ../Rpmdrake/icon.pm:147
+#: ../Rpmdrake/icon.pm:148
+#: ../Rpmdrake/icon.pm:149
+#: ../Rpmdrake/icon.pm:150
 #, c-format
 msgid "Sciences"
 msgstr "Наука"
@@ -1824,50 +1984,71 @@ msgstr "Физика"
 msgid "Shells"
 msgstr "Командные процессоры"
 
-#: ../Rpmdrake/icon.pm:152 ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:154
-#: ../Rpmdrake/icon.pm:155 ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:152
+#: ../Rpmdrake/icon.pm:153
+#: ../Rpmdrake/icon.pm:154
+#: ../Rpmdrake/icon.pm:155
+#: ../Rpmdrake/icon.pm:156
+#: ../Rpmdrake/icon.pm:157
 #: ../Rpmdrake/icon.pm:158
 #, c-format
 msgid "Sound"
 msgstr "Звук"
 
-#: ../Rpmdrake/icon.pm:153 ../Rpmdrake/icon.pm:186
+#: ../Rpmdrake/icon.pm:153
+#: ../Rpmdrake/icon.pm:186
 #, c-format
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Редакторы и конверторы"
 
 #: ../Rpmdrake/icon.pm:154
 #, c-format
 msgid "Midi"
-msgstr ""
+msgstr "MIDI"
 
 #: ../Rpmdrake/icon.pm:155
 #, c-format
 msgid "Mixers"
-msgstr ""
+msgstr "Микшеры"
 
-#: ../Rpmdrake/icon.pm:156 ../Rpmdrake/icon.pm:187
+#: ../Rpmdrake/icon.pm:156
+#: ../Rpmdrake/icon.pm:187
 #, c-format
 msgid "Players"
-msgstr ""
+msgstr "Проигрыватели"
 
-#: ../Rpmdrake/icon.pm:157 ../Rpmdrake/icon.pm:188
+#: ../Rpmdrake/icon.pm:157
+#: ../Rpmdrake/icon.pm:188
 #, c-format
 msgid "Utilities"
-msgstr ""
+msgstr "Утилиты"
 
 #: ../Rpmdrake/icon.pm:158
-#, fuzzy, c-format
+#, c-format
 msgid "Visualization"
-msgstr "Локализация"
+msgstr "Визуализация"
 
-#: ../Rpmdrake/icon.pm:159 ../Rpmdrake/icon.pm:160 ../Rpmdrake/icon.pm:161
-#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
-#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
-#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170
-#: ../Rpmdrake/icon.pm:171 ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
-#: ../Rpmdrake/icon.pm:174 ../Rpmdrake/icon.pm:175 ../Rpmdrake/icon.pm:176
-#: ../Rpmdrake/icon.pm:177 ../Rpmdrake/icon.pm:178 ../Rpmdrake/icon.pm:179
+#: ../Rpmdrake/icon.pm:159
+#: ../Rpmdrake/icon.pm:160
+#: ../Rpmdrake/icon.pm:161
+#: ../Rpmdrake/icon.pm:162
+#: ../Rpmdrake/icon.pm:163
+#: ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165
+#: ../Rpmdrake/icon.pm:166
+#: ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168
+#: ../Rpmdrake/icon.pm:169
+#: ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172
+#: ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:174
+#: ../Rpmdrake/icon.pm:175
+#: ../Rpmdrake/icon.pm:176
+#: ../Rpmdrake/icon.pm:177
+#: ../Rpmdrake/icon.pm:178
+#: ../Rpmdrake/icon.pm:179
 #, c-format
 msgid "System"
 msgstr "Система"
@@ -1882,9 +2063,14 @@ msgstr "Стандартные"
 msgid "Cluster"
 msgstr "Кластер"
 
-#: ../Rpmdrake/icon.pm:162 ../Rpmdrake/icon.pm:163 ../Rpmdrake/icon.pm:164
-#: ../Rpmdrake/icon.pm:165 ../Rpmdrake/icon.pm:166 ../Rpmdrake/icon.pm:167
-#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:192
+#: ../Rpmdrake/icon.pm:162
+#: ../Rpmdrake/icon.pm:163
+#: ../Rpmdrake/icon.pm:164
+#: ../Rpmdrake/icon.pm:165
+#: ../Rpmdrake/icon.pm:166
+#: ../Rpmdrake/icon.pm:167
+#: ../Rpmdrake/icon.pm:168
+#: ../Rpmdrake/icon.pm:192
 #, c-format
 msgid "Configuration"
 msgstr "Настройка"
@@ -1904,13 +2090,17 @@ msgstr "Оборудование"
 msgid "Packaging"
 msgstr "Пакеты"
 
-#: ../Rpmdrake/icon.pm:168 ../Rpmdrake/icon.pm:177
+#: ../Rpmdrake/icon.pm:168
+#: ../Rpmdrake/icon.pm:177
 #, c-format
 msgid "Printing"
 msgstr "Печать"
 
-#: ../Rpmdrake/icon.pm:169 ../Rpmdrake/icon.pm:170 ../Rpmdrake/icon.pm:171
-#: ../Rpmdrake/icon.pm:172 ../Rpmdrake/icon.pm:173
+#: ../Rpmdrake/icon.pm:169
+#: ../Rpmdrake/icon.pm:170
+#: ../Rpmdrake/icon.pm:171
+#: ../Rpmdrake/icon.pm:172
+#: ../Rpmdrake/icon.pm:173
 #, c-format
 msgid "Fonts"
 msgstr "Шрифты"
@@ -1970,9 +2160,15 @@ msgstr "Текстовые утилиты"
 msgid "Toys"
 msgstr "Игрушки"
 
-#: ../Rpmdrake/icon.pm:191 ../Rpmdrake/icon.pm:192 ../Rpmdrake/icon.pm:193
-#: ../Rpmdrake/icon.pm:194 ../Rpmdrake/icon.pm:195 ../Rpmdrake/icon.pm:196
-#: ../Rpmdrake/icon.pm:197 ../Rpmdrake/icon.pm:198 ../Rpmdrake/icon.pm:199
+#: ../Rpmdrake/icon.pm:191
+#: ../Rpmdrake/icon.pm:192
+#: ../Rpmdrake/icon.pm:193
+#: ../Rpmdrake/icon.pm:194
+#: ../Rpmdrake/icon.pm:195
+#: ../Rpmdrake/icon.pm:196
+#: ../Rpmdrake/icon.pm:197
+#: ../Rpmdrake/icon.pm:198
+#: ../Rpmdrake/icon.pm:199
 #: ../Rpmdrake/icon.pm:200
 #, c-format
 msgid "Workstation"
@@ -2013,8 +2209,11 @@ msgstr "Офисная рабочая станция"
 msgid "Scientific Workstation"
 msgstr "Научная рабочая станция"
 
-#: ../Rpmdrake/icon.pm:201 ../Rpmdrake/icon.pm:203 ../Rpmdrake/icon.pm:204
-#: ../Rpmdrake/icon.pm:205 ../Rpmdrake/icon.pm:206
+#: ../Rpmdrake/icon.pm:201
+#: ../Rpmdrake/icon.pm:203
+#: ../Rpmdrake/icon.pm:204
+#: ../Rpmdrake/icon.pm:205
+#: ../Rpmdrake/icon.pm:206
 #, c-format
 msgid "Graphical Environment"
 msgstr "Графическая среда"
@@ -2039,9 +2238,14 @@ msgstr "Рабочая станция KDE"
 msgid "Other Graphical Desktops"
 msgstr "Другие графические рабочие столы"
 
-#: ../Rpmdrake/icon.pm:210 ../Rpmdrake/icon.pm:211 ../Rpmdrake/icon.pm:212
-#: ../Rpmdrake/icon.pm:213 ../Rpmdrake/icon.pm:214 ../Rpmdrake/icon.pm:215
-#: ../Rpmdrake/icon.pm:216 ../Rpmdrake/icon.pm:217
+#: ../Rpmdrake/icon.pm:210
+#: ../Rpmdrake/icon.pm:211
+#: ../Rpmdrake/icon.pm:212
+#: ../Rpmdrake/icon.pm:213
+#: ../Rpmdrake/icon.pm:214
+#: ../Rpmdrake/icon.pm:215
+#: ../Rpmdrake/icon.pm:216
+#: ../Rpmdrake/icon.pm:217
 #, c-format
 msgid "Server"
 msgstr "Сервер"
@@ -2084,17 +2288,12 @@ msgstr "Использование: %s [ПАРАМЕТРЫ]..."
 #: ../Rpmdrake/init.pm:50
 #, c-format
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
-"  --auto                 использовать ответ по умолчанию для всех вопросов"
+msgstr "  --auto                 использовать ответ по умолчанию для всех вопросов"
 
 #: ../Rpmdrake/init.pm:51
 #, c-format
-msgid ""
-"  --changelog-first      display changelog before filelist in the "
-"description window"
-msgstr ""
-"  --changelog-first      показать журнал изменений перед списком файлов в "
-"окне с описанием"
+msgid "  --changelog-first      display changelog before filelist in the description window"
+msgstr "  --changelog-first      показать журнал изменений перед списком файлов в окне с описанием"
 
 #: ../Rpmdrake/init.pm:52
 #, c-format
@@ -2103,34 +2302,23 @@ msgstr "  --media=источник1,..   ограничиться указанн
 
 #: ../Rpmdrake/init.pm:53
 #, c-format
-msgid ""
-"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
-msgstr ""
-"  --merge-all-rpmnew     объединить все найденные файлы .rpmnew/.rpmsave"
+msgid "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr "  --merge-all-rpmnew     объединить все найденные файлы .rpmnew/.rpmsave"
 
 #: ../Rpmdrake/init.pm:54
 #, c-format
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
-msgstr ""
-"  --mode=РЕЖИМ           установить режим (install (по умолчанию), remove, "
-"update)"
+msgstr "  --mode=РЕЖИМ           установить режим (install (по умолчанию), remove, update)"
 
 #: ../Rpmdrake/init.pm:55
 #, c-format
-msgid ""
-"  --justdb               update the database, but do not modify the "
-"filesystem"
-msgstr ""
-"  --justdb               обновить базу данных, но не изменять файловую "
-"систему"
+msgid "  --justdb               update the database, but do not modify the filesystem"
+msgstr "  --justdb               обновить базу данных, но не изменять файловую систему"
 
 #: ../Rpmdrake/init.pm:56
 #, c-format
-msgid ""
-"  --no-confirmation      don't ask first confirmation question in update mode"
-msgstr ""
-"  --no-confirmation      не выводить первый запрос на подтверждение в режиме "
-"update"
+msgid "  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr "  --no-confirmation      не выводить первый запрос на подтверждение в режиме update"
 
 #: ../Rpmdrake/init.pm:57
 #, c-format
@@ -2144,12 +2332,8 @@ msgstr "  --no-verify-rpm        не проверять подписи паке
 
 #: ../Rpmdrake/init.pm:59
 #, c-format
-msgid ""
-"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
-"\" machine to show needed deps"
-msgstr ""
-"  --parallel=алиас,хост  параллельный режим; используйте группу «alias», "
-"используйте машину «host», чтобы увидеть необходимые зависимости"
+msgid "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host\" machine to show needed deps"
+msgstr "  --parallel=алиас,хост  параллельный режим; используйте группу «alias», используйте машину «host», чтобы увидеть необходимые зависимости"
 
 #: ../Rpmdrake/init.pm:60
 #, c-format
@@ -2160,17 +2344,13 @@ msgstr ""
 
 #: ../Rpmdrake/init.pm:61
 #, c-format
-msgid ""
-"  --urpmi-root           use another root for urpmi db & rpm installation"
-msgstr ""
-"  --urpmi-root           использовать другой корень для базы данных urpmi и "
-"установки пакетов."
+msgid "  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr "  --urpmi-root           использовать другой корень для базы данных urpmi и установки пакетов."
 
 #: ../Rpmdrake/init.pm:62
 #, c-format
 msgid "  --run-as-root          force to run as root"
-msgstr ""
-"  --run-as-root          принудительный запуск с правами пользователя root"
+msgstr "  --run-as-root          принудительный запуск с правами пользователя root"
 
 #: ../Rpmdrake/init.pm:63
 #, c-format
@@ -2179,9 +2359,7 @@ msgstr "  --search=пакет         найти «пакет»"
 
 #: ../Rpmdrake/init.pm:64
 #, c-format
-msgid ""
-"  --test                 only verify if the installation can be achieved "
-"correctly"
+msgid "  --test                 only verify if the installation can be achieved correctly"
 msgstr "  --test                 только проверить, можно ли установить пакет"
 
 #: ../Rpmdrake/init.pm:65
@@ -2215,8 +2393,12 @@ msgstr "Извлекаются данные из XML-файла с метада�
 msgid "Getting '%s' from XML meta-data..."
 msgstr "Извлекается «%s» из XML--файла с метаданными..."
 
-#: ../Rpmdrake/pkg.pm:133 ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
-#: ../Rpmdrake/pkg.pm:944 ../rpmdrake:134 ../rpmdrake.pm:385
+#: ../Rpmdrake/pkg.pm:133
+#: ../Rpmdrake/pkg.pm:437
+#: ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944
+#: ../rpmdrake:134
+#: ../rpmdrake.pm:385
 #: ../rpmdrake.pm:594
 #, c-format
 msgid "Please wait"
@@ -2225,19 +2407,15 @@ msgstr "Подождите, пожалуйста"
 #: ../Rpmdrake/pkg.pm:147
 #, c-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
-msgstr ""
-"для источника «%s» отсутствует xml-info; для пакета %s получен только "
-"частичный результат"
+msgstr "для источника «%s» отсутствует xml-info; для пакета %s получен только частичный результат"
 
 #: ../Rpmdrake/pkg.pm:149
 #, c-format
-msgid ""
-"No xml info for medium \"%s\", unable to return any result for package %s"
-msgstr ""
-"для источника «%s» отсутствует xml-info; для пакета %s невозможно получить "
-"результат"
+msgid "No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr "для источника «%s» отсутствует xml-info; для пакета %s невозможно получить результат"
 
-#: ../Rpmdrake/pkg.pm:204 ../Rpmdrake/pkg.pm:209
+#: ../Rpmdrake/pkg.pm:204
+#: ../Rpmdrake/pkg.pm:209
 #, c-format
 msgid "Downloading package `%s'..."
 msgstr "Загружается пакет «%s»..."
@@ -2252,7 +2430,8 @@ msgstr "        %s%% из %s завершено, осталось времени
 msgid "        %s%% completed, speed = %s"
 msgstr "        %s%% завершено, скорость = %s"
 
-#: ../Rpmdrake/pkg.pm:250 ../Rpmdrake/pkg.pm:718
+#: ../Rpmdrake/pkg.pm:250
+#: ../Rpmdrake/pkg.pm:718
 #, c-format
 msgid "Confirmation"
 msgstr "Подтверждение"
@@ -2299,14 +2478,11 @@ msgstr ""
 
 #: ../Rpmdrake/pkg.pm:275
 #, c-format
-msgid ""
-"You have no configured update media. MageiaUpdate cannot operate without any "
-"update media."
-msgstr ""
-"Источники обновлений не были настроены. Программа Mageia Update не может "
-"работать без источников обновлений."
+msgid "You have no configured update media. MageiaUpdate cannot operate without any update media."
+msgstr "Источники обновлений не были настроены. Программа Mageia Update не может работать без источников обновлений."
 
-#: ../Rpmdrake/pkg.pm:276 ../rpmdrake.pm:627
+#: ../Rpmdrake/pkg.pm:276
+#: ../rpmdrake.pm:627
 #, c-format
 msgid ""
 "I need to contact the Mageia website to get the mirror list.\n"
@@ -2340,12 +2516,15 @@ msgstr ""
 "\n"
 "Затем перезапустите %s."
 
-#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:437
+#: ../Rpmdrake/pkg.pm:737
 #, c-format
 msgid "Package installation..."
 msgstr "Устанавливается пакет..."
 
-#: ../Rpmdrake/pkg.pm:437 ../Rpmdrake/pkg.pm:737 ../Rpmdrake/pkg.pm:944
+#: ../Rpmdrake/pkg.pm:437
+#: ../Rpmdrake/pkg.pm:737
+#: ../Rpmdrake/pkg.pm:944
 #, c-format
 msgid "Initializing..."
 msgstr "Инициализация..."
@@ -2355,7 +2534,8 @@ msgstr "Инициализация..."
 msgid "Reading updates description"
 msgstr "Считываются описания обновлений"
 
-#: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
+#: ../Rpmdrake/pkg.pm:458
+#: ../Rpmdrake/pkg.pm:493
 #, c-format
 msgid "Please wait, finding available packages..."
 msgstr "Подождите, идёт поиск доступных пакетов..."
@@ -2365,8 +2545,12 @@ msgstr "Подождите, идёт поиск доступных пакето�
 msgid "Please wait, listing base packages..."
 msgstr "Подождите, составляется список пакетов..."
 
-#: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
-#: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
+#: ../Rpmdrake/pkg.pm:469
+#: ../Rpmdrake/pkg.pm:868
+#: ../Rpmdrake/pkg.pm:893
+#: ../rpmdrake.pm:815
+#: ../rpmdrake.pm:901
+#: ../rpmdrake.pm:925
 #, c-format
 msgid "Error"
 msgstr "Ошибка"
@@ -2396,17 +2580,21 @@ msgstr "Информация об обновлении данного пакет
 msgid "Upgrade information about package %s"
 msgstr "Информация об обновлении пакета [%s]"
 
-#: ../Rpmdrake/pkg.pm:629 ../Rpmdrake/pkg.pm:885
+#: ../Rpmdrake/pkg.pm:629
+#: ../Rpmdrake/pkg.pm:885
 #, c-format
 msgid "All requested packages were installed successfully."
 msgstr "Все запрошенные пакеты были успешно установлены."
 
-#: ../Rpmdrake/pkg.pm:633 ../Rpmdrake/pkg.pm:854
+#: ../Rpmdrake/pkg.pm:633
+#: ../Rpmdrake/pkg.pm:854
 #, c-format
 msgid "Problem during installation"
 msgstr "Во время установки возникла проблема"
 
-#: ../Rpmdrake/pkg.pm:634 ../Rpmdrake/pkg.pm:654 ../Rpmdrake/pkg.pm:856
+#: ../Rpmdrake/pkg.pm:634
+#: ../Rpmdrake/pkg.pm:654
+#: ../Rpmdrake/pkg.pm:856
 #, c-format
 msgid ""
 "There was a problem during the installation:\n"
@@ -2455,8 +2643,7 @@ msgstr ""
 msgid "The following package is going to be installed:"
 msgid_plural "The following %d packages are going to be installed:"
 msgstr[0] "Для удовлетворения зависимостей будет установлен следующий пакет:"
-msgstr[1] ""
-"Для удовлетворения зависимостей будут установлены следующие %d пакетов:"
+msgstr[1] "Для удовлетворения зависимостей будут установлены следующие %d пакетов:"
 
 #: ../Rpmdrake/pkg.pm:721
 #, c-format
@@ -2468,22 +2655,20 @@ msgstr[1] "Удалить %d пакетов?"
 #: ../Rpmdrake/pkg.pm:723
 #, c-format
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr ""
-"Следующий пакет необходимо удалить. Тогда можно будет обновить другие пакеты:"
+msgstr "Следующий пакет необходимо удалить. Тогда можно будет обновить другие пакеты:"
 
 #: ../Rpmdrake/pkg.pm:724
 #, c-format
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr ""
-"Следующие пакеты необходимо удалить. Тогда можно будет обновить другие "
-"пакеты:"
+msgstr "Следующие пакеты необходимо удалить. Тогда можно будет обновить другие пакеты:"
 
 #: ../Rpmdrake/pkg.pm:728
 #, c-format
 msgid "Is it ok to continue?"
 msgstr "Продолжить?"
 
-#: ../Rpmdrake/pkg.pm:744 ../Rpmdrake/pkg.pm:928
+#: ../Rpmdrake/pkg.pm:744
+#: ../Rpmdrake/pkg.pm:928
 #, c-format
 msgid "Orphan packages"
 msgstr "Осиротевшие пакеты"
@@ -2578,7 +2763,8 @@ msgstr "Отменить все"
 msgid "Details"
 msgstr "Подробности"
 
-#: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
+#: ../Rpmdrake/pkg.pm:944
+#: ../Rpmdrake/pkg.pm:964
 #, c-format
 msgid "Please wait, removing packages..."
 msgstr "Подождите, удаляются пакеты..."
@@ -2616,14 +2802,11 @@ msgstr "Изменения:"
 
 #: ../Rpmdrake/rpmnew.pm:116
 #, c-format
-msgid ""
-"You can either remove the .%s file, use it as main file or do nothing. If "
-"unsure, keep the current file (\"%s\")."
-msgstr ""
-"Файл .%s можно удалить, использовать его в качестве главного или ничего не "
-"делать. Если не уверены, оставьте текущий файл («%s»)."
+msgid "You can either remove the .%s file, use it as main file or do nothing. If unsure, keep the current file (\"%s\")."
+msgstr "Файл .%s можно удалить, использовать его в качестве главного или ничего не делать. Если не уверены, оставьте текущий файл («%s»)."
 
-#: ../Rpmdrake/rpmnew.pm:117 ../Rpmdrake/rpmnew.pm:122
+#: ../Rpmdrake/rpmnew.pm:117
+#: ../Rpmdrake/rpmnew.pm:122
 #, c-format
 msgid "Remove .%s"
 msgstr "Удалить .%s"
@@ -2648,7 +2831,8 @@ msgstr "Установка завершена"
 msgid "Inspect..."
 msgstr "Посмотреть..."
 
-#: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
+#: ../Rpmdrake/rpmnew.pm:191
+#: ../rpmdrake:102
 #, c-format
 msgid "Please wait, searching..."
 msgstr "Подождите, идёт поиск..."
@@ -2727,7 +2911,8 @@ msgstr "Остановить"
 msgid "no xml-info available for medium \"%s\""
 msgstr "в источнике «%s» отсутствует xml-info"
 
-#: ../rpmdrake:157 ../rpmdrake:185
+#: ../rpmdrake:157
+#: ../rpmdrake:185
 #, c-format
 msgid "Search aborted"
 msgstr "Поиск прерван"
@@ -2749,9 +2934,7 @@ msgstr "Ничего не найдено."
 
 #: ../rpmdrake:212
 #, c-format
-msgid ""
-"No search results. You may want to switch to the '%s' view and to the '%s' "
-"filter"
+msgid "No search results. You may want to switch to the '%s' view and to the '%s' filter"
 msgstr "Ничего не найдено. Попробуйте переключиться на вид '%s' и фильтр '%s'"
 
 #: ../rpmdrake:246
@@ -2921,7 +3104,7 @@ msgstr "/_Очистить выбор"
 #: ../rpmdrake:555
 #, c-format
 msgid "Reset aborted (RPM DB is locked by another process)"
-msgstr ""
+msgstr "Сброс прерван (база данных RPM заблокирована другим процессом)"
 
 #: ../rpmdrake:571
 #, c-format
@@ -2943,12 +3126,16 @@ msgstr "<control>Q"
 msgid "/_Media Manager"
 msgstr "/_Менеджер источников"
 
-#: ../rpmdrake:595 ../rpmdrake:671
+#: ../rpmdrake:595
+#: ../rpmdrake:671
 #, c-format
 msgid "/_Show automatically selected packages"
 msgstr "/Показывать _автоматически выбранные пакеты"
 
-#: ../rpmdrake:609 ../rpmdrake:612 ../rpmdrake:617 ../rpmdrake:649
+#: ../rpmdrake:609
+#: ../rpmdrake:612
+#: ../rpmdrake:617
+#: ../rpmdrake:649
 #, c-format
 msgid "/_View"
 msgstr "/_Вид"
@@ -2980,18 +3167,13 @@ msgstr "Слева показано дерево категорий пакето
 
 #: ../rpmdrake:747
 #, c-format
-msgid ""
-"You can view information about a package by clicking on it on the right list."
-msgstr ""
-"Если щёлкнуть по названию пакета в списке, справа будут показаны сведения о "
-"пакете."
+msgid "You can view information about a package by clicking on it on the right list."
+msgstr "Если щёлкнуть по названию пакета в списке, справа будут показаны сведения о пакете."
 
 #: ../rpmdrake:748
 #, c-format
 msgid "To install, update or remove a package, just click on its \"checkbox\"."
-msgstr ""
-"Чтобы установить, обновить или удалить пакет, просто щёлкните по флажку "
-"рядом с ним."
+msgstr "Чтобы установить, обновить или удалить пакет, просто щёлкните по флажку рядом с ним."
 
 #: ../rpmdrake:793
 #, c-format
@@ -3023,7 +3205,8 @@ msgstr "Имя пользователя:"
 msgid "Software Packages Removal"
 msgstr "Удаление пакетов программ"
 
-#: ../rpmdrake.pm:235 ../rpmdrake.pm:239
+#: ../rpmdrake.pm:235
+#: ../rpmdrake.pm:239
 #, c-format
 msgid "Software Packages Update"
 msgstr "Обновление пакетов программ"
@@ -3098,7 +3281,8 @@ msgstr "Германия"
 msgid "Danmark"
 msgstr "Дания"
 
-#: ../rpmdrake.pm:475 ../rpmdrake.pm:479
+#: ../rpmdrake.pm:475
+#: ../rpmdrake.pm:479
 #, c-format
 msgid "Greece"
 msgstr "Греция"
@@ -3198,7 +3382,10 @@ msgstr "Объединённое Королевство"
 msgid "China"
 msgstr "Китай"
 
-#: ../rpmdrake.pm:496 ../rpmdrake.pm:497 ../rpmdrake.pm:498 ../rpmdrake.pm:499
+#: ../rpmdrake.pm:496
+#: ../rpmdrake.pm:497
+#: ../rpmdrake.pm:498
+#: ../rpmdrake.pm:499
 #, c-format
 msgid "United States"
 msgstr "Соединённые Штаты"
@@ -3232,7 +3419,8 @@ msgstr ""
 "\n"
 "Продолжить?"
 
-#: ../rpmdrake.pm:631 ../rpmdrake.pm:670
+#: ../rpmdrake.pm:631
+#: ../rpmdrake.pm:670
 #, c-format
 msgid "Mirror choice"
 msgstr "Выбор зеркала"
@@ -3376,8 +3564,7 @@ msgstr "Ошибка при получении пакетов"
 msgid ""
 "It's impossible to retrieve the list of new packages from the media\n"
 "`%s'. Either this update media is misconfigured, and in this case\n"
-"you should use the Software Media Manager to remove it and re-add it in "
-"order\n"
+"you should use the Software Media Manager to remove it and re-add it in order\n"
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
@@ -3394,11 +3581,8 @@ msgstr "Обновить источник"
 
 #: ../rpmdrake.pm:828
 #, c-format
-msgid ""
-"No active medium found. You must enable some media to be able to update them."
-msgstr ""
-"Не найден активный источник. Источники необходимо включить, чтобы их можно "
-"было обновить."
+msgid "No active medium found. You must enable some media to be able to update them."
+msgstr "Не найден активный источник. Источники необходимо включить, чтобы их можно было обновить."
 
 #: ../rpmdrake.pm:835
 #, c-format
@@ -3418,7 +3602,8 @@ msgstr ""
 "Ошибки:\n"
 "%s"
 
-#: ../rpmdrake.pm:902 ../rpmdrake.pm:913
+#: ../rpmdrake.pm:902
+#: ../rpmdrake.pm:913
 #, c-format
 msgid ""
 "Unable to add medium, errors reported:\n"
@@ -3453,23 +3638,19 @@ msgstr ""
 #: ../rpmdrake.pm:944
 #, c-format
 msgid ""
-"Your medium `%s', used for updates, does not match the version of %s you're "
-"running (%s).\n"
+"Your medium `%s', used for updates, does not match the version of %s you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"Источник «%s», используемый для обновлений, не соответствует текущей версии %"
-"s (%s).\n"
+"Источник «%s», используемый для обновлений, не соответствует текущей версии %s (%s).\n"
 "Источник будет отключён."
 
 #: ../rpmdrake.pm:947
 #, c-format
 msgid ""
-"Your medium `%s', used for updates, does not match the version of Mageia "
-"you're running (%s).\n"
+"Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"Источник «%s», используемый для обновлений, не соответствует текущей версии "
-"Mageia (%s).\n"
+"Источник «%s», используемый для обновлений, не соответствует текущей версии Mageia (%s).\n"
 "Источник будет отключён."
 
 #: ../rpmdrake.pm:978
@@ -3479,8 +3660,7 @@ msgstr "Справка запущена в фоновом режиме"
 
 #: ../rpmdrake.pm:979
 #, c-format
-msgid ""
-"The help window has been started, it should appear shortly on your desktop."
+msgid "The help window has been started, it should appear shortly on your desktop."
 msgstr "Справка запущена, скоро она появится на рабочем столе."
 
 #: ../data/rpmdrake-browse-only.desktop.in.h:1
