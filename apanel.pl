@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 # vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
+#    Copyright 2013 Matteo Pasotti
 #
 #    This file is part of AdminPanel
 #
@@ -23,6 +24,7 @@ use diagnostics;
 use AdminPanel::Privileges;
 use FindBin;
 use lib "$FindBin::RealBin";
+use SettingsReader;
 use MainDisplay;
 use yui;
 
@@ -30,7 +32,9 @@ my $cmdline = new yui::YCommandLine;
 
 usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
 
-ask_for_authentication($USE_CHLP) if(require_root_capability());
+my $settings = getSettings();
+
+ask_for_authentication($settings->{priv_method}) if(require_root_capability());
 
 my $mainWin = new MainDisplay();
 my $launch = $mainWin->start();
@@ -64,6 +68,22 @@ sub usage {
     print "\t--conf_dir path    specify the settings.conf file directory\n";
     print "\n";
     exit(0);
+}
+
+# adpanel settings
+sub getSettings {
+    my ($self) = @_;
+    # yui commandline parser
+    my $pos = $cmdline->find("--conf_dir");
+    my $confDir = "/etc/apanel";
+    if($pos > 0){
+        $confDir = $cmdline->arg($pos + 1);
+    }else{
+        $confDir = "/etc/apanel";
+    }
+    # configuration file name
+    my $fileName = "$confDir/settings.conf";
+    return new SettingsReader($fileName);
 }
 
 =pod
