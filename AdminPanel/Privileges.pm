@@ -26,18 +26,11 @@ use base qw(Exporter);
 use English qw(-no_match_vars);
 
 our @EXPORT = qw(require_root_capability
-         ask_for_authentication
-         $USE_SUDO
-         $USE_PKIT
-         $USE_CHLP);
+         ask_for_authentication);
 
-our $USE_SUDO = 1;
-our $USE_PKIT = 2;
-our $USE_CHLP = 3;
-
-my $wrappers = { $USE_SUDO => "sudo",
-                 $USE_PKIT => "pkexec",
-                 $USE_CHLP => "consolehelper"
+my $wrappers = { "sudo" => "sudo",
+                 "pkit" => "pkexec",
+                 "chlp" => "consolehelper"
                };
 
 my $wrapper = 0;
@@ -51,7 +44,7 @@ sub ask_for_authentication {
     $wrapper = $wrappers->{$wrapper_id} if(defined($wrappers->{$wrapper_id}));
     my ($command, @args) = wrap_command($0, @ARGV);
     unshift(@args,$command->[1]);
-    unshift(@args, '-n') if($wrapper_id == $USE_SUDO); # let sudo die if password is needed
+    unshift(@args, '-n') if($wrapper_id eq "sudo"); # let sudo die if password is needed
     exec { $command->[0] } $command->[1], @args or die ("command %s missing", $command->[0]);
 }
 
