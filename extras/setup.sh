@@ -31,6 +31,19 @@ function uninstall
    echo "== Removed"
 }
 
+# setup xhost to make apanel able to gain the required privileges using sudo
+function setup_xhost_conf {
+    echo "== Setup xhost settings"
+    xhost +local:root
+    echo "== Done"
+}
+
+function uninstall_xhost_conf {
+    echo "== xhost settings restored"
+    xhost -
+    echo "== Done"
+}
+
 function setup {
    echo "== Installing AdminPanel..."
    pushd .
@@ -44,19 +57,20 @@ function setup {
 
 function usage {
 	echo "Usage:"
-	echo "--remove   uninstall AdminPanel references"
-	echo "--install  install AdminPanel references"
+	echo "--remove      uninstall AdminPanel references"
+	echo "--install     install AdminPanel references"
+    echo "--privilege   define the authentication method to gain privileges (NOT IMPLEMENTED YET)"
 }
 
 check_root_permissions
 
-while getopts "hri" OPTIONS
+while getopts "hrip:" OPTIONS
 do
 	case $OPTIONS in
-		r  ) uninstall ;;
-		i  ) uninstall && setup ;;
+		r  ) uninstall && uninstall_xhost_conf ;;
+		i  ) setup && setup_xhost_conf ;;
 		h  ) usage ;;
-		\? ) usage ;;
+		* ) usage ;;
 	esac
 done
 
