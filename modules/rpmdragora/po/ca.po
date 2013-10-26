@@ -5,15 +5,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: rpmdrake\n"
 "POT-Creation-Date: 2012-11-09 17:13+0800\n"
-"PO-Revision-Date: 2013-01-03 12:08+0100\n"
-"Last-Translator: Francesc Pinyol Margalef\n"
+"PO-Revision-Date: 2013-10-26 12:00+0200\n"
+"Last-Translator: Francesc Pinyol\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Language: ca\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
-"X-Generator: Lokalize 1.4\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: ../MageiaUpdate:102 ../Rpmdrake/gui.pm:994
 #, c-format
@@ -172,7 +172,7 @@ msgstr ""
 #: ../Rpmdrake/edit_urpm_sources.pm:145 ../Rpmdrake/edit_urpm_sources.pm:160
 #, c-format
 msgid "Please wait, adding media..."
-msgstr "Si us plau espereu, s'estan afegint fonts..."
+msgstr "Espereu mentre s'afegeixen suports..."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:168
 #, c-format
@@ -397,7 +397,7 @@ msgstr ""
 #: ../Rpmdrake/edit_urpm_sources.pm:425
 #, c-format
 msgid "Please wait, removing medium..."
-msgstr ""
+msgstr "Espereu mentre s'esborra el suport..."
 
 #: ../Rpmdrake/edit_urpm_sources.pm:473
 #, c-format
@@ -819,6 +819,9 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"La base de dades dels paquets està blocada. Tanqueu totes les altres\n"
+"aplicacions que fan servir la base de dades dels paquets. Teniu un altre\n"
+"gestor de rèpliques en un altre escriptori, o esteu instal·lant paquets?"
 
 #: ../Rpmdrake/formatting.pm:102
 #, c-format
@@ -1251,7 +1254,7 @@ msgstr ""
 #: ../Rpmdrake/gui.pm:980
 #, c-format
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "Espereu mentre es llisten els paquets..."
 
 #: ../Rpmdrake/gui.pm:993
 #, c-format
@@ -2155,7 +2158,7 @@ msgstr ""
 #: ../rpmdrake.pm:594
 #, c-format
 msgid "Please wait"
-msgstr "Espereu si us plau"
+msgstr "Espereu"
 
 #: ../Rpmdrake/pkg.pm:147
 #, c-format
@@ -2196,6 +2199,11 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Cal contactar amb la rèplica per a obtenir la darrera actualització dels "
+"paquets.\n"
+"Comproveu que la xarxa està funcionant.\n"
+"\n"
+"Voleu continuar?"
 
 #: ../Rpmdrake/pkg.pm:255
 #, c-format
@@ -2239,6 +2247,11 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Cal contactar amb el lloc web de Mageia per a obtenir el llistat de "
+"rèpliques.\n"
+"Comproveu que la xarxa està funcionant.\n"
+"\n"
+"Voleu continuar?"
 
 #: ../Rpmdrake/pkg.pm:283
 #, c-format
@@ -2273,12 +2286,12 @@ msgstr ""
 #: ../Rpmdrake/pkg.pm:458 ../Rpmdrake/pkg.pm:493
 #, c-format
 msgid "Please wait, finding available packages..."
-msgstr "Espereu mentre es cerquen els paquets disponibles... "
+msgstr "Espereu mentre se cerquen els paquets disponibles... "
 
 #: ../Rpmdrake/pkg.pm:464
 #, c-format
 msgid "Please wait, listing base packages..."
-msgstr ""
+msgstr "Espereu mentre es llisten els paquets bàsics..."
 
 #: ../Rpmdrake/pkg.pm:469 ../Rpmdrake/pkg.pm:868 ../Rpmdrake/pkg.pm:893
 #: ../rpmdrake.pm:815 ../rpmdrake.pm:901 ../rpmdrake.pm:925
@@ -2289,7 +2302,7 @@ msgstr "Error"
 #: ../Rpmdrake/pkg.pm:477
 #, c-format
 msgid "Please wait, finding installed packages..."
-msgstr ""
+msgstr "Espereu mentre se cerquen els paquets instal·lats..."
 
 #: ../Rpmdrake/pkg.pm:594
 #, c-format
@@ -2461,7 +2474,7 @@ msgstr ""
 #: ../Rpmdrake/pkg.pm:886
 #, c-format
 msgid "Looking for \"README\" files..."
-msgstr ""
+msgstr "S'estan cercant fitxers "
 
 #: ../Rpmdrake/pkg.pm:919
 #, c-format
@@ -2481,7 +2494,7 @@ msgstr "Detalls"
 #: ../Rpmdrake/pkg.pm:944 ../Rpmdrake/pkg.pm:964
 #, c-format
 msgid "Please wait, removing packages..."
-msgstr ""
+msgstr "Espereu mentre s'esborren els paquets..."
 
 #: ../Rpmdrake/pkg.pm:977
 #, c-format
@@ -2526,7 +2539,7 @@ msgstr "Elimina .%s"
 #: ../Rpmdrake/rpmnew.pm:126
 #, c-format
 msgid "Use .%s as main file"
-msgstr ""
+msgstr "Utilitza .%s com a fitxer principal"
 
 #: ../Rpmdrake/rpmnew.pm:130
 #, c-format
@@ -2546,7 +2559,7 @@ msgstr "Inspecciona..."
 #: ../Rpmdrake/rpmnew.pm:191 ../rpmdrake:102
 #, c-format
 msgid "Please wait, searching..."
-msgstr ""
+msgstr "Espereu mentre se cerca..."
 
 #: ../gurpmi.addmedia:103
 #, c-format
@@ -2560,6 +2573,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Voleu continuar?"
 
 #: ../gurpmi.addmedia:121
 #, c-format
@@ -2588,17 +2604,17 @@ msgstr ""
 #: ../gurpmi.addmedia:152
 #, c-format
 msgid "Successfully added media."
-msgstr ""
+msgstr "S'ha afegit correctament el suport."
 
 #: ../gurpmi.addmedia:154
 #, c-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "S'ha afegit correctament el suport %s."
 
 #: ../gurpmi.addmedia:155
 #, c-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "S'ha afegit correctament el suport «%s»."
 
 #: ../rpmdrake:107
 #, c-format
@@ -2608,7 +2624,7 @@ msgstr "Atura"
 #: ../rpmdrake:141
 #, c-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "no hi ha informació xml-info disponible per al suport «%s»"
 
 #: ../rpmdrake:157 ../rpmdrake:185
 #, c-format
@@ -2677,7 +2693,7 @@ msgstr "Tots els paquets, per grup"
 #: ../rpmdrake:388
 #, c-format
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "Només fulles, ordenades per data d'instal·lació"
 
 #: ../rpmdrake:389
 #, c-format
@@ -2789,17 +2805,17 @@ msgstr ""
 #: ../rpmdrake:540
 #, c-format
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Utilitza expressions _regulars en les cerques"
 
 #: ../rpmdrake:546
 #, c-format
 msgid "/_Update media"
-msgstr ""
+msgstr "/_Actualitza el suport"
 
 #: ../rpmdrake:551
 #, c-format
 msgid "/_Reset the selection"
-msgstr ""
+msgstr "/_Reinicia la selecció"
 
 #: ../rpmdrake:555
 #, c-format
@@ -2809,7 +2825,7 @@ msgstr ""
 #: ../rpmdrake:571
 #, c-format
 msgid "/Reload the _packages list"
-msgstr ""
+msgstr "/Recarrega la _llista de paquets"
 
 #: ../rpmdrake:572
 #, c-format
@@ -2845,6 +2861,7 @@ msgstr "Cerca:"
 #, c-format
 msgid "Please type in the string you want to search then press the <enter> key"
 msgstr ""
+"Introduïu la cadena que voleu cercar i després premeu la tecla de <retorn>"
 
 #: ../rpmdrake:726
 #, c-format
@@ -3085,12 +3102,14 @@ msgstr "Estats Units"
 #: ../rpmdrake.pm:579
 #, c-format
 msgid "Please wait, downloading mirror addresses."
-msgstr ""
+msgstr "Espereu mentre s'obtenen les adreces de les rèpliques."
 
 #: ../rpmdrake.pm:580
 #, c-format
 msgid "Please wait, downloading mirror addresses from the Mageia website."
 msgstr ""
+"Espereu mentre s'obtenen les adreces de les rèpliques des del lloc web de "
+"Mageia."
 
 #: ../rpmdrake.pm:601
 #, c-format
@@ -3105,6 +3124,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Cal accedir a Internet per a obtenir el llistat de rèpliques.\n"
+"Comproveu que la xarxa està funcionant.\n"
+"\n"
+"Voleu continuar?"
 
 #: ../rpmdrake.pm:631 ../rpmdrake.pm:670
 #, c-format
@@ -3125,6 +3148,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Hi ha hagut un error en la descàrrega de la llista de rèpliques:\n"
+"\n"
+"%s\n"
+"La xarxa o el lloc web no estan disponibles.\n"
+"Proveu-ho més tard."
 
 #: ../rpmdrake.pm:650
 #, c-format
@@ -3135,16 +3163,21 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Hi ha hagut un error en la descàrrega de la llista de rèpliques:\n"
+"\n"
+"%s\n"
+"La xarxa, o bé el lloc web de Mageia no estan disponibles.\n"
+"Proveu-ho més tard."
 
 #: ../rpmdrake.pm:660
 #, c-format
 msgid "No mirror"
-msgstr ""
+msgstr "No hi ha cap rèplica"
 
 #: ../rpmdrake.pm:662
 #, c-format
 msgid "I can't find any suitable mirror."
-msgstr ""
+msgstr "No s'ha trobat cap rèplica adequada."
 
 #: ../rpmdrake.pm:663
 #, c-format
@@ -3159,7 +3192,7 @@ msgstr ""
 #: ../rpmdrake.pm:682
 #, c-format
 msgid "Please choose the desired mirror."
-msgstr ""
+msgstr "Trieu la rèplica desitjada."
 
 #: ../rpmdrake.pm:723
 #, c-format
@@ -3169,7 +3202,7 @@ msgstr ""
 #: ../rpmdrake.pm:726
 #, c-format
 msgid "Examining file of medium `%s'..."
-msgstr ""
+msgstr "S'està examinant el fitxer del suport «%s»..."
 
 #: ../rpmdrake.pm:729
 #, c-format
@@ -3190,7 +3223,7 @@ msgstr " ha fallat!"
 #: ../rpmdrake.pm:742
 #, c-format
 msgid "%s from medium %s"
-msgstr ""
+msgstr "%s des del suport %s"
 
 #: ../rpmdrake.pm:746
 #, c-format
@@ -3203,6 +3236,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"Descàrrega de «%s»\n"
+"temps restant:%s, velocitat:%s"
 
 #: ../rpmdrake.pm:753
 #, c-format
@@ -3210,11 +3245,13 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"Descàrrega de «%s»\n"
+"velocitat:%s"
 
 #: ../rpmdrake.pm:764
 #, c-format
 msgid "Please wait, updating media..."
-msgstr ""
+msgstr "Espereu mentre s'actualitza el suport..."
 
 #: ../rpmdrake.pm:774
 #, c-format
@@ -3269,6 +3306,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"No s'ha pogut afegir el suport, llistat d'errors:\n"
+"\n"
+"%s"
 
 #: ../rpmdrake.pm:925
 #, c-format
@@ -3287,6 +3327,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Hi ha hagut un problema en afegir el suport:\n"
+"\n"
+"%s"
 
 #: ../rpmdrake.pm:944
 #, c-format
@@ -3307,7 +3350,7 @@ msgstr ""
 #: ../rpmdrake.pm:978
 #, c-format
 msgid "Help launched in background"
-msgstr ""
+msgstr "L'ajuda s'executa en segon pla"
 
 #: ../rpmdrake.pm:979
 #, c-format
@@ -3318,14 +3361,17 @@ msgstr ""
 #: ../data/rpmdrake-browse-only.desktop.in.h:1
 msgid "A graphical front end for browsing installed & available packages"
 msgstr ""
+"Una interfície gràfica per a explorar els paquets instal·lats i disponibles"
 
 #: ../data/rpmdrake-browse-only.desktop.in.h:2
 msgid "Browse Available Software"
-msgstr ""
+msgstr "Explora el programari disponible"
 
 #: ../data/rpmdrake.desktop.in.h:1
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
+"Una interfície gràfica per a la instal·lació, desinstal·lació i actualització "
+"de paquets"
 
 #: ../data/rpmdrake.desktop.in.h:2
 msgid "Install & Remove Software"
