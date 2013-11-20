@@ -365,7 +365,19 @@ sub run_treeview_dialog {
 
     my $hbox_headbar = $factory->createHBox($vbox);
     my $head_align_left = $factory->createLeft($hbox_headbar);
+    my $head_align_right = $factory->createRight($hbox_headbar);
     my $headbar = $factory->createHBox($head_align_left);
+    my $headRight = $factory->createHBox($head_align_right);
+    
+    #Line for logo and title
+    my $hbox_iconbar  = $factory->createHBox($vbox);
+    $head_align_left  = $factory->createLeft($hbox_iconbar);
+    $hbox_iconbar     = $factory->createHBox($head_align_left);
+    # TODO manage MODE for title and icon
+    $factory->createImage($hbox_iconbar, "/usr/share/rpmdrake/icons/title-install.png");
+    $factory->createHeading($hbox_iconbar, N("Software Management"));
+#    Gtk2::Banner->new($ugtk2::wm_icon, $::MODE eq 'update' ? N("Software Packages Update") : N("Software Management"))
+
     my $hbox_top = $factory->createHBox($vbox);
     my $hbox_middle = $factory->createHBox($vbox);
     my $hbox_bottom = $factory->createHBox($vbox);
@@ -729,7 +741,7 @@ sub run_treeview_dialog {
     $option_menu->rebuildMenuTree();
     
     # build help menu
-    my $help_menu = $factory->createMenuButton($headbar,N("Help"));
+    my $help_menu = $factory->createMenuButton($headRight,N("Help"));
     my @items = ("Report bug", "Help", "About");
     for my $item(@items) {
         $help_menu->addItem(new yui::YMenuItem(N($item)));
