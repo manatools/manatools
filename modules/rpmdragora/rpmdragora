@@ -51,7 +51,9 @@ use AdminPanel::Rpmdragora::widgets;
 use feature 'state';
 
 # OLD $ugtk2::wm_icon = get_icon('installremoverpm', "title-$MODE");
-my $wm_icon = "/usr/share/mcc/themes/default/installremoverpm.png";
+#TODO fix $wm_resource_path
+my $wm_resource_path="/usr/share/rpmdrake/icons";
+my $wm_icon = "$wm_resource_path"."/title-$MODE.png";
 
 # Declarations
 my $my_win;
@@ -373,10 +375,9 @@ sub run_treeview_dialog {
     my $hbox_iconbar  = $factory->createHBox($vbox);
     $head_align_left  = $factory->createLeft($hbox_iconbar);
     $hbox_iconbar     = $factory->createHBox($head_align_left);
-    # TODO manage MODE for title and icon
-    $factory->createImage($hbox_iconbar, "/usr/share/rpmdrake/icons/title-install.png");
-    $factory->createHeading($hbox_iconbar, N("Software Management"));
-#    Gtk2::Banner->new($ugtk2::wm_icon, $::MODE eq 'update' ? N("Software Packages Update") : N("Software Management"))
+    $factory->createImage($hbox_iconbar, $wm_icon);
+    
+    $factory->createHeading($hbox_iconbar, $::MODE eq 'update' ? N("Software Packages Update") : N("Software Management"));
 
     my $hbox_top = $factory->createHBox($vbox);
     my $hbox_middle = $factory->createHBox($vbox);
