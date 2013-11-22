@@ -56,6 +56,7 @@ my $wm_icon = "/usr/share/mcc/themes/default/installremoverpm.png";
 # Declarations
 my $my_win;
 my $factory;
+my $mgaFactory;
 my $optFactory;
 
 our $w;
@@ -445,6 +446,9 @@ sub run_treeview_dialog {
               N("Arch."),
             text => $pkg_columns{arch},
         }),
+        'mark' => {
+            title => N("ToInst"),
+        }
     );
     foreach my $col (@columns{@columns}) {
         #OLD $detail_list->append_column(
@@ -480,7 +484,9 @@ sub run_treeview_dialog {
     #$pixcolumn->set_sort_column_id($pkg_columns{state});
     $detail_list_header->addColumn(N("Status"));
 
-    $detail_list = $factory->createTable($hbox_middle,$detail_list_header,1);
+    print $yui::YTableMode::YTableCheckBoxOnLastColumn;
+
+    $detail_list = $mgaFactory->createTable($hbox_middle,$detail_list_header,$yui::YTableMode::YTableCheckBoxOnLastColumn);
     $detail_list->setWeight(0,50);
     $detail_list->setNotify(1);
     #OLD compute_main_window_size($w);
@@ -1096,6 +1102,8 @@ yui::YUI::app()->setApplicationTitle(N("Software Management"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
 $factory = yui::YUI::widgetFactory;
+yui::YUILoader::loadExternalWidgets("mga");
+$mgaFactory = yui::YMGAWidgetFactory::getYMGAWidgetFactory(yui::YExternalWidgets::externalWidgetFactory());
 $optFactory = yui::YUI::optionalWidgetFactory;
 
 ### MAIN DIALOG ###
