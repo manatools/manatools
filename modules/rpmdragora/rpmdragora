@@ -486,9 +486,9 @@ sub run_treeview_dialog {
     #$pixcolumn->set_sort_column_id($pkg_columns{state});
     $detail_list_header->addColumn(N("Status"));
 
-    print $yui::YTableMode::YTableCheckBoxOnLastColumn;
+###    print " yui::YTableCheckBoxOnLastColumn ". $yui::YTableCheckBoxOnLastColumn . "\n" ;
 
-    $detail_list = $mgaFactory->createTable($hbox_middle,$detail_list_header,$yui::YTableMode::YTableCheckBoxOnLastColumn);
+    $detail_list = $mgaFactory->createTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnLastColumn);
     $detail_list->setWeight(0,50);
     $detail_list->setNotify(1);
     #OLD compute_main_window_size($w);
