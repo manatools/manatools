@@ -1087,8 +1087,7 @@ sub run_treeview_dialog {
                     last;
                 }
                 elsif ($itemLabel eq N("About")) {
-                    my $license = formatAlaTeX(translate($::license));
-                    $license =~ s/\n/\n\n/sg; # nicer formatting
+                    my $license = translate($::license);
                     AboutDialog({ name => N("Rpmdragora"),
                         version => $Rpmdragora::init::version,
                         copyright => N("Copyright (C) %s by Mandriva", '2002-2009'),
@@ -1096,7 +1095,7 @@ sub run_treeview_dialog {
                         comments => N("Rpmdragora is the Mageia package management tool."),
                         website => 'http://www.mageia.org',
                         website_label => N("Mageia"),
-                        authors => 'Thierry Vignaud <vignaud@mandriva.com>\nAngelo Naselli <anaselli@linux.it>\nMatteo Pasotti <matteo.pasotti@gmail.com>',
+                        authors => "Thierry Vignaud <vignaud\@mandriva.com>\nAngelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
                         artists => 'Hélène Durosini <ln@mandriva.com>',
                         translator_credits =>
                           #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")

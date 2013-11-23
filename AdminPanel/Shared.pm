@@ -155,8 +155,8 @@ sub AboutDialog {
         my $factory  = yui::YUI::widgetFactory;
         my $optional = yui::YUI::optionalWidgetFactory;
         
-        my $licensedlg = $factory->createPopupDialog();
-        my $layout = $factory->createVBox($licensedlg);
+        my $creditsdlg = $factory->createPopupDialog();
+        my $layout = $factory->createVBox($creditsdlg);
         
         # header
         $factory->createHBox($layout);
@@ -192,7 +192,7 @@ sub AboutDialog {
             my $vbox = $factory->createVBox($dumptab);
             $align = $factory->createLeft($vbox);
             $factory->createVSpacing($vbox, 1.0);
-            my $label = $factory->createRichText( $align, "***", 1);
+            my $label = $factory->createLabel( $align, "***", 0);
             $factory->createVSpacing($vbox, 1.0);
        
             # start value for first Item
@@ -204,7 +204,7 @@ sub AboutDialog {
             
             # manage Credits dialog events
             while(1) {
-                my $event     = $licensedlg->waitForEvent();
+                my $event     = $creditsdlg->waitForEvent();
                 my $eventType = $event->eventType();
                 
                 #event type checking
@@ -241,7 +241,7 @@ sub AboutDialog {
         else {
             print "No tab widgets available!\n";
         }
-        destroy $licensedlg;
+        destroy $creditsdlg;
     }
     
     # License dialog
@@ -262,7 +262,7 @@ sub AboutDialog {
         # license
         $hbox = $factory->createHBox($layout);
         $align = $factory->createAlignment($hbox, 3, 0);
-        $factory->createRichText( $align, $license, 1);
+        $factory->createLabel( $align, $license);
             
         $align = $factory->createRight($layout);
         my $closeButton = $factory->createPushButton($align, N("Close"));
