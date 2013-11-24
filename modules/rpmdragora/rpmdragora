@@ -488,7 +488,7 @@ sub run_treeview_dialog {
 
 ###    print " yui::YTableCheckBoxOnLastColumn ". $yui::YTableCheckBoxOnLastColumn . "\n" ;
 
-    $detail_list = $mgaFactory->createTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnLastColumn);
+    $detail_list = $mgaFactory->createCBTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnLastColumn);
     $detail_list->setWeight(0,50);
     $detail_list->setNotify(1);
     #OLD compute_main_window_size($w);
