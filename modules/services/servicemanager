@@ -20,10 +20,3 @@ yui::YUI::app()->setApplicationIcon($wm_icon);
 
 AdminPanel::Services::services::servicePanel();
 
-
-
-# my $in = 'interactive'->vnew('su');
-# begin:
-# my $l = services::ask($in);
-# services::doit($in, $l) if $l;
-# $in->exit(0);

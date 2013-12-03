@@ -171,138 +171,29 @@ xinetd => N_("Starts other deamons on demand."),
     $s;
 }
 
-sub ask_ {
-    my ($in) = @_;
-    my %root_services = (
-			 N("Printing") => [ qw(cups cupslpd cups-lpd hpoj lpd lpr oki4daemon) ],
-                         
-			 # FIXME: split part of 'Internet' into 'Security' or 'Firewall'?
-			 N("Internet") => [ qw(adsl boa cddbp ftp httpd ibod ip6tables ippl iptables iptoip ipvsadm
-                                               isdn4linux jabber jabber-icq jail.init junkbuster mandi nessusd pftp portsentry 
-                                               prelude proftpd proftpd-xinetd pure-ftpd ipsec radvd roxen shorewall shorewall-ipv6 squid
-                                               tftp) ],
 
-			 N("_: Keep these entry short\nNetworking") => [ qw(network network-auth network-up resolvconf) ],
+## serviceStatus sets widgets accordingly to selected service status 
+## param
+##   'service'     service name 
+##   'on_services' running service list 
+##   'status'      service status widget 
+##   'infoPanel'   service information widget 
+##   'onBoot'      service on boot checkbox information widget 
+sub serviceStatus {
+    my ($service, $on_services, $status, $infoPanel, $onBoot) = @_;
 
-			 N("System") => [ qw(acon acpid alsa anacron apcupsd apmd atd bpowerd bpowerfail crond cvs dm fcron functions
-                                             gpm halt harddrake inetd irda jserver keytable kheader killall mageia_everytime
-                                             mageia_firstime mdadm medusa-init messagebus microcode_ctl mosix netconsole numlock partmon
-                                             pcmcia portmap powertweak.init psacct
-                                             random rawdevices rpcbind sensors single sound syslog syslog-ng ups usb usbd wine xfs xinetd) ],
-
-			 N("Remote Administration") => [ qw(cfd drakxtools_http heartbeat iplog ldirectord mon netsaint olympusd rexec
-                                                            rlogin rsh sshd telnet telnetd vncserver webmin) ],
-
-#			 N("Network Client") => [ qw(arpwatch diald dnrd_rc fetchmail nscd rsync ypbind) ],
-#			 N("Network Server") => [ qw(named bootparamd ntpd xntpd chronyd postfix sendmail
-#                                                     imap imaps ipop2 ipop3 pop3s routed yppasswdd ypserv ldap dhcpd dhcrelay
-#                                                     hylafax innd identd rstatd rusersd rwalld rwhod gated
-#                                                     kadmin kprop krb524 krb5kdc krb5server hldsld bayonne sockd dhsd gnu-pop3d
-#                                                     gdips pptpd.conf vrrpd crossfire bnetd pvmd ircd sympa finger ntalk talk) ],
-			 N("Database Server") => [ qw(mysql postgresql) ],
-			);
-    my %services_root;
-    foreach my $root (keys %root_services) {
-	$services_root{$_} = $root foreach @{$root_services{$root}};
-    }
-    my ($l, $on_services) = services();
-    my %services;
-    $services{$_} = 0 foreach @{$l || []};
-    $services{$_} = 1 foreach @{$on_services || []};
-
-    $in->ask_browse_tree_info(N("Services"), N("Choose which services should be automatically started at boot time"),
-			      {
-			       node_state => sub { $services{$_[0]} ? 'selected' : 'unselected' },
-			       build_tree => sub {
-				   my ($add_node, $flat) = @_;
-				   $add_node->($_, !$flat && ($services_root{$_} || N("Other")))
-				     foreach sort keys %services;
-			       },
-			       grep_unselected => sub { grep { !$services{$_} } @_ },
-			       toggle_nodes => sub {
-				   my ($set_state, @nodes) = @_;
-				   my $new_state = !$services{$nodes[0]};
-				   foreach (@nodes) {
-				       $set_state->($_, $new_state ? 'selected' : 'unselected');
-				       $services{$_} = $new_state;
-				   }
-			       },
-			       get_status => sub {
-				   N("%d activated for %d registered", 
-				     scalar(grep { $_ } values %services),
-				     scalar(values %services));
-			       },
-			       get_info => sub { formatLines(description($_[0])) },
-                               interactive_help => sub { 
-                                   interactive::gtk::display_help($in, { interactive_help_id => 'configureServices' }) },
-			      }) or return $l, $on_services; #- no change on cancel.
-    [ grep { $services{$_} } @$l ];
+    yui::YUI::ui()->blockEvents();
+    ## status
+    my $started = is_service_running($service);
+    $status->setValue($started ? N("running") : N("stopped"));
+    ## infoPanel
+    $infoPanel->setValue(formatAlaTeX(description($service)));
+    ## onBoot
+    $onBoot->setChecked (member($service, @$on_services));
+    yui::YUI::ui()->unblockEvents();
 }
 
-sub ask_standalone_gtk {
-    my ($_in) = @_;
-    my ($l, $on_services) = services();
-    my @xinetd_services = map { $_->[0] } xinetd_services();
-
-    require ugtk3;
-    ugtk3->import(qw(:wrappers :create));
-
-    my $W = ugtk3->new(N("Services"));
-    my $update_service = sub {
-	my ($service, $label) = @_;
-	my $started = is_service_running($service);
-	$label->set_label($started ? N("running") : N("stopped"));
-    };
-    my $b = Gtk3::EventBox->new;
-    $b->set_events(${ Gtk3::Gdk::EventMask->new("pointer_motion_mask") });
-    gtkadd($W->{window}, gtkadd($b, gtkpack_($W->create_box_with_title,
-	0, mygtk3::gtknew('Title1', label => N("Services and daemons")),
-	1, gtkset_size_request(create_scrolled_window(create_packtable({ col_spacings => 10, row_spacings => 3 },
-	    map {
-                my $service = $_;
-		my $is_xinetd_service = member($service, @xinetd_services);
-        	my $infos = warp_text(description($_), 40);
-                $infos ||= N("No additional information\nabout this service, sorry.");
-		my $label = gtkset_justify(Gtk3::Label->new, 'left');
-                $update_service->($service, $label) if !$is_xinetd_service;
-		[ gtkpack__(Gtk3::HBox->new(0,0), gtkset_tip(Gtk3::Label->new($_), $infos)),
-		  gtkpack__(Gtk3::HBox->new(0,0), $label),
-
-                  gtkpack__(Gtk3::HBox->new(0,0), gtkset_active(gtksignal_connect(
-                          Gtk3::CheckButton->new($is_xinetd_service ? N("Start when requested") : N("On boot")),
-                          clicked => sub { if ($_[0]->get_active) {
-                                               push @$on_services, $service if !member($service, @$on_services);
-                                           } else {
-                                               @$on_services = grep { $_ ne $service } @$on_services;
-                                        } }), member($service, @$on_services))),
-		  map { 
-		      my $a = $_;
-		      gtkpack__(Gtk3::HBox->new(0,0), gtksignal_connect(Gtk3::Button->new(translate($a)),
-                          clicked => sub { 
-			      my $action = $a eq "Start" ? 'restart' : 'stop'; 
-			      log::explanations(qq(GP_LANG="UTF-8" service $service $action));
-			      # as we need the output in UTF-8, force it
-			      local $_ = `GP_LANG="UTF-8" service $service $action 2>&1`; s/\033\[[^mG]*[mG]//g;
-			      c::set_tagged_utf8($_);
-			      $update_service->($service, $label);
-			  })) if !$is_xinetd_service;
-		  } (N_("Start"), N_("Stop"))
-		];
-	    }
-            @$l), [ $::isEmbedded ? 'automatic' : 'never', 'automatic' ]), -1, $::isEmbedded ? -1 : 400),
-            0, gtkpack(gtkset_border_width(Gtk3::HBox->new(0,0),5), $W->create_okcancel)
-            ))
-	  );
-    $::isEmbedded and gtkflush();
-    $W->main or return;
-    $on_services;
-}
-
-sub ask {    
-    my ($in) = @_;
-    !$::isInstall && $in->isa('interactive::gtk') ? &ask_standalone_gtk : &ask_;
-}
-
+## draw service panel and manage it 
 sub servicePanel {
     my ($l, $on_services) = services();
     my @xinetd_services = map { $_->[0] } xinetd_services();
@@ -314,29 +205,12 @@ sub servicePanel {
     $frame->setWeight(0, 40);
 
     my $frmVbox = $factory->createVBox( $frame );
-    my $hbox = $factory->createHBox( $frmVbox );
     
     ## service list (serviceBox)
-    my $serviceBox = $factory->createSelectionBox($hbox, "" );
+    my $serviceBox = $factory->createSelectionBox($frmVbox, "" );
     $serviceBox->setNotify(1);
 
-#     ## info panel (infoPanel)
-#     $hbox = $factory->createHBox( $hbox );
-#     $frame   = $factory->createFrame ($hbox, N("Information"));
-#     $frame->setWeight(0, 1);
-#     $hbox = $factory->createHBox( $frame );
-#     my $infoPanel = $factory->createLabel($hbox, "--------------", 0, 0);
-
-# $hbox = $factory->createHBox( $hbox );
-#     my $vbox1   = $factory->createVBox($hbox);
-#     $factory->createLabel($vbox1, N("Information"), 1, 0);
-#     $hbox = $factory->createHBox( $vbox1 );
-#     my $infoPanel = $factory->createLabel($hbox, "--------------", 0, 0);
-
     my $itemCollection = new yui::YItemCollection;
-
-    #hash with created widgets (name, status, info, onBoot, start, stop) 
-    #my %serviceWidgets;
 
     foreach (@$l) {
         my $serviceName = $_;
@@ -344,49 +218,37 @@ sub servicePanel {
         my $item = new yui::YItem($serviceName);
         $itemCollection->push($item);
         $item->DISOWN();
-        
-
-#         my $hbox = $factory->createHBox( $vbox )
-# 
-#         my $testLine = serviceLine($factory, $frmVbox, {name => $serviceName, status => $status, onBoot => $onBoot});
-#         $serviceWidgets{$serviceName} = $testLine
-#        
-#         my $testLine = serviceLine($factory, $frmVbox, {name => $serviceName, status => "running", onBoot => 1});
-#         $serviceWidgets{$serviceName} = $testLine;
-# 
-#         $serviceName = "test service 1";
-#         $testLine = serviceLine($factory, $frmVbox, {name => $serviceName, status => "running", onBoot => 0});
-#         $serviceWidgets{$serviceName} = $testLine;
     }
     $serviceBox->addItems($itemCollection);
-    $factory->createVSpacing($vbox, 1.0);
+    $factory->createVSpacing($frmVbox, 1.0);
 
+    my $hbox = $factory->createHBox( $frmVbox );
     ## info panel (infoPanel)
-    $hbox = $factory->createHBox( $vbox );
     $frame   = $factory->createFrame ($hbox, N("Information"));
-    my $hbox1 = $factory->createHBox( $frame );
-    my $infoPanel = $factory->createLabel($hbox1, "--------------", 0, 0);
+    my $infoPanel = $factory->createRichText($frame, "--------------"); #, 0, 0);
+    $infoPanel->setAutoScrollDown();
     
     ## status 
-    $hbox      = $factory->createHBox( $hbox );
-    $frame     = $factory->createFrame ($hbox, N("Status"));
-    $hbox1  = $factory->createHBox( $frame );
-    my $status = $factory->createLabel($hbox1, "++++++++++++++", 0, 0);
+    $frame   = $factory->createFrame ($hbox, "");
+    $frmVbox = $factory->createVBox( $frame );
+    $frame     = $factory->createFrame ($frmVbox, N("Status"));
+    my $status = $factory->createLabel($frame, "++++++++++++++", 0, 0);
     
     ## on boot (onBoot)
-    $hbox = $factory->createHBox( $hbox );
-    my $onBoot   = $factory->createCheckBox($hbox, N("On boot"), 0); 
+    $factory->createVSpacing($frmVbox, 1.0);
+    my $onBoot   = $factory->createCheckBox($frmVbox, N("On boot"), 0); 
     $onBoot->setNotify(1);
 
     ### Service Start button ($startButton)
-    my $align = $factory->createRight($hbox);
-    $hbox           = $factory->createHBox($align);
-    my $startButton = $factory->createPushButton($hbox, "Start");
+    my $align = $factory->createAlignment( $hbox, $yui::YAlignEnd, $yui::YAlignUnchanged );
+    $factory->createVSpacing($frmVbox, 8.0);
+    $hbox = $factory->createHBox( $frmVbox );
+    my $startButton = $factory->createPushButton($hbox, N("Start"));
     
     ### Service Stop button ($stopButton)
-    my $hbox        = $factory->createHBox($hbox);
-    my $stopButton  = $factory->createPushButton($hbox, "Stop");
+    my $stopButton  = $factory->createPushButton($hbox, N("Stop"));
 
+    # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
     ## Window push buttons
     $hbox = $factory->createHBox( $vbox );
@@ -400,13 +262,7 @@ sub servicePanel {
 
     #first item status
     my $item = $serviceBox->selectedItem();
-    my $started = 0;
-    if ($item) {
-        $started = is_service_running($item->label()) ;
-        $status->setValue($started ? N("running") : N("stopped"));
-        $infoPanel->setValue(description($item->label()));
-        $onBoot->setChecked (member($item->label(), @$on_services));
-    }
+    serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot) if ($item);
 
     while(1) {
         my $event     = $dialog->waitForEvent();
@@ -430,7 +286,7 @@ sub servicePanel {
                     version => "1.0.0",
                     copyright => N("Copyright (C) %s Mageia community", '2013'),
                     license => $license, 
-                    comments => N("Service Manager is is the Mageia service and daemon management tool \n(from the original idea ov Mandriva draxservice)."),
+                    comments => N("Service Manager is is the Mageia service and daemon management tool \n(from the original idea of Mandriva draxservice)."),
                     website => 'http://www.mageia.org',
                     website_label => N("Mageia"),
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
@@ -442,58 +298,37 @@ sub servicePanel {
             elsif ($widget == $serviceBox) {
                 # service selection changed
                 $item = $serviceBox->selectedItem();
+                serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot) if ($item);
+            }
+            elsif ($widget == $onBoot) {
+                $item = $serviceBox->selectedItem();
                 if ($item) {
-                    ## status
-                    $started = is_service_running($item->label()) if ($item);
-                    $status->setValue($started ? N("running") : N("stopped"));
-                    ## infoPanel
-                    $infoPanel->setValue(description($item->label()));
-                    ## onBoot
-                    $onBoot->setChecked (member($item->label(), @$on_services));
+                    _set_service( $item->label(), $onBoot->isChecked());
+                    # we can push/pop service, but this (slower) should return real situation
+                    ($l, $on_services) = services();
+                }
+            }
+            elsif ($widget == $startButton) {
+                $item = $serviceBox->selectedItem();
+                if ($item) {
+                    restart_or_start($item->label());
+                    # we can push/pop service, but this (slower) should return real situation
+                    ($l, $on_services) = services();
+                    serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot);
+                }
+            }
+            elsif ($widget == $stopButton) {
+                $item = $serviceBox->selectedItem();
+                if ($item) {
+                    stop($item->label());
+                    # we can push/pop service, but this (slower) should return real situation
+                    ($l, $on_services) = services();
+                    serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot);
                 }
             }
         }
     }
     $dialog->destroy();
-}
-
-## params 
-#    factory, parent widget, service info(name, status, active on boot)
-## returns 
-#    hash with created widgets (name, status, info, onBoot, start, stop) 
-sub serviceLine {
-    my ($factory, $parent, $service) = @_;
-    
-    my $hboxline = $factory->createHBox($parent);
-
-    ### Service name
-    my $align    = $factory->createLeft($hboxline);
-    my $name     = $factory->createLabel($align, $service->{name}, 0, 0);
-
-    ### Service status (running - stopped)
-    my $hbox     = $factory->createHBox($hboxline);
-    my $align    = $factory->createLeft($hbox);
-    my $status   = $factory->createLabel($align, $service->{status}, 0, 0);
-
-    ### Service info 
-    my $hbox     = $factory->createHBox($hboxline);
-    my $info     = $factory->createPushButton($hbox, "Info");
-
-    ### Service check box - at boot status
-    my $hbox     = $factory->createHBox($hboxline);
-    my $onBoot   = $factory->createCheckBox($hbox, "On boot", $service->{onBoot});
-    $onBoot->setNotify(1);
-    
-    ### Service Start button
-    my $hbox     = $factory->createHBox($hboxline);
-    my $start    = $factory->createPushButton($hbox, "Start");
-    
-    ### Service Stop button
-    my $hbox     = $factory->createHBox($hboxline);
-    my $stop     = $factory->createPushButton($hbox, "Stop");
-
-    return {name => $name, status => $status, info => $info, 
-            onBoot => $onBoot, start => $start, stop => $stop};  
 }
 
 
@@ -528,24 +363,6 @@ sub _run_action {
         run_program::rooted($::prefix, '/bin/systemctl', '--no-block', $action, "$service.service");
     } else {
         run_program::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
-    }
-}
-
-sub doit {
-    my ($in, $on_services) = @_;
-    my ($l, $was_on_services) = services();
-
-    foreach (@$l) {
-	my $before = member($_, @$was_on_services);
-	my $after = member($_, @$on_services);
-	if ($before != $after) {
-	    _set_service($_, $after);
-	    if (!$after && !$::isInstall && !$in->isa('interactive::gtk')) {
-		#- only done after install AND when not using the gtk frontend (since it allows one to start/stop services)
-		#- this allows to skip stopping service "dm"
-		_run_action($_, "stop");
-	    }
-	}
     }
 }
 
