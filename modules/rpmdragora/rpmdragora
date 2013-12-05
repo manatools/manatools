@@ -61,6 +61,10 @@ my $my_win;
 my $factory;
 my $mgaFactory;
 my $optFactory;
+my $extWidgets;
+
+my @itemsToBeRemoved;
+my @itemsToBeInstalled;
 
 our $w;
 our $statusbar;
@@ -68,6 +72,7 @@ our $statusbar;
 my %elems;
 
 my $old_value;
+
 sub viewbox_callback {
     my %wanted_categories = ();
     my ($selection, $options, $wanted_categories) = @_;
@@ -138,10 +143,60 @@ sub tree_callback {
     return;
 }
 
+sub detaillist_changeditem_callback {
+    my ($detail_list, $options) = @_;
+    my $changedItem = $detail_list->changedItem();
+    # handles installist and droplist
+    my $index=0;
+    if ($changedItem->selected()) {
+	    # to be installed if not in to be removed list
+	    my $found = 0;
+	    foreach $index (0 .. scalar(@itemsToBeRemoved)) {
+	        my $currItem = $itemsToBeRemoved[$index];
+            if(ref $currItem eq "yui::YItem") {
+                if ($currItem->label() == $changedItem->label()) {
+                    $found = 1;
+                    splice (@itemsToBeRemoved, $index ,1);
+                    last;
+                }
+            }
+	    }
+	    if ($found == 0) {
+	        push(@itemsToBeInstalled, $changedItem);
+            # $pkgs->{$options->{table_item_list}[$changedItem->index()]}{selected} = 1;
+            # toggle_veloce($options->{table_item_list}[$changedItem->index()],"to_install");
+            fast_toggle($changedItem);
+	    }
+    }
+    else {
+	    # to be removed if not in to be installed list
+	    my $found = 0;
+	    foreach $index (0 .. scalar(@itemsToBeInstalled)) {
+	        my $currItem = $itemsToBeInstalled[$index];
+            if(ref $currItem eq "yui::YItem") {
+	            if ($currItem->label() == $changedItem->label()) {
+		            $found = 1;
+		            splice (@itemsToBeInstalled, $index ,1);
+		            last;
+	            }
+            }
+	    }
+	    if ($found == 0) {
+	        push(@itemsToBeRemoved, $changedItem);
+            # $pkgs->{$options->{table_item_list}[$changedItem->index()]}{selected} = 0; 
+            # toggle_veloce($options->{table_item_list}[$changedItem->index()],"to_remove");
+            fast_toggle($changedItem);
+	    }
+    }
+    print "itemsToBeRemoved counts ".scalar(@itemsToBeRemoved)." items\n";
+    print "itemsToBeInstalled counts ".scalar(@itemsToBeInstalled)." items\n";
+}
+
 sub detaillist_callback {
     my ($selection, $info, $options) = @_;
     $info->setValue("");
     $info->setValue("<h2>".N("Informations")."</h2>");
+    return if( ref $selection ne "yui::YItem");
     my @data = get_info($options->{table_item_list}[$selection->index()],$info->parent()->parent());
     for(@{$data[0]}){
         if(ref $_ ne "ARRAY"){
@@ -486,8 +541,8 @@ sub run_treeview_dialog {
     #$pixcolumn->set_sort_column_id($pkg_columns{state});
     $detail_list_header->addColumn(N("Status"));
 
-###    print " yui::YTableCheckBoxOnLastColumn ". $yui::YTableCheckBoxOnLastColumn . "\n" ;
-
+    # it should be istanciated this way
+    # $detail_list = $mgaFactory->createTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnLastColumn);
     $detail_list = $mgaFactory->createCBTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnLastColumn);
     $detail_list->setWeight(0,50);
     $detail_list->setNotify(1);
@@ -844,12 +899,12 @@ sub run_treeview_dialog {
          $license =~ s/\n/\n\n/sg; # nicer formatting
          my $w = gtknew('AboutDialog', name => N("Rpmdragora"),
                         version => $Rpmdragora::init::version,
-                        copyright => N("Copyright (C) %s by Mandriva", '2002-2009'),
+                        copyright => N("Copyright (C) %s by Mandriva", '2002-2009')."\n".N("Copyright (C) %s by Mageia.Org", '2010-2013'),
                         license => $license, wrap_license => 1,
                         comments => N("Rpmdragora is the Mageia package management tool."),
                         website => 'http://www.mageia.org',
                         website_label => N("Mageia"),
-                        authors => 'Thierry Vignaud <vignaud@mandriva.com>\nAngelo Naselli <anaselli@gmail.com>\nMatteo Pasotti <matteo.pasotti@gmail.com>',
+                        authors => "Thierry Vignaud <vignaud@mandriva.com>\nAngelo Naselli <anaselli@gmail.com>\nMatteo Pasotti <matteo.pasotti@gmail.com>",
                         artists => 'Hélène Durosini <ln@mandriva.com>',
                         translator_credits =>
                           #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
@@ -987,6 +1042,7 @@ sub run_treeview_dialog {
     #OLD slow_func($::main_window->window, sub { pkgs_provider($default_list_mode) }); # default mode
     slow_func($::main_window, sub { pkgs_provider($default_list_mode) }); # default mode
     if (@initial_selection) {
+        print "\n== Initial selection: @initial_selection\n";
         $options->{initial_selection} = \@initial_selection;
         undef $pkgs->{$_}{selected} foreach @initial_selection;
     }
@@ -1030,6 +1086,7 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $select_all_button) {
                 toggle_all($options, 1);
+                #select_all_current_packages(\$detail_list);
             }
             elsif ($widget == $apply_button) {
                 do_action($options, $callback_action, $info);
@@ -1045,6 +1102,7 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $detail_list){
                 detaillist_callback($detail_list->selectedItem(), $info, \%$options);
+                detaillist_changeditem_callback($detail_list, \%$options);
             }
             elsif ($widget == $file_menu && $mnuItemUpdateMedia) {
                 update_sources_interactive($urpm, transient => $my_win)
@@ -1087,7 +1145,8 @@ sub run_treeview_dialog {
                     last;
                 }
                 elsif ($itemLabel eq N("About")) {
-                    my $license = translate($::license);
+                    my $license = formatAlaTeX(translate($::license));
+                    $license =~ s/\n/\n\n/sg; # nicer formatting
                     AboutDialog({ name => N("Rpmdragora"),
                         version => $Rpmdragora::init::version,
                         copyright => N("Copyright (C) %s by Mandriva", '2002-2009'),
@@ -1095,7 +1154,7 @@ sub run_treeview_dialog {
                         comments => N("Rpmdragora is the Mageia package management tool."),
                         website => 'http://www.mageia.org',
                         website_label => N("Mageia"),
-                        authors => "Thierry Vignaud <vignaud\@mandriva.com>\nAngelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
+                        authors => 'Thierry Vignaud <vignaud@mandriva.com>\nAngelo Naselli <anaselli@linux.it>\nMatteo Pasotti <matteo.pasotti@gmail.com>',
                         artists => 'Hélène Durosini <ln@mandriva.com>',
                         translator_credits =>
                           #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
@@ -1120,10 +1179,18 @@ if (my $pid = is_running('rpmdragora')) {
 yui::YUI::app()->setApplicationTitle(N("Software Management"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
+my $MGAPlugin = "mga";
+
+#yui::YUILoader::loadExternalWidgets($MGAPlugin);
+
 $factory = yui::YUI::widgetFactory;
-yui::YUILoader::loadExternalWidgets("mga");
-$mgaFactory = yui::YMGAWidgetFactory::getYMGAWidgetFactory(yui::YExternalWidgets::externalWidgetFactory());
+$extWidgets = yui::YExternalWidgets::externalWidgets($MGAPlugin);
+$mgaFactory = $extWidgets->externalWidgetFactory();
+# $mgaFactory = bless($extWidgets,'yui::YMGAWidgetFactory');
+$mgaFactory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
 $optFactory = yui::YUI::optionalWidgetFactory;
+
+
 
 ### MAIN DIALOG ###
 $my_win = $factory->createMainDialog;
