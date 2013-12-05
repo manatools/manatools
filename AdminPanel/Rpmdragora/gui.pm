@@ -26,7 +26,7 @@ package AdminPanel::Rpmdragora::gui;
 # $Id$
 
 ############################################################
-# WARNING: do not modify before asking to matteo or anaselli
+# WARNING: do not modify before asking matteo or anaselli
 ############################################################
 
 use strict;
@@ -82,6 +82,8 @@ our @EXPORT = qw(
                     switch_pkg_list_mode
                     toggle_all
                     toggle_nodes
+                    toggle_veloce
+                    fast_toggle
             );
 
 our ($descriptions, %filters, @filtered_pkgs, %filter_methods, $force_displaying_group, $force_rebuild, @initial_selection, $pkgs, $size_free, $size_selected, $urpm);
@@ -400,25 +402,25 @@ sub node_state {
 my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
 
 sub set_node_state {
-    my ($iter, $state, $model) = @_;
+    my ($tblItem, $state, $model) = @_;
     return if $state eq 'XXX' || !$state;
     #$pix{$state} ||= gtkcreate_pixbuf('state_' . $state);
     #$model->set($iter, $pkg_columns{state_icon} => $pix{$state});
     #$model->set($iter, $pkg_columns{state} => $state);
     #$model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
     #$model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
-    $iter->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png");
+    $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png");
     if(to_bool(member($state, qw(base installed to_install)))){
         #$iter->cell(0)->setLabel('x');
         # it should be parent()->setChecked(1)
-        $iter->cell(0)->parent()->setSelected(1);
+        $tblItem->cell(0)->parent()->setSelected(1);
     }else{
         #$iter->cell(0)->setLabel('');
-        $iter->cell(0)->parent()->setSelected(0);
+        $tblItem->cell(0)->parent()->setSelected(0);
     }
     if(!to_bool($state ne 'base')){
         #$iter->cell(0)->setLabel('-');
-        $iter->cell(0)->setLabel('-');
+        $tblItem->cell(0)->setLabel('-');
     }
 }
 
@@ -427,7 +429,11 @@ sub set_leaf_state {
     set_node_state($_, $state, $model) foreach @{$ptree{$leaf}};
 }
 
-sub grep_unselected { grep { exists $pkgs->{$_} && !$pkgs->{$_}{selected} } @_ }
+sub grep_unselected { 
+    my @l = shift();
+    my @result = grep { exists $pkgs->{$_} && !$pkgs->{$_}{selected} } @l ;
+    return @result;
+}
 
 my %groups_tree = ();
 
@@ -491,6 +497,7 @@ sub add_node {
             $w->{detail_list}->addItem($newTableItem);
             $ptree{$leaf} = [ $newTableItem->label() ];
             $table_item_list[$newTableItem->index()] = $leaf;
+            $newTableItem->DISOWN();
         } else {
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             #push @{$wtree{$leaf}}, $iter;
@@ -515,24 +522,87 @@ sub update_size {
     }
 }
 
+sub treeview_children {
+    my($tbl) = @_;
+    my $it;
+    my @l;
+    my $i=0;
+    # using iterators
+    for ($it = $tbl->itemsBegin(); $it != $tbl->itemsEnd(); ) {
+       my $item  = $tbl->YItemIteratorToYItem($it);
+       print "ITEM LABEL: ".$item->index()."\n";
+       push @l, $item;
+       $it = $tbl->nextItem($it);
+       $i++;
+       if ($i == $tbl->itemsCount()) {
+            last;
+       }
+    }
+    # using items
+    #for($i=0;$i<$tbl->itemsCount();$i++) {
+    #    print " item label " .  $tbl->item($i)->cell(0)->label() . "\n";
+    #    push @l, $tbl->item($i);
+    #}
+    return @l;
+}
+
 sub children {
-    my ($w) = @_;
-    map { $w->{detail_list_model}->get($_, $pkg_columns{text}) } gtktreeview_children($w->{detail_list_model});
+    my ($w, @table_item_list) = @_;
+    # map { $w->{detail_list}->get($_, $pkg_columns{text}) } treeview_children($w->{detail_list});
+    # map { $table_item_list[$_->index()] } treeview_children($w->{detail_list});
+    my @children = treeview_children($w->{detail_list});
+    my @result;
+    for my $child(@children){
+        push @result, $table_item_list[$child->index()];
+    }
+    return @result;
 }
 
 sub toggle_all {
     my ($common, $_val) = @_;
     my $w = $common->{widgets};
-    my @l = children($w) or return;
+    my @l = children($w, $common->{table_item_list}) or return;
 
     my @unsel = grep_unselected(@l);
     my @p = @unsel ?
       #- not all is selected, select all if no option to potentially override
       (exists $common->{partialsel_unsel} && $common->{partialsel_unsel}->(\@unsel, \@l) ? difference2(\@l, \@unsel) : @unsel)
         : @l;
-    toggle_nodes($w->{detail_list}->window, $w->{detail_list_model}, \&set_leaf_state, node_state($p[0]), @p);
+    # toggle_nodes($w->{detail_list}, $w->{detail_list_model}, \&set_leaf_state, node_state($p[0]), @p);
+    print "Toggle Nodes: p[0][0]=".$p[0][0]." node_state(".$p[0][0].")=".node_state($p[0][0])."\n";
+    toggle_nodes($w->{detail_list}, $w->{detail_list_model}, \&set_leaf_state, node_state($p[0][0]), @{$p[0]});
     update_size($common);
 }
+
+sub fast_toggle {
+    my ($item) = @_;
+    #gtkset_mousecursor_wait($w->{w}{rwindow}->window);
+    #my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
+    my $name = $common->{table_item_list}[$item->index()];
+    print "Name: $name\n";
+    my $urpm_obj = $pkgs->{$name}{pkg};
+    if ($urpm_obj->flag_base) {
+        interactive_msg(N("Warning"), N("Removing package %s would break your system", $name));
+        return '';
+    } 
+    if ($urpm_obj->flag_skip) { 
+        interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return ''; 
+        $urpm_obj->set_flag_skip(0);
+    } 
+    if ($Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) { 
+        $priority_up_alread_warned = 1;
+        interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
+    } 
+    # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
+    my $state;
+    if($item->selected){
+        $state = "to_remove";
+    }else{
+        $state = "to_install";
+    }
+    toggle_nodes($w->{tree}, $w->{detail_list}, \&set_leaf_state, $state, $name);
+    update_size($common);
+};
 
 # ask_browse_tree_given_widgets_for_rpmdragora will run gtk+ loop. its main parameter "common" is a hash containing:
 # - a "widgets" subhash which holds:
@@ -602,10 +672,10 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
 
     my $fast_toggle = sub {
-        my ($iter) = @_;
-        gtkset_mousecursor_wait($w->{w}{rwindow}->window);
-        my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
-        my $name = $w->{detail_list_model}->get($iter, $pkg_columns{text});
+        my ($item) = @_;
+        #gtkset_mousecursor_wait($w->{w}{rwindow}->window);
+        #my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
+        my $name = $common->{table_item_list}[$item->index()];
         my $urpm_obj = $pkgs->{$name}{pkg};
 
         if ($urpm_obj->flag_base) {
@@ -624,8 +694,8 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
             interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
         }
 
-        toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
-                     $w->{detail_list_model}->get($iter, $pkg_columns{text}));
+        # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
+    toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $item->selected, $common->{table_item_list}[$item->index()]);
 	    update_size($common);
     };
     #$w->{detail_list}->get_selection->signal_connect(changed => sub {
@@ -633,16 +703,18 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
 	#$model && $iter or return;
     # $common->{display_info}($model->get($iter, $pkg_columns{text}));
 	#});
+    # WARNING: è interessante!
     #($w->{detail_list}->get_column(0)->get_cell_renderers)[0]->signal_connect(toggled => sub {
-	#    my ($_cell, $path) = @_; #text_
-	#    my $iter = $w->{detail_list_model}->get_iter_from_string($path);
-	#    $fast_toggle->($iter) if $iter;
+    #    my ($_cell, $path) = @_; #text_
+    #    my $iter = $w->{detail_list_model}->get_iter_from_string($path);
+    #    $fast_toggle->($iter) if $iter;
     # 1;
     #});
     $common->{rebuild_tree}->();
     update_size($common);
-    #$common->{initial_selection} and toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, undef, @{$common->{initial_selection}});
-    #my $_b = before_leaving { $clear_all_caches->() };
+    $common->{initial_selection} and toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, undef, @{$common->{initial_selection}});
+    print "QUANTO VALE common->initial_selection ? ".$common->{initial_selection}."\n";
+    my $_b = before_leaving { $clear_all_caches->() };
     $common->{init_callback}->() if $common->{init_callback};
     #OLD $w->{w}->main;
     $w->{w};
@@ -793,6 +865,38 @@ sub deps_msg {
         }
 }
 
+sub toggle_veloce {
+    my ($pkgName,$pkgState) = @_;
+    print "\n== Pkg Name: $pkgName\n";
+    print "\n== Pkg State: $pkgState\n";
+    #gtkset_mousecursor_wait($w->{w}{rwindow}->window);
+    # my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
+    #my $name = $w->{detail_list_model}->get($iter, $pkg_columns{text});
+    my $urpm_obj = $pkgs->{$pkgName}{pkg};
+
+    if ($urpm_obj->flag_base) {
+	interactive_msg(N("Warning"),
+			N("Removing package %s would break your system", $pkgName));
+	return '';
+    }
+
+    if ($urpm_obj->flag_skip) {
+	interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $pkgName), yesno => 1) or return '';
+	$urpm_obj->set_flag_skip(0);
+    }
+
+    if ($Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
+	$priority_up_alread_warned = 1;
+	interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
+    }
+
+    my @nodes;
+    push @nodes, $pkgName;
+
+    toggle_nodes($w->{tree}, $w->{detail_list_model}, \&set_leaf_state, $pkgState, @nodes);
+	update_size($common);
+}
+
 sub toggle_nodes {
     my ($widget, $model, $set_state, $old_state, @nodes) = @_;
     @nodes = grep { exists $pkgs->{$_} } @nodes
@@ -829,9 +933,8 @@ sub toggle_nodes {
                                                         format_list(@impossible_to_remove));
             @nodes_with_deps = difference2(\@nodes_with_deps, \@impossible_to_remove);
         } else {
-            slow_func($widget,
-                      sub { @nodes_with_deps = grep { intersection(\@nodes, [ closure_removal($_) ]) }
-                              grep { $pkgs->{$_}{selected} && !member($_, @nodes) } keys %$pkgs });
+            @nodes_with_deps = grep { intersection(\@nodes, [ closure_removal($_) ]) }
+                              grep { $pkgs->{$_}{selected} && !member($_, @nodes) } keys %$pkgs;
             push @nodes_with_deps, @nodes;
             $warn_about_additional_packages_to_remove->(
                 N("Because of their dependencies, the following package(s) must be unselected now:\n\n"));
@@ -851,15 +954,10 @@ sub toggle_nodes {
                 @nodes = difference2(\@nodes, \@bad_i18n_pkgs);
             }
             my @requested;
-            slow_func(
-                $widget,
-                sub {
-                    @requested = $urpm->resolve_requested(
-                        open_rpm_db(), $urpm->{state},
-                        { map { $pkgs->{$_}{pkg}->id => 1 } @nodes },
-                        callback_choices => \&callback_choices,
-                    );
-                },
+            @requested = $urpm->resolve_requested(
+                    open_rpm_db(), $urpm->{state},
+                    { map { $pkgs->{$_}{pkg}->id => 1 } @nodes },
+                    callback_choices => \&callback_choices,
             );
             @nodes_with_deps = map { urpm_name($_) } @requested;
             statusbar_msg_remove($bar_id);
@@ -905,9 +1003,8 @@ sub toggle_nodes {
           packages_selection_ok:
         } else {
             my @unrequested;
-            slow_func($widget,
-                      sub { @unrequested = $urpm->disable_selected(open_rpm_db(), $urpm->{state},
-                                                                   map { $pkgs->{$_}{pkg} } @nodes) });
+            @unrequested = $urpm->disable_selected(open_rpm_db(), $urpm->{state},
+                                                                   map { $pkgs->{$_}{pkg} } @nodes); 
             @nodes_with_deps = map { urpm_name($_) } @unrequested;
             statusbar_msg_remove($bar_id);
             if (!deps_msg(N("Some packages need to be removed"),
@@ -931,6 +1028,7 @@ sub toggle_nodes {
         } else {
             $pkgs->{$_}{selected} = $new_state;
         }
+        print "prima di node_state \$_ vale: ".$_."\n";
         $set_state->($_, node_state($_), $model);
         if (my $pkg = $pkgs->{$_}{pkg}) {
             # FIXME: shouldn't we threat all of them as POSITIVE (as selected size)
