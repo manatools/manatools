@@ -120,8 +120,9 @@ sub extract_header {
         my ($local_source, %xml_info_pkgs, $bar_id);
         my $_statusbar_clean_guard = before_leaving { $bar_id and statusbar_msg_remove($bar_id) };
         my $dir = urpm::file_from_local_url($medium->{url});
-	$local_source = "$dir/" . $p->filename if $dir;
-
+        print "p->filename: ". $p->filename."\n";
+	    $local_source = "$dir/" . $p->filename if $dir;
+        print "local_source: $local_source\n";
         if (-e $local_source) {
             $bar_id = statusbar_msg(N("Getting information from %s...", $dir), 0);
             $urpm->{log}("getting information from rpms from $dir");
@@ -658,10 +659,10 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     local $urpm->{error} = sub { printf STDERR "Error: %s\n", $_[0]; push @error_msgs, $_[0] };
 
     my $w = $::main_window;
-    $w->set_sensitive(0);
-    my $_restore_sensitive = before_leaving { $w->set_sensitive(1) };
+    #$w->set_sensitive(0);
+    #my $_restore_sensitive = before_leaving { $w->set_sensitive(1) };
 
-    my $_flush_guard = Gtk2::GUI_Update_Guard->new;
+    # my $_flush_guard = Gtk2::GUI_Update_Guard->new;
 
     if (my $group = get_parallel_group()) {
         return perform_parallel_install($urpm, $group, $w, \$statusbar_msg_id);
@@ -735,8 +736,8 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     # select packages to uninstall for !update mode:
     perform_removal($urpm, { map { $_ => $pkgs->{$_} } @to_remove }) if !$probe_only_for_updates;
 
-    $gurpm = Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Package installation..."), N("Initializing..."), transient => $::main_window);
-    my $_gurpm_clean_guard = before_leaving { undef $gurpm };
+    # $gurpm = Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Package installation..."), N("Initializing..."), transient => $::main_window);
+    # my $_gurpm_clean_guard = before_leaving { undef $gurpm };
     my $something_installed;
  
     if (@to_install && $::rpmdragora_options{auto_orphans}) {
@@ -758,14 +759,17 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
         my $pkg = defined $id ? $urpm->{depslist}[$id] : undef;
         if ($subtype eq 'start') {
             if ($type eq 'trans') {
-                $gurpm->label(1 ? N("Preparing package installation...") : N("Preparing package installation transaction..."));
+                print(1 ? N("Preparing package installation...") : N("Preparing package installation transaction..."));
+                # $gurpm->label(1 ? N("Preparing package installation...") : N("Preparing package installation transaction..."));
                 } elsif (defined $pkg) {
                     $something_installed = 1;
-                    $gurpm->label(N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
-                                             . "\n" . N("Total: %s/%s", ++$progress_nb, $install_count));
+                    print(N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))."\n" . N("Total: %s/%s", ++$progress_nb, $install_count));
+                        # $gurpm->label(N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
+                        #                     . "\n" . N("Total: %s/%s", ++$progress_nb, $install_count));
                 }
         } elsif ($subtype eq 'progress') {
             $gurpm->progress($total ? ($amount/$total)*100 : 100);
+            print("Progress: ".($total ? ($amount/$total)*100 : 100)."\n");
         }
     };
 
