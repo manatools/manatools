@@ -82,7 +82,6 @@ our @EXPORT = qw(
                     switch_pkg_list_mode
                     toggle_all
                     toggle_nodes
-                    toggle_veloce
                     fast_toggle
             );
 
@@ -865,38 +864,6 @@ sub deps_msg {
         }
 }
 
-sub toggle_veloce {
-    my ($pkgName,$pkgState) = @_;
-    print "\n== Pkg Name: $pkgName\n";
-    print "\n== Pkg State: $pkgState\n";
-    #gtkset_mousecursor_wait($w->{w}{rwindow}->window);
-    # my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
-    #my $name = $w->{detail_list_model}->get($iter, $pkg_columns{text});
-    my $urpm_obj = $pkgs->{$pkgName}{pkg};
-
-    if ($urpm_obj->flag_base) {
-	interactive_msg(N("Warning"),
-			N("Removing package %s would break your system", $pkgName));
-	return '';
-    }
-
-    if ($urpm_obj->flag_skip) {
-	interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $pkgName), yesno => 1) or return '';
-	$urpm_obj->set_flag_skip(0);
-    }
-
-    if ($Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
-	$priority_up_alread_warned = 1;
-	interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
-    }
-
-    my @nodes;
-    push @nodes, $pkgName;
-
-    toggle_nodes($w->{tree}, $w->{detail_list_model}, \&set_leaf_state, $pkgState, @nodes);
-	update_size($common);
-}
-
 sub toggle_nodes {
     my ($widget, $model, $set_state, $old_state, @nodes) = @_;
     @nodes = grep { exists $pkgs->{$_} } @nodes
@@ -1028,7 +995,6 @@ sub toggle_nodes {
         } else {
             $pkgs->{$_}{selected} = $new_state;
         }
-        print "prima di node_state \$_ vale: ".$_."\n";
         $set_state->($_, node_state($_), $model);
         if (my $pkg = $pkgs->{$_}{pkg}) {
             # FIXME: shouldn't we threat all of them as POSITIVE (as selected size)
