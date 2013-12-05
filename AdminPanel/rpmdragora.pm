@@ -312,46 +312,42 @@ sub interactive_packtable {
 
 sub interactive_list {
     my ($title, $contents, $list, $callback, %options) = @_;
-    my $d = ugtk2->new($title, grab => 1, if_(exists $options{transient}, transient => $options{transient}));
-    $d->{rwindow}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
-    my @radios = gtkradio('', @$list);
-    my $vbradios = $callback ? create_packtable(
-	{},
-	mapn {
-	    my $n = $_[1];
-	    [ $_[0],
-	    gtksignal_connect(
-		Gtk2::Button->new(but(N("Info..."))),
-		clicked => sub { $callback->($n) },
-	    ) ];
-	} \@radios, $list,
-    ) : gtkpack__(Gtk2::VBox->new(0, 0), @radios);
+
+    my $factory = yui::YUI::widgetFactory;
+    my $mainw = $factory->createPopupDialog();
+    my $vbox = $factory->createVBox($mainw);
+    my $lbltitle = $factory->createLabel($vbox, N("Dependencies"));
+    my $radiobuttongroup = $factory->createRadioButtonGroup($vbox);
+    my $rbbox = $factory->createVBox($radiobuttongroup);
+    foreach my $item(@$list){
+        my $radiobutton = $factory->createRadioButton($rbbox,$item);
+        $radiobutton->setNotify(0);
+        $radiobuttongroup->addRadioButton($radiobutton);
+    }
+    my $submitButton = $factory->createIconButton($vbox,"", N("OK"));
     my $choice;
-    my $button_ok;
-    gtkadd(
-	$d->{window},
-	gtkpack__(
-	    Gtk2::VBox->new(0,5),
-	    Gtk2::Label->new($contents),
-	    int(@$list) > 8 ? gtkset_size_request(create_scrolled_window($vbradios), 250, 320) : $vbradios,
-	    gtkpack__(
-		create_hbox(),
-          if_(!$options{nocancel},
-          gtksignal_connect(
-		    Gtk2::Button->new(N("Cancel")), clicked => sub { Gtk2->main_quit }),
-          ),
-          gtksignal_connect(
-		    $button_ok=Gtk2::Button->new(N("Ok")), clicked => sub {
-			each_index { $_->get_active and $choice = $::i } @radios;
-			Gtk2->main_quit;
-		    }
-		)
-	    )
-	)
-    );
-    $d->{window}->set_focus($button_ok);
-    $d->main;
-    $choice;
+
+    while(1) {
+        my $event = $mainw->waitForEvent();
+        my $eventType = $event->eventType();
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            $mainw->destroy();
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+
+            if($widget == $submitButton) {
+                $choice = $radiobuttongroup->currentButton->label();
+                $choice =~s/\&//g;
+                last;
+            }
+        }
+    }
+    $mainw->destroy();
+    return $choice;
 }
 
 sub interactive_list_ { interactive_list(@_, if_($::main_window, transient => $::main_window)) }
