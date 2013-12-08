@@ -1,0 +1,21 @@
+#!/usr/bin/perl
+
+use lib qw(/usr/lib/libDrakX);
+
+use standalone;     #- warning, standalone must be loaded very first, for 'explanations'
+
+use common;
+
+use AdminPanel::Shared;
+use AdminPanel::Users::GUsers;
+
+use yui;
+
+my $wm_icon = "/usr/share/icons/userdrake.png"; 
+
+yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
+yui::YUI::app()->setApplicationIcon($wm_icon);
+
+AdminPanel::Users::GUsers::addUserDialog();
+
+1;
