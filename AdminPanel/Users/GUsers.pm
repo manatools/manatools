@@ -30,6 +30,7 @@ package AdminPanel::Users::GUsers;
 
 use strict;
 use common;
+use security::level;
 use run_program;
 ## USER is from userdrake
 use USER;
@@ -47,7 +48,6 @@ our @EXPORT = qw(addUserDialog
 
 
 sub addUserDialog {
-    my $secfile = '/etc/sysconfig/msec';
     my $GetValue = -65533; ## Used by USER (for getting values? TODO need explanations, where?)
     my $dontcreatehomedir = 0; my $is_system = 0;
     my $ctx = USER::ADMIN->new;
@@ -199,8 +199,8 @@ sub addUserDialog {
                     $errorString = N("Password Mismatch");
                     $continue = 0;
                 }
-                my %sec = getVarsFromSh($secfile);
-                if ($sec{SECURE_LEVEL} && $sec{SECURE_LEVEL} > 3 && length($passwd) < 6) {
+                my $sec = security::level::get();
+                if ($sec > 3 && length($passwd) < 6) {
                     $errorString = N("This password is too simple. \n Good passwords should be > 6 characters");
                     $continue = 0;
                 }
