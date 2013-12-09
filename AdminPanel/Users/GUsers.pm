@@ -35,6 +35,7 @@ use run_program;
 ## USER is from userdrake
 use USER;
 use utf8;
+use log;
 
 use Glib;
 use yui;
@@ -46,6 +47,95 @@ use base qw(Exporter);
 our @EXPORT = qw(addUserDialog         
          );
 
+
+sub labeledFrameBox() 
+{
+    my ($parent, $label) = @_;
+
+    my $factory  = yui::YUI::widgetFactory;
+
+    my $frame    = $factory->createFrame($parent, $label);
+    $frame->setWeight( $yui::YD_HORIZ, 1);
+
+    $frame       = $factory->createHVCenter( $frame );
+    $frame       = $factory->createVBox( $frame );
+  return $frame;
+}
+
+######################################
+##
+## ChooseGroup
+##
+## creates a popup dialog to ask if
+##  adding user to existing group or
+##  to 'users' group.
+##
+## returns 0 or 1 (choice done)
+##         -1 cancel, or exit
+## 
+sub ChooseGroup() {
+    my $choice = -1;
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Choose group"));
+    
+    my $factory  = yui::YUI::widgetFactory;
+
+    my $dlg      = $factory->createPopupDialog();
+    my $layout   = $factory->createVBox($dlg);
+
+
+    my $frame    = $factory->createFrame($layout, N("A group with this name already exists.  What would you like to do?"));
+    $frame->setWeight( $yui::YD_HORIZ, 1);
+    $frame       = $factory->createHVCenter( $frame );
+    $frame       = $factory->createVBox( $frame );
+
+    my $rbg      = $factory->createRadioButtonGroup( $frame );
+    $frame       = $factory->createVBox( $rbg );
+    my $align    = $factory->createLeft($frame);
+
+    my $rb1      = $factory->createRadioButton( $align, N("Add to the existing group"), 1);
+    $rb1->setNotify(1);
+    $rbg->addRadioButton( $rb1 );
+    $align        = $factory->createLeft($frame);
+    my $rb2 = $factory->createRadioButton( $align, N("Add to the 'users' group"), 0);
+    $rb2->setNotify(1);
+    $rbg->addRadioButton( $rb2 );
+
+    my $hbox            = $factory->createHBox($layout);
+    $align           = $factory->createRight($hbox);
+    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+    while(1) {
+        my $event     = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            if ($widget == $okButton) {
+                $choice = $rb1->value() ? 0 : 1 ;
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+    
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+
+    return $choice;
+}
 
 sub addUserDialog {
     my $GetValue = -65533; ## Used by USER (for getting values? TODO need explanations, where?)
@@ -131,7 +221,7 @@ sub addUserDialog {
     $align           = $factory->createRight($hbox);
     my $UID = 0;
     if ($optional->hasSlider()) {
-        $UID = $optional->createSlider($align, N("UID"), 500, 65000, 500);
+        $UID = $optional->createSlider($align, N("UID"), 1, 65000, 500);
     }
     else {
         # UID must checked in ncurses, value is entered by keyboard without 
@@ -215,12 +305,10 @@ sub addUserDialog {
                 my $uid = 0;
                 if ($continue && $uidManually->value()) {
                     if (($uid = $UID->value()) < 500) {
-                        $errorString = N("User Uid is < 500");
-                        $continue = 0;
-# TODO uidchoice
-#                         my $uidchoice = GimmeChoice(N("User Uid is < 500"),
-#                                                     N("Creating a user with a UID less than 500 is not recommended.\n Are you sure you want to do this?\n\n")); 
-#                         $uidchoice and $userEnt->Uid($u{uid});
+                        $errorString = "";
+                        my $uidchoice = AdminPanel::Shared::ask_YesOrNo(N("User Uid is < 500"),
+                                        N("Creating a user with a UID less than 500 is not recommended.\nAre you sure you want to do this?\n\n")); 
+                        $continue = $uidchoice and $userEnt->Uid($uid);
                     } else { 
                         $userEnt and $userEnt->Uid($uid);
                     }
@@ -231,23 +319,24 @@ sub addUserDialog {
                         #Check if group exist
                         my $gr = $ctx->LookupGroupByName($username);
                         if ($gr) { 
-# TODO ChooseGroup
-#                             my $groupchoice = ChooseGroup();
-#                             if ($groupchoice == 0 && !$error) {
-#                                 #You choose to put it in the existing group
-#                                 $u{gid} = $gr->Gid($GetValue);
-#                             } elsif ($groupchoice == 1) {
-#                                 # Put it in 'users' group
-#                                 log::explanations(N("Putting %s to 'users' group",
-#                                                     $u{username}));
-#                                 $u{gid} = Add2UsersGroup($u{username});
-#                             }
-                            $errorString = "TODO " . N("Choose group");
-                            $continue = 0;
+                            my $groupchoice = ChooseGroup();
+                            if ($groupchoice == 0 ) {
+                                #You choose to put it in the existing group
+                                $gid = $gr->Gid($GetValue);
+                            } elsif ($groupchoice == 1) {
+                                # Put it in 'users' group
+                                log::explanations(N("Putting %s to 'users' group",
+                                                    $username));
+                                $gid = AdminPanel::Users::user::Add2UsersGroup($username);
+                            }
+                            else {
+                                $errorString = "";
+                                $continue = 0;
+                            }
                         } else { 
                             #it's a new group: Add it
                             my $newgroup = $ctx->InitGroup($username,$is_system);
-#                             log::explanations(N("Creating new group: %s", $u{username}));
+                            log::explanations(N("Creating new group: %s", $username));
                             $gid = $newgroup->Gid($GetValue);
                             $ctx->GroupAdd($newgroup);
                         }
@@ -260,12 +349,12 @@ sub addUserDialog {
 
                 if (!$continue) {
                     #---rasie error
-                    AdminPanel::Shared::msgBox($errorString);
+                    AdminPanel::Shared::msgBox($errorString) if ($errorString);
                 }
                 else {
                     ## OK let's create the user
                     print N("Adding user: ") . $username . " \n";
-#                     log::explanations(N("Adding user: %s", $u{username}));
+                    log::explanations(N("Adding user: %s"), $username);
                     my $loginshell = $loginShell->value();
                     my $fullname   = $fullName->value();
                     $userEnt->Gecos($fullname);  $userEnt->LoginShell($loginshell);

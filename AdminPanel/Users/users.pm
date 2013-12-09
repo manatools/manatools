@@ -20,6 +20,7 @@ our @EXPORT = qw(
                 valid_username
                 valid_groupname
                 GetFaceIcon
+                Add2UsersGroup
                 );
 
 sub facesdir() {
@@ -101,8 +102,24 @@ sub GetFaceIcon {
     return $current_icon;
 }
 
+##################################################
+## Add2UsersGroup
+## params
+##
+## 'name' username
+## 'ctx' USER::ADMIN object 
+##
+## return
+##  gid  group id
+##
+sub Add2UsersGroup {
+    my ($name, $ctx) = @_;
+    my $GetValue = -65533; ## Used by USER (for getting values? TODO need explanations, where?)
 
-
+    my $usersgroup = $ctx->LookupGroupByName('users');
+    $usersgroup->MemberName($name, 1);
+    return $usersgroup->Gid($GetValue);
+}
 
 
 1;
