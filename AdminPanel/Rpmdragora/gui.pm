@@ -401,31 +401,31 @@ sub node_state {
 my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
 
 sub set_node_state {
-    my ($tblItem, $state, $model) = @_;
+    my ($tblItem, $state, $detail_list) = @_;
     return if $state eq 'XXX' || !$state;
-    #$pix{$state} ||= gtkcreate_pixbuf('state_' . $state);
-    #$model->set($iter, $pkg_columns{state_icon} => $pix{$state});
-    #$model->set($iter, $pkg_columns{state} => $state);
-    #$model->set($iter, $pkg_columns{selected} => to_bool(member($state, qw(base installed to_install)))); #$pkg->{selected}));
-    #$model->set($iter, $pkg_columns{selectable} => to_bool($state ne 'base'));
-    $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png");
+    $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YTableItem");
     if(to_bool(member($state, qw(base installed to_install)))){
-        #$iter->cell(0)->setLabel('x');
         # it should be parent()->setChecked(1)
-        $tblItem->cell(0)->parent()->setSelected(1);
+        $detail_list->selectItem($tblItem, 1);
+        # $tblItem->setSelected(1);
     }else{
-        #$iter->cell(0)->setLabel('');
-        $tblItem->cell(0)->parent()->setSelected(0);
+        $detail_list->selectItem($tblItem, 0);
+        # $tblItem->setSelected(0);
     }
     if(!to_bool($state ne 'base')){
         #$iter->cell(0)->setLabel('-');
         $tblItem->cell(0)->setLabel('-');
     }
+    $detail_list->parent()->parent()->doneMultipleChanges();
 }
 
 sub set_leaf_state {
-    my ($leaf, $state, $model) = @_;
-    set_node_state($_, $state, $model) foreach @{$ptree{$leaf}};
+    my ($leaf, $state, $detail_list) = @_;
+    # %ptree is a hash using the pkg name as key and a monodimensional array (?) as value
+    # were it is stored the index of the item into the table
+    my $nodeIndex = $ptree{$leaf}[0];
+    my $node = itemAt($detail_list,$nodeIndex);
+    set_node_state($node, $state, $detail_list);
 }
 
 sub grep_unselected { 
@@ -492,9 +492,10 @@ sub add_node {
                                                    $version,
                                                    $release,
                                                    $arch);
-            set_node_state($newTableItem, $state, $w->{detail_list});
             $w->{detail_list}->addItem($newTableItem);
-            $ptree{$leaf} = [ $newTableItem->label() ];
+            set_node_state($newTableItem, $state, $w->{detail_list});
+            # $ptree{$leaf} = [ $newTableItem->label() ];
+            $ptree{$leaf} = [ $newTableItem->index() ];
             $table_item_list[$newTableItem->index()] = $leaf;
             $newTableItem->DISOWN();
         } else {
@@ -529,7 +530,6 @@ sub treeview_children {
     # using iterators
     for ($it = $tbl->itemsBegin(); $it != $tbl->itemsEnd(); ) {
        my $item  = $tbl->YItemIteratorToYItem($it);
-       print "ITEM LABEL: ".$item->index()."\n";
        push @l, $item;
        $it = $tbl->nextItem($it);
        $i++;
@@ -557,6 +557,18 @@ sub children {
     return @result;
 }
 
+sub itemAt {
+    my ($table, $index) = @_;
+    return $table->item($index);
+    #return bless ($table->item($index),'yui::YTableItem');
+    #foreach my $item(treeview_children($table)){
+    #    if($item->index() == $index){
+    #        print "\n== item label ".$item->label()."\n";
+    #        return bless ($item, 'yui::YTableItem');
+    #    }
+    #}
+}
+
 sub toggle_all {
     my ($common, $_val) = @_;
     my $w = $common->{widgets};
@@ -568,8 +580,7 @@ sub toggle_all {
       (exists $common->{partialsel_unsel} && $common->{partialsel_unsel}->(\@unsel, \@l) ? difference2(\@l, \@unsel) : @unsel)
         : @l;
     # toggle_nodes($w->{detail_list}, $w->{detail_list_model}, \&set_leaf_state, node_state($p[0]), @p);
-    print "Toggle Nodes: p[0][0]=".$p[0][0]." node_state(".$p[0][0].")=".node_state($p[0][0])."\n";
-    toggle_nodes($w->{detail_list}, $w->{detail_list_model}, \&set_leaf_state, node_state($p[0][0]), @{$p[0]});
+    toggle_nodes($w->{detail_list}, $w->{detail_list}, \&set_leaf_state, node_state($p[0][0]), @{$p[0]});
     update_size($common);
 }
 
@@ -578,7 +589,6 @@ sub fast_toggle {
     #gtkset_mousecursor_wait($w->{w}{rwindow}->window);
     #my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
     my $name = $common->{table_item_list}[$item->index()];
-    print "Name: $name\n";
     my $urpm_obj = $pkgs->{$name}{pkg};
     if ($urpm_obj->flag_base) {
         interactive_msg(N("Warning"), N("Removing package %s would break your system", $name));
@@ -711,8 +721,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     #});
     $common->{rebuild_tree}->();
     update_size($common);
-    $common->{initial_selection} and toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, undef, @{$common->{initial_selection}});
-    print "QUANTO VALE common->initial_selection ? ".$common->{initial_selection}."\n";
+    $common->{initial_selection} and toggle_nodes($w->{tree}->window, $w->{detail_list}, \&set_leaf_state, undef, @{$common->{initial_selection}});
     my $_b = before_leaving { $clear_all_caches->() };
     $common->{init_callback}->() if $common->{init_callback};
     #OLD $w->{w}->main;
@@ -865,7 +874,7 @@ sub deps_msg {
 }
 
 sub toggle_nodes {
-    my ($widget, $model, $set_state, $old_state, @nodes) = @_;
+    my ($widget, $detail_list, $set_state, $old_state, @nodes) = @_;
     @nodes = grep { exists $pkgs->{$_} } @nodes
       or return;
     #- avoid selecting too many packages at once
@@ -995,7 +1004,9 @@ sub toggle_nodes {
         } else {
             $pkgs->{$_}{selected} = $new_state;
         }
-        $set_state->($_, node_state($_), $model);
+        # invoke set_leaf_state($pkgname, node_state, )
+        # node_state = {to_install, to_remove,...}
+        $set_state->($_, node_state($_), $detail_list);
         if (my $pkg = $pkgs->{$_}{pkg}) {
             # FIXME: shouldn't we threat all of them as POSITIVE (as selected size)
             $size_selected += $pkg->size * ($pkg->flag_installed && !$pkg->flag_upgrade ? ($new_state ? -1 : 1) : ($new_state ? 1 : -1));
