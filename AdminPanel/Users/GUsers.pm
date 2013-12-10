@@ -219,15 +219,8 @@ sub addUserDialog {
     $align           = $factory->createLeft($hbox);
     my $uidManually  = $factory->createCheckBox($align, N("Specify user ID manually"), 0);
     $align           = $factory->createRight($hbox);
-    my $UID = 0;
-    if ($optional->hasSlider()) {
-        $UID = $optional->createSlider($align, N("UID"), 1, 65000, 500);
-    }
-    else {
-        # UID must checked in ncurses, value is entered by keyboard without 
-        #     range restriction 
-        $UID = $factory->createInputField($align, N("UID"), 0);
-    }
+   
+    my $UID = $factory->createIntField($align, N("UID"), 1, 65000, 500);
     $UID->setEnabled($uidManually->value());
     $uidManually->setNotify(1);
 
