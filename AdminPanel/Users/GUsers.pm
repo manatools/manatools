@@ -48,7 +48,7 @@ our @EXPORT = qw(addUserDialog
          );
 
 
-sub labeledFrameBox() 
+sub labeledFrameBox
 {
     my ($parent, $label) = @_;
 
@@ -87,10 +87,7 @@ sub ChooseGroup() {
     my $layout   = $factory->createVBox($dlg);
 
 
-    my $frame    = $factory->createFrame($layout, N("A group with this name already exists.  What would you like to do?"));
-    $frame->setWeight( $yui::YD_HORIZ, 1);
-    $frame       = $factory->createHVCenter( $frame );
-    $frame       = $factory->createVBox( $frame );
+    my $frame    = labeledFrameBox($layout,  N("A group with this name already exists.  What would you like to do?"));
 
     my $rbg      = $factory->createRadioButtonGroup( $frame );
     $frame       = $factory->createVBox( $rbg );
@@ -320,7 +317,7 @@ sub addUserDialog {
                                 # Put it in 'users' group
                                 log::explanations(N("Putting %s to 'users' group",
                                                     $username));
-                                $gid = AdminPanel::Users::user::Add2UsersGroup($username);
+                                $gid = AdminPanel::Users::users::Add2UsersGroup($username, $ctx);
                             }
                             else {
                                 $errorString = "";
@@ -335,7 +332,7 @@ sub addUserDialog {
                         }
                     }
                 } else {
-                    $continue and $gid = Add2UsersGroup($username);
+                    $continue and $gid = AdminPanel::Users::users::Add2UsersGroup($username, $ctx);
                 }
 
 
