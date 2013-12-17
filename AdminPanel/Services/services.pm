@@ -150,47 +150,51 @@ xinetd => N_("Starts other deamons on demand."),
     my ($name) = @_;
     my $s = $services{$name};
     if ($s) {
-	$s = translate($s);
+        $s = translate($s);
     } else {
-	my $file = "$::prefix/usr/lib/systemd/system/$name.service";
-	if (-e $file) {
-		$s = cat_($file);
-		$s = $s =~ /^Description=(.*)/mg ? $1 : '';
-	} else {
-		$file = find { -e $_ } map { "$::prefix$_/$name" } '/etc/rc.d/init.d', '/etc/init.d', '/etc/xinetd.d';
-		$s = cat_($file);
-		$s =~ s/\\\s*\n#\s*//mg;
-		$s =
-			$s =~ /^#\s+(?:Short-)?[dD]escription:\s+(.*?)^(?:[^#]|# {0,2}\S)/sm ? $1 :
-			$s =~ /^#\s*(.*?)^[^#]/sm ? $1 : '';
+        my $file = "$::prefix/usr/lib/systemd/system/$name.service";
+        if (-e $file) {
+                $s = cat_($file);
+                $s = $s =~ /^Description=(.*)/mg ? $1 : '';
+        } else {
+                $file = find { -e $_ } map { "$::prefix$_/$name" } '/etc/rc.d/init.d', '/etc/init.d', '/etc/xinetd.d';
+                $s = cat_($file);
+                $s =~ s/\\\s*\n#\s*//mg;
+                $s =
+                        $s =~ /^#\s+(?:Short-)?[dD]escription:\s+(.*?)^(?:[^#]|# {0,2}\S)/sm ? $1 :
+                        $s =~ /^#\s*(.*?)^[^#]/sm ? $1 : '';
 
-		$s =~ s/#\s*//mg;
-	}
+                $s =~ s/#\s*//mg;
+        }
     }
     $s =~ s/\n/ /gm; $s =~ s/\s+$//;
     $s;
 }
 
 
-## serviceStatus sets widgets accordingly to selected service status 
+## serviceInfo sets widgets accordingly to selected service status 
 ## param
 ##   'service'     service name 
-##   'on_services' running service list 
-##   'status'      service status widget 
 ##   'infoPanel'   service information widget 
-##   'onBoot'      service on boot checkbox information widget 
-sub serviceStatus {
-    my ($service, $on_services, $status, $infoPanel, $onBoot) = @_;
+sub serviceInfo {
+    my ($service, $infoPanel) = @_;
 
     yui::YUI::ui()->blockEvents();
-    ## status
-    my $started = is_service_running($service);
-    $status->setValue($started ? N("running") : N("stopped"));
     ## infoPanel
     $infoPanel->setValue(formatAlaTeX(description($service)));
-    ## onBoot
-    $onBoot->setChecked (member($service, @$on_services));
     yui::YUI::ui()->unblockEvents();
+}
+
+sub serviceStatus {
+    my ($tbl, $item) = @_;
+
+    my $started = (is_service_running($item->label())? N("running") : N("stopped"));
+# TODO add icon green/red led  
+    my $cell   = $tbl->toCBYTableItem($item)->cell(1);
+    if ($cell) {
+        $cell->setLabel($started);
+        $tbl->cellChanged($cell);
+    }
 }
 
 ## draw service panel and manage it 
@@ -198,50 +202,51 @@ sub servicePanel {
     my ($l, $on_services) = services();
     my @xinetd_services = map { $_->[0] } xinetd_services();
 
-    my $factory = yui::YUI::widgetFactory;
+    my $mageiaPlugin = "mga";
+    my $factory      = yui::YUI::widgetFactory;
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+    
     my $dialog  = $factory->createMainDialog;
     my $vbox    = $factory->createVBox( $dialog );
     my $frame   = $factory->createFrame ($vbox, N("Services"));
-    $frame->setWeight(0, 40);
 
     my $frmVbox = $factory->createVBox( $frame );
-    
+    my $hbox = $factory->createHBox( $frmVbox );
+
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn(N("Service"), $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Status"),  $yui::YAlignCenter);
+    $yTableHeader->addColumn(N("On boot"), $yui::YAlignBegin);
+
     ## service list (serviceBox)
-    my $serviceBox = $factory->createSelectionBox($frmVbox, "" );
-    $serviceBox->setNotify(1);
-
+    my $serviceTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnLastColumn);
     my $itemCollection = new yui::YItemCollection;
-
     foreach (@$l) {
         my $serviceName = $_;
         
-        my $item = new yui::YItem($serviceName);
+        my $item = new yui::YCBTableItem($serviceName);
+        my $started = (is_service_running($serviceName)? N("running") : N("stopped"));
+# TODO add icon green/red led  
+        my $cell   = new yui::YTableCell($started);
+        $item->addCell($cell);
+        $item->check(member($serviceName, @$on_services));
+        $item->setLabel($serviceName);
         $itemCollection->push($item);
         $item->DISOWN();
     }
-    $serviceBox->addItems($itemCollection);
-    $factory->createVSpacing($frmVbox, 1.0);
+    $serviceTbl->addItems($itemCollection);
+    $serviceTbl->setImmediateMode(1);
+    $serviceTbl->setWeight(0, 50);
 
-    my $hbox = $factory->createHBox( $frmVbox );
     ## info panel (infoPanel)
     $frame   = $factory->createFrame ($hbox, N("Information"));
-    my $infoPanel = $factory->createRichText($frame, "--------------"); #, 0, 0);
-    $infoPanel->setAutoScrollDown();
-    
-    ## status 
-    $frame   = $factory->createFrame ($hbox, "");
+    $frame->setWeight(0, 30);
     $frmVbox = $factory->createVBox( $frame );
-    $frame     = $factory->createFrame ($frmVbox, N("Status"));
-    my $status = $factory->createLabel($frame, "++++++++++++++", 0, 0);
-    
-    ## on boot (onBoot)
-    $factory->createVSpacing($frmVbox, 1.0);
-    my $onBoot   = $factory->createCheckBox($frmVbox, N("On boot"), 0); 
-    $onBoot->setNotify(1);
+    my $infoPanel = $factory->createRichText($frmVbox, "--------------"); #, 0, 0);
+    $infoPanel->setAutoScrollDown();
 
     ### Service Start button ($startButton)
-    my $align = $factory->createAlignment( $hbox, $yui::YAlignEnd, $yui::YAlignUnchanged );
-    $factory->createVSpacing($frmVbox, 8.0);
     $hbox = $factory->createHBox( $frmVbox );
     my $startButton = $factory->createPushButton($hbox, N("Start"));
     
@@ -252,17 +257,16 @@ sub servicePanel {
     $factory->createVSpacing($vbox, 1.0);
     ## Window push buttons
     $hbox = $factory->createHBox( $vbox );
-    $align = $factory->createLeft($hbox);
+    my $align = $factory->createLeft($hbox);
     $hbox     = $factory->createHBox($align);
     my $aboutButton = $factory->createPushButton($hbox, N("About") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
     my $closeButton = $factory->createPushButton($hbox, N("Close") );
 
-
     #first item status
-    my $item = $serviceBox->selectedItem();
-    serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot) if ($item);
+    my $item = $serviceTbl->selectedItem();
+    serviceInfo($item->label(), $infoPanel) if ($item);
 
     while(1) {
         my $event     = $dialog->waitForEvent();
@@ -295,35 +299,33 @@ sub servicePanel {
                         N("_: Translator(s) name(s) & email(s)\n")}
                 );
             }
-            elsif ($widget == $serviceBox) {
+            elsif ($widget == $serviceTbl) {
                 # service selection changed
-                $item = $serviceBox->selectedItem();
-                serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot) if ($item);
-            }
-            elsif ($widget == $onBoot) {
-                $item = $serviceBox->selectedItem();
+                $item = $serviceTbl->selectedItem();
+                serviceInfo($item->label(), $infoPanel) if ($item);
+                $item = $serviceTbl->changedItem();
                 if ($item) {
-                    _set_service( $item->label(), $onBoot->isChecked());
+                    _set_service($item->label(), $item->checked());
                     # we can push/pop service, but this (slower) should return real situation
                     ($l, $on_services) = services();
                 }
             }
             elsif ($widget == $startButton) {
-                $item = $serviceBox->selectedItem();
+                $item = $serviceTbl->selectedItem();
                 if ($item) {
                     restart_or_start($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     ($l, $on_services) = services();
-                    serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot);
+                    serviceStatus($serviceTbl, $item);
                 }
             }
             elsif ($widget == $stopButton) {
-                $item = $serviceBox->selectedItem();
+                $item = $serviceTbl->selectedItem();
                 if ($item) {
                     stop($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     ($l, $on_services) = services();
-                    serviceStatus($item->label(), $on_services, $status, $infoPanel, $onBoot);
+                    serviceStatus($serviceTbl, $item);
                 }
             }
         }

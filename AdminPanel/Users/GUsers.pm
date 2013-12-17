@@ -48,8 +48,7 @@ our @EXPORT = qw(addUserDialog
          );
 
 
-sub labeledFrameBox
-{
+sub labeledFrameBox {
     my ($parent, $label) = @_;
 
     my $factory  = yui::YUI::widgetFactory;
