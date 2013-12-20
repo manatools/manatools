@@ -146,20 +146,23 @@ sub tree_callback {
 sub detaillist_changeditem_callback {
     my ($detail_list, $options) = @_;
     my $changedItem = $detail_list->changedItem();
+    return if (!$changedItem);
+
     # handles installist and droplist
     my $index=0;
-    if ($changedItem->selected()) {
+    if ($changedItem->checked()) {
 	    # to be installed if not in to be removed list
 	    my $found = 0;
-	    foreach $index (0 .. scalar(@itemsToBeRemoved)) {
+	    foreach $index (0 .. scalar(@itemsToBeRemoved) -1) {
 	        my $currItem = $itemsToBeRemoved[$index];
-            if(ref $currItem eq "yui::YItem") {
+#pasmatt why? changedItem is YCBTableItem now so it's what you're looking for
+#             if(ref $currItem eq "yui::YCBTableItem") {
                 if ($currItem->label() == $changedItem->label()) {
                     $found = 1;
                     splice (@itemsToBeRemoved, $index ,1);
                     last;
                 }
-            }
+#             }
 	    }
 	    if ($found == 0) {
 	        push(@itemsToBeInstalled, $changedItem);
@@ -171,15 +174,15 @@ sub detaillist_changeditem_callback {
     else {
 	    # to be removed if not in to be installed list
 	    my $found = 0;
-	    foreach $index (0 .. scalar(@itemsToBeInstalled)) {
+	    foreach $index (0 .. scalar(@itemsToBeInstalled)-1) {
 	        my $currItem = $itemsToBeInstalled[$index];
-            if(ref $currItem eq "yui::YItem") {
+#                 if(ref $currItem eq "yui::YCBTableItem") {
 	            if ($currItem->label() == $changedItem->label()) {
 		            $found = 1;
 		            splice (@itemsToBeInstalled, $index ,1);
 		            last;
 	            }
-            }
+#             }
 	    }
 	    if ($found == 0) {
 	        push(@itemsToBeRemoved, $changedItem);
@@ -507,6 +510,8 @@ sub run_treeview_dialog {
             title => N("ToInst"),
         }
     );
+    ## check column is first no title needed here, but we need to add it
+    $detail_list_header->addColumn("");
     foreach my $col (@columns{@columns}) {
         #OLD $detail_list->append_column(
         #    $col->{widget} =
@@ -542,10 +547,9 @@ sub run_treeview_dialog {
     $detail_list_header->addColumn(N("Status"));
 
     # it should be istanciated this way
-    # $detail_list = $mgaFactory->createTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnLastColumn);
-    $detail_list = $mgaFactory->createCBTable($hbox_middle,$detail_list_header,$yui::YTableCheckBoxOnFirstColumn);
+    $detail_list = $mgaFactory->createCBTable($hbox_middle,$detail_list_header,$yui::YCBTableCheckBoxOnFirstColumn);
     $detail_list->setWeight(0,50);
-    $detail_list->setNotify(1);
+    $detail_list->setImmediateMode(1);
     #OLD compute_main_window_size($w);
 
 =comment
@@ -1181,12 +1185,8 @@ yui::YUI::app()->setApplicationIcon($wm_icon);
 
 my $MGAPlugin = "mga";
 
-#yui::YUILoader::loadExternalWidgets($MGAPlugin);
-
 $factory = yui::YUI::widgetFactory;
-$extWidgets = yui::YExternalWidgets::externalWidgets($MGAPlugin);
-$mgaFactory = $extWidgets->externalWidgetFactory();
-# $mgaFactory = bless($extWidgets,'yui::YMGAWidgetFactory');
+$mgaFactory = yui::YExternalWidgets::externalWidgetFactory($MGAPlugin);
 $mgaFactory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
 $optFactory = yui::YUI::optionalWidgetFactory;
 

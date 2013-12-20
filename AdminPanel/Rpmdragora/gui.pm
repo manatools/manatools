@@ -403,13 +403,14 @@ my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
 sub set_node_state {
     my ($tblItem, $state, $detail_list) = @_;
     return if $state eq 'XXX' || !$state;
-    $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YTableItem");
+    $detail_list->parent()->parent()->startMultipleChanges();
+    $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
     if(to_bool(member($state, qw(base installed to_install)))){
         # it should be parent()->setChecked(1)
-        $detail_list->selectItem($tblItem, 1);
+        $detail_list->checkItem($tblItem, 1);
         # $tblItem->setSelected(1);
     }else{
-        $detail_list->selectItem($tblItem, 0);
+        $detail_list->checkItem($tblItem, 0);
         # $tblItem->setSelected(0);
     }
     if(!to_bool($state ne 'base')){
@@ -488,10 +489,10 @@ sub add_node {
             $release = "" if(!defined($release));
             $arch = "" if(!defined($arch));
             #my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
-            my $newTableItem = new yui::YTableItem($name."\n".get_summary($leaf),
-                                                   $version,
-                                                   $release,
-                                                   $arch);
+            my $newTableItem = new yui::YCBTableItem($name."\n".get_summary($leaf),
+                                                     $version,
+                                                     $release,
+                                                     $arch);
             $w->{detail_list}->addItem($newTableItem);
             set_node_state($newTableItem, $state, $w->{detail_list});
             # $ptree{$leaf} = [ $newTableItem->label() ];
@@ -604,10 +605,11 @@ sub fast_toggle {
     } 
     # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
     my $state;
-    if($item->selected){
-        $state = "to_remove";
-    }else{
+#pasmatt checked should be to install no?
+    if($item->checked()){
         $state = "to_install";
+    }else{
+        $state = "to_remove";
     }
     toggle_nodes($w->{tree}, $w->{detail_list}, \&set_leaf_state, $state, $name);
     update_size($common);
