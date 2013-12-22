@@ -2,28 +2,83 @@
 # vim: set et ts=4 sw=4:
 #    Copyright 2012-2013 Angelo Naselli <anaselli@linux.it>
 #
-#    This file is part of LogViever
+#    This file is part of AdminPanel
 #
-#    LogViever is free software: you can redistribute it and/or modify
+#    AdminPanel is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    LogViever is distributed in the hope that it will be useful,
+#    AdminPanel is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with LogViever.  If not, see <http://www.gnu.org/licenses/>.
+#    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
 
 package AdminPanel::Shared;
+
+=head1 NAME
+
+AdminPanel::Shared - AdminPanel::Shared contains all the shared routines 
+                     needed by AdminPanel and modules
+
+=head1 SYNOPSIS
+
+    
+
+=head1 DESCRIPTION
+
+This module collects all the routines shared between AdminPanel and its modules.
+
+=head1 EXPORT
+
+    warningMsgBox
+    msgBox
+    infoMsgBox
+    ask_YesOrNo
+    ask_OkCancel
+    AboutDialog
+    trim
+
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command:
+
+    perldoc AdminPanel::Shared
+
+=head1 AUTHOR
+
+Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2013, Angelo Naselli.
+
+This file is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 2 of the License, or
+(at your option) any later version.
+
+This file is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this file.  If not, see <http://www.gnu.org/licenses/>.
+
+=head1 FUNCTIONS
+
+=cut
 
 use strict;
 use warnings;
 use diagnostics;
-use lib qw(/usr/lib/libDrakX);
-use common;
+#use lib qw(/usr/lib/libDrakX);
+use common qw(N);
 use yui;
 use base qw(Exporter);
 
@@ -34,6 +89,33 @@ our @EXPORT = qw(warningMsgBox
          ask_OkCancel
          AboutDialog
          trim);
+
+
+=head1 VERSION
+
+Version 0.01
+
+=cut
+
+our $VERSION = '0.01';
+
+
+#=============================================================
+
+=head2 warningMsgBox
+
+=head3 INPUT
+
+    $st: string to be swhon into the dialog
+
+=head3 DESCRIPTION
+
+This function creates an Warning dialog and show the message 
+passed as input.
+
+=cut
+
+#=============================================================
 
 sub warningMsgBox {
     my ($st) = @_;
@@ -49,6 +131,23 @@ sub warningMsgBox {
     destroy $msg_box;
 }
 
+#=============================================================
+
+=head2 infoMsgBox
+
+=head3 INPUT
+
+    $st: string to be swhon into the dialog
+
+=head3 DESCRIPTION
+
+This function creates an Info dialog and show the message 
+passed as input.
+
+=cut
+
+#=============================================================
+
 sub infoMsgBox {
     my ($st) = @_;
     my $factory = yui::YUI::widgetFactory;
@@ -63,6 +162,22 @@ sub infoMsgBox {
     destroy $msg_box;
 }
 
+#=============================================================
+
+=head2 msgBox
+
+=head3 INPUT
+
+    $st: string to be swhon into the dialog
+
+=head3 DESCRIPTION
+
+This function creates a dialog and show the message passed as input.
+
+=cut
+
+#=============================================================
+
 sub msgBox {
     my ($st) = @_;
     my $factory = yui::YUI::widgetFactory;
@@ -76,6 +191,29 @@ sub msgBox {
 
     destroy $msg_box;
 }
+
+#=============================================================
+
+=head2 ask_OkCancel
+
+=head3 INPUT
+
+    $title: Title shown as heading
+    $text:  text to be shown into the dialog
+
+=head3 OUTPUT
+
+    0: Cancel button has been pressed
+    1: Ok button has been pressed
+
+=head3 DESCRIPTION
+
+This function create an OK-Cancel dialog with a 'title' and a 
+'text' passed as parameters.
+
+=cut
+
+#=============================================================
 
 sub ask_OkCancel {
     my ($title, $text) = @_;
@@ -111,6 +249,29 @@ sub ask_OkCancel {
     return $retVal;
 }
 
+#=============================================================
+
+=head2 ask_YesOrNo
+
+=head3 INPUT
+
+    $title: Title shown as heading
+    $text:  question text to be shown into the dialog
+
+=head3 OUTPUT
+
+    0: "No" button has been pressed
+    1: "Yes" button has been pressed
+
+=head3 DESCRIPTION
+
+This function create a Yes-No dialog with a 'title' and a question 'text' 
+passed as parameters.
+
+=cut
+
+#=============================================================
+
 sub ask_YesOrNo {
     my ($title, $text) = @_;
     my $retVal = 0;
@@ -144,6 +305,39 @@ sub ask_YesOrNo {
 
     return $retVal;
 }
+
+#=============================================================
+
+=head2 AboutDialog
+
+=head3 INPUT
+
+    $opts: optional options needed to get info for dialog.
+           name          => Application Name,
+           version       => Application Version,
+           copyright     => Copyright ususally like "Copyright (C) copyright-holder Year",
+           license       => License text, 
+           comments      => A comment related to application to be shown,
+           website       => Web site URL,
+           website_label => Label to hide previous link,
+           authors       => Application authors,
+           translator_credits => Application translators 
+           documenters   => Application documenters 
+           artists       => Graphic applicaton designers
+           logo          => picture path to be shown as application logo
+
+=head3 OUTPUT
+
+    Output_Parameter: out_par_description
+
+=head3 DESCRIPTION
+
+About dialog implementation, this dialog can be used by
+modules, to show authors, license, credits, etc.
+
+=cut
+
+#=============================================================
 
 sub AboutDialog {
     my ($opts) = @_;
@@ -348,6 +542,26 @@ sub AboutDialog {
     destroy $aboutdlg;
 }
 
+#=============================================================
+
+=head2 trim
+
+=head3 INPUT
+
+    $st: String to be trimmed
+
+=head3 OUTPUT
+
+    $st: trimmed string
+
+=head3 DESCRIPTION
+
+Thios function trim the given string.
+
+=cut
+
+#=============================================================
+
 sub trim {
     my ($st) = shift;
     $st =~s /^\s+//g;
@@ -355,39 +569,4 @@ sub trim {
     return $st;
 }
 
-1;
-
-=head1 NAME
-
-       Shared - shared module providing common routines
-
-=head1 SYNOPSIS
-
-
-=head1 METHODS
-
-=head2 warningMsgBox
-
-=head2 msgBox
-
-       shows a simple message box
-
-=head2 infoMsgBox
-
-       shows a message box for informations
-
-=head2 AboutDialog
-
-       shows an About Dialog box 
-
-=head2 ask_YesOrNo
-
-       shows a dialog with two buttons (Yes/No)
-
-=head3 return bool
-
-=head2 ask_OkCancel
-
-       shows a dialog with to buttons (Ok/Cancel)
-
-=head3 return bool
+1; # End of AdminPanel::Shared
