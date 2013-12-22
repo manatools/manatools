@@ -17,7 +17,6 @@ my $wm_icon = "/usr/share/icons/userdrake.png";
 yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
-print "-----------> " . security::level::get() ."\n";
-# TODO AdminPanel::Users::GUsers::addUserDialog();
+AdminPanel::Users::GUsers::manageUsersDialog();
 
 1;

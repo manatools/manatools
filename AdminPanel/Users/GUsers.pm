@@ -29,7 +29,7 @@ package AdminPanel::Users::GUsers;
 
 
 use strict;
-use common;
+use common qw(N);
 use security::level;
 use run_program;
 ## USER is from userdrake
@@ -44,8 +44,17 @@ use AdminPanel::Users::users;
 
 use base qw(Exporter);
 
-our @EXPORT = qw(addUserDialog         
-         );
+our @EXPORT = qw(addUserDialog    
+                 manageUsersDialog     
+              );
+
+=head1 VERSION
+
+Version 1.0.0
+
+=cut
+
+our $VERSION = '1.0.0';
 
 
 sub labeledFrameBox {
@@ -374,3 +383,107 @@ sub addUserDialog {
     yui::YUI::app()->setApplicationTitle($appTitle);
 }
 
+sub manageUsersDialog {
+
+    ## TODO fix for adminpanel
+    my $pixdir = '/usr/share/userdrake/pixmaps/';
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
+
+    my $factory  = yui::YUI::widgetFactory;
+
+    my $dlg      = $factory->createMainDialog();
+    my $layout   = $factory->createVBox($dlg);
+
+    my $hbox_headbar = $factory->createHBox($layout);
+    my $head_align_left = $factory->createLeft($hbox_headbar);
+    my $head_align_right = $factory->createRight($hbox_headbar);
+    my $headbar = $factory->createHBox($head_align_left);
+    my $headRight = $factory->createHBox($head_align_right);
+
+    my %fileMenu = (
+            widget  => $factory->createMenuButton($headbar,N("File")),
+            refresh => new yui::YMenuItem(N("Refresh")), 
+            quit    => new yui::YMenuItem(N("Quit")),
+    );
+
+    $fileMenu{ widget }->addItem($fileMenu{ refresh });
+    $fileMenu{ widget }->addItem($fileMenu{ quit });
+    $fileMenu{ widget }->rebuildMenuTree();
+   
+    my %actionMenu = (
+            widget    => $factory->createMenuButton($headbar, N("Actions")),
+            add_user  => new yui::YMenuItem(N("Add User")), 
+            add_group => new yui::YMenuItem(N("Add Group")),
+            edit      => new yui::YMenuItem(N("Edit")),
+            del       => new yui::YMenuItem(N("Delete")),
+            inst      => new yui::YMenuItem(N("Install guest account")),
+    );
+
+    while ( my ($key, $value) = each(%actionMenu) ) {
+        if ($key ne 'widget' ) {
+            $actionMenu{ widget }->addItem($value);
+        }
+    }
+    $actionMenu{ widget }->rebuildMenuTree();
+
+    my %optionMenu = (
+            widget     => $factory->createMenuButton($headbar, N("Option")),
+            option     => new yui::YMenuItem(N("Option")), 
+    );
+
+    while ( my ($key, $value) = each(%optionMenu) ) {
+        if ($key ne 'widget' ) {
+            $optionMenu{ widget }->addItem($value);
+        }
+    }
+    $optionMenu{ widget }->rebuildMenuTree();
+
+    my %helpMenu = (
+            widget     => $factory->createMenuButton($headRight, N("Help")),
+            help       => new yui::YMenuItem(N("Help")), 
+            report_bug => new yui::YMenuItem(N("Report Bug")),
+            about      => new yui::YMenuItem(N("About")),
+    );
+
+    while ( my ($key, $value) = each(%helpMenu) ) {
+        if ($key ne 'widget' ) {
+            $helpMenu{ widget }->addItem($value);
+        }
+    }
+    $helpMenu{ widget }->rebuildMenuTree();
+
+    my $hbox    = $factory->createHBox($layout);
+    $hbox       = $factory->createHBox($factory->createLeft($hbox));
+    my %buttons = (
+           add_user  => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
+           add_group => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
+           edit      => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
+           del       => $factory->createIconButton($hbox, $pixdir . 'user_del.png', N("Delete")),
+           refresh   => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh")),
+    );
+
+    # main loop
+    while(1) {
+        my $event     = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::MenuEvent) {
+            my $item = $event->item();
+            if ($item->label() eq $fileMenu{ quit }->label())  {
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+}
