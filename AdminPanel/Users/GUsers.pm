@@ -383,6 +383,76 @@ sub addUserDialog {
     yui::YUI::app()->setApplicationTitle($appTitle);
 }
 
+#=============================================================
+
+=head2 createUserTable
+
+=head3 INPUT
+
+    $parent: parent widget
+
+=head3 OUTPUT
+
+    YTable: new YTable reference
+
+=head3 DESCRIPTION
+
+This function create the User table to be added to the replace 
+point of the tab widget.
+
+=cut
+
+#=============================================================
+sub createUserTable {
+    my $parent = shift;
+
+    my $factory      = yui::YUI::widgetFactory;
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn(N("User Name"),      $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("User ID"),        $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Primary Group"),  $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Full Name"),      $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Login Shell"),    $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Home Directory"), $yui::YAlignBegin);
+    $yTableHeader->DISOWN();
+    return ($factory->createTable($parent, $yTableHeader));
+}
+
+#=============================================================
+
+=head2 createGroupTable
+
+=head3 INPUT
+
+    $parent: parent widget
+
+=head3 OUTPUT
+
+    YTable: new YTable reference
+
+=head3 DESCRIPTION
+
+This function create the Group table to be added to the replace 
+point of the tab widget.
+
+=cut
+
+#=============================================================
+sub createGroupTable {
+    my $parent = shift;
+
+    my $factory      = yui::YUI::widgetFactory;
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn(N("Group Name"),     $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Group ID"),       $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Group Members"),  $yui::YAlignBegin);
+    $yTableHeader->DISOWN();
+    return ($factory->createTable($parent, $yTableHeader));
+}
+
+
+
+
 sub manageUsersDialog {
 
     ## TODO fix for adminpanel
@@ -393,7 +463,8 @@ sub manageUsersDialog {
     yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
 
     my $factory  = yui::YUI::widgetFactory;
-
+    my $optional = yui::YUI::optionalWidgetFactory;
+    
     my $dlg      = $factory->createMainDialog();
     my $layout   = $factory->createVBox($dlg);
 
@@ -429,18 +500,6 @@ sub manageUsersDialog {
     }
     $actionMenu{ widget }->rebuildMenuTree();
 
-    my %optionMenu = (
-            widget     => $factory->createMenuButton($headbar, N("Option")),
-            option     => new yui::YMenuItem(N("Option")), 
-    );
-
-    while ( my ($key, $value) = each(%optionMenu) ) {
-        if ($key ne 'widget' ) {
-            $optionMenu{ widget }->addItem($value);
-        }
-    }
-    $optionMenu{ widget }->rebuildMenuTree();
-
     my %helpMenu = (
             widget     => $factory->createMenuButton($headRight, N("Help")),
             help       => new yui::YMenuItem(N("Help")), 
@@ -457,7 +516,7 @@ sub manageUsersDialog {
 
     my $hbox    = $factory->createHBox($layout);
     $hbox       = $factory->createHBox($factory->createLeft($hbox));
-    my %buttons = (
+    my %widgets = (
            add_user  => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
            add_group => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
            edit      => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
@@ -465,6 +524,36 @@ sub manageUsersDialog {
            refresh   => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh")),
     );
 
+    $hbox                   = $factory->createHBox($layout);
+    $head_align_left        = $factory->createLeft($hbox);
+    $widgets{filter_system} = $factory->createCheckBox($head_align_left, N("Filter system users"), 1);
+                              $factory->createHSpacing($hbox, 3);
+    $head_align_right       = $factory->createRight($hbox);
+    $headRight              = $factory->createHBox($head_align_right);
+                              $factory->createLabel($headRight, N("Search:"));
+    $widgets{input}         = $factory->createInputField($headRight, "", 0);
+    $widgets{apply_filter}  = $factory->createPushButton($headRight, N("Apply filter"));
+    $widgets{input}->setWeight($yui::YD_HORIZ, 2);
+    $widgets{apply_filter}->setWeight($yui::YD_HORIZ, 1);
+    
+    my %tabs;
+    if ($optional->hasDumbTab()) {
+        $hbox = $factory->createHBox($layout);
+        my $align = $factory->createHCenter($hbox);
+        $tabs{widget} = $optional->createDumbTab($align);
+        $tabs{users} = new yui::YItem(N("Users"));
+        $tabs{users}->setSelected();
+        $tabs{widget}->addItem( $tabs{users} );
+        $tabs{users}->DISOWN();
+        $tabs{groups} = new yui::YItem(N("Groups"));
+        $tabs{widget}->addItem( $tabs{groups} );
+        $tabs{groups}->DISOWN();
+        my $vbox        = $factory->createVBox($tabs{widget});
+        $align          = $factory->createLeft($vbox);
+        $widgets{replace_pnt} =  $factory->createReplacePoint($align);
+        $widgets{table}       = createUserTable($widgets{replace_pnt});
+        $widgets{table}->DISOWN();
+    }
     # main loop
     while(1) {
         my $event     = $dlg->waitForEvent();
@@ -478,6 +567,30 @@ sub manageUsersDialog {
             my $item = $event->item();
             if ($item->label() eq $fileMenu{ quit }->label())  {
                 last;
+            }
+            elsif ($tabs{widget} && $item->label() eq  $tabs{groups}->label()) {
+                $dlg->startMultipleChanges();
+                $widgets{replace_pnt}->deleteChildren();
+                $widgets{table}       = createGroupTable($widgets{replace_pnt});
+                $widgets{table}->DISOWN();
+                $widgets{replace_pnt}->showChild();
+                $dlg->recalcLayout();
+                $dlg->doneMultipleChanges();
+            }
+            elsif ($tabs{widget} && $item->label() eq  $tabs{users}->label()) {
+                $dlg->startMultipleChanges();
+                $widgets{replace_pnt}->deleteChildren();
+                $widgets{table}       = createUserTable($widgets{replace_pnt});
+                $widgets{table}->DISOWN();
+                $widgets{replace_pnt}->showChild();
+                $dlg->recalcLayout();
+                $dlg->doneMultipleChanges();
+            }
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            my $widget = $event->widget();
+            if ($widget == $widgets{add_user})  {
+                addUserDialog();
             }
         }
     }
