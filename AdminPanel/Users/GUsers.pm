@@ -29,6 +29,10 @@ package AdminPanel::Users::GUsers;
 
 
 use strict;
+# TODO evaluate if Moose is too heavy and use Moo 
+# instead
+use Moose;
+use POSIX qw(ceil);
 use common qw(N);
 use security::level;
 use run_program;
@@ -42,11 +46,35 @@ use yui;
 use AdminPanel::Shared;
 use AdminPanel::Users::users;
 
-use base qw(Exporter);
+# main dialog
+has 'dialog'     => (
+    is        => 'rw',
+);
 
-our @EXPORT = qw(addUserDialog    
-                 manageUsersDialog     
-              );
+has 'widgets' => ( 
+    traits    => ['Hash'],
+    default   => sub { {} },
+    is        => 'rw',
+    isa       => 'HashRef',
+    handles   => {
+        set_widget     => 'set',
+        get_widget     => 'get',
+        widget_pairs   => 'kv',
+    }, 
+);
+
+## Used by USER (for getting values? TODO need explanations, where?)
+has 'USER_GetValue' => (
+    default   => -65533,
+    is        => 'ro',
+    isa       => 'Int',
+);
+
+## Used by USER (for getting values? TODO need explanations, where?)
+has 'ctx' => (
+    default   => sub {USER::ADMIN->new},
+    is        => 'ro',
+);
 
 =head1 VERSION
 
@@ -143,10 +171,10 @@ sub ChooseGroup() {
 }
 
 sub addUserDialog {
-    my $GetValue = -65533; ## Used by USER (for getting values? TODO need explanations, where?)
+    my $self = shift;
+
     my $dontcreatehomedir = 0; my $is_system = 0;
-    my $ctx = USER::ADMIN->new;
-    my @shells = @{$ctx->GetUserShells};
+    my @shells = @{$self->ctx->GetUserShells};
 
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
@@ -275,7 +303,7 @@ sub addUserDialog {
                 ## check data
                 my $username = $loginName->value();
                 my ($continue, $errorString) = valid_username($username);
-                my $nm = $continue && $ctx->LookupUserByName($username);
+                my $nm = $continue && $self->ctx->LookupUserByName($username);
                 if ($nm) {
                     $loginName->setValue("");
                     $homeDir->setValue("");
@@ -292,7 +320,7 @@ sub addUserDialog {
                     $errorString = N("This password is too simple. \n Good passwords should be > 6 characters");
                     $continue = 0;
                 }
-                my $userEnt = $continue && $ctx->InitUser($username, $is_system);
+                my $userEnt = $continue && $self->ctx->InitUser($username, $is_system);
                 if ($continue && $createHome->value()) {
                     $dontcreatehomedir = 0;
                     my $homedir = $homeDir->value();
@@ -315,17 +343,17 @@ sub addUserDialog {
                 if ($createGroup->value()) {
                     if ($continue) {
                         #Check if group exist
-                        my $gr = $ctx->LookupGroupByName($username);
+                        my $gr = $self->ctx->LookupGroupByName($username);
                         if ($gr) { 
                             my $groupchoice = ChooseGroup();
                             if ($groupchoice == 0 ) {
                                 #You choose to put it in the existing group
-                                $gid = $gr->Gid($GetValue);
+                                $gid = $gr->Gid($self->USER_GetValue);
                             } elsif ($groupchoice == 1) {
                                 # Put it in 'users' group
                                 log::explanations(N("Putting %s to 'users' group",
                                                     $username));
-                                $gid = AdminPanel::Users::users::Add2UsersGroup($username, $ctx);
+                                $gid = AdminPanel::Users::users::Add2UsersGroup($username, $self->ctx);
                             }
                             else {
                                 $errorString = "";
@@ -333,14 +361,14 @@ sub addUserDialog {
                             }
                         } else { 
                             #it's a new group: Add it
-                            my $newgroup = $ctx->InitGroup($username,$is_system);
+                            my $newgroup = $self->ctx->InitGroup($username,$is_system);
                             log::explanations(N("Creating new group: %s", $username));
-                            $gid = $newgroup->Gid($GetValue);
-                            $ctx->GroupAdd($newgroup);
+                            $gid = $newgroup->Gid($self->USER_GetValue);
+                            $self->ctx->GroupAdd($newgroup);
                         }
                     }
                 } else {
-                    $continue and $gid = AdminPanel::Users::users::Add2UsersGroup($username, $ctx);
+                    $continue and $gid = AdminPanel::Users::users::Add2UsersGroup($username, $self->ctx);
                 }
 
 
@@ -359,8 +387,8 @@ sub addUserDialog {
                     $userEnt->Gid($gid);
                     $userEnt->ShadowMin(-1); $userEnt->ShadowMax(99999);
                     $userEnt->ShadowWarn(-1); $userEnt->ShadowInact(-1);
-                    $ctx->UserAdd($userEnt, $is_system, $dontcreatehomedir);
-                    $ctx->UserSetPass($userEnt, $passwd);
+                    $self->ctx->UserAdd($userEnt, $is_system, $dontcreatehomedir);
+                    $self->ctx->UserSetPass($userEnt, $passwd);
 ###  TODO Migration wizard
 #                     defined $us->{o}{iconval} and
 #                         AdminPanel::Users::users::addKdmIcon($u{username}, $us->{o}{iconval});
@@ -385,27 +413,27 @@ sub addUserDialog {
 
 #=============================================================
 
-=head2 createUserTable
+=head2 _createUserTable
 
 =head3 INPUT
 
-    $parent: parent widget
-
-=head3 OUTPUT
-
-    YTable: new YTable reference
+    $self: this object
 
 =head3 DESCRIPTION
 
 This function create the User table to be added to the replace 
-point of the tab widget.
+point of the tab widget. Note this function is meant for internal 
+use only
 
 =cut
 
 #=============================================================
-sub createUserTable {
-    my $parent = shift;
+sub _createUserTable {
+    my $self = shift;
 
+    $self->dialog->startMultipleChanges();
+    $self->get_widget('replace_pnt')->deleteChildren();
+    my $parent = $self->get_widget('replace_pnt');
     my $factory      = yui::YUI::widgetFactory;
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn(N("User Name"),      $yui::YAlignBegin);
@@ -415,45 +443,153 @@ sub createUserTable {
     $yTableHeader->addColumn(N("Login Shell"),    $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Home Directory"), $yui::YAlignBegin);
     $yTableHeader->DISOWN();
-    return ($factory->createTable($parent, $yTableHeader));
+    
+    $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
+
+    $self->get_widget('table')->DISOWN();
+    $self->get_widget('replace_pnt')->showChild();
+    $self->dialog->recalcLayout();
+    $self->dialog->doneMultipleChanges();
+    $self->_refreshUsersFull();
 }
 
 #=============================================================
 
-=head2 createGroupTable
+=head2 _createGroupTable
 
 =head3 INPUT
 
-    $parent: parent widget
-
-=head3 OUTPUT
-
-    YTable: new YTable reference
+    $self: this object
 
 =head3 DESCRIPTION
 
 This function create the Group table to be added to the replace 
-point of the tab widget.
+point of the tab widget. Note this function is meant for internal 
+use only
+
 
 =cut
 
 #=============================================================
-sub createGroupTable {
-    my $parent = shift;
+sub _createGroupTable {
+    my $self = shift;
 
+
+    $self->dialog->startMultipleChanges();
+    $self->get_widget('replace_pnt')->deleteChildren();
+    my $parent = $self->get_widget('replace_pnt');
     my $factory      = yui::YUI::widgetFactory;
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn(N("Group Name"),     $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Group ID"),       $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Group Members"),  $yui::YAlignBegin);
     $yTableHeader->DISOWN();
-    return ($factory->createTable($parent, $yTableHeader));
+
+    $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
+    
+    $self->get_widget('table')->DISOWN();
+    $self->get_widget('replace_pnt')->showChild();
+    $self->dialog->recalcLayout();
+    $self->dialog->doneMultipleChanges(); 
 }
 
 
+sub _computeLockExpire {
+    my ( $self, $l ) = @_;
+    my $ep = $l->ShadowExpire($self->USER_GetValue);
+    my $tm = ceil(time()/(24*60*60));
+    $ep = -1 if int($tm) <= $ep;
+    my $status = $self->ctx->IsLocked($l) ? N("Locked") : ($ep != -1 ? N("Expired") : '');
+    $status;
+}
 
+
+sub _refreshUsersFull {
+    my $self = shift;
+
+    my $strfilt = $self->get_widget('filter')->value();
+    my $filterusers = $self->get_widget('filter_system')->isChecked();
+    
+    my ($users, $group, $groupnm, $expr); 
+    defined $self->ctx and $users = $self->ctx->UsersEnumerateFull;
+
+    $self->dialog->startMultipleChanges();
+
+    $self->get_widget('table')->deleteAllItems();
+
+    my @UserReal;
+  LOOP: foreach my $l (@$users) {
+        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) <= 499 || $l->Uid($self->USER_GetValue) == 65534;
+        push @UserReal, $l if $l->UserName($self->USER_GetValue) =~ /^\Q$strfilt/;
+    }
+    my $i;
+    my $itemColl = new yui::YItemCollection;
+    foreach my $l (@UserReal) {
+        $i++;
+        my $uid = $l->Uid($self->USER_GetValue);
+        if (!defined $uid) {
+         warn "bogus user at line $i\n";
+         next;
+        }
+        my $a = $l->Gid($self->USER_GetValue);
+        $group = $self->ctx->LookupGroupById($a);
+        $groupnm = '';
+        $expr = $self->_computeLockExpire($l);
+        $group and $groupnm = $group->GroupName($self->USER_GetValue); 
+        my $s = $l->Gecos($self->USER_GetValue);
+        c::set_tagged_utf8($s);
+        my $username = $l->UserName($self->USER_GetValue);
+        my $uid      = $l->Uid($self->USER_GetValue);
+        my $shell    = $l->LoginShell($self->USER_GetValue);
+        my $homedir  = $l->HomeDir($self->USER_GetValue); 
+        my $item = new yui::YTableItem ("$username",
+                                        "$uid",
+                                        "$groupnm",
+                                        "$s",
+                                        "$shell",
+                                        "$homedir",
+                                        "$expr");
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+    $self->get_widget('table')->addItems($itemColl);
+    $self->dialog->recalcLayout();
+    $self->dialog->doneMultipleChanges(); 
+}
+# 
+# sub RefreshGroupsFull {
+#     my ($filtergroups, $strfilt) = @_;
+#     my $groups;
+#     defined $ctx and $groups = $ctx->GroupsEnumerateFull;
+#     $gtree_model->clear;
+#     my @GroupReal;
+#   LOOP: foreach my $g (@$groups) {
+#         next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
+#         push @GroupReal, $g if $g->GroupName($self->USER_GetValue) =~ /^\Q$strfilt/;
+#     }
+#     foreach my $g (@GroupReal) {
+#      my $a = $g->GroupName($self->USER_GetValue);
+#         #my $group = $ctx->LookupGroupById($a);
+#         my $u_b_g = $a && $ctx->EnumerateUsersByGroup($a);
+#         my $listUbyG = join(',', @$u_b_g);
+#         my $group_id = $g->Gid($self->USER_GetValue);
+#         $gtree_model->append_set([ 0 => $g->GroupName($self->USER_GetValue),
+#                                    if_($group_id, 1 => $group_id),
+#                                    if_($listUbyG, 2 => $listUbyG) ]);   
+#     }
+# }
+# 
+# sub Refresh {
+#     my ($filt, $strfilt) = @_;
+#     RefreshUsersFull($filt, $strfilt); 
+#     RefreshGroupsFull($filt, $strfilt);
+#     GrayDelEdit();
+#     RefreshXguest(1);
+# }
+# 
 
 sub manageUsersDialog {
+    my $self = shift;
 
     ## TODO fix for adminpanel
     my $pixdir = '/usr/share/userdrake/pixmaps/';
@@ -465,8 +601,9 @@ sub manageUsersDialog {
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
     
-    my $dlg      = $factory->createMainDialog();
-    my $layout   = $factory->createVBox($dlg);
+
+    $self->dialog($factory->createMainDialog());
+    my $layout    = $factory->createVBox($self->dialog);
 
     my $hbox_headbar = $factory->createHBox($layout);
     my $head_align_left = $factory->createLeft($hbox_headbar);
@@ -516,25 +653,26 @@ sub manageUsersDialog {
 
     my $hbox    = $factory->createHBox($layout);
     $hbox       = $factory->createHBox($factory->createLeft($hbox));
-    my %widgets = (
-           add_user  => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
-           add_group => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
-           edit      => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
-           del       => $factory->createIconButton($hbox, $pixdir . 'user_del.png', N("Delete")),
-           refresh   => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh")),
+    $self->set_widget(
+        add_user  => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
+        add_group => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
+        edit      => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
+        del       => $factory->createIconButton($hbox, $pixdir . 'user_del.png', N("Delete")),
+        refresh   => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh"))
     );
+    
 
     $hbox                   = $factory->createHBox($layout);
     $head_align_left        = $factory->createLeft($hbox);
-    $widgets{filter_system} = $factory->createCheckBox($head_align_left, N("Filter system users"), 1);
+    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, N("Filter system users"), 1));
                               $factory->createHSpacing($hbox, 3);
     $head_align_right       = $factory->createRight($hbox);
     $headRight              = $factory->createHBox($head_align_right);
                               $factory->createLabel($headRight, N("Search:"));
-    $widgets{input}         = $factory->createInputField($headRight, "", 0);
-    $widgets{apply_filter}  = $factory->createPushButton($headRight, N("Apply filter"));
-    $widgets{input}->setWeight($yui::YD_HORIZ, 2);
-    $widgets{apply_filter}->setWeight($yui::YD_HORIZ, 1);
+    $self->set_widget(filter         => $factory->createInputField($headRight, "", 0));
+    $self->set_widget(apply_filter  => $factory->createPushButton($headRight, N("Apply filter")));
+    $self->get_widget('filter')->setWeight($yui::YD_HORIZ, 2);
+    $self->get_widget('apply_filter')->setWeight($yui::YD_HORIZ, 1);
     
     my %tabs;
     if ($optional->hasDumbTab()) {
@@ -550,13 +688,13 @@ sub manageUsersDialog {
         $tabs{groups}->DISOWN();
         my $vbox        = $factory->createVBox($tabs{widget});
         $align          = $factory->createLeft($vbox);
-        $widgets{replace_pnt} =  $factory->createReplacePoint($align);
-        $widgets{table}       = createUserTable($widgets{replace_pnt});
-        $widgets{table}->DISOWN();
+        $self->set_widget(replace_pnt =>  $factory->createReplacePoint($align));
+        $self->_createUserTable();
+        $self->get_widget('table')->DISOWN();
     }
     # main loop
     while(1) {
-        my $event     = $dlg->waitForEvent();
+        my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
         
         #event type checking
@@ -569,33 +707,21 @@ sub manageUsersDialog {
                 last;
             }
             elsif ($tabs{widget} && $item->label() eq  $tabs{groups}->label()) {
-                $dlg->startMultipleChanges();
-                $widgets{replace_pnt}->deleteChildren();
-                $widgets{table}       = createGroupTable($widgets{replace_pnt});
-                $widgets{table}->DISOWN();
-                $widgets{replace_pnt}->showChild();
-                $dlg->recalcLayout();
-                $dlg->doneMultipleChanges();
+                $self->_createGroupTable();
             }
             elsif ($tabs{widget} && $item->label() eq  $tabs{users}->label()) {
-                $dlg->startMultipleChanges();
-                $widgets{replace_pnt}->deleteChildren();
-                $widgets{table}       = createUserTable($widgets{replace_pnt});
-                $widgets{table}->DISOWN();
-                $widgets{replace_pnt}->showChild();
-                $dlg->recalcLayout();
-                $dlg->doneMultipleChanges();
+                $self->_createUserTable();
             }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             my $widget = $event->widget();
-            if ($widget == $widgets{add_user})  {
+            if ($widget == $self->get_widget('add_user'))  {
                 addUserDialog();
             }
         }
     }
 
-    destroy $dlg;
+    $self->dialog->destroy() ;
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);

@@ -16,6 +16,7 @@ my $wm_icon = "/usr/share/icons/userdrake.png";
 yui::YUI::app()->setApplicationTitle(N("Mageia Add Users Tool"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
-AdminPanel::Users::GUsers::addUserDialog();
+my $userMan = AdminPanel::Users::GUsers->new();
+$userMan->addUserDialog();
 
 1;
