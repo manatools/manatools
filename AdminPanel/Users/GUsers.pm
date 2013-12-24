@@ -716,7 +716,7 @@ sub manageUsersDialog {
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             my $widget = $event->widget();
             if ($widget == $self->get_widget('add_user'))  {
-                addUserDialog();
+                $self->addUserDialog();
             }
         }
     }
