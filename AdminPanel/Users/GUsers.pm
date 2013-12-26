@@ -170,6 +170,124 @@ sub ChooseGroup() {
     return $choice;
 }
 
+sub _inArray {
+    my ($self, $item, $arr) = @_;
+    
+    return grep( /^$item$/, @$arr ); 
+}
+
+#=============================================================
+
+=head2 _updateOrDelUsersInGroup
+
+=head3 INPUT
+
+    $name:   username
+
+=head3 DESCRIPTION
+
+    Fixes user deletion into groups.
+
+=cut
+
+#=============================================================
+sub _updateOrDelUserInGroup {
+    my ($self, $name) = @_;
+    my $groups = $self->ctx->GroupsEnumerateFull;
+    foreach my $g (@$groups) {
+        my $members = $g->MemberName(1, 0);
+        if ($self->_inArray($name, $members)) { 
+            eval { $g->MemberName($name, 2) };
+            eval { $self->ctx->GroupModify($g) };
+        }
+    }
+}
+
+sub _deleteUserDialog {
+    my $self = shift;
+
+    my $username = $self->get_widget('table')->selectedItem()->label(); 
+
+    my $userEnt = $self->ctx->LookupUserByName($username);
+    my $homedir = $userEnt->HomeDir($self->USER_GetValue);
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Delete files or not?"));
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $dlg      = $factory->createPopupDialog();
+    my $layout   = $factory->createVBox($dlg);
+
+    my $align    = $factory->createLeft($layout);
+    $factory->createLabel($align, N("Deleting user %s\nAlso perform the following actions\n",
+                                   $username));
+    $align    = $factory->createLeft($layout);
+    my $checkhome  = $factory->createCheckBox($align, N("Delete Home Directory: %s", $homedir, 0));
+    $align    = $factory->createLeft($layout);
+    my $checkspool = $factory->createCheckBox($align, N("Delete Mailbox: /var/spool/mail/%s",
+                                                        $username), 0);
+    $align    = $factory->createRight($layout);
+    my $hbox  = $factory->createHBox($align);
+    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
+    my $deleteButton = $factory->createPushButton($hbox,  N("Delete"));
+    
+    if ($homedir !~ m!(?:/home|/var/spool)!) { 
+        $checkhome->setDisabled(); 
+        $checkspool->setDisabled(); 
+    }
+
+    
+    while(1) {
+        my $event     = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $deleteButton) {
+                log::explanations(N("Removing user: %s", $username));
+                $self->ctx->UserDel($userEnt);
+                $self->_updateOrDelUserInGroup($username);
+                #Let's check out the user's primary group
+                my $usergid = $userEnt->Gid($self->USER_GetValue);
+                my $groupEnt = $self->ctx->LookupGroupById($usergid);
+                if ($groupEnt) {
+                    my $member = $groupEnt->MemberName(1, 0);
+                    if (scalar(@$member) == 0 && $groupEnt->Gid($self->USER_GetValue) > 499) {
+                        $self->ctx->GroupDel($groupEnt);
+                    }
+                }
+                if ($checkhome->isChecked()) { 
+                    eval { $self->ctx->CleanHome($userEnt) };
+                    $@ and AdminPanel::Shared::msgBox($@) and last;
+                }
+                if ($checkspool->isChecked()) {
+                    eval { $self->ctx->CleanSpool($userEnt) };
+                    $@ and AdminPanel::Shared::msgBox($@) and last;
+                }
+                $self->_refresh();
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+    
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+
+}
+
+
 sub addUserDialog {
     my $self = shift;
 
@@ -450,7 +568,7 @@ sub _createUserTable {
     $self->get_widget('replace_pnt')->showChild();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges();
-    $self->_refreshUsersFull();
+    $self->_refreshUsers();
 }
 
 #=============================================================
@@ -491,9 +609,30 @@ sub _createGroupTable {
     $self->get_widget('replace_pnt')->showChild();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
+    $self->_refreshGroups();
 }
 
 
+#=============================================================
+
+=head2 _computeLockExpire
+
+=head3 INPUT
+
+    $l: login user info
+
+=head3 OUTPUT
+
+    $status: Locked, Expired, or empty string
+
+=head3 DESCRIPTION
+
+    This method returns if the login is Locked, Expired or ok.
+    Note this function is meant for internal use only
+
+=cut
+
+#=============================================================
 sub _computeLockExpire {
     my ( $self, $l ) = @_;
     my $ep = $l->ShadowExpire($self->USER_GetValue);
@@ -503,8 +642,23 @@ sub _computeLockExpire {
     $status;
 }
 
+#=============================================================
 
-sub _refreshUsersFull {
+=head2 _refreshUsers
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method refresh user info into User tab widget.
+    Note this function is meant for internal use only
+
+=cut
+
+#=============================================================
+sub _refreshUsers {
     my $self = shift;
 
     my $strfilt = $self->get_widget('filter')->value();
@@ -539,16 +693,19 @@ sub _refreshUsersFull {
         my $s = $l->Gecos($self->USER_GetValue);
         c::set_tagged_utf8($s);
         my $username = $l->UserName($self->USER_GetValue);
-        my $uid      = $l->Uid($self->USER_GetValue);
+        my $Uid      = $l->Uid($self->USER_GetValue);
         my $shell    = $l->LoginShell($self->USER_GetValue);
         my $homedir  = $l->HomeDir($self->USER_GetValue); 
         my $item = new yui::YTableItem ("$username",
-                                        "$uid",
+                                        "$Uid",
                                         "$groupnm",
                                         "$s",
                                         "$shell",
                                         "$homedir",
                                         "$expr");
+        # TODO workaround to get first cell at least until we don't
+        # a cast from YItem
+        $item->setLabel( $username );
         $itemColl->push($item);
         $item->DISOWN();
     }
@@ -556,37 +713,93 @@ sub _refreshUsersFull {
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
 }
-# 
-# sub RefreshGroupsFull {
-#     my ($filtergroups, $strfilt) = @_;
-#     my $groups;
-#     defined $ctx and $groups = $ctx->GroupsEnumerateFull;
-#     $gtree_model->clear;
-#     my @GroupReal;
-#   LOOP: foreach my $g (@$groups) {
-#         next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
-#         push @GroupReal, $g if $g->GroupName($self->USER_GetValue) =~ /^\Q$strfilt/;
-#     }
-#     foreach my $g (@GroupReal) {
-#      my $a = $g->GroupName($self->USER_GetValue);
-#         #my $group = $ctx->LookupGroupById($a);
-#         my $u_b_g = $a && $ctx->EnumerateUsersByGroup($a);
-#         my $listUbyG = join(',', @$u_b_g);
-#         my $group_id = $g->Gid($self->USER_GetValue);
-#         $gtree_model->append_set([ 0 => $g->GroupName($self->USER_GetValue),
-#                                    if_($group_id, 1 => $group_id),
-#                                    if_($listUbyG, 2 => $listUbyG) ]);   
-#     }
-# }
-# 
-# sub Refresh {
-#     my ($filt, $strfilt) = @_;
-#     RefreshUsersFull($filt, $strfilt); 
-#     RefreshGroupsFull($filt, $strfilt);
-#     GrayDelEdit();
+
+#=============================================================
+
+=head2 _refreshGroups
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method refresh group info into Group tab widget.
+    Note this function is meant for internal use only
+
+=cut
+
+#=============================================================
+sub _refreshGroups {
+    my $self = shift;
+
+    my $strfilt = $self->get_widget('filter')->value();
+    my $filtergroups = $self->get_widget('filter_system')->isChecked();
+
+    my $groups;
+    defined $self->ctx and $groups = $self->ctx->GroupsEnumerateFull;
+
+    $self->dialog->startMultipleChanges();
+    $self->get_widget('table')->deleteAllItems();    
+
+    my @GroupReal;
+  LOOP: foreach my $g (@$groups) {
+        next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
+        push @GroupReal, $g if $g->GroupName($self->USER_GetValue) =~ /^\Q$strfilt/;
+    }
+
+    my $itemColl = new yui::YItemCollection;
+    foreach my $g (@GroupReal) {
+     my $a = $g->GroupName($self->USER_GetValue);
+        #my $group = $ctx->LookupGroupById($a);
+        my $u_b_g = $a && $self->ctx->EnumerateUsersByGroup($a);
+        my $listUbyG  = join(',', @$u_b_g);
+        my $group_id  = $g->Gid($self->USER_GetValue);
+        my $groupname = $g->GroupName($self->USER_GetValue);
+        my $item      = new yui::YTableItem ("$groupname",
+                                             "$group_id",
+                                             "$listUbyG");
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+
+    $self->get_widget('table')->addItems($itemColl);
+    $self->dialog->recalcLayout();
+    $self->dialog->doneMultipleChanges(); 
+}
+
+
+sub _deleteUserOrGroup {
+    my $self = shift;
+
+    # TODO item management avoid label if possible
+    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
+    if ($label eq N("Users") ) {
+        $self->_deleteUserDialog();
+        $self->_refresh();
+    }
+    else {
+
+        $self->_refresh();
+    }
+}
+
+
+sub _refresh {
+    my $self = shift;
+
+    # TODO item management avoid label if possible
+    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
+    if ($label eq N("Users") ) {
+        $self->_refreshUsers(); 
+    }
+    else {
+        $self->_refreshGroups();
+    }
+# TODO xguest
 #     RefreshXguest(1);
-# }
-# 
+}
+
 
 sub manageUsersDialog {
     my $self = shift;
@@ -673,20 +886,21 @@ sub manageUsersDialog {
     $self->set_widget(apply_filter  => $factory->createPushButton($headRight, N("Apply filter")));
     $self->get_widget('filter')->setWeight($yui::YD_HORIZ, 2);
     $self->get_widget('apply_filter')->setWeight($yui::YD_HORIZ, 1);
-    
+    $self->get_widget('filter_system')->setNotify(1);
+
     my %tabs;
     if ($optional->hasDumbTab()) {
         $hbox = $factory->createHBox($layout);
         my $align = $factory->createHCenter($hbox);
-        $tabs{widget} = $optional->createDumbTab($align);
+        $self->set_widget(tabs => $optional->createDumbTab($align));
         $tabs{users} = new yui::YItem(N("Users"));
         $tabs{users}->setSelected();
-        $tabs{widget}->addItem( $tabs{users} );
+        $self->get_widget('tabs')->addItem( $tabs{users} );
         $tabs{users}->DISOWN();
         $tabs{groups} = new yui::YItem(N("Groups"));
-        $tabs{widget}->addItem( $tabs{groups} );
+        $self->get_widget('tabs')->addItem( $tabs{groups} );
         $tabs{groups}->DISOWN();
-        my $vbox        = $factory->createVBox($tabs{widget});
+        my $vbox        = $factory->createVBox($self->get_widget('tabs'));
         $align          = $factory->createLeft($vbox);
         $self->set_widget(replace_pnt =>  $factory->createReplacePoint($align));
         $self->_createUserTable();
@@ -702,21 +916,41 @@ sub manageUsersDialog {
             last;
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
+### MENU ###
             my $item = $event->item();
             if ($item->label() eq $fileMenu{ quit }->label())  {
                 last;
             }
-            elsif ($tabs{widget} && $item->label() eq  $tabs{groups}->label()) {
+            elsif ($item->label() eq $actionMenu{ add_user }->label())  {
+                $self->addUserDialog();
+                $self->_refresh();
+            }
+            elsif ($item->label() eq $actionMenu{ del }->label())  {
+                $self->_deleteUserOrGroup();
+            }
+            elsif ($self->get_widget('tabs') && $item->label() eq  $tabs{groups}->label()) {
                 $self->_createGroupTable();
             }
-            elsif ($tabs{widget} && $item->label() eq  $tabs{users}->label()) {
+            elsif ($self->get_widget('tabs') && $item->label() eq  $tabs{users}->label()) {
                 $self->_createUserTable();
+            }
+            elsif ($item->label() eq  $fileMenu{refresh}->label()) {
+                $self->_refresh();
             }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
+### Buttons and widgets ###
             my $widget = $event->widget();
-            if ($widget == $self->get_widget('add_user'))  {
+            if ($widget == $self->get_widget('add_user')) {
                 $self->addUserDialog();
+                $self->_refresh();
+            }
+            elsif ($widget == $self->get_widget('del')) {
+                $self->_deleteUserOrGroup();
+            }elsif ( $widget == $self->get_widget('filter_system') || 
+                    $widget == $self->get_widget('refresh') || 
+                    $widget == $self->get_widget('apply_filter') ) {
+                $self->_refresh();
             }
         }
     }
@@ -725,4 +959,33 @@ sub manageUsersDialog {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
+}
+
+#=============================================================
+
+=head2 _skipShortcut
+
+=head3 INPUT
+
+    $self:  this object
+    $label: an item label to be cleaned by keyboard shortcut "&"
+
+=head3 OUTPUT
+
+    $label: cleaned label 
+
+=head3 DESCRIPTION
+
+    This internal method is a workaround to label that are
+    changed by "&" due to keyborad shortcut.
+
+=cut
+
+#=============================================================
+sub _skipShortcut {
+    my ($self, $label) = @_;
+
+    $label =~ s/&// if ($label);
+
+    return ($label);
 }
