@@ -63,6 +63,18 @@ has 'widgets' => (
     }, 
 );
 
+has 'action_menu' => (
+    traits    => ['Hash'],
+    default   => sub { {} },
+    is        => 'rw',
+    isa       => 'HashRef',
+    handles   => {
+        set_action_menu     => 'set',
+        get_action_menu     => 'get',
+        action_menu_pairs   => 'kv',
+    }, 
+);
+
 ## Used by USER (for getting values? TODO need explanations, where?)
 has 'USER_GetValue' => (
     default   => -65533,
@@ -206,7 +218,11 @@ sub _updateOrDelUserInGroup {
 sub _deleteUserDialog {
     my $self = shift;
 
-    my $username = $self->get_widget('table')->selectedItem()->label(); 
+    my $item = $self->get_widget('table')->selectedItem();
+    if (! $item) {
+       return;
+    } 
+    my $username = $item->label(); 
 
     my $userEnt = $self->ctx->LookupUserByName($username);
     my $homedir = $userEnt->HomeDir($self->USER_GetValue);
@@ -564,6 +580,7 @@ sub _createUserTable {
     
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
 
+    $self->get_widget('table')->setImmediateMode(1);
     $self->get_widget('table')->DISOWN();
     $self->get_widget('replace_pnt')->showChild();
     $self->dialog->recalcLayout();
@@ -604,7 +621,8 @@ sub _createGroupTable {
     $yTableHeader->DISOWN();
 
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
-    
+   
+    $self->get_widget('table')->setImmediateMode(1);
     $self->get_widget('table')->DISOWN();
     $self->get_widget('replace_pnt')->showChild();
     $self->dialog->recalcLayout();
@@ -710,6 +728,9 @@ sub _refreshUsers {
         $item->DISOWN();
     }
     $self->get_widget('table')->addItems($itemColl);
+    my $item = $self->get_widget('table')->selectedItem();
+    $self->get_widget('table')->selectItem($item, 0);
+    $self->_refreshActions();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
 }
@@ -764,6 +785,9 @@ sub _refreshGroups {
     }
 
     $self->get_widget('table')->addItems($itemColl);
+    my $item = $self->get_widget('table')->selectedItem();
+    $self->get_widget('table')->selectItem($item, 0);
+    $self->_refreshActions();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
 }
@@ -800,6 +824,56 @@ sub _refresh {
 #     RefreshXguest(1);
 }
 
+sub _refreshActions {
+    my $self = shift;
+    
+    my $item = $self->get_widget('table')->selectedItem();
+    $self->dialog->startMultipleChanges();
+    $self->get_widget('action_menu')->deleteAllItems();
+    
+    # do we need to undef them first?
+    $self->set_action_menu(
+            add_user  => undef, 
+            add_group => undef,
+            edit      => undef,
+            del       => undef,
+            inst      => undef,
+    );
+    $self->set_action_menu(
+            add_user  => new yui::YMenuItem(N("Add User")), 
+            add_group => new yui::YMenuItem(N("Add Group")),
+            edit      => new yui::YMenuItem(N("Edit")),
+            del       => new yui::YMenuItem(N("Delete")),
+            inst      => new yui::YMenuItem(N("Install guest account")),
+    );
+
+    my $itemColl = new yui::YItemCollection;
+    for my $pair ( $self->action_menu_pairs ) {
+        my $menuItem = $pair->[1];
+        if ($pair->[0] eq 'edit' || $pair->[0] eq 'del') {
+            if ($item) {
+                $itemColl->push($menuItem);
+            }
+        }
+        else {
+            $itemColl->push($menuItem);           
+        }
+        $menuItem->DISOWN();
+    }
+    $self->get_widget('action_menu')->addItems($itemColl);
+    $self->get_widget('action_menu')->rebuildMenuTree();
+    if ($item) {
+        $self->get_widget('edit')->setEnabled();
+        $self->get_widget('del')->setEnabled();
+    }
+    else {
+        $self->get_widget('edit')->setDisabled();
+        $self->get_widget('del')->setDisabled();
+    }
+
+    $self->dialog->doneMultipleChanges();
+}
+
 
 sub manageUsersDialog {
     my $self = shift;
@@ -834,22 +908,9 @@ sub manageUsersDialog {
     $fileMenu{ widget }->addItem($fileMenu{ quit });
     $fileMenu{ widget }->rebuildMenuTree();
    
-    my %actionMenu = (
-            widget    => $factory->createMenuButton($headbar, N("Actions")),
-            add_user  => new yui::YMenuItem(N("Add User")), 
-            add_group => new yui::YMenuItem(N("Add Group")),
-            edit      => new yui::YMenuItem(N("Edit")),
-            del       => new yui::YMenuItem(N("Delete")),
-            inst      => new yui::YMenuItem(N("Install guest account")),
-    );
-
-    while ( my ($key, $value) = each(%actionMenu) ) {
-        if ($key ne 'widget' ) {
-            $actionMenu{ widget }->addItem($value);
-        }
-    }
-    $actionMenu{ widget }->rebuildMenuTree();
-
+    my $actionMenu = $factory->createMenuButton($headbar, N("Actions"));
+    $actionMenu->DISOWN();
+    
     my %helpMenu = (
             widget     => $factory->createMenuButton($headRight, N("Help")),
             help       => new yui::YMenuItem(N("Help")), 
@@ -867,11 +928,12 @@ sub manageUsersDialog {
     my $hbox    = $factory->createHBox($layout);
     $hbox       = $factory->createHBox($factory->createLeft($hbox));
     $self->set_widget(
-        add_user  => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
-        add_group => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
-        edit      => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
-        del       => $factory->createIconButton($hbox, $pixdir . 'user_del.png', N("Delete")),
-        refresh   => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh"))
+        add_user    => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
+        add_group   => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
+        edit        => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
+        del         => $factory->createIconButton($hbox, $pixdir . 'user_del.png', N("Delete")),
+        refresh     => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh")),
+        action_menu => $actionMenu,
     );
     
 
@@ -904,8 +966,12 @@ sub manageUsersDialog {
         $align          = $factory->createLeft($vbox);
         $self->set_widget(replace_pnt =>  $factory->createReplacePoint($align));
         $self->_createUserTable();
+        $self->get_widget('table')->setImmediateMode(1);
         $self->get_widget('table')->DISOWN();
     }
+    
+    $self->_refreshActions();
+    
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
@@ -921,11 +987,11 @@ sub manageUsersDialog {
             if ($item->label() eq $fileMenu{ quit }->label())  {
                 last;
             }
-            elsif ($item->label() eq $actionMenu{ add_user }->label())  {
+            elsif ($item->label() eq $self->get_action_menu('add_user')->label())  {
                 $self->addUserDialog();
                 $self->_refresh();
             }
-            elsif ($item->label() eq $actionMenu{ del }->label())  {
+            elsif ($item->label() eq $self->get_action_menu('del')->label())  {
                 $self->_deleteUserOrGroup();
             }
             elsif ($self->get_widget('tabs') && $item->label() eq  $tabs{groups}->label()) {
@@ -947,7 +1013,11 @@ sub manageUsersDialog {
             }
             elsif ($widget == $self->get_widget('del')) {
                 $self->_deleteUserOrGroup();
-            }elsif ( $widget == $self->get_widget('filter_system') || 
+            }
+            elsif ($widget == $self->get_widget('table')) {
+                $self->_refreshActions();
+            }
+            elsif ( $widget == $self->get_widget('filter_system') || 
                     $widget == $self->get_widget('refresh') || 
                     $widget == $self->get_widget('apply_filter') ) {
                 $self->_refresh();
