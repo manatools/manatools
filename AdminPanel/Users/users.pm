@@ -44,13 +44,13 @@ sub addKdmIcon {
 
 
 sub valid {
-    return (0, "Name field is empty please provide a name") if (!$_[0] );
+    return (0, N("Name field is empty please provide a name")) if (!$_[0] );
 
     $_[0] =~ /^[a-z]+?[a-z0-9_\-\.]*?$/ or do {
-        return (0, "The name must contain only lower cased latin letters, numbers, `.', `-' and `_'");
+        return (0, N("The name must contain only lower cased latin letters, numbers, `.', `-' and `_'"));
     };
-    return (0, "Name is too long") if (! (length($_[0]) <= $_[1]));
-    return (1, "Ok");
+    return (0, N("Name is too long")) if (! (length($_[0]) <= $_[1]));
+    return (1, N("Ok"));
 }
 
 sub valid_username {

@@ -304,6 +304,116 @@ sub _deleteUserDialog {
 }
 
 
+sub _addGroupDialog {
+    my $self = shift;
+
+    my $is_system = 0;
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Create New Group"));
+    my $factory  = yui::YUI::widgetFactory;
+    my $optional = yui::YUI::optionalWidgetFactory;
+
+    my $dlg      = $factory->createPopupDialog();
+    my $layout   = $factory->createVBox($dlg);
+
+    ## 'group name'
+    my $align        = $factory->createRight($layout);
+    my $hbox            = $factory->createHBox($align);
+    my $label        = $factory->createLabel($hbox, N("Group Name:") );
+    my $groupName    = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $groupName->setWeight($yui::YD_HORIZ, 2);
+
+    $factory->createVSpacing($layout, 1);
+
+    # Specify group id manually
+    $align           = $factory->createLeft($layout);
+    $hbox            = $factory->createHBox($align);
+    my $gidManually  = $factory->createCheckBox($hbox, N("Specify group ID manually"), 0);
+    $factory->createHSpacing($hbox, 2);
+    my $GID = $factory->createIntField($hbox, N("GID"), 1, 65000, 500);
+    $GID->setEnabled($gidManually->value());
+    $gidManually->setNotify(1);
+
+    $hbox            = $factory->createHBox($layout);
+    $align           = $factory->createRight($hbox);
+    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+    while(1) {
+        my $event     = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $gidManually) {
+                # GID inserction enabled?
+                $GID->setEnabled($gidManually->value());
+            }
+            elsif ($widget == $okButton) {
+                ## check data
+                my $groupname = $groupName->value();
+                my ($continue, $errorString) = valid_groupname($groupname);
+                my $nm = $continue && $self->ctx->LookupGroupByName($groupname);
+                if ($nm) {
+                    $groupName->setValue("");
+                    $errorString = N("Group already exists, please choose another Group Name");
+                    $continue = 0;
+                }
+                my $groupEnt = $self->ctx->InitGroup($groupname, $is_system);
+        
+                my $gid = 0;
+                if ($continue && $gidManually->value()) {
+                    if (($gid = $GID->value()) < 500) {
+                        $errorString = "";
+                        my $gidchoice = AdminPanel::Shared::ask_YesOrNo(N(" Group Gid is < 500"),
+                                        N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n"));
+                        $continue = $gidchoice and $groupEnt->Gid($gid);
+                    } else { 
+                        my $g = $self->ctx->LookupGroupById($gid);
+                        if ($g) {
+                            $errorString = "";
+                            my $gidchoice = AdminPanel::Shared::ask_YesOrNo(N(" Group ID is already used "),
+                                        N("Creating a group with a non unique GID?\n\n"));
+                            $continue = $gidchoice and $groupEnt->Gid($gid);
+                        }
+                        else {
+                            $groupEnt and $groupEnt->Gid($gid);
+                        }
+                    }
+                }
+
+
+                if (!$continue) {
+                    #---rasie error
+                    AdminPanel::Shared::msgBox($errorString) if ($errorString);
+                }
+                else {
+                    log::explanations(N("Adding group: %s ", $groupname));
+                    $self->ctx->GroupAdd($groupEnt);
+                    $self->_refresh();
+                    last;
+                }
+            }
+        }
+    }
+    destroy $dlg;
+    
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+}
+
+
 sub addUserDialog {
     my $self = shift;
 
@@ -729,7 +839,7 @@ sub _refreshUsers {
     }
     $self->get_widget('table')->addItems($itemColl);
     my $item = $self->get_widget('table')->selectedItem();
-    $self->get_widget('table')->selectItem($item, 0);
+    $self->get_widget('table')->selectItem($item, 0) if $item;
     $self->_refreshActions();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
@@ -786,7 +896,7 @@ sub _refreshGroups {
 
     $self->get_widget('table')->addItems($itemColl);
     my $item = $self->get_widget('table')->selectedItem();
-    $self->get_widget('table')->selectItem($item, 0);
+    $self->get_widget('table')->selectItem($item, 0) if $item;
     $self->_refreshActions();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
@@ -842,8 +952,8 @@ sub _refreshActions {
     $self->set_action_menu(
             add_user  => new yui::YMenuItem(N("Add User")), 
             add_group => new yui::YMenuItem(N("Add Group")),
-            edit      => new yui::YMenuItem(N("Edit")),
-            del       => new yui::YMenuItem(N("Delete")),
+            edit      => new yui::YMenuItem(N("&Edit")),
+            del       => new yui::YMenuItem(N("&Delete")),
             inst      => new yui::YMenuItem(N("Install guest account")),
     );
 
@@ -901,7 +1011,7 @@ sub manageUsersDialog {
     my %fileMenu = (
             widget  => $factory->createMenuButton($headbar,N("File")),
             refresh => new yui::YMenuItem(N("Refresh")), 
-            quit    => new yui::YMenuItem(N("Quit")),
+            quit    => new yui::YMenuItem(N("&Quit")),
     );
 
     $fileMenu{ widget }->addItem($fileMenu{ refresh });
@@ -991,6 +1101,10 @@ sub manageUsersDialog {
                 $self->addUserDialog();
                 $self->_refresh();
             }
+            elsif ($item->label() eq $self->get_action_menu('add_group')->label()) {
+                $self->_addGroupDialog();
+                $self->_refresh();
+            }
             elsif ($item->label() eq $self->get_action_menu('del')->label())  {
                 $self->_deleteUserOrGroup();
             }
@@ -1016,6 +1130,10 @@ sub manageUsersDialog {
             }
             elsif ($widget == $self->get_widget('table')) {
                 $self->_refreshActions();
+            }
+            elsif ($widget == $self->get_widget('add_group')) {
+                $self->_addGroupDialog();
+                $self->_refresh();
             }
             elsif ( $widget == $self->get_widget('filter_system') || 
                     $widget == $self->get_widget('refresh') || 
