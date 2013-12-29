@@ -215,6 +215,108 @@ sub _updateOrDelUserInGroup {
     }
 }
 
+#=============================================================
+
+=head2 _deleteGroupDialog
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method open a dialog to delete the selected group.
+
+=cut
+
+#=============================================================
+sub _deleteGroupDialog {
+    my $self = shift;
+
+    my $item = $self->get_widget('table')->selectedItem();
+    if (! $item) {
+       return;
+    }
+
+    my $groupname = $item->label(); 
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Warning"));
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $dlg      = $factory->createPopupDialog();
+    my $layout   = $factory->createVBox($dlg);
+
+    my $align    = $factory->createLeft($layout);
+
+    $factory->createLabel($align, N("Do you really want to delete the group %s?", 
+                                    $groupname));
+
+    $align    = $factory->createRight($layout);
+    my $hbox  = $factory->createHBox($align);
+    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
+    my $deleteButton = $factory->createPushButton($hbox,  N("Delete"));
+
+    while(1) {
+        my $event     = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $deleteButton) {
+                my $groupEnt = $self->ctx->LookupGroupByName($groupname);
+                my $members  = $self->ctx->EnumerateUsersByGroup($groupname);
+                my $continue = 1;
+                GLOOP: foreach my $username (@$members) {
+                    my $userEnt = $self->ctx->LookupUserByName($username);
+                    if ($userEnt && $userEnt->Gid($self->USER_GetValue) == $groupEnt->Gid($self->USER_GetValue)) {
+                        AdminPanel::Shared::msgBox(N("%s is a primary group for user %s\n Remove the user first", 
+                                                     $groupname, $username));
+                        $continue = 0;
+                        last GLOOP;
+                    }
+                }
+                if ($continue) { 
+                    log::explanations(N("Removing group: %s", $groupname));
+                    eval { $self->ctx->GroupDel($groupEnt) }; 
+                    $self->_refresh();
+                }
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+    
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+}
+
+#=============================================================
+
+=head2 _deleteUserDialog
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method open a dialog to delete the selected user.
+    It also asks for additional information to be removed.
+
+=cut
+
+#=============================================================
 sub _deleteUserDialog {
     my $self = shift;
 
@@ -395,7 +497,7 @@ sub _addGroupDialog {
 
 
                 if (!$continue) {
-                    #---rasie error
+                    #--- raise error
                     AdminPanel::Shared::msgBox($errorString) if ($errorString);
                 }
                 else {
@@ -796,7 +898,9 @@ sub _refreshUsers {
     defined $self->ctx and $users = $self->ctx->UsersEnumerateFull;
 
     $self->dialog->startMultipleChanges();
-
+    #for some reasons QT send an event using table->selectItem()
+    # WA remove notification immediate
+    $self->get_widget('table')->setImmediateMode(0);
     $self->get_widget('table')->deleteAllItems();
 
     my @UserReal;
@@ -840,9 +944,10 @@ sub _refreshUsers {
     $self->get_widget('table')->addItems($itemColl);
     my $item = $self->get_widget('table')->selectedItem();
     $self->get_widget('table')->selectItem($item, 0) if $item;
-    $self->_refreshActions();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
+    $self->_refreshActions();
+    $self->get_widget('table')->setImmediateMode(1);
 }
 
 #=============================================================
@@ -871,8 +976,10 @@ sub _refreshGroups {
     defined $self->ctx and $groups = $self->ctx->GroupsEnumerateFull;
 
     $self->dialog->startMultipleChanges();
+    #for some reasons QT send an event using table->selectItem()
+    # WA remove notification immediate
+    $self->get_widget('table')->setImmediateMode(0);
     $self->get_widget('table')->deleteAllItems();    
-
     my @GroupReal;
   LOOP: foreach my $g (@$groups) {
         next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
@@ -890,6 +997,7 @@ sub _refreshGroups {
         my $item      = new yui::YTableItem ("$groupname",
                                              "$group_id",
                                              "$listUbyG");
+        $item->setLabel( $groupname );
         $itemColl->push($item);
         $item->DISOWN();
     }
@@ -897,9 +1005,10 @@ sub _refreshGroups {
     $self->get_widget('table')->addItems($itemColl);
     my $item = $self->get_widget('table')->selectedItem();
     $self->get_widget('table')->selectItem($item, 0) if $item;
-    $self->_refreshActions();
     $self->dialog->recalcLayout();
     $self->dialog->doneMultipleChanges(); 
+    $self->_refreshActions();
+    $self->get_widget('table')->setImmediateMode(1);
 }
 
 
@@ -913,7 +1022,7 @@ sub _deleteUserOrGroup {
         $self->_refresh();
     }
     else {
-
+        $self->_deleteGroupDialog();
         $self->_refresh();
     }
 }
