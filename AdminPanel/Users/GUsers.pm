@@ -96,7 +96,7 @@ Version 1.0.0
 
 our $VERSION = '1.0.0';
 
-
+# TODO move to Shared?
 sub labeledFrameBox {
     my ($parent, $label) = @_;
 
@@ -110,18 +110,30 @@ sub labeledFrameBox {
   return $frame;
 }
 
-######################################
-##
-## ChooseGroup
-##
-## creates a popup dialog to ask if
-##  adding user to existing group or
-##  to 'users' group.
-##
-## returns 0 or 1 (choice done)
-##         -1 cancel, or exit
-## 
-sub ChooseGroup() {
+#=============================================================
+
+=head2 ChooseGroup
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    $choice: 0 or 1 (choice)
+            -1 cancel or exit
+
+=head3 DESCRIPTION
+
+creates a popup dialog to ask if adding user to an existing 
+group or to the 'users' group
+
+=cut
+
+#=============================================================
+sub ChooseGroup {
+    my $self = shift;
+
     my $choice = -1;
 
     ## push application title
@@ -180,12 +192,6 @@ sub ChooseGroup() {
     yui::YUI::app()->setApplicationTitle($appTitle);
 
     return $choice;
-}
-
-sub _inArray {
-    my ($self, $item, $arr) = @_;
-    
-    return grep( /^$item$/, @$arr ); 
 }
 
 #=============================================================
@@ -423,7 +429,7 @@ sub _addGroupDialog {
 
     ## 'group name'
     my $align        = $factory->createRight($layout);
-    my $hbox            = $factory->createHBox($align);
+    my $hbox         = $factory->createHBox($align);
     my $label        = $factory->createLabel($hbox, N("Group Name:") );
     my $groupName    = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -516,11 +522,117 @@ sub _addGroupDialog {
 }
 
 
+#=============================================================
+
+=head2 _buildUserData
+
+=head3 INPUT
+
+    $self:    this object
+    $layout : layout in wich drawing graphic user data
+ 
+=head3 OUTPUT
+
+    %userData: hash containing reference to graphical object 
+               such as:
+               full_name, login_name, password, password1,
+               login_shell
+
+=head3 DESCRIPTION
+
+    This method is used by addUserDialog and _editUserDialog
+    to create User Data dialog
+=cut
+
+#=============================================================
+sub _buildUserData {
+    my ($self, $layout) = @_;
+
+
+    my @shells = @{$self->ctx->GetUserShells};
+
+    my $factory  = yui::YUI::widgetFactory;
+
+    ## user 'full name'
+    my $align        = $factory->createRight($layout);
+    my $hbox         = $factory->createHBox($align);
+    my $label        = $factory->createLabel($hbox, N("Full Name:") );
+    my $fullName     = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $fullName->setWeight($yui::YD_HORIZ, 2);
+
+    ## user 'login name'
+    $align           = $factory->createRight($layout);
+    $hbox            = $factory->createHBox($align);
+    $label           = $factory->createLabel($hbox, N("Login:") );
+    my $loginName    = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $loginName->setWeight($yui::YD_HORIZ, 2);
+    $loginName->setNotify(1);
+
+    ## user 'Password'
+    $align           = $factory->createRight($layout);
+    $hbox            = $factory->createHBox($align);
+    $label           = $factory->createLabel($hbox, N("Password:") );
+    my $password     = $factory->createInputField($hbox, "", 1);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $password->setWeight($yui::YD_HORIZ, 2);
+    
+    ## user 'confirm Password'
+    $align           = $factory->createRight($layout);
+    $hbox            = $factory->createHBox($align);
+    $label           = $factory->createLabel($hbox, N("Confirm Password:") );
+    my $password1    = $factory->createInputField($hbox, "", 1);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $password1->setWeight($yui::YD_HORIZ, 2);
+    
+    ## user 'Login Shell'
+    $align           = $factory->createRight($layout);
+    $hbox            = $factory->createHBox($align);
+    $label           = $factory->createLabel($hbox, N("Login Shell:") );
+    my $loginShell   = $factory->createComboBox($hbox, "", 0);
+    my $itemColl = new yui::YItemCollection;
+    foreach my $shell (@shells) {
+            my $item = new yui::YItem ($shell, 0);
+            $itemColl->push($item);
+            $item->DISOWN();
+    }
+    $loginShell->addItems($itemColl);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $loginShell->setWeight($yui::YD_HORIZ, 2);
+    
+    my %userData = (
+        full_name   => $fullName,
+        login_name  => $loginName,
+        password    => $password,
+        password1   => $password1,
+        login_shell => $loginShell,
+    );
+    
+    return ( %userData );
+}
+
+#=============================================================
+
+=head2 addUserDialog
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method creates and manages the dialog to add a new
+    user.
+
+=cut
+
+#=============================================================
 sub addUserDialog {
     my $self = shift;
 
-    my $dontcreatehomedir = 0; my $is_system = 0;
-    my @shells = @{$self->ctx->GetUserShells};
+    my $dontcreatehomedir = 0; 
+    my $is_system = 0;
 
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
@@ -532,76 +644,36 @@ sub addUserDialog {
 
     my $dlg      = $factory->createPopupDialog();
     my $layout   = $factory->createVBox($dlg);
-
-    ## user 'full name'
-    my $hbox         = $factory->createHBox($layout);
-    my $align        = $factory->createLeft($hbox);
-    $factory->createLabel($align, N("Full Name:") );
-    $align           = $factory->createRight($hbox);
-    my $fullName     = $factory->createInputField($align, "", 0);
-
-    ## user 'login name'
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    $factory->createLabel($align, N("Login:") );
-    $align           = $factory->createRight($hbox);
-    my $loginName    = $factory->createInputField($align, "", 0);
-    $loginName->setNotify(1);
-
-    ## user 'Password'
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    $factory->createLabel($align, N("Password:") );
-    $align           = $factory->createRight($hbox);
-    my $password     = $factory->createInputField($align, "", 1);
-
-    ## user 'confirm Password'
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    $factory->createLabel($align, N("Confirm Password:") );
-    $align           = $factory->createRight($hbox);
-    my $password1    = $factory->createInputField($align, "", 1);
-
-    ## user 'Login Shell'
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    $factory->createLabel($align, N("Login Shell:") );
-    $align           = $factory->createRight($hbox);
-    my $loginShell   = $factory->createComboBox($align, "", 0);
-    my $itemColl = new yui::YItemCollection;
-    foreach my $shell (@shells) {
-            my $item = new yui::YItem ($shell, 0);
-            $itemColl->push($item);
-            $item->DISOWN();
-    }
-    $loginShell->addItems($itemColl);
-
+    
+    my %userData = $self->_buildUserData($layout);
+    
     ##### add a separator
     ## Create Home directory
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    my $createHome = $factory->createCheckBox($align, N("Create Home Directory"), 1);
+    my $align           = $factory->createLeft($layout);
+    my $hbox            = $factory->createHBox($align);
+    my $createHome = $factory->createCheckBox($hbox, N("Create Home Directory"), 1);
     ## Home directory
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    $factory->createLabel($align, N("Home Directory:") );
-    $align           = $factory->createRight($hbox);
-    my $homeDir      = $factory->createInputField($align, "", 0);
-    
+    $align           = $factory->createLeft($layout);
+    $hbox            = $factory->createHBox($align);
+    my $label        = $factory->createLabel($hbox, N("Home Directory:") );
+    my $homeDir      = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $homeDir->setWeight($yui::YD_HORIZ, 2);
+
     # Create private group
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    my $createGroup = $factory->createCheckBox($align, N("Create a private group for the user"), 1);
+    $align           = $factory->createLeft($layout);
+    $hbox            = $factory->createHBox($align);
+    my $createGroup  = $factory->createCheckBox($hbox, N("Create a private group for the user"), 1);
     
     # Specify user id manually
-    $hbox            = $factory->createHBox($layout);
-    $align           = $factory->createLeft($hbox);
-    my $uidManually  = $factory->createCheckBox($align, N("Specify user ID manually"), 0);
-    $align           = $factory->createRight($hbox);
-   
-    my $UID = $factory->createIntField($align, N("UID"), 1, 65000, 500);
+    $align           = $factory->createRight($layout);
+    $hbox            = $factory->createHBox($align);
+    my $uidManually  = $factory->createCheckBox($hbox, N("Specify user ID manually"), 0);
+    my $UID = $factory->createIntField($hbox, N("UID"), 1, 65000, 500);
     $UID->setEnabled($uidManually->value());
     $uidManually->setNotify(1);
+    $uidManually->setWeight($yui::YD_HORIZ, 2);
+    $UID->setWeight($yui::YD_HORIZ, 1);
 
     ## user 'icon'
     $hbox        = $factory->createHBox($layout);
@@ -630,8 +702,8 @@ sub addUserDialog {
                 last;
             }
             elsif ($widget == $icon) {
-                my $iconLabel = $icon->label();
-                $iconLabel =~ s/&//; #remove shortcut from label
+                #remove shortcut from label
+                my $iconLabel = $self->_skipShortcut($icon->label());
 
                 my $nextIcon = GetFaceIcon($icon->label(), 1);
                 $icon->setLabel($nextIcon);
@@ -641,23 +713,23 @@ sub addUserDialog {
                 # UID inserction enabled?
                 $UID->setEnabled($uidManually->value());
             }
-            elsif ($widget == $loginName) {
-                my $username = $loginName->value();
+            elsif ($widget == $userData{ login_name }) {
+                my $username = $userData{ login_name }->value();
                 $homeDir->setValue("/home/$username");
             }
             elsif ($widget == $okButton) {
                 ## check data
-                my $username = $loginName->value();
+                my $username = $userData{ login_name }->value();
                 my ($continue, $errorString) = valid_username($username);
                 my $nm = $continue && $self->ctx->LookupUserByName($username);
                 if ($nm) {
-                    $loginName->setValue("");
+                    $userData{ login_name }->setValue("");
                     $homeDir->setValue("");
                     $errorString = N("User already exists, please choose another User Name");
                     $continue = 0;
                 }
-                my $passwd = $continue && $password->value();
-                if ($continue && $passwd ne $password1->value()) {
+                my $passwd = $continue && $userData{ password }->value();
+                if ($continue && $passwd ne $userData{ password1 }->value()) {
                     $errorString = N("Password Mismatch");
                     $continue = 0;
                 }
@@ -691,7 +763,7 @@ sub addUserDialog {
                         #Check if group exist
                         my $gr = $self->ctx->LookupGroupByName($username);
                         if ($gr) { 
-                            my $groupchoice = ChooseGroup();
+                            my $groupchoice = $self->ChooseGroup();
                             if ($groupchoice == 0 ) {
                                 #You choose to put it in the existing group
                                 $gid = $gr->Gid($self->USER_GetValue);
@@ -717,8 +789,6 @@ sub addUserDialog {
                     $continue and $gid = AdminPanel::Users::users::Add2UsersGroup($username, $self->ctx);
                 }
 
-
-
                 if (!$continue) {
                     #---rasie error
                     AdminPanel::Shared::msgBox($errorString) if ($errorString);
@@ -727,8 +797,8 @@ sub addUserDialog {
                     ## OK let's create the user
                     print N("Adding user: ") . $username . " \n";
                     log::explanations(N("Adding user: %s"), $username);
-                    my $loginshell = $loginShell->value();
-                    my $fullname   = $fullName->value();
+                    my $loginshell = $userData{ login_shell }->value();
+                    my $fullname   = $userData{ full_name }->value();
                     $userEnt->Gecos($fullname);  $userEnt->LoginShell($loginshell);
                     $userEnt->Gid($gid);
                     $userEnt->ShadowMin(-1); $userEnt->ShadowMax(99999);
@@ -1012,6 +1082,111 @@ sub _refreshGroups {
 }
 
 
+sub _editUserDialog {
+    my $self = shift;
+
+    my $dontcreatehomedir = 0; 
+    my $is_system = 0;
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Edit Users"));
+    
+    my $factory  = yui::YUI::widgetFactory;
+    my $optional = yui::YUI::optionalWidgetFactory;
+
+    my $dlg      = $factory->createPopupDialog();
+    my $layout   = $factory->createVBox($dlg);
+    
+    my %tabs;
+    if ($optional->hasDumbTab()) {
+        my $hbox = $factory->createHBox($layout);
+        my $align = $factory->createHCenter($hbox);
+        $tabs{widget} = $optional->createDumbTab($align);
+
+        $tabs{user_data} = new yui::YItem(N("User Data"));
+        $tabs{user_data}->setSelected();
+        $tabs{widget}->addItem( $tabs{user_data} );
+        $tabs{user_data}->DISOWN();
+
+        $tabs{account_info} = new yui::YItem(N("Account Info"));
+        $tabs{widget}->addItem( $tabs{account_info} );
+        $tabs{account_info}->DISOWN();
+
+        $tabs{password_info} = new yui::YItem(N("Password Info"));
+        $tabs{widget}->addItem( $tabs{password_info} );
+        $tabs{password_info}->DISOWN();
+
+        $tabs{groups} = new yui::YItem(N("Groups"));
+        $tabs{widget}->addItem( $tabs{groups} );
+        $tabs{groups}->DISOWN();
+
+        my $vbox           = $factory->createVBox($tabs{widget});
+        $align             = $factory->createLeft($vbox);
+        $tabs{replace_pnt} =  $factory->createReplacePoint($align);
+        
+        $hbox            = $factory->createHBox($vbox);
+        $align           = $factory->createRight($hbox);
+        my $cancelButton = $factory->createPushButton($align, N("Cancel"));
+        my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+
+#     my %userData = $self->_buildUserData($layout);
+        while(1) {
+            my $event     = $dlg->waitForEvent();
+            my $eventType = $event->eventType();
+            
+            #event type checking
+            if ($eventType == $yui::YEvent::CancelEvent) {
+                last;
+            }
+            elsif ($eventType == $yui::YEvent::MenuEvent) {
+                ### MENU ###
+                my $item = $event->item();
+                if ($item->label() eq $tabs{user_data}->label()) {
+                }
+            }
+            elsif ($eventType == $yui::YEvent::WidgetEvent) {
+                ### widget 
+                my $widget = $event->widget();
+                if ($widget == $cancelButton) {
+                    last;
+                }
+            }
+        }
+
+    }
+    else {
+        AdminPanel::Shared::warningMsgBox(N("Cannot create tab widgets"));
+    }
+
+    destroy $dlg;
+    
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+
+}
+
+sub _editGroupDialog {
+    my $self = shift;
+
+}
+
+sub _editUserOrGroup {
+    my $self = shift;
+
+    # TODO item management avoid label if possible
+    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
+    if ($label eq N("Users") ) {
+        $self->_editUserDialog(); 
+    }
+    else {
+        $self->_editGroupDialog();
+    }
+    $self->_refresh();
+}
+
+
 sub _deleteUserOrGroup {
     my $self = shift;
 
@@ -1041,6 +1216,15 @@ sub _refresh {
     }
 # TODO xguest
 #     RefreshXguest(1);
+}
+
+# TODO context menu creation is missed in libyui 
+sub _contextMenuActions {
+    my $self = shift;
+
+    my $item = $self->get_widget('table')->selectedItem();
+    if ($item) {
+    }
 }
 
 sub _refreshActions {
@@ -1217,6 +1401,9 @@ sub manageUsersDialog {
             elsif ($item->label() eq $self->get_action_menu('del')->label())  {
                 $self->_deleteUserOrGroup();
             }
+            elsif ($item->label() eq $self->get_action_menu('edit')->label())  {
+                $self->_editUserOrGroup();
+            }
             elsif ($self->get_widget('tabs') && $item->label() eq  $tabs{groups}->label()) {
                 $self->_createGroupTable();
             }
@@ -1243,6 +1430,9 @@ sub manageUsersDialog {
             elsif ($widget == $self->get_widget('add_group')) {
                 $self->_addGroupDialog();
                 $self->_refresh();
+            }
+            elsif ($widget == $self->get_widget('edit')) {
+                $self->_editUserOrGroup();                
             }
             elsif ( $widget == $self->get_widget('filter_system') || 
                     $widget == $self->get_widget('refresh') || 
@@ -1285,4 +1475,31 @@ sub _skipShortcut {
     $label =~ s/&// if ($label);
 
     return ($label);
+}
+
+#=============================================================
+
+=head2 _inArray
+
+=head3 INPUT
+
+    $self: this object
+    $item: item to search
+    $arr:  array container
+
+=head3 OUTPUT
+
+    true: if the array contains the item
+
+=head3 DESCRIPTION
+
+This method returns if an item is into the array container
+
+=cut
+
+#=============================================================
+sub _inArray {
+    my ($self, $item, $arr) = @_;
+    
+    return grep( /^$item$/, @$arr ); 
 }
