@@ -33,6 +33,7 @@ use strict;
 # instead
 use Moose;
 use POSIX qw(ceil);
+# use Time::localtime;
 use common qw(N);
 use security::level;
 use run_program;
@@ -546,7 +547,7 @@ sub _addGroupDialog {
 
 #=============================================================
 sub _buildUserData {
-    my ($self, $layout) = @_;
+    my ($self, $layout, $selected_shell) = @_;
 
 
     my @shells = @{$self->ctx->GetUserShells};
@@ -594,6 +595,7 @@ sub _buildUserData {
     my $itemColl = new yui::YItemCollection;
     foreach my $shell (@shells) {
             my $item = new yui::YItem ($shell, 0);
+            $item->setSelected(1) if ($selected_shell && $selected_shell eq $shell);
             $itemColl->push($item);
             $item->DISOWN();
     }
@@ -1082,6 +1084,161 @@ sub _refreshGroups {
 }
 
 
+#=============================================================
+
+=head2 _getUserInfo
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    %userData:  selected user info as:
+                username:      username
+                full_name:      full name of user
+                shell:         shell used  
+                homedir:       home dir path
+                UID:           User identifier
+                acc_check_exp: account expiration enabling
+                acc_expy:      account expiration year
+                acc_expm:      account expiration month
+                acc_expd:      account expiration day
+                lockuser:      account locked
+                pwd_check_exp: password expiration enabling
+                pwd_exp_min:   days before changing password 
+                               is allowed
+                pwd_exp_max:   days before changing password 
+                               is required
+                pwd_exp_warn:  warning days before changing
+                pwd_exp_inact: days before account becomes 
+                               inact
+                members:       Array containing groups the user
+                               belongs to.
+                primary_group: primary group ID for the user
+
+=head3 DESCRIPTION
+
+    Retrieves the selected user info from the system
+    Note that acc_expy,  acc_expm and acc_expd are valid if 
+    acc_check_exp is enabled.
+    Note that pwd_exp_min, pwd_exp_max, pwd_exp_warn,
+    pwd_exp_inact are valid if pwd_check_exp is enabled.
+
+=cut
+
+#=============================================================
+
+sub _getUserInfo {
+    my $self = shift;
+
+    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
+    if ($label ne N("Users") ) {
+        return; 
+    }
+
+    my $item = $self->get_widget('table')->selectedItem();
+    if (! $item) {
+       return;
+    }
+    
+    my %userData;
+    $userData{username}  = $item->label(); 
+    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
+
+    my $s                = $userEnt->Gecos($self->USER_GetValue);
+    c::set_tagged_utf8($s);
+    $userData{full_name}  = $s;
+    $userData{shell}     = $userEnt->LoginShell($self->USER_GetValue);
+    $userData{homedir}   = $userEnt->HomeDir($self->USER_GetValue);
+    $userData{UID}       = $userEnt->Uid($self->USER_GetValue);
+
+    # default expiration time
+    my ($day, $mo, $ye)      = (localtime())[3, 4, 5];
+    $userData{acc_expy}      = $ye+1900;
+    $userData{acc_expm}      = $mo+1;
+    $userData{acc_expd}      = $day;
+    $userData{acc_check_exp} = 0;
+    my $expire               = $userEnt->ShadowExpire($self->USER_GetValue);
+    if ($expire && $expire != -1) {
+        my $times                = TimeOfArray($expire, 1); 
+        $userData{acc_expy}      = $times->{year};
+        $userData{acc_expm}      = $times->{month};
+        $userData{acc_expd}      = $times->{dayint};
+        $userData{acc_check_exp} = 1;
+    }
+
+    $userData{password}      = $userEnt->ShadowPass($self->USER_GetValue);
+    # Check if user account is locked 
+
+    $userData{lockuser}      = $self->ctx->IsLocked($userEnt);
+    $userData{pwd_check_exp} = 0;
+    $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->USER_GetValue); 
+    $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->USER_GetValue); 
+    $userData{pwd_exp_warn}  = $userEnt->ShadowWarn($self->USER_GetValue);
+    $userData{pwd_exp_inact} = $userEnt->ShadowInact($self->USER_GetValue);
+ 
+    if ($userData{pwd_exp_min} && $userData{pwd_exp_min} != -1 || 
+        $userData{pwd_exp_max} && $userData{pwd_exp_max} != 99999 || 
+        $userData{pwd_exp_warn} && $userData{pwd_exp_warn} != 7 && $userData{pwd_exp_warn} != -1 || 
+        $userData{pwd_exp_inact} && $userData{pwd_exp_inact} != -1) {
+        $userData{pwd_check_exp} = 1;
+    }
+
+    $userData{members}       = $self->ctx->EnumerateGroupsByUser($userData{username});
+    $userData{primary_group} = $userEnt->Gid($self->USER_GetValue);
+    
+    return %userData;
+
+}
+
+# TODO how to pass old tab widget?
+sub _storeUserEditPreviousTab {
+    my ($self, %userData, %userEditWidget, $previus_tab) = @_;
+
+    if (!$previus_tab) {
+        return;
+    }
+}
+
+sub _userDataWidget {
+    my ($self, $replace_pnt, %userData, $previus_tab) = @_;
+     
+    my $factory  = yui::YUI::widgetFactory;
+    
+    $self->dialog->startMultipleChanges();
+
+    if ($previus_tab) {
+### TODO store tab data into %userData
+    }
+
+    $replace_pnt->deleteChildren();
+    my $layout         = $factory->createVBox($replace_pnt);
+    my %userDataWidget = $self->_buildUserData($layout, $userData{shell});
+
+## user 'login name'
+    my $align                = $factory->createRight($layout);
+    my $hbox                 = $factory->createHBox($align);
+    my $label                = $factory->createLabel($hbox, N("Home:") );
+    $userDataWidget{homedir} = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $userDataWidget{homedir}->setWeight($yui::YD_HORIZ, 2);
+
+    # fill data into widgets
+    ##
+    # full_name, login_name, password, password1,
+    #                login_shell
+    $userDataWidget{full_name}->setValue($userData{full_name});
+    $userDataWidget{login_name}->setValue($userData{username});
+    $userDataWidget{password}->setValue($userData{password});
+    $userDataWidget{password1}->setValue($userData{password});
+    $userDataWidget{homedir}->setValue($userData{homedir});
+
+    $self->dialog->doneMultipleChanges();
+    
+    return %userDataWidget;
+}
+
 sub _editUserDialog {
     my $self = shift;
 
@@ -1107,6 +1264,7 @@ sub _editUserDialog {
 
         $tabs{user_data} = new yui::YItem(N("User Data"));
         $tabs{user_data}->setSelected();
+        $tabs{used}      = $tabs{user_data}->label();
         $tabs{widget}->addItem( $tabs{user_data} );
         $tabs{user_data}->DISOWN();
 
@@ -1124,14 +1282,28 @@ sub _editUserDialog {
 
         my $vbox           = $factory->createVBox($tabs{widget});
         $align             = $factory->createLeft($vbox);
-        $tabs{replace_pnt} =  $factory->createReplacePoint($align);
+        $tabs{replace_pnt} = $factory->createReplacePoint($align);
         
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
         my $cancelButton = $factory->createPushButton($align, N("Cancel"));
         my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
-
-#     my %userData = $self->_buildUserData($layout);
+        
+        my %userData        = $self->_getUserInfo();
+# TODO fix parameters
+# $self, $replace_pnt, %userData, $previus_tab
+        my %userDataWidget  = $self->_userDataWidget($tabs{replace_pnt}, %userData, undef);
+#     my %userData = 
+    #root account should never be locked
+#    !$userData{UID} and $userData{lockuser} = 0;
+# my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
+#     if ($lastchg) {
+#         my $times = TimeOfArray($lastchg, 0); 
+#         $dayStr->set_text($times->{daystr});
+#         $month->set_text($times->{month});
+#         $dayInt->set_text($times->{dayint});
+#         $year->set_text($times->{year});
+#     }
         while(1) {
             my $event     = $dlg->waitForEvent();
             my $eventType = $event->eventType();
@@ -1502,4 +1674,25 @@ sub _inArray {
     my ($self, $item, $arr) = @_;
     
     return grep( /^$item$/, @$arr ); 
+}
+
+sub ConvTime {
+    my ($day, $month, $year) = @_;
+    my ($tm, $days, $mon, $yr);
+    $mon = $month - 1; $yr = $year - 1900;
+    $tm = POSIX::mktime(0, 0, 0, $day, $mon, $yr);
+    $days = ceil($tm / (24 * 60 * 60));
+    return $days;
+}
+
+sub TimeOfArray {
+    my ($reltime, $cm) = @_;
+    my $h; my %mth = (Jan => 1, Feb => 2, Mar => 3, Apr => 4, May => 5, Jun => 6, Jul => 7, Aug => 8, Sep => 9, Oct => 10, Nov => 11, Dec => 12);
+    my $_t = localtime($reltime * 24 * 60 * 60) =~ /(\S+)\s+(\S+)\s+(\d+)\s+(\S+)\s+(\d+)/;
+    $h->{daystr} = $1;
+    $h->{month} = $2;
+    $h->{dayint} = $3;
+    $h->{year} = $5;
+    $cm and $h->{month} = $mth{$2}; 
+    $h;
 }
