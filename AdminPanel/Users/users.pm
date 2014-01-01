@@ -78,8 +78,7 @@ sub GetFaceIcon {
     my $current_icon;
     # remove shortcut "&" from label
     $name =~ s/&// if ($name); 
-    my $user_icon = face2png($name) if ($name);
-   
+    my $user_icon = "$::prefix/usr/share/faces/$name.png" if ($name);
 
     if ($name && -e $user_icon) {
         my $current_md5 = common::md5file($user_icon);

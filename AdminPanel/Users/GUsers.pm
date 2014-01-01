@@ -50,6 +50,7 @@ use AdminPanel::Users::users;
 # main dialog
 has 'dialog'     => (
     is        => 'rw',
+    init_arg  => undef,
 );
 
 has 'widgets' => ( 
@@ -61,7 +62,8 @@ has 'widgets' => (
         set_widget     => 'set',
         get_widget     => 'get',
         widget_pairs   => 'kv',
-    }, 
+    },
+    init_arg  => undef,
 );
 
 has 'action_menu' => (
@@ -73,7 +75,8 @@ has 'action_menu' => (
         set_action_menu     => 'set',
         get_action_menu     => 'get',
         action_menu_pairs   => 'kv',
-    }, 
+    },
+    init_arg  => undef, 
 );
 
 ## Used by USER (for getting values? TODO need explanations, where?)
@@ -81,12 +84,28 @@ has 'USER_GetValue' => (
     default   => -65533,
     is        => 'ro',
     isa       => 'Int',
+    init_arg  => undef,
 );
 
 ## Used by USER (for getting values? TODO need explanations, where?)
 has 'ctx' => (
     default   => sub {USER::ADMIN->new},
     is        => 'ro',
+    init_arg  => undef,
+);
+
+
+has 'edit_tab_widgets' => ( 
+    traits    => ['Hash'],
+    default   => sub { {} },
+    is        => 'rw',
+    isa       => 'HashRef',
+    handles   => {
+        set_edit_tab_widget => 'set',
+        get_edit_tab_widget => 'get',
+        edit_tab_pairs      => 'kv',
+    },
+    init_arg  => undef,
 );
 
 =head1 VERSION
@@ -105,11 +124,20 @@ sub labeledFrameBox {
 
     my $frame    = $factory->createFrame($parent, $label);
     $frame->setWeight( $yui::YD_HORIZ, 1);
-
+    $frame->setWeight( $yui::YD_VERT, 2);
     $frame       = $factory->createHVCenter( $frame );
     $frame       = $factory->createVBox( $frame );
   return $frame;
 }
+
+# usefull local variable to avoid duplicating
+# translation point for label
+my %userEditLabel = (
+    user_data     => N("User Data"),
+    account_info  => N("Account Info"),
+    password_info => N("Password Info"),
+    groups        => N("Groups"),
+);
 
 #=============================================================
 
@@ -1148,7 +1176,7 @@ sub _getUserInfo {
 
     my $s                = $userEnt->Gecos($self->USER_GetValue);
     c::set_tagged_utf8($s);
-    $userData{full_name}  = $s;
+    $userData{full_name} = $s;
     $userData{shell}     = $userEnt->LoginShell($self->USER_GetValue);
     $userData{homedir}   = $userEnt->HomeDir($self->USER_GetValue);
     $userData{UID}       = $userEnt->Uid($self->USER_GetValue);
@@ -1168,10 +1196,15 @@ sub _getUserInfo {
         $userData{acc_check_exp} = 1;
     }
 
-    $userData{password}      = $userEnt->ShadowPass($self->USER_GetValue);
+    # user password are not retrieved if admin wants
+    # to change it has to insert a new one
+    $userData{password}      = undef;
+    $userData{password1}     = undef;
     # Check if user account is locked 
 
     $userData{lockuser}      = $self->ctx->IsLocked($userEnt);
+
+    $userData{icon_face}     = AdminPanel::Users::users::GetFaceIcon($userData{username});
     $userData{pwd_check_exp} = 0;
     $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->USER_GetValue); 
     $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->USER_GetValue); 
@@ -1192,31 +1225,92 @@ sub _getUserInfo {
 
 }
 
-# TODO how to pass old tab widget?
-sub _storeUserEditPreviousTab {
-    my ($self, %userData, %userEditWidget, $previus_tab) = @_;
+sub _storeDataFromUserEditPreviousTab {
+    my ($self, %userData) = @_;
 
+    my $previus_tab = $self->get_edit_tab_widget('edit_tab_label');
     if (!$previus_tab) {
         return;
     }
+    elsif ($previus_tab eq $userEditLabel{user_data}) {
+        $userData{full_name} = $self->get_edit_tab_widget('full_name')->value();
+        $userData{username}  = $self->get_edit_tab_widget('login_name')->value() ; 
+        $userData{shell}     = $self->get_edit_tab_widget('login_shell')->value();
+        $userData{homedir}   = $self->get_edit_tab_widget('homedir')->value();
+        my $passwd           = $self->get_edit_tab_widget('password')->value();
+        $userData{password}  = $passwd if ($passwd ne '');
+        $passwd              = $self->get_edit_tab_widget('password1')->value();
+        $userData{password1} = $passwd if ($passwd ne '');
+    }
+    elsif ($previus_tab eq $userEditLabel{account_info}) {
+        $userData{acc_check_exp} = $self->get_edit_tab_widget('acc_check_exp')->value();
+        $userData{acc_expy}      = $self->get_edit_tab_widget('acc_expy')->value();
+        $userData{acc_expm}      = $self->get_edit_tab_widget('acc_expm')->value();
+        $userData{acc_expd}      = $self->get_edit_tab_widget('acc_expd')->value();
+        $userData{lockuser}      = $self->get_edit_tab_widget('lockuser')->value();
+        $userData{icon_face}     = $self->get_edit_tab_widget('icon_face')->label();
+    }
+    elsif ($previus_tab eq $userEditLabel{password_info}) {
+# $userData{pwd_check_exp} = 0;
+# $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->USER_GetValue); 
+# $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->USER_GetValue); 
+# $userData{pwd_exp_warn}  = $userEnt->ShadowWarn($self->USER_GetValue);
+# $userData{pwd_exp_inact} = $userEnt->ShadowInact($self->USER_GetValue);
+    }
+    elsif ($previus_tab eq $userEditLabel{groups}) {
+# $userData{members}       = $self->ctx->EnumerateGroupsByUser($userData{username});
+# $userData{primary_group} = $userEnt->Gid($self->USER_GetValue);
+    }
+    
+
+    return %userData;       
 }
 
-sub _userDataWidget {
-    my ($self, $replace_pnt, %userData, $previus_tab) = @_;
+#=============================================================
+
+=head2 _userDataTabWidget
+
+=head3 INPUT
+
+    $self:        this object
+    $dialog:      YUI dialog that owns the YUI replace point
+    $replace_pnt: YUI replace point, needed to add a new tab
+                  widget
+    %userData:    hash containing user data info, tabs are 
+                  removed and added again on selection, so
+                  data must be saved outside of widgets.
+    $previus_tab: previous tab widget label, needed to store
+                  user data from the old tab before removing
+                  it, if user changed something. 
+
+=head3 OUTPUT
+
+    %userDataWidget: hash containing new YUI widget objects
+                     such as:
+                     retunred onject from _buildUserData and
+                     homedir. 
+
+=head3 DESCRIPTION
+
+    This internal method removes old tab widget saving its
+    relevant data into userData and creates new selected table
+    to be shown.
+
+=cut
+
+#=============================================================
+sub _userDataTabWidget {
+    my ($self, $dialog, $replace_pnt, %userData) = @_;
      
     my $factory  = yui::YUI::widgetFactory;
-    
-    $self->dialog->startMultipleChanges();
 
-    if ($previus_tab) {
-### TODO store tab data into %userData
-    }
+    $dialog->startMultipleChanges();
 
     $replace_pnt->deleteChildren();
     my $layout         = $factory->createVBox($replace_pnt);
     my %userDataWidget = $self->_buildUserData($layout, $userData{shell});
 
-## user 'login name'
+    ## user 'login name'
     my $align                = $factory->createRight($layout);
     my $hbox                 = $factory->createHBox($align);
     my $label                = $factory->createLabel($hbox, N("Home:") );
@@ -1230,14 +1324,196 @@ sub _userDataWidget {
     #                login_shell
     $userDataWidget{full_name}->setValue($userData{full_name});
     $userDataWidget{login_name}->setValue($userData{username});
-    $userDataWidget{password}->setValue($userData{password});
-    $userDataWidget{password1}->setValue($userData{password});
+    $userDataWidget{password}->setValue($userData{password})  if $userData{password}; 
+    $userDataWidget{password1}->setValue($userData{password1}) if $userData{password1};
     $userDataWidget{homedir}->setValue($userData{homedir});
 
-    $self->dialog->doneMultipleChanges();
+    $replace_pnt->showChild();
+    $dialog->recalcLayout();
+    $dialog->doneMultipleChanges();
     
     return %userDataWidget;
 }
+
+sub _userAccountInfoTabWidget {
+    my ($self, $dialog, $replace_pnt, %userData) = @_;
+
+    my $factory  = yui::YUI::widgetFactory;
+    
+    $dialog->startMultipleChanges();
+
+    $replace_pnt->deleteChildren();
+    my $layout         = $factory->createVBox($replace_pnt);
+
+    my %userAccountWidget;
+    $userAccountWidget{acc_check_exp} = $factory->createCheckBoxFrame($layout, N("Enable account expiration"), 1);
+    my $align                         = $factory->createRight($userAccountWidget{acc_check_exp});
+    my $hbox                          = $factory->createHBox($align);    
+    my $label                         = $factory->createLabel($hbox, N("Account expires (YYYY-MM-DD):"));
+    $userAccountWidget{acc_expy}      = $factory->createIntField($hbox, "", 1970, 9999, $userData{acc_expy});
+    $userAccountWidget{acc_expm}      = $factory->createIntField($hbox, "", 1, 12, $userData{acc_expm});
+    $userAccountWidget{acc_expd}      = $factory->createIntField($hbox, "", 1, 31, $userData{acc_expd});
+    $userAccountWidget{acc_check_exp}->setValue($userData{acc_check_exp});
+    $label->setWeight($yui::YD_HORIZ, 2);
+    $align                            = $factory->createLeft($layout);
+    $userAccountWidget{lockuser}      = $factory->createCheckBox($align, N("Lock User Account"), $userData{lockuser});
+    
+    $align                            = $factory->createLeft($layout);
+    $hbox                             = $factory->createHBox($align); 
+    $label                            = $factory->createLabel($hbox, N("Click on the icon to change it"));
+    $userAccountWidget{icon_face}     = $factory->createPushButton($hbox, "");
+    $userAccountWidget{icon_face}->setIcon(AdminPanel::Users::users::face2png($userData{icon_face})); 
+    $userAccountWidget{icon_face}->setLabel($userData{icon_face});
+    
+    $replace_pnt->showChild();
+    $dialog->recalcLayout();
+    $dialog->doneMultipleChanges();
+    
+    return %userAccountWidget;
+}
+
+
+sub _userPasswordInfoTabWidget {
+    my ($self, $dialog, $replace_pnt, %userData) = @_;
+
+    my $factory  = yui::YUI::widgetFactory;
+    
+    $dialog->startMultipleChanges();
+
+    $replace_pnt->deleteChildren();
+    my $layout  = $factory->createVBox($replace_pnt);
+
+    my %userPasswordWidget;
+    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
+    my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
+
+    my $align   = $factory->createLeft($layout);
+    my $hbox    = $factory->createHBox($align);    
+    my $label   = $factory->createLabel($hbox, N("User last changed password on: "));
+    my $dayStr  = $factory->createLabel($hbox, "");
+    my $month   = $factory->createLabel($hbox, "");
+    my $dayInt  = $factory->createLabel($hbox, "");
+    my $year    = $factory->createLabel($hbox, "");
+    if ($lastchg) {
+        my $times = TimeOfArray($lastchg, 0); 
+        $dayStr->setValue($times->{daystr});
+        $month->setValue($times->{month});
+        $dayInt->setValue($times->{dayint});
+        $year->setValue($times->{year});
+    }
+    
+    $userPasswordWidget{pwd_check_exp} = $factory->createCheckBoxFrame($layout, N("Enable Password Expiration"), 1);
+    $layout  = $factory->createVBox($userPasswordWidget{pwd_check_exp});
+    $align   = $factory->createLeft($layout);
+    $hbox    = $factory->createHBox($align);
+    $label   = $factory->createLabel($hbox, N("Days before change allowed:"));
+    $userPasswordWidget{pwd_exp_min} = $factory->createInputField($hbox, "", 0);
+    $userPasswordWidget{pwd_exp_min}->setValue("$userData{pwd_exp_min}");
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $userPasswordWidget{pwd_exp_min}->setWeight($yui::YD_HORIZ, 2);
+    
+    $align   = $factory->createLeft($layout);
+    $hbox    = $factory->createHBox($align);
+    $label   = $factory->createLabel($hbox, N("Days before change required:"));
+    $userPasswordWidget{pwd_exp_max} = $factory->createInputField($hbox, "", 0);
+    $userPasswordWidget{pwd_exp_max}->setValue("$userData{pwd_exp_max}");
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $userPasswordWidget{pwd_exp_max}->setWeight($yui::YD_HORIZ, 2);
+
+    $align   = $factory->createLeft($layout);
+    $hbox    = $factory->createHBox($align);
+    $label   = $factory->createLabel($hbox, N("Days warning before change:"));
+    $userPasswordWidget{pwd_exp_warn} = $factory->createInputField($hbox, "", 0);
+    $userPasswordWidget{pwd_exp_warn}->setValue("$userData{pwd_exp_warn}");
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $userPasswordWidget{pwd_exp_warn}->setWeight($yui::YD_HORIZ, 2);
+
+    $align   = $factory->createLeft($layout);
+    $hbox    = $factory->createHBox($align);
+    $label   = $factory->createLabel($hbox, N("Days before account inactive:"));
+    $userPasswordWidget{pwd_exp_inact} = $factory->createInputField($hbox, "", 0);
+    $userPasswordWidget{pwd_exp_inact}->setValue("$userData{pwd_exp_inact}");
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $userPasswordWidget{pwd_exp_inact}->setWeight($yui::YD_HORIZ, 2);
+
+    $userPasswordWidget{pwd_check_exp}->setValue($userData{pwd_check_exp});
+
+    $replace_pnt->showChild();
+    $dialog->recalcLayout();
+    $dialog->doneMultipleChanges();
+    
+    return %userPasswordWidget;
+}
+
+sub _userGroupsTabWidget {
+    my ($self, $dialog, $replace_pnt, %userData) = @_;
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $mageiaPlugin = "mga";
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+    
+    $dialog->startMultipleChanges();
+
+    $replace_pnt->deleteChildren();
+    my $layout  = $factory->createVBox($replace_pnt);
+
+    my %userGroupsWidget;
+    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
+    my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
+
+    my $align   = $factory->createHCenter($layout);
+    my $hbox    = $factory->createHBox($align);    
+    my $frame   = labeledFrameBox($hbox, N("Select groups that the user will be member of: "));
+
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn("", $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Group"), $yui::YAlignBegin);
+    
+#     $align   = $factory->createHCenter($layout);
+#     $hbox = $factory->createHBox( $align );
+    $userGroupsWidget{members} = $mgaFactory->createCBTable($frame, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
+
+    my $grps = $self->ctx->GroupsEnumerate;
+    my @sgroups = sort @$grps;
+ 
+    my $itemCollection = new yui::YItemCollection;
+    my $members = $userData{members};
+    foreach my $group (@sgroups) {
+        my $item = new yui::YCBTableItem($group);
+        $item->check(member($group, @$members));
+        $item->setLabel($group);
+        $itemCollection->push($item);
+        $item->DISOWN();    
+    }    
+    $userGroupsWidget{members}->addItems($itemCollection);
+    $userGroupsWidget{members}->setNotify(1);
+ 
+    my $Gent      = $self->ctx->LookupGroupById($userData{primary_group});
+    my $primgroup = $Gent->GroupName($self->USER_GetValue);
+    
+    $align   = $factory->createLeft($layout);
+    $hbox    = $factory->createHBox($align);    
+    my $label   = $factory->createLabel($hbox, N("Primary Group"));
+    $userGroupsWidget{primary_group} = $factory->createComboBox($hbox, "", 0);
+    my $itemColl = new yui::YItemCollection;
+    foreach my $member (@$members) {
+            my $item = new yui::YItem ($member, 0);
+            $item->setSelected(1) if ($item->label() eq $primgroup);
+            $itemColl->push($item);
+            $item->DISOWN();
+    }
+    $userGroupsWidget{primary_group}->addItems($itemColl);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $userGroupsWidget{primary_group}->setWeight($yui::YD_HORIZ, 2);
+
+    $replace_pnt->showChild();
+    $dialog->recalcLayout();
+    $dialog->doneMultipleChanges();
+    
+    return %userGroupsWidget;
+}
+
 
 sub _editUserDialog {
     my $self = shift;
@@ -1262,21 +1538,21 @@ sub _editUserDialog {
         my $align = $factory->createHCenter($hbox);
         $tabs{widget} = $optional->createDumbTab($align);
 
-        $tabs{user_data} = new yui::YItem(N("User Data"));
+        $tabs{user_data} = new yui::YItem($userEditLabel{user_data});
         $tabs{user_data}->setSelected();
         $tabs{used}      = $tabs{user_data}->label();
         $tabs{widget}->addItem( $tabs{user_data} );
         $tabs{user_data}->DISOWN();
 
-        $tabs{account_info} = new yui::YItem(N("Account Info"));
+        $tabs{account_info} = new yui::YItem($userEditLabel{account_info});
         $tabs{widget}->addItem( $tabs{account_info} );
         $tabs{account_info}->DISOWN();
 
-        $tabs{password_info} = new yui::YItem(N("Password Info"));
+        $tabs{password_info} = new yui::YItem($userEditLabel{password_info});
         $tabs{widget}->addItem( $tabs{password_info} );
         $tabs{password_info}->DISOWN();
 
-        $tabs{groups} = new yui::YItem(N("Groups"));
+        $tabs{groups} = new yui::YItem($userEditLabel{groups});
         $tabs{widget}->addItem( $tabs{groups} );
         $tabs{groups}->DISOWN();
 
@@ -1290,20 +1566,11 @@ sub _editUserDialog {
         my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
         
         my %userData        = $self->_getUserInfo();
-# TODO fix parameters
-# $self, $replace_pnt, %userData, $previus_tab
-        my %userDataWidget  = $self->_userDataWidget($tabs{replace_pnt}, %userData, undef);
-#     my %userData = 
-    #root account should never be locked
-#    !$userData{UID} and $userData{lockuser} = 0;
-# my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
-#     if ($lastchg) {
-#         my $times = TimeOfArray($lastchg, 0); 
-#         $dayStr->set_text($times->{daystr});
-#         $month->set_text($times->{month});
-#         $dayInt->set_text($times->{dayint});
-#         $year->set_text($times->{year});
-#     }
+
+        # Useful entry point for the current edit user/group tab widget 
+        $self->set_edit_tab_widget( $self->_userDataTabWidget($dlg, $tabs{replace_pnt}, %userData) );
+        $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{user_data});
+
         while(1) {
             my $event     = $dlg->waitForEvent();
             my $eventType = $event->eventType();
@@ -1316,6 +1583,32 @@ sub _editUserDialog {
                 ### MENU ###
                 my $item = $event->item();
                 if ($item->label() eq $tabs{user_data}->label()) {
+                    %userData = $self->_storeDataFromUserEditPreviousTab(%userData);
+                    my %edit_tab = $self->_userDataTabWidget($dlg, $tabs{replace_pnt}, %userData );
+                    $self->edit_tab_widgets( {} );
+                    $self->set_edit_tab_widget(%edit_tab);
+                    $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{user_data});
+                }
+                elsif ($item->label() eq $tabs{account_info}->label()) {
+                    %userData = $self->_storeDataFromUserEditPreviousTab(%userData);
+                    my %edit_tab = $self->_userAccountInfoTabWidget($dlg, $tabs{replace_pnt}, %userData );
+                    $self->edit_tab_widgets( {} );
+                    $self->set_edit_tab_widget(%edit_tab);
+                    $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{account_info});
+                }
+                elsif ($item->label() eq $tabs{password_info}->label()) {
+                    %userData = $self->_storeDataFromUserEditPreviousTab(%userData);
+                    my %edit_tab = $self->_userPasswordInfoTabWidget($dlg, $tabs{replace_pnt}, %userData );
+                    $self->edit_tab_widgets( {} );
+                    $self->set_edit_tab_widget(%edit_tab);
+                    $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{password_info});
+                }
+                elsif ($item->label() eq $tabs{groups}->label()) {
+                    %userData = $self->_storeDataFromUserEditPreviousTab(%userData);
+                    my %edit_tab = $self->_userGroupsTabWidget($dlg, $tabs{replace_pnt}, %userData );
+                    $self->edit_tab_widgets( {} );
+                    $self->set_edit_tab_widget(%edit_tab);
+                    $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{groups});
                 }
             }
             elsif ($eventType == $yui::YEvent::WidgetEvent) {
@@ -1696,3 +1989,4 @@ sub TimeOfArray {
     $cm and $h->{month} = $mth{$2}; 
     $h;
 }
+sub member { my $e = shift; foreach (@_) { $e eq $_ and return 1 } 0 }
