@@ -1251,17 +1251,27 @@ sub _storeDataFromUserEditPreviousTab {
         $userData{icon_face}     = $self->get_edit_tab_widget('icon_face')->label();
     }
     elsif ($previus_tab eq $userEditLabel{password_info}) {
-# $userData{pwd_check_exp} = 0;
-# $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->USER_GetValue); 
-# $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->USER_GetValue); 
-# $userData{pwd_exp_warn}  = $userEnt->ShadowWarn($self->USER_GetValue);
-# $userData{pwd_exp_inact} = $userEnt->ShadowInact($self->USER_GetValue);
+        $userData{pwd_check_exp} = $self->get_edit_tab_widget('pwd_check_exp')->value();
+        $userData{pwd_exp_min}   = $self->get_edit_tab_widget('pwd_exp_min')->value(); 
+        $userData{pwd_exp_max}   = $self->get_edit_tab_widget('pwd_exp_max')->value();
+        $userData{pwd_exp_warn}  = $self->get_edit_tab_widget('pwd_exp_warn')->value();
+        $userData{pwd_exp_inact} = $self->get_edit_tab_widget('pwd_exp_inact')->value();
     }
     elsif ($previus_tab eq $userEditLabel{groups}) {
-# $userData{members}       = $self->ctx->EnumerateGroupsByUser($userData{username});
-# $userData{primary_group} = $userEnt->Gid($self->USER_GetValue);
+        my $tbl = $self->get_edit_tab_widget('members');
+        $userData{members} = undef;
+        my @members; 
+        my $i;
+        for($i=0;$i<$tbl->itemsCount();$i++) {
+            push (@members, $tbl->item($i)->label()) if $tbl->toCBYTableItem($tbl->item($i))->checked();
+        }
+        $userData{members} = [ @members ];
+
+        my $Gent      = $self->ctx->LookupGroupByName($self->get_edit_tab_widget('primary_group')->selectedItem()->label());
+        my $primgroup = $Gent->Gid($self->USER_GetValue);
+
+        $userData{primary_group} = $primgroup;
     }
-    
 
     return %userData;       
 }
@@ -1456,23 +1466,20 @@ sub _userGroupsTabWidget {
     $dialog->startMultipleChanges();
 
     $replace_pnt->deleteChildren();
-    my $layout  = $factory->createVBox($replace_pnt);
 
     my %userGroupsWidget;
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
     my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
 
-    my $align   = $factory->createHCenter($layout);
-    my $hbox    = $factory->createHBox($align);    
-    my $frame   = labeledFrameBox($hbox, N("Select groups that the user will be member of: "));
+    my $align;
+    my $hbox;
+    my $layout   = labeledFrameBox($replace_pnt, N("Select groups that the user will be member of:"));
 
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn("", $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Group"), $yui::YAlignBegin);
-    
-#     $align   = $factory->createHCenter($layout);
-#     $hbox = $factory->createHBox( $align );
-    $userGroupsWidget{members} = $mgaFactory->createCBTable($frame, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
+
+    $userGroupsWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
     my $grps = $self->ctx->GroupsEnumerate;
     my @sgroups = sort @$grps;
@@ -1492,8 +1499,8 @@ sub _userGroupsTabWidget {
     my $Gent      = $self->ctx->LookupGroupById($userData{primary_group});
     my $primgroup = $Gent->GroupName($self->USER_GetValue);
     
-    $align   = $factory->createLeft($layout);
-    $hbox    = $factory->createHBox($align);    
+    my $align   = $factory->createLeft($layout);
+    my $hbox    = $factory->createHBox($align);    
     my $label   = $factory->createLabel($hbox, N("Primary Group"));
     $userGroupsWidget{primary_group} = $factory->createComboBox($hbox, "", 0);
     my $itemColl = new yui::YItemCollection;
@@ -1616,6 +1623,54 @@ sub _editUserDialog {
                 my $widget = $event->widget();
                 if ($widget == $cancelButton) {
                     last;
+                }
+                elsif ($widget == $okButton) {
+                   ## TODO save changes
+                }
+# last: managing tab widget events
+                else {
+                    my $current_tab = $self->get_edit_tab_widget('edit_tab_label');
+                    if ($current_tab && $current_tab eq $userEditLabel{account_info}) {
+                        if ($widget == $self->get_edit_tab_widget('icon_face')) {
+                            my $iconLabel = $self->_skipShortcut($self->get_edit_tab_widget('icon_face')->label());
+                            my $nextIcon = GetFaceIcon($iconLabel, 1);
+                            $self->get_edit_tab_widget('icon_face')->setLabel($nextIcon);
+                            $self->get_edit_tab_widget('icon_face')->setIcon(AdminPanel::Users::users::face2png($nextIcon));
+                        }
+                    }                    
+                    elsif ($current_tab && $current_tab eq $userEditLabel{groups}) {
+                        if ($widget == $self->get_edit_tab_widget('members')) {
+                            my $item = $self->get_edit_tab_widget('members')->changedItem();
+                            if ($item) {
+                                if ($item->checked()) {
+                                    # add it to possible primary groups
+                                    my $pgItem = new yui::YItem ($item->label(), 0);
+                                    $self->get_edit_tab_widget('primary_group')->addItem($pgItem);
+                                }
+                                else {
+                                    # remove it to possible primary groups
+                                    $dlg->startMultipleChanges();
+                                    my $itemColl = new yui::YItemCollection;
+                                    my $tbl = $self->get_edit_tab_widget('members');
+                                    for(my $i=0;$i < $tbl->itemsCount();$i++) {
+                                        if ($tbl->toCBYTableItem($tbl->item($i))->checked()) {
+                                            my $pgItem = new yui::YItem ($tbl->item($i)->label(), 0);
+                                            my $Gent   = $self->ctx->LookupGroupById($userData{primary_group});
+                                            my $primgroup = $Gent->GroupName($self->USER_GetValue);
+                                            $pgItem->setSelected(1) if ($pgItem->label() eq $primgroup);
+
+                                            $itemColl->push($pgItem);
+                                            $pgItem->DISOWN();
+                                        } 
+                                    }
+                                    $self->get_edit_tab_widget('primary_group')->deleteAllItems();
+                                    $self->get_edit_tab_widget('primary_group')->addItems($itemColl);
+                                    $dlg->recalcLayout();
+                                    $dlg->doneMultipleChanges();
+                                }
+                            }
+                        }                        
+                    }
                 }
             }
         }
