@@ -835,9 +835,10 @@ sub addUserDialog {
                     $userEnt->ShadowWarn(-1); $userEnt->ShadowInact(-1);
                     $self->ctx->UserAdd($userEnt, $is_system, $dontcreatehomedir);
                     $self->ctx->UserSetPass($userEnt, $passwd);
+                    defined $icon->label() and
+                         AdminPanel::Users::users::addKdmIcon($username, $icon->label());
 ###  TODO Migration wizard
-#                     defined $us->{o}{iconval} and
-#                         AdminPanel::Users::users::addKdmIcon($u{username}, $us->{o}{iconval});
+#                     
 #                     Refresh($sysfilter, $stringsearch);
 #                     transfugdrake::get_windows_disk()
 #                         and $in->ask_yesorno(N("Migration wizard"),
@@ -1238,9 +1239,9 @@ sub _storeDataFromUserEditPreviousTab {
         $userData{shell}     = $self->get_edit_tab_widget('login_shell')->value();
         $userData{homedir}   = $self->get_edit_tab_widget('homedir')->value();
         my $passwd           = $self->get_edit_tab_widget('password')->value();
-        $userData{password}  = $passwd if ($passwd ne '');
+        $userData{password}  = $passwd;
         $passwd              = $self->get_edit_tab_widget('password1')->value();
-        $userData{password1} = $passwd if ($passwd ne '');
+        $userData{password1} = $passwd;
     }
     elsif ($previus_tab eq $userEditLabel{account_info}) {
         $userData{acc_check_exp} = $self->get_edit_tab_widget('acc_check_exp')->value();
@@ -1267,10 +1268,15 @@ sub _storeDataFromUserEditPreviousTab {
         }
         $userData{members} = [ @members ];
 
-        my $Gent      = $self->ctx->LookupGroupByName($self->get_edit_tab_widget('primary_group')->selectedItem()->label());
-        my $primgroup = $Gent->Gid($self->USER_GetValue);
+        if ($self->get_edit_tab_widget('primary_group')->selectedItem()) {
+            my $Gent      = $self->ctx->LookupGroupByName($self->get_edit_tab_widget('primary_group')->selectedItem()->label());
+            my $primgroup = $Gent->Gid($self->USER_GetValue);
 
-        $userData{primary_group} = $primgroup;
+            $userData{primary_group} = $primgroup;
+        }
+        else {
+            $userData{primary_group} = -1;
+        }
     }
 
     return %userData;       
@@ -1495,10 +1501,12 @@ sub _userGroupsTabWidget {
     }    
     $userGroupsWidget{members}->addItems($itemCollection);
     $userGroupsWidget{members}->setNotify(1);
- 
-    my $Gent      = $self->ctx->LookupGroupById($userData{primary_group});
-    my $primgroup = $Gent->GroupName($self->USER_GetValue);
-    
+    my $primgroup = '';
+    if ($userData{primary_group} != -1) {
+        my $Gent      = $self->ctx->LookupGroupById($userData{primary_group});
+        $primgroup    = $Gent->GroupName($self->USER_GetValue);
+    }
+
     my $align   = $factory->createLeft($layout);
     my $hbox    = $factory->createHBox($align);    
     my $label   = $factory->createLabel($hbox, N("Primary Group"));
@@ -1520,6 +1528,119 @@ sub _userGroupsTabWidget {
     
     return %userGroupsWidget;
 }
+
+sub _userEdit_Ok {
+    my ($self, %userData) = @_;
+
+    # update last changes if any 
+    %userData = $self->_storeDataFromUserEditPreviousTab(%userData);
+    
+    my ($continue, $errorString) = valid_username($userData{username});
+    if (!$continue) {
+        AdminPanel::Shared::msgBox($errorString) if ($errorString);
+        return $continue;
+    }
+
+    if ( $userData{password} ne $userData{password1}) {
+        AdminPanel::Shared::msgBox(N("Password Mismatch"));
+        return 0;
+    }
+    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
+    if ($userData{password} ne '') {
+        my $sec = security::level::get();
+        if ($sec > 3 && length($userData{password}) < 6) {
+            AdminPanel::Shared::msgBox(N("This password is too simple. \n Good passwords should be > 6 characters"));
+            return 0;
+        }
+        $self->ctx->UserSetPass($userEnt, $userData{password});
+    }
+
+    $userEnt->UserName($userData{username});
+    $userEnt->Gecos($userData{full_name});
+    $userEnt->HomeDir($userData{homedir});
+    $userEnt->LoginShell($userData{shell});
+    my $username = $userEnt->UserName($self->USER_GetValue);
+    my $grps = $self->ctx->GroupsEnumerate;
+    my @sgroups = sort @$grps;
+ 
+    my $members = $userData{members};
+    foreach my $group (@sgroups) {
+
+        my $gEnt = $self->ctx->LookupGroupByName($group);
+        my $ugid = $gEnt->Gid($self->USER_GetValue);
+        my $m    = $gEnt->MemberName(1,0);
+        if (member($group, @$members)) {
+            if (!$self->_inArray($username, $m) && $userData{primary_group} != $ugid) {
+                eval { $gEnt->MemberName($username, 1) };
+                $self->ctx->GroupModify($gEnt);
+            }
+        }
+        else {
+            if ($self->_inArray($username, $m)) {
+                eval { $gEnt->MemberName($username, 2) };
+                $self->ctx->GroupModify($gEnt);
+            }
+        }
+    }
+    if ($userData{primary_group} == -1) {
+        AdminPanel::Shared::msgBox(N("Please select at least one group for the user"));
+        return 0;
+    }
+    $userEnt->Gid($userData{primary_group});
+
+    if ($userData{acc_check_exp}) {
+        my $yr = $userData{acc_expy}; 
+        my $mo = $userData{acc_expm};
+        my $dy = $userData{acc_expd};
+        if (!ValidInt($yr, $dy, $mo)) {
+            AdminPanel::Shared::msgBox(N("Please specify Year, Month and Day \n for Account Expiration "));
+            return 0;
+        }
+        my $Exp = ConvTime($dy, $mo, $yr);
+        $userEnt->ShadowExpire($Exp);
+    }
+    else { 
+        $userEnt->ShadowExpire(ceil(-1)) 
+    }
+
+    if ($userData{pwd_check_exp}) {
+        my $allowed = int($userData{pwd_exp_min});
+        my $required = int($userData{pwd_exp_max});
+        my $warning = int($userData{pwd_exp_warn});
+        my $inactive = int($userData{pwd_exp_inact});
+        if ($allowed && $required && $warning && $inactive) {
+            $userEnt->ShadowMin($allowed);
+            $userEnt->ShadowMax($required);
+            $userEnt->ShadowWarn($warning);
+            $userEnt->ShadowInact($inactive);
+        }
+        else {
+            AdminPanel::Shared::msgBox(N("Please fill up all fields in password aging\n"));
+            return 0;
+        }
+    }
+    else {
+        $userEnt->ShadowMin(-1);
+        $userEnt->ShadowMax(99999);
+        $userEnt->ShadowWarn(-1);
+        $userEnt->ShadowInact(-1); 
+    }
+   
+    $self->ctx->UserModify($userEnt);
+
+    if ($userData{lockuser}) {
+        !$self->ctx->IsLocked($userEnt) and $self->ctx->Lock($userEnt);
+    } 
+    else { 
+        $self->ctx->IsLocked($userEnt) and $self->ctx->UnLock($userEnt); 
+    }
+            
+    defined $userData{icon_face} and AdminPanel::Users::users::addKdmIcon($userData{username}, $userData{icon_face});
+    $self->_refresh();
+
+    return 1;
+}
+
 
 
 sub _editUserDialog {
@@ -1625,7 +1746,10 @@ sub _editUserDialog {
                     last;
                 }
                 elsif ($widget == $okButton) {
-                   ## TODO save changes
+                    ## save changes
+                    if ($self->_userEdit_Ok(%userData)) {
+                        last;
+                    }
                 }
 # last: managing tab widget events
                 else {
@@ -2022,6 +2146,12 @@ sub _inArray {
     my ($self, $item, $arr) = @_;
     
     return grep( /^$item$/, @$arr ); 
+}
+
+
+sub ValidInt {
+    foreach my $i (@_) { $i =~ /\d+/ or return 0 }
+    return 1;
 }
 
 sub ConvTime {
