@@ -2375,7 +2375,7 @@ sub manageUsersDialog {
             elsif ($menuLabel eq $helpMenu{about}->label())  {
                 my $license = translate($::license);
                 AboutDialog({ name => N("AdminUser"),
-                    version => self->VERSION,
+                    version => $self->VERSION,
                     copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
                     license => $license, 
                     comments => N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
