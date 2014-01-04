@@ -288,9 +288,9 @@ sub servicePanel {
                 # TODO fix version value
                 AboutDialog({ name => N("Services and daemons"),
                     version => "1.0.0",
-                    copyright => N("Copyright (C) %s Mageia community", '2013'),
+                    copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
                     license => $license, 
-                    comments => N("Service Manager is is the Mageia service and daemon management tool \n(from the original idea of Mandriva draxservice)."),
+                    comments => N("Service Manager is the Mageia service and daemon management tool \n(from the original idea of Mandriva draxservice)."),
                     website => 'http://www.mageia.org',
                     website_label => N("Mageia"),
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",

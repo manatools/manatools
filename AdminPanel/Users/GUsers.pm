@@ -34,7 +34,8 @@ use strict;
 use Moose;
 use POSIX qw(ceil);
 # use Time::localtime;
-use common qw(N);
+use common qw(N
+              translate);
 use security::level;
 use run_program;
 ## USER is from userdrake
@@ -46,6 +47,14 @@ use Glib;
 use yui;
 use AdminPanel::Shared;
 use AdminPanel::Users::users;
+
+=head1 VERSION
+
+Version 1.0.0
+
+=cut
+
+our $VERSION = '1.0.0';
 
 # main dialog
 has 'dialog'     => (
@@ -108,13 +117,6 @@ has 'edit_tab_widgets' => (
     init_arg  => undef,
 );
 
-=head1 VERSION
-
-Version 1.0.0
-
-=cut
-
-our $VERSION = '1.0.0';
 
 # TODO move to Shared?
 sub labeledFrameBox {
@@ -131,14 +133,19 @@ sub labeledFrameBox {
 }
 
 # usefull local variable to avoid duplicating
-# translation point for label
+# translation point for user edit labels
 my %userEditLabel = (
     user_data     => N("User Data"),
     account_info  => N("Account Info"),
     password_info => N("Password Info"),
     groups        => N("Groups"),
 );
-
+# usefull local variable to avoid duplicating
+# translation point for group edit labels
+my %groupEditLabel = (
+    group_data    => N("Group Data"),
+    group_users   => N("Group Users"),
+);
 #=============================================================
 
 =head2 ChooseGroup
@@ -1163,12 +1170,12 @@ sub _getUserInfo {
 
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
     if ($label ne N("Users") ) {
-        return; 
+        return undef;
     }
 
     my $item = $self->get_widget('table')->selectedItem();
     if (! $item) {
-       return;
+       return undef;
     }
     
     my %userData;
@@ -1226,12 +1233,83 @@ sub _getUserInfo {
 
 }
 
+#=============================================================
+
+=head2 _getUserInfo
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    %groupData:  selected group info as:
+    $groupname:  group name
+    $members:    users that are members of this group
+
+=head3 DESCRIPTION
+
+    Retrieves the selected group info from the system
+
+=cut
+
+#=============================================================
+
+sub _getGroupInfo {
+    my $self = shift;
+
+    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
+    if ($label ne N("Groups") ) {
+        return undef;
+    }
+
+    my $item = $self->get_widget('table')->selectedItem();
+    if (! $item) {
+       return undef;
+    }
+    
+    my %groupData;
+    $groupData{start_groupname} = $item->label();
+    $groupData{groupname}       = $item->label();
+
+    my $groupEnt = $self->ctx->LookupGroupByName($groupData{groupname}); 
+    $groupData{members} = $self->ctx->EnumerateUsersByGroup($groupData{groupname});
+    
+    return %groupData;
+
+}
+
+sub _storeDataFromGroupEditPreviousTab {
+    my ($self, %groupData) = @_;
+
+    my $previus_tab = $self->get_edit_tab_widget('edit_tab_label');
+    if (!$previus_tab) {
+        return %groupData;
+    }
+    elsif ($previus_tab eq $groupEditLabel{group_data}) {
+        $groupData{groupname} = $self->get_edit_tab_widget('groupname')->value();
+    }
+    elsif ($previus_tab eq $groupEditLabel{group_users}) {
+        my $tbl = $self->get_edit_tab_widget('members');
+        $groupData{members} = undef;
+        my @members; 
+        my $i;
+        for($i=0;$i<$tbl->itemsCount();$i++) {
+            push (@members, $tbl->item($i)->label()) if $tbl->toCBYTableItem($tbl->item($i))->checked();
+        }
+        $groupData{members} = [ @members ];
+    }
+
+    return %groupData;       
+}
+
+
 sub _storeDataFromUserEditPreviousTab {
     my ($self, %userData) = @_;
 
     my $previus_tab = $self->get_edit_tab_widget('edit_tab_label');
     if (!$previus_tab) {
-        return;
+        return %userData;
     }
     elsif ($previus_tab eq $userEditLabel{user_data}) {
         $userData{full_name} = $self->get_edit_tab_widget('full_name')->value();
@@ -1351,6 +1429,69 @@ sub _userDataTabWidget {
     return %userDataWidget;
 }
 
+
+#=============================================================
+
+=head2 _groupDataTabWidget
+
+=head3 INPUT
+
+    $self:        this object
+    $dialog:      YUI dialog that owns the YUI replace point
+    $replace_pnt: YUI replace point, needed to add a new tab
+                  widget
+    %groupData:   hash containing group data info, tabs are 
+                  removed and added again on selection, so
+                  data must be saved outside of widgets.
+    $previus_tab: previous tab widget label, needed to store
+                  group data from the old tab before removing
+                  it, if user changed something. 
+
+=head3 OUTPUT
+
+    %groupDataWidget: hash containing new YUI widget objects
+                      such as:
+                       groupname. 
+
+=head3 DESCRIPTION
+
+    This internal method removes old tab widget saving its
+    relevant data into groupData and creates new selected table
+    to be shown.
+
+=cut
+
+#=============================================================
+sub _groupDataTabWidget {
+    my ($self, $dialog, $replace_pnt, %groupData) = @_;
+     
+    my $factory  = yui::YUI::widgetFactory;
+
+    $dialog->startMultipleChanges();
+
+    $replace_pnt->deleteChildren();
+    my $layout               = $factory->createVBox($replace_pnt);
+
+    my %groupDataWidget;
+
+    ## user 'login name'
+    my $align                = $factory->createRight($layout);
+    my $hbox                 = $factory->createHBox($align);
+    my $label                = $factory->createLabel($hbox, N("Group Name:") );
+    $groupDataWidget{groupname} = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $groupDataWidget{groupname}->setWeight($yui::YD_HORIZ, 2);
+
+    $groupDataWidget{groupname}->setValue($groupData{groupname});
+
+    $replace_pnt->showChild();
+    $dialog->recalcLayout();
+    $dialog->doneMultipleChanges();
+    
+    return %groupDataWidget;
+}
+
+
 sub _userAccountInfoTabWidget {
     my ($self, $dialog, $replace_pnt, %userData) = @_;
 
@@ -1461,6 +1602,50 @@ sub _userPasswordInfoTabWidget {
     return %userPasswordWidget;
 }
 
+sub _groupUsersTabWidget {
+    my ($self, $dialog, $replace_pnt, %groupData) = @_;
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $mageiaPlugin = "mga";
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+    
+    $dialog->startMultipleChanges();
+
+    $replace_pnt->deleteChildren();
+
+    my %groupUsersWidget;
+
+    my $layout   = labeledFrameBox($replace_pnt, N("Select the users to join this group:"));
+
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn("", $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("User"), $yui::YAlignBegin);
+
+    $groupUsersWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
+
+    my $groupEnt = $self->ctx->LookupGroupByName($groupData{groupname}); 
+    my $users  = $self->ctx->UsersEnumerate;
+    my @susers = sort(@$users);
+
+    my $itemCollection = new yui::YItemCollection;
+    my $members = $groupData{members};
+    foreach my $user (@susers) {
+        my $item = new yui::YCBTableItem($user);
+        $item->check(member($user, @$members));
+        $item->setLabel($user);
+        $itemCollection->push($item);
+        $item->DISOWN();    
+    }    
+    $groupUsersWidget{members}->addItems($itemCollection);
+
+    $replace_pnt->showChild();
+    $dialog->recalcLayout();
+    $dialog->doneMultipleChanges();
+    
+    return %groupUsersWidget;
+}
+
 sub _userGroupsTabWidget {
     my ($self, $dialog, $replace_pnt, %userData) = @_;
 
@@ -1527,6 +1712,59 @@ sub _userGroupsTabWidget {
     $dialog->doneMultipleChanges();
     
     return %userGroupsWidget;
+}
+
+sub _groupEdit_Ok {
+    my ($self, %groupData) = @_;
+
+    # update last changes if any 
+    %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
+    
+    my ($continue, $errorString) = valid_groupname($groupData{groupname});
+    if (!$continue) {
+        AdminPanel::Shared::msgBox($errorString) if ($errorString);
+        return $continue;
+    }
+    my $groupEnt = $self->ctx->LookupGroupByName($groupData{start_groupname}); 
+    if ($groupData{start_groupname} ne $groupData{groupname}) { 
+        $groupEnt->GroupName($groupData{groupname}); 
+    }
+
+    my $members = $groupData{members};
+    my $gid     = $groupEnt->Gid($self->USER_GetValue);
+    my $users   = $self->ctx->UsersEnumerate;
+    my @susers  = sort(@$users);
+
+    foreach my $user (@susers) {
+        my $uEnt = $self->ctx->LookupGroupByName($user);
+        if ($uEnt) {
+            my $ugid = $uEnt->Gid($self->USER_GetValue);
+            my $m    = $self->ctx->EnumerateUsersByGroup($groupData{start_groupname});
+            if (member($user, @$members)) {
+                if (!$self->_inArray($user, $m)) {
+                    if ($ugid != $gid) {
+                        eval { $groupEnt->MemberName($user,1) };
+                    }
+                }
+            }
+            else {
+                if ($self->_inArray($user, $m)) {
+                    if ($ugid == $gid) {
+                        AdminPanel::Shared::msgBox(N("You cannot remove user '%s' from their primary group", $user));
+                        return 0;
+                    }
+                    else {
+                        eval { $groupEnt->MemberName($user,2) };
+                    }
+                }
+            }
+        }
+    }    
+
+    $self->ctx->GroupModify($groupEnt);
+    $self->_refresh();
+
+    return 1;
 }
 
 sub _userEdit_Ok {
@@ -1652,7 +1890,7 @@ sub _editUserDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Edit Users"));
+    yui::YUI::app()->setApplicationTitle(N("Edit User"));
     
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -1694,7 +1932,8 @@ sub _editUserDialog {
         my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
         
         my %userData        = $self->_getUserInfo();
-
+        # userData here should be tested because it could be undef
+        
         # Useful entry point for the current edit user/group tab widget 
         $self->set_edit_tab_widget( $self->_userDataTabWidget($dlg, $tabs{replace_pnt}, %userData) );
         $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{user_data});
@@ -1813,6 +2052,104 @@ sub _editUserDialog {
 
 sub _editGroupDialog {
     my $self = shift;
+ 
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Edit Group"));
+    
+    my $factory  = yui::YUI::widgetFactory;
+    my $optional = yui::YUI::optionalWidgetFactory;
+
+    my $dlg      = $factory->createPopupDialog();
+    my $layout   = $factory->createVBox($dlg);
+    
+    my %tabs;
+    if ($optional->hasDumbTab()) {
+        my $hbox = $factory->createHBox($layout);
+        my $align = $factory->createHCenter($hbox);
+        $tabs{widget} = $optional->createDumbTab($align);
+
+        $tabs{group_data} = new yui::YItem($groupEditLabel{group_data});
+        $tabs{group_data}->setSelected();
+        $tabs{widget}->addItem( $tabs{group_data} );
+        $tabs{group_data}->DISOWN();
+
+        $tabs{group_users} = new yui::YItem($groupEditLabel{group_users});
+        $tabs{widget}->addItem( $tabs{group_users} );
+        $tabs{group_users}->DISOWN();
+
+        my $vbox           = $factory->createVBox($tabs{widget});
+        $align             = $factory->createLeft($vbox);
+        $tabs{replace_pnt} = $factory->createReplacePoint($align);
+        
+        $hbox            = $factory->createHBox($vbox);
+        $align           = $factory->createRight($hbox);
+        my $cancelButton = $factory->createPushButton($align, N("Cancel"));
+        my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+        
+        my %groupData        = $self->_getGroupInfo();
+        # groupData here should be tested because it could be undef
+
+# %groupData:  selected group info as:
+# $groupname:  group name
+# $members:    users that are members of this group
+
+
+        # Useful entry point for the current edit user/group tab widget 
+        $self->set_edit_tab_widget( $self->_groupDataTabWidget($dlg, $tabs{replace_pnt}, %groupData) );
+        $self->set_edit_tab_widget( edit_tab_label => $groupEditLabel{group_data});
+
+        while(1) {
+            my $event     = $dlg->waitForEvent();
+            my $eventType = $event->eventType();
+            
+            #event type checking
+            if ($eventType == $yui::YEvent::CancelEvent) {
+                last;
+            }
+            elsif ($eventType == $yui::YEvent::MenuEvent) {
+                ### MENU ###
+                my $item = $event->item();
+                if ($item->label() eq $tabs{group_data}->label()) {
+                    %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
+                    my %edit_tab = $self->_groupDataTabWidget($dlg, $tabs{replace_pnt}, %groupData );
+                    $self->edit_tab_widgets( {} );
+                    $self->set_edit_tab_widget(%edit_tab);
+                    $self->set_edit_tab_widget( edit_tab_label => $groupEditLabel{group_data});
+                }
+                elsif ($item->label() eq $tabs{group_users}->label()) {
+                    %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
+                    my %edit_tab = $self->_groupUsersTabWidget($dlg, $tabs{replace_pnt}, %groupData );
+                    $self->edit_tab_widgets( {} );
+                    $self->set_edit_tab_widget(%edit_tab);
+                    $self->set_edit_tab_widget( edit_tab_label => $groupEditLabel{group_users});
+                }
+            }
+            elsif ($eventType == $yui::YEvent::WidgetEvent) {
+                ### widget 
+                my $widget = $event->widget();
+                if ($widget == $cancelButton) {
+                    last;
+                }
+                elsif ($widget == $okButton) {
+                    ## save changes
+                    if ($self->_groupEdit_Ok(%groupData)) {
+                        last;
+                    }
+                }
+            }
+        }
+
+    }
+    else {
+        AdminPanel::Shared::warningMsgBox(N("Cannot create tab widgets"));
+    }
+
+    destroy $dlg;
+    
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
 
 }
 
@@ -1959,10 +2296,10 @@ sub manageUsersDialog {
     $actionMenu->DISOWN();
     
     my %helpMenu = (
-            widget     => $factory->createMenuButton($headRight, N("Help")),
+            widget     => $factory->createMenuButton($headRight, N("&Help")),
             help       => new yui::YMenuItem(N("Help")), 
             report_bug => new yui::YMenuItem(N("Report Bug")),
-            about      => new yui::YMenuItem(N("About")),
+            about      => new yui::YMenuItem(N("&About")),
     );
 
     while ( my ($key, $value) = each(%helpMenu) ) {
@@ -2031,30 +2368,46 @@ sub manageUsersDialog {
         elsif ($eventType == $yui::YEvent::MenuEvent) {
 ### MENU ###
             my $item = $event->item();
-            if ($item->label() eq $fileMenu{ quit }->label())  {
+            my $menuLabel = $item->label();
+            if ($menuLabel eq $fileMenu{ quit }->label())  {
                 last;
             }
-            elsif ($item->label() eq $self->get_action_menu('add_user')->label())  {
+            elsif ($menuLabel eq $helpMenu{about}->label())  {
+                my $license = translate($::license);
+                AboutDialog({ name => N("AdminUser"),
+                    version => self->VERSION,
+                    copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
+                    license => $license, 
+                    comments => N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
+                    website => 'http://www.mageia.org',
+                    website_label => N("Mageia"),
+                    authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
+                    translator_credits =>
+                        #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
+                        N("_: Translator(s) name(s) & email(s)\n")}
+                );
+            }
+            elsif ($menuLabel eq $self->get_action_menu('add_user')->label())  {
                 $self->addUserDialog();
                 $self->_refresh();
             }
-            elsif ($item->label() eq $self->get_action_menu('add_group')->label()) {
+            elsif ($menuLabel eq $self->get_action_menu('add_group')->label()) {
                 $self->_addGroupDialog();
                 $self->_refresh();
             }
-            elsif ($item->label() eq $self->get_action_menu('del')->label())  {
+            elsif ($menuLabel eq $self->get_action_menu('del')->label())  {
                 $self->_deleteUserOrGroup();
             }
-            elsif ($item->label() eq $self->get_action_menu('edit')->label())  {
+            elsif ($menuLabel eq $self->get_action_menu('edit')->label())  {
                 $self->_editUserOrGroup();
             }
-            elsif ($self->get_widget('tabs') && $item->label() eq  $tabs{groups}->label()) {
+            elsif ($self->get_widget('tabs') && $menuLabel eq  $tabs{groups}->label()) {
                 $self->_createGroupTable();
             }
-            elsif ($self->get_widget('tabs') && $item->label() eq  $tabs{users}->label()) {
+            elsif ($self->get_widget('tabs') && $menuLabel eq  $tabs{users}->label()) {
                 $self->_createUserTable();
             }
-            elsif ($item->label() eq  $fileMenu{refresh}->label()) {
+            elsif ($menuLabel eq  $fileMenu{refresh}->label()) {
                 $self->_refresh();
             }
         }
