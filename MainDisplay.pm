@@ -125,7 +125,7 @@ sub start {
         ## If icon click, launch the Module
         for(@{$self->{currCategory}->{modules}}) {
             if( $_->{button} == $self->{event}->widget() ){
-                $launch = $_->{launch};
+                $launch = $_;
                 last;
             }
         }
@@ -226,56 +226,150 @@ sub setupGui {
 ## adpanel settings
 sub loadSettings {
     my ($self) = @_;
-# configuration file name
+    # configuration file name
     my $fileName = "$self->{confDir}/settings.conf";
     $self->{settings} = new SettingsReader($fileName);
+}
+
+#=============================================================
+
+=head2 categoryLoaded
+
+=head3 INPUT
+
+    $self:     this object
+    $category: category to look for
+
+=head3 OUTPUT
+
+    $present: category is present or not
+
+=head3 DESCRIPTION
+
+    This method looks for the given category and if already in
+    returns true.
+=cut
+
+#=============================================================
+sub categoryLoaded {
+    my ($self, $category) = @_;
+    my $present = 0;
+
+    if (!$category) {
+        return $present;
+    }
+
+    foreach my $cat (@{$self->{categories}}) { 
+        if ($cat->{name} eq $category->{name}) {
+            $present = 1; 
+            last;
+        }
+    }
+
+    return $present;
+}
+
+#=============================================================
+
+=head2 getCategory
+
+=head3 INPUT
+
+    $self:     this object
+    $name:     category name
+
+=head3 OUTPUT
+
+    $category: category object if exists
+
+=head3 DESCRIPTION
+
+    This method looks for the given category name and returns
+    the realte object.
+=cut
+
+#=============================================================
+sub getCategory {
+    my ($self, $name) = @_;
+    my $category = undef;
+
+    foreach $category (@{$self->{categories}}) { 
+        if ($category->{name} eq $name) {
+            last;
+        }
+    }
+
+    return $category;
 }
 
 sub loadCategory {
     my ($self, $category) = @_;
 
-    push ( @{$self->{categories}}, $category );
+    if (!$self->categoryLoaded($category)) {
+        push ( @{$self->{categories}}, $category );
 
-    @{$self->{categories}}[-1]->{button} = $self->{factory}->createPushButton(
-                                                                $self->{leftPane},
-                                                                $self->{categories}[-1]->{name}
-                                                                );
-    @{$self->{categories}}[-1]->setIcon();
+        @{$self->{categories}}[-1]->{button} = $self->{factory}->createPushButton(
+                                                                    $self->{leftPane},
+                                                                    $self->{categories}[-1]->{name}
+                                                                    );
+        @{$self->{categories}}[-1]->setIcon();
 
-    @{$self->{categories}}[-1]->{button}->setStretchable(0, 1);
-#     @{$self->{categories}}[-1]->{button}->setStretchable(1, 1);
+        @{$self->{categories}}[-1]->{button}->setStretchable(0, 1);
+    }
 }
 
 sub loadCategories {
     my ($self) = @_;
 
-# configuration file name
+    # category files 
+    my @categoryFiles;
     my $fileName = "$self->{confDir}/categories.conf";
-
-    my $inFile = new ConfigReader($fileName);
-    my $tmpCat;
-    my $tmp;
-    my $hasNextCat = $inFile->hasNextCat();
-    while( $hasNextCat ) {
-        $tmp = $inFile->getNextCat();
-        $tmpCat = new Category($tmp->{title}, $tmp->{icon});
-        $self->loadCategory($tmpCat);
-        $hasNextCat = $inFile->hasNextCat();
-        $self->{currCategory} = $tmpCat;
     
-        my $hasNextMod = $inFile->hasNextMod();
-        while( $hasNextMod ) {
-            $tmp = $inFile->getNextMod();
-            my $tmpMod = new Module($tmp->{title}, 
-                                    $tmp->{icon},
-                                    $tmp->{launcher}
-                                   );
-            $self->{currCategory}->loadModule($tmpMod);
-
-            $hasNextMod = $inFile->hasNextMod();
+    
+    # configuration file dir
+    my $directory = "$self->{confDir}/categories.conf.d";
+    
+    push(@categoryFiles, $fileName);
+    push(@categoryFiles, <etc/categories.conf.d/*.conf>);
+    
+    foreach $fileName (@categoryFiles) {
+        my $inFile = new ConfigReader($fileName);
+        my $tmpCat;
+        my $tmp;
+        my $hasNextCat = $inFile->hasNextCat();
+        while( $hasNextCat ) {
+            $tmp = $inFile->getNextCat();
+            $tmpCat = $self->getCategory($tmp->{title});
+            if (!$tmpCat) {
+                $tmpCat = new Category($tmp->{title}, $tmp->{icon});
+                $self->loadCategory($tmpCat);
+            }
+            $hasNextCat = $inFile->hasNextCat();
+            $self->{currCategory} = $tmpCat;
+        
+            my $hasNextMod = $inFile->hasNextMod();
+            while( $hasNextMod ) {
+                $tmp = $inFile->getNextMod();
+                my $tmpMod;
+                my $loaded = 0;
+                if (exists $tmp->{title}) {
+                    $tmpMod = Module->create(name => $tmp->{title}, 
+                                            icon => $tmp->{icon},
+                                            launcher => $tmp->{launcher}
+                                            );
+                } 
+                elsif (exists $tmp->{class}) {
+                    $tmpMod = Module->create(-CLASS => $tmp->{class});
+                }
+                if ($tmpMod) {
+                    $loaded = $self->{currCategory}->loadModule($tmpMod);
+                    undef $tmpMod if !$loaded;
+                }
+                $hasNextMod = $inFile->hasNextMod();
+            }
         }
+        undef($tmpCat);
     }
-    undef($tmpCat);
 }
 
 sub menuEventIndex {

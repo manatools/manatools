@@ -44,11 +44,74 @@ sub new {
 }
 
 ## Add a new module to the list
+#=============================================================
+
+=head2 loadModule
+
+=head3 INPUT
+
+    $self:   this object
+    $module: module to add
+
+=head3 OUTPUT
+
+    1: if the module has been added
+    0: otherwise
+
+=head3 DESCRIPTION
+
+    This method adds a module to the loaded
+    modules if it is not already in.
+
+=cut
+
+#=============================================================
 sub loadModule {
     my ($self, $module) = @_;
     
-    push ( @{$self->{modules}}, $module );
+    if (!$self->moduleLoaded($module)) {
+        push ( @{$self->{modules}}, $module );
+        return 1;
+    }
+    return 0;
+}
 
+#=============================================================
+
+=head2 moduleLoaded
+
+=head3 INPUT
+
+    $self:   this object
+    $module: module to look for
+
+=head3 OUTPUT
+
+    $present: module present or not
+
+=head3 DESCRIPTION
+
+    This method looks for the given module and if already in
+    returns true.
+=cut
+
+#=============================================================
+sub moduleLoaded {
+    my ($self, $module) = @_;
+    my $present = 0;
+
+    if (!$module) {
+        return $present;
+    }
+
+    foreach my $mod (@{$self->{modules}}) { 
+        if ($mod->{name} eq $module->name) {
+            $present = 1; 
+            last;
+        }
+    }
+
+    return $present;
 }
 
 ## Create and add buttons for each module
@@ -65,10 +128,10 @@ sub addButtons {
         }
         $count++;
         $tmpButton = $factory->createPushButton($currLayout,
-                                                $mod->{name});
+                                                $mod->name);
         $mod->setButton($tmpButton);
-        $tmpButton->setLabel($mod->{name});
-        $tmpButton->setIcon($mod->{icon});
+        $tmpButton->setLabel($mod->name);
+        $tmpButton->setIcon($mod->icon);
         $factory->createHStretch($currLayout);
         if(($count % 2) != 1) {
             $factory->createVSpacing($pane, 2);     

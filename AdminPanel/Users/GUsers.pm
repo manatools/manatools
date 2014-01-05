@@ -47,6 +47,16 @@ use Glib;
 use yui;
 use AdminPanel::Shared;
 use AdminPanel::Users::users;
+extends qw( Module );
+
+has '+icon' => (
+    default => "/usr/share/icons/userdrake.png",
+);
+
+has '+name' => (
+    default => N("AdminUser"), 
+);
+
 
 =head1 VERSION
 
@@ -117,6 +127,11 @@ has 'edit_tab_widgets' => (
     init_arg  => undef,
 );
 
+sub start {
+    my $self = shift;
+
+    $self->manageUsersDialog();
+};
 
 # TODO move to Shared?
 sub labeledFrameBox {
@@ -1662,8 +1677,6 @@ sub _userGroupsTabWidget {
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
     my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
 
-    my $align;
-    my $hbox;
     my $layout   = labeledFrameBox($replace_pnt, N("Select groups that the user will be member of:"));
 
     my $yTableHeader = new yui::YTableHeader();
@@ -2528,3 +2541,8 @@ sub TimeOfArray {
     $h;
 }
 sub member { my $e = shift; foreach (@_) { $e eq $_ and return 1 } 0 }
+
+no Moose;
+__PACKAGE__->meta->make_immutable;
+
+1;

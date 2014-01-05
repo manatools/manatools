@@ -18,6 +18,6 @@ yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
 my $userMan = AdminPanel::Users::GUsers->new();
-$userMan->manageUsersDialog();
+$userMan->start();
 
 1;

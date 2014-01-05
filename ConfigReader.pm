@@ -41,6 +41,13 @@ sub new {
     
     my $xml = new XML::Simple (KeyAttr=>[]);
     $self->{data} = $xml->XMLin($fileName);
+    if (ref($self->{data}->{category}) eq "HASH") {
+        # one element alone
+        my @categories;
+        push @categories, $self->{data}->{category};
+        $self->{data}->{category} = undef;
+        push @{$self->{data}->{category}}, @categories;
+    }
     $self->{catLen} = scalar(@{$self->{data}->{category}});
     $self->{currCat} = -1;
     

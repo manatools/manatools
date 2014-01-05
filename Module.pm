@@ -22,27 +22,76 @@
 #Class Module
 package Module;
 
+use Moose;
+
+=head1 VERSION
+
+Version 0.01
+
+=cut
+
+our $VERSION = '1.0.0';
+
 use strict;
 use warnings;
 use diagnostics;
 use yui;
 
-sub new {
-    my ($class, $newName, $newIcon, $newLaunch) = @_;
-    my $self = {
-        my $name = 0,
-        my $icon = 0,
-        my $launch = 0,
-        my $button = 0
-    };
-    bless $self, 'Module';
-    
-    $self->{name} = $newName;
-    $self->{icon} = $newIcon;
-    $self->{launch} = $newLaunch;
+=head1 SUBROUTINES/METHODS
 
-    return $self;
+=head2 create - returns a Module object such as a module
+                launcher (this object) or an extension of
+                this class
+
+=cut
+
+sub create {
+    my $class = shift;
+    $class = ref $class || $class;
+    my (%params) = @_;
+
+    my $obj;
+    if ( exists $params{-CLASS} ) {
+        my $driver = $params{-CLASS};
+        
+        eval {
+            my $pkg = $driver;
+            $pkg =~ s/::/\//g;
+            $pkg .= '.pm';
+            require $pkg;
+            $obj=$driver->new();
+        };
+        if ( $@ ) {
+            die "Error getting obj for driver $params{-CLASS}: $@";
+            return undef;
+        }
+    }
+    else {
+        $obj = new Module(@_);
+    }
+    return $obj;
 }
+
+has 'icon' => (
+    is      => 'rw',
+    isa     => 'Str',
+);
+
+has 'name' => (
+    is      => 'rw',
+    isa     => 'Str',
+);
+
+has 'launch' => (
+    is      => 'rw',
+    isa     => 'Str',
+);
+
+has 'button' => (
+    is      => 'rw',
+   init_arg => undef,
+);
+
 
 sub setButton {
     my ($self, $button) = @_;
@@ -55,4 +104,16 @@ sub removeButton {
     undef($self->{button});
 }
 
+# base class launcher
+sub start {
+    my $self = shift;
+
+    my $err = yui::YUI::app()->runInTerminal( $self->{launch} . " --ncurses");
+    if ($err == -1) {
+        system($self->{launch});
+    }
+}
+
+
+no Moose;
 1;

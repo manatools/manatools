@@ -43,10 +43,7 @@ while ($launch) {
     $mainWin->destroy();
     undef($mainWin);
 
-    my $err = yui::YUI::app()->runInTerminal("$launch --ncurses");
-    if ($err == -1) {
-        system($launch);
-    }
+    $launch->start();
 
     $mainWin = new MainDisplay();
     $launch = $mainWin->start();
