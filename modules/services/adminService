@@ -7,7 +7,7 @@ use standalone;     #- warning, standalone must be loaded very first, for 'expla
 
 use common;
 use AdminPanel::Shared;
-use AdminPanel::Services::services;
+use AdminPanel::Services::AdminService;
 use log;
 
 use yui;
@@ -17,5 +17,7 @@ my $wm_icon = "/usr/share/mcc/themes/default/service-mdk.png";
 yui::YUI::app()->setApplicationTitle(N("Services and daemons"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
-AdminPanel::Services::services::servicePanel();
+my $serviceMan = AdminPanel::Services::AdminService->new();
+$serviceMan->start();
 
+1;

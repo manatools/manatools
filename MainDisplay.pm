@@ -295,7 +295,7 @@ sub getCategory {
 
     foreach $category (@{$self->{categories}}) { 
         if ($category->{name} eq $name) {
-            last;
+            return $category;
         }
     }
 
@@ -368,7 +368,6 @@ sub loadCategories {
                 $hasNextMod = $inFile->hasNextMod();
             }
         }
-        undef($tmpCat);
     }
 }
 

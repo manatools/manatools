@@ -68,9 +68,10 @@ sub new {
 #=============================================================
 sub loadModule {
     my ($self, $module) = @_;
-    
+
     if (!$self->moduleLoaded($module)) {
         push ( @{$self->{modules}}, $module );
+
         return 1;
     }
     return 0;

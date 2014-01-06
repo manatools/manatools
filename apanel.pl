@@ -36,21 +36,21 @@ my $settings = getSettings();
 
 ask_for_authentication($settings->{priv_method}) if(require_root_capability());
 
-my $mainWin = new MainDisplay();
-my $launch = $mainWin->start();
+while (1) {
+    my $mainWin = new MainDisplay();
+    my $launch = $mainWin->start();   
 
-while ($launch) {
-    $mainWin->destroy();
-    undef($mainWin);
-
-    $launch->start();
-
-    $mainWin = new MainDisplay();
-    $launch = $mainWin->start();
+    if ($launch) { 
+        $launch->start();
+        undef($mainWin);
+    }
+    else {
+        $mainWin->destroy();
+        undef($mainWin);
+        last;
+    }
 }
 
-$mainWin->destroy();
-undef($mainWin);
 
 sub usage {
     print "\n";
@@ -90,3 +90,5 @@ sub getSettings {
        main launcher
 
 =cut
+
+1;

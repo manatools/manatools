@@ -19,7 +19,7 @@
 # 
 #*****************************************************************************
 
-package AdminPanel::Services::services;
+package AdminPanel::Services::AdminService;
 
 
 
@@ -32,14 +32,44 @@ use strict;
 use common;
 use run_program;
 
+use Moose;
+
 use yui;
 use AdminPanel::Shared;
+use AdminPanel::Services::Utility qw(
+                                    services
+                                    xinetd_services
+                                    is_service_running
+                                    restart_or_start
+                                    stop
+                                    set_service
+                    );
 
 use File::Basename;
 
+extends qw( Module );
+
+has '+icon' => (
+    default => "/usr/share/mcc/themes/default/service-mdk.png",
+);
+
+has '+name' => (
+    default => N("AdminService"), 
+);
+
+
+=head1 VERSION
+
+Version 1.0.0
+
+=cut
+
+our $VERSION = '1.0.0';
+
+
 sub description {
     my %services = (
-acpid => N_("Listen and dispatch ACPI events from the kernel"),	    
+acpid => N_("Listen and dispatch ACPI events from the kernel"),     
 alsa => N_("Launch the ALSA (Advanced Linux Sound Architecture) sound system"),
 anacron => N_("Anacron is a periodic command scheduler."),
 apmd => N_("apmd is used for monitoring battery status and logging it via syslog.
@@ -172,12 +202,19 @@ xinetd => N_("Starts other deamons on demand."),
 }
 
 
+sub start {
+    my $self = shift;
+
+    $self->servicePanel();
+};
+
+
 ## serviceInfo sets widgets accordingly to selected service status 
 ## param
 ##   'service'     service name 
 ##   'infoPanel'   service information widget 
 sub serviceInfo {
-    my ($service, $infoPanel) = @_;
+    my ($self, $service, $infoPanel) = @_;
 
     yui::YUI::ui()->blockEvents();
     ## infoPanel
@@ -186,7 +223,7 @@ sub serviceInfo {
 }
 
 sub serviceStatus {
-    my ($tbl, $item) = @_;
+    my ($self, $tbl, $item) = @_;
 
     my $started = (is_service_running($item->label())? N("running") : N("stopped"));
 # TODO add icon green/red led  
@@ -199,6 +236,12 @@ sub serviceStatus {
 
 ## draw service panel and manage it 
 sub servicePanel {
+    my $self = shift;
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Services and daemons"));
+
     my ($l, $on_services) = services();
     my @xinetd_services = map { $_->[0] } xinetd_services();
 
@@ -266,7 +309,7 @@ sub servicePanel {
 
     #first item status
     my $item = $serviceTbl->selectedItem();
-    serviceInfo($item->label(), $infoPanel) if ($item);
+    $self->serviceInfo($item->label(), $infoPanel) if ($item);
 
     while(1) {
         my $event     = $dialog->waitForEvent();
@@ -302,10 +345,10 @@ sub servicePanel {
             elsif ($widget == $serviceTbl) {
                 # service selection changed
                 $item = $serviceTbl->selectedItem();
-                serviceInfo($item->label(), $infoPanel) if ($item);
+                $self->serviceInfo($item->label(), $infoPanel) if ($item);
                 $item = $serviceTbl->changedItem();
                 if ($item) {
-                    _set_service($item->label(), $item->checked());
+                    set_service($item->label(), $item->checked());
                     # we can push/pop service, but this (slower) should return real situation
                     ($l, $on_services) = services();
                 }
@@ -316,7 +359,7 @@ sub servicePanel {
                     restart_or_start($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     ($l, $on_services) = services();
-                    serviceStatus($serviceTbl, $item);
+                    $self->serviceStatus($serviceTbl, $item);
                 }
             }
             elsif ($widget == $stopButton) {
@@ -325,275 +368,18 @@ sub servicePanel {
                     stop($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     ($l, $on_services) = services();
-                    serviceStatus($serviceTbl, $item);
+                    $self->serviceStatus($serviceTbl, $item);
                 }
             }
         }
     }
     $dialog->destroy();
-}
-
-
-sub _set_service {
-    my ($service, $enable) = @_;
     
-    my @xinetd_services = map { $_->[0] } xinetd_services();
-
-    if (member($service, @xinetd_services)) {
-        run_program::rooted($::prefix, "chkconfig", $enable ? "--add" : "--del", $service);
-    } elsif (running_systemd() || has_systemd()) {
-        # systemctl rejects any symlinked units. You have to enabled the real file
-        if (-l "/lib/systemd/system/$service.service") {
-            $service = basename(readlink("/lib/systemd/system/$service.service"));
-        } else {
-            $service = $service . ".service";
-        }
-        run_program::rooted($::prefix, "/bin/systemctl", $enable ? "enable" : "disable", $service);
-    } else {
-        my $script = "/etc/rc.d/init.d/$service";
-        run_program::rooted($::prefix, "chkconfig", $enable ? "--add" : "--del", $service);
-        #- FIXME: handle services with no chkconfig line and with no Default-Start levels in LSB header
-        if ($enable && cat_("$::prefix$script") =~ /^#\s+chkconfig:\s+-/m) {
-            run_program::rooted($::prefix, "chkconfig", "--level", "35", $service, "on");
-        }
-    }
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
 }
 
-sub _run_action {
-    my ($service, $action) = @_;
-    if (running_systemd()) {
-        run_program::rooted($::prefix, '/bin/systemctl', '--no-block', $action, "$service.service");
-    } else {
-        run_program::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
-    }
-}
-
-sub running_systemd() {
-    run_program::rooted($::prefix, '/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
-}
-
-sub has_systemd() {
-    run_program::rooted($::prefix, '/bin/rpm', '-q', 'systemd');
-}
-
-sub xinetd_services() {
-    local $ENV{LANGUAGE} = 'C';
-    my @xinetd_services;
-    foreach (run_program::rooted_get_stdout($::prefix, '/sbin/chkconfig', '--list', '--type', 'xinetd')) {
-        if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
-            push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
-        }
-    }
-    @xinetd_services;
-}
-
-sub _systemd_services() {
-    local $ENV{LANGUAGE} = 'C';
-    my @services;
-    my %loaded;
-    # Running system using systemd
-    log::explanations("Detected systemd running. Using systemctl introspection.");
-    foreach (run_program::rooted_get_stdout($::prefix, '/bin/systemctl', '--full', '--all', 'list-units')) {
-        if (my ($name) = m!^(\S+)\.service\s+loaded!) {
-            # We only look at non-template, non-linked service files in /lib
-            # We also check for any non-masked sysvinit files as these are
-            # also handled by systemd
-            if ($name !~ /.*\@$/g && (-e "$::prefix/lib/systemd/system/$name.service" or -e "$::prefix/etc/rc.d/init.d/$name") && ! -l "$::prefix/lib/systemd/system/$name.service") {
-                push @services, [ $name, !!run_program::rooted($::prefix, '/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
-                $loaded{$name} = 1;
-            }
-        }
-    }
-    # list-units will not list disabled units that can be enabled
-    foreach (run_program::rooted_get_stdout($::prefix, '/bin/systemctl', '--full', 'list-unit-files')) {
-        if (my ($name) = m!^(\S+)\.service\s+disabled!) {
-            # We only look at non-template, non-linked service files in /lib
-            # We also check for any non-masked sysvinit files as these are
-            # also handled by systemd
-            if (!exists $loaded{$name} && $name !~ /.*\@$/g && (-e "$::prefix/lib/systemd/system/$name.service" or -e "$::prefix/etc/rc.d/init.d/$name") && ! -l "$::prefix/lib/systemd/system/$name.service") {
-                # Limit ourselves to "standard" targets which can be enabled
-                my $wantedby = cat_("$::prefix/lib/systemd/system/$name.service") =~ /^WantedBy=(graphical|multi-user).target$/sm ? $1 : '';
-                if ($wantedby) {
-                    push @services, [ $name, 0 ];
-                }
-            }
-        }
-    }
-
-    @services;
-}
-
-sub _legacy_services() {
-    local $ENV{LANGUAGE} = 'C';
-    my @services;
-    my $has_systemd = has_systemd();
-    if ($has_systemd) {
-        # The system not using systemd but will be at next boot. This is
-        # is typically the case in the installer. In this mode we must read
-        # as much as is practicable from the native systemd unit files and
-        # combine that with information from chkconfig regarding legacy sysvinit
-        # scripts (which systemd will parse and include when running)
-        log::explanations("Detected systemd installed. Using fake service+chkconfig introspection.");
-        foreach (glob_("$::prefix/lib/systemd/system/*.service")) {
-            my ($name) = m!([^/]*).service$!;
-
-            # We only look at non-template, non-symlinked service files
-            if (!(/.*\@\.service$/g) && ! -l $_) {
-                # Limit ourselves to "standard" targets
-                my $wantedby = cat_($_) =~ /^WantedBy=(graphical|multi-user).target$/sm ? $1 : '';
-                if ($wantedby) {
-                    # Exclude if enabled statically
-                    # Note DO NOT use -e when testing for files that could
-                    # be symbolic links as this will fail under a chroot
-                    # setup where -e will fail if the symlink target does
-                    # exist which is typically the case when viewed outside
-                    # of the chroot.
-                    if (!-l "$::prefix/lib/systemd/system/$wantedby.target.wants/$name.service") {
-                        push @services, [ $name, !!-l "$::prefix/etc/systemd/system/$wantedby.target.wants/$name.service" ];
-                    }
-                }
-            }
-        }
-    } else {
-        log::explanations("Could not detect systemd. Using chkconfig service introspection.");
-    }
-
-    # Regardless of whether we expect to use systemd on next boot, we still
-    # need to instrospect information about non-systemd native services.
-    my $runlevel;
-    my $on_off;
-    if (!$::isInstall) {
-        $runlevel = (split " ", `/sbin/runlevel`)[1];
-    }
-    foreach (run_program::rooted_get_stdout($::prefix, '/sbin/chkconfig', '--list', '--type', 'sysv')) {
-        if (my ($name, $l) = m!^(\S+)\s+(0:(on|off).*)!) {
-            # If we expect to use systemd (i.e. installer) only show those
-            # sysvinit scripts which are not masked by a native systemd unit.
-            my $has_systemd_unit = systemd_unit_exists($name);
-            if (!$has_systemd || !$has_systemd_unit) {
-                if ($::isInstall) {
-                    $on_off = $l =~ /\d+:on/g;
-                } else {
-                    $on_off = $l =~ /$runlevel:on/g;
-                }
-                push @services, [ $name, $on_off ];
-            }
-        }
-    }
-    @services;
-}
-
-#- returns:
-#--- the listref of installed services
-#--- the listref of "on" services
-sub services() {
-    my @services;
-    if (running_systemd()) {
-        @services = _systemd_services();
-    } else {
-        @services = _legacy_services();
-    }
-
-    my @l = xinetd_services();
-    push @l, @services;
-    @l = sort { $a->[0] cmp $b->[0] } @l;
-    [ map { $_->[0] } @l ], [ map { $_->[0] } grep { $_->[1] } @l ];
-}
-
-
-
-sub systemd_unit_exists {
-    my ($name) = @_;
-    # we test with -l as symlinks are not valid when the system is chrooted:
-    -e "$::prefix/lib/systemd/system/$name.service" or -l "$::prefix/lib/systemd/system/$name.service";
-}
-
-sub service_exists {
-    my ($service) = @_;
-    -x "$::prefix/etc/rc.d/init.d/$service" or systemd_unit_exists($service);
-}
-
-sub restart ($) {
-    my ($service) = @_;
-    # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, "restart");
-}
-
-sub restart_or_start ($) {
-    my ($service) = @_;
-    # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, is_service_running($service) ? "restart" : "start");
-}
-
-sub start ($) {
-    my ($service) = @_;
-    # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, "start");
-}
-
-sub start_not_running_service ($) {
-    my ($service) = @_;
-    # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    is_service_running($service) || _run_action($service, "start");
-}
-
-sub stop ($) {
-    my ($service) = @_;
-    # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, "stop");
-}
-
-sub is_service_running ($) {
-    my ($service) = @_;
-    # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    if (running_systemd()) {
-        run_program::rooted($::prefix, '/bin/systemctl', '--quiet', 'is-active', "$service.service");
-    } else {
-        run_program::rooted($::prefix, '/sbin/service', $service, 'status');
-    }
-}
-
-sub starts_on_boot {
-    my ($service) = @_;
-    my (undef, $on_services) = services();
-    member($service, @$on_services);
-}
-
-sub start_service_on_boot ($) {
-    my ($service) = @_;
-    _set_service($service, 1);
-}
-
-sub do_not_start_service_on_boot ($) {
-    my ($service) = @_;
-    _set_service($service, 0);
-}
-
-sub enable {
-    my ($service, $o_dont_apply) = @_;
-    start_service_on_boot($service);
-    restart_or_start($service) unless $o_dont_apply;
-}
-
-sub disable {
-    my ($service, $o_dont_apply) = @_;
-    do_not_start_service_on_boot($service);
-    stop($service) unless $o_dont_apply;
-}
-
-sub set_status {
-    my ($service, $enable, $o_dont_apply) = @_;
-    if ($enable) {
-	enable($service, $o_dont_apply);
-    } else {
-	disable($service, $o_dont_apply);
-    }
-}
+no Moose;
+__PACKAGE__->meta->make_immutable;
 
 1;
