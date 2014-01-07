@@ -2436,6 +2436,10 @@ sub manageUsersDialog {
             }
             elsif ($widget == $self->get_widget('table')) {
                 $self->_refreshActions();
+                my $wEvent = yui::YMGAWidgetFactory::getYWidgetEvent($event);
+                if ($wEvent && $wEvent->reason() == $yui::YEvent::Activated) {
+                    $self->_editUserOrGroup();
+                }
             }
             elsif ($widget == $self->get_widget('add_group')) {
                 $self->_addGroupDialog();
