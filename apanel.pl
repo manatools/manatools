@@ -42,6 +42,7 @@ while (1) {
     my $launch = $mainWin->start();   
 
     if ($launch) { 
+        $mainWin->destroy();
         $launch->start();
         undef($mainWin);
     }
