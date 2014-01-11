@@ -556,7 +556,7 @@ sub AboutDialog {
 
 =head3 DESCRIPTION
 
-Thios function trim the given string.
+This function trim the given string.
 
 =cut
 
