@@ -40,7 +40,6 @@ use yui;
 use AdminPanel::Shared;
 use AdminPanel::Hosts::hosts;
 
-
 =head1 VERSION
 
 Version 1.0.0
@@ -50,6 +49,11 @@ Version 1.0.0
 our $VERSION = '1.0.0';
 
 has 'dialog' => (
+    is => 'rw',
+    init_arg => undef
+);
+
+has 'table' => (
     is => 'rw',
     init_arg => undef
 );
@@ -93,9 +97,6 @@ sub _addHostDialog {
     my $labelDescription = $factory->createLabel($hbox_header,"Add the information");
 
     # content
-    # my $labelIPAddress = $factory->createLabel($leftContent,"IP Address");
-    # my $labelHostName = $factory->createLabel($leftContent,"Hostname");
-    # my $labelHostAlias = $factory->createLabel($leftContent,"Host aliases");
     my $firstHbox = $factory->createHBox($vbox_content);
     my $secondHbox = $factory->createHBox($vbox_content);
     my $thirdHbox = $factory->createHBox($vbox_content);
@@ -138,6 +139,24 @@ sub _addHostDialog {
     destroy $dlg;
 }
 
+sub setupTable {
+    my $self = shift();
+    my $data = shift();
+    
+    foreach my $host (@$data){
+        my $tblItem;
+        my $aliases = join(',',@{$host->{'hosts'}});
+        if(scalar(@{$host->{'hosts'}}) > 1){
+            $aliases =~s/\,*$host->{'hosts'}[0]\,*//g;
+        }elsif(scalar(@{$host->{'hosts'}}) == 1){
+            $aliases = "";
+        }
+        $tblItem = new yui::YTableItem($host->{'ip'},$host->{'hosts'}[0],$aliases);
+        $self->table->addItem($tblItem);
+    }
+
+}
+
 sub manageHostsDialog {
     my $self = shift;
 
@@ -145,7 +164,7 @@ sub manageHostsDialog {
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
-    my $newTitle = "Manage hosts descriptions";
+    my $newTitle = "Manage hosts definitions";
     yui::YUI::app()->setApplicationTitle($newTitle);
 
     my $factory  = yui::YUI::widgetFactory;
@@ -155,14 +174,14 @@ sub manageHostsDialog {
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
 
-    my $hbox_headbar = $factory->createHBox($layout);
-    my $head_align_left = $factory->createLeft($hbox_headbar);
-    my $head_align_right = $factory->createRight($hbox_headbar);
-    my $headLeft = $factory->createHBox($head_align_left);
-    my $headRight = $factory->createHBox($head_align_right);
+    my $hbox_header = $factory->createHBox($layout);
+    my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));
+    my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
     my $logoImage = $factory->createImage($headLeft, $appIcon);
     my $labelAppDescription = $factory->createLabel($headRight,$newTitle); 
+    $logoImage->setWeight($yui::YD_HORIZ,0);
+    $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
     my $hbox_content = $factory->createHBox($layout);
 
@@ -171,16 +190,22 @@ sub manageHostsDialog {
     $tableHeader->addColumn("Hostname");
     $tableHeader->addColumn("Host Aliases");
     my $leftContent = $factory->createLeft($hbox_content);
-    $leftContent->setWeight(0,45);
-    my $tableHosts = $factory->createTable($leftContent,$tableHeader);
+    $leftContent->setWeight($yui::YD_HORIZ,45);
+    $self->table($factory->createTable($leftContent,$tableHeader));
+
+    my @hosts = AdminPanel::Hosts::hosts::_getHosts();
+    $self->setupTable(\@hosts);
     
     my $rightContent = $factory->createRight($hbox_content);
-    $rightContent->setWeight(0,10);
+    $rightContent->setWeight($yui::YD_HORIZ,10);
     my $topContent = $factory->createTop($rightContent);
-    my $vbox_content = $factory->createVBox($topContent);
-    my $addButton = $factory->createPushButton($vbox_content,"Add");
-    my $edtButton = $factory->createPushButton($vbox_content,"Edit");
-    my $remButton = $factory->createPushButton($vbox_content,"Remove");
+    my $vbox_commands = $factory->createVBox($topContent);
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),"Add");
+    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),"Edit");
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),"Remove");
+    $addButton->setWeight($yui::YD_HORIZ,1);
+    $edtButton->setWeight($yui::YD_HORIZ,1);
+    $remButton->setWeight($yui::YD_HORIZ,1);
 
     my $hbox_foot = $factory->createHBox($layout);
     my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_foot),"Cancel");
