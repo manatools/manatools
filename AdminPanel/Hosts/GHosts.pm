@@ -37,7 +37,7 @@ use utf8;
 
 use Glib;
 use yui;
-use AdminPanel::Shared;
+#use AdminPanel::Shared;
 use AdminPanel::Hosts::hosts;
 
 =head1 VERSION
