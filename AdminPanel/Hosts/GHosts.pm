@@ -20,17 +20,8 @@
 
 package AdminPanel::Hosts::GHosts;
 
-###############################################
-##
-## graphic related routines for managing user
-##
-###############################################
-
-
 use Modern::Perl 2011;
 use autodie;
-# TODO evaluate if Moose is too heavy and use Moo 
-# instead
 use Moose;
 use POSIX qw(ceil);
 use utf8;
@@ -67,7 +58,7 @@ sub start {
 
 #=============================================================
 
-=head2 _createUserTable
+=head2 _addHostDialog
 
 =head3 INPUT
 
@@ -75,9 +66,7 @@ sub start {
 
 =head3 DESCRIPTION
 
-This function create the User table to be added to the replace 
-point of the tab widget. Note this function is meant for internal 
-use only
+This subroutine creates the Host dialog to add host definitions 
 
 =cut
 
@@ -243,35 +232,6 @@ sub manageHostsDialog {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
-}
-
-#=============================================================
-
-=head2 _skipShortcut
-
-=head3 INPUT
-
-    $self:  this object
-    $label: an item label to be cleaned by keyboard shortcut "&"
-
-=head3 OUTPUT
-
-    $label: cleaned label 
-
-=head3 DESCRIPTION
-
-    This internal method is a workaround to label that are
-    changed by "&" due to keyborad shortcut.
-
-=cut
-
-#=============================================================
-sub _skipShortcut {
-    my ($self, $label) = @_;
-
-    $label =~ s/&// if ($label);
-
-    return ($label);
 }
 
 1;
