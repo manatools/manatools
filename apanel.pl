@@ -2,6 +2,7 @@
 # vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #    Copyright 2013 Matteo Pasotti
+#    Copyright 2014 Angelo Naselli
 #
 #    This file is part of AdminPanel
 #
@@ -41,6 +42,7 @@ while (1) {
     my $launch = $mainWin->start();   
 
     if ($launch) { 
+        $mainWin->destroy();
         $launch->start();
         undef($mainWin);
     }
