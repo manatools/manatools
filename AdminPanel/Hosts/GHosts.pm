@@ -86,31 +86,33 @@ sub _addHostDialog {
     my $layout = $factory->createVBox($dlg);
 
     my $hbox_header = $factory->createHBox($layout);
-    my $hbox_content = $factory->createHBox($layout);
-    my $leftContent = $factory->createVBox($hbox_content);
-    my $rightContent = $factory->createVBox($hbox_content);
+    my $vbox_content = $factory->createVBox($layout);
     my $hbox_footer = $factory->createHBox($layout);
-
-    $leftContent->setWeight($yui::YD_HORIZ, 1);
-    $rightContent->setWeight($yui::YD_HORIZ, 2);
 
     # header
     my $labelDescription = $factory->createLabel($hbox_header,"Add the informations");
 
     # content
-    my $labelIPAddress = $factory->createLabel($leftContent,"IP Address");
-    my $labelHostName = $factory->createLabel($leftContent,"Hostname");
-    my $labelHostAlias = $factory->createLabel($leftContent,"Host aliases");
-    $labelIPAddress->setWeight($yui::YD_HORIZ, 1);
-    $labelHostName->setWeight($yui::YD_HORIZ, 1);
-    $labelHostAlias->setWeight($yui::YD_HORIZ, 1);
+    # my $labelIPAddress = $factory->createLabel($leftContent,"IP Address");
+    # my $labelHostName = $factory->createLabel($leftContent,"Hostname");
+    # my $labelHostAlias = $factory->createLabel($leftContent,"Host aliases");
+    my $firstHbox = $factory->createHBox($vbox_content);
+    my $secondHbox = $factory->createHBox($vbox_content);
+    my $thirdHbox = $factory->createHBox($vbox_content);
 
-    my $textIPAddress = $factory->createInputField($rightContent,"");
-    my $textHostName = $factory->createInputField($rightContent,"");
-    my $textHostAlias = $factory->createInputField($rightContent,"");
-    $textIPAddress->setWeight($yui::YD_HORIZ, 2);
-    $textHostName->setWeight($yui::YD_HORIZ, 2);
-    $textHostAlias->setWeight($yui::YD_HORIZ, 2);
+    my $labelIPAddress = $factory->createLabel($firstHbox,"IP Address");
+    my $labelHostName  = $factory->createLabel($secondHbox,"Hostname");
+    my $labelHostAlias = $factory->createLabel($thirdHbox,"Host aliases");
+    $labelIPAddress->setWeight($yui::YD_HORIZ, 10);
+    $labelHostName->setWeight($yui::YD_HORIZ, 10);
+    $labelHostAlias->setWeight($yui::YD_HORIZ, 10);
+
+    my $textIPAddress = $factory->createInputField($firstHbox,"");
+    my $textHostName = $factory->createInputField($secondHbox,"");
+    my $textHostAlias = $factory->createInputField($thirdHbox,"");
+    $textIPAddress->setWeight($yui::YD_HORIZ, 30);
+    $textHostName->setWeight($yui::YD_HORIZ, 30);
+    $textHostAlias->setWeight($yui::YD_HORIZ, 30);
 
     # footer
     my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),"Cancel");
