@@ -90,7 +90,7 @@ sub _addHostDialog {
     my $hbox_footer = $factory->createHBox($layout);
 
     # header
-    my $labelDescription = $factory->createLabel($hbox_header,"Add the informations");
+    my $labelDescription = $factory->createLabel($hbox_header,"Add the information");
 
     # content
     # my $labelIPAddress = $factory->createLabel($leftContent,"IP Address");
