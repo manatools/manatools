@@ -31,7 +31,6 @@ package AdminPanel::Users::GUsers;
 use strict;
 # TODO evaluate if Moose is too heavy and use Moo 
 # instead
-use Moose;
 use POSIX qw(ceil);
 # use Time::localtime;
 use common qw(N
@@ -47,6 +46,7 @@ use Glib;
 use yui;
 use AdminPanel::Shared;
 use AdminPanel::Users::users;
+use Moose;
 extends qw( Module );
 
 has '+icon' => (
@@ -670,7 +670,9 @@ sub _buildUserData {
 
 =head3 INPUT
 
-    $self: this object
+    $self:       this object
+    $standalone: if set the application title is set
+                 from the name set in costructor
 
 =head3 DESCRIPTION
 
@@ -682,6 +684,7 @@ sub _buildUserData {
 #=============================================================
 sub addUserDialog {
     my $self = shift;
+    my $standalone = shift;
 
     my $dontcreatehomedir = 0; 
     my $is_system = 0;
@@ -689,7 +692,12 @@ sub addUserDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Create New User"));
+    if ($standalone) {
+        yui::YUI::app()->setApplicationTitle($self->name);
+    }
+    else {
+        yui::YUI::app()->setApplicationTitle(N("Create New User"));
+    }
     
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -877,7 +885,7 @@ sub addUserDialog {
     destroy $dlg;
     
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle; 
 }
 
 #=============================================================
@@ -2279,8 +2287,12 @@ sub manageUsersDialog {
     my $pixdir = '/usr/share/userdrake/pixmaps/';
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
+
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
+    yui::YUI::app()->setApplicationTitle($self->name);
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon);
+
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -2459,7 +2471,7 @@ sub manageUsersDialog {
     $self->dialog->destroy() ;
 
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
 
 #=============================================================

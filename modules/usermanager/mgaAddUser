@@ -2,21 +2,12 @@
 
 use lib qw(/usr/lib/libDrakX);
 
-use standalone;     #- warning, standalone must be loaded very first, for 'explanations'
+use common qw(N);
 
-use common;
-
-use AdminPanel::Shared;
 use AdminPanel::Users::GUsers;
 
-use yui;
-
-my $wm_icon = "/usr/share/icons/userdrake.png"; 
-
-yui::YUI::app()->setApplicationTitle(N("Mageia Add Users Tool"));
-yui::YUI::app()->setApplicationIcon($wm_icon);
-
-my $userMan = AdminPanel::Users::GUsers->new();
-$userMan->addUserDialog();
+my $userMan = AdminPanel::Users::GUsers->new({icon => "/usr/share/icons/userdrake.png",
+                                              name => N("Mageia Add Users Tool"),});
+$userMan->addUserDialog(1);
 
 1;
