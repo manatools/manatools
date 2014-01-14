@@ -21,9 +21,6 @@
 
 package AdminPanel::Services::AdminService;
 
-
-
-
 #-######################################################################################
 #- misc imports
 #-######################################################################################
@@ -239,8 +236,11 @@ sub servicePanel {
     my $self = shift;
 
     my $appTitle = yui::YUI::app()->applicationTitle();
+
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Services and daemons"));
+    yui::YUI::app()->setApplicationTitle($self->name);
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon);
 
     my ($l, $on_services) = services();
     my @xinetd_services = map { $_->[0] } xinetd_services();
@@ -329,8 +329,8 @@ sub servicePanel {
             elsif ($widget == $aboutButton) {
                 my $license = translate($::license);
                 # TODO fix version value
-                AboutDialog({ name => N("Services and daemons"),
-                    version => "1.0.0",
+                AboutDialog({ name => N("AdminService"),
+                    version => $self->VERSION, 
                     copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
                     license => $license, 
                     comments => N("Service Manager is the Mageia service and daemon management tool \n(from the original idea of Mandriva draxservice)."),
@@ -376,7 +376,7 @@ sub servicePanel {
     $dialog->destroy();
     
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
 
 no Moose;
