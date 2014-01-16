@@ -33,7 +33,8 @@ use common qw(N
               N_
               cat_ 
               formatAlaTeX 
-              translate);
+              translate 
+              find);
 use run_program;
 
 use Moose;
