@@ -69,7 +69,7 @@ sub new {
 sub loadModule {
     my ($self, $module) = @_;
 
-    if (!$self->moduleLoaded($module)) {
+    if (!$self->moduleLoaded($module->{name})) {
         push ( @{$self->{modules}}, $module );
 
         return 1;
@@ -83,8 +83,8 @@ sub loadModule {
 
 =head3 INPUT
 
-    $self:   this object
-    $module: module to look for
+    $self:        this object
+    $module_name or -CLASS => name : module/CLASS name to look for
 
 =head3 OUTPUT
 
@@ -98,15 +98,22 @@ sub loadModule {
 
 #=============================================================
 sub moduleLoaded {
-    my ($self, $module) = @_;
+    my $self = shift;
+    my (%params) = @_;
+    my ($module_name) = @_;
+
     my $present = 0;
 
-    if (!$module) {
+    if (!$module_name) {
         return $present;
     }
 
     foreach my $mod (@{$self->{modules}}) { 
-        if ($mod->{name} eq $module->name) {
+        if (exists $params{-CLASS} && ref($mod) eq $params{-CLASS}) {
+            $present = 1; 
+            last;
+        }
+        elsif ($mod->{name} eq $module_name) {
             $present = 1; 
             last;
         }

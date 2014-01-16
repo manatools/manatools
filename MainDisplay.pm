@@ -61,8 +61,29 @@ sub new {
     $self->{categories} = [];
     $self->{confDir}    = "/etc/apanel",
     $self->{title}      = "apanel",
-    $self->setupGui();
     
+    my $cmdline = new yui::YCommandLine;
+
+    ## TODO add parameter check
+    my $pos       = $cmdline->find("--name");
+    if ($pos > 0)
+    {
+        $self->{title} = $cmdline->arg($pos+1);
+    }
+    $pos       = $cmdline->find("--conf_dir");
+    if ($pos > 0)
+    {
+        $self->{confDir} = $cmdline->arg($pos+1);
+    }
+    else
+    {
+        $self->{confDir} = "/etc/$self->{title}";
+    }
+#     print "name     = ".$self->{title}."\n";
+#     print "conf dir = ".$self->{confDir}."\n";
+
+    $self->setupGui();
+
     return $self;
 }
 
@@ -72,11 +93,12 @@ sub start {
     my $reqExit = 0;
 
     ##Default category selection
-    $self->{currCategory} = @{$self->{categories}}[0]; 
+    if (!$self->{currCategory}) {
+        $self->{currCategory} = @{$self->{categories}}[0]; 
+    }
     $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
     $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
     $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
-
     my $launch = 0;
     while(!$launch) {
 
@@ -137,31 +159,15 @@ sub start {
 sub destroy {
     my ($self) = shift;
     $self->{mainWin}->destroy();
+    for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
+        @{$self->{categories}}[$cat]->{button} = 0;
+        @{$self->{categories}}[$cat]->removeButtons();
+    }
 }
 
 sub setupGui {
     my ($self) = shift;
 
-    my $cmdline = new yui::YCommandLine;
-
-    ## TODO add parameter check
-    my $pos       = $cmdline->find("--name");
-    if ($pos > 0)
-    {
-        $self->{title} = $cmdline->arg($pos+1);
-    }
-    $pos       = $cmdline->find("--conf_dir");
-    if ($pos > 0)
-    {
-        $self->{confDir} = $cmdline->arg($pos+1);
-    }
-    else
-    {
-        $self->{confDir} = "/etc/$self->{title}";
-    }
-#     print "name     = ".$self->{title}."\n";
-#     print "conf dir = ".$self->{confDir}."\n";
-    
     $self->loadSettings();
     yui::YUILog::setLogFileName($self->{settings}->{log});
     $self->{name} = $self->{settings}->{title};
@@ -225,10 +231,12 @@ sub setupGui {
 
 ## adpanel settings
 sub loadSettings {
-    my ($self) = @_;
+    my ($self, $force_load) = @_;
     # configuration file name
     my $fileName = "$self->{confDir}/settings.conf";
-    $self->{settings} = new SettingsReader($fileName);
+    if (!$self->{settings} || $force_load) {
+        $self->{settings} = new SettingsReader($fileName);
+    }
 }
 
 #=============================================================
@@ -316,6 +324,21 @@ sub loadCategory {
 
         @{$self->{categories}}[-1]->{button}->setStretchable(0, 1);
     }
+    else {
+        for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
+            if( @{$self->{categories}}[$cat]->{name} eq $category->{name} &&
+                !@{$self->{categories}}[$cat]->{button})  {
+                    @{$self->{categories}}[$cat]->{button} = $self->{factory}->createPushButton(
+                                                                    $self->{leftPane},
+                                                                    $self->{categories}[$cat]->{name}
+                                                                    );
+                    @{$self->{categories}}[$cat]->setIcon();
+                    @{$self->{categories}}[$cat]->{button}->setStretchable(0, 1);
+                    last;
+
+            }
+        }
+    }
 }
 
 sub loadCategories {
@@ -331,6 +354,7 @@ sub loadCategories {
     
     push(@categoryFiles, $fileName);
     push(@categoryFiles, <etc/categories.conf.d/*.conf>);
+    my $currCategory;
     
     foreach $fileName (@categoryFiles) {
         my $inFile = new ConfigReader($fileName);
@@ -342,10 +366,10 @@ sub loadCategories {
             $tmpCat = $self->getCategory($tmp->{title});
             if (!$tmpCat) {
                 $tmpCat = new Category($tmp->{title}, $tmp->{icon});
-                $self->loadCategory($tmpCat);
             }
-            $hasNextCat = $inFile->hasNextCat();
-            $self->{currCategory} = $tmpCat;
+            $self->loadCategory($tmpCat);
+            $hasNextCat  = $inFile->hasNextCat();
+            $currCategory = $tmpCat;
         
             my $hasNextMod = $inFile->hasNextMod();
             while( $hasNextMod ) {
@@ -353,16 +377,20 @@ sub loadCategories {
                 my $tmpMod;
                 my $loaded = 0;
                 if (exists $tmp->{title}) {
-                    $tmpMod = Module->create(name => $tmp->{title}, 
-                                            icon => $tmp->{icon},
-                                            launcher => $tmp->{launcher}
-                                            );
+                    if (not $currCategory->moduleLoaded($tmp->{title})) {
+                        $tmpMod = Module->create(name => $tmp->{title}, 
+                                                icon => $tmp->{icon},
+                                                launch => $tmp->{launcher}
+                                                );
+                    }
                 } 
                 elsif (exists $tmp->{class}) {
-                    $tmpMod = Module->create(-CLASS => $tmp->{class});
+                    if (not $currCategory->moduleLoaded(-CLASS => $tmp->{class})) {
+                        $tmpMod = Module->create(-CLASS => $tmp->{class});
+                    }
                 }
                 if ($tmpMod) {
-                    $loaded = $self->{currCategory}->loadModule($tmpMod);
+                    $loaded = $currCategory->loadModule($tmpMod);
                     undef $tmpMod if !$loaded;
                 }
                 $hasNextMod = $inFile->hasNextMod();
