@@ -33,6 +33,12 @@ use strict;
 # instead
 use POSIX qw(ceil);
 # use Time::localtime;
+
+# TODO same translation atm
+use lib qw(/usr/lib/libDrakX);
+# i18n: IMPORTANT: to get correct namespace (userdrake instead of libDrakX)
+BEGIN { unshift @::textdomains, 'userdrake', 'libuser', 'drakconf' }
+
 use common qw(N
               translate);
 use security::level;
@@ -2398,7 +2404,7 @@ sub manageUsersDialog {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{about}->label())  {
-                my $license = translate($::license);
+                my $license = translate($AdminPanel::Shared::License);
                 AboutDialog({ name => N("AdminUser"),
                     version => $self->VERSION,
                     copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
@@ -2556,7 +2562,7 @@ sub TimeOfArray {
     $cm and $h->{month} = $mth{$2}; 
     $h;
 }
-sub member { my $e = shift; foreach (@_) { $e eq $_ and return 1 } 0 }
+
 
 no Moose;
 __PACKAGE__->meta->make_immutable;

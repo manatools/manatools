@@ -26,7 +26,14 @@ package AdminPanel::Services::AdminService;
 #-######################################################################################
 
 use strict;
-use common;
+
+# TODO same translation atm
+use lib qw(/usr/lib/libDrakX);
+use common qw(N
+              N_
+              cat_ 
+              formatAlaTeX 
+              translate);
 use run_program;
 
 use Moose;
@@ -478,7 +485,7 @@ sub servicePanel {
                 last;
             }
             elsif ($widget == $aboutButton) {
-                my $license = translate($::license);
+                my $license = translate($AdminPanel::Shared::License);
                 # TODO fix version value
                 AboutDialog({ name => N("AdminService"),
                     version => $self->VERSION, 
