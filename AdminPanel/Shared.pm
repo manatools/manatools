@@ -91,7 +91,7 @@ our @EXPORT = qw(warningMsgBox
          ask_YesOrNo
          ask_OkCancel
          AboutDialog
-         trim, 
+         trim 
          member);
 
 
