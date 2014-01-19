@@ -49,6 +49,11 @@ has 'table' => (
     init_arg => undef
 );
 
+has 'cfgHosts' => (
+    is => 'rw',
+    init_arg => undef
+);
+
 sub start {
     my $self = shift;
 
@@ -122,12 +127,38 @@ sub _addHostDialog {
             if ($widget == $cancelButton) {
                 last;
             }
+            elsif($widget == $okButton) {
+                print $textIPAddress->value();
+                my $res = $self->cfgHosts->_insertHost($textIPAddress->value(),[$textHostName->value(), $textHostAlias->value()]);
+                print "Insertion result: $res\n";
+                $res = $self->cfgHosts->_writeHosts();
+                print "Write result: $res\n";
+                last;
+            }
         }
     }
 
     destroy $dlg;
 }
 
+#=============================================================
+
+=head2 setupTable
+
+=head3 INPUT
+
+    $self: this object
+
+    $data: reference to the array containaing the host data to show into the table
+
+=head3 DESCRIPTION
+
+This subroutine populates a previously created YTable with the hosts data
+retrieved by the Config::Hosts module
+
+=cut
+
+#=============================================================
 sub setupTable {
     my $self = shift();
     my $data = shift();
@@ -182,7 +213,8 @@ sub manageHostsDialog {
     $leftContent->setWeight($yui::YD_HORIZ,45);
     $self->table($factory->createTable($leftContent,$tableHeader));
 
-    my @hosts = AdminPanel::Hosts::hosts::_getHosts();
+    $self->cfgHosts(AdminPanel::Hosts::hosts->new());
+    my @hosts = $self->cfgHosts->_getHosts();
     $self->setupTable(\@hosts);
     
     my $rightContent = $factory->createRight($hbox_content);
