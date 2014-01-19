@@ -77,18 +77,22 @@ along with this file.  If not, see <http://www.gnu.org/licenses/>.
 use strict;
 use warnings;
 use diagnostics;
-#use lib qw(/usr/lib/libDrakX);
-use common qw(N);
+
+use lib qw(/usr/lib/libDrakX);
+use common qw(N 
+              N_);
 use yui;
 use base qw(Exporter);
 
+# TODO move GUI dialogs to Shared::GUI
 our @EXPORT = qw(warningMsgBox
          msgBox
          infoMsgBox
          ask_YesOrNo
          ask_OkCancel
          AboutDialog
-         trim);
+         trim 
+         member);
 
 
 =head1 VERSION
@@ -98,6 +102,21 @@ Version 0.01
 =cut
 
 our $VERSION = '0.01';
+
+our $License = N_("This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation; either version 2, or (at your option)
+any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301, USA.
+");
 
 
 #=============================================================
@@ -567,6 +586,34 @@ sub trim {
     $st =~s /^\s+//g;
     $st =~s /\s+$//g;
     return $st;
+}
+
+#=============================================================
+
+=head2 member
+
+=head3 INPUT
+
+    $e: Array element to be found into array
+    @_: any array
+
+=head3 OUTPUT
+
+    1 or 0: if $e is a member of the given array
+
+=head3 DESCRIPTION
+
+This function look for an element into an array
+
+=cut
+
+#=============================================================
+sub member { 
+    my $e = shift; 
+    foreach (@_) { 
+        $e eq $_ and return 1;
+    } 
+    0; 
 }
 
 1; # End of AdminPanel::Shared

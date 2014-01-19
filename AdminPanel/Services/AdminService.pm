@@ -21,15 +21,20 @@
 
 package AdminPanel::Services::AdminService;
 
-
-
-
 #-######################################################################################
 #- misc imports
 #-######################################################################################
 
 use strict;
-use common;
+
+# TODO same translation atm
+use lib qw(/usr/lib/libDrakX);
+use common qw(N
+              N_
+              cat_ 
+              formatAlaTeX 
+              translate 
+              find);
 use run_program;
 
 use Moose;
@@ -57,7 +62,66 @@ has '+name' => (
     default => N("AdminService"), 
 );
 
+has 'services' => (
+    traits  => ['Array'],
+    is      => 'rw',
+    isa     => 'ArrayRef[Str]',
+    default => sub { [] },
+    init_arg  => undef,
+    handles => {
+        all_services    => 'elements',
+        add_service     => 'push',
+        map_service     => 'map',
+        service_count   => 'count',
+        sorted_services => 'sort',
+    },
+);
 
+has 'xinetd_services' => (
+    traits  => ['Array'],
+    is      => 'rw',
+    isa     => 'ArrayRef[Str]',
+    default => sub { [] },
+    init_arg  => undef,
+    handles => {
+        all_xinetd_services    => 'elements',
+        add_xinetd_service     => 'push',
+        map_xinetd_service     => 'map',
+        xinetd_service_count   => 'count',
+        sorted_xinetd_services => 'sort',
+    },
+);
+
+has 'on_services' => (
+    traits  => ['Array'],
+    is      => 'rw',
+    isa     => 'ArrayRef[Str]',
+    default => sub { [] },
+    init_arg  => undef,
+    handles => {
+        all_on_services    => 'elements',
+        add_on_service     => 'push',
+        map_on_service     => 'map',
+        on_service_count   => 'count',
+        sorted_on_services => 'sort',
+    },
+);
+
+
+has 'running_services' => (
+    traits  => ['Array'],
+    is      => 'rw',
+    isa     => 'ArrayRef[Str]',
+    default => sub { [] },
+    init_arg  => undef,
+    handles => {
+        all_running_services    => 'elements',
+        add_running_service     => 'push',
+        map_running_service     => 'map',
+        running_service_count   => 'count',
+        sorted_running_services => 'sort',
+    },
+);
 =head1 VERSION
 
 Version 1.0.0
@@ -201,13 +265,78 @@ xinetd => N_("Starts other deamons on demand."),
     $s;
 }
 
+sub BUILD {
+    my $self = shift;
 
+    $self->loadServices();
+}
+
+
+#=============================================================
+
+=head2 start
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method extends Module::start and is invoked to
+    start  adminService
+
+=cut
+
+#=============================================================
 sub start {
     my $self = shift;
 
     $self->servicePanel();
 };
 
+
+#=============================================================
+
+=head2 loadServices
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+   This methonds load service info into local attributes such
+   as xinetd_services, on_services and all the available, 
+   services
+
+=cut
+
+#=============================================================
+sub loadServices {
+    my $self = shift;
+
+    my ($l, $on_services) = AdminPanel::Services::Utility::services();
+    my @xinetd_services = map { $_->[0] } AdminPanel::Services::Utility::xinetd_services();
+
+    $self->xinetd_services();
+    $self->xinetd_services(\@xinetd_services);
+    $self->services(\@$l);
+    $self->on_services(\@$on_services);
+
+    $self->refreshRunningServices();
+}
+
+sub refreshRunningServices {
+    my $self = shift;
+
+    my @running;
+    foreach ($self->all_services) {
+
+        my $serviceName = $_;
+        push @running, $serviceName if is_service_running($serviceName);
+    }
+    $self->running_services(\@running);
+}
 
 ## serviceInfo sets widgets accordingly to selected service status 
 ## param
@@ -225,7 +354,14 @@ sub serviceInfo {
 sub serviceStatus {
     my ($self, $tbl, $item) = @_;
 
-    my $started = (is_service_running($item->label())? N("running") : N("stopped"));
+    my $started;
+
+    if (member($item->label(), $self->all_xinetd_services)) {
+        $started = N("Start when requested");
+    }
+    else {
+        $started = (member($item->label(), $self->all_running_services)? N("running") : N("stopped"));
+    }
 # TODO add icon green/red led  
     my $cell   = $tbl->toCBYTableItem($item)->cell(1);
     if ($cell) {
@@ -239,11 +375,14 @@ sub servicePanel {
     my $self = shift;
 
     my $appTitle = yui::YUI::app()->applicationTitle();
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Services and daemons"));
 
-    my ($l, $on_services) = services();
-    my @xinetd_services = map { $_->[0] } xinetd_services();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($self->name);
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon);
+
+#    my ($l, $on_services) = services();
+#    my @xinetd_services = map { $_->[0] } xinetd_services();
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;
@@ -265,15 +404,24 @@ sub servicePanel {
     ## service list (serviceBox)
     my $serviceTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnLastColumn);
     my $itemCollection = new yui::YItemCollection;
-    foreach (@$l) {
+    foreach ($self->all_services) {
+
         my $serviceName = $_;
         
         my $item = new yui::YCBTableItem($serviceName);
-        my $started = (is_service_running($serviceName)? N("running") : N("stopped"));
+        my $started;
+        if (member($serviceName, $self->all_xinetd_services)) {
+            $started = N("Start when requested");
+        }
+        else {
+            $started = (member($serviceName, $self->all_running_services)? N("running") : N("stopped"));
+        }
+
 # TODO add icon green/red led  
         my $cell   = new yui::YTableCell($started);
         $item->addCell($cell);
-        $item->check(member($serviceName, @$on_services));
+
+        $item->check(member($serviceName, $self->all_on_services));
         $item->setLabel($serviceName);
         $itemCollection->push($item);
         $item->DISOWN();
@@ -309,12 +457,22 @@ sub servicePanel {
 
     #first item status
     my $item = $serviceTbl->selectedItem();
-    $self->serviceInfo($item->label(), $infoPanel) if ($item);
+    if ($item) {
+        $self->serviceInfo($item->label(), $infoPanel);
+        if (member($item->label(), $self->all_xinetd_services)) {
+            $stopButton->setDisabled();
+            $startButton->setDisabled();
+        }
+        else {
+            $stopButton->setEnabled(1);
+            $startButton->setEnabled(1);
+        }
+    }
 
     while(1) {
-        my $event     = $dialog->waitForEvent();
-        my $eventType = $event->eventType();
-        
+        my $event       = $dialog->waitForEvent();
+        my $eventType   = $event->eventType();
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -322,15 +480,16 @@ sub servicePanel {
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
             my $widget = $event->widget();
-
+            my $wEvent = yui::toYWidgetEvent($event);
+            
             if ($widget == $closeButton) {
                 last;
             }
             elsif ($widget == $aboutButton) {
-                my $license = translate($::license);
+                my $license = translate($AdminPanel::Shared::License);
                 # TODO fix version value
-                AboutDialog({ name => N("Services and daemons"),
-                    version => "1.0.0",
+                AboutDialog({ name => N("AdminService"),
+                    version => $self->VERSION, 
                     copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
                     license => $license, 
                     comments => N("Service Manager is the Mageia service and daemon management tool \n(from the original idea of Mandriva draxservice)."),
@@ -343,14 +502,29 @@ sub servicePanel {
                 );
             }
             elsif ($widget == $serviceTbl) {
+                
                 # service selection changed
                 $item = $serviceTbl->selectedItem();
-                $self->serviceInfo($item->label(), $infoPanel) if ($item);
-                $item = $serviceTbl->changedItem();
                 if ($item) {
-                    set_service($item->label(), $item->checked());
-                    # we can push/pop service, but this (slower) should return real situation
-                    ($l, $on_services) = services();
+                    $self->serviceInfo($item->label(), $infoPanel);
+                    if (member($item->label(), $self->all_xinetd_services)) {
+                        $stopButton->setDisabled();
+                        $startButton->setDisabled();
+                    }
+                    else {
+                        $stopButton->setEnabled(1);
+                        $startButton->setEnabled(1);
+                    }
+                }
+# TODO fix libyui-mga-XXX item will always be changed after first one
+                if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
+                    $item = $serviceTbl->changedItem();
+                    if ($item) {
+
+                        set_service($item->label(), $item->checked());
+                        # we can push/pop service, but this (slower) should return real situation
+                        $self->refreshRunningServices();
+                    }
                 }
             }
             elsif ($widget == $startButton) {
@@ -358,7 +532,7 @@ sub servicePanel {
                 if ($item) {
                     restart_or_start($item->label());
                     # we can push/pop service, but this (slower) should return real situation
-                    ($l, $on_services) = services();
+                    $self->refreshRunningServices();
                     $self->serviceStatus($serviceTbl, $item);
                 }
             }
@@ -367,7 +541,7 @@ sub servicePanel {
                 if ($item) {
                     stop($item->label());
                     # we can push/pop service, but this (slower) should return real situation
-                    ($l, $on_services) = services();
+                    $self->refreshRunningServices();
                     $self->serviceStatus($serviceTbl, $item);
                 }
             }
@@ -376,7 +550,7 @@ sub servicePanel {
     $dialog->destroy();
     
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
 
 no Moose;

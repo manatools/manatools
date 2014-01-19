@@ -31,9 +31,14 @@ package AdminPanel::Users::GUsers;
 use strict;
 # TODO evaluate if Moose is too heavy and use Moo 
 # instead
-use Moose;
 use POSIX qw(ceil);
 # use Time::localtime;
+
+# TODO same translation atm
+use lib qw(/usr/lib/libDrakX);
+# i18n: IMPORTANT: to get correct namespace (userdrake instead of libDrakX)
+BEGIN { unshift @::textdomains, 'userdrake', 'libuser', 'drakconf' }
+
 use common qw(N
               translate);
 use security::level;
@@ -47,6 +52,7 @@ use Glib;
 use yui;
 use AdminPanel::Shared;
 use AdminPanel::Users::users;
+use Moose;
 extends qw( Module );
 
 has '+icon' => (
@@ -670,7 +676,9 @@ sub _buildUserData {
 
 =head3 INPUT
 
-    $self: this object
+    $self:       this object
+    $standalone: if set the application title is set
+                 from the name set in costructor
 
 =head3 DESCRIPTION
 
@@ -682,6 +690,7 @@ sub _buildUserData {
 #=============================================================
 sub addUserDialog {
     my $self = shift;
+    my $standalone = shift;
 
     my $dontcreatehomedir = 0; 
     my $is_system = 0;
@@ -689,7 +698,12 @@ sub addUserDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Create New User"));
+    if ($standalone) {
+        yui::YUI::app()->setApplicationTitle($self->name);
+    }
+    else {
+        yui::YUI::app()->setApplicationTitle(N("Create New User"));
+    }
     
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -877,7 +891,7 @@ sub addUserDialog {
     destroy $dlg;
     
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle; 
 }
 
 #=============================================================
@@ -2279,8 +2293,12 @@ sub manageUsersDialog {
     my $pixdir = '/usr/share/userdrake/pixmaps/';
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
+
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Mageia Users Management Tool"));
+    yui::YUI::app()->setApplicationTitle($self->name);
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon);
+
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -2386,7 +2404,7 @@ sub manageUsersDialog {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{about}->label())  {
-                my $license = translate($::license);
+                my $license = translate($AdminPanel::Shared::License);
                 AboutDialog({ name => N("AdminUser"),
                     version => $self->VERSION,
                     copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
@@ -2459,7 +2477,7 @@ sub manageUsersDialog {
     $self->dialog->destroy() ;
 
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
 
 #=============================================================
@@ -2544,7 +2562,7 @@ sub TimeOfArray {
     $cm and $h->{month} = $mth{$2}; 
     $h;
 }
-sub member { my $e = shift; foreach (@_) { $e eq $_ and return 1 } 0 }
+
 
 no Moose;
 __PACKAGE__->meta->make_immutable;

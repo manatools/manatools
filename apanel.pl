@@ -37,20 +37,19 @@ my $settings = getSettings();
 
 ask_for_authentication($settings->{priv_method}) if(require_root_capability());
 
-while (1) {
     my $mainWin = new MainDisplay();
+while (1) {
     my $launch = $mainWin->start();   
 
     if ($launch) { 
         $mainWin->destroy();
         $launch->start();
-        undef($mainWin);
     }
     else {
         $mainWin->destroy();
-        undef($mainWin);
         last;
     }
+    $mainWin->setupGui();
 }
 
 

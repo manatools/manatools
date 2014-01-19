@@ -3,21 +3,11 @@
 use strict;
 use lib qw(/usr/lib/libDrakX);
 
-use standalone;     #- warning, standalone must be loaded very first, for 'explanations'
-
-use common;
-use AdminPanel::Shared;
+use common qw(N);
 use AdminPanel::Services::AdminService;
-use log;
 
-use yui;
-
-my $wm_icon = "/usr/share/mcc/themes/default/service-mdk.png";
-
-yui::YUI::app()->setApplicationTitle(N("Services and daemons"));
-yui::YUI::app()->setApplicationIcon($wm_icon);
-
-my $serviceMan = AdminPanel::Services::AdminService->new();
+my $serviceMan = AdminPanel::Services::AdminService->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
+                                                          name => N("Services and daemons"),});
 $serviceMan->start();
 
 1;

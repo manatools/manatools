@@ -108,9 +108,11 @@ sub removeButton {
 sub start {
     my $self = shift;
 
-    my $err = yui::YUI::app()->runInTerminal( $self->{launch} . " --ncurses");
-    if ($err == -1) {
-        system($self->{launch});
+    if ($self->{launch}) {
+        my $err = yui::YUI::app()->runInTerminal( $self->{launch} . " --ncurses");
+        if ($err == -1) {
+            system($self->{launch});
+        }   
     }
 }
 
