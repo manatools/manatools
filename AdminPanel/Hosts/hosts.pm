@@ -1,7 +1,6 @@
 package AdminPanel::Hosts::hosts; 
 
-use Modern::Perl 2011;
-use autodie;
+use Moose;
 use diagnostics;
 use local::lib;
 use Config::Hosts;
@@ -12,6 +11,10 @@ my $is_ip = 1;
 my $is_host = -1;
 my $is_none = 0;
 
+has 'configHosts' => (
+	is => 'rw',
+	init_arg => undef
+);
 
 =pod
 
@@ -30,18 +33,33 @@ retrieve data from the hosts file (/etc/hosts) using the Config::Hosts module
 =cut
 
 sub _getHosts {
-	my $configHosts = Config::Hosts->new();
-	my $hosts = $configHosts->read_hosts();
+	my $self = shift();
+	$self->configHosts(Config::Hosts->new());
+	my $hosts = $self->configHosts->read_hosts();
 	my @result = ();
 	while( my ($key, $value) = each($hosts)){
-		if($configHosts->determine_ip_or_host($key) == $is_ip){
+		if($self->configHosts->determine_ip_or_host($key) == $is_ip){
 			my $tmp = {};
-			$tmp = $configHosts->query_host($key);
+			$tmp = $self->configHosts->query_host($key);
 			$tmp->{'ip'} = $key;
 			push @result,$tmp; 
 		}
 	}
 	return @result;
+}
+
+sub _insertHost {
+	my $self = shift();
+	# remember that the order matters!
+	my $ip = shift();
+	my @host_definitions = @_;
+	# $self->configHosts = Config::Hosts->new();
+	return $self->configHosts->insert_host(ip => $ip, hosts => @host_definitions);
+}
+
+sub _writeHosts {
+	my $self = shift();
+	return $self->configHosts->write_hosts();
 }
 
 1;
