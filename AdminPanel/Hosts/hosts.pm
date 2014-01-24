@@ -13,8 +13,14 @@ my $is_none = 0;
 
 has 'configHosts' => (
 	is => 'rw',
-	init_arg => undef
+	init_arg => undef,
+	builder => '_initialize'
 );
+
+sub _initialize {
+	my $self = shift();
+	$self->configHosts(Config::Hosts->new());
+}
 
 =pod
 
@@ -34,7 +40,7 @@ retrieve data from the hosts file (/etc/hosts) using the Config::Hosts module
 
 sub _getHosts {
 	my $self = shift();
-	$self->configHosts(Config::Hosts->new());
+	# $self->configHosts(Config::Hosts->new());
 	my $hosts = $self->configHosts->read_hosts();
 	my @result = ();
 	while( my ($key, $value) = each($hosts)){
@@ -55,6 +61,12 @@ sub _insertHost {
 	my @host_definitions = @_;
 	# $self->configHosts = Config::Hosts->new();
 	return $self->configHosts->insert_host(ip => $ip, hosts => @host_definitions);
+}
+
+sub _dropHost {
+	my $self = shift();
+	my $host_ip = shift();
+	return $self->configHosts->delete_host($host_ip);
 }
 
 sub _writeHosts {
