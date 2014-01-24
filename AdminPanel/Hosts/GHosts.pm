@@ -28,7 +28,7 @@ use utf8;
 
 use Glib;
 use yui;
-#use AdminPanel::Shared;
+use AdminPanel::Shared;
 use AdminPanel::Hosts::hosts;
 
 =head1 VERSION
@@ -174,7 +174,6 @@ sub setupTable {
         $tblItem = new yui::YTableItem($host->{'ip'},$host->{'hosts'}[0],$aliases);
         $self->table->addItem($tblItem);
     }
-
 }
 
 sub manageHostsDialog {
@@ -256,6 +255,15 @@ sub manageHostsDialog {
             }
             elsif ($widget == $remButton) {
                 # implement deletion dialog
+                if(AdminPanel::Shared::ask_YesOrNo("Confirmation","Are you sure to drop this host?") == 1){
+                    my $tblItem = yui::toYTableItem($self->table->selectedItem());
+                    # drop the host using the ip
+                    $self->cfgHosts->_dropHost($tblItem->cell(0)->label());
+                }
+            }elsif ($widget == $okButton) {
+                # write changes
+                $self->cfgHosts->_writeHosts();
+                last;
             }
         }
     }
