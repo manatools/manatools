@@ -148,10 +148,16 @@ sub _manipulateHostDialog {
             }
             elsif($widget == $okButton) {
                 my $res = undef;
+                my @hosts_toadd;
+                push @hosts_toadd, $textHostName->value();
+                if(trim($textHostAlias->value()) ne ""){
+                    push @hosts_toadd, $textHostAlias->value();
+                }
+                print "@hosts_toadd\n";
                 if($boolEdit == 0){
-                    $res = $self->cfgHosts->_insertHost($textIPAddress->value(),[$textHostName->value(), $textHostAlias->value()]);
+                    $res = $self->cfgHosts->_insertHost($textIPAddress->value(),[@hosts_toadd]);
                 }else{
-                    $res = $self->cfgHosts->_modifyHost($textIPAddress->value(),[$textHostName->value(), $textHostAlias->value()]);
+                    $res = $self->cfgHosts->_modifyHost($textIPAddress->value(),[@hosts_toadd]);
                 }
                 $res = $self->cfgHosts->_writeHosts();
                 print "Write result: $res\n";
@@ -289,7 +295,11 @@ sub manageHostsDialog {
             }
             elsif ($widget == $edtButton) {
                 my $tblItem = yui::toYTableItem($self->table->selectedItem());
-                $self->_edtHostDialog($tblItem->cell(0)->label(),$tblItem->cell(1)->label(),$tblItem->cell(2)->label());
+                if($tblItem->cellCount() >= 3){
+                    $self->_edtHostDialog($tblItem->cell(0)->label(),$tblItem->cell(1)->label(),$tblItem->cell(2)->label());
+                }else{
+                    $self->_edtHostDialog($tblItem->cell(0)->label(),$tblItem->cell(1)->label(),"");
+                }
                 $self->setupTable();
             }
             elsif ($widget == $remButton) {
