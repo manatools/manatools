@@ -161,13 +161,15 @@ retrieved by the Config::Hosts module
 #=============================================================
 sub setupTable {
     my $self = shift();
-    my $data = shift();
     
-    foreach my $host (@$data){
+    my @hosts = $self->cfgHosts->_getHosts();
+    # clear table
+    $self->table->deleteAllItems();
+    foreach my $host (@hosts){
         my $tblItem;
         my $aliases = join(',',@{$host->{'hosts'}});
         if(scalar(@{$host->{'hosts'}}) > 1){
-            $aliases =~s/\,*$host->{'hosts'}[0]\,*//g;
+            $aliases =~s/^$host->{'hosts'}[0]\,*//g;
         }elsif(scalar(@{$host->{'hosts'}}) == 1){
             $aliases = "";
         }
@@ -212,9 +214,9 @@ sub manageHostsDialog {
     $leftContent->setWeight($yui::YD_HORIZ,45);
     $self->table($factory->createTable($leftContent,$tableHeader));
 
+    # initialize Config::Hosts
     $self->cfgHosts(AdminPanel::Hosts::hosts->new());
-    my @hosts = $self->cfgHosts->_getHosts();
-    $self->setupTable(\@hosts);
+    $self->setupTable();
     
     my $rightContent = $factory->createRight($hbox_content);
     $rightContent->setWeight($yui::YD_HORIZ,10);
@@ -249,6 +251,7 @@ sub manageHostsDialog {
             elsif ($widget == $addButton) {
                 # implement add host dialog
                 $self->_addHostDialog();
+                $self->setupTable();
             }
             elsif ($widget == $edtButton) {
                 # implement modification dialog
@@ -259,6 +262,9 @@ sub manageHostsDialog {
                     my $tblItem = yui::toYTableItem($self->table->selectedItem());
                     # drop the host using the ip
                     $self->cfgHosts->_dropHost($tblItem->cell(0)->label());
+                    # write changes
+                    $self->cfgHosts->_writeHosts();
+                    $self->setupTable();
                 }
             }elsif ($widget == $okButton) {
                 # write changes
