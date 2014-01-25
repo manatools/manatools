@@ -76,8 +76,21 @@ This subroutine creates the Host dialog to add host definitions
 =cut
 
 #=============================================================
-sub _addHostDialog {
+sub _manipulateHostDialog {
     my $self = shift;
+
+    my $headerString = shift();
+    my $boolEdit = shift();
+
+    my $hostIpString = "";
+    my $hostNameString = "";
+    my $hostAliasesString = "";
+
+    if($boolEdit == 1){
+        $hostIpString = shift();
+        $hostNameString = shift();
+        $hostAliasesString = shift();
+    }
 
     my $factory  = yui::YUI::widgetFactory;
     my $dlg = $factory->createPopupDialog();
@@ -88,7 +101,7 @@ sub _addHostDialog {
     my $hbox_footer = $factory->createHBox($layout);
 
     # header
-    my $labelDescription = $factory->createLabel($hbox_header,"Add the information");
+    my $labelDescription = $factory->createLabel($hbox_header,$headerString);
 
     # content
     my $firstHbox = $factory->createHBox($vbox_content);
@@ -109,6 +122,12 @@ sub _addHostDialog {
     $textHostName->setWeight($yui::YD_HORIZ, 30);
     $textHostAlias->setWeight($yui::YD_HORIZ, 30);
 
+    if($boolEdit == 1){
+        $textIPAddress->setValue($hostIpString);
+        $textHostName->setValue($hostNameString);
+        $textHostAlias->setValue($hostAliasesString);
+    }
+
     # footer
     my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),"Cancel");
     my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),"OK");
@@ -128,9 +147,12 @@ sub _addHostDialog {
                 last;
             }
             elsif($widget == $okButton) {
-                print $textIPAddress->value();
-                my $res = $self->cfgHosts->_insertHost($textIPAddress->value(),[$textHostName->value(), $textHostAlias->value()]);
-                print "Insertion result: $res\n";
+                my $res = undef;
+                if($boolEdit == 0){
+                    $res = $self->cfgHosts->_insertHost($textIPAddress->value(),[$textHostName->value(), $textHostAlias->value()]);
+                }else{
+                    $res = $self->cfgHosts->_modifyHost($textIPAddress->value(),[$textHostName->value(), $textHostAlias->value()]);
+                }
                 $res = $self->cfgHosts->_writeHosts();
                 print "Write result: $res\n";
                 last;
@@ -139,6 +161,19 @@ sub _addHostDialog {
     }
 
     destroy $dlg;
+}
+
+sub _addHostDialog {
+    my $self = shift();
+    return $self->_manipulateHostDialog("Add the information",0);
+}
+
+sub _edtHostDialog {
+    my $self = shift();
+    my $hostIp = shift();
+    my $hostName = shift();
+    my $hostAliases = shift();
+    return $self->_manipulateHostDialog("Modify the information",1,$hostIp,$hostName,$hostAliases);
 }
 
 #=============================================================
@@ -249,12 +284,13 @@ sub manageHostsDialog {
                 last;
             }
             elsif ($widget == $addButton) {
-                # implement add host dialog
                 $self->_addHostDialog();
                 $self->setupTable();
             }
             elsif ($widget == $edtButton) {
-                # implement modification dialog
+                my $tblItem = yui::toYTableItem($self->table->selectedItem());
+                $self->_edtHostDialog($tblItem->cell(0)->label(),$tblItem->cell(1)->label(),$tblItem->cell(2)->label());
+                $self->setupTable();
             }
             elsif ($widget == $remButton) {
                 # implement deletion dialog
