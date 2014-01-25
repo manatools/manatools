@@ -88,6 +88,13 @@ sub _dropHost {
 	return $self->configHosts->delete_host($host_ip);
 }
 
+sub _modifyHost {
+    my $self = shift();
+    my $host_ip = shift();
+    my @host_definitions = @_;
+    return $self->configHosts->update_host($host_ip, hosts => @host_definitions);
+}
+
 sub _writeHosts {
 	my $self = shift();
 	return $self->configHosts->write_hosts();
