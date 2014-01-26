@@ -217,8 +217,8 @@ sub setupGui {
     my $logo = $self->{factory}->createImage($self->{leftPane}, $self->{settings}->{logo});
     $logo->setAutoScale(1);
 
-    $self->{leftPaneFrame}->setWeight(0, 25);
-    $self->{rightPaneFrame}->setWeight(0, 75);
+#     $self->{leftPaneFrame}->setWeight(0, 1);
+    $self->{rightPaneFrame}->setWeight(0, 2);
 
     $self->loadCategories();
     $self->{factory}->createVStretch($self->{leftPane});
