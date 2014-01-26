@@ -271,8 +271,11 @@ sub manageHostsDialog {
     $remButton->setWeight($yui::YD_HORIZ,1);
 
     my $hbox_foot = $factory->createHBox($layout);
-    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_foot),"Cancel");
-    my $okButton = $factory->createPushButton($factory->createRight($hbox_foot),"OK");
+    my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
+    my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,"About");
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,"Cancel");
+    my $okButton = $factory->createPushButton($vbox_foot_right,"OK");
 
     # main loop
     while(1) {
@@ -312,6 +315,18 @@ sub manageHostsDialog {
                     $self->cfgHosts->_writeHosts();
                     $self->setupTable();
                 }
+            }elsif ($widget == $aboutButton) {
+                AdminPanel::Shared::AboutDialog({
+                    name => $appTitle,
+                    version => $VERSION,
+                    copyright => "Copyright (c) 2013-2014 by Matteo Pasotti",
+                    license => "GPLv2",
+                    comments => "Graphical manager for hosts definitions",
+                    website => "http://gitweb.mageia.org/software/adminpanel",
+                    website_label => "WebSite",
+                    authors => "Matteo Pasotti <matteo.pasotti\@gmail.com>"
+                    }
+                );
             }elsif ($widget == $okButton) {
                 # write changes
                 $self->cfgHosts->_writeHosts();
