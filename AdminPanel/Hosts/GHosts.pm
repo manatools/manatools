@@ -31,6 +31,17 @@ use yui;
 use AdminPanel::Shared;
 use AdminPanel::Hosts::hosts;
 
+extends qw( Module );
+
+
+has '+icon' => (
+    default => "/usr/lib/libDrakX/icons/IC-Dhost-48.png"
+);
+
+has '+name' => (
+    default => "Hostmanager",
+);
+
 =head1 VERSION
 
 Version 1.0.0
