@@ -331,7 +331,7 @@ sub manageHostsDialog {
                     name => $appTitle,
                     version => $VERSION,
                     copyright => "Copyright (c) 2013-2014 by Matteo Pasotti",
-                    license => "GPLv2",
+                    license => $AdminPanel::Shared::License,
                     comments => "Graphical manager for hosts definitions",
                     website => "http://gitweb.mageia.org/software/adminpanel",
                     website_label => "WebSite",
