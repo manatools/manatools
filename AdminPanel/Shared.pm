@@ -85,14 +85,17 @@ use yui;
 use base qw(Exporter);
 
 # TODO move GUI dialogs to Shared::GUI
-our @EXPORT = qw(warningMsgBox
-         msgBox
-         infoMsgBox
-         ask_YesOrNo
-         ask_OkCancel
-         AboutDialog
-         trim 
-         member);
+our @EXPORT = qw(
+                warningMsgBox
+                msgBox
+                infoMsgBox
+                ask_YesOrNo
+                ask_OkCancel
+                ask_fromList
+                AboutDialog
+                trim 
+                member
+);
 
 
 =head1 VERSION
@@ -284,8 +287,8 @@ sub ask_OkCancel {
 
 =head3 DESCRIPTION
 
-This function create a Yes-No dialog with a 'title' and a question 'text' 
-passed as parameters.
+This function create a Yes-No dialog with a 'title' and a 
+question 'text' passed as parameters.
 
 =cut
 
@@ -324,6 +327,96 @@ sub ask_YesOrNo {
 
     return $retVal;
 }
+
+
+#=============================================================
+
+=head2 ask_fromList
+
+=head3 INPUT
+
+    $title: dialog title
+    $text:  combobox heading
+    $list:  item list 
+
+=head3 OUTPUT
+
+    undef:          if Cancel button has been pressed
+    selected item:  if Ok button has been pressed
+
+=head3 DESCRIPTION
+
+This function create a dialog with a combobox in which to 
+choose an item from a given list.
+
+=cut
+
+#=============================================================
+
+sub ask_fromList {
+    my ($title, $text, $list) = @_;
+    
+    die "Title is mandatory"   if (! $title);
+    die "Heading is mandatory" if (! $text);
+    die "List is mandatory"   if (! $list );
+    die "At least one element is mandatory into list"   if (scalar(@$list) < 1);
+
+    my $choice  = undef;
+    my $factory = yui::YUI::widgetFactory;
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($title);
+
+    my $dlg = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $layout = $factory->createVBox($dlg);
+
+    my $combo   = $factory->createComboBox($layout, $text, 0);
+    my $itemColl = new yui::YItemCollection;
+    foreach (@$list) {
+            my $item = new yui::YItem ($_, 0);
+            $itemColl->push($item);
+            $item->DISOWN();
+    }
+    $combo->addItems($itemColl);
+
+    my $align = $factory->createRight($layout);
+    my $hbox = $factory->createHBox($align);
+    my $okButton = $factory->createPushButton($hbox, N("Ok"));
+    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
+
+    while (1) {
+        my $event = $dlg->waitForEvent();
+
+        my $eventType = $event->eventType();
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $okButton) {
+                my $item = $combo->selectedItem();
+                $choice = $item->label() if ($item);
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+    
+    return $choice;
+}
+
 
 #=============================================================
 
