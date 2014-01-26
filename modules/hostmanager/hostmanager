@@ -22,11 +22,15 @@ use AdminPanel::Hosts::GHosts;
 use yui;
 
 my $wm_icon = "/usr/lib/libDrakX/icons/IC-Dhost-48.png"; 
+my $wm_name = "Manage hosts definitions";
 
-yui::YUI::app()->setApplicationTitle("Manage hosts definitions");
+yui::YUI::app()->setApplicationTitle($wm_name);
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
-my $hostMan = AdminPanel::Hosts::GHosts->new();
+my $hostMan = AdminPanel::Hosts::GHosts->new({
+				icon => $wm_icon,
+				name => $wm_name
+			});
 $hostMan->start();
 
 1;
