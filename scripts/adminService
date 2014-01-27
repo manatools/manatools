@@ -1,0 +1,13 @@
+#!/usr/bin/perl
+
+use strict;
+use lib qw(/usr/lib/libDrakX);
+
+use common qw(N);
+use AdminPanel::Module::Services;
+
+my $serviceMan = AdminPanel::Module::Services->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
+                                                          name => N("Services and daemons"),});
+$serviceMan->start();
+
+1;
