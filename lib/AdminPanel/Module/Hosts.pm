@@ -334,7 +334,7 @@ sub manageHostsDialog {
                     license => $AdminPanel::Shared::License,
                     comments => "Graphical manager for hosts definitions",
                     website => "http://gitweb.mageia.org/software/adminpanel",
-                    website_label => "WebSite",
+                    website_label => "Mageia",
                     authors => "Matteo Pasotti <matteo.pasotti\@gmail.com>"
                     }
                 );
