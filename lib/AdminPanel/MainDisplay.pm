@@ -27,6 +27,8 @@ AdminPanel::MainDisplay - class for AdminPaneol main window
 =head1 SYNOPSIS
 
        $mainDisplay = new AdminPanel::MainDisplay();
+       $mainDisplay->start();
+       $mainDisplay->destroy();
 
 =head1 METHODS
 
@@ -94,6 +96,18 @@ use AdminPanel::Module;
 use Data::Dumper;
 use yui;
 
+#=============================================================
+
+=head2 new
+
+=head3 DESCRIPTION
+
+This method instanziates the MainWindo object, and setups
+the startup GUI.
+
+=cut
+
+#=============================================================
 sub new {
 
     my $self = {
@@ -143,8 +157,6 @@ sub new {
     {
         $self->{confDir} = "/etc/$self->{title}";
     }
-#     print "name     = ".$self->{title}."\n";
-#     print "conf dir = ".$self->{confDir}."\n";
 
     $self->setupGui();
 
@@ -168,58 +180,57 @@ sub start {
 
         ## Grab Event
         $self->{event} = $self->{mainWin}->waitForEvent();
-
+        my $eventType  = $self->{event}->eventType();
+        
         ## Check for window close
-        if ($self->{event}->eventType() == $yui::YEvent::CancelEvent)
-        {
+        if ($eventType == $yui::YEvent::CancelEvent) {
             last;
         }
-
-## why i can't test item() with $self->{menus}->{file}[0]?
-        ## Check for Exit button push or menu
-        if($self->{event}->widget() == $self->{exitButton} || 
-           ($self->{event}->item() && ($self->{event}->item()->label() eq $self->{menus}->{file}[0]->label() ))) {
-            last;
-        };
-
-        ## Discover if a menu button was selected.
-        ## If menu button selected, set right panel to display
-        ## selected Category Modules
-        for(@{$self->{categories}}){
-            if( $_->{button} == $self->{event}->widget() ){
-                ## Menu item selected, set right pane
-                $self->{mainWin}->startMultipleChanges();
-                ## Remove existing modules
-                $self->{replacePoint}->deleteChildren();
-                $self->{rightPane} = $self->{factory}->createVBox($self->{replacePoint});
-
-                ## Change Current Category to the selected one
-                $self->{currCategory} = $_;
-                ## Add new Module Buttons to Right Pane
-                $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
-                $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
-                $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
-                $self->{replacePoint}->showChild();
-                $self->{mainWin}->recalcLayout();
-                $self->{mainWin}->doneMultipleChanges();
-
+        elsif ($eventType == $yui::YEvent::MenuEvent) {
+            ### MENU ###
+            my $item = $self->{event}->item();
+            if ($item->label() eq $self->{menus}->{file}[0]->label()) {
+                ## quit menu item
                 last;
             }
-        }
-
-        ## Check if event is from current Category View
-        ## If icon click, launch the Module
-        for(@{$self->{currCategory}->{modules}}) {
-            if( $_->{button} == $self->{event}->widget() ){
-                $launch = $_;
+        }        
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            my $widget = $self->{event}->widget();
+            
+            ## Check for Exit button push or menu
+            if($widget == $self->{exitButton}) {
                 last;
             }
-        }
+            else {
+                # category button selected?
+                my $isCat = $self->_categorySelected($widget);
+                if (!$isCat) {
+                    # module button selected?
+                    $launch = $self->_moduleSelected($widget);
+                }
+            }
+        }                
     }
 
     return $launch;
 }
 
+#=============================================================
+
+=head2 destroy
+
+=head3 INPUT
+
+    $self:     this object
+
+=head3 DESCRIPTION
+
+    This method destroyes the main window and all the
+    relevanto bojects (category and modules buttons).
+
+=cut
+
+#=============================================================
 sub destroy {
     my ($self) = shift;
     $self->{mainWin}->destroy();
@@ -229,10 +240,25 @@ sub destroy {
     }
 }
 
+#=============================================================
+
+=head2 setupGui
+
+=head3 INPUT
+
+    $self:     this object
+
+=head3 DESCRIPTION
+
+    This method load configuration and build the GUI layout.
+
+=cut
+
+#=============================================================
 sub setupGui {
     my ($self) = shift;
 
-    $self->loadSettings();
+    $self->_loadSettings();
     yui::YUILog::setLogFileName($self->{settings}->{log});
     $self->{name} = $self->{settings}->{title};
     yui::YUI::app()->setApplicationTitle($self->{name});
@@ -240,7 +266,6 @@ sub setupGui {
 
     $self->{factory} = yui::YUI::widgetFactory;
     $self->{mainWin} = $self->{factory}->createMainDialog;
-#print "Title:  ".yui::YUI::app()->applicationTitle()."\n";
 
     $self->{mainLayout} = $self->{factory}->createVBox($self->{mainWin});
     $self->{menuLayout} = $self->{factory}->createHBox($self->{mainLayout});
@@ -284,17 +309,72 @@ sub setupGui {
 #     $self->{leftPaneFrame}->setWeight(0, 1);
     $self->{rightPaneFrame}->setWeight(0, 2);
 
-    $self->loadCategories();
+    $self->_loadCategories();
     $self->{factory}->createVStretch($self->{leftPane});
 
     $self->{exitButton} = $self->{factory}->createPushButton($self->{leftPane}, "Exit");
     $self->{exitButton}->setIcon("$self->{settings}->{images_dir}/quit.png");    
     $self->{exitButton}->setStretchable(0, 1);
-#     $self->{exitButton}->setStretchable(1, 1);
+}
+
+
+## internal methods
+
+## Check if event is from current Category View
+## If icon click, returns the module to be launched
+
+sub _moduleSelected {
+    my ($self, $selectedWidget) = @_;
+    
+    for(@{$self->{currCategory}->{modules}}) {
+        if( $_->{button} == $selectedWidget ){
+            return $_;
+        }
+    }
+    return 0;
+}
+
+
+## Discover if a category button was selected.
+## If category button is selected, sets right panel to display
+## the selected Category Modules
+## returns 1 if category button is selected
+sub _categorySelected {
+    my ($self, $selectedWidget) = @_;
+    for (@{$self->{categories}}) {
+        if( $_->{button} == $selectedWidget ) {
+            
+            #if current is already set then skips
+            if ($self->{currCategory} == $_) {
+                ## returns 1 to skip any other checks on 
+                ## the selected widget
+                return 1;
+            }
+            ## Menu item selected, set right pane
+            $self->{mainWin}->startMultipleChanges();
+            ## Remove existing modules
+            $self->{replacePoint}->deleteChildren();
+            $self->{rightPane} = $self->{factory}->createVBox($self->{replacePoint});
+
+            ## Change Current Category to the selected one
+            $self->{currCategory} = $_;
+            ## Add new Module Buttons to Right Pane
+            $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
+            $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
+            $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
+            $self->{replacePoint}->showChild();
+            $self->{mainWin}->recalcLayout();
+            $self->{mainWin}->doneMultipleChanges();
+
+            return 1;
+        }
+    }
+
+    return 0;
 }
 
 ## adpanel settings
-sub loadSettings {
+sub _loadSettings {
     my ($self, $force_load) = @_;
     # configuration file name
     my $fileName = "$self->{confDir}/settings.conf";
@@ -304,26 +384,24 @@ sub loadSettings {
 }
 
 #=============================================================
-
-=head2 categoryLoaded
-
-=head3 INPUT
-
-    $self:     this object
-    $category: category to look for
-
-=head3 OUTPUT
-
-    $present: category is present or not
-
-=head3 DESCRIPTION
-
-    This method looks for the given category and if already in
-    returns true.
-=cut
-
+#  _categoryLoaded
+# 
+# INPUT
+# 
+#     $self:     this object
+#     $category: category to look for
+# 
+# OUTPUT
+# 
+#     $present: category is present or not
+# 
+# DESCRIPTION
+# 
+#     This method looks for the given category and if already in
+#     returns true.
+# 
 #=============================================================
-sub categoryLoaded {
+sub _categoryLoaded {
     my ($self, $category) = @_;
     my $present = 0;
 
@@ -342,26 +420,23 @@ sub categoryLoaded {
 }
 
 #=============================================================
-
-=head2 getCategory
-
-=head3 INPUT
-
-    $self:     this object
-    $name:     category name
-
-=head3 OUTPUT
-
-    $category: category object if exists
-
-=head3 DESCRIPTION
-
-    This method looks for the given category name and returns
-    the realte object.
-=cut
-
+#  _getCategory
+# 
+#  INPUT
+# 
+#     $self:     this object
+#     $name:     category name
+# 
+#  OUTPUT
+# 
+#     $category: category object if exists
+# 
+#  DESCRIPTION
+# 
+#     This method looks for the given category name and returns
+#     the realte object.
 #=============================================================
-sub getCategory {
+sub _getCategory {
     my ($self, $name) = @_;
     my $category = undef;
 
@@ -374,10 +449,14 @@ sub getCategory {
     return $category;
 }
 
-sub loadCategory {
+# _loadCategory
+# 
+# creates a new button representing a category
+# 
+sub _loadCategory {
     my ($self, $category) = @_;
 
-    if (!$self->categoryLoaded($category)) {
+    if (!$self->_categoryLoaded($category)) {
         push ( @{$self->{categories}}, $category );
 
         @{$self->{categories}}[-1]->{button} = $self->{factory}->createPushButton(
@@ -405,7 +484,7 @@ sub loadCategory {
     }
 }
 
-sub loadCategories {
+sub _loadCategories {
     my ($self) = @_;
 
     # category files 
@@ -427,11 +506,11 @@ sub loadCategories {
         my $hasNextCat = $inFile->hasNextCat();
         while( $hasNextCat ) {
             $tmp = $inFile->getNextCat();
-            $tmpCat = $self->getCategory($tmp->{title});
+            $tmpCat = $self->_getCategory($tmp->{title});
             if (!$tmpCat) {
                 $tmpCat = new AdminPanel::Category($tmp->{title}, $tmp->{icon});
             }
-            $self->loadCategory($tmpCat);
+            $self->_loadCategory($tmpCat);
             $hasNextCat  = $inFile->hasNextCat();
             $currCategory = $tmpCat;
         
@@ -463,43 +542,19 @@ sub loadCategories {
     }
 }
 
-sub menuEventIndex {
-    my ($self) = shift;
-    
-    my $index = -1;
-
-    for(my $i = 0; $i < scalar(@{$self->{categories}} ); ++$i)
-    {
-        print "Current Index = ".$index."\n";
-        if($self->{event}->widget() == @{$self->{categories}}[$i]->{button})
-        {
-            $index = $i;
-            print "Index found is : ".$index;
-            last;
-        }
-    }
-    return $index;
-}
-
 1;
 
 =pod
 
 =head2 start
 
-       contains the main loop of the application
-              where we can check for events
+    contains the main loop of the application
+    where we can check for events
 
 =head2 setupGui
 
-       creates a popupDialog using a YUI::WidgetFactory
-              and then populate this dialog with some components
-
-=head2 loadCategory
-
-       creates a new button representing a category
-
-=head3 category (String)
+    creates a popupDialog using a YUI::WidgetFactory
+    and then populate this dialog with some components
 
 =cut
 

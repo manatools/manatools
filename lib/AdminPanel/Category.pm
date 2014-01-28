@@ -27,6 +27,27 @@ use yui;
 
 ## Can only add the config file data at constructor
 ## The Gui elements are added in setupGui inside MainDisplay
+#=============================================================
+
+=head2 new
+
+=head3 INPUT
+
+    $newName: new category name
+    $newIcon: new category icon
+
+=head3 OUTPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    Constructor: creates a new category named Name
+
+=cut
+
+#=============================================================
+
 sub new {
     my ($class, $newName, $newIcon) = @_;
     my $self = {
@@ -122,7 +143,23 @@ sub moduleLoaded {
     return $present;
 }
 
-## Create and add buttons for each module
+#=============================================================
+
+=head2 addButtons
+
+=head3 INPUT
+
+    $self:    this object
+    $pane:    parent panel in which create buttons
+    $factory: yui factory
+
+=head3 DESCRIPTION
+
+    Creates and adds buttons for each module_name
+ 
+=cut
+
+#=============================================================
 sub addButtons {
     my($self, $pane, $factory) = @_;
     my $count = 0;
@@ -148,7 +185,21 @@ sub addButtons {
     $factory->createVStretch($pane);
 }
 
-## Delete the module buttons
+#=============================================================
+
+=head2 removeButtons
+
+=head3 INPUT
+
+$self: this object
+
+=head3 DESCRIPTION
+
+Delete the module buttons
+
+=cut
+
+#=============================================================
 sub removeButtons {
     my($self) = @_;
 
@@ -157,6 +208,21 @@ sub removeButtons {
     }
 }
 
+#=============================================================
+
+=head2 setIcon
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    set the button icon
+
+=cut
+
+#=============================================================
 sub setIcon {
     my($self) = @_;
 
@@ -179,23 +245,10 @@ __END__
 
 =head1 USAGE
 
-       my $display = new MainDisplay();
-
-       my $category = new Category('Network');
-       $display->loadCategory($category);
-
-       $display->start();
+    This class is used by MainDisplay internally and should not
+    be used outside, since MainDisplay::setupGui use it to
+    build GUI layout.
 
 =head1 FUNCTIONS
-
-=head2 new (name)
-
-       Constructor: creates a new category named Name 
-
-       $category = new Category('Name'); 
-
-=head3 name (String)
-
-       The name of the category
 
 =cut
