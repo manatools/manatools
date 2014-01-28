@@ -106,6 +106,13 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+=head1 License
+
+GPL2 license content text, it can be used to be shown
+in dialogs.
+
+=cut
+
 our $License = N_("This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation; either version 2, or (at your option)
@@ -455,7 +462,7 @@ sub AboutDialog {
     my ($opts) = @_;
     
     # Credits dialog
-    sub Credits {
+    sub _Credits {
         my ($opts) = @_;
         
         my $factory  = yui::YUI::widgetFactory;
@@ -551,7 +558,7 @@ sub AboutDialog {
     }
     
     # License dialog
-    sub License {
+    sub _License {
         my ($license) = @_;
         
         my $factory = yui::YUI::widgetFactory;
@@ -635,10 +642,10 @@ sub AboutDialog {
             my $widget = $event->widget();
 
             if($widget == $licenseButton) {
-                License($opts->{license}) if exists $opts->{license};
+                _License($opts->{license}) if exists $opts->{license};
             }
             elsif ($widget == $creditsButton) {
-                Credits($opts);
+                _Credits($opts);
             }
             elsif ($widget == $closeButton) {
                 last;
