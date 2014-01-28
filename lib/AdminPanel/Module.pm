@@ -93,11 +93,42 @@ has 'button' => (
 );
 
 
+#=============================================================
+
+=head2 setButton
+
+=head3 INPUT
+
+$self:   this object
+$button: yui push button to be assigned to this module
+
+=head3 DESCRIPTION
+
+This method assignes a button to this module
+
+=cut
+
+#=============================================================
 sub setButton {
     my ($self, $button) = @_;
     $self->{button} = $button;
 }
 
+#=============================================================
+
+=head2 removeButton
+
+=head3 INPUT
+
+$self: this object
+
+=head3 DESCRIPTION
+
+This method remove the assigned button from this module
+
+=cut
+
+#=============================================================
 sub removeButton {
     my($self) = @_;
 
@@ -105,6 +136,21 @@ sub removeButton {
 }
 
 # base class launcher
+#=============================================================
+
+=head2 start
+
+=head3 INPUT
+
+$self: this object
+
+=head3 DESCRIPTION
+
+This method is the base class launcher, run external modules.
+
+=cut
+
+#=============================================================
 sub start {
     my $self = shift;
 
