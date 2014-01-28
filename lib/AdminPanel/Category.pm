@@ -150,7 +150,7 @@ sub moduleLoaded {
 =head3 INPUT
 
     $self:    this object
-    $pane:    parent panel in which create buttons
+    $panel:   parent panel layout in which to create buttons
     $factory: yui factory
 
 =head3 DESCRIPTION
@@ -161,14 +161,14 @@ sub moduleLoaded {
 
 #=============================================================
 sub addButtons {
-    my($self, $pane, $factory) = @_;
+    my($self, $panel, $factory) = @_;
     my $count = 0;
     my $tmpButton;
     my $currLayout = 0;
-    $factory->createVSpacing($pane, 2);
+    $factory->createVSpacing($panel, 2);
     foreach my $mod (@{$self->{modules}}) {
         if(($count % 2) != 1) {
-            $currLayout = $factory->createHBox($pane);
+            $currLayout = $factory->createHBox($panel);
             $factory->createHStretch($currLayout);
         }
         $count++;
@@ -179,10 +179,10 @@ sub addButtons {
         $tmpButton->setIcon($mod->icon);
         $factory->createHStretch($currLayout);
         if(($count % 2) != 1) {
-            $factory->createVSpacing($pane, 2);     
+            $factory->createVSpacing($panel, 2);     
         }
     }
-    $factory->createVStretch($pane);
+    $factory->createVStretch($panel);
 }
 
 #=============================================================
