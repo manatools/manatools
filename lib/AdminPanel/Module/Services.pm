@@ -1,29 +1,62 @@
 # vim: set et ts=4 sw=4:
-#*****************************************************************************
-# 
-#  Copyright (c) 2013 Angelo Naselli <anaselli@linux.it>
-#  from drakx services
-# 
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License version 2, as
-#  published by the Free Software Foundation.
-# 
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-# 
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
-#*****************************************************************************
 
 package AdminPanel::Module::Services;
 
-#-######################################################################################
-#- misc imports
-#-######################################################################################
+#============================================================= -*-perl-*-
+
+=head1 NAME
+
+AdminPanel::Module::Services - This module aims to manage service 
+                               with GUI
+
+=head1 SYNOPSIS
+
+    my $serviceMan = AdminPanel::Module::Services->new();
+    $serviceMan->start();
+
+=head1 DESCRIPTION
+
+    This module presents all the system service status and gives
+    the availability to administrator to stop, start and active at boot 
+    them.
+    
+    From the original code drakx services.
+
+=head1 SUPPORT
+
+    You can find documentation for this module with the perldoc command:
+
+    perldoc AdminPanel::Module::Services::Module
+
+=head1 SEE ALSO
+   
+   AdminPanel::Module
+
+=head1 AUTHOR
+
+Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2014, Angelo Naselli.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2, as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=head1 FUNCTIONS
+
+=cut
+
 
 use strict;
 
@@ -42,13 +75,14 @@ use Moose;
 use yui;
 use AdminPanel::Shared;
 use AdminPanel::Shared::Services qw(
+                                    description
                                     services
                                     xinetd_services
                                     is_service_running
                                     restart_or_start
                                     stop
                                     set_service
-                    );
+                                    );
 
 use File::Basename;
 
@@ -62,7 +96,7 @@ has '+name' => (
     default => N("AdminService"), 
 );
 
-has 'services' => (
+has '_services' => (
     traits  => ['Array'],
     is      => 'rw',
     isa     => 'ArrayRef[Str]',
@@ -77,7 +111,7 @@ has 'services' => (
     },
 );
 
-has 'xinetd_services' => (
+has '_xinetd_services' => (
     traits  => ['Array'],
     is      => 'rw',
     isa     => 'ArrayRef[Str]',
@@ -122,6 +156,7 @@ has 'running_services' => (
         sorted_running_services => 'sort',
     },
 );
+
 =head1 VERSION
 
 Version 1.0.0
@@ -131,140 +166,22 @@ Version 1.0.0
 our $VERSION = '1.0.0';
 
 
-sub description {
-    my %services = (
-acpid => N_("Listen and dispatch ACPI events from the kernel"),     
-alsa => N_("Launch the ALSA (Advanced Linux Sound Architecture) sound system"),
-anacron => N_("Anacron is a periodic command scheduler."),
-apmd => N_("apmd is used for monitoring battery status and logging it via syslog.
-It can also be used for shutting down the machine when the battery is low."),
-atd => N_("Runs commands scheduled by the at command at the time specified when
-at was run, and runs batch commands when the load average is low enough."),
-'avahi-deamon' => N_("Avahi is a ZeroConf daemon which implements an mDNS stack"),
-chronyd => N_("An NTP client/server"),
-cpufreq => N_("Set CPU frequency settings"),
-crond => N_("cron is a standard UNIX program that runs user-specified programs
-at periodic scheduled times. vixie cron adds a number of features to the basic
-UNIX cron, including better security and more powerful configuration options."),
-cups => N_("Common UNIX Printing System (CUPS) is an advanced printer spooling system"),
-dm => N_("Launches the graphical display manager"),
-fam => N_("FAM is a file monitoring daemon. It is used to get reports when files change.
-It is used by GNOME and KDE"),
-g15daemon => N_("G15Daemon allows users access to all extra keys by decoding them and 
-pushing them back into the kernel via the linux UINPUT driver. This driver must be loaded 
-before g15daemon can be used for keyboard access. The G15 LCD is also supported. By default, 
-with no other clients active, g15daemon will display a clock. Client applications and 
-scripts can access the LCD via a simple API."),
-gpm => N_("GPM adds mouse support to text-based Linux applications such the
-Midnight Commander. It also allows mouse-based console cut-and-paste operations,
-and includes support for pop-up menus on the console."),
-haldaemon => N_("HAL is a daemon that collects and maintains information about hardware"),
-harddrake => N_("HardDrake runs a hardware probe, and optionally configures
-new/changed hardware."),
-httpd => N_("Apache is a World Wide Web server. It is used to serve HTML files and CGI."),
-inet => N_("The internet superserver daemon (commonly called inetd) starts a
-variety of other internet services as needed. It is responsible for starting
-many services, including telnet, ftp, rsh, and rlogin. Disabling inetd disables
-all of the services it is responsible for."),
-ip6tables => N_("Automates a packet filtering firewall with ip6tables"),
-iptables => N_("Automates a packet filtering firewall with iptables"),
-irqbalance => N_("Evenly distributes IRQ load across multiple CPUs for enhanced performance"),
-keytable => N_("This package loads the selected keyboard map as set in
-/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.
-You should leave this enabled for most machines."),
-kheader => N_("Automatic regeneration of kernel header in /boot for
-/usr/include/linux/{autoconf,version}.h"),
-kudzu => N_("Automatic detection and configuration of hardware at boot."),
-'laptop-mode' => N_("Tweaks system behavior to extend battery life"),
-linuxconf => N_("Linuxconf will sometimes arrange to perform various tasks
-at boot-time to maintain the system configuration."),
-lpd => N_("lpd is the print daemon required for lpr to work properly. It is
-basically a server that arbitrates print jobs to printer(s)."),
-lvs => N_("Linux Virtual Server, used to build a high-performance and highly
-available server."),
-mandi => N_("Monitors the network (Interactive Firewall and wireless"),
-mdadm => N_("Software RAID monitoring and management"),
-messagebus => N_("DBUS is a daemon which broadcasts notifications of system events and other messages"),
-msec => N_("Enables MSEC security policy on system startup"),
-named => N_("named (BIND) is a Domain Name Server (DNS) that is used to resolve host names to IP addresses."),
-netconsole => N_("Initializes network console logging"),
-netfs => N_("Mounts and unmounts all Network File System (NFS), SMB (Lan
-Manager/Windows), and NCP (NetWare) mount points."),
-network => N_("Activates/Deactivates all network interfaces configured to start
-at boot time."),
-'network-auth' => N_("Requires network to be up if enabled"),
-'network-up' => N_("Wait for the hotplugged network to be up"),
-nfs => N_("NFS is a popular protocol for file sharing across TCP/IP networks.
-This service provides NFS server functionality, which is configured via the
-/etc/exports file."),
-nfslock => N_("NFS is a popular protocol for file sharing across TCP/IP
-networks. This service provides NFS file locking functionality."),
-ntpd => N_("Synchronizes system time using the Network Time Protocol (NTP)"),
-numlock => N_("Automatically switch on numlock key locker under console
-and Xorg at boot."),
-oki4daemon => N_("Support the OKI 4w and compatible winprinters."),
-partmon => N_("Checks if a partition is close to full up"),
-pcmcia => N_("PCMCIA support is usually to support things like ethernet and
-modems in laptops.  It will not get started unless configured so it is safe to have
-it installed on machines that do not need it."),
-portmap => N_("The portmapper manages RPC connections, which are used by
-protocols such as NFS and NIS. The portmap server must be running on machines
-which act as servers for protocols which make use of the RPC mechanism."),
-portreserve => N_("Reserves some TCP ports"),
-postfix => N_("Postfix is a Mail Transport Agent, which is the program that moves mail from one machine to another."),
-random => N_("Saves and restores system entropy pool for higher quality random
-number generation."),
-rawdevices => N_("Assign raw devices to block devices (such as hard disk drive
-partitions), for the use of applications such as Oracle or DVD players"),
-resolvconf => N_("Nameserver information manager"),
-routed => N_("The routed daemon allows for automatic IP router table updated via
-the RIP protocol. While RIP is widely used on small networks, more complex
-routing protocols are needed for complex networks."),
-rstatd => N_("The rstat protocol allows users on a network to retrieve
-performance metrics for any machine on that network."),
-rsyslog => N_("Syslog is the facility by which many daemons use to log messages to various system log files.  It is a good idea to always run rsyslog."),
-rusersd => N_("The rusers protocol allows users on a network to identify who is
-logged in on other responding machines."),
-rwhod => N_("The rwho protocol lets remote users get a list of all of the users
-logged into a machine running the rwho daemon (similar to finger)."),
-saned => N_("SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."),
-shorewall => N_("Packet filtering firewall"),
-smb => N_("The SMB/CIFS protocol enables to share access to files & printers and also integrates with a Windows Server domain"),
-sound => N_("Launch the sound system on your machine"),
-'speech-dispatcherd' => N_("layer for speech analysis"),
-sshd => N_("Secure Shell is a network protocol that allows data to be exchanged over a secure channel between two computers"),
-syslog => N_("Syslog is the facility by which many daemons use to log messages
-to various system log files.  It is a good idea to always run syslog."),
-'udev-post' => N_("Moves the generated persistent udev rules to /etc/udev/rules.d"),
-usb => N_("Load the drivers for your usb devices."),
-vnStat => N_("A lightweight network traffic monitor"),
-xfs => N_("Starts the X Font Server."),
-xinetd => N_("Starts other deamons on demand."),
-    );
-    my ($name) = @_;
-    my $s = $services{$name};
-    if ($s) {
-        $s = translate($s);
-    } else {
-        my $file = "$::prefix/usr/lib/systemd/system/$name.service";
-        if (-e $file) {
-                $s = cat_($file);
-                $s = $s =~ /^Description=(.*)/mg ? $1 : '';
-        } else {
-                $file = find { -e $_ } map { "$::prefix$_/$name" } '/etc/rc.d/init.d', '/etc/init.d', '/etc/xinetd.d';
-                $s = cat_($file);
-                $s =~ s/\\\s*\n#\s*//mg;
-                $s =
-                        $s =~ /^#\s+(?:Short-)?[dD]escription:\s+(.*?)^(?:[^#]|# {0,2}\S)/sm ? $1 :
-                        $s =~ /^#\s*(.*?)^[^#]/sm ? $1 : '';
+#=============================================================
 
-                $s =~ s/#\s*//mg;
-        }
-    }
-    $s =~ s/\n/ /gm; $s =~ s/\s+$//;
-    $s;
-}
+=head2 BUILD
 
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    The BUILD method is called after a Moose object is created,
+    in this methods Services loads all the service information.
+
+=cut
+
+#=============================================================
 sub BUILD {
     my $self = shift;
 
@@ -291,7 +208,7 @@ sub BUILD {
 sub start {
     my $self = shift;
 
-    $self->servicePanel();
+    $self->_servicePanel();
 };
 
 
@@ -318,15 +235,15 @@ sub loadServices {
     my ($l, $on_services) = AdminPanel::Shared::Services::services();
     my @xinetd_services = map { $_->[0] } AdminPanel::Shared::Services::xinetd_services();
 
-    $self->xinetd_services();
-    $self->xinetd_services(\@xinetd_services);
-    $self->services(\@$l);
+    $self->_xinetd_services();
+    $self->_xinetd_services(\@xinetd_services);
+    $self->_services(\@$l);
     $self->on_services(\@$on_services);
 
-    $self->refreshRunningServices();
+    $self->_refreshRunningServices();
 }
 
-sub refreshRunningServices {
+sub _refreshRunningServices {
     my $self = shift;
 
     my @running;
@@ -338,11 +255,12 @@ sub refreshRunningServices {
     $self->running_services(\@running);
 }
 
-## serviceInfo sets widgets accordingly to selected service status 
+## _serviceInfo sets service description accordingly to 
+##              selected service status 
 ## param
 ##   'service'     service name 
 ##   'infoPanel'   service information widget 
-sub serviceInfo {
+sub _serviceInfo {
     my ($self, $service, $infoPanel) = @_;
 
     yui::YUI::ui()->blockEvents();
@@ -351,18 +269,32 @@ sub serviceInfo {
     yui::YUI::ui()->unblockEvents();
 }
 
-sub serviceStatus {
-    my ($self, $tbl, $item) = @_;
 
+sub _serviceStatusString {
+    my ($self, $serviceName) = @_;
+    
     my $started;
 
-    if (member($item->label(), $self->all_xinetd_services)) {
+    if (member($serviceName, $self->all_xinetd_services)) {
         $started = N("Start when requested");
     }
     else {
-        $started = (member($item->label(), $self->all_running_services)? N("running") : N("stopped"));
+        $started = (is_service_running($serviceName)? N("running") : N("stopped"));
     }
-# TODO add icon green/red led  
+    
+    return $started;
+}
+
+## _serviceStatus sets status label accordingly to selected item 
+## param
+##   'service'  yui CB table (service table)
+##   'item'     selected item (service) 
+sub _serviceStatus {
+    my ($self, $tbl, $item) = @_;
+
+    my $started = $self->_serviceStatusString($item->label());
+
+    # TODO add icon green/red led  
     my $cell   = $tbl->toCBYTableItem($item)->cell(1);
     if ($cell) {
         $cell->setLabel($started);
@@ -370,8 +302,36 @@ sub serviceStatus {
     }
 }
 
-## draw service panel and manage it 
-sub servicePanel {
+
+## fill service table with service info
+## param
+##  'tbl' yui table
+sub _fillServiceTable {
+    my ($self, $tbl) = @_;
+
+    $tbl->deleteAllItems();
+    my $itemCollection = new yui::YItemCollection;
+    foreach ($self->all_services) {
+        
+        my $serviceName = $_;
+        
+        my $item = new yui::YCBTableItem($serviceName);
+        my $started = $self->_serviceStatusString($serviceName);
+        
+        # TODO add icon green/red led  
+        my $cell   = new yui::YTableCell($started);
+        $item->addCell($cell);
+        
+        $item->check(member($serviceName, $self->all_on_services));
+        $item->setLabel($serviceName);
+        $itemCollection->push($item);
+        $item->DISOWN();
+    }
+    $tbl->addItems($itemCollection);
+}
+
+## draw service panel and manage it (main dialog)
+sub _servicePanel {
     my $self = shift;
 
     my $appTitle = yui::YUI::app()->applicationTitle();
@@ -380,9 +340,6 @@ sub servicePanel {
     yui::YUI::app()->setApplicationTitle($self->name);
     ## set icon if not already set by external launcher
     yui::YUI::app()->setApplicationIcon($self->icon);
-
-#    my ($l, $on_services) = services();
-#    my @xinetd_services = map { $_->[0] } xinetd_services();
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;
@@ -403,30 +360,9 @@ sub servicePanel {
 
     ## service list (serviceBox)
     my $serviceTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnLastColumn);
-    my $itemCollection = new yui::YItemCollection;
-    foreach ($self->all_services) {
-
-        my $serviceName = $_;
-        
-        my $item = new yui::YCBTableItem($serviceName);
-        my $started;
-        if (member($serviceName, $self->all_xinetd_services)) {
-            $started = N("Start when requested");
-        }
-        else {
-            $started = (member($serviceName, $self->all_running_services)? N("running") : N("stopped"));
-        }
-
-# TODO add icon green/red led  
-        my $cell   = new yui::YTableCell($started);
-        $item->addCell($cell);
-
-        $item->check(member($serviceName, $self->all_on_services));
-        $item->setLabel($serviceName);
-        $itemCollection->push($item);
-        $item->DISOWN();
-    }
-    $serviceTbl->addItems($itemCollection);
+   
+    $self->_fillServiceTable($serviceTbl);
+    
     $serviceTbl->setImmediateMode(1);
     $serviceTbl->setWeight(0, 50);
 
@@ -453,12 +389,15 @@ sub servicePanel {
     my $aboutButton = $factory->createPushButton($hbox, N("About") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
+    
+    ### Service Refresh button ($refreshButton)
+    my $refreshButton  = $factory->createPushButton($hbox, N("Refresh"));
     my $closeButton = $factory->createPushButton($hbox, N("Close") );
 
     #first item status
     my $item = $serviceTbl->selectedItem();
     if ($item) {
-        $self->serviceInfo($item->label(), $infoPanel);
+        $self->_serviceInfo($item->label(), $infoPanel);
         if (member($item->label(), $self->all_xinetd_services)) {
             $stopButton->setDisabled();
             $startButton->setDisabled();
@@ -506,7 +445,7 @@ sub servicePanel {
                 # service selection changed
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
-                    $self->serviceInfo($item->label(), $infoPanel);
+                    $self->_serviceInfo($item->label(), $infoPanel);
                     if (member($item->label(), $self->all_xinetd_services)) {
                         $stopButton->setDisabled();
                         $startButton->setDisabled();
@@ -523,27 +462,40 @@ sub servicePanel {
 
                         set_service($item->label(), $item->checked());
                         # we can push/pop service, but this (slower) should return real situation
-                        $self->refreshRunningServices();
+                        $self->_refreshRunningServices();
                     }
                 }
             }
             elsif ($widget == $startButton) {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
+                    yui::YUI::app()->busyCursor();
                     restart_or_start($item->label());
                     # we can push/pop service, but this (slower) should return real situation
-                    $self->refreshRunningServices();
-                    $self->serviceStatus($serviceTbl, $item);
+                    $self->_refreshRunningServices();
+                    $self->_serviceStatus($serviceTbl, $item);
+                    yui::YUI::app()->normalCursor();
                 }
             }
             elsif ($widget == $stopButton) {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
+                    yui::YUI::app()->busyCursor();
                     stop($item->label());
                     # we can push/pop service, but this (slower) should return real situation
-                    $self->refreshRunningServices();
-                    $self->serviceStatus($serviceTbl, $item);
+                    $self->_refreshRunningServices();
+                    $self->_serviceStatus($serviceTbl, $item);
+                    yui::YUI::app()->normalCursor();
                 }
+            }
+            elsif ($widget == $refreshButton) {
+                yui::YUI::app()->busyCursor();
+                $self->loadServices();
+                $dialog->startMultipleChanges();
+                $self->_fillServiceTable($serviceTbl);
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::app()->normalCursor();
             }
         }
     }

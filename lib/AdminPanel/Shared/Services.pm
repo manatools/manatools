@@ -1,25 +1,78 @@
 # vim: set et ts=4 sw=4:
-#*****************************************************************************
-# 
-#  Copyright (c) 2013 Angelo Naselli <anaselli@linux.it>
-#  from drakx services
-# 
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License version 2, as
-#  published by the Free Software Foundation.
-# 
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-# 
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
-#*****************************************************************************
-
 package AdminPanel::Shared::Services;
+#============================================================= -*-perl-*-
+
+=head1 NAME
+
+AdminPanel::Shared::Services - shares the API to manage services
+
+=head1 SYNOPSIS
+
+use AdminPanel::Shared::Services;
+ 
+my ($l, $on_services) = AdminPanel::Shared::Services::services();
+
+=head1 DESCRIPTION
+
+  This module aims to share all the API to manage system services,
+  to be used from GUI applications or console.
+  
+  From the original code drakx services.
+
+=head1 EXPORT
+
+  description
+  services
+  xinetd_services
+  is_service_running
+  restart_or_start
+  stop
+  start
+  restart
+  set_service
+  service_exists
+  start_not_running_service
+  starts_on_boot
+  start_service_on_boot
+  do_not_start_service_on_boot
+  enable
+  disable
+  set_status
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command:
+
+perldoc AdminPanel::Shared::Services
+
+=head1 SEE ALSO
+
+AdminPanel::Shared
+
+=head1 AUTHOR
+
+Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2013-2014, Angelo Naselli.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2, as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=head1 FUNCTIONS
+
+=cut
 
 
 #-######################################################################################
@@ -34,15 +87,44 @@ use File::Basename qw( basename );
 use base qw(Exporter);
 
 our @EXPORT = qw(
+                description
                 services
                 xinetd_services
                 is_service_running
                 restart_or_start
                 stop
                 start
+                restart
                 set_service
+                service_exists
+                start_not_running_service
+                starts_on_boot
+                start_service_on_boot
+                do_not_start_service_on_boot
+                enable
+                disable
+                set_status
                 );
 
+#=============================================================
+
+=head2 description
+
+=head3 INPUT
+
+name: Service Name
+
+=head3 OUTPUT
+
+Description: Service description
+
+=head3 DESCRIPTION
+
+THis function return the description for the given service
+
+=cut
+
+#=============================================================
 sub description {
     my %services = (
 acpid => N_("Listen and dispatch ACPI events from the kernel"),	    
@@ -178,6 +260,22 @@ xinetd => N_("Starts other deamons on demand."),
 }
 
 
+#=============================================================
+
+=head2 set_service
+
+=head3 INPUT
+
+$service: Service name
+$enable:  enable/disable service
+
+=head3 DESCRIPTION
+
+This function enable/disable at boot the given service 
+
+=cut
+
+#=============================================================
 sub set_service {
     my ($service, $enable) = @_;
     
@@ -185,7 +283,7 @@ sub set_service {
 
     if (member($service, @xinetd_services)) {
         run_program::rooted($::prefix, "chkconfig", $enable ? "--add" : "--del", $service);
-    } elsif (running_systemd() || has_systemd()) {
+    } elsif (_running_systemd() || _has_systemd()) {
         # systemctl rejects any symlinked units. You have to enabled the real file
         if (-l "/lib/systemd/system/$service.service") {
             my $name = readlink("/lib/systemd/system/$service.service");
@@ -205,22 +303,43 @@ sub set_service {
 }
 
 sub _run_action {
-    my ($service, $action) = @_;
-    if (running_systemd()) {
-        run_program::rooted($::prefix, '/bin/systemctl', '--no-block', $action, "$service.service");
+    my ($service, $action, $do_not_block) = @_;
+    if (_running_systemd()) {
+        if ($do_not_block) {
+            run_program::rooted($::prefix, '/bin/systemctl', '--no-block', $action, "$service.service");
+        }
+        else {
+            run_program::rooted($::prefix, '/bin/systemctl', $action, "$service.service");
+        }
     } else {
         run_program::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
     }
 }
 
-sub running_systemd() {
+sub _running_systemd() {
     run_program::rooted($::prefix, '/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
-sub has_systemd() {
+sub _has_systemd() {
     run_program::rooted($::prefix, '/bin/rpm', '-q', 'systemd');
 }
 
+#=============================================================
+
+=head2 xinetd_services
+
+=head3 OUTPUT
+
+xinetd_services: All the xinetd services
+
+=head3 DESCRIPTION
+
+This functions returns all the xinetd services in the system.
+NOTE that xinetd *must* be enable at boot to get this info
+
+=cut
+
+#=============================================================
 sub xinetd_services() {
     local $ENV{LANGUAGE} = 'C';
     my @xinetd_services;
@@ -271,7 +390,7 @@ sub _systemd_services() {
 sub _legacy_services() {
     local $ENV{LANGUAGE} = 'C';
     my @services;
-    my $has_systemd = has_systemd();
+    my $has_systemd = _has_systemd();
     if ($has_systemd) {
         # The system not using systemd but will be at next boot. This is
         # is typically the case in the installer. In this mode we must read
@@ -314,7 +433,7 @@ sub _legacy_services() {
         if (my ($name, $l) = m!^(\S+)\s+(0:(on|off).*)!) {
             # If we expect to use systemd (i.e. installer) only show those
             # sysvinit scripts which are not masked by a native systemd unit.
-            my $has_systemd_unit = systemd_unit_exists($name);
+            my $has_systemd_unit = _systemd_unit_exists($name);
             if (!$has_systemd || !$has_systemd_unit) {
                 if ($::isInstall) {
                     $on_off = $l =~ /\d+:on/g;
@@ -331,9 +450,28 @@ sub _legacy_services() {
 #- returns:
 #--- the listref of installed services
 #--- the listref of "on" services
+#=============================================================
+
+=head2 services
+
+=head3 OUTPUT
+
+@l:           all the system services
+@on_services: all the services that start at boot
+
+=head3 DESCRIPTION
+
+This function returns two lists, all the system service and
+all the active ones.
+
+=cut
+
+#=============================================================
+
+
 sub services() {
     my @services;
-    if (running_systemd()) {
+    if (_running_systemd()) {
         @services = _systemd_services();
     } else {
         @services = _legacy_services();
@@ -347,16 +485,54 @@ sub services() {
 
 
 
-sub systemd_unit_exists {
+sub _systemd_unit_exists {
     my ($name) = @_;
     # we test with -l as symlinks are not valid when the system is chrooted:
     -e "$::prefix/lib/systemd/system/$name.service" or -l "$::prefix/lib/systemd/system/$name.service";
 }
 
+#=============================================================
+
+=head2 service_exists
+
+=head3 INPUT
+
+$service: Service name
+
+=head3 OUTPUT
+
+0/1: if the service exists
+
+=head3 DESCRIPTION
+
+This function checks if a service is installed by looking for
+its unit or init.d service
+
+=cut
+
+#=============================================================
+
 sub service_exists {
     my ($service) = @_;
-    -x "$::prefix/etc/rc.d/init.d/$service" or systemd_unit_exists($service);
+    -x "$::prefix/etc/rc.d/init.d/$service" or _systemd_unit_exists($service);
 }
+
+#=============================================================
+
+=head2 restart
+
+=head3 INPUT
+
+$service: Service to restart
+
+=head3 DESCRIPTION
+
+This function restarts a given service
+
+=cut
+
+#=============================================================
+
 
 sub restart ($) {
     my ($service) = @_;
@@ -365,12 +541,46 @@ sub restart ($) {
     _run_action($service, "restart");
 }
 
+#=============================================================
+
+=head2 restart_or_start
+
+=head3 INPUT
+
+$service: Service to restart or start
+
+=head3 DESCRIPTION
+
+This function starts a given service if it is not running,
+it restarts that otherwise
+
+=cut
+
+#=============================================================
+
 sub restart_or_start ($) {
     my ($service) = @_;
     # Exit silently if the service is not installed
     service_exists($service) or return 1;
     _run_action($service, is_service_running($service) ? "restart" : "start");
 }
+
+
+#=============================================================
+
+=head2 start
+
+=head3 INPUT
+
+$service: Service to start
+
+=head3 DESCRIPTION
+
+This function starts a given service
+
+=cut
+
+#=============================================================
 
 sub start ($) {
     my ($service) = @_;
@@ -379,6 +589,22 @@ sub start ($) {
     _run_action($service, "start");
 }
 
+#=============================================================
+
+=head2 start_not_running_service
+
+=head3 INPUT
+
+$service: Service to start
+
+=head3 DESCRIPTION
+
+This function starts a given service if not running
+
+=cut
+
+#=============================================================
+
 sub start_not_running_service ($) {
     my ($service) = @_;
     # Exit silently if the service is not installed
@@ -386,6 +612,21 @@ sub start_not_running_service ($) {
     is_service_running($service) || _run_action($service, "start");
 }
 
+#=============================================================
+
+=head2 stop
+
+=head3 INPUT
+
+$service: Service to stop
+
+=head3 DESCRIPTION
+
+This function stops a given service
+
+=cut
+
+#=============================================================
 sub stop ($) {
     my ($service) = @_;
     # Exit silently if the service is not installed
@@ -393,45 +634,161 @@ sub stop ($) {
     _run_action($service, "stop");
 }
 
+#=============================================================
+
+=head2 is_service_running
+
+=head3 INPUT
+
+$service: Service to check
+
+=head3 DESCRIPTION
+
+This function returns if the given service is running
+
+=cut
+
+#=============================================================
+
 sub is_service_running ($) {
     my ($service) = @_;
     # Exit silently if the service is not installed
     service_exists($service) or return 1;
-    if (running_systemd()) {
+    if (_running_systemd()) {
         run_program::rooted($::prefix, '/bin/systemctl', '--quiet', 'is-active', "$service.service");
     } else {
         run_program::rooted($::prefix, '/sbin/service', $service, 'status');
     }
 }
 
+#=============================================================
+
+=head2 starts_on_boot
+
+=head3 INPUT
+
+$service: Service name
+
+
+=head3 DESCRIPTION
+
+This function returns if the given service starts at boot
+
+=cut
+
+#=============================================================
 sub starts_on_boot {
     my ($service) = @_;
     my (undef, $on_services) = services();
     member($service, @$on_services);
 }
 
+#=============================================================
+
+=head2 start_service_on_boot
+
+=head3 INPUT
+
+$service: Service name
+
+
+=head3 DESCRIPTION
+
+This function set the given service active at boot
+
+=cut
+
+#=============================================================
 sub start_service_on_boot ($) {
     my ($service) = @_;
     set_service($service, 1);
 }
 
+#=============================================================
+
+=head2 do_not_start_service_on_boot
+
+=head3 INPUT
+
+$service: Service name
+
+
+=head3 DESCRIPTION
+
+This function set the given service disabled at boot
+
+=cut
+
+#=============================================================
 sub do_not_start_service_on_boot ($) {
     my ($service) = @_;
     set_service($service, 0);
 }
 
+#=============================================================
+
+=head2 enable
+
+=head3 INPUT
+
+$service:         Service name
+$o_dont_apply:    do not start it now
+
+=head3 DESCRIPTION
+
+This function set the given service active at boot
+and restarts it if o_dont_apply is not given
+
+=cut
+
+#=============================================================
 sub enable {
     my ($service, $o_dont_apply) = @_;
     start_service_on_boot($service);
     restart_or_start($service) unless $o_dont_apply;
 }
 
+#=============================================================
+
+=head2 disable
+
+=head3 INPUT
+
+$service:         Service name
+$o_dont_apply:    do not stop it now
+
+=head3 DESCRIPTION
+
+This function set the given service disabled at boot
+and stops it if o_dont_apply is not given
+
+=cut
+
+#=============================================================
 sub disable {
     my ($service, $o_dont_apply) = @_;
     do_not_start_service_on_boot($service);
     stop($service) unless $o_dont_apply;
 }
 
+#=============================================================
+
+=head2 set_status
+
+=head3 INPUT
+
+$service:         Service name
+$enable:          Enable/disable
+$o_dont_apply:    do not start it now
+
+=head3 DESCRIPTION
+
+This function set the given service to enable/disable at boot
+and restarts/stops it if o_dont_apply is not given
+
+=cut
+
+#=============================================================
 sub set_status {
     my ($service, $enable, $o_dont_apply) = @_;
     if ($enable) {

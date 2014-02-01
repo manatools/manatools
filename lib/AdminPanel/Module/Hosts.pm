@@ -65,10 +65,26 @@ has 'cfgHosts' => (
     init_arg => undef
 );
 
+#=============================================================
+
+=head2 start
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method extends Module::start and is invoked to
+    start  host manager
+
+=cut
+
+#=============================================================
 sub start {
     my $self = shift;
 
-    $self->manageHostsDialog();
+    $self->_manageHostsDialog();
 };
 
 
@@ -230,7 +246,7 @@ sub setupTable {
     }
 }
 
-sub manageHostsDialog {
+sub _manageHostsDialog {
     my $self = shift;
 
     ## TODO fix for adminpanel
