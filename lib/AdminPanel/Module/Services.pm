@@ -459,10 +459,11 @@ sub _servicePanel {
                 if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
                     $item = $serviceTbl->changedItem();
                     if ($item) {
-
+                        yui::YUI::app()->busyCursor();
                         set_service($item->label(), $item->checked());
                         # we can push/pop service, but this (slower) should return real situation
                         $self->_refreshRunningServices();
+                        yui::YUI::app()->normalCursor();
                     }
                 }
             }
