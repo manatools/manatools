@@ -21,7 +21,6 @@ package AdminPanel::Shared::Hosts;
 
 use Moose;
 use diagnostics;
-use local::lib;
 use Config::Hosts;
 use utf8;
 
