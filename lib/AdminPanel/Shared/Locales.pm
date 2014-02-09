@@ -1,30 +1,86 @@
 # vim: set et ts=4 sw=4:
-#*****************************************************************************
-# 
-#  Copyright (c) 2013-2014 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License version 2, as
-#  published by the Free Software Foundation.
-# 
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-# 
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
-#*****************************************************************************
-package AdminPanel::Shared::Locales; 
+package AdminPanel::Shared::Locales;
+#============================================================= -*-perl-*-
+
+=head1 NAME
+
+AdminPanel::Shared::Locales - Class to manage locales
+
+=head1 SYNOPSIS
+
+use AdminPanel::Shared::Locales;
+
+my $obj = AdminPanel::Shared::Locales->new(domain_name => 'this_domain');
+
+print $obj->N("test string %d", 1) . "\n";
+
+=head1 DESCRIPTION
+
+This class wraps Locale::gettext to manage localization
+
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command:
+
+perldoc AdminPanel::Shared::Locales
+
+=head1 SEE ALSO
+
+Locale::gettext Text::iconv and gettext
+
+=head1 AUTHOR
+
+Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2014, Angelo Naselli.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2, as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=head1 FUNCTIONS
+
+=cut
+
 
 use Moose;
 use diagnostics;
 use utf8;
 use Locale::gettext;
 use Text::Iconv;
-  
+
+
+#=============================================================
+
+=head2 new
+
+=head3 INPUT
+
+    hash ref containing 
+        domain_name: gettext domain name (default apanel)
+        dir_name:    gettext optional catalog directory (default undef)
+        codeset:     gettext codeset (default UTF8)
+
+=head3 DESCRIPTION
+
+    new is inherited from Moose, to create a Locales object
+
+=cut
+
+#=============================================================
+
 has 'domain_name' => (
     is      => 'rw',
     default => 'apanel', 
