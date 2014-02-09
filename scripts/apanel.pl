@@ -23,8 +23,6 @@ use strict;
 use warnings;
 use diagnostics;
 use AdminPanel::Privileges;
-use FindBin;
-use lib "$FindBin::RealBin";
 use AdminPanel::SettingsReader;
 use AdminPanel::MainDisplay;
 use yui;
@@ -35,9 +33,15 @@ usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
 
 my $settings = getSettings();
 
-ask_for_authentication($settings->{priv_method}) if(require_root_capability());
-
-    my $mainWin = new AdminPanel::MainDisplay();
+if($cmdline->find("--dev") > 0)
+{
+    print "== Development mode ON\n";
+}
+else
+{
+    ask_for_authentication($settings->{priv_method}) if(require_root_capability());
+}
+my $mainWin = new AdminPanel::MainDisplay();
 while (1) {
     my $launch = $mainWin->start();   
 
