@@ -27,7 +27,7 @@ perldoc AdminPanel::Shared::Locales
 
 =head1 SEE ALSO
 
-Locale::gettext Text::iconv and gettext
+Locale::gettext Text::Iconv and gettext
 
 =head1 AUTHOR
 
