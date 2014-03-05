@@ -1,15 +1,15 @@
-AdminPanel
+﻿AdminPanel
 
-The README is used to introduce the module and provide instructions on
-how to install the module, any machine dependencies it may have (for
-example C compilers and installed libraries) and any other information
-that should be provided before the module is installed.
+AdminPanel is a collection of configuration tools that allows
+users to configure most of their system components in a very simple, 
+intuitive and attractive interface. It consists of several modules 
+that can be also run as autonomous applications.
 
-A README file is required for CPAN modules since CPAN extracts the README
-file from a module distribution so that people browsing the archive
-can use it to get an idea of the module's uses. It is usually a good idea
-to provide version information here so that people can decide whether
-fixes for the module are worth downloading.
+It is started as a porting of MCC (Mageia/Mandriva Control Center)
+to libYui (Suse widget abstraction library), but its aim is to give 
+an easy and common interface to developer to add new modules based
+on libYui. Every modules as well as AdminPanel itself can be run
+using QT, Gtk or ncurses interface.
 
 
 INSTALLATION
