@@ -479,7 +479,6 @@ $DB::single = 1;
     my $log = AdminPanel::Shared::JournalCtl->new(%{$log_opts});
     my $all = $log->getLog();
     
-print "    _search \n";
     return $all;
 }
 
