@@ -269,6 +269,8 @@ sub _adminMouseDialog {
  #  mouse::write_conf($in->do_pkgs, $modules_conf, $mouse, 1);
     system('systemctl', 'try-restart', 'gpm.service') if -e '/usr/lib/systemd/system/gpm.service';
    
+    AdminPanel::Shared::infoMsgBox(N("Not implemented yet: configuration is not changed"));
+    
     $dialog->destroy();
     
     #restore old application title
