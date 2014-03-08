@@ -2533,7 +2533,7 @@ This method returns if an item is into the array container
 sub _inArray {
     my ($self, $item, $arr) = @_;
     
-    return grep( /^$item$/, @$arr ); 
+    return grep( /^$item$/, @$arr );
 }
 
 
