@@ -1,5 +1,3 @@
-#!/usr/bin/perl
-
 # vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
