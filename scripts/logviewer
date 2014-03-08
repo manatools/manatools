@@ -1,0 +1,11 @@
+#!/usr/bin/perl
+
+use strict;
+
+use AdminPanel::Module::LogViewer;
+
+my $logviewer = AdminPanel::Module::LogViewer->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
+                                                    });
+$logviewer->start();
+
+1;
