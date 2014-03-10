@@ -181,7 +181,6 @@ sub _logViewerPanel {
     
     # Start Dialog layout:
     my $vbox    = $factory->createVBox( $dialog );
-    $vbox->setWeight($yui::YD_HORIZ, 7);
     my $align = $factory->createAlignment($vbox, $yui::YAlignCenter, $yui::YAlignUnchanged);
     $factory->createLabel( $align, $self->loc->N("A tool to monitor your logs"), 1, 0 );
     
@@ -195,30 +194,51 @@ sub _logViewerPanel {
     $matchingInputField->setWeight($yui::YD_HORIZ, 1);
     $notMatchingInputField->setWeight($yui::YD_HORIZ, 1);
     
-    $hbox = $factory->createHBox($vbox);
-    my $frame = $factory->createFrame($hbox, $self->loc->N("Options"));
-    $frame->setStretchable($yui::YD_HORIZ, 1);
-
-    #### search
-    my $searchButton = $factory->createPushButton($hbox, $self->loc->N("search"));
-    #$searchButton->setStretchable($yui::YD_HORIZ, 0);
-    
-    $frame->setWeight($yui::YD_HORIZ, 2);
-    #$searchButton->setWeight($yui::YD_HORIZ, 1);
-    
-    
+    my $frame = $factory->createFrame($vbox, $self->loc->N("Options"));
     $hbox = $factory->createHBox($frame);
-#     $align = $factory->createLeft($hbox);
     
-    $frame = $factory->createFrame($hbox, "");
-    $frame->setWeight($yui::YD_HORIZ, 1);
+    #### lastBoot
+    $align = $factory->createAlignment($hbox, $yui::YAlignBegin, $yui::YAlignBegin);
+    my $vbox1 = $factory->createVBox( $align );
+    $align = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
+    my $lastBoot = $factory->createCheckBoxFrame($align, $self->loc->N("Last boot"), 1);
+    $align = $factory->createLeft($lastBoot);
+    my $lbl = $factory->createLabel( $align, "  " );
+    $lastBoot->setNotify(1);
+    
+    #### since and until 
+    $align    = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
+    my $hbox1 = $factory->createHBox( $align );
+    $align    = $factory->createAlignment($hbox1, $yui::YAlignBegin, $yui::YAlignBegin);
+    my $sinceDate;
+    my $sinceFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Since"), 1);
+    $sinceFrame->setNotify(1);
+    my $untilDate;
+    $align = $factory->createAlignment($hbox1, $yui::YAlignBegin, $yui::YAlignBegin);
+    my $untilFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Until"), 1);
+    $untilFrame->setNotify(1);
+    if ($optFactory->hasDateField()) {
+        $align = $factory->createLeft($sinceFrame);
+        $sinceDate = $optFactory->createDateField($align, "");
+        my $day = strftime "%F", localtime;
+        $sinceDate->setValue($day);
+        $align = $factory->createLeft($untilFrame);
+        $untilDate = $optFactory->createDateField($align, "");
+        $untilDate->setValue($day);
+    }
+    else {
+        $sinceFrame->enable(0);
+        $untilFrame->enable(0);
+    }
 
-    my $vbox1 = $factory->createVBox( $frame );
     
     #### units
-    my $unitsFrame = $factory->createCheckBoxFrame($vbox1, $self->loc->N("Select a unit"), 1);
+    $vbox1 = $factory->createVBox( $hbox );
+    $align = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
+    my $unitsFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Select a unit"), 1);
     $unitsFrame->setNotify(1);
-    my $units = $factory->createComboBox  ( $unitsFrame, "" );
+    $align = $factory->createLeft($unitsFrame);
+    my $units = $factory->createComboBox  ( $align, "" );
     my $itemCollection = new yui::YItemCollection;
 
     yui::YUI::app()->busyCursor();
@@ -233,40 +253,12 @@ sub _logViewerPanel {
     $units->addItems($itemCollection);
     yui::YUI::app()->normalCursor();
     
-    $factory->createVSpacing($vbox1, 1);
-    #### lastBoot
-    my $lastBoot = $factory->createCheckBox( $vbox1, $self->loc->N("Last boot") , 1 );
-    $lastBoot->setNotify(1);
 
-    $frame = $factory->createFrame($hbox, $self->loc->N("Calendar"));
-    $frame->setWeight($yui::YD_HORIZ, 1);
-    $vbox1    = $factory->createVBox( $frame );
-    #### since and until 
-    my $sinceDate;
-    my $sinceFrame = $factory->createCheckBoxFrame($vbox1, $self->loc->N("Since"), 1);
-    $sinceFrame->setNotify(1);
-    my $untilDate;
-    $factory->createVSpacing($vbox1, 1);
-    my $untilFrame = $factory->createCheckBoxFrame($vbox1, $self->loc->N("Until"), 1);
-    $untilFrame->setNotify(1);
-    if ($optFactory->hasDateField()) {
-        $sinceDate = $optFactory->createDateField($sinceFrame, "");
-        my $day = strftime "%F", localtime;
-        $sinceDate->setValue($day);
-        $untilDate = $optFactory->createDateField($untilFrame, "");
-        $untilDate->setValue($day);
-    }
-    else {
-        $sinceFrame->enable(0);
-        $untilFrame->enable(0);
-    }
-
-    $frame = $factory->createFrame($hbox, $self->loc->N("Priority"));
-    $frame->setWeight($yui::YD_HORIZ, 1);
-    $vbox1    = $factory->createVBox( $frame );
     #### priority
+    $align = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
+    $hbox1 = $factory->createHBox( $align );
     # From
-    my $priorityFromFrame = $factory->createCheckBoxFrame($vbox1, $self->loc->N("From"), 1);
+    my $priorityFromFrame = $factory->createCheckBoxFrame($hbox1, $self->loc->N("From priority"), 1);
     $priorityFromFrame->setNotify(1);
     my $priorityFrom = $factory->createComboBox  ( $priorityFromFrame, "" );
     $itemCollection->clear();
@@ -283,9 +275,8 @@ sub _logViewerPanel {
     }
     $priorityFrom->addItems($itemCollection);
 
-    $factory->createVSpacing($vbox1, 1);
     # To
-    my $priorityToFrame = $factory->createCheckBoxFrame($vbox1, $self->loc->N("To"), 1);
+    my $priorityToFrame = $factory->createCheckBoxFrame($hbox1, $self->loc->N("To priority"), 1);
     $priorityToFrame->setNotify(1);
     my $priorityTo = $factory->createComboBox  ( $priorityToFrame, "" );
     $itemCollection->clear();
@@ -299,7 +290,11 @@ sub _logViewerPanel {
         $item->DISOWN();
     }
     $priorityTo->addItems($itemCollection);
-    
+  
+    #### search
+    $align = $factory->createRight($vbox);
+    my $searchButton = $factory->createPushButton($align, $self->loc->N("search"));
+  
     #### create log view object
     my $logView = $factory->createLogView($vbox, $self->loc->N("Log content"), 10, 0);
 
@@ -365,7 +360,7 @@ sub _logViewerPanel {
                 $dialog->startMultipleChanges();
                 $logView->clearText();
                 my %log_opts;
-                if ($lastBoot->isChecked()) {
+                if ($lastBoot->value()) {
                     $log_opts{this_boot} = 1;
                 }
                 if ($unitsFrame->value()) {
@@ -399,7 +394,7 @@ print " log lines: ". scalar (@{$log}) ."\n";
             }
             elsif ($widget == $lastBoot) {
                 yui::YUI::ui()->blockEvents();
-                if ($lastBoot->isChecked()) {
+                if ($lastBoot->value()) {
                     #last boot overrrides until and since
                     $sinceFrame->setValue(0);
                     $untilFrame->setValue(0);
@@ -421,6 +416,20 @@ print " log lines: ". scalar (@{$log}) ."\n";
                     $lastBoot->setValue(0);
                 }
                 yui::YUI::ui()->unblockEvents();
+            }
+            elsif ($widget == $priorityFromFrame) {
+                if ($priorityToFrame->value() && !$priorityFromFrame->value()) {
+                     yui::YUI::ui()->blockEvents();
+                     $priorityToFrame->setValue(0) ;
+                     yui::YUI::ui()->unblockEvents();
+                }
+            }
+            elsif ($widget == $priorityToFrame) {
+                if ($priorityToFrame->value() && !$priorityFromFrame->value()) {
+                     yui::YUI::ui()->blockEvents();
+                     $priorityFromFrame->setValue(1) ;
+                     yui::YUI::ui()->unblockEvents();
+                }
             }
         
         }
