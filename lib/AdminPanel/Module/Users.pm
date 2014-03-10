@@ -133,14 +133,30 @@ has 'edit_tab_widgets' => (
     init_arg  => undef,
 );
 
+#=============================================================
+
+=head2 start
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method extends Module::start and is invoked to
+    start  adminService
+
+=cut
+
+#=============================================================
 sub start {
     my $self = shift;
 
-    $self->manageUsersDialog();
+    $self->_manageUsersDialog();
 };
 
 # TODO move to Shared?
-sub labeledFrameBox {
+sub _labeledFrameBox {
     my ($parent, $label) = @_;
 
     my $factory  = yui::YUI::widgetFactory;
@@ -204,7 +220,7 @@ sub ChooseGroup {
     my $layout   = $factory->createVBox($dlg);
 
 
-    my $frame    = labeledFrameBox($layout,  N("A group with this name already exists.  What would you like to do?"));
+    my $frame    = _labeledFrameBox($layout,  N("A group with this name already exists.  What would you like to do?"));
 
     my $rbg      = $factory->createRadioButtonGroup( $frame );
     $frame       = $factory->createVBox( $rbg );
@@ -1226,7 +1242,7 @@ sub _getUserInfo {
     $userData{acc_check_exp} = 0;
     my $expire               = $userEnt->ShadowExpire($self->USER_GetValue);
     if ($expire && $expire != -1) {
-        my $times                = TimeOfArray($expire, 1); 
+        my $times                = _TimeOfArray($expire, 1); 
         $userData{acc_expy}      = $times->{year};
         $userData{acc_expm}      = $times->{month};
         $userData{acc_expd}      = $times->{dayint};
@@ -1581,7 +1597,7 @@ sub _userPasswordInfoTabWidget {
     my $dayInt  = $factory->createLabel($hbox, "");
     my $year    = $factory->createLabel($hbox, "");
     if ($lastchg) {
-        my $times = TimeOfArray($lastchg, 0); 
+        my $times = _TimeOfArray($lastchg, 0); 
         $dayStr->setValue($times->{daystr});
         $month->setValue($times->{month});
         $dayInt->setValue($times->{dayint});
@@ -1645,7 +1661,7 @@ sub _groupUsersTabWidget {
 
     my %groupUsersWidget;
 
-    my $layout   = labeledFrameBox($replace_pnt, N("Select the users to join this group:"));
+    my $layout   = _labeledFrameBox($replace_pnt, N("Select the users to join this group:"));
 
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn("", $yui::YAlignBegin);
@@ -1691,7 +1707,7 @@ sub _userGroupsTabWidget {
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
     my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
 
-    my $layout   = labeledFrameBox($replace_pnt, N("Select groups that the user will be member of:"));
+    my $layout   = _labeledFrameBox($replace_pnt, N("Select groups that the user will be member of:"));
 
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn("", $yui::YAlignBegin);
@@ -1857,11 +1873,11 @@ sub _userEdit_Ok {
         my $yr = $userData{acc_expy}; 
         my $mo = $userData{acc_expm};
         my $dy = $userData{acc_expd};
-        if (!ValidInt($yr, $dy, $mo)) {
+        if (!_ValidInt($yr, $dy, $mo)) {
             AdminPanel::Shared::msgBox(N("Please specify Year, Month and Day \n for Account Expiration "));
             return 0;
         }
-        my $Exp = ConvTime($dy, $mo, $yr);
+        my $Exp = _ConvTime($dy, $mo, $yr);
         $userEnt->ShadowExpire($Exp);
     }
     else { 
@@ -2286,7 +2302,7 @@ sub _refreshActions {
 }
 
 
-sub manageUsersDialog {
+sub _manageUsersDialog {
     my $self = shift;
 
     ## TODO fix for adminpanel
@@ -2537,12 +2553,12 @@ sub _inArray {
 }
 
 
-sub ValidInt {
+sub _ValidInt {
     foreach my $i (@_) { $i =~ /\d+/ or return 0 }
     return 1;
 }
 
-sub ConvTime {
+sub _ConvTime {
     my ($day, $month, $year) = @_;
     my ($tm, $days, $mon, $yr);
     $mon = $month - 1; $yr = $year - 1900;
@@ -2551,7 +2567,7 @@ sub ConvTime {
     return $days;
 }
 
-sub TimeOfArray {
+sub _TimeOfArray {
     my ($reltime, $cm) = @_;
     my $h; my %mth = (Jan => 1, Feb => 2, Mar => 3, Apr => 4, May => 5, Jun => 6, Jul => 7, Aug => 8, Sep => 9, Oct => 10, Nov => 11, Dec => 12);
     my $_t = localtime($reltime * 24 * 60 * 60) =~ /(\S+)\s+(\S+)\s+(\d+)\s+(\S+)\s+(\d+)/;
