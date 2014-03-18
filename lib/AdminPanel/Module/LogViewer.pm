@@ -1,4 +1,4 @@
-# vim: set et ts=4 sw=4:
+﻿# vim: set et ts=4 sw=4:
 package AdminPanel::Module::LogViewer;
 #============================================================= -*-perl-*-
 
@@ -198,24 +198,21 @@ sub _logViewerPanel {
     $hbox = $factory->createHBox($frame);
     
     #### lastBoot
-    $align = $factory->createAlignment($hbox, $yui::YAlignBegin, $yui::YAlignBegin);
-    my $vbox1 = $factory->createVBox( $align );
-    $align = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
-    my $lastBoot = $factory->createCheckBoxFrame($align, $self->loc->N("Last boot"), 1);
-    $align = $factory->createLeft($lastBoot);
-    my $lbl = $factory->createLabel( $align, "  " );
+    my $col1 = $factory->createVBox( $hbox );
+    my $col2 = $factory->createVBox( $hbox );
+   
+    
+    $align = $factory->createLeft($col1);
+    my $lastBoot = $factory->createCheckBox($align, $self->loc->N("Last boot"), 1);
     $lastBoot->setNotify(1);
     
     #### since and until 
-    $align    = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
-    my $hbox1 = $factory->createHBox( $align );
-    $align    = $factory->createAlignment($hbox1, $yui::YAlignBegin, $yui::YAlignBegin);
     my $sinceDate;
-    my $sinceFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Since"), 1);
+    my $sinceFrame = $factory->createCheckBoxFrame($col1, $self->loc->N("Since"), 1);
     $sinceFrame->setNotify(1);
+    
     my $untilDate;
-    $align = $factory->createAlignment($hbox1, $yui::YAlignBegin, $yui::YAlignBegin);
-    my $untilFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Until"), 1);
+    my $untilFrame = $factory->createCheckBoxFrame($col1, $self->loc->N("Until"), 1);
     $untilFrame->setNotify(1);
     if ($optFactory->hasDateField()) {
         $align = $factory->createLeft($sinceFrame);
@@ -230,12 +227,10 @@ sub _logViewerPanel {
         $sinceFrame->enable(0);
         $untilFrame->enable(0);
     }
-
-    
+       
     #### units
-    $vbox1 = $factory->createVBox( $hbox );
-    $align = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
-    my $unitsFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Select a unit"), 1);
+    $factory->createVSpacing( $col2, 0.5 );
+    my $unitsFrame = $factory->createCheckBoxFrame($col2, $self->loc->N("Select a unit"), 1);
     $unitsFrame->setNotify(1);
     $align = $factory->createLeft($unitsFrame);
     my $units = $factory->createComboBox  ( $align, "" );
@@ -253,12 +248,12 @@ sub _logViewerPanel {
     $units->addItems($itemCollection);
     yui::YUI::app()->normalCursor();
     
-
     #### priority
-    $align = $factory->createAlignment($vbox1, $yui::YAlignBegin, $yui::YAlignBegin);
-    $hbox1 = $factory->createHBox( $align );
+    $align = $factory->createLeft($col2);
+    $hbox = $factory->createHBox($align);
+    
     # From
-    my $priorityFromFrame = $factory->createCheckBoxFrame($hbox1, $self->loc->N("From priority"), 1);
+    my $priorityFromFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("From priority"), 1);
     $priorityFromFrame->setNotify(1);
     my $priorityFrom = $factory->createComboBox  ( $priorityFromFrame, "" );
     $itemCollection->clear();
@@ -275,8 +270,9 @@ sub _logViewerPanel {
     }
     $priorityFrom->addItems($itemCollection);
 
+    $factory->createHSpacing( $hbox, 2.0 );
     # To
-    my $priorityToFrame = $factory->createCheckBoxFrame($hbox1, $self->loc->N("To priority"), 1);
+    my $priorityToFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("To priority"), 1);
     $priorityToFrame->setNotify(1);
     my $priorityTo = $factory->createComboBox  ( $priorityToFrame, "" );
     $itemCollection->clear();
@@ -292,7 +288,7 @@ sub _logViewerPanel {
     $priorityTo->addItems($itemCollection);
   
     #### search
-    $align = $factory->createRight($vbox);
+    $align = $factory->createRight($hbox);
     my $searchButton = $factory->createPushButton($align, $self->loc->N("search"));
   
     #### create log view object
@@ -316,7 +312,7 @@ sub _logViewerPanel {
     my $quitButton = $factory->createPushButton($hbox, $self->loc->N("Quit"));
 
     # End Dialof layout 
-    
+   
     while(1) {
         my $event       = $dialog->waitForEvent();
         my $eventType   = $event->eventType();
@@ -451,7 +447,7 @@ sub _warn_about_user_mode {
                               "but you may still browse all the others.");
     
     # $EUID:  effective user identifier
-    if(($> != 0) and (!ask_YesOrNo($title, $msg))) {
+    if(($> != 0) and (!ask_OkCancel($title, $msg))) {
         # TODO add Privileges? 
         return 0;
     }
