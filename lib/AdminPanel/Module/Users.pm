@@ -1,4 +1,4 @@
-# vim: set et ts=4 sw=4:
+﻿# vim: set et ts=4 sw=4:
 #*****************************************************************************
 # 
 #  Copyright (c) 2013 Angelo Naselli <anaselli@linux.it>
@@ -941,6 +941,7 @@ sub _createUserTable {
     $yTableHeader->addColumn(N("Full Name"),      $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Login Shell"),    $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Home Directory"), $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Status"),         $yui::YAlignBegin);
     $yTableHeader->DISOWN();
     
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
