@@ -1,0 +1,113 @@
+AdminPanel Modules
+
+AdminPanel is basically an application launcher, so everything
+executable file can be run really. To get benefit of UI abstarction
+though, the "modules" should be written with the use of libYUI, yast
+user interface abstraction, so that they can be run using a  Gtk, ncurses
+or Qt environment in a transparent manner.
+Modules based on libYUi can be written in C++, using the native language, 
+python, ruby and perl, using libYUI bindings.
+
+AdminPanel is written in perl, so it also add a native approach,
+for perl modules.
+
+How to write a perl AdminPanel module 
+======================================
+
+AdminPanel module are written using Moose wit an OO apporach.
+Modules are extension of the AdminPanel::Module class.
+
+- Code alignemnt
+As a simple code convention, we add the followin line at the
+beginning of the file
+
+# vim: set et ts=4 sw=4: 
+
+So that using vim we force to get tabs to be 4 characters
+and considered as blanks, so please if you use another editor
+and you want to include your code under adminpanel tree_callback
+keep this convention.
+
+- POD
+Then add POD to your file, we are trying to pass "make test"
+and POD is one of the important tests. 
+It's not only a matter of test of course, having the manual
+and a good documentation of the modules is mandatory.
+Remember also that the code could/should be read and understood by 
+other people, so try to keep POD aligned.
+
+- Internal declaration
+Internal functions or methods are "_" predfixed, e.g.
+sub _foo {
+}
+
+- Module template
+Try to keep distinct the GUI layout and the module back-end. Since
+the module is a configuration tool for the most, one thing is the
+graphic user interface and another is a lower level interface. Such
+an approach allows to use shared things also into other projects
+that don't want to use YUI bindings for instance.
+
+Said that you have to:   
+1. Define the package name usually like:
+   package AdminPanel::Module::MyModule;
+
+2. Use Moose and yui, the first to extend Module the latter for libYUI
+   bindings.
+
+3. Extend AdminPanel::Module defining a "start" method that has to be invokated
+   by AdminPanel.
+   Other important things are icon and name attributes, please look at other modules
+   code and to Moose documentation how to do it.
+   
+4. Add the module to configuration file so that apanel can load it (see below).
+
+Some share code is into AdminPanel::Shared modules, such as Locales to manage localization
+or Module back-ends for instance.
+
+- AdminPanel configuration (how to run a module)
+
+apanel can be run using a "name" parameter and eventually by forcing a configuration
+directory path where to find configuration files.
+Default name is apanel, and the name by convention is the place in witch to find
+configuration files under /etc.
+So apanel will look for: 
+/etc/apanel/settings.conf
+/etc/apanel/categories.conf
+categories can also be searched under:
+/etc/apanel/categories.conf.d/MyModule.conf
+
+How to run modules is defined into categories.conf or alternatively
+MyModule.conf under the related categories.conf.d.
+Last method allows to write a Module that is not under the AdminPanel 
+development tree, and easily install, load and run it using apanel.
+
+Categories are icon buttons that can contain more modules, so to have
+a old mcc view:
+_______________
+|C |          |
+|A |          |
+|T | Modules  |
+|E |          |
+|G.|          |
+---------------
+Layout can change in future though.
+
+Let's see an example
+<category>
+    <title>Hardware</title>
+    <icon>/usr/share/icons/configuration_section.png</icon>
+    <module>
+        <class>AdminPanel::Module::AdminMouse</class>
+    </module>
+    <module>
+        <title>Module name</title>
+        <launcher>PATH/to/lunch/module</launcher>
+        <icon>absolute/paht/to/module/icon</icon>
+    </module>
+</category>
+
+First module is a perl AdminPanel::Module extension (AdminMouse),
+latter is an external one, as you can see could be a script
+as well as an executable command.
+Look at settings.conf and categories.conf for details.
