@@ -21,6 +21,7 @@ WriteMakefile(
         #'ABC'              => 1.6,
         #'Foo::Bar::Module' => 5.0401,
         "Moose"             => 0,
+        "Config::Auto"      => 0,        
         "Config::Hosts"     => 0,        
         # AdminPanel::Shared::Locales
         "Locale::gettext"   => 0,
