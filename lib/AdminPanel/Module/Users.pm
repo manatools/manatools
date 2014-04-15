@@ -1,25 +1,64 @@
 ﻿# vim: set et ts=4 sw=4:
-#*****************************************************************************
-# 
-#  Copyright (c) 2013 Angelo Naselli <anaselli@linux.it>
-#  from adduserdrake and userdrake
-# 
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License version 2, as
-#  published by the Free Software Foundation.
-# 
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-# 
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
-#*****************************************************************************
 
 package AdminPanel::Module::Users;
+
+#============================================================= -*-perl-*-
+
+=head1 NAME
+
+AdminPanel::Module::Users - This module aims to manage service 
+                               with GUI
+
+=head1 SYNOPSIS
+
+    my $userManager = AdminPanel::Module::Users->new();
+    $userManager->start();
+
+=head1 DESCRIPTION
+
+    This module is a tool to manage users on the system.
+    
+    From the original code adduserdrake and userdrake.
+
+=head1 SUPPORT
+
+    You can find documentation for this module with the perldoc command:
+
+    perldoc AdminPanel::Module::Users
+
+=head1 SEE ALSO
+   
+   AdminPanel::Module
+
+=head1 AUTHOR
+
+Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+Copyright (C) 2013, Angelo Naselli.
+
+This program is free software; you can redistribute it and/or modify
+it under the terms of the GNU General Public License version 2, as
+published by the Free Software Foundation.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program; if not, write to the Free Software
+Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=head1 VERSION
+
+Version 1.0.0
+
+=cut
+
+our $VERSION = '1.0.0';
+
 
 ###############################################
 ##
@@ -42,7 +81,9 @@ BEGIN { unshift @::textdomains, 'userdrake', 'libuser', 'drakconf' }
 use common qw(N
               translate);
 use security::level;
-use run_program;
+# use run_program;
+
+use Config::Auto;
 ## USER is from userdrake
 use USER;
 use utf8;
@@ -64,13 +105,6 @@ has '+name' => (
 );
 
 
-=head1 VERSION
-
-Version 1.0.0
-
-=cut
-
-our $VERSION = '1.0.0';
 
 # main dialog
 has 'dialog'     => (
@@ -132,6 +166,28 @@ has 'edit_tab_widgets' => (
     },
     init_arg  => undef,
 );
+
+#=============================================================
+
+=head1 METHODS
+
+=cut
+
+=head2 new - additional parameters
+
+=head3 config_file
+
+    optional parameter to set the configuration file name
+
+=cut
+
+has 'config_file' => ( 
+    is      => 'rw',
+    isa     => 'Str',
+    default => '/etc/sysconfig/adminuser',
+);
+
+
 
 #=============================================================
 
@@ -2371,7 +2427,14 @@ sub _manageUsersDialog {
 
     $hbox                   = $factory->createHBox($layout);
     $head_align_left        = $factory->createLeft($hbox);
-    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, N("Filter system users"), 1));
+    
+    my $sysfilter = 1;
+    if (-e $self->config_file) {
+        my $prefs  = Config::Auto::parse($self->config_file);
+        $sysfilter = ($prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq '1');
+    }
+    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, N("Filter system users"), 
+                                                                $sysfilter));
                               $factory->createHSpacing($hbox, 3);
     $head_align_right       = $factory->createRight($hbox);
     $headRight              = $factory->createHBox($head_align_right);
