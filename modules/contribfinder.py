@@ -89,18 +89,18 @@ class mainGui():
                 self.dialog.destroy()
                 break
             if event.widget() == self.btnLookAtIt:
-		if(cmp(self.contributor.strip(),"")!=0):
-		  url = 'http://people.mageia.org/u/%s.html' % self.contributor
-		  os.system("www-browser %s" % url)
+                if(cmp(self.contributor.strip(),"")!=0):
+                  url = 'http://people.mageia.org/u/%s.html' % self.contributor
+                  os.system("www-browser %s" % url)
             if event.widget() == self.btnsearch:
                 #self.dialog.startMultipleChanges()
                 #self.rtinformations.setValue("Loading...")
                 #self.dialog.doneMultipleChanges()
                 self.contributor = self.stripErrMessages(self.invokeMgaRepo(self.txtpkgname.value()))
-		if(cmp(self.contributor.strip(),"")!=0):
-		  outstr = 'Maintainer:&nbsp;<a href="http://people.mageia.org/u/%s.html">%s</a><br />e-mail:&nbsp;<a href="mailto:%s@mageia.org">%s@mageia.org</a>' % (self.contributor,self.contributor,self.contributor,self.contributor)
-		else:
-		  outstr = ''
+                if(cmp(self.contributor.strip(),"")!=0):
+                  outstr = 'Maintainer:&nbsp;<a href="http://people.mageia.org/u/%s.html">%s</a><br />e-mail:&nbsp;<a href="mailto:%s@mageia.org">%s@mageia.org</a>' % (self.contributor,self.contributor,self.contributor,self.contributor)
+                else:
+                  outstr = ''
                 self.rtinformations.setValue(outstr)
 
 if __name__ == "__main__":

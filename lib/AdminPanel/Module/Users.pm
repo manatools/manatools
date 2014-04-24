@@ -84,6 +84,8 @@ use security::level;
 # use run_program;
 
 use Config::Auto;
+use File::ShareDir ':ALL';
+
 ## USER is from userdrake
 use USER;
 use utf8;
@@ -290,7 +292,7 @@ sub ChooseGroup {
     $rb2->setNotify(1);
     $rbg->addRadioButton( $rb2 );
 
-    my $hbox            = $factory->createHBox($layout);
+    my $hbox         = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
     my $cancelButton = $factory->createPushButton($align, N("Cancel"));
     my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
@@ -666,6 +668,8 @@ sub _addGroupDialog {
                such as:
                full_name, login_name, password, password1,
                login_shell
+               full_name, login_name, password, password1,
+               weakness (icon), login_shell
 
 =head3 DESCRIPTION
 
@@ -686,6 +690,7 @@ sub _buildUserData {
     my $align        = $factory->createRight($layout);
     my $hbox         = $factory->createHBox($align);
     my $label        = $factory->createLabel($hbox, N("Full Name:") );
+    $factory->createHSpacing($hbox, 2.0);
     my $fullName     = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $fullName->setWeight($yui::YD_HORIZ, 2);
@@ -694,6 +699,7 @@ sub _buildUserData {
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
     $label           = $factory->createLabel($hbox, N("Login:") );
+    $factory->createHSpacing($hbox, 2.0);
     my $loginName    = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $loginName->setWeight($yui::YD_HORIZ, 2);
@@ -703,14 +709,29 @@ sub _buildUserData {
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
     $label           = $factory->createLabel($hbox, N("Password:") );
+    my $weakness = undef;
+    if (yui::YUI::app()->hasImageSupport()) {
+        $factory->createHSpacing($hbox, 2.0);
+        my $file = dist_file('AdminPanel', 'images/Blank16x16.png');
+        $weakness = $factory->createImage($hbox, $file);
+    }
+    else {
+        $factory->createHSpacing($hbox, 1.0);
+        $weakness = $factory->createLabel($hbox, "        ");
+        $factory->createHSpacing($hbox, 1.0);
+    }
     my $password     = $factory->createInputField($hbox, "", 1);
+    $weakness->setWeight($yui::YD_HORIZ, 1);
     $label->setWeight($yui::YD_HORIZ, 1);
-    $password->setWeight($yui::YD_HORIZ, 2);
-    
+    $password->setWeight($yui::YD_HORIZ, 4);
+    # notify input to check weakness
+    $password->setNotify(1);
+        
     ## user 'confirm Password'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
     $label           = $factory->createLabel($hbox, N("Confirm Password:") );
+    $factory->createHSpacing($hbox, 2.0);
     my $password1    = $factory->createInputField($hbox, "", 1);
     $label->setWeight($yui::YD_HORIZ, 1);
     $password1->setWeight($yui::YD_HORIZ, 2);
@@ -719,6 +740,7 @@ sub _buildUserData {
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
     $label           = $factory->createLabel($hbox, N("Login Shell:") );
+    $factory->createHSpacing($hbox, 2.0);
     my $loginShell   = $factory->createComboBox($hbox, "", 0);
     my $itemColl = new yui::YItemCollection;
     foreach my $shell (@shells) {
@@ -736,6 +758,7 @@ sub _buildUserData {
         login_name  => $loginName,
         password    => $password,
         password1   => $password1,
+        weakness    => $weakness,
         login_shell => $loginShell,
     );
     
@@ -794,6 +817,7 @@ sub addUserDialog {
     $align           = $factory->createLeft($layout);
     $hbox            = $factory->createHBox($align);
     my $label        = $factory->createLabel($hbox, N("Home Directory:") );
+    $factory->createHSpacing($hbox, 2.0);
     my $homeDir      = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $homeDir->setWeight($yui::YD_HORIZ, 2);
@@ -807,10 +831,11 @@ sub addUserDialog {
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
     my $uidManually  = $factory->createCheckBox($hbox, N("Specify user ID manually"), 0);
+    $factory->createHSpacing($hbox, 2.0);
     my $UID = $factory->createIntField($hbox, N("UID"), 1, 65000, 500);
     $UID->setEnabled($uidManually->value());
     $uidManually->setNotify(1);
-    $uidManually->setWeight($yui::YD_HORIZ, 2);
+#     $uidManually->setWeight($yui::YD_HORIZ, 2);
     $UID->setWeight($yui::YD_HORIZ, 1);
 
     ## user 'icon'
@@ -854,6 +879,10 @@ sub addUserDialog {
             elsif ($widget == $userData{ login_name }) {
                 my $username = $userData{ login_name }->value();
                 $homeDir->setValue("/home/$username");
+            }
+            elsif ($widget == $userData{password}) {
+                my $pass = $userData{ password }->value();
+                $self->_checkWeaknessPassword($pass, $userData{ weakness });
             }
             elsif ($widget == $okButton) {
                 ## check data
@@ -1483,7 +1512,7 @@ sub _storeDataFromUserEditPreviousTab {
 
     %userDataWidget: hash containing new YUI widget objects
                      such as:
-                     retunred onject from _buildUserData and
+                     returned onject from _buildUserData and
                      homedir. 
 
 =head3 DESCRIPTION
@@ -1510,6 +1539,7 @@ sub _userDataTabWidget {
     my $align                = $factory->createRight($layout);
     my $hbox                 = $factory->createHBox($align);
     my $label                = $factory->createLabel($hbox, N("Home:") );
+    $factory->createHSpacing($hbox, 2.0);
     $userDataWidget{homedir} = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $userDataWidget{homedir}->setWeight($yui::YD_HORIZ, 2);
@@ -1520,7 +1550,9 @@ sub _userDataTabWidget {
     #                login_shell
     $userDataWidget{full_name}->setValue($userData{full_name});
     $userDataWidget{login_name}->setValue($userData{username});
-    $userDataWidget{password}->setValue($userData{password})  if $userData{password}; 
+    yui::YUI::ui()->blockEvents();
+    $userDataWidget{password}->setValue($userData{password})  if $userData{password};
+    yui::YUI::ui()->unblockEvents();
     $userDataWidget{password1}->setValue($userData{password1}) if $userData{password1};
     $userDataWidget{homedir}->setValue($userData{homedir});
 
@@ -1980,6 +2012,23 @@ sub _userEdit_Ok {
 }
 
 
+# check the password and set the widget accordingly
+sub _checkWeaknessPassword {
+    my ($self, $password, $weakness_widget) = @_;
+
+    my $strongp = AdminPanel::Shared::Users::strongPassword($password);
+    if (yui::YUI::app()->hasImageSupport()) {
+        my $file = dist_file('AdminPanel', 'images/Warning_Shield_Grey16x16.png');
+        if ($strongp) {
+            $file =  dist_file('AdminPanel', 'images/Checked_Shield_Green16x16.png');
+        }
+        $weakness_widget->setImage($file);
+    }
+    else {
+        # For ncurses set a label
+        $weakness_widget->setValue(($strongp ? N("Strong") : N("Weak")));
+    }
+}
 
 sub _editUserDialog {
     my $self = shift;
@@ -2083,6 +2132,10 @@ sub _editUserDialog {
                 my $widget = $event->widget();
                 if ($widget == $cancelButton) {
                     last;
+                }
+                elsif ($widget == $self->get_edit_tab_widget('password')) {
+                    my $pass = $self->get_edit_tab_widget('password')->value();
+                    $self->_checkWeaknessPassword($pass, $self->get_edit_tab_widget('weakness'));
                 }
                 elsif ($widget == $okButton) {
                     ## save changes

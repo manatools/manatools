@@ -3,6 +3,8 @@ package AdminPanel::Shared::Users;
 use diagnostics;
 use strict;
 
+use Data::Password::Meter;
+
 #-######################################################################################
 #- misc imports
 #-######################################################################################
@@ -21,6 +23,7 @@ our @EXPORT = qw(
                 valid_groupname
                 GetFaceIcon
                 Add2UsersGroup
+                strongPassword
                 );
 
 sub facesdir() {
@@ -122,5 +125,13 @@ sub Add2UsersGroup {
     return $usersgroup->Gid($GetValue);
 }
 
+
+sub strongPassword {
+    my $passwd = shift;
+    my $pwdm = Data::Password::Meter->new();
+
+    # Check a password
+    return $pwdm->strong($passwd);
+}
 
 1;

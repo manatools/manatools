@@ -2,6 +2,10 @@ use 5.006;
 use strict;
 use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
+use File::ShareDir::Install;
+
+install_share dist => 'share'; 
+
 
 WriteMakefile(
     NAME             => 'AdminPanel',
@@ -28,6 +32,8 @@ WriteMakefile(
         "Text::Iconv"       => 0,
 	"Date::Simple"      => 0,
 	"File::HomeDir"     => 0,
+	"File::ShareDir"    => 0,
+	"Data::Password::Meter"    => 0,
     },
     EXE_FILES => [ qw( scripts/adminMouse  
                        scripts/adminService  
@@ -40,3 +46,6 @@ WriteMakefile(
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'AdminPanel-*' },
 );
+
+package MY;
+use File::ShareDir::Install 'postamble';
