@@ -1,11 +1,12 @@
-categories.conf
 Changes
 COPYING.GPLv2
+extras/conf/categories.conf
+extras/conf/categories.conf.d/adminService.conf
+extras/conf/categories.conf.d/adminUser.conf
+extras/conf/settings.conf
 extras/org.mageia.policykit.pkexec.adminpanel.policy
 extras/README
-extras/Services/adminService.conf
 extras/setup.sh
-extras/Users/adminUser.conf
 ignore.txt
 lib/AdminPanel/Category.pm
 lib/AdminPanel/ConfigReader.pm
@@ -103,7 +104,6 @@ scripts/apanel.pl
 scripts/hostmanager
 scripts/logviewer
 scripts/mgaAddUser
-settings.conf
 share/images/Blank16x16.png
 share/images/Checked_Shield_Green.png
 share/images/Checked_Shield_Green16x16.png
