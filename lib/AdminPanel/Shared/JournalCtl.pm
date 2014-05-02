@@ -114,10 +114,10 @@ sub getLog {
         $params .= " -b";
     }
     if ($self->since ne "") {
-        $params .= " --since=".$self->since;
+        $params .= " --since=".'"'.$self->since.'"';
     }
     if ($self->until ne "") {
-        $params .= " --until=".$self->until;
+        $params .= " --until=".'"'.$self->until.'"';
     }
     if ($self->unit ne "") {
         $params .= " --unit=".$self->unit;

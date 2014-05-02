@@ -1,4 +1,4 @@
-﻿# vim: set et ts=4 sw=4:
+# vim: set et ts=4 sw=4:
 package AdminPanel::Module::LogViewer;
 #============================================================= -*-perl-*-
 
@@ -180,48 +180,61 @@ sub _logViewerPanel {
     my $dialog  = $factory->createMainDialog;
     
     # Start Dialog layout:
-    my $vbox    = $factory->createVBox( $dialog );
-    my $align = $factory->createAlignment($vbox, $yui::YAlignCenter, $yui::YAlignUnchanged);
+    my $layout    = $factory->createVBox( $dialog );
+    my $align = $factory->createAlignment($layout, $yui::YAlignCenter, $yui::YAlignUnchanged);
     $factory->createLabel( $align, $self->loc->N("A tool to monitor your logs"), 1, 0 );
     
     #### matching
-    my $hbox = $factory->createHBox($vbox);
+    my $hbox = $factory->createHBox($layout);
     my $matchingInputField = $factory->createInputField($hbox, $self->loc->N("Matching"));
     $factory->createHSpacing($hbox, 1);
     
     #### not matching
     my $notMatchingInputField = $factory->createInputField($hbox, $self->loc->N("but not matching"));
-    $matchingInputField->setWeight($yui::YD_HORIZ, 1);
-    $notMatchingInputField->setWeight($yui::YD_HORIZ, 1);
+    $matchingInputField->setWeight($yui::YD_HORIZ, 2);
+    $notMatchingInputField->setWeight($yui::YD_HORIZ, 2);
     
-    my $frame = $factory->createFrame($vbox, $self->loc->N("Options"));
-    $hbox = $factory->createHBox($frame);
+    my $frame = $factory->createFrame($layout, $self->loc->N("Options"));
     
     #### lastBoot
-    my $col1 = $factory->createVBox( $hbox );
-    my $col2 = $factory->createVBox( $hbox );
-   
-    
-    $align = $factory->createLeft($col1);
+    my $vbox = $factory->createVBox( $frame );
+    $align = $factory->createLeft($vbox);
     my $lastBoot = $factory->createCheckBox($align, $self->loc->N("Last boot"), 1);
+    $factory->createVSpacing($vbox, 0.5);
     $lastBoot->setNotify(1);
-    
+       
+    my $row1 = $factory->createHBox($vbox);
+    $factory->createVSpacing($vbox, 0.5);
+    my $row2 = $factory->createHBox($vbox);
+    $factory->createVSpacing($vbox, 0.5);
+    my $row3 = $factory->createHBox($vbox);
+   
     #### since and until 
     my $sinceDate;
-    my $sinceFrame = $factory->createCheckBoxFrame($col1, $self->loc->N("Since"), 1);
+    my $sinceTime;
+    my $sinceFrame = $factory->createCheckBoxFrame($row1, $self->loc->N("Since"), 1);
     $sinceFrame->setNotify(1);
     
     my $untilDate;
-    my $untilFrame = $factory->createCheckBoxFrame($col1, $self->loc->N("Until"), 1);
+    my $untilTime;
+    my $untilFrame = $factory->createCheckBoxFrame($row2, $self->loc->N("Until"), 1);
     $untilFrame->setNotify(1);
     if ($optFactory->hasDateField()) {
-        $align = $factory->createLeft($sinceFrame);
-        $sinceDate = $optFactory->createDateField($align, "");
+        my $hbox1 = $factory->createHBox($sinceFrame);
+        
+        $sinceDate = $optFactory->createDateField($hbox1, "");
+        $factory->createHSpacing($hbox1, 1.0);
+        $sinceTime = $optFactory->createTimeField($hbox1, "");
         my $day = strftime "%F", localtime;
         $sinceDate->setValue($day);
-        $align = $factory->createLeft($untilFrame);
-        $untilDate = $optFactory->createDateField($align, "");
+        $sinceTime->setValue("00:00:00");
+        
+        $hbox1 = $factory->createHBox($untilFrame);
+        $untilDate = $optFactory->createDateField($hbox1, "");
+        $factory->createHSpacing($hbox1, 1.0);
+        $untilTime = $optFactory->createTimeField($hbox1, "");
         $untilDate->setValue($day);
+        $untilTime->setValue("23:59:59");
     }
     else {
         $sinceFrame->enable(0);
@@ -229,8 +242,9 @@ sub _logViewerPanel {
     }
        
     #### units
-    $factory->createVSpacing( $col2, 0.5 );
-    my $unitsFrame = $factory->createCheckBoxFrame($col2, $self->loc->N("Select a unit"), 1);
+    my $spacing = $factory->createHSpacing($row1, 2.0);
+    
+    my $unitsFrame = $factory->createCheckBoxFrame($row1, $self->loc->N("Select a unit"), 1);
     $unitsFrame->setNotify(1);
     $align = $factory->createLeft($unitsFrame);
     my $units = $factory->createComboBox  ( $align, "" );
@@ -249,12 +263,11 @@ sub _logViewerPanel {
     yui::YUI::app()->normalCursor();
     
     #### priority
-    $align = $factory->createLeft($col2);
-    $hbox = $factory->createHBox($align);
-    
     # From
-    my $priorityFromFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("From priority"), 1);
+    $factory->createHSpacing($row2, 2.0);
+    my $priorityFromFrame = $factory->createCheckBoxFrame($row2, $self->loc->N("From priority"), 1);
     $priorityFromFrame->setNotify(1);
+    $priorityFromFrame->setWeight($yui::YD_HORIZ, 1);
     my $priorityFrom = $factory->createComboBox  ( $priorityFromFrame, "" );
     $itemCollection->clear();
     
@@ -270,10 +283,11 @@ sub _logViewerPanel {
     }
     $priorityFrom->addItems($itemCollection);
 
-    $factory->createHSpacing( $hbox, 2.0 );
+    $factory->createHSpacing( $row2, 2.0 );
     # To
-    my $priorityToFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("To priority"), 1);
+    my $priorityToFrame = $factory->createCheckBoxFrame($row2, $self->loc->N("To priority"), 1);
     $priorityToFrame->setNotify(1);
+    $priorityToFrame->setWeight($yui::YD_HORIZ, 1);
     my $priorityTo = $factory->createComboBox  ( $priorityToFrame, "" );
     $itemCollection->clear();
        
@@ -288,11 +302,11 @@ sub _logViewerPanel {
     $priorityTo->addItems($itemCollection);
   
     #### search
-    $align = $factory->createRight($hbox);
+    $align = $factory->createRight($row3);
     my $searchButton = $factory->createPushButton($align, $self->loc->N("search"));
   
     #### create log view object
-    my $logView = $factory->createLogView($vbox, $self->loc->N("Log content"), 10, 0);
+    my $logView = $factory->createLogView($layout, $self->loc->N("Log content"), 10, 0);
 
     
     ### NOTE CheckBoxFrame doesn't honoured his costructor checked value for his children
@@ -303,7 +317,7 @@ sub _logViewerPanel {
     $priorityToFrame->setValue(0);
 
     # buttons on the last line 
-    $align = $factory->createRight($vbox);
+    $align = $factory->createRight($layout);
     $hbox = $factory->createHBox($align);
     my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
     $align = $factory->createRight($hbox);
@@ -363,10 +377,10 @@ sub _logViewerPanel {
                      $log_opts{unit} = $units->value();
                 }
                 if ($sinceFrame->value()) {
-                    $log_opts{since} = $sinceDate->value();
+                    $log_opts{since} = $sinceDate->value() . " " . $sinceTime->value();
                 }
                 if ($untilFrame->value()) {                    
-                    $log_opts{until} = $untilDate->value();
+                    $log_opts{until} = $untilDate->value() . " " . $untilTime->value();
 # TODO check date until > date since                    
                 }
                 if ($priorityFromFrame->value() || $priorityToFrame->value()) {
