@@ -34,6 +34,8 @@ WriteMakefile(
 	"File::HomeDir"     => 0,
 	"File::ShareDir"    => 0,
 	"Data::Password::Meter"    => 0,
+	"Modern::Perl"      => 1.03,
+	"autodie"           => 2.20,
     },
     EXE_FILES => [ qw( scripts/adminMouse  
                        scripts/adminService  

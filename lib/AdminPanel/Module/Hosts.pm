@@ -20,7 +20,7 @@
 
 package AdminPanel::Module::Hosts;
 
-use Modern::Perl 2011;
+use Modern::Perl '2011';
 use autodie;
 use Moose;
 use POSIX qw(ceil);
