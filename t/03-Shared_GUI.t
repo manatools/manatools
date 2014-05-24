@@ -18,7 +18,7 @@ BEGIN {
 
     SKIP: {
         #remember to skip the righ number of tests
-        skip "You didn't say yes...", 9, unless ( $a eq "y" );
+        skip "You didn't say yes...", 10, unless ( $a eq "y" );
 
         ok( $gui->warningMsgBox({text => "Warning message! (no title, no richtext)<br> line two"}), 'wmb1');
 
