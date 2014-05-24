@@ -10,7 +10,7 @@ AdminPanel::Shared::JournalCtl - journalctl perl wrapper
 =head1 SYNOPSIS
 
     my $log = AdminPanel::Shared::JournalCtl->new();
-    my @log_content = $log->get();
+    my @log_content = $log->getLog();
 
 =head1 DESCRIPTION
 
