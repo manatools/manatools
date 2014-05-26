@@ -56,8 +56,4 @@ BEGIN {
                         }), 'ClassicAboutDialog');    
     }
          
-
-    #TODO $gui->AboutDialog
-
-
 done_testing;
