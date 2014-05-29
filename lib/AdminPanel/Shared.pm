@@ -78,6 +78,8 @@ use strict;
 use warnings;
 use diagnostics;
 
+use Digest::MD5;
+
 use lib qw(/usr/lib/libDrakX);
 use common qw(N 
               N_);
@@ -247,34 +249,21 @@ This function create an OK-Cancel dialog with a 'title' and a
 sub ask_OkCancel {
     my ($title, $text) = @_;
     my $retVal = 0;
-    my $factory = yui::YUI::widgetFactory;
-
-    my $msg_box = $factory->createPopupDialog($yui::YDialogNormalColor);
-    my $layout = $factory->createVBox($msg_box);
-
-    my $align = $factory->createAlignment($layout, 3, 0);
-    ## title with headings true
-    $factory->createLabel( $align, $title, 1, 0);
-    $align = $factory->createLeft($layout);
-    $factory->createLabel( $align, $text, 0, 0);
-
-    $align = $factory->createRight($layout);
-    my $hbox = $factory->createHBox($align);
-    my $okButton = $factory->createPushButton($hbox, N("Ok"));
-    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
-
-    my $event = $msg_box->waitForEvent();
-
-    my $eventType = $event->eventType();
-
-    if ($eventType == $yui::YEvent::WidgetEvent) {
-        # widget selected
-        my $widget      = $event->widget();
-        $retVal = ($widget == $okButton) ? 1 : 0;
-    }
-
-    destroy $msg_box;
-
+    yui::YUI::widgetFactory;
+    my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
+    $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
+    my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
+    $dlg->setTitle($title);
+    $dlg->setText($text);
+    $dlg->setButtonLabel(N("Ok"), $yui::YMGAMessageBox::B_ONE );
+    $dlg->setButtonLabel(N("Cancel"), $yui::YMGAMessageBox::B_TWO);
+    $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
+    $dlg->setMinSize(50, 5);
+    
+    $retVal = $dlg->show() == $yui::YMGAMessageBox::B_ONE ? 1 : 0;
+    
+    $dlg = undef;
+    
     return $retVal;
 }
 
@@ -714,6 +703,41 @@ sub member {
         $e eq $_ and return 1;
     } 
     0; 
+}
+
+#=============================================================
+
+=head2 md5sum
+
+=head3 INPUT
+
+$filename: file for md5 calculation
+
+=head3 OUTPUT
+
+md5 sum
+
+=head3 DESCRIPTION
+
+ compute MD5 for the given file
+
+=cut
+
+#=============================================================
+
+sub md5sum {
+    my @files = @_;
+
+    my @md5 = map {
+        my $sum;
+        if (open(my $FILE, $_)) {
+            binmode($FILE);
+            $sum = Digest::MD5->new->addfile($FILE)->hexdigest;
+            close($FILE);
+        }
+        $sum;
+    } @files;
+    return wantarray() ? @md5 : $md5[0];
 }
 
 1; # End of AdminPanel::Shared
