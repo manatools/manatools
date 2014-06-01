@@ -34,6 +34,7 @@ WriteMakefile(
         "File::Copy"        => 0,
         "File::Remove"      => 0,
         "File::Basename"    => 0,
+        "Sys::Syslog"       => 0,
         "Data::Password::Meter"    => 0,
         "Digest::MD5"       => 0,
         "IO::All"           => 0,
