@@ -56,6 +56,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 use diagnostics;
 use strict;
 
+use Config::Auto;
 use Data::Password::Meter;
 use IO::All;
 use File::Basename;
@@ -149,21 +150,6 @@ sub BUILD {
 
 }
 
-#=============================================================
-# use base qw(Exporter);
-# 
-# our @EXPORT = qw(
-#                 facesdir
-#                 face2png
-#                 facenames
-#                 addKdmIcon
-#                 valid_username
-#                 valid_groupname
-#                 GetFaceIcon
-#                 Add2UsersGroup
-#                 strongPassword
-#                 );
-#=============================================================
 
 =head2 facedir
 
@@ -504,7 +490,49 @@ sub strongPassword {
 }
 
 
-# TODO methods not in Users.t
+# TODO methods not tested in Users.t
+
+#=============================================================
+
+=head2 weakPasswordForSecurityLevel
+
+=head3 INPUT
+
+    $passwd: password to check
+
+=head3 OUTPUT
+
+    1: if the password is too weak for security level
+
+=head3 DESCRIPTION
+
+    Check the security level set if /etc/security/msec/security.conf
+    exists and the level is not 'standard' and if the password
+    is not at least 6 characters return true
+
+=cut
+
+#=============================================================
+
+sub weakPasswordForSecurityLevel {
+     my ($self, $passwd) = @_;
+
+     my $sec_conf_file = "/etc/security/msec/security.conf";
+     if (-e $sec_conf_file) {
+        my $prefs  = Config::Auto::parse($sec_conf_file);
+        my $level = $prefs->{BASE_LEVEL};
+        if ($level eq 'none' or $level eq 'standard') {
+            return 0;
+        }
+        elsif (length($passwd) < 6) {
+            return 1;
+        }
+     }
+
+     return 0;
+}
+
+
 #=============================================================
 
 =head2 Add2UsersGroup
