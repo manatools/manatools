@@ -73,15 +73,6 @@ use strict;
 use POSIX qw(ceil);
 # use Time::localtime;
 
-# TODO same translation atm
-use lib qw(/usr/lib/libDrakX);
-# i18n: IMPORTANT: to get correct namespace (userdrake instead of libDrakX)
-BEGIN { unshift @::textdomains, 'userdrake', 'libuser', 'drakconf' }
-
-use common qw(N
-              translate);
-use security::level;
-# use run_program;
 
 use Config::Auto;
 use File::ShareDir ':ALL';
@@ -89,23 +80,20 @@ use File::ShareDir ':ALL';
 ## USER is from userdrake
 use USER;
 use utf8;
-use log;
+use Sys::Syslog;
 
 use Glib;
 use yui;
 use AdminPanel::Shared;
+use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
+
 use Moose;
 extends qw( AdminPanel::Module );
 
 has '+icon' => (
     default => "/usr/share/icons/userdrake.png",
 );
-
-has '+name' => (
-    default => N("AdminUser"), 
-);
-
 
 
 # main dialog
@@ -169,6 +157,34 @@ has 'edit_tab_widgets' => (
     init_arg  => undef,
 );
 
+has 'sh_users' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_SharedUsersInitialize'
+);
+
+sub _SharedUsersInitialize {
+    my $self = shift();
+
+    $self->sh_users(AdminPanel::Shared::Users->new() );
+}
+
+has 'loc' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_localeInitialize'
+);
+
+
+sub _localeInitialize {
+    my $self = shift();
+
+    # TODO fix domain binding for translation
+    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'userdrake') );
+    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+}
+
+
 #=============================================================
 
 =head1 METHODS
@@ -229,18 +245,51 @@ sub _labeledFrameBox {
 
 # usefull local variable to avoid duplicating
 # translation point for user edit labels
-my %userEditLabel = (
-    user_data     => N("User Data"),
-    account_info  => N("Account Info"),
-    password_info => N("Password Info"),
-    groups        => N("Groups"),
-);
+my %userEditLabel;
 # usefull local variable to avoid duplicating
 # translation point for group edit labels
-my %groupEditLabel = (
-    group_data    => N("Group Data"),
-    group_users   => N("Group Users"),
-);
+my %groupEditLabel;
+
+
+#=============================================================
+
+=head2 BUILD
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    The BUILD method is called after a Moose object is created,
+    Into this method additional data are initialized.
+
+=cut
+
+#=============================================================
+sub BUILD {
+    my $self = shift;
+    
+    if (! $self->name) {
+        $self->name ($self->loc->N("Log viewer"));
+    }
+    
+
+    %userEditLabel = (
+        user_data     => $self->loc->N("User Data"),
+        account_info  => $self->loc->N("Account Info"),
+        password_info => $self->loc->N("Password Info"),
+        groups        => $self->loc->N("Groups"),
+    );
+    %groupEditLabel = (
+        group_data    => $self->loc->N("Group Data"),
+        group_users   => $self->loc->N("Group Users"),
+    );
+ 
+
+}
+
+
 #=============================================================
 
 =head2 ChooseGroup
@@ -270,7 +319,7 @@ sub ChooseGroup {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Choose group"));
+    yui::YUI::app()->setApplicationTitle($self->loc->N("Choose group"));
     
     my $factory  = yui::YUI::widgetFactory;
 
@@ -278,24 +327,24 @@ sub ChooseGroup {
     my $layout   = $factory->createVBox($dlg);
 
 
-    my $frame    = _labeledFrameBox($layout,  N("A group with this name already exists.  What would you like to do?"));
+    my $frame    = _labeledFrameBox($layout,  $self->loc->N("A group with this name already exists.  What would you like to do?"));
 
     my $rbg      = $factory->createRadioButtonGroup( $frame );
     $frame       = $factory->createVBox( $rbg );
     my $align    = $factory->createLeft($frame);
 
-    my $rb1      = $factory->createRadioButton( $align, N("Add to the existing group"), 1);
+    my $rb1      = $factory->createRadioButton( $align, $self->loc->N("Add to the existing group"), 1);
     $rb1->setNotify(1);
     $rbg->addRadioButton( $rb1 );
     $align        = $factory->createLeft($frame);
-    my $rb2 = $factory->createRadioButton( $align, N("Add to the 'users' group"), 0);
+    my $rb2 = $factory->createRadioButton( $align, $self->loc->N("Add to the 'users' group"), 0);
     $rb2->setNotify(1);
     $rbg->addRadioButton( $rb2 );
 
     my $hbox         = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
@@ -379,7 +428,7 @@ sub _deleteGroupDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Warning"));
+    yui::YUI::app()->setApplicationTitle($self->loc->N("Warning"));
 
     my $factory  = yui::YUI::widgetFactory;
     my $dlg      = $factory->createPopupDialog();
@@ -387,13 +436,13 @@ sub _deleteGroupDialog {
 
     my $align    = $factory->createLeft($layout);
 
-    $factory->createLabel($align, N("Do you really want to delete the group %s?", 
+    $factory->createLabel($align, $self->loc->N("Do you really want to delete the group %s?", 
                                     $groupname));
 
     $align    = $factory->createRight($layout);
     my $hbox  = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
-    my $deleteButton = $factory->createPushButton($hbox,  N("Delete"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+    my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("Delete"));
 
     while(1) {
         my $event     = $dlg->waitForEvent();
@@ -416,14 +465,14 @@ sub _deleteGroupDialog {
                 GLOOP: foreach my $username (@$members) {
                     my $userEnt = $self->ctx->LookupUserByName($username);
                     if ($userEnt && $userEnt->Gid($self->USER_GetValue) == $groupEnt->Gid($self->USER_GetValue)) {
-                        AdminPanel::Shared::msgBox(N("%s is a primary group for user %s\n Remove the user first", 
+                        AdminPanel::Shared::msgBox($self->loc->N("%s is a primary group for user %s\n Remove the user first", 
                                                      $groupname, $username));
                         $continue = 0;
                         last GLOOP;
                     }
                 }
                 if ($continue) { 
-                    log::explanations(N("Removing group: %s", $groupname));
+                    Sys::Syslog::syslog('info|local1', $self->loc->N("Removing group: %s", $groupname));
                     eval { $self->ctx->GroupDel($groupEnt) }; 
                     $self->_refresh();
                 }
@@ -469,24 +518,24 @@ sub _deleteUserDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Delete files or not?"));
+    yui::YUI::app()->setApplicationTitle($self->loc->N("Delete files or not?"));
 
     my $factory  = yui::YUI::widgetFactory;
     my $dlg      = $factory->createPopupDialog();
     my $layout   = $factory->createVBox($dlg);
 
     my $align    = $factory->createLeft($layout);
-    $factory->createLabel($align, N("Deleting user %s\nAlso perform the following actions\n",
+    $factory->createLabel($align, $self->loc->N("Deleting user %s\nAlso perform the following actions\n",
                                    $username));
     $align    = $factory->createLeft($layout);
-    my $checkhome  = $factory->createCheckBox($align, N("Delete Home Directory: %s", $homedir, 0));
+    my $checkhome  = $factory->createCheckBox($align, $self->loc->N("Delete Home Directory: %s", $homedir), 0);
     $align    = $factory->createLeft($layout);
-    my $checkspool = $factory->createCheckBox($align, N("Delete Mailbox: /var/spool/mail/%s",
+    my $checkspool = $factory->createCheckBox($align, $self->loc->N("Delete Mailbox: /var/spool/mail/%s",
                                                         $username), 0);
     $align    = $factory->createRight($layout);
     my $hbox  = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
-    my $deleteButton = $factory->createPushButton($hbox,  N("Delete"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+    my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("Delete"));
     
     if ($homedir !~ m!(?:/home|/var/spool)!) { 
         $checkhome->setDisabled(); 
@@ -509,7 +558,7 @@ sub _deleteUserDialog {
                 last;
             }
             elsif ($widget == $deleteButton) {
-                log::explanations(N("Removing user: %s", $username));
+                Sys::Syslog::syslog('info|local1', $self->loc->N("Removing user: %s", $username));
                 $self->ctx->UserDel($userEnt);
                 $self->_updateOrDelUserInGroup($username);
                 #Let's check out the user's primary group
@@ -551,7 +600,7 @@ sub _addGroupDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Create New Group"));
+    yui::YUI::app()->setApplicationTitle($self->loc->N("Create New Group"));
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
 
@@ -561,7 +610,7 @@ sub _addGroupDialog {
     ## 'group name'
     my $align        = $factory->createRight($layout);
     my $hbox         = $factory->createHBox($align);
-    my $label        = $factory->createLabel($hbox, N("Group Name:") );
+    my $label        = $factory->createLabel($hbox, $self->loc->N("Group Name:") );
     my $groupName    = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $groupName->setWeight($yui::YD_HORIZ, 2);
@@ -571,16 +620,16 @@ sub _addGroupDialog {
     # Specify group id manually
     $align           = $factory->createLeft($layout);
     $hbox            = $factory->createHBox($align);
-    my $gidManually  = $factory->createCheckBox($hbox, N("Specify group ID manually"), 0);
+    my $gidManually  = $factory->createCheckBox($hbox, $self->loc->N("Specify group ID manually"), 0);
     $factory->createHSpacing($hbox, 2);
-    my $GID = $factory->createIntField($hbox, N("GID"), 1, 65000, 500);
+    my $GID = $factory->createIntField($hbox, $self->loc->N("GID"), 1, 65000, 500);
     $GID->setEnabled($gidManually->value());
     $gidManually->setNotify(1);
 
     $hbox            = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
@@ -602,11 +651,11 @@ sub _addGroupDialog {
             elsif ($widget == $okButton) {
                 ## check data
                 my $groupname = $groupName->value();
-                my ($continue, $errorString) = valid_groupname($groupname);
+                my ($continue, $errorString) = $self->sh_users->valid_groupname($groupname);
                 my $nm = $continue && $self->ctx->LookupGroupByName($groupname);
                 if ($nm) {
                     $groupName->setValue("");
-                    $errorString = N("Group already exists, please choose another Group Name");
+                    $errorString = $self->loc->N("Group already exists, please choose another Group Name");
                     $continue = 0;
                 }
                 my $groupEnt = $self->ctx->InitGroup($groupname, $is_system);
@@ -615,15 +664,15 @@ sub _addGroupDialog {
                 if ($continue && $gidManually->value()) {
                     if (($gid = $GID->value()) < 500) {
                         $errorString = "";
-                        my $gidchoice = AdminPanel::Shared::ask_YesOrNo(N(" Group Gid is < 500"),
-                                        N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n"));
+                        my $gidchoice = AdminPanel::Shared::ask_YesOrNo($self->loc->N(" Group Gid is < 500"),
+                                        $self->loc->N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n"));
                         $continue = $gidchoice and $groupEnt->Gid($gid);
                     } else { 
                         my $g = $self->ctx->LookupGroupById($gid);
                         if ($g) {
                             $errorString = "";
-                            my $gidchoice = AdminPanel::Shared::ask_YesOrNo(N(" Group ID is already used "),
-                                        N("Creating a group with a non unique GID?\n\n"));
+                            my $gidchoice = AdminPanel::Shared::ask_YesOrNo($self->loc->N(" Group ID is already used "),
+                                        $self->loc->N("Creating a group with a non unique GID?\n\n"));
                             $continue = $gidchoice and $groupEnt->Gid($gid);
                         }
                         else {
@@ -638,7 +687,7 @@ sub _addGroupDialog {
                     AdminPanel::Shared::msgBox($errorString) if ($errorString);
                 }
                 else {
-                    log::explanations(N("Adding group: %s ", $groupname));
+                    Sys::Syslog::syslog('info|local1', $self->loc->N("Adding group: %s ", $groupname));
                     $self->ctx->GroupAdd($groupEnt);
                     $self->_refresh();
                     last;
@@ -689,7 +738,7 @@ sub _buildUserData {
     ## user 'full name'
     my $align        = $factory->createRight($layout);
     my $hbox         = $factory->createHBox($align);
-    my $label        = $factory->createLabel($hbox, N("Full Name:") );
+    my $label        = $factory->createLabel($hbox, $self->loc->N("Full Name:") );
     $factory->createHSpacing($hbox, 2.0);
     my $fullName     = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -698,7 +747,7 @@ sub _buildUserData {
     ## user 'login name'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
-    $label           = $factory->createLabel($hbox, N("Login:") );
+    $label           = $factory->createLabel($hbox, $self->loc->N("Login:") );
     $factory->createHSpacing($hbox, 2.0);
     my $loginName    = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -708,7 +757,7 @@ sub _buildUserData {
     ## user 'Password'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
-    $label           = $factory->createLabel($hbox, N("Password:") );
+    $label           = $factory->createLabel($hbox, $self->loc->N("Password:") );
     my $weakness = undef;
     if (yui::YUI::app()->hasImageSupport()) {
         $factory->createHSpacing($hbox, 2.0);
@@ -730,7 +779,7 @@ sub _buildUserData {
     ## user 'confirm Password'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
-    $label           = $factory->createLabel($hbox, N("Confirm Password:") );
+    $label           = $factory->createLabel($hbox, $self->loc->N("Confirm Password:") );
     $factory->createHSpacing($hbox, 2.0);
     my $password1    = $factory->createInputField($hbox, "", 1);
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -739,7 +788,7 @@ sub _buildUserData {
     ## user 'Login Shell'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
-    $label           = $factory->createLabel($hbox, N("Login Shell:") );
+    $label           = $factory->createLabel($hbox, $self->loc->N("Login Shell:") );
     $factory->createHSpacing($hbox, 2.0);
     my $loginShell   = $factory->createComboBox($hbox, "", 0);
     my $itemColl = new yui::YItemCollection;
@@ -797,7 +846,7 @@ sub addUserDialog {
         yui::YUI::app()->setApplicationTitle($self->name);
     }
     else {
-        yui::YUI::app()->setApplicationTitle(N("Create New User"));
+        yui::YUI::app()->setApplicationTitle($self->loc->N("Create New User"));
     }
     
     my $factory  = yui::YUI::widgetFactory;
@@ -812,11 +861,11 @@ sub addUserDialog {
     ## Create Home directory
     my $align           = $factory->createLeft($layout);
     my $hbox            = $factory->createHBox($align);
-    my $createHome = $factory->createCheckBox($hbox, N("Create Home Directory"), 1);
+    my $createHome = $factory->createCheckBox($hbox, $self->loc->N("Create Home Directory"), 1);
     ## Home directory
     $align           = $factory->createLeft($layout);
     $hbox            = $factory->createHBox($align);
-    my $label        = $factory->createLabel($hbox, N("Home Directory:") );
+    my $label        = $factory->createLabel($hbox, $self->loc->N("Home Directory:") );
     $factory->createHSpacing($hbox, 2.0);
     my $homeDir      = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -825,14 +874,14 @@ sub addUserDialog {
     # Create private group
     $align           = $factory->createLeft($layout);
     $hbox            = $factory->createHBox($align);
-    my $createGroup  = $factory->createCheckBox($hbox, N("Create a private group for the user"), 1);
+    my $createGroup  = $factory->createCheckBox($hbox, $self->loc->N("Create a private group for the user"), 1);
     
     # Specify user id manually
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
-    my $uidManually  = $factory->createCheckBox($hbox, N("Specify user ID manually"), 0);
+    my $uidManually  = $factory->createCheckBox($hbox, $self->loc->N("Specify user ID manually"), 0);
     $factory->createHSpacing($hbox, 2.0);
-    my $UID = $factory->createIntField($hbox, N("UID"), 1, 65000, 500);
+    my $UID = $factory->createIntField($hbox, $self->loc->N("UID"), 1, 65000, 500);
     $UID->setEnabled($uidManually->value());
     $uidManually->setNotify(1);
 #     $uidManually->setWeight($yui::YD_HORIZ, 2);
@@ -840,16 +889,16 @@ sub addUserDialog {
 
     ## user 'icon'
     $hbox        = $factory->createHBox($layout);
-    $factory->createLabel($hbox, N("Click on icon to change it") );
-    my $iconFace = AdminPanel::Shared::Users::GetFaceIcon();
+    $factory->createLabel($hbox, $self->loc->N("Click on icon to change it") );
+    my $iconFace = $self->sh_users->GetFaceIcon();
     my $icon = $factory->createPushButton($hbox, "");
-    $icon->setIcon(AdminPanel::Shared::Users::face2png($iconFace)); 
+    $icon->setIcon($self->sh_users->face2png($iconFace)); 
     $icon->setLabel($iconFace);
 
     $hbox            = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
@@ -868,9 +917,9 @@ sub addUserDialog {
                 #remove shortcut from label
                 my $iconLabel = $self->_skipShortcut($icon->label());
 
-                my $nextIcon = GetFaceIcon($icon->label(), 1);
+                my $nextIcon = $self->sh_users->GetFaceIcon($icon->label(), 1);
                 $icon->setLabel($nextIcon);
-                $icon->setIcon(AdminPanel::Shared::Users::face2png($nextIcon));
+                $icon->setIcon($self->sh_users->face2png($nextIcon));
             }
             elsif ($widget == $uidManually) {
                 # UID inserction enabled?
@@ -887,22 +936,21 @@ sub addUserDialog {
             elsif ($widget == $okButton) {
                 ## check data
                 my $username = $userData{ login_name }->value();
-                my ($continue, $errorString) = valid_username($username);
+                my ($continue, $errorString) = $self->sh_users->valid_username($username);
                 my $nm = $continue && $self->ctx->LookupUserByName($username);
                 if ($nm) {
                     $userData{ login_name }->setValue("");
                     $homeDir->setValue("");
-                    $errorString = N("User already exists, please choose another User Name");
+                    $errorString = $self->loc->N("User already exists, please choose another User Name");
                     $continue = 0;
                 }
                 my $passwd = $continue && $userData{ password }->value();
                 if ($continue && $passwd ne $userData{ password1 }->value()) {
-                    $errorString = N("Password Mismatch");
+                    $errorString = $self->loc->N("Password Mismatch");
                     $continue = 0;
                 }
-                my $sec = security::level::get();
-                if ($sec > 3 && length($passwd) < 6) {
-                    $errorString = N("This password is too simple. \n Good passwords should be > 6 characters");
+                if ($self->sh_users->weakPasswordForSecurityLevel($passwd)) {
+                    $errorString = $self->loc->N("This password is too simple. \n Good passwords should be > 6 characters");
                     $continue = 0;
                 }
                 my $userEnt = $continue && $self->ctx->InitUser($username, $is_system);
@@ -917,8 +965,8 @@ sub addUserDialog {
                 if ($continue && $uidManually->value()) {
                     if (($uid = $UID->value()) < 500) {
                         $errorString = "";
-                        my $uidchoice = AdminPanel::Shared::ask_YesOrNo(N("User Uid is < 500"),
-                                        N("Creating a user with a UID less than 500 is not recommended.\nAre you sure you want to do this?\n\n")); 
+                        my $uidchoice = AdminPanel::Shared::ask_YesOrNo($self->loc->N("User Uid is < 500"),
+                                        $self->loc->N("Creating a user with a UID less than 500 is not recommended.\nAre you sure you want to do this?\n\n")); 
                         $continue = $uidchoice and $userEnt->Uid($uid);
                     } else { 
                         $userEnt and $userEnt->Uid($uid);
@@ -936,9 +984,9 @@ sub addUserDialog {
                                 $gid = $gr->Gid($self->USER_GetValue);
                             } elsif ($groupchoice == 1) {
                                 # Put it in 'users' group
-                                log::explanations(N("Putting %s to 'users' group",
+                                Sys::Syslog::syslog('info|local1', $self->loc->N("Putting %s to 'users' group",
                                                     $username));
-                                $gid = AdminPanel::Shared::Users::Add2UsersGroup($username, $self->ctx);
+                                $gid = $self->sh_users->Add2UsersGroup($username, $self->ctx);
                             }
                             else {
                                 $errorString = "";
@@ -947,13 +995,13 @@ sub addUserDialog {
                         } else { 
                             #it's a new group: Add it
                             my $newgroup = $self->ctx->InitGroup($username,$is_system);
-                            log::explanations(N("Creating new group: %s", $username));
+                            Sys::Syslog::syslog('info|local1', $self->loc->N("Creating new group: %s", $username));
                             $gid = $newgroup->Gid($self->USER_GetValue);
                             $self->ctx->GroupAdd($newgroup);
                         }
                     }
                 } else {
-                    $continue and $gid = AdminPanel::Shared::Users::Add2UsersGroup($username, $self->ctx);
+                    $continue and $gid = $self->sh_users->Add2UsersGroup($username, $self->ctx);
                 }
 
                 if (!$continue) {
@@ -962,8 +1010,8 @@ sub addUserDialog {
                 }
                 else {
                     ## OK let's create the user
-                    print N("Adding user: ") . $username . " \n";
-                    log::explanations(N("Adding user: %s"), $username);
+                    print $self->loc->N("Adding user: ") . $username . " \n";
+                    Sys::Syslog::syslog('info|local1', $self->loc->N("Adding user: %s", $username));
                     my $loginshell = $userData{ login_shell }->value();
                     my $fullname   = $userData{ full_name }->value();
                     $userEnt->Gecos($fullname);  $userEnt->LoginShell($loginshell);
@@ -973,13 +1021,13 @@ sub addUserDialog {
                     $self->ctx->UserAdd($userEnt, $is_system, $dontcreatehomedir);
                     $self->ctx->UserSetPass($userEnt, $passwd);
                     defined $icon->label() and
-                         AdminPanel::Shared::Users::addKdmIcon($username, $icon->label());
+                         $self->sh_users->addKdmIcon($username, $icon->label());
 ###  TODO Migration wizard
 #                     
 #                     Refresh($sysfilter, $stringsearch);
 #                     transfugdrake::get_windows_disk()
-#                         and $in->ask_yesorno(N("Migration wizard"),
-#                                             N("Do you want to run the migration wizard in order to import Windows documents and settings in your Mageia distribution?"))
+#                         and $in->ask_yesorno($self->loc->N("Migration wizard"),
+#                                             $self->loc->N("Do you want to run the migration wizard in order to import Windows documents and settings in your Mageia distribution?"))
 #                             and run_program::raw({ detach => 1 }, 'transfugdrake');
 
 
@@ -1020,13 +1068,13 @@ sub _createUserTable {
     my $parent = $self->get_widget('replace_pnt');
     my $factory      = yui::YUI::widgetFactory;
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("User Name"),      $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("User ID"),        $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Primary Group"),  $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Full Name"),      $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Login Shell"),    $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Home Directory"), $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Status"),         $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("User Name"),      $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("User ID"),        $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Primary Group"),  $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Full Name"),      $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Login Shell"),    $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Home Directory"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Status"),         $yui::YAlignBegin);
     $yTableHeader->DISOWN();
     
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
@@ -1066,9 +1114,9 @@ sub _createGroupTable {
     my $parent = $self->get_widget('replace_pnt');
     my $factory      = yui::YUI::widgetFactory;
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Group Name"),     $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Group ID"),       $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Group Members"),  $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Group Name"),     $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Group ID"),       $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Group Members"),  $yui::YAlignBegin);
     $yTableHeader->DISOWN();
 
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
@@ -1107,7 +1155,7 @@ sub _computeLockExpire {
     my $ep = $l->ShadowExpire($self->USER_GetValue);
     my $tm = ceil(time()/(24*60*60));
     $ep = -1 if int($tm) <= $ep;
-    my $status = $self->ctx->IsLocked($l) ? N("Locked") : ($ep != -1 ? N("Expired") : '');
+    my $status = $self->ctx->IsLocked($l) ? $self->loc->N("Locked") : ($ep != -1 ? $self->loc->N("Expired") : '');
     $status;
 }
 
@@ -1300,7 +1348,7 @@ sub _getUserInfo {
     my $self = shift;
 
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label ne N("Users") ) {
+    if ($label ne $self->loc->N("Users") ) {
         return undef;
     }
 
@@ -1343,7 +1391,7 @@ sub _getUserInfo {
 
     $userData{lockuser}      = $self->ctx->IsLocked($userEnt);
 
-    $userData{icon_face}     = AdminPanel::Shared::Users::GetFaceIcon($userData{username});
+    $userData{icon_face}     = $self->sh_users->GetFaceIcon($userData{username});
     $userData{pwd_check_exp} = 0;
     $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->USER_GetValue); 
     $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->USER_GetValue); 
@@ -1390,7 +1438,7 @@ sub _getGroupInfo {
     my $self = shift;
 
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label ne N("Groups") ) {
+    if ($label ne $self->loc->N("Groups") ) {
         return undef;
     }
 
@@ -1538,7 +1586,7 @@ sub _userDataTabWidget {
     ## user 'login name'
     my $align                = $factory->createRight($layout);
     my $hbox                 = $factory->createHBox($align);
-    my $label                = $factory->createLabel($hbox, N("Home:") );
+    my $label                = $factory->createLabel($hbox, $self->loc->N("Home:") );
     $factory->createHSpacing($hbox, 2.0);
     $userDataWidget{homedir} = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -1611,7 +1659,7 @@ sub _groupDataTabWidget {
     ## user 'login name'
     my $align                = $factory->createRight($layout);
     my $hbox                 = $factory->createHBox($align);
-    my $label                = $factory->createLabel($hbox, N("Group Name:") );
+    my $label                = $factory->createLabel($hbox, $self->loc->N("Group Name:") );
     $groupDataWidget{groupname} = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $groupDataWidget{groupname}->setWeight($yui::YD_HORIZ, 2);
@@ -1637,23 +1685,23 @@ sub _userAccountInfoTabWidget {
     my $layout         = $factory->createVBox($replace_pnt);
 
     my %userAccountWidget;
-    $userAccountWidget{acc_check_exp} = $factory->createCheckBoxFrame($layout, N("Enable account expiration"), 1);
+    $userAccountWidget{acc_check_exp} = $factory->createCheckBoxFrame($layout, $self->loc->N("Enable account expiration"), 1);
     my $align                         = $factory->createRight($userAccountWidget{acc_check_exp});
     my $hbox                          = $factory->createHBox($align);    
-    my $label                         = $factory->createLabel($hbox, N("Account expires (YYYY-MM-DD):"));
+    my $label                         = $factory->createLabel($hbox, $self->loc->N("Account expires (YYYY-MM-DD):"));
     $userAccountWidget{acc_expy}      = $factory->createIntField($hbox, "", 1970, 9999, $userData{acc_expy});
     $userAccountWidget{acc_expm}      = $factory->createIntField($hbox, "", 1, 12, $userData{acc_expm});
     $userAccountWidget{acc_expd}      = $factory->createIntField($hbox, "", 1, 31, $userData{acc_expd});
     $userAccountWidget{acc_check_exp}->setValue($userData{acc_check_exp});
     $label->setWeight($yui::YD_HORIZ, 2);
     $align                            = $factory->createLeft($layout);
-    $userAccountWidget{lockuser}      = $factory->createCheckBox($align, N("Lock User Account"), $userData{lockuser});
+    $userAccountWidget{lockuser}      = $factory->createCheckBox($align, $self->loc->N("Lock User Account"), $userData{lockuser});
     
     $align                            = $factory->createLeft($layout);
     $hbox                             = $factory->createHBox($align); 
-    $label                            = $factory->createLabel($hbox, N("Click on the icon to change it"));
+    $label                            = $factory->createLabel($hbox, $self->loc->N("Click on the icon to change it"));
     $userAccountWidget{icon_face}     = $factory->createPushButton($hbox, "");
-    $userAccountWidget{icon_face}->setIcon(AdminPanel::Shared::Users::face2png($userData{icon_face})); 
+    $userAccountWidget{icon_face}->setIcon($self->sh_users->face2png($userData{icon_face})); 
     $userAccountWidget{icon_face}->setLabel($userData{icon_face});
     
     $replace_pnt->showChild();
@@ -1680,7 +1728,7 @@ sub _userPasswordInfoTabWidget {
 
     my $align   = $factory->createLeft($layout);
     my $hbox    = $factory->createHBox($align);    
-    my $label   = $factory->createLabel($hbox, N("User last changed password on: "));
+    my $label   = $factory->createLabel($hbox, $self->loc->N("User last changed password on: "));
     my $dayStr  = $factory->createLabel($hbox, "");
     my $month   = $factory->createLabel($hbox, "");
     my $dayInt  = $factory->createLabel($hbox, "");
@@ -1693,11 +1741,11 @@ sub _userPasswordInfoTabWidget {
         $year->setValue($times->{year});
     }
     
-    $userPasswordWidget{pwd_check_exp} = $factory->createCheckBoxFrame($layout, N("Enable Password Expiration"), 1);
+    $userPasswordWidget{pwd_check_exp} = $factory->createCheckBoxFrame($layout, $self->loc->N("Enable Password Expiration"), 1);
     $layout  = $factory->createVBox($userPasswordWidget{pwd_check_exp});
     $align   = $factory->createLeft($layout);
     $hbox    = $factory->createHBox($align);
-    $label   = $factory->createLabel($hbox, N("Days before change allowed:"));
+    $label   = $factory->createLabel($hbox, $self->loc->N("Days before change allowed:"));
     $userPasswordWidget{pwd_exp_min} = $factory->createInputField($hbox, "", 0);
     $userPasswordWidget{pwd_exp_min}->setValue("$userData{pwd_exp_min}");
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -1705,7 +1753,7 @@ sub _userPasswordInfoTabWidget {
     
     $align   = $factory->createLeft($layout);
     $hbox    = $factory->createHBox($align);
-    $label   = $factory->createLabel($hbox, N("Days before change required:"));
+    $label   = $factory->createLabel($hbox, $self->loc->N("Days before change required:"));
     $userPasswordWidget{pwd_exp_max} = $factory->createInputField($hbox, "", 0);
     $userPasswordWidget{pwd_exp_max}->setValue("$userData{pwd_exp_max}");
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -1713,7 +1761,7 @@ sub _userPasswordInfoTabWidget {
 
     $align   = $factory->createLeft($layout);
     $hbox    = $factory->createHBox($align);
-    $label   = $factory->createLabel($hbox, N("Days warning before change:"));
+    $label   = $factory->createLabel($hbox, $self->loc->N("Days warning before change:"));
     $userPasswordWidget{pwd_exp_warn} = $factory->createInputField($hbox, "", 0);
     $userPasswordWidget{pwd_exp_warn}->setValue("$userData{pwd_exp_warn}");
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -1721,7 +1769,7 @@ sub _userPasswordInfoTabWidget {
 
     $align   = $factory->createLeft($layout);
     $hbox    = $factory->createHBox($align);
-    $label   = $factory->createLabel($hbox, N("Days before account inactive:"));
+    $label   = $factory->createLabel($hbox, $self->loc->N("Days before account inactive:"));
     $userPasswordWidget{pwd_exp_inact} = $factory->createInputField($hbox, "", 0);
     $userPasswordWidget{pwd_exp_inact}->setValue("$userData{pwd_exp_inact}");
     $label->setWeight($yui::YD_HORIZ, 1);
@@ -1750,11 +1798,11 @@ sub _groupUsersTabWidget {
 
     my %groupUsersWidget;
 
-    my $layout   = _labeledFrameBox($replace_pnt, N("Select the users to join this group:"));
+    my $layout   = _labeledFrameBox($replace_pnt, $self->loc->N("Select the users to join this group:"));
 
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn("", $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("User"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("User"), $yui::YAlignBegin);
 
     $groupUsersWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
@@ -1796,11 +1844,11 @@ sub _userGroupsTabWidget {
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
     my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
 
-    my $layout   = _labeledFrameBox($replace_pnt, N("Select groups that the user will be member of:"));
+    my $layout   = _labeledFrameBox($replace_pnt, $self->loc->N("Select groups that the user will be member of:"));
 
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn("", $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Group"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Group"), $yui::YAlignBegin);
 
     $userGroupsWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
@@ -1826,7 +1874,7 @@ sub _userGroupsTabWidget {
 
     my $align   = $factory->createLeft($layout);
     my $hbox    = $factory->createHBox($align);    
-    my $label   = $factory->createLabel($hbox, N("Primary Group"));
+    my $label   = $factory->createLabel($hbox, $self->loc->N("Primary Group"));
     $userGroupsWidget{primary_group} = $factory->createComboBox($hbox, "", 0);
     my $itemColl = new yui::YItemCollection;
     foreach my $member (@$members) {
@@ -1852,7 +1900,7 @@ sub _groupEdit_Ok {
     # update last changes if any 
     %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
     
-    my ($continue, $errorString) = valid_groupname($groupData{groupname});
+    my ($continue, $errorString) = $self->sh_users->valid_groupname($groupData{groupname});
     if (!$continue) {
         AdminPanel::Shared::msgBox($errorString) if ($errorString);
         return $continue;
@@ -1882,7 +1930,7 @@ sub _groupEdit_Ok {
             else {
                 if ($self->_inArray($user, $m)) {
                     if ($ugid == $gid) {
-                        AdminPanel::Shared::msgBox(N("You cannot remove user '%s' from their primary group", $user));
+                        AdminPanel::Shared::msgBox($self->loc->N("You cannot remove user '%s' from their primary group", $user));
                         return 0;
                     }
                     else {
@@ -1905,21 +1953,20 @@ sub _userEdit_Ok {
     # update last changes if any 
     %userData = $self->_storeDataFromUserEditPreviousTab(%userData);
     
-    my ($continue, $errorString) = valid_username($userData{username});
+    my ($continue, $errorString) = $self->sh_users->valid_username($userData{username});
     if (!$continue) {
         AdminPanel::Shared::msgBox($errorString) if ($errorString);
         return $continue;
     }
 
     if ( $userData{password} ne $userData{password1}) {
-        AdminPanel::Shared::msgBox(N("Password Mismatch"));
+        AdminPanel::Shared::msgBox($self->loc->N("Password Mismatch"));
         return 0;
     }
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
     if ($userData{password} ne '') {
-        my $sec = security::level::get();
-        if ($sec > 3 && length($userData{password}) < 6) {
-            AdminPanel::Shared::msgBox(N("This password is too simple. \n Good passwords should be > 6 characters"));
+        if ($self->sh_users->weakPasswordForSecurityLevel($userData{password})) {
+            AdminPanel::Shared::msgBox($self->loc->N("This password is too simple. \n Good passwords should be > 6 characters"));
             return 0;
         }
         $self->ctx->UserSetPass($userEnt, $userData{password});
@@ -1953,7 +2000,7 @@ sub _userEdit_Ok {
         }
     }
     if ($userData{primary_group} == -1) {
-        AdminPanel::Shared::msgBox(N("Please select at least one group for the user"));
+        AdminPanel::Shared::msgBox($self->loc->N("Please select at least one group for the user"));
         return 0;
     }
     $userEnt->Gid($userData{primary_group});
@@ -1963,7 +2010,7 @@ sub _userEdit_Ok {
         my $mo = $userData{acc_expm};
         my $dy = $userData{acc_expd};
         if (!_ValidInt($yr, $dy, $mo)) {
-            AdminPanel::Shared::msgBox(N("Please specify Year, Month and Day \n for Account Expiration "));
+            AdminPanel::Shared::msgBox($self->loc->N("Please specify Year, Month and Day \n for Account Expiration "));
             return 0;
         }
         my $Exp = _ConvTime($dy, $mo, $yr);
@@ -1985,7 +2032,7 @@ sub _userEdit_Ok {
             $userEnt->ShadowInact($inactive);
         }
         else {
-            AdminPanel::Shared::msgBox(N("Please fill up all fields in password aging\n"));
+            AdminPanel::Shared::msgBox($self->loc->N("Please fill up all fields in password aging\n"));
             return 0;
         }
     }
@@ -2005,7 +2052,7 @@ sub _userEdit_Ok {
         $self->ctx->IsLocked($userEnt) and $self->ctx->UnLock($userEnt); 
     }
             
-    defined $userData{icon_face} and AdminPanel::Shared::Users::addKdmIcon($userData{username}, $userData{icon_face});
+    defined $userData{icon_face} and $self->sh_users->addKdmIcon($userData{username}, $userData{icon_face});
     $self->_refresh();
 
     return 1;
@@ -2016,7 +2063,7 @@ sub _userEdit_Ok {
 sub _checkWeaknessPassword {
     my ($self, $password, $weakness_widget) = @_;
 
-    my $strongp = AdminPanel::Shared::Users::strongPassword($password);
+    my $strongp = $self->sh_users->strongPassword($password);
     if (yui::YUI::app()->hasImageSupport()) {
         my $file = dist_file('AdminPanel', 'images/Warning_Shield_Grey16x16.png');
         if ($strongp) {
@@ -2026,7 +2073,7 @@ sub _checkWeaknessPassword {
     }
     else {
         # For ncurses set a label
-        $weakness_widget->setValue(($strongp ? N("Strong") : N("Weak")));
+        $weakness_widget->setValue(($strongp ? $self->loc->N("Strong") : $self->loc->N("Weak")));
     }
 }
 
@@ -2039,7 +2086,7 @@ sub _editUserDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Edit User"));
+    yui::YUI::app()->setApplicationTitle($self->loc->N("Edit User"));
     
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -2077,8 +2124,8 @@ sub _editUserDialog {
         
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
-        my $cancelButton = $factory->createPushButton($align, N("Cancel"));
-        my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+        my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
+        my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
         
         my %userData        = $self->_getUserInfo();
         # userData here should be tested because it could be undef
@@ -2149,9 +2196,9 @@ sub _editUserDialog {
                     if ($current_tab && $current_tab eq $userEditLabel{account_info}) {
                         if ($widget == $self->get_edit_tab_widget('icon_face')) {
                             my $iconLabel = $self->_skipShortcut($self->get_edit_tab_widget('icon_face')->label());
-                            my $nextIcon = GetFaceIcon($iconLabel, 1);
+                            my $nextIcon = $self->sh_users->GetFaceIcon($iconLabel, 1);
                             $self->get_edit_tab_widget('icon_face')->setLabel($nextIcon);
-                            $self->get_edit_tab_widget('icon_face')->setIcon(AdminPanel::Shared::Users::face2png($nextIcon));
+                            $self->get_edit_tab_widget('icon_face')->setIcon($self->sh_users->face2png($nextIcon));
                         }
                     }                    
                     elsif ($current_tab && $current_tab eq $userEditLabel{groups}) {
@@ -2193,7 +2240,7 @@ sub _editUserDialog {
 
     }
     else {
-        AdminPanel::Shared::warningMsgBox(N("Cannot create tab widgets"));
+        AdminPanel::Shared::warningMsgBox($self->loc->N("Cannot create tab widgets"));
     }
 
     destroy $dlg;
@@ -2209,7 +2256,7 @@ sub _editGroupDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Edit Group"));
+    yui::YUI::app()->setApplicationTitle($self->loc->N("Edit Group"));
     
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
@@ -2238,8 +2285,8 @@ sub _editGroupDialog {
         
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
-        my $cancelButton = $factory->createPushButton($align, N("Cancel"));
-        my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+        my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
+        my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
         
         my %groupData        = $self->_getGroupInfo();
         # groupData here should be tested because it could be undef
@@ -2296,7 +2343,7 @@ sub _editGroupDialog {
 
     }
     else {
-        AdminPanel::Shared::warningMsgBox(N("Cannot create tab widgets"));
+        AdminPanel::Shared::warningMsgBox($self->loc->N("Cannot create tab widgets"));
     }
 
     destroy $dlg;
@@ -2311,7 +2358,7 @@ sub _editUserOrGroup {
 
     # TODO item management avoid label if possible
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label eq N("Users") ) {
+    if ($label eq $self->loc->N("Users") ) {
         $self->_editUserDialog(); 
     }
     else {
@@ -2326,7 +2373,7 @@ sub _deleteUserOrGroup {
 
     # TODO item management avoid label if possible
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label eq N("Users") ) {
+    if ($label eq $self->loc->N("Users") ) {
         $self->_deleteUserDialog();
         $self->_refresh();
     }
@@ -2342,7 +2389,7 @@ sub _refresh {
 
     # TODO item management avoid label if possible
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label eq N("Users") ) {
+    if ($label eq $self->loc->N("Users") ) {
         $self->_refreshUsers(); 
     }
     else {
@@ -2377,11 +2424,11 @@ sub _refreshActions {
             inst      => undef,
     );
     $self->set_action_menu(
-            add_user  => new yui::YMenuItem(N("Add User")), 
-            add_group => new yui::YMenuItem(N("Add Group")),
-            edit      => new yui::YMenuItem(N("&Edit")),
-            del       => new yui::YMenuItem(N("&Delete")),
-            inst      => new yui::YMenuItem(N("Install guest account")),
+            add_user  => new yui::YMenuItem($self->loc->N("Add User")), 
+            add_group => new yui::YMenuItem($self->loc->N("Add Group")),
+            edit      => new yui::YMenuItem($self->loc->N("&Edit")),
+            del       => new yui::YMenuItem($self->loc->N("&Delete")),
+            inst      => new yui::YMenuItem($self->loc->N("Install guest account")),
     );
 
     my $itemColl = new yui::YItemCollection;
@@ -2440,23 +2487,23 @@ sub _manageUsersDialog {
     my $headRight = $factory->createHBox($head_align_right);
 
     my %fileMenu = (
-            widget  => $factory->createMenuButton($headbar,N("File")),
-            refresh => new yui::YMenuItem(N("Refresh")), 
-            quit    => new yui::YMenuItem(N("&Quit")),
+            widget  => $factory->createMenuButton($headbar,$self->loc->N("File")),
+            refresh => new yui::YMenuItem($self->loc->N("Refresh")), 
+            quit    => new yui::YMenuItem($self->loc->N("&Quit")),
     );
 
     $fileMenu{ widget }->addItem($fileMenu{ refresh });
     $fileMenu{ widget }->addItem($fileMenu{ quit });
     $fileMenu{ widget }->rebuildMenuTree();
    
-    my $actionMenu = $factory->createMenuButton($headbar, N("Actions"));
+    my $actionMenu = $factory->createMenuButton($headbar, $self->loc->N("Actions"));
     $actionMenu->DISOWN();
     
     my %helpMenu = (
-            widget     => $factory->createMenuButton($headRight, N("&Help")),
-            help       => new yui::YMenuItem(N("Help")), 
-            report_bug => new yui::YMenuItem(N("Report Bug")),
-            about      => new yui::YMenuItem(N("&About")),
+            widget     => $factory->createMenuButton($headRight, $self->loc->N("&Help")),
+            help       => new yui::YMenuItem($self->loc->N("Help")), 
+            report_bug => new yui::YMenuItem($self->loc->N("Report Bug")),
+            about      => new yui::YMenuItem($self->loc->N("&About")),
     );
 
     while ( my ($key, $value) = each(%helpMenu) ) {
@@ -2469,11 +2516,11 @@ sub _manageUsersDialog {
     my $hbox    = $factory->createHBox($layout);
     $hbox       = $factory->createHBox($factory->createLeft($hbox));
     $self->set_widget(
-        add_user    => $factory->createIconButton($hbox, $pixdir . 'user_add.png', N("Add User")),
-        add_group   => $factory->createIconButton($hbox, $pixdir . 'group_add.png', N("Add Group")),
-        edit        => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', N("Edit")),
-        del         => $factory->createIconButton($hbox, $pixdir . 'user_del.png', N("Delete")),
-        refresh     => $factory->createIconButton($hbox, $pixdir . 'refresh.png', N("Refresh")),
+        add_user    => $factory->createIconButton($hbox, $pixdir . 'user_add.png', $self->loc->N("Add User")),
+        add_group   => $factory->createIconButton($hbox, $pixdir . 'group_add.png', $self->loc->N("Add Group")),
+        edit        => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', $self->loc->N("Edit")),
+        del         => $factory->createIconButton($hbox, $pixdir . 'user_del.png', $self->loc->N("Delete")),
+        refresh     => $factory->createIconButton($hbox, $pixdir . 'refresh.png', $self->loc->N("Refresh")),
         action_menu => $actionMenu,
     );
     
@@ -2486,14 +2533,14 @@ sub _manageUsersDialog {
         my $prefs  = Config::Auto::parse($self->config_file);
         $sysfilter = ($prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq '1');
     }
-    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, N("Filter system users"), 
+    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, $self->loc->N("Filter system users"), 
                                                                 $sysfilter));
                               $factory->createHSpacing($hbox, 3);
     $head_align_right       = $factory->createRight($hbox);
     $headRight              = $factory->createHBox($head_align_right);
-                              $factory->createLabel($headRight, N("Search:"));
+                              $factory->createLabel($headRight, $self->loc->N("Search:"));
     $self->set_widget(filter         => $factory->createInputField($headRight, "", 0));
-    $self->set_widget(apply_filter  => $factory->createPushButton($headRight, N("Apply filter")));
+    $self->set_widget(apply_filter  => $factory->createPushButton($headRight, $self->loc->N("Apply filter")));
     $self->get_widget('filter')->setWeight($yui::YD_HORIZ, 2);
     $self->get_widget('apply_filter')->setWeight($yui::YD_HORIZ, 1);
     $self->get_widget('filter_system')->setNotify(1);
@@ -2503,11 +2550,11 @@ sub _manageUsersDialog {
         $hbox = $factory->createHBox($layout);
         my $align = $factory->createHCenter($hbox);
         $self->set_widget(tabs => $optional->createDumbTab($align));
-        $tabs{users} = new yui::YItem(N("Users"));
+        $tabs{users} = new yui::YItem($self->loc->N("Users"));
         $tabs{users}->setSelected();
         $self->get_widget('tabs')->addItem( $tabs{users} );
         $tabs{users}->DISOWN();
-        $tabs{groups} = new yui::YItem(N("Groups"));
+        $tabs{groups} = new yui::YItem($self->loc->N("Groups"));
         $self->get_widget('tabs')->addItem( $tabs{groups} );
         $tabs{groups}->DISOWN();
         my $vbox        = $factory->createVBox($self->get_widget('tabs'));
@@ -2538,17 +2585,17 @@ sub _manageUsersDialog {
             }
             elsif ($menuLabel eq $helpMenu{about}->label())  {
                 my $license = translate($AdminPanel::Shared::License);
-                AboutDialog({ name => N("AdminUser"),
+                AboutDialog({ name => $self->loc->N("AdminUser"),
                     version => $self->VERSION,
-                    copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
+                    copyright => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
                     license => $license, 
-                    comments => N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
+                    comments => $self->loc->N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
                     website => 'http://www.mageia.org',
-                    website_label => N("Mageia"),
+                    website_label => $self->loc->N("Mageia"),
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
                     translator_credits =>
                         #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-                        N("_: Translator(s) name(s) & email(s)\n")}
+                        $self->loc->N("_: Translator(s) name(s) & email(s)\n")}
                 );
             }
             elsif ($menuLabel eq $self->get_action_menu('add_user')->label())  {
