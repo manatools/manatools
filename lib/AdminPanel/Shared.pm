@@ -97,6 +97,7 @@ our @EXPORT = qw(
                 AboutDialog
                 trim 
                 member
+                md5sum
 );
 
 
