@@ -68,12 +68,7 @@ our $VERSION = '1.0.0';
 
 
 use strict;
-# TODO evaluate if Moose is too heavy and use Moo 
-# instead
 use POSIX qw(ceil);
-# use Time::localtime;
-
-
 use Config::Auto;
 use File::ShareDir ':ALL';
 
@@ -81,7 +76,6 @@ use File::ShareDir ':ALL';
 use USER;
 use utf8;
 use Sys::Syslog;
-
 use Glib;
 use yui;
 use AdminPanel::Shared;
@@ -1014,6 +1008,7 @@ sub addUserDialog {
                     Sys::Syslog::syslog('info|local1', $self->loc->N("Adding user: %s", $username));
                     my $loginshell = $userData{ login_shell }->value();
                     my $fullname   = $userData{ full_name }->value();
+                    utf8::decode($fullname);
                     $userEnt->Gecos($fullname);  $userEnt->LoginShell($loginshell);
                     $userEnt->Gid($gid);
                     $userEnt->ShadowMin(-1); $userEnt->ShadowMax(99999);
@@ -1209,8 +1204,8 @@ sub _refreshUsers {
         $groupnm = '';
         $expr = $self->_computeLockExpire($l);
         $group and $groupnm = $group->GroupName($self->USER_GetValue); 
-        my $s = $l->Gecos($self->USER_GetValue);
-        c::set_tagged_utf8($s);
+        my $fulln = $l->Gecos($self->USER_GetValue);
+        utf8::decode($fulln);
         my $username = $l->UserName($self->USER_GetValue);
         my $Uid      = $l->Uid($self->USER_GetValue);
         my $shell    = $l->LoginShell($self->USER_GetValue);
@@ -1218,7 +1213,7 @@ sub _refreshUsers {
         my $item = new yui::YTableItem ("$username",
                                         "$Uid",
                                         "$groupnm",
-                                        "$s",
+                                        "$fulln",
                                         "$shell",
                                         "$homedir",
                                         "$expr");
@@ -1362,7 +1357,7 @@ sub _getUserInfo {
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
 
     my $s                = $userEnt->Gecos($self->USER_GetValue);
-    c::set_tagged_utf8($s);
+    utf8::decode($s);
     $userData{full_name} = $s;
     $userData{shell}     = $userEnt->LoginShell($self->USER_GetValue);
     $userData{homedir}   = $userEnt->HomeDir($self->USER_GetValue);
@@ -2584,11 +2579,11 @@ sub _manageUsersDialog {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{about}->label())  {
-                my $license = translate($AdminPanel::Shared::License);
+                my $license = $self->loc->N($AdminPanel::Shared::License);
                 AboutDialog({ name => $self->loc->N("AdminUser"),
                     version => $self->VERSION,
                     copyright => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
-                    license => $license, 
+                    license => "", 
                     comments => $self->loc->N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
                     website => 'http://www.mageia.org',
                     website_label => $self->loc->N("Mageia"),
