@@ -78,7 +78,7 @@ use utf8;
 use Sys::Syslog;
 use Glib;
 use yui;
-use AdminPanel::Shared;
+use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
 
@@ -161,6 +161,18 @@ sub _SharedUsersInitialize {
     my $self = shift();
 
     $self->sh_users(AdminPanel::Shared::Users->new() );
+}
+
+has 'sh_gui' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_SharedUGUIInitialize'
+);
+
+sub _SharedUGUIInitialize {
+    my $self = shift();
+
+    $self->sh_gui(AdminPanel::Shared::GUI->new() );
 }
 
 has 'loc' => (
@@ -459,8 +471,8 @@ sub _deleteGroupDialog {
                 GLOOP: foreach my $username (@$members) {
                     my $userEnt = $self->ctx->LookupUserByName($username);
                     if ($userEnt && $userEnt->Gid($self->USER_GetValue) == $groupEnt->Gid($self->USER_GetValue)) {
-                        AdminPanel::Shared::msgBox($self->loc->N("%s is a primary group for user %s\n Remove the user first", 
-                                                     $groupname, $username));
+                        $self->sh_gui->msgBox({text => $self->loc->N("%s is a primary group for user %s\n Remove the user first", 
+                                                     $groupname, $username)});
                         $continue = 0;
                         last GLOOP;
                     }
@@ -566,11 +578,11 @@ sub _deleteUserDialog {
                 }
                 if ($checkhome->isChecked()) { 
                     eval { $self->ctx->CleanHome($userEnt) };
-                    $@ and AdminPanel::Shared::msgBox($@) and last;
+                    $@ and $self->sh_gui->msgBox({text => $@}) and last;
                 }
                 if ($checkspool->isChecked()) {
                     eval { $self->ctx->CleanSpool($userEnt) };
-                    $@ and AdminPanel::Shared::msgBox($@) and last;
+                    $@ and $self->sh_gui->msgBox({text => $@}) and last;
                 }
                 $self->_refresh();
                 last;
@@ -658,15 +670,15 @@ sub _addGroupDialog {
                 if ($continue && $gidManually->value()) {
                     if (($gid = $GID->value()) < 500) {
                         $errorString = "";
-                        my $gidchoice = AdminPanel::Shared::ask_YesOrNo($self->loc->N(" Group Gid is < 500"),
-                                        $self->loc->N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n"));
+                        my $gidchoice = $self->sh_gui->ask_YesOrNo({ title => $self->loc->N(" Group Gid is < 500"),
+                                        text => $self->loc->N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n")});
                         $continue = $gidchoice and $groupEnt->Gid($gid);
                     } else { 
                         my $g = $self->ctx->LookupGroupById($gid);
                         if ($g) {
                             $errorString = "";
-                            my $gidchoice = AdminPanel::Shared::ask_YesOrNo($self->loc->N(" Group ID is already used "),
-                                        $self->loc->N("Creating a group with a non unique GID?\n\n"));
+                            my $gidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N(" Group ID is already used "),
+                                        text => $self->loc->N("Creating a group with a non unique GID?\n\n")});
                             $continue = $gidchoice and $groupEnt->Gid($gid);
                         }
                         else {
@@ -678,7 +690,7 @@ sub _addGroupDialog {
 
                 if (!$continue) {
                     #--- raise error
-                    AdminPanel::Shared::msgBox($errorString) if ($errorString);
+                    $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
                 }
                 else {
                     Sys::Syslog::syslog('info|local1', $self->loc->N("Adding group: %s ", $groupname));
@@ -959,8 +971,8 @@ sub addUserDialog {
                 if ($continue && $uidManually->value()) {
                     if (($uid = $UID->value()) < 500) {
                         $errorString = "";
-                        my $uidchoice = AdminPanel::Shared::ask_YesOrNo($self->loc->N("User Uid is < 500"),
-                                        $self->loc->N("Creating a user with a UID less than 500 is not recommended.\nAre you sure you want to do this?\n\n")); 
+                        my $uidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N("User Uid is < 500"),
+                                        text => $self->loc->N("Creating a user with a UID less than 500 is not recommended.\nAre you sure you want to do this?\n\n")}); 
                         $continue = $uidchoice and $userEnt->Uid($uid);
                     } else { 
                         $userEnt and $userEnt->Uid($uid);
@@ -1000,7 +1012,7 @@ sub addUserDialog {
 
                 if (!$continue) {
                     #---rasie error
-                    AdminPanel::Shared::msgBox($errorString) if ($errorString);
+                    $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
                 }
                 else {
                     ## OK let's create the user
@@ -1897,7 +1909,7 @@ sub _groupEdit_Ok {
     
     my ($continue, $errorString) = $self->sh_users->valid_groupname($groupData{groupname});
     if (!$continue) {
-        AdminPanel::Shared::msgBox($errorString) if ($errorString);
+        $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
         return $continue;
     }
     my $groupEnt = $self->ctx->LookupGroupByName($groupData{start_groupname}); 
@@ -1925,7 +1937,7 @@ sub _groupEdit_Ok {
             else {
                 if ($self->_inArray($user, $m)) {
                     if ($ugid == $gid) {
-                        AdminPanel::Shared::msgBox($self->loc->N("You cannot remove user '%s' from their primary group", $user));
+                        $self->sh_gui->msgBox({text => $self->loc->N("You cannot remove user '%s' from their primary group", $user)});
                         return 0;
                     }
                     else {
@@ -1950,18 +1962,18 @@ sub _userEdit_Ok {
     
     my ($continue, $errorString) = $self->sh_users->valid_username($userData{username});
     if (!$continue) {
-        AdminPanel::Shared::msgBox($errorString) if ($errorString);
+        $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
         return $continue;
     }
 
     if ( $userData{password} ne $userData{password1}) {
-        AdminPanel::Shared::msgBox($self->loc->N("Password Mismatch"));
+        $self->sh_gui->msgBox({text => $self->loc->N("Password Mismatch")});
         return 0;
     }
     my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
     if ($userData{password} ne '') {
         if ($self->sh_users->weakPasswordForSecurityLevel($userData{password})) {
-            AdminPanel::Shared::msgBox($self->loc->N("This password is too simple. \n Good passwords should be > 6 characters"));
+            $self->sh_gui->msgBox({text => $self->loc->N("This password is too simple. \n Good passwords should be > 6 characters")});
             return 0;
         }
         $self->ctx->UserSetPass($userEnt, $userData{password});
@@ -1995,7 +2007,7 @@ sub _userEdit_Ok {
         }
     }
     if ($userData{primary_group} == -1) {
-        AdminPanel::Shared::msgBox($self->loc->N("Please select at least one group for the user"));
+        $self->sh_gui->msgBox({ text => $self->loc->N("Please select at least one group for the user")});
         return 0;
     }
     $userEnt->Gid($userData{primary_group});
@@ -2005,7 +2017,7 @@ sub _userEdit_Ok {
         my $mo = $userData{acc_expm};
         my $dy = $userData{acc_expd};
         if (!_ValidInt($yr, $dy, $mo)) {
-            AdminPanel::Shared::msgBox($self->loc->N("Please specify Year, Month and Day \n for Account Expiration "));
+            $self->sh_gui->msgBox({text => $self->loc->N("Please specify Year, Month and Day \n for Account Expiration ")});
             return 0;
         }
         my $Exp = _ConvTime($dy, $mo, $yr);
@@ -2027,7 +2039,7 @@ sub _userEdit_Ok {
             $userEnt->ShadowInact($inactive);
         }
         else {
-            AdminPanel::Shared::msgBox($self->loc->N("Please fill up all fields in password aging\n"));
+            $self->sh_gui->msgBox({text => $self->loc->N("Please fill up all fields in password aging\n")});
             return 0;
         }
     }
@@ -2235,7 +2247,7 @@ sub _editUserDialog {
 
     }
     else {
-        AdminPanel::Shared::warningMsgBox($self->loc->N("Cannot create tab widgets"));
+        $self->sh_gui->warningMsgBox({text => $self->loc->N("Cannot create tab widgets")});
     }
 
     destroy $dlg;
@@ -2338,7 +2350,7 @@ sub _editGroupDialog {
 
     }
     else {
-        AdminPanel::Shared::warningMsgBox($self->loc->N("Cannot create tab widgets"));
+        $self->sh_gui->warningMsgBox({text => $self->loc->N("Cannot create tab widgets")});
     }
 
     destroy $dlg;
@@ -2579,18 +2591,25 @@ sub _manageUsersDialog {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{about}->label())  {
-                my $license = $self->loc->N($AdminPanel::Shared::License);
-                AboutDialog({ name => $self->loc->N("AdminUser"),
-                    version => $self->VERSION,
-                    copyright => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
-                    license => "", 
-                    comments => $self->loc->N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
-                    website => 'http://www.mageia.org',
-                    website_label => $self->loc->N("Mageia"),
-                    authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                    translator_credits =>
-                        #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-                        $self->loc->N("_: Translator(s) name(s) & email(s)\n")}
+                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
+                $translators =~ s/\</\&lt\;/g;
+                $translators =~ s/\>/\&gt\;/g;
+                $self->sh_gui->AboutDialog({ name => $self->loc->N("AdminUser"),
+                                             version => $self->VERSION,
+                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                            license => $self->loc->N("GPLv2"),
+                            description => $self->loc->N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
+                             authors => $self->loc->N("<h3>Developers</h3>
+                                                       <ul><li>%s</li>
+                                                           <li>%s</li>
+                                                       </ul>
+                                                       <h3>Translators</h3>
+                                                       <ul><li>%s</li></ul>",
+                                                      "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                                      "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                                      $translators
+                                                     ),
+                            }
                 );
             }
             elsif ($menuLabel eq $self->get_action_menu('add_user')->label())  {
