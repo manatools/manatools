@@ -33,6 +33,7 @@ lib/AdminPanel/Rpmdragora/rpmnew.pm
 lib/AdminPanel/Rpmdragora/widgets.pm
 lib/AdminPanel/SettingsReader.pm
 lib/AdminPanel/Shared.pm
+lib/AdminPanel/Shared/GUI.pm
 lib/AdminPanel/Shared/Hosts.pm
 lib/AdminPanel/Shared/JournalCtl.pm
 lib/AdminPanel/Shared/Locales.pm
@@ -117,6 +118,8 @@ share/images/Warning_Shield_Grey32x32.png
 t/00-load.t
 t/01-Locales.t
 t/02-JournalCtl.t
+t/02-Users.t
+t/03-Shared_GUI.t
 t/boilerplate.t
 t/manifest.t
 t/pod-coverage.t
