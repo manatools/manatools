@@ -378,6 +378,7 @@ sub _loadSettings {
     my ($self, $force_load) = @_;
     # configuration file name
     my $fileName = "$self->{confDir}/settings.conf";
+    die "Configuration file missing" if (! -e $fileName); 
     if (!$self->{settings} || $force_load) {
         $self->{settings} = new AdminPanel::SettingsReader($fileName);
     }
