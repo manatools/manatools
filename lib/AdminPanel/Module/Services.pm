@@ -56,29 +56,24 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 =cut
 
 
+use Moose;
 use strict;
 
 # TODO same translation atm
 use lib qw(/usr/lib/libDrakX);
-use common qw(N
-              N_
-              cat_ 
-              formatAlaTeX 
-              translate 
-              find);
-use run_program;
-
-use Moose;
+use MDK::Common::String qw(formatAlaTeX);
 
 use yui;
-use AdminPanel::Shared;
+use AdminPanel::Shared qw(member);
+use AdminPanel::Shared::GUI;
+use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Services qw(
                                     description
                                     services
                                     xinetd_services
                                     is_service_running
                                     restart_or_start
-                                    stop
+                                    stopService
                                     set_service
                                     );
 
@@ -88,10 +83,6 @@ extends qw( AdminPanel::Module );
 
 has '+icon' => (
     default => "/usr/share/mcc/themes/default/service-mdk.png",
-);
-
-has '+name' => (
-    default => N("AdminService"), 
 );
 
 has '_services' => (
@@ -155,6 +146,32 @@ has 'running_services' => (
     },
 );
 
+has 'sh_gui' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_SharedUGUIInitialize'
+);
+
+sub _SharedUGUIInitialize {
+    my $self = shift();
+
+    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+}
+
+has 'loc' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_localeInitialize'
+);
+
+sub _localeInitialize {
+    my $self = shift();
+
+    # TODO fix domain binding for translation
+    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
+    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+}
+
 =head1 VERSION
 
 Version 1.0.0
@@ -185,7 +202,11 @@ our $VERSION = '1.0.0';
 #=============================================================
 sub BUILD {
     my $self = shift;
-
+ 
+    if (! $self->name) {
+        $self->name ($self->loc->N("adminService"));
+    }
+    
     $self->loadServices();
 }
 
@@ -251,7 +272,7 @@ sub _refreshRunningServices {
     foreach ($self->all_services) {
 
         my $serviceName = $_;
-        push @running, $serviceName if is_service_running($serviceName);
+        push @running, $serviceName if AdminPanel::Shared::Services::is_service_running($serviceName);
     }
     $self->running_services(\@running);
 }
@@ -266,7 +287,7 @@ sub _serviceInfo {
 
     yui::YUI::ui()->blockEvents();
     ## infoPanel
-    $infoPanel->setValue(formatAlaTeX(description($service)));
+    $infoPanel->setValue(MDK::Common::String::formatAlaTeX(AdminPanel::Shared::Services::description($service)));
     yui::YUI::ui()->unblockEvents();
 }
 
@@ -276,11 +297,11 @@ sub _serviceStatusString {
     
     my $started;
 
-    if (member($serviceName, $self->all_xinetd_services)) {
-        $started = N("Start when requested");
+    if (AdminPanel::Shared::member($serviceName, $self->all_xinetd_services)) {
+        $started = $self->loc->N("Start when requested");
     }
     else {
-        $started = (is_service_running($serviceName)? N("running") : N("stopped"));
+        $started = (AdminPanel::Shared::Services::is_service_running($serviceName)? $self->loc->N("running") : $self->loc->N("stopped"));
     }
     
     return $started;
@@ -323,7 +344,7 @@ sub _fillServiceTable {
         my $cell   = new yui::YTableCell($started);
         $item->addCell($cell);
         
-        $item->check(member($serviceName, $self->all_on_services));
+        $item->check(AdminPanel::Shared::member($serviceName, $self->all_on_services));
         $item->setLabel($serviceName);
         $itemCollection->push($item);
         $item->DISOWN();
@@ -349,15 +370,15 @@ sub _servicePanel {
     
     my $dialog  = $factory->createMainDialog;
     my $vbox    = $factory->createVBox( $dialog );
-    my $frame   = $factory->createFrame ($vbox, N("Services"));
+    my $frame   = $factory->createFrame ($vbox, $self->loc->N("Services"));
 
     my $frmVbox = $factory->createVBox( $frame );
     my $hbox = $factory->createHBox( $frmVbox );
 
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Service"), $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Status"),  $yui::YAlignCenter);
-    $yTableHeader->addColumn(N("On boot"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Service"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($self->loc->N("Status"),  $yui::YAlignCenter);
+    $yTableHeader->addColumn($self->loc->N("On boot"), $yui::YAlignBegin);
 
     ## service list (serviceBox)
     my $serviceTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnLastColumn);
@@ -368,7 +389,7 @@ sub _servicePanel {
     $serviceTbl->setWeight(0, 50);
 
     ## info panel (infoPanel)
-    $frame   = $factory->createFrame ($hbox, N("Information"));
+    $frame   = $factory->createFrame ($hbox, $self->loc->N("Information"));
     $frame->setWeight(0, 30);
     $frmVbox = $factory->createVBox( $frame );
     my $infoPanel = $factory->createRichText($frmVbox, "--------------"); #, 0, 0);
@@ -376,10 +397,10 @@ sub _servicePanel {
 
     ### Service Start button ($startButton)
     $hbox = $factory->createHBox( $frmVbox );
-    my $startButton = $factory->createPushButton($hbox, N("Start"));
+    my $startButton = $factory->createPushButton($hbox, $self->loc->N("Start"));
     
     ### Service Stop button ($stopButton)
-    my $stopButton  = $factory->createPushButton($hbox, N("Stop"));
+    my $stopButton  = $factory->createPushButton($hbox, $self->loc->N("Stop"));
 
     # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
@@ -387,19 +408,19 @@ sub _servicePanel {
     $hbox = $factory->createHBox( $vbox );
     my $align = $factory->createLeft($hbox);
     $hbox     = $factory->createHBox($align);
-    my $aboutButton = $factory->createPushButton($hbox, N("About") );
+    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
     
     ### Service Refresh button ($refreshButton)
-    my $refreshButton  = $factory->createPushButton($hbox, N("Refresh"));
-    my $closeButton = $factory->createPushButton($hbox, N("Close") );
+    my $refreshButton  = $factory->createPushButton($hbox, $self->loc->N("Refresh"));
+    my $closeButton = $factory->createPushButton($hbox, $self->loc->N("Close") );
 
     #first item status
     my $item = $serviceTbl->selectedItem();
     if ($item) {
         $self->_serviceInfo($item->label(), $infoPanel);
-        if (member($item->label(), $self->all_xinetd_services)) {
+        if (AdminPanel::Shared::member($item->label(), $self->all_xinetd_services)) {
             $stopButton->setDisabled();
             $startButton->setDisabled();
         }
@@ -426,19 +447,26 @@ sub _servicePanel {
                 last;
             }
             elsif ($widget == $aboutButton) {
-                my $license = translate($AdminPanel::Shared::License);
-                # TODO fix version value
-                AboutDialog({ name => N("AdminService"),
-                    version => $self->VERSION, 
-                    copyright => N("Copyright (C) %s Mageia community", '2013-2014'),
-                    license => $license, 
-                    comments => N("Service Manager is the Mageia service and daemon management tool \n(from the original idea of Mandriva draxservice)."),
-                    website => 'http://www.mageia.org',
-                    website_label => N("Mageia"),
-                    authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                    translator_credits =>
-                        #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-                        N("_: Translator(s) name(s) & email(s)\n")}
+                 my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
+                $translators =~ s/\</\&lt\;/g;
+                $translators =~ s/\>/\&gt\;/g;
+                $self->sh_gui->AboutDialog({ name => $self->name,
+                                             version => $self->VERSION,
+                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                         license => $self->loc->N("GPLv2"),
+                         description => $self->loc->N("adminService is the Mageia service and daemon management tool\n
+                                                       (from the original idea of Mandriva draxservice)."),
+                         authors => $self->loc->N("<h3>Developers</h3>
+                                                    <ul><li>%s</li>
+                                                           <li>%s</li>
+                                                       </ul>
+                                                       <h3>Translators</h3>
+                                                       <ul><li>%s</li></ul>",
+                                                      "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                                      "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                                      $translators
+                                                     ),
+                            }
                 );
             }
             elsif ($widget == $serviceTbl) {
@@ -447,7 +475,7 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     $self->_serviceInfo($item->label(), $infoPanel);
-                    if (member($item->label(), $self->all_xinetd_services)) {
+                    if (AdminPanel::Shared::member($item->label(), $self->all_xinetd_services)) {
                         $stopButton->setDisabled();
                         $startButton->setDisabled();
                     }
@@ -472,7 +500,7 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     yui::YUI::app()->busyCursor();
-                    restart_or_start($item->label());
+                    AdminPanel::Shared::Services::restart_or_start($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     $self->_refreshRunningServices();
                     $self->_serviceStatus($serviceTbl, $item);
@@ -483,7 +511,7 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     yui::YUI::app()->busyCursor();
-                    stop($item->label());
+                    AdminPanel::Shared::Services::stopService($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     $self->_refreshRunningServices();
                     $self->_serviceStatus($serviceTbl, $item);
