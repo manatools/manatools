@@ -447,7 +447,7 @@ sub _servicePanel {
                 last;
             }
             elsif ($widget == $aboutButton) {
-                 my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
+                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({ name => $self->name,

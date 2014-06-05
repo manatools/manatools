@@ -28,7 +28,8 @@ use utf8;
 
 use Glib;
 use yui;
-use AdminPanel::Shared;
+use AdminPanel::Shared qw(trim);
+use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Hosts;
 
 extends qw( AdminPanel::Module );
@@ -64,6 +65,18 @@ has 'cfgHosts' => (
     is => 'rw',
     init_arg => undef
 );
+
+has 'sh_gui' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_SharedUGUIInitialize'
+);
+
+sub _SharedUGUIInitialize {
+    my $self = shift();
+
+    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+}
 
 #=============================================================
 
@@ -177,7 +190,7 @@ sub _manipulateHostDialog {
                 my $res = undef;
                 my @hosts_toadd;
                 push @hosts_toadd, $textHostName->value();
-                if(trim($textHostAlias->value()) ne ""){
+                if(AdminPanel::Shared::trim($textHostAlias->value()) ne ""){
                     push @hosts_toadd, $textHostAlias->value();
                 }
                 print "@hosts_toadd\n";
@@ -334,7 +347,7 @@ sub _manageHostsDialog {
             }
             elsif ($widget == $remButton) {
                 # implement deletion dialog
-                if(AdminPanel::Shared::ask_YesOrNo("Confirmation","Are you sure to drop this host?") == 1){
+                if($self->sh_gui->ask_YesOrNo({title => "Confirmation", text => "Are you sure to drop this host?"}) == 1){
                     my $tblItem = yui::toYTableItem($self->table->selectedItem());
                     # drop the host using the ip
                     $self->cfgHosts->_dropHost($tblItem->cell(0)->label());
@@ -343,15 +356,13 @@ sub _manageHostsDialog {
                     $self->setupTable();
                 }
             }elsif ($widget == $aboutButton) {
-                AdminPanel::Shared::AboutDialog({
+                $self->sh_gui->AboutDialog({
                     name => $appTitle,
                     version => $VERSION,
-                    copyright => "Copyright (c) 2013-2014 by Matteo Pasotti",
-                    license => $AdminPanel::Shared::License,
-                    comments => "Graphical manager for hosts definitions",
-                    website => "http://gitweb.mageia.org/software/adminpanel",
-                    website_label => "Mageia",
-                    authors => "Matteo Pasotti <matteo.pasotti\@gmail.com>"
+                    credits => "Copyright (c) 2013-2014 by Matteo Pasotti",
+                    license => "GPLv2",
+                    description => "Graphical manager for hosts definitions",
+                    authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
                     }
                 );
             }elsif ($widget == $okButton) {
