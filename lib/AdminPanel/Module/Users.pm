@@ -300,8 +300,6 @@ sub BUILD {
         group_data    => $self->loc->N("Group Data"),
         group_users   => $self->loc->N("Group Users"),
     );
- 
-
 }
 
 
