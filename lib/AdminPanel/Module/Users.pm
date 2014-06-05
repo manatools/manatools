@@ -287,7 +287,7 @@ sub BUILD {
     my $self = shift;
 
     if (! $self->name) {
-        $self->name ($self->loc->N("Log viewer"));
+        $self->name ($self->loc->N("adminUser"));
     }
 
     %userEditLabel = (
