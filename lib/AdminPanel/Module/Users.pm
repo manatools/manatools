@@ -132,11 +132,21 @@ has 'USER_GetValue' => (
 
 ## Used by USER (for getting values? TODO need explanations, where?)
 has 'ctx' => (
-    default   => sub {USER::ADMIN->new},
     is        => 'ro',
     init_arg  => undef,
+    builder => '_USERInitialize',
 );
 
+sub _USERInitialize {
+    my $self = shift;
+
+    # $EUID:  effective user identifier
+    if ($> == 0) {
+        return USER::ADMIN->new;
+    }
+
+    return undef;
+}
 
 has 'edit_tab_widgets' => ( 
     traits    => ['Hash'],
@@ -275,11 +285,10 @@ my %groupEditLabel;
 #=============================================================
 sub BUILD {
     my $self = shift;
-    
+
     if (! $self->name) {
         $self->name ($self->loc->N("Log viewer"));
     }
-    
 
     %userEditLabel = (
         user_data     => $self->loc->N("User Data"),
@@ -841,6 +850,14 @@ sub _buildUserData {
 sub addUserDialog {
     my $self = shift;
     my $standalone = shift;
+
+    if ($> != 0) {
+        $self->sh_gui->warningMsgBox({
+            title => $self->name, 
+            text  => $self->loc->N("root privileges required"),
+        });
+        return;
+    }
 
     my $dontcreatehomedir = 0; 
     my $is_system = 0;
@@ -2468,6 +2485,14 @@ sub _refreshActions {
 
 sub _manageUsersDialog {
     my $self = shift;
+
+    if ($> != 0) {
+        $self->sh_gui->warningMsgBox({
+            title => $self->name, 
+            text  => $self->loc->N("root privileges required"),
+        });
+        return;
+    }
 
     ## TODO fix for adminpanel
     my $pixdir = '/usr/share/userdrake/pixmaps/';
