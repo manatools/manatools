@@ -28,9 +28,9 @@ use English qw(-no_match_vars);
 our @EXPORT = qw(require_root_capability
          ask_for_authentication);
 
-my $wrappers = { "sudo" => "sudo",
-                 "pkit" => "pkexec",
-                 "chlp" => "consolehelper"
+my $wrappers = { "sudo" => "/usr/bin/sudo",
+                 "pkit" => "/usr/bin/pkexec",
+                 "chlp" => "/usr/bin/consolehelper"
                };
 
 my $wrapper = 0;
