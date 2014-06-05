@@ -8,8 +8,8 @@ AdminPanel::Module::LogViewer - Log viewer
 
 =head1 SYNOPSIS
 
-   my $logViewer = AdminPanel::Module::LogViewer->new();
-   $logViewer->start();
+my $logViewer = AdminPanel::Module::LogViewer->new();
+$logViewer->start();
 
 =head1 DESCRIPTION
 
@@ -48,10 +48,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 =cut
 
+use Moose;
+
+use diagnostics;
 use strict;
 use open OUT => ':utf8';
 
-use AdminPanel::Shared;
+use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Services qw (services);
 use AdminPanel::Shared::JournalCtl;
@@ -61,7 +64,6 @@ use POSIX qw/strftime floor/;
 use Date::Simple ();
 use File::HomeDir qw(home);
 
-use Moose;
 use yui;
 
 extends qw( AdminPanel::Module );
@@ -70,10 +72,6 @@ extends qw( AdminPanel::Module );
 has '+icon' => (
     default => "/usr/share/mcc/themes/default/logdrake-mdk.png",
 );
-
-# has '+name' => (
-#     default => undef, 
-# );
 
 has 'loc' => (
         is => 'rw',
@@ -89,6 +87,18 @@ sub _localeInitialize {
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
+has 'sh_gui' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_SharedUGUIInitialize'
+);
+
+sub _SharedUGUIInitialize {
+    my $self = shift();
+
+    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+}
+
 =head1 VERSION
 
 Version 1.0.0
@@ -99,13 +109,13 @@ our $VERSION = '1.0.0';
 
 
 my %prior = ('emerg'   => 0, 
-             'alert'   => 1, 
-             'crit'    => 2, 
-             'err'     => 3, 
-             'warning' => 4, 
-             'notice'  => 5, 
-             'info'    => 6, 
-             'debug'   => 7);
+            'alert'   => 1, 
+            'crit'    => 2, 
+            'err'     => 3, 
+            'warning' => 4, 
+            'notice'  => 5, 
+            'info'    => 6, 
+            'debug'   => 7);
 
 
 #=============================================================
@@ -202,13 +212,13 @@ sub _logViewerPanel {
     my $lastBoot = $factory->createCheckBox($align, $self->loc->N("Last boot"), 1);
     $factory->createVSpacing($vbox, 0.5);
     $lastBoot->setNotify(1);
-       
+    
     my $row1 = $factory->createHBox($vbox);
     $factory->createVSpacing($vbox, 0.5);
     my $row2 = $factory->createHBox($vbox);
     $factory->createVSpacing($vbox, 0.5);
     my $row3 = $factory->createHBox($vbox);
-   
+
     #### since and until 
     my $sinceDate;
     my $sinceTime;
@@ -240,7 +250,7 @@ sub _logViewerPanel {
         $sinceFrame->enable(0);
         $untilFrame->enable(0);
     }
-       
+    
     #### units
     my $spacing = $factory->createHSpacing($row1, 2.0);
     
@@ -272,7 +282,7 @@ sub _logViewerPanel {
     $itemCollection->clear();
     
     my @pr = ('emerg', 'alert', 'crit', 'err', 
-             'warning', 'notice', 'info', 'debug');
+            'warning', 'notice', 'info', 'debug');
     foreach (@pr) {
         my $item = new yui::YItem($_);
         if ( $_ eq 'emerg' ) {
@@ -290,7 +300,7 @@ sub _logViewerPanel {
     $priorityToFrame->setWeight($yui::YD_HORIZ, 1);
     my $priorityTo = $factory->createComboBox  ( $priorityToFrame, "" );
     $itemCollection->clear();
-       
+    
     foreach (@pr) {
         my $item = new yui::YItem($_);
         if ( $_ eq 'debug' ) {
@@ -300,15 +310,15 @@ sub _logViewerPanel {
         $item->DISOWN();
     }
     $priorityTo->addItems($itemCollection);
-  
+
     #### search
     $align = $factory->createRight($row3);
     my $searchButton = $factory->createPushButton($align, $self->loc->N("search"));
-  
+
     #### create log view object
     my $logView = $factory->createLogView($layout, $self->loc->N("Log content"), 10, 0);
 
-    
+
     ### NOTE CheckBoxFrame doesn't honoured his costructor checked value for his children
     $unitsFrame->setValue(0);
     $sinceFrame->setValue(0);
@@ -326,11 +336,11 @@ sub _logViewerPanel {
     my $quitButton = $factory->createPushButton($hbox, $self->loc->N("Quit"));
 
     # End Dialof layout 
-   
+
     while(1) {
         my $event       = $dialog->waitForEvent();
         my $eventType   = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -342,27 +352,33 @@ sub _logViewerPanel {
                 last;
             }
             elsif($widget == $aboutButton) {
-                my $license = $self->loc->N($AdminPanel::Shared::License);
-                
-                AdminPanel::Shared::AboutDialog({ name => $self->name,
-                    version => $self->VERSION, 
-                    copyright => $self->loc->N("Copyright (C) %s Mageia community", '2014'),
-                    license => $license, 
-                    comments => $self->loc->N("Log viewer is a systemd journal viewer."),
-                    website => 'http://www.mageia.org',
-                    website_label => $self->loc->N("Mageia"),
-                    authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                    translator_credits =>
-                        #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-                        $self->loc->N("_: Translator(s) name(s) & email(s)\n")}
+                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
+                $translators =~ s/\</\&lt\;/g;
+                $translators =~ s/\>/\&gt\;/g;
+                $self->sh_gui->AboutDialog({ name    => $self->name,
+                                            version => $self->VERSION,
+                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2014'),
+                            license => $self->loc->N("GPLv2"),
+                            description => $self->loc->N("Log viewer is a systemd journal viewer"),
+                            authors => $self->loc->N("<h3>Developers</h3>
+                                                    <ul><li>%s</li>
+                                                        <li>%s</li>
+                                                    </ul>
+                                                    <h3>Translators</h3>
+                                                    <ul><li>%s</li></ul>",
+                                                    "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                                    "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                                    $translators
+                                                    ),
+                            }
                 );
-            }            
+            }
             elsif($widget == $saveButton) {
                 if ($logView->lines()) {
                     $self->_save($logView);
                 }
                 else {
-                   AdminPanel::Shared::warningMsgBox($self->loc->N("Empty log found"));
+                    $self->sh_gui->warningMsgBox({text => $self->loc->N("Empty log found")});
                 }
             }
             elsif ($widget == $searchButton) {
@@ -374,7 +390,7 @@ sub _logViewerPanel {
                     $log_opts{this_boot} = 1;
                 }
                 if ($unitsFrame->value()) {
-                     $log_opts{unit} = $units->value();
+                    $log_opts{unit} = $units->value();
                 }
                 if ($sinceFrame->value()) {
                     $log_opts{since} = $sinceDate->value() . " " . $sinceTime->value();
@@ -393,10 +409,10 @@ sub _logViewerPanel {
 print " log lines: ". scalar (@{$log}) ."\n";                
 # TODO check on log line number what to do if too big? and adding a progress bar?                
                 $self->_parse_content({'matching'   => $matchingInputField->value(),
-                                       'noMatching' => $notMatchingInputField->value(),
-                                       'log'        => $log,
-                                       'logView'    => $logView,
-                                      }
+                                    'noMatching' => $notMatchingInputField->value(),
+                                    'log'        => $log,
+                                    'logView'    => $logView,
+                                    }
                 );
                 $dialog->recalcLayout();
                 $dialog->doneMultipleChanges();
@@ -429,16 +445,16 @@ print " log lines: ". scalar (@{$log}) ."\n";
             }
             elsif ($widget == $priorityFromFrame) {
                 if ($priorityToFrame->value() && !$priorityFromFrame->value()) {
-                     yui::YUI::ui()->blockEvents();
-                     $priorityToFrame->setValue(0) ;
-                     yui::YUI::ui()->unblockEvents();
+                    yui::YUI::ui()->blockEvents();
+                    $priorityToFrame->setValue(0) ;
+                    yui::YUI::ui()->unblockEvents();
                 }
             }
             elsif ($widget == $priorityToFrame) {
                 if ($priorityToFrame->value() && !$priorityFromFrame->value()) {
-                     yui::YUI::ui()->blockEvents();
-                     $priorityFromFrame->setValue(1) ;
-                     yui::YUI::ui()->unblockEvents();
+                    yui::YUI::ui()->blockEvents();
+                    $priorityFromFrame->setValue(1) ;
+                    yui::YUI::ui()->unblockEvents();
                 }
             }
         
@@ -457,11 +473,11 @@ sub _warn_about_user_mode {
 
     my $title = $self->loc->N("Running in user mode");
     my $msg   = $self->loc->N("You are launching this program as a normal user.\n".
-                              "You will not be able to read system logs which you do not have rights to,\n".
-                              "but you may still browse all the others.");
-    
+                            "You will not be able to read system logs which you do not have rights to,\n".
+                            "but you may still browse all the others.");
+
     # $EUID:  effective user identifier
-    if(($> != 0) and (!ask_OkCancel($title, $msg))) {
+    if(($> != 0) and (!$self->sh_gui->ask_OkCancel({title => $title, text => $msg}))) {
         # TODO add Privileges? 
         return 0;
     }
@@ -477,7 +493,7 @@ sub _warn_about_user_mode {
 ##
 sub _save {
     my ($self, $logView) = @_;
-    
+
     yui::YUI::app()->busyCursor();
 
     my $outFile = yui::YUI::app()->askForSaveFileName(home(), "*", $self->loc->N("Save as.."));
@@ -520,10 +536,10 @@ sub _parse_content {
     my $en = "";
     
     if( exists($info->{'matching'} ) ){
-         $ey = $info->{'matching'};
+        $ey = $info->{'matching'};
     }
     if( exists($info->{'noMatching'} ) ){
-         $en = $info->{'noMatching'};
+        $en = $info->{'noMatching'};
     }
     
     $ey =~ s/ OR /|/ if ($ey);
@@ -548,7 +564,7 @@ sub _parse_content {
     foreach (@{$info->{log}}) {
         $info->{logView}->appendLines($_) if $test->($_);
     }
-  
+
 }
 
 
