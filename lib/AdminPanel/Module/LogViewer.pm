@@ -56,7 +56,7 @@ use open OUT => ':utf8';
 
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Services qw (services);
+use AdminPanel::Shared::Services;# qw (services);
 use AdminPanel::Shared::JournalCtl;
 
 
@@ -80,7 +80,7 @@ has 'loc' => (
 );
 
 sub _localeInitialize {
-    my $self = shift();
+    my $self = shift;
 
     # TODO fix domain binding for translation
     $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
@@ -94,7 +94,7 @@ has 'sh_gui' => (
 );
 
 sub _SharedUGUIInitialize {
-    my $self = shift();
+    my $self = shift;
 
     $self->sh_gui(AdminPanel::Shared::GUI->new() );
 }
