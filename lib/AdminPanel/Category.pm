@@ -120,8 +120,11 @@ sub loadModule {
 #=============================================================
 sub moduleLoaded {
     my $self = shift;
-    my (%params) = @_;
     my ($module_name) = @_;
+    my %params = ();
+    if ($module_name eq '-CLASS') {
+        (%params) = @_;
+    }
 
     my $present = 0;
 
