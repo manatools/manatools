@@ -4,8 +4,11 @@ extras/conf/categories.conf
 extras/conf/categories.conf.d/adminService.conf
 extras/conf/categories.conf.d/adminUser.conf
 extras/conf/settings.conf
-extras/polkit/org.mageia.logviewer.policy
 extras/polkit/org.mageia.adminpanel.policy
+extras/polkit/org.mageia.adminService.policy
+extras/polkit/org.mageia.adminUser.policy
+extras/polkit/org.mageia.hostmanager.policy
+extras/polkit/org.mageia.logviewer.policy
 extras/README
 extras/setup.sh
 ignore.txt
