@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+"-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+"http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+ <vendor>Mageia</vendor>
+ <vendor_url>http://www.mageia.org/</vendor_url>
+
+ <action id="org.mageia.adminUser.pkexec.run">
+    <description>Run Mageia User Manager</description>
+    <description xml:lang="el">Εκτέλεση του Διαχειριστή Χρηστών Mageia</description>
+    <description xml:lang="es">Ejecutar Administrador de Usuarios de Mageia</description>
+    <description xml:lang="et">Mageia kasutajate halduri käivitamine</description>
+    <description xml:lang="fr">Lancer le gestionnaire des utilisateurs de Mageia</description>
+    <description xml:lang="id">Jalankan Pengelola Pengguna Mageia</description>
+    <description xml:lang="it">Configura gli utenti Mageia</description>
+    <description xml:lang="nl">Start Mageia's Gebruikersbeheer</description>
+    <description xml:lang="pl">Uruchom Menadżer Użytkowników Mageia</description>
+    <description xml:lang="ro">Lansează gestionarul de utilizatori Mageia</description>
+    <description xml:lang="ru">Запуск утилиты управления пользователями</description>
+    <description xml:lang="sl">Zagon Mageia orodja za upravljanje z uporabniki</description>
+    <description xml:lang="tr">Mageia Kullanıcı Yöneticisi' ni Çalıştır</description>
+    <description xml:lang="uk">Запуск засобу керування записами користувачів Mageia</description>
+    <description xml:lang="zh_TW">執行 Mageia 使用者管理工具</description>
+    <message>Authentication is required to run Mageia User Manager</message>
+    <message xml:lang="el">Απαιτείται πιστοποίηση για την εκτέλεση του Διαχειριστή Χρηστών Mageia</message>
+    <message xml:lang="es">Se necesita autenticación para ejecutar el Administrador de Usuarios de Mageia</message>
+    <message xml:lang="et">Mageia kasutajate halduri käivitamine nõuab autentimist</message>
+    <message xml:lang="fr">Une authentification est nécessaire pour lancer le gestionnaire des utilisateurs de Mageia</message>
+    <message xml:lang="id">Otentikasi diperlukan untuk menjalankan Pengelola Pengguna Mageia</message>
+    <message xml:lang="it">È richiesta l'autenticazione per configurare gli utenti Mageia</message>
+    <message xml:lang="nl">Authenticatie is nodig om Mageia's Gebruikersbeheer te starten</message>
+    <message xml:lang="pl">Menadżer Użytkowników Mageia - wymagane uwierzytelnianie</message>
+    <message xml:lang="ro">Autentificare necesară pentru lansarea gestionarului de utilizatori Mageia</message>
+    <message xml:lang="ru">Требуется аутентификация для запуска утилиты управления пользователями</message>
+    <message xml:lang="sl">Za zagon Mageia orodja za upravljanje z uporabniki je zahtevano overjanje</message>
+    <message xml:lang="tr">Mageia Kullanıcı Yöneticisi' ni çalıştırmak için kimlik doğrulama gerekli</message>
+    <message xml:lang="uk">Щоб запустити засіб керування обліковими записами користувачів Mageia, слід пройти розпізнавання</message>
+    <message xml:lang="zh_TW">執行 Mageia 使用者管理工具需要認證</message>
+    <icon_name>drakconf</icon_name>
+    <defaults>
+     <allow_any>no</allow_any>
+     <allow_inactive>no</allow_inactive>
+     <allow_active>auth_admin_keep</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/adminUser</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+ </action>
+</policyconfig>
