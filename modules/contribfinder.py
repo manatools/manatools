@@ -3,7 +3,10 @@
 #coding:utf-8
 #############################################################################
 #
-# contribfinder.py  -  Find Mageia Contributors informations
+# contribfinder.py  -  Find Mageia Contributors information
+# A trivial python script that queries the maintainers database 
+# invoking mgarepo. The GUI uses libyui thus contribfinder is able
+# to comfortably behave like a native gtk or qt5 or ncurses application :-)
 #
 # License: GPLv3
 # Author:  Matteo Pasotti, <matteo.pasotti@gmail.com>
