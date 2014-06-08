@@ -4,9 +4,9 @@
 #############################################################################
 #
 # contribfinder.py  -  Find Mageia Contributors information
-# A trivial python script that queries the maintainers database 
-# invoking mgarepo. The GUI uses libyui thus contribfinder is able
-# to comfortably behave like a native gtk or qt5 or ncurses application :-)
+# A trivial python script that queries the maintainers database.
+# The GUI uses libyui thus contribfinder is able to 
+# comfortably behave like a native gtk or qt5 or ncurses application :-)
 #
 # License: GPLv3
 # Author:  Matteo Pasotti, <matteo.pasotti@gmail.com>
@@ -14,7 +14,7 @@
 
 import sys
 import os
-from subprocess import check_output, STDOUT, call
+import httplib2
 
 ###########
 # imports #
@@ -72,9 +72,14 @@ class mainGui():
             result = output
         return result
 
-    def invokeMgaRepo(self,pkgname):
+    def queryMaintDB(self,pkgname):
         try:
-            retoutput = check_output(['mgarepo','maintdb','get',pkgname],stderr=STDOUT)
+            dlurl = 'http://maintdb.mageia.org/' + pkgname
+            h = httplib2.Http()
+            resp, content = h.request(dlurl, 'GET')
+            if resp.status != 200:
+                raise Exception('Package cannot be found in maintdb')
+            retoutput = content.rstrip('\n')
         except:
             retoutput = "No contributors found"
         return retoutput
@@ -99,7 +104,7 @@ class mainGui():
                 #self.dialog.startMultipleChanges()
                 #self.rtinformations.setValue("Loading...")
                 #self.dialog.doneMultipleChanges()
-                self.contributor = self.stripErrMessages(self.invokeMgaRepo(self.txtpkgname.value()))
+                self.contributor = self.stripErrMessages(self.queryMaintDB(self.txtpkgname.value()))
                 if(cmp(self.contributor.strip(),"")!=0):
                   outstr = 'Maintainer:&nbsp;<a href="http://people.mageia.org/u/%s.html">%s</a><br />e-mail:&nbsp;<a href="mailto:%s@mageia.org">%s@mageia.org</a>' % (self.contributor,self.contributor,self.contributor,self.contributor)
                 else:
