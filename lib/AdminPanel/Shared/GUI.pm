@@ -13,7 +13,7 @@ Shared::GUI - Shared graphic routines
 
 =head1 DESCRIPTION
 
-    This module contains a collection of dialogs or widgets that can be used in more 
+    This module contains a collection of dialogs or widgets that can be used in more
     graphics modules.
 
 =head1 EXPORT
@@ -58,6 +58,8 @@ use warnings;
 use diagnostics;
 use yui;
 
+use AdminPanel::Shared qw(pathList2hash);
+
 use AdminPanel::Shared::Locales;
 
 use Moose;
@@ -91,7 +93,7 @@ sub _localeInitialize {
 
 =head3 DESCRIPTION
 
-This function creates an Warning dialog and show the message 
+This function creates an Warning dialog and show the message
 passed as input.
 
 =cut
@@ -99,20 +101,20 @@ passed as input.
 #=============================================================
 sub warningMsgBox {
     my ($self, $info) = @_;
-    
+
     return 0 if ( ! $info );
-    
+
     my $retVal = 0;
     yui::YUI::widgetFactory;
     my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
     $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
-    my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE, 
+    my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE,
                                         $yui::YMGAMessageBox::D_WARNING);
-    
+
     $dlg->setTitle($info->{title}) if (exists $info->{title});
     my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
-    
+
     $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
 #     $dlg->setMinSize(50, 5);
 
@@ -129,14 +131,14 @@ sub warningMsgBox {
 
 =head3 INPUT
 
-   $info: HASH, information to be passed to the dialog.
+$info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
             reachtext =>     1 if using reach text
 
 =head3 DESCRIPTION
 
-This function creates an Info dialog and show the message 
+This function creates an Info dialog and show the message
 passed as input.
 
 =cut
@@ -145,14 +147,14 @@ passed as input.
 
 sub infoMsgBox {
     my ($self, $info) = @_;
-    
+
     return 0 if ( ! $info );
 
     my $retVal = 0;
     yui::YUI::widgetFactory;
     my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
     $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
-    my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE, 
+    my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE,
                                         $yui::YMGAMessageBox::D_INFO);
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
@@ -175,7 +177,7 @@ sub infoMsgBox {
 
 =head3 INPUT
 
-   $info: HASH, information to be passed to the dialog.
+$info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
             reachtext =>     1 if using reach text
@@ -190,7 +192,7 @@ This function creates a dialog and show the message passed as input.
 
 sub msgBox {
     my ($self, $info) = @_;
-    
+
     return 0 if ( ! $info );
 
     my $retVal = 0;
@@ -198,7 +200,7 @@ sub msgBox {
     my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
     $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
     my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE);
-    
+
     $dlg->setTitle($info->{title}) if (exists $info->{title});
     my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
@@ -219,7 +221,7 @@ sub msgBox {
 
 =head3 INPUT
 
-   $info: HASH, information to be passed to the dialog.
+$info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
             reachtext =>     1 if using reach text
@@ -231,7 +233,7 @@ sub msgBox {
 
 =head3 DESCRIPTION
 
-This function create an OK-Cancel dialog with a 'title' and a 
+This function create an OK-Cancel dialog with a 'title' and a
 'text' passed as parameters.
 
 =cut
@@ -240,7 +242,7 @@ This function create an OK-Cancel dialog with a 'title' and a
 
 sub ask_OkCancel {
     my ($self, $info) = @_;
-    
+
     return 0 if ( ! $info );
 
     my $retVal = 0;
@@ -271,7 +273,7 @@ sub ask_OkCancel {
 
 =head3 INPUT
 
-   $info: HASH, information to be passed to the dialog.
+$info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
             reachtext =>     1 if using reach text
@@ -283,7 +285,7 @@ sub ask_OkCancel {
 
 =head3 DESCRIPTION
 
-This function create a Yes-No dialog with a 'title' and a 
+This function create a Yes-No dialog with a 'title' and a
 question 'text' passed as parameters.
 
 =cut
@@ -292,7 +294,7 @@ question 'text' passed as parameters.
 
 sub ask_YesOrNo {
     my ($self, $info) = @_;
-    
+
     return 0 if ( ! $info );
 
     my $retVal = 0;
@@ -318,13 +320,14 @@ sub ask_YesOrNo {
 }
 
 
+
 #=============================================================
 
 =head2 ask_fromList
 
 =head3 INPUT
 
-   $info: HASH, information to be passed to the dialog.
+$info: HASH, information to be passed to the dialog.
             title          =>     dialog title
             header         =>     combobox header
             list           =>     item list
@@ -337,7 +340,7 @@ sub ask_YesOrNo {
 
 =head3 DESCRIPTION
 
-This function create a dialog with a combobox in which to 
+This function create a dialog with a combobox in which to
 choose an item from a given list.
 
 =cut
@@ -378,7 +381,7 @@ sub ask_fromList {
     my $hbox = $factory->createHBox($align);
     my $selectButton = $factory->createPushButton($hbox, $self->loc->N("Select"));
     my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
-    
+
     if (exists $info->{default_button} ) {
         my $dflBtn = ($info->{default_button} == 1) ? $selectButton : $cancelButton;
         $dlg->setDefaultButton($selectButton);
@@ -411,10 +414,9 @@ sub ask_fromList {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
-    
+
     return $choice;
 }
-
 
 #=============================================================
 
@@ -448,11 +450,11 @@ sub AboutDialog {
 
     die "Missing dialog information" if (!$info);
 
-    
+
     yui::YUI::widgetFactory;
     my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
     $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
-    
+
     my $name        = (exists $info->{name}) ? $info->{name} : "";
     my $version     = (exists $info->{version}) ? $info->{version} : "";
     my $license     = (exists $info->{license}) ? $info->{license} : "";
@@ -466,18 +468,213 @@ sub AboutDialog {
     if (exists $info->{dialog_mode}) {
         $dialog_mode = $yui::YMGAAboutDialog::CLASSIC if ($info->{dialog_mode} == 1);
     }
-    
-    my $dlg = $factory->createAboutDialog($name, $version, $license, 
-                                          $authors, $description, $logo,
-                                          $icon, $credits, $information
+
+    my $dlg = $factory->createAboutDialog($name, $version, $license,
+                                        $authors, $description, $logo,
+                                        $icon, $credits, $information
     );
-    
+
     $dlg->show($dialog_mode);
 
     $dlg = undef;
 
     return 1;
 }
+
+#=============================================================
+
+=head2 hashTreeToYItemCollection
+
+=head3 INPUT
+
+    $treeInfo: HASH reference containing
+            parent       ==> YItem parent (if not root object)
+            collection   ==> YItemCollection (mandatory)
+            default_item ==> Selected item (if any)
+            hash_tree    ==> HASH reference containing the path tree representation
+
+=head3 OUTPUT
+
+    $treeItem: YtreeItem to be added to YItemCollection
+
+=head3 DESCRIPTION
+
+Function desctription
+
+=cut
+
+#=============================================================
+
+sub hashTreeToYItemCollection {
+    my ($self, $treeInfo) = @_;
+
+    die "Collection is mandatory" if !($treeInfo->{collection});
+    die "Hash tree is mandatory" if !($treeInfo->{hash_tree});
+
+    my $treeLine = $treeInfo->{parent};
+    my $item;
+    foreach my $key (sort keys %{$treeInfo->{hash_tree}}) {
+        if ($treeInfo->{parent}) {
+            $item = new yui::YTreeItem ($treeLine, $key);
+            $item->DISOWN();
+        }
+        else {
+            if ($treeLine) {
+                if ( $treeLine->label() eq $key) {
+                    $item = $treeLine;
+                }
+                else {
+                    $treeInfo->{collection}->push($treeLine);
+                    $item = $treeLine = new yui::YTreeItem ($key);
+                    $item->DISOWN();
+                }
+            }
+            else {
+                $item = $treeLine = new yui::YTreeItem ($key);
+                $item->DISOWN();
+            }
+        }
+
+        ### select item
+        if ($treeInfo->{default_item} && $treeInfo->{default_item} eq $key) {
+            $item->setSelected(1) ;
+            $item->setOpen(1);
+            my $parent = $item;
+            while($parent = $parent->parent()) {
+                $parent->setOpen(1);
+            }
+        }
+
+        if ($treeInfo->{hash_tree}->{$key} && keys %{$treeInfo->{hash_tree}->{$key}}) {
+            my %tf;
+            $tf{collection} = $treeInfo->{collection};
+            $tf{parent} = $item;
+            $tf{default_item} = $treeInfo->{default_item} if $treeInfo->{default_item};
+            $tf{hash_tree} = $treeInfo->{hash_tree}->{$key};
+            $self->hashTreeToYItemCollection(\%tf);
+        }
+        else {
+            if (! $treeInfo->{parent}) {
+                $treeInfo->{collection}->push($treeLine);
+                $treeLine = undef;
+            }
+        }
+    }
+    if (! $treeInfo->{parent}) {
+        $treeInfo->{collection}->push($treeLine) if $treeLine;
+    }
+}
+
+
+#=============================================================
+
+=head2 ask_fromTreeList
+
+=head3 INPUT
+
+$info: HASH, information to be passed to the dialog.
+            title          =>     dialog title
+            header         =>     TreeView header
+            list           =>     path item list
+            min_size       =>     minimum dialog size in the libYUI meaning
+                                  HASH {width => w, height => h} 
+            default_item   =>     selected item if any
+            default_button =>     (optional) 1: Select (any other values Cancel)
+
+=head3 OUTPUT
+
+    undef:          if Cancel button has been pressed
+    selected item:  if Select button has been pressed
+
+=head3 DESCRIPTION
+
+This function create a dialog with a combobox in which to
+choose an item from a given list.
+
+=cut
+
+#=============================================================
+
+sub ask_fromTreeList {
+    my ($self, $info) = @_;
+
+    die "Missing dialog information" if (!$info);
+    die "Title is mandatory"   if (! exists $info->{title});
+    die "Header is mandatory" if (! exists $info->{header});
+    die "List is mandatory"   if (! exists $info->{list} );
+    my $list = $info->{list};
+    die "At least one element is mandatory into list"   if (scalar(@$list) < 1);
+
+    my $choice  = undef;
+    my $factory = yui::YUI::widgetFactory;
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($info->{title});
+    my $minWidth  = 80;
+    my $minHeight = 25;
+    
+    if (exists $info->{min_size}) {
+        $minWidth  = $info->{min_size}->{width} if $info->{min_size}->{width};
+        $minHeight = $info->{min_size}->{height} if $info->{min_size}->{height};
+    }
+
+    my $dlg     = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $minSize = $factory->createMinSize( $dlg, $minWidth, $minHeight );
+    my $layout  = $factory->createVBox($minSize);
+
+    my $treeWidget = $factory->createTree($layout, $info->{header});
+
+    my $treeInfo;
+    $treeInfo->{collection}   = new yui::YItemCollection;
+    $treeInfo->{default_item} = $info->{default_item} if $info->{default_item};
+    $treeInfo->{hash_tree}    = AdminPanel::Shared::pathList2hash(@{$info->{list}});
+
+    $self->hashTreeToYItemCollection($treeInfo);
+    $treeWidget->addItems($treeInfo->{collection});
+
+    my $align = $factory->createRight($layout);
+    my $hbox = $factory->createHBox($align);
+    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("Select"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+
+    if (exists $info->{default_button} ) {
+        my $dflBtn = ($info->{default_button} == 1) ? $selectButton : $cancelButton;
+        $dlg->setDefaultButton($selectButton);
+    }
+
+    while (1) {
+        my $event = $dlg->waitForEvent();
+
+        my $eventType = $event->eventType();
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $selectButton) {
+                my $item = $treeWidget->selectedItem();
+                $choice = $item->label() if ($item);
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+
+    return $choice;
+}
+
 
 no Moose;
 __PACKAGE__->meta->make_immutable;
