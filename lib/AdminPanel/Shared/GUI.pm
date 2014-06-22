@@ -277,6 +277,7 @@ $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
             reachtext =>     1 if using reach text
+            default_button => (optional) 1: "Yes" (any other values "No")
 
 =head3 OUTPUT
 
@@ -309,7 +310,12 @@ sub ask_YesOrNo {
 
     $dlg->setButtonLabel($self->loc->N("Yes"), $yui::YMGAMessageBox::B_ONE );
     $dlg->setButtonLabel($self->loc->N("No"), $yui::YMGAMessageBox::B_TWO);
-    $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
+    if (exists $info->{default_button} && $info->{default_button} == 1) {
+        $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
+    }
+    else {
+        $dlg->setDefaultButton($yui::YMGAMessageBox::B_TWO);
+    }
     $dlg->setMinSize(50, 5);
 
     $retVal = $dlg->show() == $yui::YMGAMessageBox::B_ONE ? 1 : 0;
@@ -491,6 +497,9 @@ sub AboutDialog {
             parent       ==> YItem parent (if not root object)
             collection   ==> YItemCollection (mandatory)
             default_item ==> Selected item (if any)
+  default_item_separator ==> If default item is a path like string for tree representation
+                             the separator is needed to match the selected item e.g. using all
+                             the path instead of the just item itself
             hash_tree    ==> HASH reference containing the path tree representation
 
 =head3 OUTPUT
@@ -536,12 +545,21 @@ sub hashTreeToYItemCollection {
         }
 
         ### select item
-        if ($treeInfo->{default_item} && $treeInfo->{default_item} eq $key) {
-            $item->setSelected(1) ;
-            $item->setOpen(1);
-            my $parent = $item;
-            while($parent = $parent->parent()) {
-                $parent->setOpen(1);
+        if ($treeInfo->{default_item}) {
+            my $label = $key;
+            if (exists $treeInfo->{default_item_separator}) {
+                my $parent = $item;
+                while($parent = $parent->parent()) {
+                    $label = $parent->label() . $treeInfo->{default_item_separator} . $label ;
+                }
+            }
+            if ($treeInfo->{default_item} eq $label) {
+                $item->setSelected(1) ;
+                $item->setOpen(1);
+                my $parent = $item;
+                while($parent = $parent->parent()) {
+                    $parent->setOpen(1);
+                }
             }
         }
 
@@ -550,6 +568,7 @@ sub hashTreeToYItemCollection {
             $tf{collection} = $treeInfo->{collection};
             $tf{parent} = $item;
             $tf{default_item} = $treeInfo->{default_item} if $treeInfo->{default_item};
+            $tf{default_item_separator} = $treeInfo->{default_item_separator} if $treeInfo->{default_item_separator};
             $tf{hash_tree} = $treeInfo->{hash_tree}->{$key};
             $self->hashTreeToYItemCollection(\%tf);
         }
@@ -579,6 +598,10 @@ $info: HASH, information to be passed to the dialog.
             min_size       =>     minimum dialog size in the libYUI meaning
                                   HASH {width => w, height => h} 
             default_item   =>     selected item if any
+            item_separator =>     item separator default "/"
+            skip_path      =>     if set item is returned without its original path,
+                                  just as a leaf (default use full path)
+            any_item_selection => allow to select any item, not just leaves (default just leaves)
             default_button =>     (optional) 1: Select (any other values Cancel)
 
 =head3 OUTPUT
@@ -629,7 +652,11 @@ sub ask_fromTreeList {
     my $treeInfo;
     $treeInfo->{collection}   = new yui::YItemCollection;
     $treeInfo->{default_item} = $info->{default_item} if $info->{default_item};
-    $treeInfo->{hash_tree}    = AdminPanel::Shared::pathList2hash(@{$info->{list}});
+    $treeInfo->{default_item_separator} = $info->{item_separator} if $info->{item_separator};
+    my $list2Convert;
+    $list2Convert->{paths} = $info->{list};
+    $list2Convert->{separator} = $info->{item_separator} if $info->{item_separator};
+    $treeInfo->{hash_tree}    = AdminPanel::Shared::pathList2hash($list2Convert);
 
     $self->hashTreeToYItemCollection($treeInfo);
     $treeWidget->addItems($treeInfo->{collection});
@@ -661,7 +688,20 @@ sub ask_fromTreeList {
             }
             elsif ($widget == $selectButton) {
                 my $item = $treeWidget->selectedItem();
-                $choice = $item->label() if ($item);
+                if ($info->{skip_path} && $info->{skip_path} != 0) {
+                    $choice = $item->label() if ($item);
+                }
+                else {
+                    my $separator = exists $info->{item_separator} ? $info->{item_separator} : '/';
+                    if ($item) {
+                        $choice = $item->label();
+                        my $parent = $item;
+                        while($parent = $parent->parent()) {
+                            $choice = $parent->label() . $separator . $choice ;
+                        }
+                    }
+                }
+
                 last;
             }
         }
