@@ -18,7 +18,7 @@ BEGIN {
 
     SKIP: {
         #remember to skip the righ number of tests
-        skip "You didn't say yes...", 10, unless ( $a eq "y" );
+        skip "You didn't say yes...", 11, unless ( $a eq "y" );
 
         ok( $gui->warningMsgBox({text => "Warning message! (no title, no richtext)<br> line two"}), 'wmb1');
 
@@ -35,25 +35,34 @@ BEGIN {
 
         cmp_ok($btn = $gui->ask_YesOrNo({title => "Question on tests", text => "Did these tests all pass?"}), ">=", 0, 'ask_YesOrNo');
         diag "ask_YesOrNo got: < " . ($btn == 1 ? "Yes": "No"). " >";
-        
+
         #TODO cancel makes this test failing
-        ok(my $item = $gui->ask_fromList({title => "Choose from list", header => "Which one do you select?", default_button => 1, 
-                                          list  => ['item 1', 'item 2', 'item 3', 'item 4']}), 'ask_fromList');
+        ok(my $item = $gui->ask_fromList({title => "Choose from list", header => "Which one do you select?", default_button => 1,
+                                        list  => ['item 1', 'item 2', 'item 3', 'item 4']}), 'ask_fromList');
         diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
+
+        #TODO cancel makes this test failing
+        ok($item = $gui->ask_fromTreeList({title => "Choose from list", header => "Which one do you select?", default_button => 1,
+                                            default_item => 'leaf 2',
+                                        list  => ['item 1/item 2/item 3', 'item 1/item 2/leaf 1', 'item 1/item 2/leaf 2', 'item 4/leaf 3', 'item 5']}),
+                                        'ask_fromTreeList');
+        diag "ask_fromTreeList got: < " . ($item ? $item : "none") . " >";
+
         ok($gui->AboutDialog({ name => "Shared::GUI TABBED",
-                           version => $AdminPanel::Shared::VERSION,
-                           credits => "Copyright (C) 2014 Angelo Naselli",
-                           license => $AdminPanel::Shared::License, 
-                           authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                        }), 'AboutDialog'); 
+                        version => $AdminPanel::Shared::VERSION,
+                        credits => "Copyright (C) 2014 Angelo Naselli",
+                        license => 'GPLv2',
+                        authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
+                        }), 'AboutDialog');
 
         ok($gui->AboutDialog({ name => "Shared::GUI CLASSIC",
-                           version => $AdminPanel::Shared::VERSION,
-                           credits => "Copyright (C) 2014 Angelo Naselli",
-                           license => $AdminPanel::Shared::License, 
-                           authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                           dialog_mode => 1,
-                        }), 'ClassicAboutDialog');    
+                        version => $AdminPanel::Shared::VERSION,
+                        credits => "Copyright (C) 2014 Angelo Naselli",
+                        license => 'GPLv2',
+                        authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
+                        dialog_mode => 1,
+                        }), 'ClassicAboutDialog');
     }
-         
+
+
 done_testing;
