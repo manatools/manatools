@@ -41,9 +41,9 @@ WriteMakefile(
         "Modern::Perl"      => 1.03,
         "autodie"           => 2.20,
     },
-    EXE_FILES => [ qw( scripts/adminMouse  
-                       scripts/adminService  
-                       scripts/adminUser  
+    EXE_FILES => [ qw( scripts/adminClock
+                       scripts/adminService
+                       scripts/adminUser
                        scripts/apanel.pl
                        scripts/hostmanager
                        scripts/logviewer
