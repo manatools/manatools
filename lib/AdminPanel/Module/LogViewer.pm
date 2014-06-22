@@ -154,7 +154,7 @@ sub BUILD {
 =head3 DESCRIPTION
 
     This method extends Module::start and is invoked to
-    start  adminService
+    start the log viewer
 
 =cut
 
