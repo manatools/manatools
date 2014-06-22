@@ -17,6 +17,7 @@ lib/AdminPanel/ConfigReader.pm
 lib/AdminPanel/MainDisplay.pm
 lib/AdminPanel/Module.pm
 lib/AdminPanel/Module/AdminMouse.pm
+lib/AdminPanel/Module/Clock.pm
 lib/AdminPanel/Module/Hosts.pm
 lib/AdminPanel/Module/LogViewer.pm
 lib/AdminPanel/Module/Services.pm
@@ -29,6 +30,7 @@ lib/AdminPanel/Shared/Hosts.pm
 lib/AdminPanel/Shared/JournalCtl.pm
 lib/AdminPanel/Shared/Locales.pm
 lib/AdminPanel/Shared/Services.pm
+lib/AdminPanel/Shared/TimeZone.pm
 lib/AdminPanel/Shared/Users.pm
 Makefile.PL
 MANIFEST			This list of files
@@ -36,7 +38,7 @@ MODULE_HACKING
 modules/contribfinder.py
 modules/test.cpp
 README
-scripts/adminMouse
+scripts/adminClock
 scripts/adminService
 scripts/adminUser
 scripts/apanel.pl
@@ -58,6 +60,7 @@ t/01-Locales.t
 t/02-JournalCtl.t
 t/02-Users.t
 t/03-Shared_GUI.t
+t/04-Shared_TimeZone.t
 t/boilerplate.t
 t/manifest.t
 t/pod-coverage.t
