@@ -194,8 +194,10 @@ sub md5sum {
 
 =head3 INPUT
 
-paths: ARRAY of string containing path like strings
-       (/ is the separator)
+$param : HASH ref containing
+        paths     =>  ARRAY of string containing path like strings
+        separator => item separator inside a single path
+                     (default separator is /)
 
 =head3 OUTPUT
 
@@ -211,11 +213,20 @@ This function return a tree representation of the given array.
 #=============================================================
 
 sub pathList2hash {
+    my ($param) = @_;
+
+    die "array of path is missing" if ! exists $param->{paths};
+    my $separator = '/';
+    $separator = $param->{separator} if $param->{separator};
+    if ($separator eq "/" || $separator eq "|") {
+        $separator = '\\' . $separator;
+    }
+
     my %tree;
-    for (@_)
+    for (@{$param->{paths}})
     {
         my $last = \\%tree;
-        $last = \$$last->{$_} for split /\//;
+        $last = \$$last->{$_} for split /$separator/;
     }
 
     return \%tree;
