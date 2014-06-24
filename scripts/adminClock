@@ -1,0 +1,9 @@
+#!/usr/bin/perl
+
+use AdminPanel::Module::Clock;
+
+my $clockManager = AdminPanel::Module::Clock->new();
+
+$clockManager->start();
+
+1;
