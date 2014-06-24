@@ -687,17 +687,26 @@ sub ask_fromTreeList {
                 last;
             }
             elsif ($widget == $selectButton) {
+        $DB::single = 1;
                 my $item = $treeWidget->selectedItem();
                 if ($info->{skip_path} && $info->{skip_path} != 0) {
                     $choice = $item->label() if ($item);
                 }
                 else {
-                    my $separator = exists $info->{item_separator} ? $info->{item_separator} : '/';
-                    if ($item) {
-                        $choice = $item->label();
-                        my $parent = $item;
-                        while($parent = $parent->parent()) {
-                            $choice = $parent->label() . $separator . $choice ;
+                    my $getChoice = 1;
+                    if (!exists $info->{any_item_selection} || $info->{any_item_selection} != 0) {
+                        if ($item) {
+                            $getChoice = (!$item->hasChildren());
+                        }
+                    }
+                    if ($getChoice) {
+                        my $separator = exists $info->{item_separator} ? $info->{item_separator} : '/';
+                        if ($item) {
+                            $choice = $item->label();
+                            my $parent = $item;
+                            while($parent = $parent->parent()) {
+                                $choice = $parent->label() . $separator . $choice ;
+                            }
                         }
                     }
                 }
