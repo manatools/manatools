@@ -687,7 +687,6 @@ sub ask_fromTreeList {
                 last;
             }
             elsif ($widget == $selectButton) {
-        $DB::single = 1;
                 my $item = $treeWidget->selectedItem();
                 if ($info->{skip_path} && $info->{skip_path} != 0) {
                     $choice = $item->label() if ($item);
