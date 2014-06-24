@@ -286,11 +286,14 @@ sub _adminClockPanel {
                                                                 default_item => $timezone->{ZONE},
                                                                 list  => $timezones});
                     if ($item) {
-                        $timezone->{UTC} = $self->sh_gui->ask_YesOrNo({
-                                                    title     => $self->loc->N("GMT - DrakClock"),
-                                                    text      =>  $self->loc->N("Is your hardware clock set to GMT?"),
-                                            default_button => $timezone->{UTC},
+                        my $utc = lc $timezone->{UTC};
+                        $utc = ($utc eq "false" || $utc eq "0") ? 0 : 1;
+                        $utc = $self->sh_gui->ask_YesOrNo({
+                                                    title  => $self->loc->N("GMT - DrakClock"),
+                                                    text   => $self->loc->N("Is your hardware clock set to GMT?"),
+                                            default_button => $utc,
                                                 });
+                        $timezone->{UTC} = $utc == 1 ? 'true' : 'false';
                         $timezone->{ZONE} = $item;
                         $timeZoneLbl->setValue($timezone->{ZONE});
                     }
