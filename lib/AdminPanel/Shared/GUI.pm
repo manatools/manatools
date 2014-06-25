@@ -696,7 +696,11 @@ sub ask_fromTreeList {
     my $treeInfo;
     $treeInfo->{collection}   = new yui::YItemCollection;
     $treeInfo->{default_item} = $info->{default_item} if $info->{default_item};
-    $treeInfo->{default_item_separator} = $info->{item_separator} if $info->{item_separator};
+    if ($treeInfo->{default_item} && $info->{item_separator}) {
+        if (index($treeInfo->{default_item}, $info->{item_separator}) != -1) {
+            $treeInfo->{default_item_separator} = $info->{item_separator};
+        }
+    }
     my $list2Convert;
     $list2Convert->{paths} = $info->{list};
     $list2Convert->{separator} = $info->{item_separator} if $info->{item_separator};
