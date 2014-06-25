@@ -334,7 +334,7 @@ sub ask_YesOrNo {
 
     $listInfo: HASH reference containing
             default_item => Selected item (if any)
-            itemList     => ARRAY reference containing the item list
+            item_list    => ARRAY reference containing the item list
 
 =head3 OUTPUT
 
@@ -352,13 +352,13 @@ sub ask_YesOrNo {
 sub arrayListToYItemCollection {
     my ($self, $listInfo) = @_;
 
-    die "Item list is mandatory" if !($listInfo->{itemList});
+    die "Item list is mandatory" if !($listInfo->{item_list});
     # TODO check type
-    die "Not empty item list is mandatory" if (scalar @{$listInfo->{itemList}} < 1);
+    die "Not empty item list is mandatory" if (scalar @{$listInfo->{item_list}} < 1);
 
 
     my $itemColl = new yui::YItemCollection;
-    foreach (@{$listInfo->{itemList}}) {
+    foreach (@{$listInfo->{item_list}}) {
         my $item = new yui::YItem ($_, 0);
         $itemColl->push($item);
         $item->DISOWN();
@@ -423,7 +423,7 @@ sub ask_fromList {
 
     my $listInfo;
     $listInfo->{default_item} = $info->{default_item} if $info->{default_item};
-    $listInfo->{itemList} = $info->{list};
+    $listInfo->{item_list} = $info->{list};
     my $itemColl = $self->arrayListToYItemCollection($listInfo);
     $combo->addItems($itemColl);
 
