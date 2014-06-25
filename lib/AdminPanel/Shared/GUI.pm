@@ -326,6 +326,50 @@ sub ask_YesOrNo {
 }
 
 
+#=============================================================
+
+=head2 arrayListToYItemCollection
+
+=head3 INPUT
+
+    $listInfo: HASH reference containing
+            default_item => Selected item (if any)
+            itemList     => ARRAY reference containing the item list
+
+=head3 OUTPUT
+
+    $itemList: YItemCollection containing the item list passed
+
+=head3 DESCRIPTION
+
+    This method returns a YItemCollection containing the item list passed with default item
+    the "default_item"
+
+=cut
+
+#=============================================================
+
+sub arrayListToYItemCollection {
+    my ($self, $listInfo) = @_;
+
+    die "Item list is mandatory" if !($listInfo->{itemList});
+    # TODO check type
+    die "Not empty item list is mandatory" if (scalar @{$listInfo->{itemList}} < 1);
+
+
+    my $itemColl = new yui::YItemCollection;
+    foreach (@{$listInfo->{itemList}}) {
+        my $item = new yui::YItem ($_, 0);
+        $itemColl->push($item);
+        $item->DISOWN();
+        if ($listInfo->{default_item} && $listInfo->{default_item} eq $item->label()) {
+            $item->setSelected(1);
+        }
+    }
+
+    return $itemColl;
+}
+
 
 #=============================================================
 
@@ -336,6 +380,7 @@ sub ask_YesOrNo {
 $info: HASH, information to be passed to the dialog.
             title          =>     dialog title
             header         =>     combobox header
+            default_item   =>     selected item if any
             list           =>     item list
             default_button =>     (optional) 1: Select (any other values Cancel)
 
@@ -375,12 +420,11 @@ sub ask_fromList {
     my $layout = $factory->createVBox($dlg);
 
     my $combo   = $factory->createComboBox($layout, $info->{header}, 0);
-    my $itemColl = new yui::YItemCollection;
-    foreach (@$list) {
-            my $item = new yui::YItem ($_, 0);
-            $itemColl->push($item);
-            $item->DISOWN();
-    }
+
+    my $listInfo;
+    $listInfo->{default_item} = $info->{default_item} if $info->{default_item};
+    $listInfo->{itemList} = $info->{list};
+    my $itemColl = $self->arrayListToYItemCollection($listInfo);
     $combo->addItems($itemColl);
 
     my $align = $factory->createRight($layout);
@@ -637,7 +681,7 @@ sub ask_fromTreeList {
     yui::YUI::app()->setApplicationTitle($info->{title});
     my $minWidth  = 80;
     my $minHeight = 25;
-    
+
     if (exists $info->{min_size}) {
         $minWidth  = $info->{min_size}->{width} if $info->{min_size}->{width};
         $minHeight = $info->{min_size}->{height} if $info->{min_size}->{height};

@@ -37,12 +37,14 @@ BEGIN {
         diag "ask_YesOrNo got: < " . ($btn == 1 ? "Yes": "No"). " >";
 
         #TODO cancel makes this test failing
-        ok(my $item = $gui->ask_fromList({title => "Choose from list", header => "Which one do you select?", default_button => 1,
-                                        list  => ['item 1', 'item 2', 'item 3', 'item 4']}), 'ask_fromList');
+        ok(my $item = $gui->ask_fromList({title => "Choose from list", header => "Which one do you select? [default is item 3]", default_button => 1,
+                                          list  => ['item 1', 'item 2', 'item 3', 'item 4'],
+                                          default_item => 'item 3'
+        }), 'ask_fromList');
         diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
 
         #TODO cancel makes this test failing
-        ok($item = $gui->ask_fromTreeList({title => "Choose from list", header => "Which one do you select?", default_button => 1,
+        ok($item = $gui->ask_fromTreeList({title => "Choose from list", header => "Which one do you select? [default is leaf 2]", default_button => 1,
                                             default_item => 'leaf 2',
                                         list  => ['item 1/item 2/item 3', 'item 1/item 2/leaf 1', 'item 1/item 2/leaf 2', 'item 4/leaf 3', 'item 5']}),
                                         'ask_fromTreeList');
