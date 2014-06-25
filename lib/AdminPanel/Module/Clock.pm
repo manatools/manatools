@@ -168,8 +168,14 @@ sub start {
 };
 
 
+## returns ntp servers in the format
+##  Zone|Nation: server
+sub _get_NTPservers {
+    my $self = shift;
 
-
+    my $servs = $self->sh_tz->ntpServers();
+    [ map { "$servs->{$_}: $_" } sort { $servs->{$a} cmp $servs->{$b} || $a cmp $b } keys %$servs ];
+}
 
 sub _adminClockPanel {
     my $self = shift;
@@ -223,9 +229,9 @@ sub _adminClockPanel {
     my $hbox1 = $factory->createHBox($vbox);
     $factory->createLabel($hbox1,$self->loc->N("Server:"));
     my $ntpServers = $factory->createComboBox( $hbox1, "" );
-
-#     
-    
+    my $servers = $self->_get_NTPservers();
+    my $itemCollection = $self->sh_gui->arrayListToYItemCollection({item_list => $servers,});
+    $ntpServers->addItems($itemCollection);
     
 
     
