@@ -40,6 +40,10 @@ WriteMakefile(
         "Data::Password::Meter"    => 0,
         "Digest::MD5"        => 0,
         "IO::All"            => 0,
+        #Mandriva
+        "MDK::Common::File"  => 0,
+        "MDK::Common::Func"  => 0,
+
         "Modern::Perl"       => 1.03,
         "autodie"            => 2.20,
     },

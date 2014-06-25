@@ -58,6 +58,9 @@ use DateTime::TimeZone;
 use Config::Auto;
 use AdminPanel::Shared::Locales;
 
+use MDK::Common::File;
+use MDK::Common::Func;
+
 #=============================================================
 
 =head2 new - optional parameters
@@ -96,9 +99,79 @@ has 'clock_configuration_file' => (
     default => "/etc/sysconfig/clock",
 );
 
+#=============================================================
 
+=head2 new - optional parameters
 
-#=== global ===
+=head3 ntp_configuration_file
+
+    optional parameter to set the ntp server configuration file,
+    default value is /etc/[chrony|ntp].conf
+
+=cut
+
+#=============================================================
+
+has 'ntp_configuration_file' => (
+    is  => 'rw',
+    isa => 'Str',
+    builder => '_ntp_configuration_file_init',
+);
+
+sub _ntp_configuration_file_init {
+    my $self = shift;
+
+    if (-f  "/etc/chrony.conf") {
+        return "/etc/chrony.conf";
+    }
+    return "/etc/ntp.conf";
+}
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 ntp_program
+
+    optional parameter to set the ntp program that runs into the
+    system, default value is [chrony|ntp]
+
+=cut
+
+#=============================================================
+
+has 'ntp_program' => (
+    is  => 'rw',
+    isa => 'Str',
+    builder => '_ntp_program_init',
+);
+
+sub _ntp_program_init {
+    my $self = shift;
+
+    if (-f  "/etc/chrony.conf") {
+        return "chrony";
+    }
+    return "ntp";
+}
+
+#=== globals ===
+
+has 'servername_config_suffix' => (
+    is  => 'ro',
+    isa => 'Str',
+    lazy     => 1,
+    builder  => '_servername_config_suffix_init',
+);
+
+sub _servername_config_suffix_init {
+    my $self = shift;
+
+    return " iburst" if ($self->ntp_program eq "chrony");
+
+    return "";
+}
+
 has 'loc' => (
         is       => 'rw',
         lazy     => 1,
@@ -217,7 +290,6 @@ sub _buildNTPServers {
 }
 
 
-
 #=============================================================
 
 =head2 get_timezone_prefix
@@ -306,7 +378,7 @@ sub readConfiguration {
     return $prefs;
 }
 
-
+#left for back compatibility
 sub _get_ntp_server_tree {
     my ($self, $zone) = @_;
     $zone = "-" if ! $zone;
@@ -346,6 +418,28 @@ sub ntpServers {
    +{$self->_get_ntp_server_tree()};
 }
 
+
+#=============================================================
+
+=head2 ntpCurrentServer
+
+=head3 INPUT
+
+Input_Parameter: in_par_description
+
+=head3 DESCRIPTION
+
+Returns the current ntp server address read from configuration file
+
+=cut
+
+#=============================================================
+
+sub ntpCurrentServer {
+    my $self = shift;
+
+    MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($self->ntp_configuration_file);
+}
 
 no Moose;
 __PACKAGE__->meta->make_immutable;

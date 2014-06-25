@@ -60,7 +60,6 @@ use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::TimeZone;
 use AdminPanel::Shared::Services;# qw (services);
 
-
 use Time::Piece;
  
 use yui;
@@ -174,7 +173,7 @@ sub _get_NTPservers {
     my $self = shift;
 
     my $servs = $self->sh_tz->ntpServers();
-    [ map { "$servs->{$_}: $_" } sort { $servs->{$a} cmp $servs->{$b} || $a cmp $b } keys %$servs ];
+    [ map { "$servs->{$_}|$_" } sort { $servs->{$a} cmp $servs->{$b} || $a cmp $b } keys %$servs ];
 }
 
 sub _adminClockPanel {
@@ -209,30 +208,34 @@ sub _adminClockPanel {
     $dateField->setValue($day);
     $timeField->setValue($time);
 
+    $hbox = $factory->createHBox($layout);
+    my $ntpFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("Enable Network Time Protocol"), 0);
+#     $ntpFrame->setWeight($yui::YD_HORIZ, 1);
+
+    my $vbox = $factory->createVBox( $ntpFrame );
+    my $hbox1 = $factory->createHBox($factory->createLeft($vbox));
+    $factory->createLabel($hbox1,$self->loc->N("Server:"));
+    my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+#     $ntpLabel->setWeight($yui::YD_HORIZ, 1);
+    my $defServer = $self->sh_tz->ntpCurrentServer();
+    #- strip digits from \d+.foo.pool.ntp.org
+    $defServer =~ s/^\d+\.//;
+    $ntpLabel->setLabel($defServer);
+    $hbox1 = $factory->createLeft($vbox);
+    my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change NTP server"));
+
     $factory->createHSpacing($hbox, 1.0);
     my $frame   = $factory->createFrame ($hbox, $self->loc->N("TimeZone"));
-    my $vbox = $factory->createVBox( $frame );
+    $vbox = $factory->createVBox( $frame );
     my $timezone = $self->sh_tz->readConfiguration();
     my $timeZoneLbl = $factory->createLabel($vbox, $self->loc->N("not defined"));
+#     $timeZoneLbl->setWeight($yui::YD_HORIZ, 1);
     if (exists $timezone->{ZONE}) {
         $timeZoneLbl->setValue($timezone->{ZONE});
     }
 
     my $changeTZButton = $factory->createPushButton($vbox, $self->loc->N("Change Time Zone"));
 
-    $hbox = $factory->createHBox($layout);
-    my $ntpFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("Enable Network Time Protocol"), 0);
-#     $ntpFrame->setWeight($yui::YD_HORIZ, 1);
-
-    $vbox = $factory->createVBox( $ntpFrame );
-    $factory->createLabel($vbox, $self->loc->N("Your computer can synchronize its clock with a remote time server using NTP"));
-    my $hbox1 = $factory->createHBox($vbox);
-    $factory->createLabel($hbox1,$self->loc->N("Server:"));
-    my $ntpServers = $factory->createComboBox( $hbox1, "" );
-    my $servers = $self->_get_NTPservers();
-    my $itemCollection = $self->sh_gui->arrayListToYItemCollection({item_list => $servers,});
-    $ntpServers->addItems($itemCollection);
-    
 
     
 #######################
@@ -252,6 +255,9 @@ sub _adminClockPanel {
     $dialog->setDefaultButton($cancelButton);
 
     # End Dialof layout 
+
+    # get only once
+    my $NTPservers = $self->_get_NTPservers();
 
     while(1) {
         my $event       = $dialog->waitForEvent(1000);
@@ -275,6 +281,18 @@ sub _adminClockPanel {
             elsif ($widget == $okButton) {
                 ### TODO manage OK pressed ###
                 last;
+            }
+            elsif ($widget == $changeNTPButton) {
+                my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("NTP server - DrakClock"),
+                                                            header => $self->loc->N("Choose your NTP server"),
+                                                            default_button => 1,
+                                                            item_separator => '|',
+                                                            default_item => $defServer,
+                                                            skip_path => 1,
+                                                            list  => $NTPservers});
+                if ($item) {
+                    $ntpLabel->setValue($item);
+                }
             }
             elsif ($widget == $changeTZButton) {
                 my $timezones = $self->sh_tz->getTimeZones();
