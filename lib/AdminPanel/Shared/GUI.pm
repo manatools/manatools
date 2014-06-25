@@ -736,16 +736,16 @@ sub ask_fromTreeList {
             }
             elsif ($widget == $selectButton) {
                 my $item = $treeWidget->selectedItem();
+                my $getChoice = 1;
+                if (!exists $info->{any_item_selection} || $info->{any_item_selection} != 0) {
+                    if ($item) {
+                        $getChoice = (!$item->hasChildren());
+                    }
+                }
                 if ($info->{skip_path} && $info->{skip_path} != 0) {
-                    $choice = $item->label() if ($item);
+                    $choice = $item->label() if ($item && $getChoice);
                 }
                 else {
-                    my $getChoice = 1;
-                    if (!exists $info->{any_item_selection} || $info->{any_item_selection} != 0) {
-                        if ($item) {
-                            $getChoice = (!$item->hasChildren());
-                        }
-                    }
                     if ($getChoice) {
                         my $separator = exists $info->{item_separator} ? $info->{item_separator} : '/';
                         if ($item) {
