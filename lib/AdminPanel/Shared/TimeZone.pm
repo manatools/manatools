@@ -56,6 +56,8 @@ use Moose;
 
 use DateTime::TimeZone;
 use Config::Auto;
+use Config::Tiny;
+use File::Copy;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Services;
 
@@ -127,6 +129,26 @@ sub _ntp_configuration_file_init {
     }
     return "/etc/ntp.conf";
 }
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 ntp_conf_dir
+
+    optional parameter to set ntp configuration directory,
+    default value is /etc/ntp
+
+=cut
+
+#=============================================================
+
+has 'ntp_conf_dir' => (
+    is   => 'rw',
+    isa  => 'Str',
+    lazy => 1,
+    default => "/etc/ntp",
+);
 
 #=============================================================
 
@@ -379,6 +401,49 @@ sub readConfiguration {
     return $prefs;
 }
 
+
+#=============================================================
+
+=head2 writeConfiguration
+
+=head3 INPUT
+
+    $info: hash containing:
+           UTC  => HW clock is set as UTC
+           ZONE => Time Zone
+
+=head3 DESCRIPTION
+
+This method save Time Zone configuration into file
+
+=cut
+
+#=============================================================
+
+sub writeConfiguration {
+    my ($self, $info) = @_;
+
+    die "UTC  field required" if (!$info->{UTC});
+    die "ZONE field required" if (!$info->{ZONE});
+
+    my $Config = Config::Tiny->new;
+    $Config->{_}->{UTC}  = $info->{UTC};
+    $Config->{_}->{ZONE} = $info->{ZONE};
+
+    $Config->write( $self->clock_configuration_file );
+
+    my $tz = $self->get_timezone_prefix() . $info->{ZONE};
+    eval { File::copy($tz, '/etc/localtime') } ;
+
+    my $adjtime_file = '/etc/adjtime';
+    my @adjtime = MDK::Common::File::cat_($adjtime_file);
+    @adjtime or @adjtime = ("0.0 0 0.0\n", "0\n");
+    my $utc = lc $info->{UTC};
+    $adjtime[2] = $utc eq 'true'  ? "UTC\n" : "LOCAL\n";
+    MDK::Common::File::output_p($adjtime_file, @adjtime);
+}
+
+
 #left for back compatibility
 sub _get_ntp_server_tree {
     my ($self, $zone) = @_;
@@ -455,12 +520,55 @@ sub ntpCurrentServer {
 #=============================================================
 
 sub isNTPRunning {
-    my$self = shift;
+    my $self = shift;
 
     # TODO is that valid for any ntp program? adding ntp_service_name parameter
     my $ntpd = $self->ntp_program . 'd';
 
-    return !AdminPanel::Shared::Services::is_service_running($ntpd);
+    return AdminPanel::Shared::Services::is_service_running($ntpd);
+}
+
+#=============================================================
+
+=head2 setNTPServer
+
+=head3 INPUT
+
+$server: server address to be configured
+
+=head3 DESCRIPTION
+
+This method writes into NTP configuration file new server address
+settings
+
+=cut
+
+#=============================================================
+
+sub setNTPServer {
+    my ($self, $server) = @_;
+
+    my $f = $self->ntp_configuration_file;
+    -f $f or return;
+    return if (!$server);
+
+    my $pool_match = qr/\.pool\.ntp\.org$/;
+    my @servers = $server =~ $pool_match  ? (map { "$_.$server" } 0 .. 2) : $server;
+
+    my $added = 0;
+    my $servername_config_suffix = $self->servername_config_suffix;
+    MDK::Common::File::substInFile {
+        if (/^#?\s*server\s+(\S*)/ && $1 ne '127.127.1.0') {
+            $_ = $added ? $_ =~ $pool_match ? undef : "#server $1\n" : join('', map { "server $_$servername_config_suffix\n" } @servers);
+            $added = 1;
+        }
+    } $f;
+    if ($self->ntp_program eq "ntp") {
+        my $ntp_prefix = $self->ntp_conf_dir;
+         MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @servers));
+    }
+
+#     AdminPanel::Shared::Services::set_status($self->ntp_program . 'd', 1);
 }
 
 no Moose;
