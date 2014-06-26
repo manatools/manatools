@@ -25,6 +25,7 @@ WriteMakefile(
         "Moose"              => 0,
         "Config::Auto"       => 0,
         "Config::Hosts"      => 0,
+        "Config::Tiny"       => 0,
         # AdminPanel::Shared::Locales
         "Locale::gettext"    => 0,
         "Text::Iconv"        => 0,
