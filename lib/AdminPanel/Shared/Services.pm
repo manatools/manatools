@@ -27,7 +27,7 @@ my ($l, $on_services) = AdminPanel::Shared::Services::services();
   is_service_running
   restart_or_start
   stopService
-  start
+  startService
   restart
   set_service
   service_exists
