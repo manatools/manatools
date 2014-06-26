@@ -179,10 +179,11 @@ sub _get_NTPservers {
 ### _restoreValues
 ## restore NTP server and Time Zone from configuration files
 ## returns 'info', a HASH references containing:
-##    time_zone  => time zone hash reference to be restored
-##    ntp_server => ntp server address
-##    date       => date string
-##    time       => time string
+##    time_zone   => time zone hash reference to be restored
+##    ntp_server  => ntp server address
+##    date        => date string
+##    time        => time string
+##    ntp_running => is NTP running?
 #
 sub _restoreValues {
     my ($self) = @_;
@@ -192,6 +193,7 @@ sub _restoreValues {
     $info->{ntp_server} = $self->sh_tz->ntpCurrentServer();
     #- strip digits from \d+.foo.pool.ntp.org
     $info->{ntp_server} =~ s/^\d+\.// if $info->{ntp_server};
+    $info->{ntp_running} = $self->sh_tz->isNTPRunning();
     my $t = localtime;
     my $day = $t->strftime("%F");
     my $time = $t->strftime("%H:%M:%S");
@@ -278,6 +280,8 @@ sub _adminClockPanel {
     if ($info->{ntp_server}) {
         $ntpLabel->setValue($info->{ntp_server});
     }
+    $ntpFrame->setValue($info->{ntp_running});
+
 
     # get only once
     my $NTPservers = $self->_get_NTPservers();
@@ -366,6 +370,7 @@ sub _adminClockPanel {
                 else {
                     $ntpLabel->setValue($self->loc->N("not defined"));
                 }
+                $ntpFrame->setValue($info->{ntp_running});
             }
             elsif($widget == $aboutButton) {
                 my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
