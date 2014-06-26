@@ -57,6 +57,7 @@ use Moose;
 use DateTime::TimeZone;
 use Config::Auto;
 use AdminPanel::Shared::Locales;
+use AdminPanel::Shared::Services;
 
 use MDK::Common::File;
 use MDK::Common::Func;
@@ -439,6 +440,27 @@ sub ntpCurrentServer {
     my $self = shift;
 
     MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($self->ntp_configuration_file);
+}
+
+#=============================================================
+
+=head2 isNTPRunning
+
+=head3 DESCRIPTION
+
+   This method just returns if the given ntp server is running
+
+=cut
+
+#=============================================================
+
+sub isNTPRunning {
+    my$self = shift;
+
+    # TODO is that valid for any ntp program? adding ntp_service_name parameter
+    my $ntpd = $self->ntp_program . 'd';
+
+    return !AdminPanel::Shared::Services::is_service_running($ntpd);
 }
 
 no Moose;
