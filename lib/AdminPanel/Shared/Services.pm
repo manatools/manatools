@@ -289,11 +289,12 @@ This function enable/disable at boot the given service
 #=============================================================
 sub set_service {
     my ($service, $enable) = @_;
-    
+
     my @xinetd_services = map { $_->[0] } xinetd_services();
 
     if (AdminPanel::Shared::member($service, @xinetd_services)) {
-        run_program::rooted($::prefix, "chkconfig", $enable ? "--add" : "--del", $service);
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        run_program::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif (_running_systemd() || _has_systemd()) {
         # systemctl rejects any symlinked units. You have to enabled the real file
         if (-l "/lib/systemd/system/$service.service") {
@@ -302,13 +303,16 @@ sub set_service {
         } else {
             $service = $service . ".service";
         }
-        run_program::rooted($::prefix, "/bin/systemctl", $enable ? "enable" : "disable", $service);
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        run_program::rooted($::prefix, "/usr/bin/systemctl", $enable ? "enable" : "disable", $service);
     } else {
         my $script = "/etc/rc.d/init.d/$service";
-        run_program::rooted($::prefix, "chkconfig", $enable ? "--add" : "--del", $service);
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        run_program::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
         #- FIXME: handle services with no chkconfig line and with no Default-Start levels in LSB header
         if ($enable && MDK::Common::File::cat_("$::prefix$script") =~ /^#\s+chkconfig:\s+-/m) {
-            run_program::rooted($::prefix, "chkconfig", "--level", "35", $service, "on");
+            $ENV{PATH} = "/usr/bin:/usr/sbin";
+            run_program::rooted($::prefix, "/usr/sbin/chkconfig", "--level", "35", $service, "on");
         }
     }
 }
@@ -670,7 +674,7 @@ This function returns if the given service is running
 sub is_service_running ($) {
     my ($service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 1;
+    service_exists($service) or return 0;
     my $out;
     if (_running_systemd()) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
@@ -813,9 +817,9 @@ and restarts/stops it if o_dont_apply is not given
 sub set_status {
     my ($service, $enable, $o_dont_apply) = @_;
     if ($enable) {
-	enable($service, $o_dont_apply);
+        enable($service, $o_dont_apply);
     } else {
-	disable($service, $o_dont_apply);
+        disable($service, $o_dont_apply);
     }
 }
 
