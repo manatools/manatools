@@ -276,7 +276,7 @@ sub _adminClockPanel {
     }
 
     if ($info->{ntp_server}) {
-        $ntpLabel->setLabel($info->{ntp_server});
+        $ntpLabel->setValue($info->{ntp_server});
     }
 
     # get only once
@@ -361,10 +361,10 @@ sub _adminClockPanel {
                     $timeZoneLbl->setValue($self->loc->N("not defined"));
                 }
                 if ($info->{ntp_server}) {
-                    $ntpLabel->setLabel($info->{ntp_server});
+                    $ntpLabel->setValue($info->{ntp_server});
                 }
                 else {
-                    $ntpLabel->setLabel($self->loc->N("not defined"));
+                    $ntpLabel->setValue($self->loc->N("not defined"));
                 }
             }
             elsif($widget == $aboutButton) {
