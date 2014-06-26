@@ -101,7 +101,6 @@ sub _SharedGUIInitialize {
 has 'sh_tz' => (
         is => 'rw',
         lazy => 1,
-        init_arg => undef,
         builder => '_SharedTimeZoneInitialize'
 );
 
@@ -166,14 +165,40 @@ sub start {
     $self->_adminClockPanel();
 };
 
-
+### _get_NTPservers
 ## returns ntp servers in the format
 ##  Zone|Nation: server
+#
 sub _get_NTPservers {
     my $self = shift;
 
     my $servs = $self->sh_tz->ntpServers();
     [ map { "$servs->{$_}|$_" } sort { $servs->{$a} cmp $servs->{$b} || $a cmp $b } keys %$servs ];
+}
+
+### _restoreValues
+## restore NTP server and Time Zone from configuration files
+## returns 'info', a HASH references containing:
+##    time_zone  => time zone hash reference to be restored
+##    ntp_server => ntp server address
+##    date       => date string
+##    time       => time string
+#
+sub _restoreValues {
+    my ($self) = @_;
+
+    my $info;
+    $info->{time_zone}  = $self->sh_tz->readConfiguration();
+    $info->{ntp_server} = $self->sh_tz->ntpCurrentServer();
+    #- strip digits from \d+.foo.pool.ntp.org
+    $info->{ntp_server} =~ s/^\d+\.// if $info->{ntp_server};
+    my $t = localtime;
+    my $day = $t->strftime("%F");
+    my $time = $t->strftime("%H:%M:%S");
+    $info->{date} = $day;
+    $info->{time} = $time;
+
+    return $info;
 }
 
 sub _adminClockPanel {
@@ -202,11 +227,6 @@ sub _adminClockPanel {
     my $dateField = $optFactory->createDateField($hbox, "");
     $factory->createHSpacing($hbox, 1.0);
     my $timeField = $optFactory->createTimeField($hbox, "");
-    my $t = localtime;
-    my $day = $t->strftime("%F"); 
-    my $time = $t->strftime("%H:%M:%S");
-    $dateField->setValue($day);
-    $timeField->setValue($time);
 
     $hbox = $factory->createHBox($layout);
     my $ntpFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("Enable Network Time Protocol"), 0);
@@ -217,30 +237,19 @@ sub _adminClockPanel {
     $factory->createLabel($hbox1,$self->loc->N("Server:"));
     my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
 #     $ntpLabel->setWeight($yui::YD_HORIZ, 1);
-    my $defServer = $self->sh_tz->ntpCurrentServer();
-    #- strip digits from \d+.foo.pool.ntp.org
-    $defServer =~ s/^\d+\.//;
-    $ntpLabel->setLabel($defServer);
+
     $hbox1 = $factory->createLeft($vbox);
     my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change NTP server"));
 
     $factory->createHSpacing($hbox, 1.0);
     my $frame   = $factory->createFrame ($hbox, $self->loc->N("TimeZone"));
     $vbox = $factory->createVBox( $frame );
-    my $timezone = $self->sh_tz->readConfiguration();
     my $timeZoneLbl = $factory->createLabel($vbox, $self->loc->N("not defined"));
 #     $timeZoneLbl->setWeight($yui::YD_HORIZ, 1);
-    if (exists $timezone->{ZONE}) {
-        $timeZoneLbl->setValue($timezone->{ZONE});
-    }
 
     my $changeTZButton = $factory->createPushButton($vbox, $self->loc->N("Change Time Zone"));
 
 
-    
-#######################
-##################
-    
     # buttons on the last line 
     $align = $factory->createLeft($layout);
     $hbox = $factory->createHBox($align);
@@ -256,6 +265,20 @@ sub _adminClockPanel {
 
     # End Dialof layout 
 
+    ## default value
+    my $info = $self->_restoreValues();
+
+    $dateField->setValue($info->{date});
+    $timeField->setValue($info->{time});
+
+    if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
+        $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
+    }
+
+    if ($info->{ntp_server}) {
+        $ntpLabel->setLabel($info->{ntp_server});
+    }
+
     # get only once
     my $NTPservers = $self->_get_NTPservers();
 
@@ -263,13 +286,12 @@ sub _adminClockPanel {
         my $event       = $dialog->waitForEvent(1000);
         my $eventType   = $event->eventType();
 
-               
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
         }
         elsif ($eventType == $yui::YEvent::TimeoutEvent) {
-            $t = Time::Piece->strptime($timeField->value(), "%H:%M:%S") + 1;
+            my $t = Time::Piece->strptime($timeField->value(), "%H:%M:%S") + 1;
             $timeField->setValue($t->strftime("%H:%M:%S"));
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
@@ -287,11 +309,12 @@ sub _adminClockPanel {
                                                             header => $self->loc->N("Choose your NTP server"),
                                                             default_button => 1,
                                                             item_separator => '|',
-                                                            default_item => $defServer,
+                                                            default_item => $info->{ntp_server},
                                                             skip_path => 1,
                                                             list  => $NTPservers});
                 if ($item) {
                     $ntpLabel->setValue($item);
+                    $info->{ntp_server} = $item;
                 }
             }
             elsif ($widget == $changeTZButton) {
@@ -307,28 +330,42 @@ sub _adminClockPanel {
                                                                 header => $self->loc->N("Which is your timezone?"),
                                                                 default_button => 1,
                                                                 item_separator => '/',
-                                                                default_item => $timezone->{ZONE},
+                                                                default_item => $info->{time_zone}->{ZONE},
                                                                 list  => $timezones});
                     if ($item) {
-                        my $utc = lc $timezone->{UTC};
-                        $utc = ($utc eq "false" || $utc eq "0") ? 0 : 1;
+                        my $utc = 0;
+                        if ($info->{time_zone}->{UTC} ) {
+                            $utc = lc$info->{time_zone}->{UTC};
+                            $utc = ($utc eq "false" || $utc eq "0") ? 0 : 1;
+                        }
                         $utc = $self->sh_gui->ask_YesOrNo({
                                                     title  => $self->loc->N("GMT - DrakClock"),
                                                     text   => $self->loc->N("Is your hardware clock set to GMT?"),
                                             default_button => $utc,
                                                 });
-                        $timezone->{UTC} = $utc == 1 ? 'true' : 'false';
-                        $timezone->{ZONE} = $item;
-                        $timeZoneLbl->setValue($timezone->{ZONE});
+                        $info->{time_zone}->{UTC}  = $utc == 1 ? 'true' : 'false';
+                        $info->{time_zone}->{ZONE} = $item;
+                        $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
                     }
                 }
             }
             elsif ($widget == $resetButton) {
-                $t = localtime;
-                $day = $t->strftime("%F"); 
-                $time = $t->strftime("%H:%M:%S");
-                $dateField->setValue($day);
-                $timeField->setValue($time);
+                $info = $self->_restoreValues();
+
+                $dateField->setValue($info->{date});
+                $timeField->setValue($info->{time});
+                if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
+                    $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
+                }
+                else {
+                    $timeZoneLbl->setValue($self->loc->N("not defined"));
+                }
+                if ($info->{ntp_server}) {
+                    $ntpLabel->setLabel($info->{ntp_server});
+                }
+                else {
+                    $ntpLabel->setLabel($self->loc->N("not defined"));
+                }
             }
             elsif($widget == $aboutButton) {
                 my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
