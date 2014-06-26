@@ -429,10 +429,11 @@ sub writeConfiguration {
     my $Config = Config::Tiny->new;
     $Config->{_}->{UTC}  = $info->{UTC};
     $Config->{_}->{ZONE} = $info->{ZONE};
+    $Config->{_}->{ARC}  = "false";
 
     $Config->write( $self->clock_configuration_file );
 
-    my $tz = $self->get_timezone_prefix() . $info->{ZONE};
+    my $tz = $self->get_timezone_prefix() . "/" . $info->{ZONE};
     eval { File::copy($tz, '/etc/localtime') } ;
 
     my $adjtime_file = '/etc/adjtime';
@@ -552,11 +553,19 @@ sub setNTPServer {
     -f $f or return;
     return if (!$server);
 
+    # TODO is that valid for any ntp program? adding ntp_service_name parameter
+    my $ntpd = $self->ntp_program . 'd';
+
+    AdminPanel::Shared::disable_x_screensaver();
+    if ($self->isNTPRunning()) {
+        AdminPanel::Shared::Services::stopService($ntpd);
+    }
+
     my $pool_match = qr/\.pool\.ntp\.org$/;
     my @servers = $server =~ $pool_match  ? (map { "$_.$server" } 0 .. 2) : $server;
 
     my $added = 0;
-    my $servername_config_suffix = $self->servername_config_suffix;
+    my $servername_config_suffix = $self->servername_config_suffix ? $self->servername_config_suffix : " ";
     MDK::Common::File::substInFile {
         if (/^#?\s*server\s+(\S*)/ && $1 ne '127.127.1.0') {
             $_ = $added ? $_ =~ $pool_match ? undef : "#server $1\n" : join('', map { "server $_$servername_config_suffix\n" } @servers);
@@ -568,7 +577,42 @@ sub setNTPServer {
          MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @servers));
     }
 
-#     AdminPanel::Shared::Services::set_status($self->ntp_program . 'd', 1);
+    # enable but do not start the service
+    AdminPanel::Shared::Services::set_status($ntpd, 1, 1);
+    if ($ntpd eq "chronyd") {
+        AdminPanel::Shared::Services::startService($ntpd);
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        # Wait up to 30s for sync
+        system('/usr/bin/chronyc', 'waitsync', '30', '0.1');
+    } else {
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        system('/usr/sbin/ntpdate', $server);
+        AdminPanel::Shared::Services::startService($ntpd);
+    }
+
+    AdminPanel::Shared::enable_x_screensaver();
+}
+
+#=============================================================
+
+=head2 disableAndStopNTP
+
+=head3 DESCRIPTION
+
+    Disable and stop the ntp server
+
+=cut
+
+#=============================================================
+
+sub disableAndStopNTP {
+    my $self = shift;
+
+    # TODO is that valid for any ntp program? adding ntp_service_name parameter
+    my $ntpd = $self->ntp_program . 'd';
+
+    # also stop the service without dont_apply parameter
+    AdminPanel::Shared::Services::set_status($ntpd, 0);
 }
 
 no Moose;
