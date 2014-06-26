@@ -232,5 +232,44 @@ sub pathList2hash {
     return \%tree;
 }
 
+#=============================================================
+
+=head2 disable_x_screensaver
+
+=head3 DESCRIPTION
+
+if exists /usr/bin/xset disable screensaver
+
+=cut
+
+#=============================================================
+sub disable_x_screensaver() {
+    if (-e '/usr/bin/xset') {
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        system ("/usr/bin/xset s off");
+        system ("/usr/bin/xset -dpms");
+    }
+}
+
+#=============================================================
+
+=head2 enable_x_screensaver
+
+=head3 DESCRIPTION
+
+if exists /usr/bin/xset enables screensaver
+
+=cut
+
+#=============================================================
+sub enable_x_screensaver() {
+    if (-e '/usr/bin/xset') {
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        system ("/usr/bin/xset +dpms");
+        system ("/usr/bin/xset s on");
+        system ("/usr/bin/xset s reset");
+    }
+}
+
 1; # End of AdminPanel::Shared
 
