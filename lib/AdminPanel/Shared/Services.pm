@@ -317,22 +317,27 @@ sub _run_action {
     my ($service, $action, $do_not_block) = @_;
     if (_running_systemd()) {
         if ($do_not_block) {
-            run_program::rooted($::prefix, '/bin/systemctl', '--no-block', $action, "$service.service");
+            $ENV{PATH} = "/usr/bin:/usr/sbin";
+            run_program::rooted($::prefix, '/usr//bin/systemctl', '--no-block', $action, "$service.service");
         }
         else {
-            run_program::rooted($::prefix, '/bin/systemctl', $action, "$service.service");
+            $ENV{PATH} = "/usr/bin:/usr/sbin";
+            run_program::rooted($::prefix, '/usr/bin/systemctl', $action, "$service.service");
         }
     } else {
+        $ENV{PATH} = "/usr/bin:/usr/sbin:/etc/rc.d/init.d/";
         run_program::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
     }
 }
 
 sub _running_systemd() {
-    run_program::rooted($::prefix, '/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
+    $ENV{PATH} = "/usr/bin:/usr/sbin";
+    run_program::rooted($::prefix, '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
 sub _has_systemd() {
-    run_program::rooted($::prefix, '/bin/rpm', '-q', 'systemd');
+    $ENV{PATH} = "/usr/bin:/usr/sbin";
+    run_program::rooted($::prefix, '/usr/bin/rpm', '-q', 'systemd');
 }
 
 #=============================================================
@@ -354,7 +359,8 @@ NOTE that xinetd *must* be enable at boot to get this info
 sub xinetd_services() {
     local $ENV{LANGUAGE} = 'C';
     my @xinetd_services;
-    foreach (run_program::rooted_get_stdout($::prefix, '/sbin/chkconfig', '--list', '--type', 'xinetd')) {
+    $ENV{PATH} = "/usr/bin:/usr/sbin";
+    foreach (run_program::rooted_get_stdout($::prefix, '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
         if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
             push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
         }
@@ -368,19 +374,19 @@ sub _systemd_services() {
     my %loaded;
     # Running system using systemd
     Sys::Syslog::syslog('info|local1', "Detected systemd running. Using systemctl introspection.");
-    foreach (run_program::rooted_get_stdout($::prefix, '/bin/systemctl', '--full', '--all', 'list-units')) {
+    foreach (run_program::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', '--all', 'list-units')) {
         if (my ($name) = m!^(\S+)\.service\s+loaded!) {
             # We only look at non-template, non-linked service files in /lib
             # We also check for any non-masked sysvinit files as these are
             # also handled by systemd
             if ($name !~ /.*\@$/g && (-e "$::prefix/lib/systemd/system/$name.service" or -e "$::prefix/etc/rc.d/init.d/$name") && ! -l "$::prefix/lib/systemd/system/$name.service") {
-                push @services, [ $name, !!run_program::rooted($::prefix, '/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
+                push @services, [ $name, !!run_program::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
                 $loaded{$name} = 1;
             }
         }
     }
     # list-units will not list disabled units that can be enabled
-    foreach (run_program::rooted_get_stdout($::prefix, '/bin/systemctl', '--full', 'list-unit-files')) {
+    foreach (run_program::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', 'list-unit-files')) {
         if (my ($name) = m!^(\S+)\.service\s+disabled!) {
             # We only look at non-template, non-linked service files in /lib
             # We also check for any non-masked sysvinit files as these are
@@ -665,11 +671,15 @@ sub is_service_running ($) {
     my ($service) = @_;
     # Exit silently if the service is not installed
     service_exists($service) or return 1;
+    my $out;
     if (_running_systemd()) {
-        run_program::rooted($::prefix, '/bin/systemctl', '--quiet', 'is-active', "$service.service");
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        $out = run_program::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
     } else {
-        run_program::rooted($::prefix, '/sbin/service', $service, 'status');
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        $out = run_program::rooted($::prefix, '/usr/sbin/service', $service, 'status');
     }
+    return $out;
 }
 
 #=============================================================
