@@ -253,7 +253,8 @@ sub _adminClockPanel {
 
 
     # buttons on the last line 
-    $align = $factory->createLeft($layout);
+    $hbox = $factory->createHBox($layout);
+    $align = $factory->createLeft($hbox);
     $hbox = $factory->createHBox($align);
     my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
     my $resetButton = $factory->createPushButton($hbox, $self->loc->N("Reset") );
@@ -305,8 +306,42 @@ sub _adminClockPanel {
                 last;
             }
             elsif ($widget == $okButton) {
-                ### TODO manage OK pressed ###
-                last;
+                my $finished = 1;
+                # (1) write new TZ settings
+                # (2) write new NTP settigs if checked
+                # (3) use date time fields if NTP is not checked
+
+                if ($info->{time_zone}->{UTC}) {
+                    # (1)
+                    $DB::single = 1;
+                    $self->sh_tz->writeConfiguration($info->{time_zone});
+                }
+                if ($ntpFrame->value()) {
+                    # (2)
+                    if ($info->{ntp_server}) {
+
+                        $self->sh_tz->setNTPServer($info->{ntp_server});
+
+                    }
+                    else {
+                        $self->sh_gui->warningMsgBox({text => $self->loc->N("Please enter a valid NTP server address.")});
+                        $finished = 0;
+                    }
+                }
+                else {
+                    $self->sh_tz->disableAndStopNTP();
+                    # (3)
+                    my $t = Time::Piece->strptime($timeField->value(), "%H:%M:%S");
+                    my $d = Time::Piece->strptime($dateField->value(), "%Y-%m-%d");
+                    my $ts = sprintf("%02d%02d%02d%02d%04d.%02d",
+                                     $d->mon, $d->mday, $t->hour,
+                                     $t->min, $d->year,$t->sec);
+                    $ENV{PATH} = "/usr/bin:/usr/sbin";
+                    system("/usr/bin/date " . $ts);
+                    -e '/usr/sbin/hwclock' and system('/usr/sbin/hwclock', '--systohc');
+                }
+
+                last if ($finished);
             }
             elsif ($widget == $changeNTPButton) {
                 my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("NTP server - DrakClock"),
@@ -339,7 +374,7 @@ sub _adminClockPanel {
                     if ($item) {
                         my $utc = 0;
                         if ($info->{time_zone}->{UTC} ) {
-                            $utc = lc$info->{time_zone}->{UTC};
+                            $utc = lc $info->{time_zone}->{UTC};
                             $utc = ($utc eq "false" || $utc eq "0") ? 0 : 1;
                         }
                         $utc = $self->sh_gui->ask_YesOrNo({
