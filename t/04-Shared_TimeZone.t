@@ -14,7 +14,7 @@ BEGIN {
     ok (my $h = $tz->readConfiguration(), 'readConfiguration');
     ok (my $s = $tz->ntpCurrentServer(), 'currentNTPServer');
     diag "ntpCurrentServer got: < " . ($s ? $s : "none") . " >";
-    ok (my $a = ($tz->isNTPRunning() ? "not running" : "running"), 'isNTPRunning');
+    ok (my $a = ($tz->isNTPRunning() ? "running" : "not running"), 'isNTPRunning');
     diag "isNTPRunning got: < " . $a . " >";
 
 done_testing;
