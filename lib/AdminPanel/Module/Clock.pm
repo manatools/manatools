@@ -178,6 +178,9 @@ sub _get_NTPservers {
 
 ### _restoreValues
 ## restore NTP server and Time Zone from configuration files
+#
+## input '$datetime_only' restore date and time only
+#
 ## returns 'info', a HASH references containing:
 ##    time_zone   => time zone hash reference to be restored
 ##    ntp_server  => ntp server address
@@ -186,14 +189,16 @@ sub _get_NTPservers {
 ##    ntp_running => is NTP running?
 #
 sub _restoreValues {
-    my ($self) = @_;
+    my ($self, $datetime_only) = @_;
 
     my $info;
-    $info->{time_zone}  = $self->sh_tz->readConfiguration();
-    $info->{ntp_server} = $self->sh_tz->ntpCurrentServer();
-    #- strip digits from \d+.foo.pool.ntp.org
-    $info->{ntp_server} =~ s/^\d+\.// if $info->{ntp_server};
-    $info->{ntp_running} = $self->sh_tz->isNTPRunning();
+    if (!$datetime_only) {
+        $info->{time_zone}  = $self->sh_tz->readConfiguration();
+        $info->{ntp_server} = $self->sh_tz->ntpCurrentServer();
+        #- strip digits from \d+.foo.pool.ntp.org
+        $info->{ntp_server} =~ s/^\d+\.// if $info->{ntp_server};
+        $info->{ntp_running} = $self->sh_tz->isNTPRunning();
+    }
     my $t = localtime;
     my $day = $t->strftime("%F");
     my $time = $t->strftime("%H:%M:%S");
@@ -306,6 +311,7 @@ sub _adminClockPanel {
                 last;
             }
             elsif ($widget == $okButton) {
+                yui::YUI::app()->busyCursor();
                 my $finished = 1;
                 # (1) write new TZ settings
                 # (2) write new NTP settigs if checked
@@ -339,10 +345,13 @@ sub _adminClockPanel {
                     system("/usr/bin/date " . $ts);
                     -e '/usr/sbin/hwclock' and system('/usr/sbin/hwclock', '--systohc');
                 }
+                yui::YUI::app()->normalCursor();
 
                 last if ($finished);
             }
             elsif ($widget == $changeNTPButton) {
+                # get time to calculate elapsed
+                my $t0 = localtime;
                 my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("NTP server - DrakClock"),
                                                             header => $self->loc->N("Choose your NTP server"),
                                                             default_button => 1,
@@ -354,8 +363,18 @@ sub _adminClockPanel {
                     $ntpLabel->setValue($item);
                     $info->{ntp_server} = $item;
                 }
+                # fixing elapsed time (dialog is modal)
+                my $t1 = localtime;
+                my $elapsed = $t1->epoch - $t0->epoch;
+
+                my $t = Time::Piece->strptime($dateField->value() . "T" . $timeField->value(),
+                                              '%Y-%m-%dT%H:%M:%S') + $elapsed;
+                $timeField->setValue($t->strftime("%H:%M:%S"));
+                $dateField->setValue($t->strftime("%F"));
             }
             elsif ($widget == $changeTZButton) {
+                # get time to calculate elapsed
+                my $t0 = localtime;
                 my $timezones = $self->sh_tz->getTimeZones();
                 if (!$timezones || scalar (@{$timezones}) == 0) {
                     $self->sh_gui->warningMsgBox({title => $self->loc->N("Timezone - DrakClock"),
@@ -386,9 +405,29 @@ sub _adminClockPanel {
                         $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
                     }
                 }
+                # fixing elapsed time (dialog is modal)
+                my $t1 = localtime;
+                my $elapsed = $t1->epoch - $t0->epoch;
+
+                my $t = Time::Piece->strptime($dateField->value() . "T" . $timeField->value(),
+                                              '%Y-%m-%dT%H:%M:%S') + $elapsed;
+                $timeField->setValue($t->strftime("%H:%M:%S"));
+                $dateField->setValue($t->strftime("%F"));
             }
             elsif ($widget == $resetButton) {
-                $info = $self->_restoreValues();
+                my $datetime_only = $self->sh_gui->ask_YesOrNo({
+                                                    title  => $self->loc->N("Restore data"),
+                                                    text   => $self->loc->N("Restore date and time only?"),
+                                            default_button => 1, #Yes
+                                                });
+                my $newInfo = $self->_restoreValues($datetime_only);
+                if ($datetime_only) {
+                    $info->{date} = $newInfo->{date};
+                    $info->{time} = $newInfo->{time};
+                }
+                else{
+                    $info = $newInfo;
+                }
 
                 $dateField->setValue($info->{date});
                 $timeField->setValue($info->{time});
