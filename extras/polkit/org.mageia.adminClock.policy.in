@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE policyconfig PUBLIC
+"-//freedesktop//DTD PolicyKit Policy Configuration 1.0//EN"
+"http://www.freedesktop.org/standards/PolicyKit/1/policyconfig.dtd">
+<policyconfig>
+
+ <vendor>Mageia</vendor>
+ <vendor_url>http://www.mageia.org/</vendor_url>
+
+ <action id="org.mageia.adminClock.pkexec.run">
+    <_description>Run Mageia Date and Time Configuration</_description>
+    <_message>Authentication is required to run Mageia Date and Time Configuration</_message>
+    <icon_name>drakconf</icon_name>
+    <defaults>
+     <allow_any>no</allow_any>
+     <allow_inactive>no</allow_inactive>
+     <allow_active>yes</allow_active>
+    </defaults>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/adminClock</annotate>
+    <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
+ </action>
+</policyconfig>
