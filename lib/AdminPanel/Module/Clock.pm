@@ -224,49 +224,67 @@ sub _adminClockPanel {
 
     # Create Dialog
     my $dialog  = $factory->createMainDialog;
+#     my $minSize = $factory->createMinSize($dialog, 40, 15);
 
     # Start Dialog layout:
-    my $layout    = $factory->createVBox( $dialog );
-    my $align;
+    my $layout = $factory->createVBox($dialog);
+    my $align  = $factory->createLeft($layout);
 
-    my $hbox = $factory->createHBox($layout);
+    my $frame   = $factory->createFrame($align, $self->loc->N("Setting date and time"));
+    my $hbox = $factory->createHBox($frame);
 
     my $dateField = $optFactory->createDateField($hbox, "");
-    $factory->createHSpacing($hbox, 1.0);
+    $factory->createHSpacing($hbox, 3.0);
     my $timeField = $optFactory->createTimeField($hbox, "");
+    $factory->createHSpacing($hbox, 1.0);
+    $factory->createVSpacing($hbox, 1.0);
+    $factory->createVSpacing($layout, 1.0);
 
-    $hbox = $factory->createHBox($layout);
+    $align  = $factory->createLeft($layout);
+    $hbox = $factory->createHBox($align);
     my $ntpFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("Enable Network Time Protocol"), 0);
-#     $ntpFrame->setWeight($yui::YD_HORIZ, 1);
 
-    my $vbox = $factory->createVBox( $ntpFrame );
-    my $hbox1 = $factory->createHBox($factory->createLeft($vbox));
-    $factory->createLabel($hbox1,$self->loc->N("Server:"));
-    my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
-#     $ntpLabel->setWeight($yui::YD_HORIZ, 1);
-
-    $hbox1 = $factory->createLeft($vbox);
+    my $hbox1 = $factory->createHBox($ntpFrame);
     my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change NTP server"));
+    $factory->createHSpacing($hbox1, 1.0);
+    $factory->createLabel($hbox1,$self->loc->N("Current:"));
+    $factory->createHSpacing($hbox1, 1.0);
+    my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+    $factory->createHSpacing($hbox1, 1.0);
+    $ntpLabel->setWeight($yui::YD_HORIZ, 2);
+    $changeNTPButton->setWeight($yui::YD_HORIZ, 1);
+    $factory->createHSpacing($hbox, 1.0);
+
+    $factory->createVSpacing($layout, 1.0);
+    $align  = $factory->createLeft($layout);
+    $hbox = $factory->createHBox($align);
+    $frame   = $factory->createFrame ($hbox, $self->loc->N("TimeZone"));
+    $hbox1 = $factory->createHBox( $frame );
+    my $changeTZButton = $factory->createPushButton($hbox1, $self->loc->N("Change Time Zone"));
+    $factory->createHSpacing($hbox1, 1.0);
+    $factory->createLabel($hbox1,$self->loc->N("Current:"));
+    $factory->createHSpacing($hbox1, 1.0);
+    my $timeZoneLbl = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+    $factory->createHSpacing($hbox1, 1.0);
+    $timeZoneLbl->setWeight($yui::YD_HORIZ, 2);
+    $changeTZButton->setWeight($yui::YD_HORIZ, 1);
 
     $factory->createHSpacing($hbox, 1.0);
-    my $frame   = $factory->createFrame ($hbox, $self->loc->N("TimeZone"));
-    $vbox = $factory->createVBox( $frame );
-    my $timeZoneLbl = $factory->createLabel($vbox, $self->loc->N("not defined"));
-#     $timeZoneLbl->setWeight($yui::YD_HORIZ, 1);
 
-    my $changeTZButton = $factory->createPushButton($vbox, $self->loc->N("Change Time Zone"));
-
-
-    # buttons on the last line 
+    # buttons on the last line
+    $factory->createVSpacing($layout, 1.0);
     $hbox = $factory->createHBox($layout);
+
     $align = $factory->createLeft($hbox);
     $hbox = $factory->createHBox($align);
     my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
     my $resetButton = $factory->createPushButton($hbox, $self->loc->N("Reset") );
+
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
     my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
     my $okButton = $factory->createPushButton($hbox, $self->loc->N("Ok"));
+    $factory->createHSpacing($hbox, 1.0);
 
     ## no changes by default
     $dialog->setDefaultButton($cancelButton);
