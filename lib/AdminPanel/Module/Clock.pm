@@ -313,7 +313,6 @@ sub _adminClockPanel {
 
                 if ($info->{time_zone}->{UTC}) {
                     # (1)
-                    $DB::single = 1;
                     $self->sh_tz->writeConfiguration($info->{time_zone});
                 }
                 if ($ntpFrame->value()) {

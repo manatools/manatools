@@ -510,7 +510,6 @@ sub _save {
 sub _search {
     my ($self, $log_opts) = @_;
 
-$DB::single = 1;
     my $log = AdminPanel::Shared::JournalCtl->new(%{$log_opts});
     my $all = $log->getLog();
     
@@ -530,8 +529,6 @@ $DB::single = 1;
 sub _parse_content {
     my ($self, $info) = @_;
 
-    $DB::single = 1;
-    
     my $ey = "";
     my $en = "";
     
