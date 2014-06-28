@@ -129,7 +129,7 @@ sub is_it_a_devel_distro() {
 sub get_backport_media {
     my ($urpm) = @_;
     grep { $_->{name} =~ /backport/i && 
-	       $_->{name} !~ /debug|sources/i } @{$urpm->{media}};
+	       $_->{name} !~ /debug|sources|testing/i } @{$urpm->{media}};
 }
 
 sub get_inactive_backport_media {
