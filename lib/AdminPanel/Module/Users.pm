@@ -774,7 +774,7 @@ sub _buildUserData {
     my $weakness = undef;
     if (yui::YUI::app()->hasImageSupport()) {
         $factory->createHSpacing($hbox, 2.0);
-        my $file = dist_file('AdminPanel', 'images/Blank16x16.png');
+        my $file = File::ShareDir::dist_file('AdminPanel', 'images/Blank16x16.png');
         $weakness = $factory->createImage($hbox, $file);
     }
     else {
@@ -2087,9 +2087,9 @@ sub _checkWeaknessPassword {
 
     my $strongp = $self->sh_users->strongPassword($password);
     if (yui::YUI::app()->hasImageSupport()) {
-        my $file = dist_file('AdminPanel', 'images/Warning_Shield_Grey16x16.png');
+        my $file = File::ShareDir::dist_file('AdminPanel', 'images/Warning_Shield_Grey16x16.png');
         if ($strongp) {
-            $file =  dist_file('AdminPanel', 'images/Checked_Shield_Green16x16.png');
+            $file =  File::ShareDir::dist_file('AdminPanel', 'images/Checked_Shield_Green16x16.png');
         }
         $weakness_widget->setImage($file);
     }
