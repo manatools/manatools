@@ -285,7 +285,7 @@ sub addKdmIcon {
 
 =head3 INPUT
 
-    $user: username to add
+    $user: username icon to remove
 
 =head3 DESCRIPTION
 

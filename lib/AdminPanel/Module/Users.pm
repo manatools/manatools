@@ -591,6 +591,8 @@ sub _deleteUserDialog {
                     eval { $self->ctx->CleanSpool($userEnt) };
                     $@ and $self->sh_gui->msgBox({text => $@}) and last;
                 }
+                #remove added icon
+                $self->sh_users->removeKdmIcon($username);
                 $self->_refresh();
                 last;
             }
