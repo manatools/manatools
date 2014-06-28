@@ -157,7 +157,7 @@ sub detaillist_changeditem_callback {
 	        my $currItem = $itemsToBeRemoved[$index];
 #pasmatt why? changedItem is YCBTableItem now so it's what you're looking for
 #             if(ref $currItem eq "yui::YCBTableItem") {
-                if ($currItem->label() == $changedItem->label()) {
+                if ($currItem->label() eq $changedItem->label()) {
                     $found = 1;
                     splice (@itemsToBeRemoved, $index ,1);
                     last;
@@ -177,7 +177,7 @@ sub detaillist_changeditem_callback {
 	    foreach $index (0 .. scalar(@itemsToBeInstalled)-1) {
 	        my $currItem = $itemsToBeInstalled[$index];
 #                 if(ref $currItem eq "yui::YCBTableItem") {
-	            if ($currItem->label() == $changedItem->label()) {
+	            if ($currItem->label() eq $changedItem->label()) {
 		            $found = 1;
 		            splice (@itemsToBeInstalled, $index ,1);
 		            last;
