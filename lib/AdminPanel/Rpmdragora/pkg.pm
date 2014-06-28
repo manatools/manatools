@@ -530,7 +530,7 @@ sub get_pkgs {
         update_pbar($gurpm);
 	$pkg->flag_upgrade or next;
 	my $key = $pkg->name . $pkg->arch;
-	$l{$key} = $pkg if !$l{$key} || $l{$key}->compare($pkg);
+	$l{$key} = $pkg if !$l{$key} || $l{$key}->compare_pkg($pkg);
     }
     my @installable_pkgs = map { my $n = $_->fullname; $all_pkgs{$n} = { pkg => $_ }; $n } values %l;
     undef %l;
