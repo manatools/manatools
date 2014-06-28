@@ -250,11 +250,8 @@ sub getbanner() {
 # - 1 if if Yes/Ok
 sub interactive_msg {
     my ($title, $contents, %options) = @_;
-    my $param;
-    $param->{title}    = $title;
-    $param->{text}     = $contents;
-    $param->{richtext} = 0;
-    return AdminPanel::Shared::GUI::ask_YesOrNo($param);
+    my $sh_gui = AdminPanel::Shared::GUI->new();
+    return $sh_gui->ask_YesOrNo({ title => $title, text => $contents, richtext => 0});
 =comment
     $options{transient} ||= $::main_window if $::main_window;
     local $::isEmbedded;
