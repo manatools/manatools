@@ -45,6 +45,7 @@ use Locale::gettext;
 use feature 'state';
 
 use AdminPanel::Shared;
+use AdminPanel::Shared::GUI;
 
 our @ISA = qw(Exporter);
 our $VERSION = '2.27';
@@ -249,7 +250,11 @@ sub getbanner() {
 # - 1 if if Yes/Ok
 sub interactive_msg {
     my ($title, $contents, %options) = @_;
-    return ask_YesOrNo($title, $contents);
+    my $param;
+    $param->{title}    = $title;
+    $param->{text}     = $contents;
+    $param->{richtext} = 0;
+    return AdminPanel::Shared::GUI::ask_YesOrNo($param);
 =comment
     $options{transient} ||= $::main_window if $::main_window;
     local $::isEmbedded;
