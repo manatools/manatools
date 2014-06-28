@@ -44,25 +44,35 @@ and [options] are from
         exit(0);
     };
 }
-use Rpmdrake::init;
-use Rpmdrake::open_db;
+use AdminPanel::Rpmdragora::init;
+use AdminPanel::Rpmdragora::open_db;
+use AdminPanel::Rpmdragora::formatting;
+
+use AdminPanel::Privileges;
 
 use lib qw(/usr/lib/libDrakX);
 use urpm::media;
-use common;
-use any;
+use MDK::Common::Func;
+use common qw(N);
 
-any::set_wm_hints_if_needed();
+#
+if (AdminPanel::Privileges::require_root_capability()) {
+    require AdminPanel::Shared::GUI;
+    my $sh_gui = AdminPanel::Shared::GUI->new();
+    $sh_gui->warningMsgBox({
+        title => "gurpmi.addmedia",
+        text  => N("root privileges required"),
+    });
+    exit (-1);
+}
 
-require_root_capability();
-
-use rpmdrake;
+use AdminPanel::rpmdragora;
 use Getopt::Long;
 
-#use ugtk2 qw(:all);
+## TODO remove as soon as possible
 $::isStandalone = 1;
 
-readconf();
+AdminPanel::rpmdragora::readconf();
 
 my $fromfile;
 if (@ARGV == 1 && $ARGV[0] =~ /\.urpmi-media$/) {
@@ -78,7 +88,8 @@ GetOptions(
     'distrib'       => \$distrib,
     'silent-success' => \$silent_success,
     'mirrorlist=s'     => \$mirrorlist,
-    'urpmi-root=s'      => \$::rpmdrake_options{'urpmi-root'}[0],
+    ## TODO urpmi-root needed???
+#     'urpmi-root=s'      => \$::rpmdrake_options{'urpmi-root'}[0],
 );
 
 # compatibility with -update:
@@ -98,10 +109,10 @@ while (@ARGV) {
     } elsif ($distrib) {
 	($name, $url) = ('', $name);
     } elsif ($url !~ m,^(([^:]*):/)?/,) {
-	interactive_msg('gurpmi.addmedia',
-			escape_text_for_TextView_markup_format(
+	AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia',
+			AdminPanel::Rpmdragora::formatting::escape_text_for_TextView_markup_format(
                             N("bad <url> (for local directory, the path must be absolute)") . "\n\n$url"));
-	myexit(-1);
+	AdminPanel::rpmdragora::myexit(-1);
     }
     push @addmedia_args, [ $name, $url ];
     push @names, $name;
@@ -113,7 +124,7 @@ if ($mirrorlist && $distrib && !@addmedia_args) {
 }
 
 $fromfile and do {
-    interactive_msg('gurpmi.addmedia',
+    AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia',
 N("%s
 
 Is it ok to continue?",
@@ -129,22 +140,22 @@ to your system from these new media.", join ", ", @names)
 That means you will be able to add new software packages
 to your system from that new medium.", $names[0])
 ),
-    yesno => 1) or myexit(-1);
+    yesno => 1) or AdminPanel::rpmdragora::myexit(-1);
 };
 
-my $urpm = fast_open_urpmi_db();
+my $urpm = AdminPanel::Rpmdragora::open_db::fast_open_urpmi_db();
 my $success = 1;
 foreach (@addmedia_args) {
     #- NB: that short circuits
-    $success = $success && add_medium_and_check(
+    $success = $success && AdminPanel::rpmdragora::add_medium_and_check(
 	$urpm,
 	{ distrib => $distrib },
 	$_->[0],
 	$_->[1],
-	if_(!$distrib, undef),
-	if_($update, update => $update, only_updates => $update),
+	MDK::Common::Func::if_(!$distrib, undef),
+	MDK::Common::Func::if_($update, update => $update, only_updates => $update),
 	mirrorlist => $mirrorlist,
-	if_($with_dir, 'with-dir' => $with_dir),
+	MDK::Common::Func::if_($with_dir, 'with-dir' => $with_dir),
     );
 }
 if ($success) {
@@ -153,8 +164,8 @@ if ($success) {
         : @names > 1
 	    ? N("Successfully added media %s.", join ", ", @names)
 	    : N("Successfully added medium `%s'.", $names[0]);
-    interactive_msg('gurpmi.addmedia', $message) if !$silent_success;
-    myexit(0);
+    AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia', $message) if !$silent_success;
+    AdminPanel::rpmdragora::myexit(0);
 } else {
-    myexit(-1);
+    AdminPanel::rpmdragora::myexit(-1);
 }

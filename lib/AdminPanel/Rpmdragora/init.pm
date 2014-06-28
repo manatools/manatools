@@ -33,6 +33,8 @@ use English;
 BEGIN { $::no_global_argv_parsing = 1 }
 require urpm::args;
 
+use AdminPanel::Privileges;
+
 use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(init
@@ -147,7 +149,7 @@ if ($MODE eq 'remove') {
     $default_list_mode = 'all_updates';
 }
 
-$MODE eq 'update' || $rpmdragora_options{'run-as-root'} and require_root_capability();
+$MODE eq 'update' || $rpmdragora_options{'run-as-root'} and AdminPanel::Privileges::require_root_capability();
 $::noborderWhenEmbedded = 1;
 
 require AdminPanel::rpmdragora;
