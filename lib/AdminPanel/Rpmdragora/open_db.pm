@@ -3,7 +3,7 @@ package AdminPanel::Rpmdragora::open_db;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
-#  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
+#  Copyright (c) 2002-2014 Thierry Vignaud <thierry.vignaud@gmail.com>
 #  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
 #  Copyright (c) 2005-2007 Mandriva SA
 #
