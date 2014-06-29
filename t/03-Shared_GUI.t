@@ -22,13 +22,13 @@ BEGIN {
 
         ok( $gui->warningMsgBox({text => "Warning message! (no title, no richtext)<br> line two"}), 'wmb1');
 
-        ok( $gui->warningMsgBox({text => "Warning message!<br> line two", title => "WARN", reachtext => 1}), 'wmb2');
+        ok( $gui->warningMsgBox({text => "Warning message!<br> line two", title => "WARN", richtext => 1}), 'wmb2');
 
-        ok($gui->infoMsgBox({text => "Info message!<br> line two", title => "INFO", reachtext => 1}), 'imb');
+        ok($gui->infoMsgBox({text => "Info message!<br> line two", title => "INFO", richtext => 1}), 'imb');
 
         ok($gui->msgBox({text => "Normal message! (no title, no richtext)<br> line two"}), 'mb1');
 
-        ok($gui->msgBox({title => "Message", text => "Normal message!<br> line two", reachtext=>1}), 'mb2');
+        ok($gui->msgBox({title => "Message", text => "Normal message!<br> line two", richtext=>1}), 'mb2');
 
         cmp_ok(my $btn = $gui->ask_OkCancel({title => "Tests", text => "All these tests seem to be passed"}), ">=", 0, 'askOkCancel');
         diag "ask_OkCancel got: < " . ($btn == 1 ? "Ok": "Cancel"). " >";
