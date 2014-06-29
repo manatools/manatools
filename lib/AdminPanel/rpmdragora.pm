@@ -33,6 +33,7 @@ use urpm::media;
 
 use MDK::Common;
 use MDK::Common::System;
+use MDK::Common::String;
 use urpm;
 use urpm::cfg;
 use URPM;
@@ -251,42 +252,49 @@ sub getbanner() {
 sub interactive_msg {
     my ($title, $contents, %options) = @_;
     my $sh_gui = AdminPanel::Shared::GUI->new();
-    return $sh_gui->ask_YesOrNo({ title => $title, text => $contents, richtext => 0});
-=comment
-    $options{transient} ||= $::main_window if $::main_window;
-    local $::isEmbedded;
-    my $factory = yui::YUI::widgetFactory;
-    my $d = $factory->createPopupDialog();
 
-    my $d = ugtk2->new($title, grab => 1, if_(exists $options{transient}, transient => $options{transient}));
-    $d->{rwindow}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
+    my $retVal = 0;
+    yui::YUI::widgetFactory;
+    my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
+    $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
+
+    my $info;
+    $info->{title} = $title;
+
     if ($options{scroll}) {
-        $contents = ugtk2::markup_to_TextView_format($contents) if !ref $contents;
+        $info->{reachtext} = 1;
     } else { #- because we'll use a WrappedLabel
-        $contents = formatAlaTeX($contents) if !ref $contents;
+        $contents = MDK::Common::String::formatAlaTeX($contents) if !ref $contents;
+    }
+    $info->{text} = $contents;
+
+    my $dlg;
+
+    if ($options{yesno}) {
+        $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
+        $dlg->setButtonLabel($options{text}{yes} || N("Yes"), $yui::YMGAMessageBox::B_ONE);
+        $dlg->setButtonLabel($options{text}{no}  || N("No"),  $yui::YMGAMessageBox::B_TWO);
+    }
+    else {
+        $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE);
+        $dlg->setButtonLabel(N("Ok"), $yui::YMGAMessageBox::B_ONE );
     }
 
-    my $button_yes;
-    my $vbox = $factory->createVBox($d);
-    my $text_w = $factory->createMultiLineEdit($vbox, "");
-    my $hbox = $factory->createHBox($vbox);
-    
-    ref($options{yesno}) eq 'ARRAY' ? map {ss
-		my $label = $_;
-		my $button_yes = $factory->createIconButton($hbox,"",$label);
-		} @{$options{yesno}}
-		: (
-		$options{yesno} ? (
-			my $button_no = $factory->createIconButton($hbox, "", $options{text}{no} || N("No"));
-			$button_yes = $factory->createIconButton($hbox,"", $options{text}{yes} || N("Yes"));
-		)
-		: $button_yes = $factory->createIconButton($hbox,"",N("Ok"));
-		)
-    
-    #$d->{window}->set_focus($button_yes);
-    #$text_w->set_size_request($typical_width*2, $options{scroll} ? 300 : -1);
-    #$d->main;
-    return $d->{retval};
+    $dlg->setTitle($info->{title}) if (exists $info->{title});
+    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    $dlg->setText($info->{text}, $rt) if (exists $info->{text});
+    $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
+
+    $dlg->setMinSize(50, 5);
+
+    $retVal = $dlg->show() == $yui::YMGAMessageBox::B_ONE ? 1 : 0;
+
+    $dlg = undef;
+
+    return $retVal;
+
+=comment
+    return $sh_gui->ask_YesOrNo({ title => $title, text => $contents, richtext => 0});
 =cut
 }
 
@@ -379,7 +387,9 @@ sub wait_msg {
     my $title = $factory->createLabel($vbox, N("Please wait"));
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
-    $mainw->pollEvent();
+    $mainw->open();
+# matteo do you really need a pollEvent? or it was just to show the dialog?
+#     $mainw->pollEvent();
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
     $mainw;
@@ -549,6 +559,178 @@ sub compat_arch_for_updates($) {
     MDK::Common::System::compat_arch($arch);
 }
 
+sub add_medium_and_check {
+    my ($urpm, $options) = splice @_, 0, 2;
+    my @newnames = ($_[0]); #- names of added media
+    my $fatal_msg;
+    my @error_msgs;
+    local $urpm->{fatal} = sub { printf STDERR "Fatal: %s\n", $_[1]; $fatal_msg = $_[1]; goto fatal_error };
+    local $urpm->{error} = sub { printf STDERR "Error: %s\n", $_[0]; push @error_msgs, $_[0] };
+    if ($options->{distrib}) {
+        @newnames = urpm::media::add_distrib_media($urpm, @_);
+    } else {
+        urpm::media::add_medium($urpm, @_);
+    }
+    if (@error_msgs) {
+        interactive_msg(
+            N("Error"),
+            N("Unable to add medium, errors reported:\n\n%s",
+            join("\n", map { MDK::Common::String::formatAlaTeX($_) } @error_msgs)) . "\n\n" . N("Medium: ") . "$_[0] ($_[1])",
+            scroll => 1,
+        );
+        return 0;
+    }
+
+    foreach my $name (@newnames) {
+        urpm::download::set_proxy_config($_, $options->{proxy}{$_}, $name) foreach keys %{$options->{proxy} || {}};
+    }
+
+    if (update_sources_check($urpm, $options, N_("Unable to add medium, errors reported:\n\n%s"), @newnames)) {
+        urpm::media::write_config($urpm);
+        $options->{proxy} and urpm::download::dump_proxy_config();
+    } else {
+        urpm::media::read_config($urpm, 0);
+        return 0;
+    }
+
+    my %newnames; @newnames{@newnames} = ();
+    if (any { exists $newnames{$_->{name}} } @{$urpm->{media}}) {
+        return 1;
+    } else {
+        interactive_msg(N("Error"), N("Unable to create medium."));
+        return 0;
+    }
+
+  fatal_error:
+    interactive_msg(N("Failure when adding medium"),
+                    N("There was a problem adding medium:\n\n%s", $fatal_msg));
+    return 0;
+}
+
+sub update_sources_check {
+    my ($urpm, $options, $error_msg, @media) = @_;
+    my @error_msgs;
+    local $urpm->{fatal} = sub { push @error_msgs, $_[1]; goto fatal_error };
+    local $urpm->{error} = sub { push @error_msgs, $_[0] };
+    update_sources($urpm, %$options, noclean => 1, medialist => \@media);
+  fatal_error:
+    if (@error_msgs) {
+        interactive_msg(N("Error"), translate($error_msg, join("\n", map { formatAlaTeX($_) } @error_msgs)), scroll => 1);
+        return 0;
+    }
+    return 1;
+}
+
+sub update_sources {
+    my ($urpm, %options) = @_;
+    my $cancel = 0;
+
+
+    my $factory = yui::YUI::widgetFactory;
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("rpmdragora"));
+
+    my $dlg = $factory->createPopupDialog();
+    my $vbox = $factory->createVBox($dlg);
+    my $label = $factory->createLabel($vbox, N("Please wait, updating media...") );
+$label->setWeight($yui::YD_HORIZ, 1);
+    my $pb = $factory->createProgressBar( $vbox, "");
+
+    $dlg->open();
+
+
+#     my $w; my $label; $w = wait_msg(
+#         $label = Gtk2::Label->new(N("Please wait, updating media...")),
+#         no_wait_cursor => 1,
+#         widgets => [
+#             my $pb = gtkset_size_request(Gtk2::ProgressBar->new, 300, -1),
+#             gtkpack(
+#                 create_hbox(),
+#                 gtksignal_connect(
+#                     Gtk2::Button->new(N("Cancel")),
+#                     clicked => sub {
+#                         $cancel = 1;
+#                         $urpm->{error}->(N("Canceled"));
+#                         $w and $w->destroy;
+#                     },
+#                 ),
+#             ),
+#         ],
+#     );
+    my @media; @media = @{$options{medialist}} if ref $options{medialist};
+    my $outerfatal = $urpm->{fatal};
+    local $urpm->{fatal} = sub { $dlg->destroy(); $outerfatal->(@_) };
+    urpm::media::update_those_media($urpm, [ urpm::media::select_media_by_name($urpm, \@media) ],
+        %options, allow_failures => 1,
+        callback => sub {
+            $cancel and goto cancel_update;
+            my ($type, $media) = @_;
+            return if $type !~ /^(?:start|progress|end)$/ && @media && !AdminPanel::Shared::member($media, @media);
+            if ($type eq 'failed') {
+                $urpm->{fatal}->(N("Error retrieving packages"),
+N("It's impossible to retrieve the list of new packages from the media
+`%s'. Either this update media is misconfigured, and in this case
+you should use the Software Media Manager to remove it and re-add it in order
+to reconfigure it, either it is currently unreachable and you should retry
+later.",
+    $media));
+            } else {
+                show_urpm_progress($label, $pb, @_);
+#Lose 10 msec to see the toolbar
+                $dlg->waitForEvent(10);
+                $dlg->pollEvent();
+            }
+        },
+    );
+    $dlg->destroy();
+  cancel_update:
+}
+
+sub show_urpm_progress {
+    my ($label, $pb, $mode, $file, $percent, $total, $eta, $speed) = @_;
+    $file =~ s|([^:]*://[^/:\@]*:)[^/:\@]*(\@.*)|$1xxxx$2|; #- if needed...
+    state $medium;
+
+    if ($mode eq 'copy') {
+        $pb->setValue(0);
+        $label->setLabel(N("Copying file for medium `%s'...", $file));
+    } elsif ($mode eq 'parse') {
+        $pb->setValue(0);
+        $label->setLabel(N("Examining file of medium `%s'...", $file));
+    } elsif ($mode eq 'retrieve') {
+        $pb->setValue(0);
+        $label->setLabel(N("Examining remote file of medium `%s'...", $file));
+        $medium = $file;
+    } elsif ($mode eq 'done') {
+        $pb->setValue(100);
+        $label->setLabel($label->label() . N(" done."));
+        $medium = undef;
+    } elsif ($mode eq 'failed') {
+        $pb->setValue(100);
+        $label->setLabel($label->label() . N(" failed!"));
+        $medium = undef;
+    } else {
+        # FIXME: we're displaying misplaced quotes such as "downloading `foobar from 'medium Main Updates'´"
+        $file = $medium && length($file) < 40 ? #-PO: We're downloading the said file from the said medium
+                                                 N("%s from medium %s", basename($file), $medium)
+                                               : basename($file);
+        if ($mode eq 'start') {
+            $pb->setValue(0);
+            $label->setLabel(N("Starting download of `%s'...", $file));
+        } elsif ($mode eq 'progress') {
+            if (defined $total && defined $eta) {
+                $pb->setValue($percent);
+                $label->setLabel(N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
+            } else {
+                $pb->setValue($percent);
+                $label->setLabel(N("Download of `%s'\nspeed:%s", $file, $speed));
+            }
+        }
+    }
+#     Gtk2->main_iteration while Gtk2->events_pending;
+}
+
 sub mirrors {
     my ($urpm, $want_base_distro) = @_;
     my $cachedir = $urpm->{cachedir} || '/root';
@@ -607,7 +789,7 @@ sub mirrors {
 
 sub warn_for_network_need {
     my ($message, %options) = @_;
-    $message ||= 
+    $message ||=
 $branded
 ? N("I need to access internet to get the mirror list.
 Please check that your network is currently running.
@@ -703,109 +885,8 @@ by Mageia Official Updates.")), %options
     $w->main && return grep { $w->{retval}{sel} eq $_->{url} } @mirrors;
 }
 
-sub show_urpm_progress {
-    my ($label, $pb, $mode, $file, $percent, $total, $eta, $speed) = @_;
-    $file =~ s|([^:]*://[^/:\@]*:)[^/:\@]*(\@.*)|$1xxxx$2|; #- if needed...
-    state $medium;
-    if ($mode eq 'copy') {
-	$pb->set_fraction(0);
-	$label->set_label(N("Copying file for medium `%s'...", $file));
-    } elsif ($mode eq 'parse') {
-	$pb->set_fraction(0);
-	$label->set_label(N("Examining file of medium `%s'...", $file));
-    } elsif ($mode eq 'retrieve') {
-	$pb->set_fraction(0);
-	$label->set_label(N("Examining remote file of medium `%s'...", $file));
-        $medium = $file;
-    } elsif ($mode eq 'done') {
-	$pb->set_fraction(1.0);
-	$label->set_label($label->get_label . N(" done."));
-        $medium = undef;
-    } elsif ($mode eq 'failed') {
-	$pb->set_fraction(1.0);
-	$label->set_label($label->get_label . N(" failed!"));
-        $medium = undef;
-    } else {
-        # FIXME: we're displaying misplaced quotes such as "downloading `foobar from 'medium Main Updates'´"
-        $file = $medium && length($file) < 40 ? #-PO: We're downloading the said file from the said medium
-                                                 N("%s from medium %s", basename($file), $medium)
-                                               : basename($file);
-        if ($mode eq 'start') {
-            $pb->set_fraction(0);
-            $label->set_label(N("Starting download of `%s'...", $file));
-        } elsif ($mode eq 'progress') {
-            if (defined $total && defined $eta) {
-                $pb->set_fraction($percent/100);
-                $label->set_label(N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
-            } else {
-                $pb->set_fraction($percent/100);
-                $label->set_label(N("Download of `%s'\nspeed:%s", $file, $speed));
-            }
-        }
-    }
-    Gtk2->main_iteration while Gtk2->events_pending;
-}
 
-sub update_sources {
-    my ($urpm, %options) = @_;
-    my $cancel = 0;
-    my $w; my $label; $w = wait_msg(
-	$label = Gtk2::Label->new(N("Please wait, updating media...")),
-	no_wait_cursor => 1,
-	widgets => [
-	    my $pb = gtkset_size_request(Gtk2::ProgressBar->new, 300, -1),
-	    gtkpack(
-		create_hbox(),
-		gtksignal_connect(
-		    Gtk2::Button->new(N("Cancel")),
-		    clicked => sub {
-			$cancel = 1;
-                        $urpm->{error}->(N("Canceled"));
-			$w and $w->destroy;
-		    },
-		),
-	    ),
-	],
-    );
-    my @media; @media = @{$options{medialist}} if ref $options{medialist};
-    my $outerfatal = $urpm->{fatal};
-    local $urpm->{fatal} = sub { $w->destroy; $outerfatal->(@_) };
-    urpm::media::update_those_media($urpm, [ urpm::media::select_media_by_name($urpm, \@media) ],
-	%options, allow_failures => 1,
-	callback => sub {
-	    $cancel and goto cancel_update;
-	    my ($type, $media) = @_;
-	    return if $type !~ /^(?:start|progress|end)$/ && @media && !AdminPanel::Shared::member($media, @media);
-	    if ($type eq 'failed') {
-		$urpm->{fatal}->(N("Error retrieving packages"),
-N("It's impossible to retrieve the list of new packages from the media
-`%s'. Either this update media is misconfigured, and in this case
-you should use the Software Media Manager to remove it and re-add it in order
-to reconfigure it, either it is currently unreachable and you should retry
-later.",
-    $media));
-	    } else {
-		show_urpm_progress($label, $pb, @_);
-	    }
-	},
-    );
-    $w->destroy;
-  cancel_update:
-}
 
-sub update_sources_check {
-    my ($urpm, $options, $error_msg, @media) = @_;
-    my @error_msgs;
-    local $urpm->{fatal} = sub { push @error_msgs, $_[1]; goto fatal_error };
-    local $urpm->{error} = sub { push @error_msgs, $_[0] };
-    update_sources($urpm, %$options, noclean => 1, medialist => \@media);
-  fatal_error:
-    if (@error_msgs) {
-        interactive_msg(N("Error"), sprintf(translate($error_msg), join("\n", map { formatAlaTeX($_) } @error_msgs)), scroll => 1);
-        return 0;
-    }
-    return 1;
-}
 
 sub update_sources_interactive {
     my ($urpm, %options) = @_;
@@ -873,53 +954,6 @@ sub update_sources_noninteractive {
 	return 1;
 }
 
-sub add_medium_and_check {
-    my ($urpm, $options) = splice @_, 0, 2;
-    my @newnames = ($_[0]); #- names of added media
-    my $fatal_msg;
-    my @error_msgs;
-    local $urpm->{fatal} = sub { printf STDERR "Fatal: %s\n", $_[1]; $fatal_msg = $_[1]; goto fatal_error };
-    local $urpm->{error} = sub { printf STDERR "Error: %s\n", $_[0]; push @error_msgs, $_[0] };
-    if ($options->{distrib}) {
-	@newnames = urpm::media::add_distrib_media($urpm, @_);
-    } else {
-	urpm::media::add_medium($urpm, @_);
-    }
-    if (@error_msgs) {
-        interactive_msg(
-	    N("Error"),
-	    N("Unable to add medium, errors reported:\n\n%s",
-	    join("\n", map { formatAlaTeX($_) } @error_msgs)) . "\n\n" . N("Medium: ") . "$_[0] ($_[1])",
-	    scroll => 1,
-	);
-        return 0;
-    }
-
-    foreach my $name (@newnames) {
-	urpm::download::set_proxy_config($_, $options->{proxy}{$_}, $name) foreach keys %{$options->{proxy} || {}};
-    }
-
-    if (update_sources_check($urpm, $options, N_("Unable to add medium, errors reported:\n\n%s"), @newnames)) {
-        urpm::media::write_config($urpm);
-	$options->{proxy} and urpm::download::dump_proxy_config();
-    } else {
-	urpm::media::read_config($urpm, 0);
-        return 0;
-    }
-
-    my %newnames; @newnames{@newnames} = ();
-    if (any { exists $newnames{$_->{name}} } @{$urpm->{media}}) {
-        return 1;
-    } else {
-        interactive_msg(N("Error"), N("Unable to create medium."));
-        return 0;
-    }
-
-  fatal_error:
-    interactive_msg(N("Failure when adding medium"),
-                    N("There was a problem adding medium:\n\n%s", $fatal_msg));
-    return 0;
-}
 
 #- Check whether the default update media (added by installation)
 #- matches the current mdk version
