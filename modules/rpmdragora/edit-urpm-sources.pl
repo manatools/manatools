@@ -23,17 +23,24 @@
 # $Id: edit-urpm-sources.pl 244763 2008-09-04 16:12:52Z tv $
 
 use strict;
-use lib qw(/usr/lib/libDrakX);
 use AdminPanel::Rpmdragora::init;
-use standalone;
 use AdminPanel::rpmdragora;
-use common;
+use common qw(N);
 use AdminPanel::Rpmdragora::edit_urpm_sources;
+use AdminPanel::Privileges;
 
-require_root_capability();
+if (AdminPanel::Privileges::require_root_capability()) {
+    require AdminPanel::Shared::GUI;
+    my $sh_gui = AdminPanel::Shared::GUI->new();
+    $sh_gui->warningMsgBox({
+        title => "gurpmi.addmedia",
+        text  => N("root privileges required"),
+    });
+    exit (-1);
+}
 
-readconf();
+AdminPanel::rpmdragora::readconf();
 
-run();
+AdminPanel::Rpmdragora::edit_urpm_sources::run();
 
-myexit 0;
+AdminPanel::rpmdragora::myexit 0;
