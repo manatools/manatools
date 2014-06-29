@@ -89,7 +89,7 @@ sub _localeInitialize {
     $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            richtext =>     1 if using reach text
+            richtext =>     1 if using rich text
 
 =head3 DESCRIPTION
 
@@ -134,7 +134,7 @@ sub warningMsgBox {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            richtext =>     1 if using reach text
+            richtext =>     1 if using rich text
 
 =head3 DESCRIPTION
 
@@ -180,7 +180,7 @@ sub infoMsgBox {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            richtext =>     1 if using reach text
+            richtext =>     1 if using rich text
 
 =head3 DESCRIPTION
 
@@ -224,7 +224,7 @@ sub msgBox {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            richtext =>     1 if using reach text
+            richtext =>     1 if using rich text
 
 =head3 OUTPUT
 
@@ -276,7 +276,7 @@ sub ask_OkCancel {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            richtext =>     1 if using reach text
+            richtext =>     1 if using rich text
             default_button => (optional) 1: "Yes" (any other values "No")
 
 =head3 OUTPUT
