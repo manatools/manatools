@@ -88,8 +88,7 @@ GetOptions(
     'distrib'       => \$distrib,
     'silent-success' => \$silent_success,
     'mirrorlist=s'     => \$mirrorlist,
-    ## TODO urpmi-root needed???
-#     'urpmi-root=s'      => \$::rpmdrake_options{'urpmi-root'}[0],
+    'urpmi-root=s'      => \$::rpmdragora_options{'urpmi-root'}[0],
 );
 
 # compatibility with -update:
