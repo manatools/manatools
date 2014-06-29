@@ -380,6 +380,35 @@ sub warn_if_no_pkg {
     return 'XXX';
 }
 
+#
+# @method node_state
+# 
+=pod
+
+=head1 node_state(pkgname)
+
+=over 4
+
+=item returns the state of the node (pkg) querying an urpm object from $pkgs->{$pkgname}
+
+=over 6
+
+=item I<to_install>
+
+=item I<to_remove>
+
+=item I<to_update>
+
+=item I<installed>
+
+=item I<uninstalled>
+
+=back
+
+=back
+
+=cut
+
 sub node_state {
     my ($name) = @_;
     #- checks $_[0] -> hack for partial tree displaying
@@ -399,6 +428,34 @@ sub node_state {
 }
 
 my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
+
+#
+# @method set_node_state
+#
+
+=pod
+
+=head1 set_node_state($tblItem, $state, $detail_list)
+
+=over 4
+
+=item setup the table row by adding a cell representing the state of the package
+
+=item see node_state
+
+=over 6
+
+=item B<$tblItem> , YTableItem instance
+
+=item B<$state> , string containing the state of the package from node_state
+
+=item B<$detail_list> , reference to the YCBTable
+
+=back 
+
+=back
+
+=cut
 
 sub set_node_state {
     my ($tblItem, $state, $detail_list) = @_;
@@ -437,6 +494,32 @@ sub grep_unselected {
 
 my %groups_tree = ();
 
+#
+# @method add_parent
+#
+
+=pod
+
+=head1 add_parent($tree, $root, $state)
+
+=over 4
+
+=item populates the treeview with the rpm package groups
+
+=over 6
+
+=item B<$tree> , YTree for the group of the rpm packages
+
+=item B<$root> , string containing a path-like sequence (e.g. "foo|bar")
+
+=item B<$state> , not used currently (from the old impl.)
+
+=back
+
+=back
+
+=cut
+
 sub add_parent {
     my ($tree, $root, $state) = @_;
     $tree or return undef;
@@ -470,6 +553,32 @@ sub add_parent {
 	}
     $tree->rebuildTree();
 }
+
+#
+# @method add_node
+#
+
+=pod
+
+=head1 add_node($leaf, $root, $options)
+
+=over 4
+
+=item populates the tableview with the rpm packages or the treeview with the package groups
+
+=over 6
+
+=item B<$leaf> , could be the name of a package or the name of a group o packages
+
+=item B<$root> , string containing a path-like sequence (e.g. "foo|bar")
+
+=item B<$state> , the string with the state of the package if leaf is the name of a package
+
+=back
+
+=back
+
+=cut
 
 sub add_node {
     my ($leaf, $root, $o_options) = @_;
