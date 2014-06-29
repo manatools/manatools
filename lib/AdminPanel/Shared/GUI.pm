@@ -89,7 +89,7 @@ sub _localeInitialize {
     $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            reachtext =>     1 if using reach text
+            richtext =>     1 if using reach text
 
 =head3 DESCRIPTION
 
@@ -112,7 +112,7 @@ sub warningMsgBox {
                                         $yui::YMGAMessageBox::D_WARNING);
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
     $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
@@ -134,7 +134,7 @@ sub warningMsgBox {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            reachtext =>     1 if using reach text
+            richtext =>     1 if using reach text
 
 =head3 DESCRIPTION
 
@@ -158,7 +158,7 @@ sub infoMsgBox {
                                         $yui::YMGAMessageBox::D_INFO);
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
     $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
@@ -180,7 +180,7 @@ sub infoMsgBox {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            reachtext =>     1 if using reach text
+            richtext =>     1 if using reach text
 
 =head3 DESCRIPTION
 
@@ -202,7 +202,7 @@ sub msgBox {
     my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE);
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
     $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
@@ -224,7 +224,7 @@ sub msgBox {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            reachtext =>     1 if using reach text
+            richtext =>     1 if using reach text
 
 =head3 OUTPUT
 
@@ -252,7 +252,7 @@ sub ask_OkCancel {
     my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
     $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
@@ -276,7 +276,7 @@ sub ask_OkCancel {
 $info: HASH, information to be passed to the dialog.
             title     =>     dialog title
             text      =>     string to be swhon into the dialog
-            reachtext =>     1 if using reach text
+            richtext =>     1 if using reach text
             default_button => (optional) 1: "Yes" (any other values "No")
 
 =head3 OUTPUT
@@ -305,7 +305,7 @@ sub ask_YesOrNo {
     my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
     $dlg->setButtonLabel($self->loc->N("Yes"), $yui::YMGAMessageBox::B_ONE );

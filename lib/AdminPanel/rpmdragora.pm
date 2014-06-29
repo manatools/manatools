@@ -262,7 +262,7 @@ sub interactive_msg {
     $info->{title} = $title;
 
     if ($options{scroll}) {
-        $info->{reachtext} = 1;
+        $info->{richtext} = 1;
     } else { #- because we'll use a WrappedLabel
         $contents = MDK::Common::String::formatAlaTeX($contents) if !ref $contents;
     }
@@ -281,7 +281,7 @@ sub interactive_msg {
     }
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{reachtext})  ? $info->{reachtext} : 0;
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
     $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
 
