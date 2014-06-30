@@ -953,6 +953,38 @@ sub keys_callback() {
     $w->main;
 }
 
+sub readMedia {
+    my ($name) = @_;
+    if (defined $name) {
+        urpm::media::select_media($urpm, $name);
+        update_sources_check(
+            $urpm,
+            { nolock => 1 },
+            N_("Unable to update medium, errors reported:\n\n%s"),
+                             $name,
+        );
+    }
+    # reread configuration after updating media else ignore bit will be restored
+    # by urpm::media::check_existing_medium():
+    $urpm = fast_open_urpmi_db();
+
+    my $itemColl = new yui::YItemCollection;
+    foreach (grep { ! $_->{external} } @{$urpm->{media}}) {
+        my $name = $_->{name};
+
+        my $item = new yui::YTableItem (!$_->{ignore},
+                                        ! !$_->{update},
+                                        get_medium_type($_),
+                                        $name);
+        # TODO manage to_bool($::expert)
+        $item->setLabel( $name );
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+
+    return $itemColl;
+}
+
 sub mainwindow() {
 
     my $something_changed = 0;
@@ -961,7 +993,7 @@ sub mainwindow() {
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle(N("Configure media"));
     ## set icon if not already set by external launcher TODO
-#     yui::YUI::app()->setApplicationIcon($self->icon);
+    yui::YUI::app()->setApplicationIcon("/usr/share/mcc/themes/default/rpmdrake-mdk.png");
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;
@@ -1023,7 +1055,7 @@ sub mainwindow() {
 
     my $hbox_content = $factory->createHBox($vbox);
     my $leftContent = $factory->createLeft($hbox_content);
-    $leftContent->setWeight($yui::YD_HORIZ,45);
+    $leftContent->setWeight($yui::YD_HORIZ,3);
 
     my $frame   = $factory->createFrame ($leftContent, "");
 
@@ -1031,19 +1063,24 @@ sub mainwindow() {
     my $hbox = $factory->createHBox( $frmVbox );
 
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Enabled"), $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Enabled"), $yui::YAlignCenter);
     $yTableHeader->addColumn(N("Updates"),  $yui::YAlignCenter);
     $yTableHeader->addColumn(N("Type"), $yui::YAlignBegin);
     $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
 
     ## mirror list
-    my $mirrorTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
-    $mirrorTbl->setKeepSorting(1);
-#     my $mirrorTbl = $factory->createTable($hbox, $yTableHeader);
+    # NOTE let's use YTable and not YCBTable atm
+#     my $mirrorTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 #     $mirrorTbl->setKeepSorting(1);
+    my $multiselection = 1;
+    my $mirrorTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
+    $mirrorTbl->setKeepSorting(1);
+
+    my $itemCollection = readMedia();
+    $mirrorTbl->addItems($itemCollection);
 
     my $rightContent = $factory->createRight($hbox_content);
-    $rightContent->setWeight($yui::YD_HORIZ,10);
+    $rightContent->setWeight($yui::YD_HORIZ,1);
     my $topContent = $factory->createTop($rightContent);
     my $vbox_commands = $factory->createVBox($topContent);
     $factory->createVSpacing($vbox_commands, 1.0);
@@ -1367,7 +1404,7 @@ sub OLD_mainwindow() {
 sub run() {
     # ignore rpmdragora's option regarding ignoring debug media:
     local $ignore_debug_media = [ 0 ];
-    local $ugtk2::wm_icon = get_icon('rpmdragora-mdk', 'title-media');
+#     local $ugtk2::wm_icon = get_icon('rpmdragora-mdk', 'title-media');
     my $lock;
     {
         $urpm = fast_open_urpmi_db();
