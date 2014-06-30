@@ -30,6 +30,7 @@ use common;
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
+use AdminPanel::Shared::GUI;
 use URPM::Signature;
 use MDK::Common::Math qw(max);
 use MDK::Common::File;
@@ -953,6 +954,189 @@ sub keys_callback() {
 }
 
 sub mainwindow() {
+
+    my $something_changed = 0;
+    my $appTitle = yui::YUI::app()->applicationTitle();
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Configure media"));
+    ## set icon if not already set by external launcher TODO
+#     yui::YUI::app()->setApplicationIcon($self->icon);
+
+    my $mageiaPlugin = "mga";
+    my $factory      = yui::YUI::widgetFactory;
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+
+    my $dialog  = $factory->createMainDialog;
+    my $vbox    = $factory->createVBox( $dialog );
+
+    my $hbox_headbar = $factory->createHBox($vbox);
+    my $head_align_left = $factory->createLeft($hbox_headbar);
+    my $head_align_right = $factory->createRight($hbox_headbar);
+    my $headbar = $factory->createHBox($head_align_left);
+    my $headRight = $factory->createHBox($head_align_right);
+
+    ## TODO fix menu order
+    my %fileMenu = (
+            widget => $factory->createMenuButton($headbar,N("File")),
+            update => new yui::YMenuItem(N("Update")),
+         add_media => new yui::YMenuItem(N("Add a specific media mirror")),
+            custom => new yui::YMenuItem(N("Add a custom medium")),
+            quit   => new yui::YMenuItem(N("&Close")),
+    );
+    while ( my ($key, $value) = each(%fileMenu) ) {
+        if ($key ne 'widget' ) {
+            $fileMenu{ widget }->addItem($value);
+        }
+    }
+    $fileMenu{ widget }->rebuildMenuTree();
+
+
+    my %optionsMenu = (
+            widget => $factory->createMenuButton($headbar, N("Options")),
+            global => new yui::YMenuItem(N("Global options")),
+          man_keys => new yui::YMenuItem(N("Manage keys")),
+          parallel => new yui::YMenuItem(N("Parallel")),
+             proxy => new yui::YMenuItem(N("Proxy")),
+    );
+     while ( my ($key, $value) = each(%optionsMenu) ) {
+        if ($key ne 'widget' ) {
+            $optionsMenu{ widget }->addItem($value);
+        }
+    }
+    $optionsMenu{ widget }->rebuildMenuTree();
+
+
+    my %helpMenu = (
+            widget     => $factory->createMenuButton($headRight, N("&Help")),
+            help       => new yui::YMenuItem(N("Manual")),
+            report_bug => new yui::YMenuItem(N("Report Bug")),
+            about      => new yui::YMenuItem(N("&About")),
+    );
+    while ( my ($key, $value) = each(%helpMenu) ) {
+        if ($key ne 'widget' ) {
+            $helpMenu{ widget }->addItem($value);
+        }
+    }
+    $helpMenu{ widget }->rebuildMenuTree();
+
+    my $hbox_content = $factory->createHBox($vbox);
+    my $leftContent = $factory->createLeft($hbox_content);
+    $leftContent->setWeight($yui::YD_HORIZ,45);
+
+    my $frame   = $factory->createFrame ($leftContent, "");
+
+    my $frmVbox = $factory->createVBox( $frame );
+    my $hbox = $factory->createHBox( $frmVbox );
+
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn(N("Enabled"), $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Updates"),  $yui::YAlignCenter);
+    $yTableHeader->addColumn(N("Type"), $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
+
+    ## mirror list
+    my $mirrorTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
+    $mirrorTbl->setKeepSorting(1);
+#     my $mirrorTbl = $factory->createTable($hbox, $yTableHeader);
+#     $mirrorTbl->setKeepSorting(1);
+
+    my $rightContent = $factory->createRight($hbox_content);
+    $rightContent->setWeight($yui::YD_HORIZ,10);
+    my $topContent = $factory->createTop($rightContent);
+    my $vbox_commands = $factory->createVBox($topContent);
+    $factory->createVSpacing($vbox_commands, 1.0);
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Remove"));
+    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Edit"));
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Add"));
+    $hbox = $factory->createHBox( $vbox_commands );
+    ## TODO icon and label for ncurses
+    my $upButton   = $factory->createPushButton($factory->createHBox($hbox), N("Up"));
+    my $downButton = $factory->createPushButton($factory->createHBox($hbox), N("Down"));
+
+    $addButton->setWeight($yui::YD_HORIZ,1);
+    $edtButton->setWeight($yui::YD_HORIZ,1);
+    $remButton->setWeight($yui::YD_HORIZ,1);
+    $upButton->setWeight($yui::YD_HORIZ,1);
+    $downButton->setWeight($yui::YD_HORIZ,1);
+
+
+    # dialog buttons
+    $factory->createVSpacing($vbox, 1.0);
+    ## Window push buttons
+    $hbox = $factory->createHBox( $vbox );
+    my $align = $factory->createLeft($hbox);
+    $hbox     = $factory->createHBox($align);
+
+
+    my $aboutButton = $factory->createPushButton($hbox, N("Help") );
+    $align = $factory->createRight($hbox);
+    $hbox     = $factory->createHBox($align);
+
+    ### Service Refresh button ($refreshButton)
+    my $closeButton = $factory->createPushButton($hbox, N("Ok") );
+    while(1) {
+        my $event       = $dialog->waitForEvent();
+        my $eventType   = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::MenuEvent) {
+            ### MENU ###
+            my $item = $event->item();
+            my $menuLabel = $item->label();
+            if ($menuLabel eq $fileMenu{ quit }->label()) {
+                last;
+            }
+            elsif ($menuLabel eq $helpMenu{ about }->label()) {
+                my $translators = N("_: Translator(s) name(s) & email(s)\n");
+                $translators =~ s/\</\&lt\;/g;
+                $translators =~ s/\>/\&gt\;/g;
+                my $sh_gui = AdminPanel::Shared::GUI->new();
+                $sh_gui->AboutDialog({ name => "Rpmdragora",
+                                             version => "TODO",
+                         credits => N("Copyright (C) %s Mageia community", '2013-2014'),
+                         license => N("GPLv2"),
+                         description => N("Rpmdragora is the Mageia package management tool."),
+                         authors => N("<h3>Developers</h3>
+                                                    <ul><li>%s</li>
+                                                           <li>%s</li>
+                                                       </ul>
+                                                       <h3>Translators</h3>
+                                                       <ul><li>%s</li></ul>",
+                                                      "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                                      "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                                      $translators
+                                                     ),
+                            }
+                );
+            }
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            my $wEvent = yui::toYWidgetEvent($event);
+
+            if ($widget == $closeButton) {
+                last;
+            }
+            elsif ($widget == $aboutButton) {
+            }
+        }
+    }
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+    return $something_changed;
+}
+
+
+sub OLD_mainwindow() {
     undef $something_changed;
     $mainw = ugtk2->new(N("Configure media"), center => 1, transient => $::main_window, modal => 1);
     local $::main_window = $mainw->{real_window};
