@@ -32,6 +32,7 @@ use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
 use URPM::Signature;
 use MDK::Common::Math qw(max);
+use MDK::Common::File;
 use urpm::media;
 use urpm::download;
 use urpm::lock;
@@ -625,7 +626,7 @@ sub proxy_callback {
 
 sub parallel_read_sysconf() {
     my @conf;
-    foreach (cat_('/etc/urpmi/parallel.cfg')) {
+    foreach (MDK::Common::File::cat_('/etc/urpmi/parallel.cfg')) {
         my ($name, $protocol, $command) = /([^:]+):([^:]+):(.*)/ or print STDERR "Warning, unrecognized line in /etc/urpmi/parallel.cfg:\n$_";
         my $medias = $protocol =~ s/\(([^\)]+)\)$// ? [ split /,/, $1 ] : [];
         push @conf, { name => $name, protocol => $protocol, medias => $medias, command => $command };

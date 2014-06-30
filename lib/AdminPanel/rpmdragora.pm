@@ -34,6 +34,7 @@ use urpm::media;
 use MDK::Common;
 use MDK::Common::System;
 use MDK::Common::String;
+use MDK::Common::File;
 use urpm;
 use urpm::cfg;
 use URPM;
@@ -116,7 +117,7 @@ use Glib;
 
 Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
 
-our $mageia_release = cat_(
+our $mageia_release = MDK::Common::File::cat_(
     -e '/etc/mageia-release' ? '/etc/mageia-release' : '/etc/release'
 ) || '';
 chomp $mageia_release;
@@ -213,7 +214,7 @@ our %config = (
 
 sub readconf() {
     ${$config{$_}{var}} = $config{$_}{default} foreach keys %config;
-    foreach my $l (cat_($configfile)) {
+    foreach my $l (MDK::Common::File::cat_($configfile)) {
 	foreach (keys %config) {
 	    ${$config{$_}{var}} = [ split ' ', $1 ] if $l =~ /^\Q$_\E(.*)/;
 	}
@@ -230,7 +231,7 @@ sub writeconf() {
     # special case:
     $no_confirmation->[0] = $::rpmdragora_options{'no-confirmation'};
 
-    output($configfile, map { "$_ " . (ref ${$config{$_}{var}} ? join(' ', @${$config{$_}{var}}) : undef) . "\n" } keys %config);
+    MDK::Common::File::output($configfile, map { "$_ " . (ref ${$config{$_}{var}} ? join(' ', @${$config{$_}{var}}) : undef) . "\n" } keys %config);
 }
 
 sub getbanner() {
@@ -533,7 +534,7 @@ my %t2l = (
 
 #- get distrib release number (2006.0, etc)
 sub etc_version() {
-    (my $v) = split / /, cat_('/etc/version');
+    (my $v) = split / /, MDK::Common::File::cat_('/etc/version');
     return $v;
 }
 
@@ -770,9 +771,9 @@ sub mirrors {
                                            },
                                        );
             $res or die N("retrieval of [%s] failed", $file) . "\n";
-            return $canceled ? () : cat_($file);
+            return $canceled ? () : MDK::Common::File::cat_($file);
         });
-    my @mirrors = @{ mirror::list(common::parse_LDAP_namespace_structure(cat_('/etc/product.id')), 'distrib') || [] };
+    my @mirrors = @{ mirror::list(common::parse_LDAP_namespace_structure(MDK::Common::File::cat_('/etc/product.id')), 'distrib') || [] };
     require timezone;
     my $tz = ${timezone::read()}{timezone};
     foreach my $mirror (@mirrors) {
