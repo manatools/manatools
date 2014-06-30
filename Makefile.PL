@@ -53,6 +53,7 @@ WriteMakefile(
                        scripts/adminUser
                        scripts/apanel.pl
                        scripts/hostmanager
+                       scripts/proxymanager
                        scripts/logviewer
                        scripts/mgaAddUser
                        ) ],
