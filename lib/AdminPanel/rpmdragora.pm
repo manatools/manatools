@@ -678,8 +678,8 @@ later.",
     $media));
             } else {
                 show_urpm_progress($label, $pb, @_);
-#Lose 10 msec to see the toolbar
-                $dlg->waitForEvent(10);
+#Lose 5 msec to see the toolbar
+                $dlg->waitForEvent(5);
                 $dlg->pollEvent();
             }
         },
