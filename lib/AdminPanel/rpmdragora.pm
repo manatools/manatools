@@ -633,9 +633,10 @@ sub update_sources {
     yui::YUI::app()->setApplicationTitle(N("rpmdragora"));
 
     my $dlg = $factory->createPopupDialog();
-    my $vbox = $factory->createVBox($dlg);
+    my $minSize = $factory->createMinSize( $dlg, 80, 5 );
+    my $vbox = $factory->createVBox($minSize);
     my $label = $factory->createLabel($vbox, N("Please wait, updating media...") );
-$label->setWeight($yui::YD_HORIZ, 1);
+    $label->setWeight($yui::YD_HORIZ, 1);
     my $pb = $factory->createProgressBar( $vbox, "");
 
     $dlg->open();
@@ -678,8 +679,6 @@ later.",
     $media));
             } else {
                 show_urpm_progress($label, $pb, @_);
-#Lose 5 msec to see the toolbar
-                $dlg->waitForEvent(5);
                 $dlg->pollEvent();
             }
         },
