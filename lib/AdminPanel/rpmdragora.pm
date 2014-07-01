@@ -388,9 +388,7 @@ sub wait_msg {
     my $title = $factory->createLabel($vbox, N("Please wait"));
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
-    $mainw->open();
-# matteo do you really need a pollEvent? or it was just to show the dialog?
-#     $mainw->pollEvent();
+    $mainw->pollEvent();
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
     $mainw;
