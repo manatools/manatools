@@ -1,6 +1,7 @@
 #!/usr/bin/perl
 # vim: set et ts=4 sw=4:
 #    Copyright 2012-2013 Angelo Naselli <anaselli@linux.it>
+#    Copyright 2013-2014 Matteo Pasotti <matteo.pasotti@gmail.com>
 #
 #    This file is part of AdminPanel
 #
@@ -52,6 +53,7 @@ Angelo Naselli <anaselli@linux.it>
 =head1 COPYRIGHT and LICENSE
 
 Copyright (C) 2013, Angelo Naselli.
+Copyright (C) 2014, Matteo Pasotti.
 
 This file is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
