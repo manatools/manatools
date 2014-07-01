@@ -1009,7 +1009,6 @@ sub mainwindow() {
     my $headbar = $factory->createHBox($head_align_left);
     my $headRight = $factory->createHBox($head_align_right);
 
-    ## TODO fix menu order
     my %fileMenu = (
             widget => $factory->createMenuButton($headbar,N("File")),
             update => new yui::YMenuItem(N("Update")),
@@ -1023,7 +1022,6 @@ sub mainwindow() {
     $fileMenu{ widget }->addItem($fileMenu{ quit });
     $fileMenu{ widget }->rebuildMenuTree();
 
-
     my %optionsMenu = (
             widget => $factory->createMenuButton($headbar, N("Options")),
             global => new yui::YMenuItem(N("Global options")),
@@ -1036,7 +1034,6 @@ sub mainwindow() {
     $optionsMenu{ widget }->addItem($optionsMenu{ parallel });
     $optionsMenu{ widget }->addItem($optionsMenu{ proxy });
     $optionsMenu{ widget }->rebuildMenuTree();
-
 
     my %helpMenu = (
             widget     => $factory->createMenuButton($headRight, N("&Help")),
@@ -1071,6 +1068,7 @@ sub mainwindow() {
     my $multiselection = 1;
     my $mirrorTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $mirrorTbl->setKeepSorting(1);
+    $mirrorTbl->setImmediateMode(1);
 
     my $itemCollection = readMedia();
     $mirrorTbl->addItems($itemCollection);
@@ -1103,7 +1101,7 @@ sub mainwindow() {
     $hbox     = $factory->createHBox($align);
 
 
-    my $aboutButton = $factory->createPushButton($hbox, N("Help") );
+    my $helpButton = $factory->createPushButton($hbox, N("Help") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
 
@@ -1156,7 +1154,20 @@ sub mainwindow() {
             if ($widget == $closeButton) {
                 last;
             }
-            elsif ($widget == $aboutButton) {
+            elsif ($widget == $helpButton) {
+            }
+            elsif ($widget == $mirrorTbl) {
+                my $sel = $mirrorTbl->selectedItems();
+                if ($sel->size() > 1 ) {
+                    $edtButton->setEnabled(0);
+                    $upButton->setEnabled(0);
+                    $downButton->setEnabled(0);
+                }
+                else {
+                    $edtButton->setEnabled(1);
+                    $upButton->setEnabled(1);
+                    $downButton->setEnabled(1);
+                }
             }
         }
     }
