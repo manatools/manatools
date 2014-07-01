@@ -61,6 +61,7 @@ use AdminPanel::Shared::JournalCtl;
 
 
 use POSIX qw/strftime floor/;
+use English;
 use Date::Simple ();
 use File::HomeDir qw(home);
 
@@ -476,8 +477,7 @@ sub _warn_about_user_mode {
                             "You will not be able to read system logs which you do not have rights to,\n".
                             "but you may still browse all the others.");
 
-    # $EUID:  effective user identifier
-    if(($> != 0) and (!$self->sh_gui->ask_OkCancel({title => $title, text => $msg}))) {
+    if(($EUID != 0) and (!$self->sh_gui->ask_OkCancel({title => $title, text => $msg}))) {
         # TODO add Privileges? 
         return 0;
     }

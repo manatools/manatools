@@ -77,6 +77,7 @@ use USER;
 use utf8;
 use Sys::Syslog;
 use Glib;
+use English;
 use yui;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
@@ -141,7 +142,7 @@ sub _USERInitialize {
     my $self = shift;
 
     # $EUID:  effective user identifier
-    if ($> == 0) {
+    if ($EUID == 0) {
         return USER::ADMIN->new;
     }
 
@@ -851,7 +852,7 @@ sub addUserDialog {
     my $self = shift;
     my $standalone = shift;
 
-    if ($> != 0) {
+    if ($EUID != 0) {
         $self->sh_gui->warningMsgBox({
             title => $self->name, 
             text  => $self->loc->N("root privileges required"),
@@ -2486,7 +2487,7 @@ sub _refreshActions {
 sub _manageUsersDialog {
     my $self = shift;
 
-    if ($> != 0) {
+    if ($EUID != 0) {
         $self->sh_gui->warningMsgBox({
             title => $self->name, 
             text  => $self->loc->N("root privileges required"),
