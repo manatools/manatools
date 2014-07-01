@@ -412,25 +412,50 @@ sub options_callback() {
     $w->main;
 }
 
-sub remove_callback() {
-    my @rows = selected_rows();
+#=============================================================
+
+=head2 remove_callback
+
+=head3 INPUT
+
+$selection: YItemCollection (selected items)
+
+
+=head3 DESCRIPTION
+
+Remove the selected medias
+
+=cut
+
+#=============================================================
+
+sub remove_callback {
+    my $selection = shift;
+
+    my @rows;
+    $DB::single = 1;
+    for (my $it = 0; $it < $selection->size(); $it++) {
+        my $item = $selection->get($it);
+            push @rows, $item->label();
+    }
     @rows == 0 and return;
     interactive_msg(
 	N("Source Removal"),
 	@rows == 1 ?
-	  N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
-	    N("Are you sure you want to remove the following sources?") . "\n\n" .
-	      format_list(map { $urpm->{media}[$_]{name} } @rows),
+	   N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
+            N("Are you sure you want to remove the following sources?") . "\n\n" .
+              format_list(map { $urpm->{media}[$_]{name} } @rows),
 	yesno => 1, scroll => 1,
-	 transient => $::main_window,
     ) or return;
 
-    my $wait = wait_msg(N("Please wait, removing medium..."));
+    # TODO dialog waiting
+#     my $wait = wait_msg(N("Please wait, removing medium..."));
     foreach my $row (reverse(@rows)) {
      $something_changed = 1;
 	urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
 	urpm::media::write_urpmi_cfg($urpm);
-	remove_wait_msg($wait);
+#         undef $wait
+# 	remove_wait_msg($wait);
     }
     return 1;
 }
@@ -969,6 +994,7 @@ sub readMedia {
     $urpm = fast_open_urpmi_db();
 
     my $itemColl = new yui::YItemCollection;
+    my $row = 0;
     foreach (grep { ! $_->{external} } @{$urpm->{media}}) {
         my $name = $_->{name};
 
@@ -977,7 +1003,9 @@ sub readMedia {
                                         get_medium_type($_),
                                         $name);
         # TODO manage to_bool($::expert)
-        $item->setLabel( $name );
+        # row item contains row number for $urpm
+        $item->setLabel( "$row" );
+        $row++;
         $itemColl->push($item);
         $item->DISOWN();
     }
@@ -1009,7 +1037,6 @@ sub mainwindow() {
     my $headbar = $factory->createHBox($head_align_left);
     my $headRight = $factory->createHBox($head_align_right);
 
-    ## TODO fix menu order
     my %fileMenu = (
             widget => $factory->createMenuButton($headbar,N("File")),
             update => new yui::YMenuItem(N("Update")),
@@ -1017,13 +1044,11 @@ sub mainwindow() {
             custom => new yui::YMenuItem(N("Add a custom medium")),
             quit   => new yui::YMenuItem(N("&Close")),
     );
-    while ( my ($key, $value) = each(%fileMenu) ) {
-        if ($key ne 'widget' ) {
-            $fileMenu{ widget }->addItem($value);
-        }
-    }
+    $fileMenu{ widget }->addItem($fileMenu{ update });
+    $fileMenu{ widget }->addItem($fileMenu{ add_media });
+    $fileMenu{ widget }->addItem($fileMenu{ custom });
+    $fileMenu{ widget }->addItem($fileMenu{ quit });
     $fileMenu{ widget }->rebuildMenuTree();
-
 
     my %optionsMenu = (
             widget => $factory->createMenuButton($headbar, N("Options")),
@@ -1032,13 +1057,11 @@ sub mainwindow() {
           parallel => new yui::YMenuItem(N("Parallel")),
              proxy => new yui::YMenuItem(N("Proxy")),
     );
-     while ( my ($key, $value) = each(%optionsMenu) ) {
-        if ($key ne 'widget' ) {
-            $optionsMenu{ widget }->addItem($value);
-        }
-    }
+    $optionsMenu{ widget }->addItem($optionsMenu{ global });
+    $optionsMenu{ widget }->addItem($optionsMenu{ man_keys });
+    $optionsMenu{ widget }->addItem($optionsMenu{ parallel });
+    $optionsMenu{ widget }->addItem($optionsMenu{ proxy });
     $optionsMenu{ widget }->rebuildMenuTree();
-
 
     my %helpMenu = (
             widget     => $factory->createMenuButton($headRight, N("&Help")),
@@ -1046,11 +1069,9 @@ sub mainwindow() {
             report_bug => new yui::YMenuItem(N("Report Bug")),
             about      => new yui::YMenuItem(N("&About")),
     );
-    while ( my ($key, $value) = each(%helpMenu) ) {
-        if ($key ne 'widget' ) {
-            $helpMenu{ widget }->addItem($value);
-        }
-    }
+    $helpMenu{ widget }->addItem($helpMenu{ help });
+    $helpMenu{ widget }->addItem($helpMenu{ report_bug });
+    $helpMenu{ widget }->addItem($helpMenu{ about });
     $helpMenu{ widget }->rebuildMenuTree();
 
     my $hbox_content = $factory->createHBox($vbox);
@@ -1075,6 +1096,7 @@ sub mainwindow() {
     my $multiselection = 1;
     my $mirrorTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $mirrorTbl->setKeepSorting(1);
+    $mirrorTbl->setImmediateMode(1);
 
     my $itemCollection = readMedia();
     $mirrorTbl->addItems($itemCollection);
@@ -1107,7 +1129,7 @@ sub mainwindow() {
     $hbox     = $factory->createHBox($align);
 
 
-    my $aboutButton = $factory->createPushButton($hbox, N("Help") );
+    my $helpButton = $factory->createPushButton($hbox, N("Help") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
 
@@ -1160,7 +1182,39 @@ sub mainwindow() {
             if ($widget == $closeButton) {
                 last;
             }
-            elsif ($widget == $aboutButton) {
+            elsif ($widget == $helpButton) {
+            }
+            elsif ($widget == $edtButton) {
+                my $sel = $mirrorTbl->selectedItem();
+                print " ITEM " . $sel->label() . "\n" if $sel;
+            }
+            elsif ($widget == $remButton) {
+                yui::YUI::app()->busyCursor();
+                $dialog->startMultipleChanges();
+
+                my $sel = $mirrorTbl->selectedItems();
+                remove_callback($sel);
+                $mirrorTbl->deleteAllItems();
+                my $itemCollection = readMedia();
+                $mirrorTbl->addItems($itemCollection);
+
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::app()->normalCursor();
+
+            }
+            elsif ($widget == $mirrorTbl) {
+                my $sel = $mirrorTbl->selectedItems();
+                if ($sel->size() > 1 ) {
+                    $edtButton->setEnabled(0);
+                    $upButton->setEnabled(0);
+                    $downButton->setEnabled(0);
+                }
+                else {
+                    $edtButton->setEnabled(1);
+                    $upButton->setEnabled(1);
+                    $downButton->setEnabled(1);
+                }
             }
         }
     }
