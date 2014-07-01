@@ -412,25 +412,50 @@ sub options_callback() {
     $w->main;
 }
 
-sub remove_callback() {
-    my @rows = selected_rows();
+#=============================================================
+
+=head2 remove_callback
+
+=head3 INPUT
+
+$selection: YItemCollection (selected items)
+
+
+=head3 DESCRIPTION
+
+Remove the selected medias
+
+=cut
+
+#=============================================================
+
+sub remove_callback {
+    my $selection = shift;
+
+    my @rows;
+    $DB::single = 1;
+    for (my $it = 0; $it < $selection->size(); $it++) {
+        my $item = $selection->get($it);
+            push @rows, $item->label();
+    }
     @rows == 0 and return;
     interactive_msg(
 	N("Source Removal"),
 	@rows == 1 ?
-	  N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
-	    N("Are you sure you want to remove the following sources?") . "\n\n" .
-	      format_list(map { $urpm->{media}[$_]{name} } @rows),
+	   N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
+            N("Are you sure you want to remove the following sources?") . "\n\n" .
+              format_list(map { $urpm->{media}[$_]{name} } @rows),
 	yesno => 1, scroll => 1,
-	 transient => $::main_window,
     ) or return;
 
-    my $wait = wait_msg(N("Please wait, removing medium..."));
+    # TODO dialog waiting
+#     my $wait = wait_msg(N("Please wait, removing medium..."));
     foreach my $row (reverse(@rows)) {
      $something_changed = 1;
 	urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
 	urpm::media::write_urpmi_cfg($urpm);
-	remove_wait_msg($wait);
+#         undef $wait
+# 	remove_wait_msg($wait);
     }
     return 1;
 }
@@ -969,6 +994,7 @@ sub readMedia {
     $urpm = fast_open_urpmi_db();
 
     my $itemColl = new yui::YItemCollection;
+    my $row = 0;
     foreach (grep { ! $_->{external} } @{$urpm->{media}}) {
         my $name = $_->{name};
 
@@ -977,7 +1003,9 @@ sub readMedia {
                                         get_medium_type($_),
                                         $name);
         # TODO manage to_bool($::expert)
-        $item->setLabel( $name );
+        # row item contains row number for $urpm
+        $item->setLabel( "$row" );
+        $row++;
         $itemColl->push($item);
         $item->DISOWN();
     }
@@ -1155,6 +1183,25 @@ sub mainwindow() {
                 last;
             }
             elsif ($widget == $helpButton) {
+            }
+            elsif ($widget == $edtButton) {
+                my $sel = $mirrorTbl->selectedItem();
+                print " ITEM " . $sel->label() . "\n" if $sel;
+            }
+            elsif ($widget == $remButton) {
+                yui::YUI::app()->busyCursor();
+                $dialog->startMultipleChanges();
+
+                my $sel = $mirrorTbl->selectedItems();
+                remove_callback($sel);
+                $mirrorTbl->deleteAllItems();
+                my $itemCollection = readMedia();
+                $mirrorTbl->addItems($itemCollection);
+
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::app()->normalCursor();
+
             }
             elsif ($widget == $mirrorTbl) {
                 my $sel = $mirrorTbl->selectedItems();
