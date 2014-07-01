@@ -35,6 +35,7 @@ use AdminPanel::Shared::Proxy;
 # TODROP but provides network::network
 use lib qw(/usr/lib/libDrakX);
 use network::network;
+use MDK::Common::System qw(getVarsFromSh);
 
 extends qw( AdminPanel::Module );
 
@@ -170,6 +171,9 @@ sub _manageProxyDialog {
     
     my $label_width = 25;
     my $inputfield_width = 45;
+    # getVarsFromSh returns an empty hash if no vars are defined
+    my $proxy_curr_settings = { getVarsFromSh('/etc/profile.d/proxy.sh') };
+
     #
     # @layout
     #
@@ -206,6 +210,7 @@ sub _manageProxyDialog {
     # http proxy section
     my $httpproxy_label = $factory->createLabel($vbox_labels_flags, "HTTP proxy");
     my $http_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
+    $http_proxy->setValue($proxy_curr_settings->{http_proxy}) if(defined($proxy_curr_settings->{http_proxy}));
     $http_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # flag to setup the https proxy with the same value of the http proxy
@@ -216,16 +221,19 @@ sub _manageProxyDialog {
     # https proxy
     $factory->createLabel($vbox_labels_flags, "HTTPS proxy");
     my $https_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
+    $https_proxy->setValue($proxy_curr_settings->{https_proxy}) if(defined($proxy_curr_settings->{https_proxy}));
     $https_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # ftp proxy
     $factory->createLabel($vbox_labels_flags, "FTP proxy");
     my $ftp_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
+    $ftp_proxy->setValue($proxy_curr_settings->{ftp_proxy}) if(defined($proxy_curr_settings->{ftp_proxy}));
     $ftp_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # no-proxy list
     $factory->createLabel($vbox_labels_flags, "No proxy for (comma separated list):");
     my $no_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
+    $no_proxy->setValue($proxy_curr_settings->{no_proxy}) if(defined($proxy_curr_settings->{no_proxy}));
     $no_proxy->setWeight($yui::YD_HORIZ, 30);
 
     my $hbox_filler = $factory->createHBox($layout);
