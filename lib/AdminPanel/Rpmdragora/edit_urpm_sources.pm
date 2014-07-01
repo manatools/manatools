@@ -1017,11 +1017,10 @@ sub mainwindow() {
             custom => new yui::YMenuItem(N("Add a custom medium")),
             quit   => new yui::YMenuItem(N("&Close")),
     );
-    while ( my ($key, $value) = each(%fileMenu) ) {
-        if ($key ne 'widget' ) {
-            $fileMenu{ widget }->addItem($value);
-        }
-    }
+    $fileMenu{ widget }->addItem($fileMenu{ update });
+    $fileMenu{ widget }->addItem($fileMenu{ add_media });
+    $fileMenu{ widget }->addItem($fileMenu{ custom });
+    $fileMenu{ widget }->addItem($fileMenu{ quit });
     $fileMenu{ widget }->rebuildMenuTree();
 
 
@@ -1032,11 +1031,10 @@ sub mainwindow() {
           parallel => new yui::YMenuItem(N("Parallel")),
              proxy => new yui::YMenuItem(N("Proxy")),
     );
-     while ( my ($key, $value) = each(%optionsMenu) ) {
-        if ($key ne 'widget' ) {
-            $optionsMenu{ widget }->addItem($value);
-        }
-    }
+    $optionsMenu{ widget }->addItem($optionsMenu{ global });
+    $optionsMenu{ widget }->addItem($optionsMenu{ man_keys });
+    $optionsMenu{ widget }->addItem($optionsMenu{ parallel });
+    $optionsMenu{ widget }->addItem($optionsMenu{ proxy });
     $optionsMenu{ widget }->rebuildMenuTree();
 
 
@@ -1046,11 +1044,9 @@ sub mainwindow() {
             report_bug => new yui::YMenuItem(N("Report Bug")),
             about      => new yui::YMenuItem(N("&About")),
     );
-    while ( my ($key, $value) = each(%helpMenu) ) {
-        if ($key ne 'widget' ) {
-            $helpMenu{ widget }->addItem($value);
-        }
-    }
+    $helpMenu{ widget }->addItem($helpMenu{ help });
+    $helpMenu{ widget }->addItem($helpMenu{ report_bug });
+    $helpMenu{ widget }->addItem($helpMenu{ about });
     $helpMenu{ widget }->rebuildMenuTree();
 
     my $hbox_content = $factory->createHBox($vbox);
