@@ -60,9 +60,10 @@ has 'table' => (
     init_arg => undef
 );
 
-has 'networkObj' => (
-    is => 'rw',
-    init_arg => undef
+has 'proxy' => (
+    is      => 'rw',
+    isa     => 'HashRef',
+    builder => "init_proxy"
 );
 
 has 'sh_gui' => (
@@ -74,7 +75,18 @@ has 'sh_gui' => (
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui( AdminPanel::Shared::GUI->new() );
+}
+
+
+sub init_proxy {
+    my %p = (
+                'no_proxy'    => '',
+                'http_proxy'  => '',
+                'https_proxy' => '',
+                'ftp_proxy'   => '',
+            );
+    return \%p;
 }
 
 #=============================================================
@@ -99,6 +111,29 @@ sub start {
     $self->_manageProxyDialog();
 };
 
+sub validate {
+    my $self = shift;
+    my $proxy = shift;
+    my $retval = 1;
+    $proxy->{no_proxy} =~ s/\s//g;
+    # using commas rather than slashes 
+    if($proxy->{http_proxy} !~ m,^($|http://),)
+    {
+        $self->sh_gui->warningMsgBox({title=>'Error',text=>"Proxy should be http://...",richtext=>0});
+        $retval = 0;
+    }
+    if($proxy->{https_proxy} !~ m,^($|https?://),)
+    {
+        $self->sh_gui->warningMsgBox({title=>'Error',text=>"Proxy should be http://... or https://...",richtext=>0});
+        $retval = 0;
+    }
+    if($proxy->{ftp_proxy} !~ m,^($|ftp://|http://),)
+    {
+        $self->sh_gui->warningMsgBox({title=>'Error',text=>"URL should begin with 'ftp:' or 'http:'",richtext=>0});
+        $retval = 0;
+    }
+    return $retval;
+}
 
 sub _manageProxyDialog {
     my $self = shift;
@@ -209,8 +244,23 @@ sub _manageProxyDialog {
                     }
                 );
             }elsif ($widget == $okButton) {
-                # save changes
-                last;
+                # setup proxy attribute
+                my %_proxy = ( 
+                    no_proxy    => $no_proxy->value(),
+                    http_proxy  => $http_proxy->value(),
+                    https_proxy => $https_proxy->value(),
+                    ftp_proxy   => $ftp_proxy->value()
+                );
+                if($self->validate(\%_proxy)) {
+                    # validation succeded
+                    $self->proxy(\%_proxy);
+                    # save changes
+                    use Data::Dumper;
+                    print Dumper($self->proxy);
+                    last;
+                }
+                # validation failed
+                next;
             }
         }
     }
