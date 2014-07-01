@@ -24,12 +24,17 @@ use Modern::Perl '2011';
 use autodie;
 use Moose;
 use POSIX qw(ceil);
+use English;
 use utf8;
 
 use yui;
 use AdminPanel::Shared qw(trim);
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Proxy;
+
+# TODROP but provides network::network
+use lib qw(/usr/lib/libDrakX);
+use network::network;
 
 extends qw( AdminPanel::Module );
 
@@ -108,8 +113,22 @@ sub init_proxy {
 sub start {
     my $self = shift;
 
+    if ($EUID != 0) {
+        $self->sh_gui->warningMsgBox({
+                                title => $self->name,
+                                text  => "root privileges required",
+                                });
+        return;
+    }
+
     $self->_manageProxyDialog();
 };
+
+sub ask_for_X_restart {
+    my $self = shift;
+
+    $self->sh_gui->warningMsgBox({title=>'X Restart Required',text=>'You need to log out and back in again for changes to take effect',richtext=>1});
+}
 
 sub validate {
     my $self = shift;
@@ -255,8 +274,8 @@ sub _manageProxyDialog {
                     # validation succeded
                     $self->proxy(\%_proxy);
                     # save changes
-                    use Data::Dumper;
-                    print Dumper($self->proxy);
+                    network::network::proxy_configure($self->proxy);
+                    $self->ask_for_X_restart();
                     last;
                 }
                 # validation failed
