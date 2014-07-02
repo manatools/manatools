@@ -435,10 +435,9 @@ sub remove_callback {
     my $selection = shift;
 
     my @rows;
-    $DB::single = 1;
     for (my $it = 0; $it < $selection->size(); $it++) {
         my $item = $selection->get($it);
-        push @rows, $item->label();
+        push @rows, $item->index();
     }
     @rows == 0 and return;
     interactive_msg(
@@ -462,34 +461,70 @@ sub remove_callback {
     return 1;
 }
 
-sub renum_media ($$$) {
-    my ($model, @iters) = @_;
-    my @rows = map { $model->get_path($_)->to_string } @iters;
-    my @media = map { $urpm->{media}[$_] } @rows;
-    $urpm->{media}[$rows[$_]] = $media[1 - $_] foreach 0, 1;
-    $model->swap(@iters);
-    $something_changed = 1;
+
+#=============================================================
+
+=head2 upwards_callback
+
+=head3 INPUT
+
+$table: Mirror table (YTable)
+
+=head3 DESCRIPTION
+
+Move selected item to high priority level
+
+=cut
+
+#=============================================================
+sub upwards_callback {
+    my $table = shift;
+
+    ## get the first
+    my $item = $table->selectedItem();
+    !$item and return 0;
+    return 0 if ($item->index() == 0);
+    my $row = $item->index();
+    my @media = ( $urpm->{media}[$row-1], $urpm->{media}[$row]);
+    $urpm->{media}[$row] = $media[0];
+    $urpm->{media}[$row-1] = $media[1];
+
     urpm::media::write_config($urpm);
     $urpm = fast_open_urpmi_db();
+    return $row - 1;
 }
 
-sub upwards_callback() {
-    my @rows = selected_rows();
-    @rows == 0 and return;
-    my $model = $list_tv->get_model;
-    my $prev = $model->get_iter_from_string($rows[0] - 1);
-    defined $prev and renum_media($model, $model->get_iter_from_string($rows[0]), $prev);
-    $list_tv->get_selection->signal_emit('changed');
-}
+#=============================================================
 
-sub downwards_callback() {
-    my @rows = selected_rows();
-    @rows == 0 and return;
-    my $model = $list_tv->get_model;
-    my $iter = $model->get_iter_from_string($rows[0]);
-    my $next = $model->iter_next($iter);
-    defined $next and renum_media($model, $iter, $next);
-    $list_tv->get_selection->signal_emit('changed');
+=head2 downwards_callback
+
+=head3 INPUT
+
+$table: Mirror table (YTable)
+
+=head3 DESCRIPTION
+
+Move selected item to low priority level
+
+=cut
+
+#=============================================================
+sub downwards_callback {
+    my $table = shift;
+
+    ## get the first
+    my $item = $table->selectedItem();
+    !$item and return 0;
+    my $row = $item->index();
+    return $row if ($row >= $table->itemsCount()-1);
+
+    my @media = ( $urpm->{media}[$row], $urpm->{media}[$row+1]);
+    $urpm->{media}[$row+1] = $media[0];
+    $urpm->{media}[$row]   = $media[1];
+
+    urpm::media::write_config($urpm);
+    $urpm = fast_open_urpmi_db();
+    return $row + 1;
 }
 
 #- returns the name of the media for which edition failed, or undef on success
@@ -996,7 +1031,6 @@ sub readMedia {
     $urpm = fast_open_urpmi_db();
 
     my $itemColl = new yui::YItemCollection;
-    my $row = 0;
     foreach (grep { ! $_->{external} } @{$urpm->{media}}) {
         my $name = $_->{name};
 
@@ -1015,14 +1049,44 @@ sub readMedia {
         ## end icons on cells
 
         # TODO manage to_bool($::expert)
-        # row item contains row number for $urpm
-        $item->setLabel( "$row" );
-        $row++;
+        # row # is $item->index()
+        $item->setLabel( $name );
         $itemColl->push($item);
         $item->DISOWN();
     }
 
     return $itemColl;
+}
+
+#=============================================================
+
+=head2 selectRow
+
+=head3 INPUT
+
+$itemCollection: YItem collection in which to find the item that
+                 has to be selected
+$row:            line to be selected
+
+=head3 DESCRIPTION
+
+Select item at row position
+=cut
+
+#=============================================================
+
+sub selectRow {
+    my ($itemCollection, $row) = @_;
+
+    return if !$itemCollection;
+
+    for (my $it = 0; $it < $itemCollection->size(); $it++) {
+        my $item = $itemCollection->get($it);
+        if ($it == $row) {
+            $item->setSelected(1);
+            return;
+        }
+    }
 }
 
 sub mainwindow() {
@@ -1111,6 +1175,7 @@ sub mainwindow() {
     $mirrorTbl->setImmediateMode(1);
 
     my $itemCollection = readMedia();
+    selectRow($itemCollection, 0); #default selection
     $mirrorTbl->addItems($itemCollection);
 
     my $rightContent = $factory->createRight($hbox_content);
@@ -1200,9 +1265,39 @@ sub mainwindow() {
             }
             elsif ($widget == $helpButton) {
             }
+            elsif ($widget == $upButton) {
+                yui::YUI::app()->busyCursor();
+                $dialog->startMultipleChanges();
+
+                my $row = upwards_callback($mirrorTbl);
+
+                $mirrorTbl->deleteAllItems();
+                my $itemCollection = readMedia();
+                selectRow($itemCollection, $row);
+                $mirrorTbl->addItems($itemCollection);
+
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::app()->normalCursor();
+            }
+            elsif ($widget == $downButton) {
+                yui::YUI::app()->busyCursor();
+                $dialog->startMultipleChanges();
+
+                my $row = downwards_callback($mirrorTbl);
+
+                $mirrorTbl->deleteAllItems();
+                my $itemCollection = readMedia();
+                selectRow($itemCollection, $row);
+                $mirrorTbl->addItems($itemCollection);
+
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::app()->normalCursor();
+            }
             elsif ($widget == $edtButton) {
                 my $sel = $mirrorTbl->selectedItem();
-                print " ITEM " . $sel->label() . "\n" if $sel;
+                print " ITEM #" . $sel->index() . " -> " .$sel->label() . "\n" if $sel;
             }
             elsif ($widget == $remButton) {
                 yui::YUI::app()->busyCursor();
