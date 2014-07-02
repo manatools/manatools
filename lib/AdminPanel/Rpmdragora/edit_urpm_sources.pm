@@ -25,6 +25,8 @@ package AdminPanel::Rpmdragora::edit_urpm_sources;
 
 
 use strict;
+use File::ShareDir ':ALL';
+
 use lib qw(/usr/lib/libDrakX);
 use common;
 use AdminPanel::rpmdragora;
@@ -998,10 +1000,20 @@ sub readMedia {
     foreach (grep { ! $_->{external} } @{$urpm->{media}}) {
         my $name = $_->{name};
 
-        my $item = new yui::YTableItem (!$_->{ignore},
-                                        ! !$_->{update},
+        my $item = new yui::YTableItem (($_->{ignore} ? ""  : "X"),
+                                        ($_->{update} ? "X" : ""),
                                         get_medium_type($_),
                                         $name);
+        ## NOTE anaselli: next lines add check icon to cells, but they are 8x8, a dimension should
+        ##      be evaluated by font size, so disabled atm
+#         my $cell = $item->cell(0); # Checked
+#         my $checkedIcon = File::ShareDir::dist_file('AdminPanel', 'images/Check_8x8.png');
+#
+#         $cell->setIconName($checkedIcon) if (!$_->{ignore});
+#         $cell    = $item->cell(1); # Updates
+#         $cell->setIconName($checkedIcon) if ($_->{update});
+        ## end icons on cells
+
         # TODO manage to_bool($::expert)
         # row item contains row number for $urpm
         $item->setLabel( "$row" );
@@ -1111,8 +1123,12 @@ sub mainwindow() {
     my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Add"));
     $hbox = $factory->createHBox( $vbox_commands );
     ## TODO icon and label for ncurses
+    my $upIcon     = File::ShareDir::dist_file('AdminPanel', 'images/Up_16x16.png');
+    my $downIcon   = File::ShareDir::dist_file('AdminPanel', 'images/Down_16x16.png');
     my $upButton   = $factory->createPushButton($factory->createHBox($hbox), N("Up"));
     my $downButton = $factory->createPushButton($factory->createHBox($hbox), N("Down"));
+    $upButton->setIcon($upIcon);
+    $downButton->setIcon($downIcon);
 
     $addButton->setWeight($yui::YD_HORIZ,1);
     $edtButton->setWeight($yui::YD_HORIZ,1);
