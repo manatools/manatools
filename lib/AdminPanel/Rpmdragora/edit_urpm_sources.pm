@@ -436,26 +436,26 @@ sub remove_callback {
     $DB::single = 1;
     for (my $it = 0; $it < $selection->size(); $it++) {
         my $item = $selection->get($it);
-            push @rows, $item->label();
+        push @rows, $item->label();
     }
     @rows == 0 and return;
     interactive_msg(
-	N("Source Removal"),
-	@rows == 1 ?
-	   N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
+        N("Source Removal"),
+        @rows == 1 ?
+            N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
             N("Are you sure you want to remove the following sources?") . "\n\n" .
-              format_list(map { $urpm->{media}[$_]{name} } @rows),
-	yesno => 1, scroll => 1,
+                format_list(map { $urpm->{media}[$_]{name} } @rows),
+        yesno => 1, scroll => 1,
     ) or return;
 
-    # TODO dialog waiting
-#     my $wait = wait_msg(N("Please wait, removing medium..."));
+    # TODO dialog waiting if needed
+    #     my $wait = wait_msg(N("Please wait, removing medium..."));
     foreach my $row (reverse(@rows)) {
-     $something_changed = 1;
-	urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
-	urpm::media::write_urpmi_cfg($urpm);
-#         undef $wait
-# 	remove_wait_msg($wait);
+        $something_changed = 1;
+        urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
+        urpm::media::write_urpmi_cfg($urpm);
+        #         undef $wait
+        # 	remove_wait_msg($wait);
     }
     return 1;
 }
