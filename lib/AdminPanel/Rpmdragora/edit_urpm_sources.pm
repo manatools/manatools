@@ -1015,6 +1015,28 @@ sub keys_callback() {
     $w->main;
 }
 
+#=============================================================
+
+=head2 readMedia
+
+=head3 INPUT
+
+$name: optional parameter, the media called name has to be
+       updated
+
+=head3 OUTPUT
+
+$itemColl: yui::YItemCollection containing media data to
+           be added to the YTable
+
+=head3 DESCRIPTION
+
+This method reads the configured media and add their info
+to the collection
+
+=cut
+
+#=============================================================
 sub readMedia {
     my ($name) = @_;
     if (defined $name) {
