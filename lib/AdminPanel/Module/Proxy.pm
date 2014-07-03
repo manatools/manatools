@@ -158,7 +158,6 @@ sub validate {
 sub _manageProxyDialog {
     my $self = shift;
 
-    my $httpsProxyEqualToHttpProxy = 0;
     ## TODO fix for adminpanel
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
@@ -173,18 +172,19 @@ sub _manageProxyDialog {
     my $inputfield_width = 45;
     # getVarsFromSh returns an empty hash if no vars are defined
     my $proxy_curr_settings = { getVarsFromSh('/etc/profile.d/proxy.sh') };
+    my $httpsProxyEqualToHttpProxy = 1 if(($proxy_curr_settings->{http_proxy} eq $proxy_curr_settings->{https_proxy})&&($proxy_curr_settings->{http_proxy} ne ""));
 
     #
     # @layout
     #
-    # +--------------------------------+
-    # |            HEADER              |
-    # |--------------------------------+
-    # |            CONTENT             |
-    # |--------------------------------+
-    # |          OTHER OPTIONS         |
-    # |                                |
-    # +--------------------------------+
+    # +------------------------------+
+    # | +------------+-------------+ |
+    # | |LABELS      | VALUES      | |
+    # | |            |             | |
+    # | |            |             | |
+    # | |            |             | |
+    # | +------------+-------------+ |
+    # +------------------------------+
 
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
@@ -214,7 +214,8 @@ sub _manageProxyDialog {
     $http_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # flag to setup the https proxy with the same value of the http proxy
-    $factory->createCheckBox($vbox_labels_flags, "Use HTTP proxy for HTTPS connections",$httpsProxyEqualToHttpProxy);
+    my $ckbHttpEqHttps = $factory->createCheckBox($vbox_labels_flags, "Use HTTP proxy for HTTPS connections",$httpsProxyEqualToHttpProxy);
+    $ckbHttpEqHttps->setNotify(1);
     # add a spacing as we have 
     $factory->createLabel($factory->createHBox($vbox_inputfields)," ");
 
@@ -288,6 +289,8 @@ sub _manageProxyDialog {
                 }
                 # validation failed
                 next;
+            }elsif ($widget == $ckbHttpEqHttps){
+                $https_proxy->setEnabled(!$ckbHttpEqHttps->isChecked());
             }
         }
     }
