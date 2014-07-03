@@ -703,7 +703,6 @@ sub show_urpm_progress {
             $pb->setValue(0);
             $label->setValue(N("Starting download of `%s'...", $file));
         } elsif ($mode eq 'progress') {
-            $DB::single = 1;
             if (defined $total && defined $eta) {
                 $pb->setValue($percent);
                 $label->setValue(N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
@@ -713,6 +712,139 @@ sub show_urpm_progress {
             }
         }
     }
+}
+
+
+sub update_sources_interactive {
+    my ($urpm, %options) = @_;
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Update media"));
+
+    my $retVal  = 0;
+    my $mageiaPlugin = "mga";
+    my $factory      = yui::YUI::widgetFactory;
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+
+    my $dialog = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dialog, 60, 15 );
+    my $vbox = $factory->createVBox($minSize);
+
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn("", $yui::YAlignBegin);
+    $yTableHeader->addColumn(N("Media"),  $yui::YAlignBegin);
+
+    my $mediaTable = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
+    my @media = grep { ! $_->{ignore} } @{$urpm->{media}};
+    unless (@media) {
+        interactive_msg(N("Warning"), N("No active medium found. You must enable some media to be able to update them."));
+        return 0;
+    }
+
+    my $itemCollection = new yui::YItemCollection;
+    foreach (@media) {
+        my $item = new yui::YCBTableItem($_->{name});
+        $item->setLabel($_->{name});
+        $itemCollection->push($item);
+        $item->DISOWN();
+
+    }
+    $mediaTable->addItems($itemCollection);
+
+
+ # dialog buttons
+    $factory->createVSpacing($vbox, 1.0);
+    ## Window push buttons
+    my $hbox = $factory->createHBox( $vbox );
+
+    my $cancelButton = $factory->createPushButton($hbox, N("Cancel") );
+    my $selectButton = $factory->createPushButton($hbox, N("Select all") );
+    my $updateButton = $factory->createPushButton($hbox, N("Update") );
+
+    while(1) {
+        my $event       = $dialog->waitForEvent();
+        my $eventType   = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            my $wEvent = yui::toYWidgetEvent($event);
+
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $selectButton) {
+                yui::YUI::app()->busyCursor();
+                yui::YUI::ui()->blockEvents();
+                $dialog->startMultipleChanges();
+                for (my $it = $mediaTable->itemsBegin(); $it != $mediaTable->itemsEnd(); ) {
+                    my $item  = $mediaTable->YItemIteratorToYItem($it);
+                    if ($item) {
+                        $mediaTable->checkItem($item, 1);
+                        # NOTE for some reasons it is never == $mediaTable->itemsEnd()
+                        if ($item->index() == $mediaTable->itemsCount()-1) {
+                            last;
+                        }
+                    }
+                    $it = $mediaTable->nextItem($it);
+                }
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::ui()->unblockEvents();
+                yui::YUI::app()->normalCursor();
+
+            }
+            elsif ($widget == $updateButton) {
+#                 @media = map_index { if_($_->get_active, $buttonmedia[$::i]{name}) } @buttons;
+#
+#                 my @media_index;
+#                 for (my $it = $mediaTable->itemsBegin(); $it != $mediaTable->itemsEnd(); ) {
+#                     my $item  = $mediaTable->YItemIteratorToYItem($it);
+#                     $item = $mediaTable->toCBYTableItem($item);
+#                     if ($item) {
+#                         if ($item->checked() &&  $media[$item->index()]{name}) {
+#                             push @media_index,  $item->index();
+#                         }
+#                         # NOTE for some reasons it is never == $mediaTable->itemsEnd()
+#                         if ($item->index() == $mediaTable->itemsCount()-1) {
+#                             last;
+#                         }
+#                     }
+#                     $it = $mediaTable->nextItem($it);
+#                 }
+#
+#                 $retVal = update_sources_noninteractive($urpm, \@media_index, %options);
+                last;
+            }
+        }
+    }
+
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+    return $retVal;
+}
+
+sub update_sources_noninteractive {
+    my ($urpm, $media, %options) = @_;
+
+        urpm::media::select_media($urpm, @$media);
+        update_sources_check(
+            $urpm,
+            {},
+            N_("Unable to update medium; it will be automatically disabled.\n\nErrors:\n%s"),
+            @$media,
+        );
+        return 1;
 }
 
 sub mirrors {
@@ -872,71 +1004,9 @@ by Mageia Official Updates.")), %options
 
 
 
-sub update_sources_interactive {
-    my ($urpm, %options) = @_;
-    my $w = ugtk2->new(N("Update media"), grab => 1, center => 1, %options);
-    $w->{rwindow}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
-    my @buttons;
-    my @media = grep { ! $_->{ignore} } @{$urpm->{media}};
-    unless (@media) {
-        interactive_msg(N("Warning"), N("No active medium found. You must enable some media to be able to update them."));
-	return 0;
-    }
-    gtkadd(
-	$w->{window},
-	gtkpack_(
-	    0, Gtk2::VBox->new(0,5),
-	    0, Gtk2::Label->new(N("Select the media you wish to update:")),
-            1, gtknew('ScrolledWindow', height => 300, child =>
-                     # FIXME: using a listview would be just better:
-                     gtknew('VBox', spacing => 5, children_tight => [
-                         @buttons = map {
-                             Gtk2::CheckButton->new_with_label($_->{name});
-                         } @media
-                     ])
-	    ),
-	    0, Gtk2::HSeparator->new,
-	    0, gtkpack(
-		create_hbox(),
-		gtksignal_connect(
-		    Gtk2::Button->new(N("Cancel")),
-		    clicked => sub { $w->{retval} = 0; Gtk2->main_quit },
-		),
-		gtksignal_connect(
-		    Gtk2::Button->new(N("Select all")),
-		    clicked => sub { $_->set_active(1) foreach @buttons },
-		),
-		gtksignal_connect(
-		    Gtk2::Button->new(N("Update")),
-		    clicked => sub {
-			$w->{retval} = any { $_->get_active } @buttons;
-			# list of media listed in the checkbox panel
-			my @buttonmedia = grep { !$_->{ignore} } @{$urpm->{media}};
-			@media = map_index { if_($_->get_active, $buttonmedia[$::i]{name}) } @buttons;
-			Gtk2->main_quit;
-		    },
-		),
-	    )
-	)
-    );
-    if ($w->main) {
-        return update_sources_noninteractive($urpm, \@media, %options);
-    }
-    return 0;
-}
 
-sub update_sources_noninteractive {
-    my ($urpm, $media, %options) = @_;
 
-        urpm::media::select_media($urpm, @$media);
-        update_sources_check(
-	    $urpm,
-	    {},
-	    N_("Unable to update medium; it will be automatically disabled.\n\nErrors:\n%s"),
-	    @$media,
-	);
-	return 1;
-}
+
 
 
 #- Check whether the default update media (added by installation)

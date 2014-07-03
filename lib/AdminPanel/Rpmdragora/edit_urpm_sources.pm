@@ -1276,6 +1276,9 @@ sub mainwindow() {
                             }
                 );
             }
+            elsif ($menuLabel eq $fileMenu{ update }->label()) {
+                update_callback();
+            }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
