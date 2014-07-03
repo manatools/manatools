@@ -186,8 +186,15 @@ sub _manageProxyDialog {
     my $label_width = 25;
     my $inputfield_width = 45;
     # getVarsFromSh returns an empty hash if no vars are defined
+    # possible alternatives:
+    # . Config::Auto::parse
     my $proxy_curr_settings = { getVarsFromSh('/etc/profile.d/proxy.sh') };
-    my $httpsProxyEqualToHttpProxy = 1 if(($proxy_curr_settings->{http_proxy} eq $proxy_curr_settings->{https_proxy})&&($proxy_curr_settings->{http_proxy} ne ""));
+    my $httpsProxyEqualToHttpProxy = 0;
+    if((defined($proxy_curr_settings->{http_proxy}) && defined($proxy_curr_settings->{https_proxy}))&&
+        (($proxy_curr_settings->{http_proxy} eq $proxy_curr_settings->{https_proxy}) && 
+            ($proxy_curr_settings->{http_proxy} ne ""))){
+        $httpsProxyEqualToHttpProxy = 1;
+    }
 
     #
     # @layout
