@@ -78,6 +78,21 @@ has 'sh_gui' => (
         builder => '_SharedUGUIInitialize'
 );
 
+has 'loc' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_localeInitialize'
+);
+
+
+sub _localeInitialize {
+    my $self = shift();
+
+    # TODO fix domain binding for translation
+    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'drakx-net') );
+    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+}
+
 sub _SharedUGUIInitialize {
     my $self = shift();
 
@@ -117,7 +132,7 @@ sub start {
     if ($EUID != 0) {
         $self->sh_gui->warningMsgBox({
                                 title => $self->name,
-                                text  => "root privileges required",
+                                text  => $self->loc->N("root privileges required"),
                                 });
         return;
     }
@@ -128,7 +143,7 @@ sub start {
 sub ask_for_X_restart {
     my $self = shift;
 
-    $self->sh_gui->warningMsgBox({title=>'X Restart Required',text=>'You need to log out and back in again for changes to take effect',richtext=>1});
+    $self->sh_gui->warningMsgBox({title=>$self->loc->N("X Restart Required"),text=>$self->loc->N("You need to log out and back in again for changes to take effect"),richtext=>1});
 }
 
 sub validate {
@@ -139,17 +154,17 @@ sub validate {
     # using commas rather than slashes 
     if($proxy->{http_proxy} !~ m,^($|http://),)
     {
-        $self->sh_gui->warningMsgBox({title=>'Error',text=>"Proxy should be http://...",richtext=>0});
+        $self->sh_gui->warningMsgBox({title=>'Error',text=>$self->loc->N("Proxy should be http://..."),richtext=>0});
         $retval = 0;
     }
     if($proxy->{https_proxy} !~ m,^($|https?://),)
     {
-        $self->sh_gui->warningMsgBox({title=>'Error',text=>"Proxy should be http://... or https://...",richtext=>0});
+        $self->sh_gui->warningMsgBox({title=>'Error',text=>$self->loc->N("Proxy should be http://... or https://..."),richtext=>0});
         $retval = 0;
     }
     if($proxy->{ftp_proxy} !~ m,^($|ftp://|http://),)
     {
-        $self->sh_gui->warningMsgBox({title=>'Error',text=>"URL should begin with 'ftp:' or 'http:'",richtext=>0});
+        $self->sh_gui->warningMsgBox({title=>'Error',text=>$self->loc->N("URL should begin with 'ftp:' or 'http:'"),richtext=>0});
         $retval = 0;
     }
     return $retval;
@@ -162,7 +177,7 @@ sub _manageProxyDialog {
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
-    my $newTitle = "Proxies configuration";
+    my $newTitle = $self->loc->N("Proxies configuration");
     yui::YUI::app()->setApplicationTitle($newTitle);
 
     my $factory  = yui::YUI::widgetFactory;
@@ -200,7 +215,7 @@ sub _manageProxyDialog {
 
     # app description
     my $hbox_content = $factory->createHBox($layout);
-    $factory->createLabel($hbox_content, "Here you can set up your proxies configuration (eg: http://my_caching_server:8080)");
+    $factory->createLabel($hbox_content, $self->loc->N("Here you can set up your proxies configuration (eg: http://my_caching_server:8080)"));
 
     $hbox_content = $factory->createHBox($layout);
 
@@ -208,31 +223,31 @@ sub _manageProxyDialog {
     my $vbox_inputfields = $factory->createVBox($hbox_content);
 
     # http proxy section
-    my $httpproxy_label = $factory->createLabel($vbox_labels_flags, "HTTP proxy");
+    my $httpproxy_label = $factory->createLabel($vbox_labels_flags, $self->loc->N("HTTP proxy"));
     my $http_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
     $http_proxy->setValue($proxy_curr_settings->{http_proxy}) if(defined($proxy_curr_settings->{http_proxy}));
     $http_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # flag to setup the https proxy with the same value of the http proxy
-    my $ckbHttpEqHttps = $factory->createCheckBox($vbox_labels_flags, "Use HTTP proxy for HTTPS connections",$httpsProxyEqualToHttpProxy);
+    my $ckbHttpEqHttps = $factory->createCheckBox($vbox_labels_flags, $self->loc->N("Use HTTP proxy for HTTPS connections"),$httpsProxyEqualToHttpProxy);
     $ckbHttpEqHttps->setNotify(1);
     # add a spacing as we have 
     $factory->createLabel($factory->createHBox($vbox_inputfields)," ");
 
     # https proxy
-    $factory->createLabel($vbox_labels_flags, "HTTPS proxy");
+    $factory->createLabel($vbox_labels_flags, $self->loc->N("HTTPS proxy"));
     my $https_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
     $https_proxy->setValue($proxy_curr_settings->{https_proxy}) if(defined($proxy_curr_settings->{https_proxy}));
     $https_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # ftp proxy
-    $factory->createLabel($vbox_labels_flags, "FTP proxy");
+    $factory->createLabel($vbox_labels_flags, $self->loc->N("FTP proxy"));
     my $ftp_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
     $ftp_proxy->setValue($proxy_curr_settings->{ftp_proxy}) if(defined($proxy_curr_settings->{ftp_proxy}));
     $ftp_proxy->setWeight($yui::YD_HORIZ, 30);
 
     # no-proxy list
-    $factory->createLabel($vbox_labels_flags, "No proxy for (comma separated list):");
+    $factory->createLabel($vbox_labels_flags, $self->loc->N("No proxy for (comma separated list):"));
     my $no_proxy = $factory->createInputField($factory->createHBox($vbox_inputfields),"",0);
     $no_proxy->setValue($proxy_curr_settings->{no_proxy}) if(defined($proxy_curr_settings->{no_proxy}));
     $no_proxy->setWeight($yui::YD_HORIZ, 30);
@@ -243,9 +258,9 @@ sub _manageProxyDialog {
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,"About");
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,"Cancel");
-    my $okButton = $factory->createPushButton($vbox_foot_right,"OK");
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
 
     # main loop
     while(1) {
@@ -267,7 +282,7 @@ sub _manageProxyDialog {
                     version => $VERSION,
                     credits => "Copyright (c) 2013-2014 by Matteo Pasotti",
                     license => "GPLv2",
-                    description => "Graphical manager for proxies",
+                    description => $self->loc->N("Graphical manager for proxies"),
                     authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
                     }
                 );
