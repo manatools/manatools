@@ -264,6 +264,8 @@ sub interactive_msg {
 
     if ($options{scroll}) {
         $info->{richtext} = 1;
+        ## richtext needs <br> instead of '\n'
+        $contents =~ s/\n/<br>/g;
     } else { #- because we'll use a WrappedLabel
         $contents = MDK::Common::String::formatAlaTeX($contents) if !ref $contents;
     }
