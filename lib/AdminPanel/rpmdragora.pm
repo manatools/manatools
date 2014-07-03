@@ -264,6 +264,8 @@ sub interactive_msg {
 
     if ($options{scroll}) {
         $info->{richtext} = 1;
+        ## richtext needs <br> instead of '\n'
+        $contents =~ s/\n/<br>/g;
     } else { #- because we'll use a WrappedLabel
         $contents = MDK::Common::String::formatAlaTeX($contents) if !ref $contents;
     }
@@ -633,31 +635,15 @@ sub update_sources {
     my $dlg = $factory->createPopupDialog();
     my $minSize = $factory->createMinSize( $dlg, 80, 5 );
     my $vbox = $factory->createVBox($minSize);
-    my $label = $factory->createLabel($vbox, N("Please wait, updating media...") );
+    my $hbox = $factory->createHBox($factory->createLeft($vbox));
+    my $label = $factory->createRichText($hbox, N("Please wait, updating media..."), 1 );
     $label->setWeight($yui::YD_HORIZ, 1);
+    $label->setWeight($yui::YD_VERT, 1);
+
     my $pb = $factory->createProgressBar( $vbox, "");
 
     $dlg->open();
 
-
-#     my $w; my $label; $w = wait_msg(
-#         $label = Gtk2::Label->new(N("Please wait, updating media...")),
-#         no_wait_cursor => 1,
-#         widgets => [
-#             my $pb = gtkset_size_request(Gtk2::ProgressBar->new, 300, -1),
-#             gtkpack(
-#                 create_hbox(),
-#                 gtksignal_connect(
-#                     Gtk2::Button->new(N("Cancel")),
-#                     clicked => sub {
-#                         $cancel = 1;
-#                         $urpm->{error}->(N("Canceled"));
-#                         $w and $w->destroy;
-#                     },
-#                 ),
-#             ),
-#         ],
-#     );
     my @media; @media = @{$options{medialist}} if ref $options{medialist};
     my $outerfatal = $urpm->{fatal};
     local $urpm->{fatal} = sub { $dlg->destroy(); $outerfatal->(@_) };
@@ -692,21 +678,21 @@ sub show_urpm_progress {
 
     if ($mode eq 'copy') {
         $pb->setValue(0);
-        $label->setLabel(N("Copying file for medium `%s'...", $file));
+        $label->setValue(N("Copying file for medium `%s'...", $file));
     } elsif ($mode eq 'parse') {
         $pb->setValue(0);
-        $label->setLabel(N("Examining file of medium `%s'...", $file));
+        $label->setValue(N("Examining file of medium `%s'...", $file));
     } elsif ($mode eq 'retrieve') {
         $pb->setValue(0);
-        $label->setLabel(N("Examining remote file of medium `%s'...", $file));
+        $label->setValue(N("Examining remote file of medium `%s'...", $file));
         $medium = $file;
     } elsif ($mode eq 'done') {
         $pb->setValue(100);
-        $label->setLabel($label->label() . N(" done."));
+        $label->setValue($label->value() . N(" done."));
         $medium = undef;
     } elsif ($mode eq 'failed') {
         $pb->setValue(100);
-        $label->setLabel($label->label() . N(" failed!"));
+        $label->setValue($label->value() . N(" failed!"));
         $medium = undef;
     } else {
         # FIXME: we're displaying misplaced quotes such as "downloading `foobar from 'medium Main Updates'´"
@@ -715,18 +701,18 @@ sub show_urpm_progress {
                                                : basename($file);
         if ($mode eq 'start') {
             $pb->setValue(0);
-            $label->setLabel(N("Starting download of `%s'...", $file));
+            $label->setValue(N("Starting download of `%s'...", $file));
         } elsif ($mode eq 'progress') {
+            $DB::single = 1;
             if (defined $total && defined $eta) {
                 $pb->setValue($percent);
-                $label->setLabel(N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
+                $label->setValue(N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
             } else {
                 $pb->setValue($percent);
-                $label->setLabel(N("Download of `%s'\nspeed:%s", $file, $speed));
+                $label->setValue(N("Download of `%s'\nspeed:%s", $file, $speed));
             }
         }
     }
-#     Gtk2->main_iteration while Gtk2->events_pending;
 }
 
 sub mirrors {
