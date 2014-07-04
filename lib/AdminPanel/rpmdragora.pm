@@ -642,11 +642,11 @@ sub update_sources {
 
     my $pb = $factory->createProgressBar( $vbox, "");
 
-    $dlg->open();
+    $dlg->pollEvent();
 
     my @media; @media = @{$options{medialist}} if ref $options{medialist};
     my $outerfatal = $urpm->{fatal};
-    local $urpm->{fatal} = sub { $dlg->destroy(); $outerfatal->(@_) };
+    local $urpm->{fatal} = sub { $outerfatal->(@_) };
     urpm::media::update_those_media($urpm, [ urpm::media::select_media_by_name($urpm, \@media) ],
         %options, allow_failures => 1,
         callback => sub {
@@ -667,8 +667,9 @@ later.",
             }
         },
     );
+
+cancel_update:
     $dlg->destroy();
-  cancel_update:
 }
 
 sub show_urpm_progress {
@@ -750,12 +751,10 @@ sub update_sources_interactive {
         $item->setLabel($_->{name});
         $itemCollection->push($item);
         $item->DISOWN();
-
     }
     $mediaTable->addItems($itemCollection);
 
-
- # dialog buttons
+    # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
     ## Window push buttons
     my $hbox = $factory->createHBox( $vbox );
@@ -802,25 +801,25 @@ sub update_sources_interactive {
 
             }
             elsif ($widget == $updateButton) {
-#                 @media = map_index { if_($_->get_active, $buttonmedia[$::i]{name}) } @buttons;
-#
-#                 my @media_index;
-#                 for (my $it = $mediaTable->itemsBegin(); $it != $mediaTable->itemsEnd(); ) {
-#                     my $item  = $mediaTable->YItemIteratorToYItem($it);
-#                     $item = $mediaTable->toCBYTableItem($item);
-#                     if ($item) {
-#                         if ($item->checked() &&  $media[$item->index()]{name}) {
-#                             push @media_index,  $item->index();
-#                         }
-#                         # NOTE for some reasons it is never == $mediaTable->itemsEnd()
-#                         if ($item->index() == $mediaTable->itemsCount()-1) {
-#                             last;
-#                         }
-#                     }
-#                     $it = $mediaTable->nextItem($it);
-#                 }
-#
-#                 $retVal = update_sources_noninteractive($urpm, \@media_index, %options);
+                yui::YUI::app()->busyCursor();
+                my @checked_media;
+                for (my $it = $mediaTable->itemsBegin(); $it != $mediaTable->itemsEnd(); ) {
+                    my $item  = $mediaTable->YItemIteratorToYItem($it);
+                    $item = $mediaTable->toCBYTableItem($item);
+                    if ($item) {
+                        if ($item->checked()) {
+                            push @checked_media, $item->label();
+                        }
+                        # NOTE for some reasons it is never == $mediaTable->itemsEnd()
+                        if ($item->index() == $mediaTable->itemsCount()-1) {
+                            last;
+                        }
+                    }
+                    $it = $mediaTable->nextItem($it);
+                }
+
+                $retVal = update_sources_noninteractive($urpm, \@checked_media, %options);
+                yui::YUI::app()->normalCursor();
                 last;
             }
         }
@@ -837,7 +836,7 @@ sub update_sources_interactive {
 sub update_sources_noninteractive {
     my ($urpm, $media, %options) = @_;
 
-        urpm::media::select_media($urpm, @$media);
+        urpm::media::select_media_by_name($urpm, $media);
         update_sources_check(
             $urpm,
             {},
