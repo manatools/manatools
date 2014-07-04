@@ -559,7 +559,7 @@ sub edit_callback {
     $factory->createHSpacing($hbox, 1.0);
     my $label     = $factory->createLabel($hbox, N("URL:"));
     my $url_entry = $factory->createInputField($hbox, "", 0);
-    $label->setWeight($yui::YD_HORIZ, 1);
+#     $label->setWeight($yui::YD_HORIZ, 1);
     $url_entry->setWeight($yui::YD_HORIZ, 2);
     $url_entry->setValue($verbatim_medium->{url} || $verbatim_medium->{mirrorlist});
 
@@ -567,7 +567,7 @@ sub edit_callback {
     $factory->createHSpacing($hbox, 1.0);
     $label        = $factory->createLabel($hbox, N("Downloader:") );
     my $downloader_entry   = $factory->createComboBox($hbox, $verbatim_medium->{downloader} || "", 0);
-    $label->setWeight($yui::YD_HORIZ, 1);
+#     $label->setWeight($yui::YD_HORIZ, 1);
     $downloader_entry->setWeight($yui::YD_HORIZ, 2);
 
     my @comboList =  urpm::download::available_ftp_http_downloaders() ;
