@@ -30,6 +30,7 @@ use File::ShareDir ':ALL';
 use lib qw(/usr/lib/libDrakX);
 use common;
 use AdminPanel::rpmdragora;
+use AdminPanel::Rpmdragora::init;
 use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Shared::GUI;
@@ -528,12 +529,113 @@ sub downwards_callback {
 }
 
 #- returns the name of the media for which edition failed, or undef on success
-sub edit_callback() {
+sub edit_callback {
+    my $table = shift;
+
+    ## get the first
+    my $item = $table->selectedItem();
+    !$item and return 0;
+    my $row = $item->index();
+
+    my $medium = $urpm->{media}[$row];
+    my $config = urpm::cfg::load_config_raw($urpm->{config}, 1);
+    my ($verbatim_medium) = grep { $medium->{name} eq $_->{name} } @$config;
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Edit a medium"));
+
+    my $factory      = yui::YUI::widgetFactory;
+
+    my $dialog  = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dialog, 80, 5 );
+    my $vbox    = $factory->createVBox( $minSize );
+
+    my $hbox    = $factory->createHBox( $factory->createLeft($vbox) );
+    $factory->createHeading($hbox, N("Editing medium \"%s\":", $medium->{name}));
+    $factory->createVSpacing($vbox, 1.0);
+
+    $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    my $label     = $factory->createLabel($hbox, N("URL:"));
+    my $url_entry = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $url_entry->setWeight($yui::YD_HORIZ, 2);
+    $url_entry->setValue($verbatim_medium->{url} || $verbatim_medium->{mirrorlist});
+
+    $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    $label        = $factory->createLabel($hbox, N("Downloader:") );
+    my $downloader_entry   = $factory->createComboBox($hbox, $verbatim_medium->{downloader} || "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $downloader_entry->setWeight($yui::YD_HORIZ, 2);
+
+    my @comboList =  urpm::download::available_ftp_http_downloaders() ;
+    if (scalar(@comboList) > 0) {
+        my $itemColl = new yui::YItemCollection;
+        foreach my $elem (@comboList) {
+            my $it = new yui::YItem($elem, 0);
+            $itemColl->push($it);
+            $it->DISOWN();
+        }
+        $downloader_entry->addItems($itemColl);
+    }
+    $factory->createVSpacing($vbox, 0.5);
+
+    $hbox    = $factory->createHBox($factory->createLeft($vbox));
+    $factory->createHSpacing($hbox, 1.0);
+    ### TODO cell to get info
+    my $tableItem = yui::toYTableItem($item);
+    # enabled cell 0, updates cell 1
+    my $cell = $tableItem->cell(0);
+    my $enabled = $factory->createCheckBox($hbox, N("Enabled"), $cell->label? 1:0);
+    $cell = $tableItem->cell(1);
+    my $update  = $factory->createCheckBox($hbox, N("Updates"), $cell->label? 1:0);
+    $update->setDisabled() if (!$::expert);
+
+    $factory->createVSpacing($vbox, 0.5);
+    $hbox            = $factory->createHBox($vbox);
+    my $cancelButton = $factory->createPushButton($hbox,  N("Cancel"));
+    $factory->createHSpacing($hbox, 3.0);
+    my $saveButton   = $factory->createPushButton($hbox,  N("Save changes"));
+    $factory->createHSpacing($hbox, 3.0);
+    my $proxyButton  = $factory->createPushButton($hbox,  N("Proxy..."));
+
+    $cancelButton->setDefaultButton(1);
+
+    # dialog event loop
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### widget
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+        }
+    }
+### End ###
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+##############################################
+
+
+sub tobe_removed {
     my ($row) = selected_rows();
     $row == -1 and return;
     my $medium = $urpm->{media}[$row];
     my $config = urpm::cfg::load_config_raw($urpm->{config}, 1);
     my ($verbatim_medium) = grep { $medium->{name} eq $_->{name} } @$config;
+
     my $old_main_window = $::main_window;
     my $w = ugtk2->new(N("Edit a medium"), grab => 1, center => 1,  transient => $::main_window);
     local $::main_window = $w->{real_window};
@@ -543,6 +645,7 @@ sub edit_callback() {
 	gtkpack_(
 	    gtknew('VBox', spacing => 5),
 	    0, gtknew('Title2', label => N("Editing medium \"%s\":", $medium->{name})),
+
 	    0, create_packtable(
 		{},
 		[ gtknew('Label_Left', text => N("URL:")), $url_entry = gtkentry($verbatim_medium->{url} || $verbatim_medium->{mirrorlist}) ],
@@ -605,6 +708,8 @@ sub edit_callback() {
      }
 	return $name;
     }
+}
+
     return undef;
 }
 
@@ -1323,8 +1428,9 @@ sub mainwindow() {
                 yui::YUI::app()->normalCursor();
             }
             elsif ($widget == $edtButton) {
-                my $sel = $mirrorTbl->selectedItem();
-                print " ITEM #" . $sel->index() . " -> " .$sel->label() . "\n" if $sel;
+                edit_callback($mirrorTbl);
+#                 my $sel = $mirrorTbl->selectedItem();
+#                 print " ITEM #" . $sel->index() . " -> " .$sel->label() . "\n" if $sel;
             }
             elsif ($widget == $remButton) {
                 yui::YUI::app()->busyCursor();
