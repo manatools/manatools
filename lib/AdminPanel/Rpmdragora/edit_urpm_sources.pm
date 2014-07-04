@@ -1142,10 +1142,11 @@ sub mainwindow() {
             custom => new yui::YMenuItem(N("Add a custom medium")),
             quit   => new yui::YMenuItem(N("&Close")),
     );
-    $fileMenu{ widget }->addItem($fileMenu{ update });
-    $fileMenu{ widget }->addItem($fileMenu{ add_media });
-    $fileMenu{ widget }->addItem($fileMenu{ custom });
-    $fileMenu{ widget }->addItem($fileMenu{ quit });
+
+    my @ordered_menu_lines = qw(update add_media custom quit);
+    foreach (@ordered_menu_lines) {
+        $fileMenu{ widget }->addItem($fileMenu{ $_ });
+    }
     $fileMenu{ widget }->rebuildMenuTree();
 
     my %optionsMenu = (
@@ -1155,10 +1156,10 @@ sub mainwindow() {
           parallel => new yui::YMenuItem(N("Parallel")),
              proxy => new yui::YMenuItem(N("Proxy")),
     );
-    $optionsMenu{ widget }->addItem($optionsMenu{ global });
-    $optionsMenu{ widget }->addItem($optionsMenu{ man_keys });
-    $optionsMenu{ widget }->addItem($optionsMenu{ parallel });
-    $optionsMenu{ widget }->addItem($optionsMenu{ proxy });
+    @ordered_menu_lines = qw(global man_keys parallel proxy);
+    foreach (@ordered_menu_lines) {
+        $optionsMenu{ widget }->addItem($optionsMenu{ $_ });
+    }
     $optionsMenu{ widget }->rebuildMenuTree();
 
     my %helpMenu = (
@@ -1167,9 +1168,10 @@ sub mainwindow() {
             report_bug => new yui::YMenuItem(N("Report Bug")),
             about      => new yui::YMenuItem(N("&About")),
     );
-    $helpMenu{ widget }->addItem($helpMenu{ help });
-    $helpMenu{ widget }->addItem($helpMenu{ report_bug });
-    $helpMenu{ widget }->addItem($helpMenu{ about });
+    @ordered_menu_lines = qw(help report_bug about);
+    foreach (@ordered_menu_lines) {
+        $helpMenu{ widget }->addItem($helpMenu{ $_ });
+    }
     $helpMenu{ widget }->rebuildMenuTree();
 
     my $hbox_content = $factory->createHBox($vbox);
