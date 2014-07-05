@@ -652,7 +652,7 @@ sub update_sources {
         callback => sub {
             $cancel and goto cancel_update;
             my ($type, $media) = @_;
-            return if $type !~ /^(?:start|progress|end)$/ && @media && !AdminPanel::Shared::member($media, @media);
+            return if $type !~ /^(?:start|progress|end)$/ && @media && !member($media, @media);
             if ($type eq 'failed') {
                 $urpm->{fatal}->(N("Error retrieving packages"),
 N("It's impossible to retrieve the list of new packages from the media
