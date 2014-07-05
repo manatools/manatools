@@ -641,7 +641,12 @@ sub update_sources {
     $label->setWeight($yui::YD_VERT, 1);
 
     my $pb = $factory->createProgressBar( $vbox, "");
-
+    $pb->setValue(0);
+    # NOTE urpm::media::update_those_media seems not to say anything
+    #      when downloads and tests md5sum
+    #      a fake event (timeout 10 msec) allow to draw the waiting
+    #      dialog
+    $dlg->waitForEvent(10);
     $dlg->pollEvent();
 
     my @media; @media = @{$options{medialist}} if ref $options{medialist};
@@ -667,6 +672,10 @@ later.",
             }
         },
     );
+
+    $pb->setValue(100);
+    $dlg->waitForEvent(5);
+    $dlg->pollEvent();
 
 cancel_update:
     $dlg->destroy();
