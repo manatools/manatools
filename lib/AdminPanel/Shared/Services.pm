@@ -84,12 +84,12 @@ use diagnostics;
 
 use Sys::Syslog;
 use File::Basename qw( basename );
-use AdminPanel::Shared qw(member);
 use AdminPanel::Shared::Locales;
 
 use lib qw(/usr/lib/libDrakX);
 use MDK::Common::Func qw(find);
 use MDK::Common::File qw(cat_);
+use MDK::Common::DataStructure qw(member);
 use run_program qw(rooted);
 
 use base qw(Exporter);
@@ -292,7 +292,7 @@ sub set_service {
 
     my @xinetd_services = map { $_->[0] } xinetd_services();
 
-    if (AdminPanel::Shared::member($service, @xinetd_services)) {
+    if (MDK::Common::DataStructure::member($service, @xinetd_services)) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         run_program::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif (_running_systemd() || _has_systemd()) {
@@ -705,7 +705,7 @@ This function returns if the given service starts at boot
 sub starts_on_boot {
     my ($service) = @_;
     my (undef, $on_services) = services();
-    AdminPanel::Shared::member($service, @$on_services);
+    MDK::Common::DataStructure::member($service, @$on_services);
 }
 
 #=============================================================
