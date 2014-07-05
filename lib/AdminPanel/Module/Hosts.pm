@@ -72,6 +72,20 @@ has 'sh_gui' => (
         builder => '_SharedUGUIInitialize'
 );
 
+has 'loc' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_localeInitialize'
+);
+
+sub _localeInitialize {
+    my $self = shift();
+
+    # TODO fix domain binding for translation
+    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'drakx-net') );
+    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+}
+
 sub _SharedUGUIInitialize {
     my $self = shift();
 
@@ -101,21 +115,6 @@ sub start {
 };
 
 
-#=============================================================
-
-=head2 _addHostDialog
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 DESCRIPTION
-
-This subroutine creates the Host dialog to add host definitions 
-
-=cut
-
-#=============================================================
 sub _manipulateHostDialog {
     my $self = shift;
 
@@ -148,9 +147,9 @@ sub _manipulateHostDialog {
     my $secondHbox = $factory->createHBox($vbox_content);
     my $thirdHbox = $factory->createHBox($vbox_content);
 
-    my $labelIPAddress = $factory->createLabel($firstHbox,"IP Address");
-    my $labelHostName  = $factory->createLabel($secondHbox,"Hostname");
-    my $labelHostAlias = $factory->createLabel($thirdHbox,"Host aliases");
+    my $labelIPAddress = $factory->createLabel($firstHbox,$self->loc->N("IP Address"));
+    my $labelHostName  = $factory->createLabel($secondHbox,$self->loc->N("Hostname"));
+    my $labelHostAlias = $factory->createLabel($thirdHbox,$self->loc->N("Host aliases"));
     $labelIPAddress->setWeight($yui::YD_HORIZ, 10);
     $labelHostName->setWeight($yui::YD_HORIZ, 10);
     $labelHostAlias->setWeight($yui::YD_HORIZ, 10);
@@ -169,8 +168,8 @@ sub _manipulateHostDialog {
     }
 
     # footer
-    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),"Cancel");
-    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),"OK");
+    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("Cancel"));
+    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),$self->loc->N("OK"));
 
     while(1){
         my $event     = $dlg->waitForEvent();
@@ -193,14 +192,12 @@ sub _manipulateHostDialog {
                 if(AdminPanel::Shared::trim($textHostAlias->value()) ne ""){
                     push @hosts_toadd, $textHostAlias->value();
                 }
-                print "@hosts_toadd\n";
                 if($boolEdit == 0){
                     $res = $self->cfgHosts->_insertHost($textIPAddress->value(),[@hosts_toadd]);
                 }else{
                     $res = $self->cfgHosts->_modifyHost($textIPAddress->value(),[@hosts_toadd]);
                 }
                 $res = $self->cfgHosts->_writeHosts();
-                print "Write result: $res\n";
                 last;
             }
         }
@@ -209,17 +206,59 @@ sub _manipulateHostDialog {
     destroy $dlg;
 }
 
+#=============================================================
+
+=head2 _addHostDialog
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+This subroutine creates the Host dialog to add host definitions 
+
+=cut
+
+#=============================================================
+
 sub _addHostDialog {
     my $self = shift();
-    return $self->_manipulateHostDialog("Add the information",0);
+    return $self->_manipulateHostDialog($self->loc->N("Add the information"),0);
 }
+
+#=============================================================
+
+=head2 _edtHostDialog
+
+=head3 INPUT
+
+=over 4
+
+=item $self: this object
+
+=item B<$hostIp> : the ip of the host entry that we want to modify
+
+=item B<$hostName> : the name of the host entry we want to modify
+
+=item B<$hostAliases> : aliases of the host entry we want to modify
+
+=back
+
+=head3 DESCRIPTION
+
+This subroutine creates the Host dialog to modify host definitions 
+
+=cut
+
+#=============================================================
 
 sub _edtHostDialog {
     my $self = shift();
     my $hostIp = shift();
     my $hostName = shift();
     my $hostAliases = shift();
-    return $self->_manipulateHostDialog("Modify the information",1,$hostIp,$hostName,$hostAliases);
+    return $self->_manipulateHostDialog($self->loc->N("Modify the information"),1,$hostIp,$hostName,$hostAliases);
 }
 
 #=============================================================
@@ -266,7 +305,7 @@ sub _manageHostsDialog {
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
-    my $newTitle = "Manage hosts definitions";
+    my $newTitle = $self->loc->N("Manage hosts definitions");
     yui::YUI::app()->setApplicationTitle($newTitle);
 
     my $factory  = yui::YUI::widgetFactory;
@@ -288,9 +327,9 @@ sub _manageHostsDialog {
     my $hbox_content = $factory->createHBox($layout);
 
     my $tableHeader = new yui::YTableHeader();
-    $tableHeader->addColumn("IP Address");
-    $tableHeader->addColumn("Hostname");
-    $tableHeader->addColumn("Host Aliases");
+    $tableHeader->addColumn($self->loc->N("IP Address"));
+    $tableHeader->addColumn($self->loc->N("Hostname"));
+    $tableHeader->addColumn($self->loc->N("Host Aliases"));
     my $leftContent = $factory->createLeft($hbox_content);
     $leftContent->setWeight($yui::YD_HORIZ,45);
     $self->table($factory->createTable($leftContent,$tableHeader));
@@ -303,9 +342,9 @@ sub _manageHostsDialog {
     $rightContent->setWeight($yui::YD_HORIZ,10);
     my $topContent = $factory->createTop($rightContent);
     my $vbox_commands = $factory->createVBox($topContent);
-    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),"Add");
-    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),"Edit");
-    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),"Remove");
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Add"));
+    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Edit"));
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Remove"));
     $addButton->setWeight($yui::YD_HORIZ,1);
     $edtButton->setWeight($yui::YD_HORIZ,1);
     $remButton->setWeight($yui::YD_HORIZ,1);
@@ -313,9 +352,9 @@ sub _manageHostsDialog {
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,"About");
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,"Cancel");
-    my $okButton = $factory->createPushButton($vbox_foot_right,"OK");
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
 
     # main loop
     while(1) {
@@ -347,7 +386,7 @@ sub _manageHostsDialog {
             }
             elsif ($widget == $remButton) {
                 # implement deletion dialog
-                if($self->sh_gui->ask_YesOrNo({title => "Confirmation", text => "Are you sure to drop this host?"}) == 1){
+                if($self->sh_gui->ask_YesOrNo({title => $self->loc->N("Confirmation"), text => $self->loc->N("Are you sure to drop this host?")}) == 1){
                     my $tblItem = yui::toYTableItem($self->table->selectedItem());
                     # drop the host using the ip
                     $self->cfgHosts->_dropHost($tblItem->cell(0)->label());
@@ -361,7 +400,7 @@ sub _manageHostsDialog {
                     version => $VERSION,
                     credits => "Copyright (c) 2013-2014 by Matteo Pasotti",
                     license => "GPLv2",
-                    description => "Graphical manager for hosts definitions",
+                    description => $self->loc->N("Graphical manager for hosts definitions"),
                     authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
                     }
                 );
