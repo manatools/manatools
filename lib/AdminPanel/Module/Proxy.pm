@@ -99,6 +99,35 @@ sub _SharedUGUIInitialize {
     $self->sh_gui( AdminPanel::Shared::GUI->new() );
 }
 
+#=============================================================
+
+=head2 init_proxy
+
+=head3 DESCRIPTION
+
+=over 4
+
+=item This method does initialize the proxy attribute provided by this class.
+
+=item $self->proxy is structured as follows:
+
+=over 6
+
+=item B<no_proxy>    the string with the list of the excluded domains/addresses
+
+=item B<http_proxy>  the url of the http proxy
+
+=item B<https_proxy> the url of the https proxy
+
+=item B<ftp_proxy>   the url for the ftp proxy
+
+=back
+
+=back
+
+=cut
+
+#=============================================================
 
 sub init_proxy {
     my %p = (
@@ -140,11 +169,52 @@ sub start {
     $self->_manageProxyDialog();
 };
 
+#=============================================================
+
+=head2 ask_for_X_restart
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method shows a message box warning the user
+    that a X server restart is required
+
+=cut
+
+#=============================================================
+
 sub ask_for_X_restart {
     my $self = shift;
 
     $self->sh_gui->warningMsgBox({title=>$self->loc->N("X Restart Required"),text=>$self->loc->N("You need to log out and back in again for changes to take effect"),richtext=>1});
 }
+
+#=============================================================
+
+=head2 validate
+
+=head3 INPUT
+
+    $self: this object
+
+    $proxy: the hash containing what returns from getVarFromSh
+            eventually modified by the user
+
+=head3 DESCRIPTION
+
+    This method returns true if the each value match
+    certain conditions like the leading http:// for http proxy
+    or https:// for the https proxy, etc.
+    
+    $proxy is passed by reference thus $proxy->{no_proxy} value
+    is sanitized (trimmed).
+
+=cut
+
+#=============================================================
 
 sub validate {
     my $self = shift;
