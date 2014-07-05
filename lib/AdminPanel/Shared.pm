@@ -84,7 +84,6 @@ use base qw(Exporter);
 # TODO move GUI dialogs to Shared::GUI
 our @EXPORT = qw(
                 trim 
-                member
                 md5sum
                 pathList2hash
 );
@@ -127,33 +126,7 @@ sub trim {
     return $st;
 }
 
-#=============================================================
 
-=head2 member
-
-=head3 INPUT
-
-    $e: Array element to be found into array
-    @_: any array
-
-=head3 OUTPUT
-
-    1 or 0: if $e is a member of the given array
-
-=head3 DESCRIPTION
-
-This function look for an element into an array
-
-=cut
-
-#=============================================================
-sub member { 
-    my $e = shift; 
-    foreach (@_) { 
-        $e eq $_ and return 1;
-    } 
-    0; 
-}
 
 #=============================================================
 

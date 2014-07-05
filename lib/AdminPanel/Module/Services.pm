@@ -62,9 +62,9 @@ use strict;
 # TODO same translation atm
 use lib qw(/usr/lib/libDrakX);
 use MDK::Common::String qw(formatAlaTeX);
+use MDK::Common::DataStructure qw(member);
 
 use yui;
-use AdminPanel::Shared qw(member);
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Services qw(
@@ -297,7 +297,7 @@ sub _serviceStatusString {
     
     my $started;
 
-    if (AdminPanel::Shared::member($serviceName, $self->all_xinetd_services)) {
+    if (MDK::Common::DataStructure::member($serviceName, $self->all_xinetd_services)) {
         $started = $self->loc->N("Start when requested");
     }
     else {
@@ -344,7 +344,7 @@ sub _fillServiceTable {
         my $cell   = new yui::YTableCell($started);
         $item->addCell($cell);
         
-        $item->check(AdminPanel::Shared::member($serviceName, $self->all_on_services));
+        $item->check(MDK::Common::DataStructure::member($serviceName, $self->all_on_services));
         $item->setLabel($serviceName);
         $itemCollection->push($item);
         $item->DISOWN();
@@ -420,7 +420,7 @@ sub _servicePanel {
     my $item = $serviceTbl->selectedItem();
     if ($item) {
         $self->_serviceInfo($item->label(), $infoPanel);
-        if (AdminPanel::Shared::member($item->label(), $self->all_xinetd_services)) {
+        if (MDK::Common::DataStructure::member($item->label(), $self->all_xinetd_services)) {
             $stopButton->setDisabled();
             $startButton->setDisabled();
         }
@@ -475,7 +475,7 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     $self->_serviceInfo($item->label(), $infoPanel);
-                    if (AdminPanel::Shared::member($item->label(), $self->all_xinetd_services)) {
+                    if (MDK::Common::DataStructure::member($item->label(), $self->all_xinetd_services)) {
                         $stopButton->setDisabled();
                         $startButton->setDisabled();
                     }

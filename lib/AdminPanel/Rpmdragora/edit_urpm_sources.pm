@@ -37,6 +37,7 @@ use AdminPanel::Shared::GUI;
 use URPM::Signature;
 use MDK::Common::Math qw(max);
 use MDK::Common::File;
+use MDK::Common::DataStructure qw(member);
 use urpm::media;
 use urpm::download;
 use urpm::lock;
