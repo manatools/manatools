@@ -588,10 +588,10 @@ sub edit_callback {
     ### TODO cell to get info
     my $tableItem = yui::toYTableItem($item);
     # enabled cell 0, updates cell 1
-    my $cell = $tableItem->cell(0);
-    my $enabled = $factory->createCheckBox($hbox, N("Enabled"), $cell->label? 1:0);
-    $cell = $tableItem->cell(1);
-    my $update  = $factory->createCheckBox($hbox, N("Updates"), $cell->label? 1:0);
+    my $cellEnabled = $tableItem->cell(0);
+    my $enabled = $factory->createCheckBox($hbox, N("Enabled"), $cellEnabled->label? 1:0);
+    my $cellUpdates = $tableItem->cell(1);
+    my $update  = $factory->createCheckBox($hbox, N("Updates"), $cellUpdates->label? 1:0);
     $update->setDisabled() if (!$::expert);
 
     $factory->createVSpacing($vbox, 0.5);
@@ -618,6 +618,11 @@ sub edit_callback {
             my $widget = $event->widget();
             if ($widget == $cancelButton) {
                 last;
+            }
+            elsif ($widget == $saveButton) {
+            }
+            elsif ($widget == $proxyButton) {
+                proxy_callback($medium);
             }
         }
     }
@@ -721,6 +726,123 @@ sub update_callback() {
 sub proxy_callback {
     my ($medium) = @_;
     my $medium_name = $medium ? $medium->{name} : '';
+
+    my ($proxy, $proxy_user) = readproxy($medium_name);
+    my ($user, $pass) = $proxy_user =~ /^([^:]*):(.*)$/;
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Configure proxies"));
+
+    my $factory      = yui::YUI::widgetFactory;
+
+    my $dialog  = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dialog, 80, 5 );
+    my $vbox    = $factory->createVBox( $minSize );
+
+    my $hbox    = $factory->createHBox( $factory->createLeft($vbox) );
+    $factory->createHeading($hbox,
+                            $medium_name
+                            ? N("Proxy settings for media \"%s\"", $medium_name)
+                            : N("Global proxy settings"));
+    $factory->createVSpacing($vbox, 0.5);
+
+    $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    my $label     = $factory->createLabel($hbox, N("If you need a proxy, enter the hostname and an optional port (syntax: <proxyhost[:port]>):"));
+    $factory->createVSpacing($vbox, 0.5);
+
+    my ($proxybutton, $proxyentry, $proxyuserbutton, $proxyuserentry, $proxypasswordentry);
+
+    $hbox    = $factory->createHBox($factory->createLeft($vbox));
+    my $proxybutton = $factory->createCheckBoxFrame($hbox, N("Enable proxy"), 1);
+    my $frm_vbox    = $factory->createVBox( $proxybutton );
+    my $align       = $factory->createRight($frm_vbox);
+    $hbox           = $factory->createHBox($align);
+    $label          = $factory->createLabel($hbox, N("Proxy hostname:") );
+    $proxyentry = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $proxyentry->setWeight($yui::YD_HORIZ, 2);
+    $proxyuserbutton = $factory->createCheckBoxFrame($factory->createLeft($frm_vbox),
+                                                     N("You may specify a username/password for the proxy authentication:"), 1);
+    $proxyentry->setValue($proxy) if $proxy;
+    
+    $frm_vbox    = $factory->createVBox( $proxyuserbutton );
+
+    ## proxy user name
+    $align       = $factory->createRight($frm_vbox);
+    $hbox           = $factory->createHBox($align);
+    $label          = $factory->createLabel($hbox, N("User:") );
+    $proxyuserentry = $factory->createInputField($hbox, "", 0);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $proxyuserentry->setWeight($yui::YD_HORIZ, 2);
+    $proxyuserentry->setValue($user) if $user;
+
+    ## proxy user password
+    $align           = $factory->createRight($frm_vbox);
+    $hbox            = $factory->createHBox($align);
+    $label           = $factory->createLabel($hbox, N("Password:") );
+    $proxypasswordentry = $factory->createInputField($hbox, "", 1);
+    $label->setWeight($yui::YD_HORIZ, 1);
+    $proxypasswordentry->setWeight($yui::YD_HORIZ, 2);
+    $proxypasswordentry->setValue($pass) if $pass;
+
+    $proxyuserbutton->setValue ($proxy_user ? 1 : 0);
+    $proxybutton->setValue ($proxy ? 1 : 0);
+
+    # dialog low level buttons
+    $factory->createVSpacing($vbox, 0.5);
+    $hbox            = $factory->createHBox($vbox);
+    my $okButton   = $factory->createPushButton($hbox,   N("Ok"));
+    $factory->createHSpacing($hbox, 3.0);
+    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
+
+    $cancelButton->setDefaultButton(1);
+
+    # dialog event loop
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### widget
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $okButton) {
+                $proxy = $proxybutton->value() ? $proxyentry->value() : '';
+                $proxy_user = $proxyuserbutton->value()
+                            ? ($proxyuserentry->value() . ':' . $proxypasswordentry->value()) : '';
+
+                writeproxy($proxy, $proxy_user, $medium_name);
+                last;
+            }
+        }
+    }
+### End ###
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+
+
+
+
+
+
+
+
+
+
+sub _to_be_removed {
+    my ($medium) = @_;
+    my $medium_name = $medium ? $medium->{name} : '';
     my $w = ugtk2->new(N("Configure proxies"), grab => 1, center => 1,  transient => $::main_window);
     local $::main_window = $w->{real_window};
     require curl_download;
@@ -791,6 +913,8 @@ sub proxy_callback {
         $something_changed = 1;
         curl_download::writeproxy($proxy, $proxy_user, $medium_name);
     };
+}
+
 }
 
 sub parallel_read_sysconf() {
@@ -1339,13 +1463,14 @@ sub mainwindow() {
     my $align = $factory->createLeft($hbox);
     $hbox     = $factory->createHBox($align);
 
-
     my $helpButton = $factory->createPushButton($hbox, N("Help") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
 
-    ### Service Refresh button ($refreshButton)
+    ### Close button
     my $closeButton = $factory->createPushButton($hbox, N("Ok") );
+
+    ### dialog event loop
     while(1) {
         my $event       = $dialog->waitForEvent();
         my $eventType   = $event->eventType();
@@ -1386,6 +1511,9 @@ sub mainwindow() {
             }
             elsif ($menuLabel eq $fileMenu{ update }->label()) {
                 update_callback();
+            }
+            elsif ($menuLabel eq $optionsMenu{ proxy }->label()) {
+                proxy_callback();
             }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
@@ -1733,5 +1861,20 @@ packages as well?"));
     $res;
 }
 
+sub readproxy (;$) {
+    my $proxy = get_proxy($_[0]);
+    ($proxy->{http_proxy} || $proxy->{ftp_proxy} || '',
+        defined $proxy->{user} ? "$proxy->{user}:$proxy->{pwd}" : '');
+}
+
+sub writeproxy {
+    my ($proxy, $proxy_user, $o_media_name) = @_;
+    my ($user, $pwd) = split /:/, $proxy_user;
+    set_proxy_config(user => $user, $o_media_name);
+    set_proxy_config(pwd => $pwd, $o_media_name);
+    set_proxy_config(http_proxy => $proxy, $o_media_name);
+    set_proxy_config(ftp_proxy => $proxy, $o_media_name);
+    dump_proxy_config();
+}
 
 1;
