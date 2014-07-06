@@ -73,6 +73,7 @@ sub flush {
     my ($self) = @_;
     $self->{mainw}->recalcLayout();
     $self->{mainw}->doneMultipleChanges();
+    $self->{mainw}->pollEvent();
 }
 
 sub label {
