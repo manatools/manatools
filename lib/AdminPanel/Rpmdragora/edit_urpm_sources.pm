@@ -723,6 +723,22 @@ sub update_callback() {
     update_sources_interactive($urpm,  transient => $::main_window, nolock => 1);
 }
 
+#=============================================================
+
+=head2 proxy_callback
+
+=head3 INPUT
+
+$medium: the medium which proxy is going to be modified
+
+=head3 DESCRIPTION
+
+Set or change the proxy settings for the given media.
+Note that Ok button saves the changes.
+
+=cut
+
+#=============================================================
 sub proxy_callback {
     my ($medium) = @_;
     my $medium_name = $medium ? $medium->{name} : '';
@@ -824,96 +840,12 @@ sub proxy_callback {
             }
         }
     }
+
 ### End ###
     $dialog->destroy();
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
-
-
-
-
-
-
-
-
-
-
-
-sub _to_be_removed {
-    my ($medium) = @_;
-    my $medium_name = $medium ? $medium->{name} : '';
-    my $w = ugtk2->new(N("Configure proxies"), grab => 1, center => 1,  transient => $::main_window);
-    local $::main_window = $w->{real_window};
-    require curl_download;
-    my ($proxy, $proxy_user) = curl_download::readproxy($medium_name);
-    my ($user, $pass) = $proxy_user =~ /^([^:]*):(.*)$/;
-    my ($proxybutton, $proxyentry, $proxyuserbutton, $proxyuserentry, $proxypasswordentry);
-    my $sg = Gtk2::SizeGroup->new('horizontal');
-    gtkadd(
-	$w->{window},
-	gtkpack__(
-	    gtknew('VBox', spacing => 5),
-	    gtknew('Title2', label =>
-		$medium_name
-		    ? N("Proxy settings for media \"%s\"", $medium_name)
-		    : N("Global proxy settings")
-	    ),
-	    gtknew('Label_Left', text => N("If you need a proxy, enter the hostname and an optional port (syntax: <proxyhost[:port]>):")),
-	    gtkpack_(
-		gtknew('HBox', spacing => 10),
-		1, gtkset_active($proxybutton = gtknew('CheckButton', text => N("Proxy hostname:")), to_bool($proxy)),
-		0, gtkadd_widget($sg, gtkset_sensitive($proxyentry = gtkentry($proxy), to_bool($proxy))),
-	    ),
-         gtkset_active($proxyuserbutton = gtknew('CheckButton', text => N("You may specify a username/password for the proxy authentication:")), to_bool($proxy_user)),
-	    gtkpack_(
-		my $hb_user = gtknew('HBox', spacing => 10, sensitive => to_bool($proxy_user)),
-		1, gtknew('Label_Left', text => N("User:")),
-		0, gtkadd_widget($sg, $proxyuserentry = gtkentry($user)),
-      ),
-	    gtkpack_(
-		my $hb_pswd = gtknew('HBox', spacing => 10, sensitive => to_bool($proxy_user)),
-		1, gtknew('Label_Left', text => N("Password:")),
-		0, gtkadd_widget($sg, gtkset_visibility($proxypasswordentry = gtkentry($pass), 0)),
-	    ),
-	    gtknew('HSeparator'),
-	    gtkpack(
-		gtknew('HButtonBox'),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Ok")),
-		    clicked => sub {
-			$w->{retval} = 1;
-			$proxy = $proxybutton->get_active ? $proxyentry->get_text : '';
-			$proxy_user = $proxyuserbutton->get_active
-			    ? ($proxyuserentry->get_text . ':' . $proxypasswordentry->get_text) : '';
-			Gtk2->main_quit;
-		    },
-		),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Cancel")),
-		    clicked => sub { $w->{retval} = 0; Gtk2->main_quit },
-		)
-	    )
-	)
-    );
-    $sg->add_widget($_) foreach $proxyentry, $proxyuserentry, $proxypasswordentry;
-    $proxybutton->signal_connect(
-	clicked => sub {
-	    $proxyentry->set_sensitive($_[0]->get_active);
-	    $_[0]->get_active and return;
-	    $proxyuserbutton->set_active(0);
-	    $hb_user->set_sensitive(0);
-	    $hb_pswd->set_sensitive(0);
-	}
-    );
-    $proxyuserbutton->signal_connect(clicked => sub { $_->set_sensitive($_[0]->get_active) foreach $hb_user, $hb_pswd;
-    $proxypasswordentry->set_sensitive($_[0]->get_active) });
-
-    $w->main and do {
-        $something_changed = 1;
-        curl_download::writeproxy($proxy, $proxy_user, $medium_name);
-    };
-}
 
 }
 
