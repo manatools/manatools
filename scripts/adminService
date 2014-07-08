@@ -1,13 +1,14 @@
 #!/usr/bin/perl
 
 use strict;
-use lib qw(/usr/lib/libDrakX);
 
-use common qw(N);
 use AdminPanel::Module::Services;
+use AdminPanel::Shared::Locales;
+
+my $loc = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone');
 
 my $serviceMan = AdminPanel::Module::Services->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
-                                                          name => N("Services and daemons"),});
+                                                          name => $loc->N("Services and daemons"),});
 $serviceMan->start();
 
 1;
