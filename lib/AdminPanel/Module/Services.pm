@@ -59,8 +59,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 use Moose;
 use strict;
 
-# TODO same translation atm
-use lib qw(/usr/lib/libDrakX);
 use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::DataStructure qw(member);
 
