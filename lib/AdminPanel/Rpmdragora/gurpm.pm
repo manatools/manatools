@@ -78,7 +78,7 @@ sub flush {
 
 sub label {
     my ($self, $label) = @_;
-    $self->{label} = $self->{factory}->createLabel($self->{vbox},$label);
+    $self->{label}->setValue($label) if $label;
     #select(undef, undef, undef, 0.1);  #- hackish :-(
     $self->flush();
 }
@@ -87,8 +87,8 @@ sub progress {
     my ($self, $value) = @_;
     state $time;
     $time = 0 if(!defined($time));
-    $value = 0 if $value < 0;
-    $value = 100 if 1 < $value;
+    $value = 0 if !defined($value) || $value < 0;
+    $value = 100 if 100 < $value;
     $self->{progressbar}->setValue($value);
     return if Time::HiRes::clock_gettime() - $time < 0.333;
     $time = Time::HiRes::clock_gettime();
