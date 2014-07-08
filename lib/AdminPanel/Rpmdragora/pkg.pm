@@ -28,7 +28,7 @@ use strict;
 use MDK::Common::Func 'any';
 use lib qw(/usr/lib/libDrakX);
 use common;
-use POSIX qw(_exit);
+use POSIX qw(_exit ceil);
 use URPM;
 use utf8;
 use AdminPanel::Rpmdragora::open_db;
@@ -213,7 +213,7 @@ sub download_callback {
               ),
         );
 	#$gurpm->progress($percenti/100);
-        $gurpm->progress($percent);
+        $gurpm->progress(ceil($percent*100));
     } elsif ($mode eq 'end') {
         $gurpm->progress(100);
         $gurpm->invalidate_cancel;
@@ -318,7 +318,7 @@ sub update_pbar {
     $prev_stage = 0 if(!defined($prev_stage));
     if ($prev_stage + 0.01*100 < $new_stage) {
         $prev_stage = $new_stage;
-        $gurpm->progress($new_stage);
+        $gurpm->progress(ceil($new_stage));
     }
 }
 
@@ -464,7 +464,7 @@ sub get_pkgs {
     init_progress_bar($urpm);
 
     $gurpm->label(N("Please wait, listing base packages..."));
-    $gurpm->progress($level*100);
+    $gurpm->progress(ceil($level*100));
     
     my $db = eval { open_rpm_db() };
     if (my $err = $@) {
@@ -477,7 +477,8 @@ sub get_pkgs {
     local $SIG{QUIT} = $sig_handler;
     
     $gurpm->label(N("Please wait, finding installed packages..."));
-    $gurpm->progress($level = 0.33*100);
+    $level = 0.33*100;
+    $gurpm->progress(ceil($level));
     reset_pbar_count(0.66*100);
     my (@installed_pkgs, %all_pkgs);
     if (!$probe_only_for_updates) {
@@ -493,7 +494,8 @@ sub get_pkgs {
     $urpm->{state} = {};
 
     $gurpm->label(N("Please wait, finding available packages..."));
-    $gurpm->progress($level = 0.66*100);
+    $level = 0.66*100;
+    $gurpm->progress(ceil($level));
 
     check_update_media_version($urpm, @update_medias);
 
@@ -522,7 +524,8 @@ sub get_pkgs {
         $urpm->{depslist}[$_]->set_flag_installed foreach keys %$requested; #- pretend it's installed
     }
     $urpm->{rpmdragora_state} = $state; #- Don't forget it
-    $gurpm->progress($level = 0.7*100);
+    $level = 0.7*100;
+    $gurpm->progress(ceil($level));
 
     my %l;
     reset_pbar_count(1);
@@ -768,7 +771,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                         #                     . "\n" . N("Total: %s/%s", ++$progress_nb, $install_count));
                 }
         } elsif ($subtype eq 'progress') {
-            $gurpm->progress($total ? ($amount/$total)*100 : 100);
+            $gurpm->progress($total ? ceil(($amount/$total)*100) : 100);
             print("Progress: ".($total ? ($amount/$total)*100 : 100)."\n");
         }
     };
@@ -835,7 +838,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  );
                              },
                              pre_check_sig => sub { $gurpm->label(N("Verifying package signatures...")) },
-                             check_sig => sub { $gurpm->progress((++$progress/$total)*100) },
+                             check_sig => sub { $gurpm->progress(ceil(++$progress/$total)*100) },
                              bad_signature => sub {
                                  my ($msg, $msg2) = @_;
                                  local $::main_window = $gurpm->{real_window};
@@ -960,7 +963,7 @@ sub perform_removal {
         $progress++;
         return if $progress <= 0; # skip first "creating transaction..." message
         $gurpm->label($str); # display "removing package %s"
-        $gurpm->progress(min(0.99*100, scalar($progress/@toremove)*100));
+        $gurpm->progress(ceil(min(0.99*100, scalar($progress/@toremove)*100)));
 	#gtkflush();
     };
 
