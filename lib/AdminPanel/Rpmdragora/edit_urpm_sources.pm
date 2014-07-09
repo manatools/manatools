@@ -771,7 +771,7 @@ sub proxy_callback {
     my ($proxybutton, $proxyentry, $proxyuserbutton, $proxyuserentry, $proxypasswordentry);
 
     $hbox    = $factory->createHBox($factory->createLeft($vbox));
-    my $proxybutton = $factory->createCheckBoxFrame($hbox, N("Enable proxy"), 1);
+    $proxybutton = $factory->createCheckBoxFrame($hbox, N("Enable proxy"), 1);
     my $frm_vbox    = $factory->createVBox( $proxybutton );
     my $align       = $factory->createRight($frm_vbox);
     $hbox           = $factory->createHBox($align);
