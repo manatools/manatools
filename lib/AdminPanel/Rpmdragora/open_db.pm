@@ -120,8 +120,9 @@ sub fast_open_urpmi_db() {
 sub is_it_a_devel_distro() {
     state $res;
     return $res if defined $res;
-    
-    my $path = $::rpmdragora_options{'urpmi-root'}[0] . '/etc/product.id';
+
+    my $path = '/etc/product.id';
+    $path = $::rpmdragora_options{'urpmi-root'}[0] . $path if defined($::rpmdragora_options{'urpmi-root'}[0]);
     $res = common::parse_LDAP_namespace_structure(cat_($path))->{branch} eq 'Devel';
     return $res;
 }
