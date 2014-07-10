@@ -25,7 +25,7 @@ require Exporter;
 use base qw(Exporter);
 use English qw(-no_match_vars);
 
-our @EXPORT = qw(require_root_capability
+our @EXPORT = qw(is_root_capability_required
          ask_for_authentication);
 
 my $wrappers = { "sudo" => "/usr/bin/sudo",
@@ -35,7 +35,7 @@ my $wrappers = { "sudo" => "/usr/bin/sudo",
 
 my $wrapper = 0;
 
-sub require_root_capability {
+sub is_root_capability_required {
     return $EUID != 0;
 }
 

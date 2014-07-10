@@ -22,19 +22,21 @@
 #
 # $Id: edit-urpm-sources.pl 244763 2008-09-04 16:12:52Z tv $
 
-use strict;
+
 use AdminPanel::Rpmdragora::init;
 use AdminPanel::rpmdragora;
-use common qw(N);
 use AdminPanel::Rpmdragora::edit_urpm_sources;
 use AdminPanel::Privileges;
+use AdminPanel::Shared::Locales;
 
-if (AdminPanel::Privileges::require_root_capability()) {
+my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+
+if (AdminPanel::Privileges::is_root_capability_required()) {
     require AdminPanel::Shared::GUI;
     my $sh_gui = AdminPanel::Shared::GUI->new();
     $sh_gui->warningMsgBox({
         title => "gurpmi.addmedia",
-        text  => N("root privileges required"),
+        text  => $loc->N("root privileges required"),
     });
     exit (-1);
 }

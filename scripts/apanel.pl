@@ -39,7 +39,7 @@ if($cmdline->find("--dev") > 0)
 }
 else
 {
-    ask_for_authentication($settings->{priv_method}) if(require_root_capability());
+    ask_for_authentication($settings->{priv_method}) if(is_root_capability_required());
 }
 my $mainWin = new AdminPanel::MainDisplay();
 while (1) {

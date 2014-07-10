@@ -56,7 +56,7 @@ use MDK::Common::Func;
 use common qw(N);
 
 #
-if (AdminPanel::Privileges::require_root_capability()) {
+if (AdminPanel::Privileges::is_root_capability_required()) {
     require AdminPanel::Shared::GUI;
     my $sh_gui = AdminPanel::Shared::GUI->new();
     $sh_gui->warningMsgBox({

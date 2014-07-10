@@ -149,7 +149,7 @@ if ($MODE eq 'remove') {
     $default_list_mode = 'all_updates';
 }
 
-$MODE eq 'update' || $rpmdragora_options{'run-as-root'} and AdminPanel::Privileges::require_root_capability();
+$MODE eq 'update' || $rpmdragora_options{'run-as-root'} and AdminPanel::Privileges::is_root_capability_required();
 $::noborderWhenEmbedded = 1;
 
 require AdminPanel::rpmdragora;
