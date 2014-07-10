@@ -529,10 +529,11 @@ sub downwards_callback {
     return $row + 1;
 }
 
-#- returns the name of the media for which edition failed, or undef on success
+#- returns 1 if something changed to force readMedia()
 sub edit_callback {
     my $table = shift;
 
+    my $changed = 0;
     ## get the first
     my $item = $table->selectedItem();
     !$item and return 0;
@@ -588,10 +589,10 @@ sub edit_callback {
     ### TODO cell to get info
     my $tableItem = yui::toYTableItem($item);
     # enabled cell 0, updates cell 1
-    my $cellEnabled = $tableItem->cell(0);
-    my $enabled = $factory->createCheckBox($hbox, N("Enabled"), $cellEnabled->label? 1:0);
-    my $cellUpdates = $tableItem->cell(1);
-    my $update  = $factory->createCheckBox($hbox, N("Updates"), $cellUpdates->label? 1:0);
+    my $cellEnabled = $tableItem->cell(0)->label() ? 1 : 0;
+    my $enabled = $factory->createCheckBox($hbox, N("Enabled"), $cellEnabled);
+    my $cellUpdates = $tableItem->cell(1)->label() ? 1 : 0;
+    my $update  = $factory->createCheckBox($hbox, N("Updates"), $cellUpdates);
     $update->setDisabled() if (!$::expert);
 
     $factory->createVSpacing($vbox, 0.5);
@@ -620,6 +621,19 @@ sub edit_callback {
                 last;
             }
             elsif ($widget == $saveButton) {
+                if ($cellEnabled != $enabled->value()) {
+                    $urpm->{media}[$row]{ignore} = !$urpm->{media}[$row]{ignore} || undef;
+                    $changed = 1;
+                }
+                if ($cellUpdates != $update->value()) {
+                    $urpm->{media}[$row]{update} = !$urpm->{media}[$row]{update} || undef;
+                    $changed = 1;
+                }
+                if ( $changed ) {
+                    urpm::media::write_config($urpm);
+                }
+                ## TODO proxy and URL data save
+                last;
             }
             elsif ($widget == $proxyButton) {
                 proxy_callback($medium);
@@ -716,7 +730,7 @@ sub tobe_removed {
     }
 }
 
-    return undef;
+    return $changed;
 }
 
 sub update_callback() {
@@ -1489,7 +1503,37 @@ sub mainwindow() {
                 yui::YUI::app()->normalCursor();
             }
             elsif ($widget == $edtButton) {
-                edit_callback($mirrorTbl);
+                my $item = $mirrorTbl->selectedItem();
+                if ($item && edit_callback($mirrorTbl) ) {
+                    my $row = $item->index();
+                    yui::YUI::app()->busyCursor();
+                    $dialog->startMultipleChanges();
+
+                    $mirrorTbl->deleteAllItems();
+                    my $ignored = $urpm->{media}[$row]{ignore};
+                    my $itemCollection = readMedia();
+                    if (!$ignored && $urpm->{media}[$row]{ignore}) {
+                        # reread media failed to un-ignore an ignored medium
+                        # probably because urpm::media::check_existing_medium() complains
+                        # about missing synthesis when the medium never was enabled before;
+                        # thus it restored the ignore bit
+                        $urpm->{media}[$row]{ignore} = !$urpm->{media}[$row]{ignore} || undef;
+                        urpm::media::write_config($urpm);
+                        #- Enabling this media failed, force update
+                        interactive_msg('rpmdragora',
+                                        N("This medium needs to be updated to be usable. Update it now?"),
+                                        yesno => 1,
+                        ) and $itemCollection = readMedia($urpm->{media}[$row]{name});
+                    }
+                    $mirrorTbl->addItems($itemCollection);
+
+                    $dialog->recalcLayout();
+                    $dialog->doneMultipleChanges();
+                    yui::YUI::app()->normalCursor();
+
+
+                }
+
 #                 my $sel = $mirrorTbl->selectedItem();
 #                 print " ITEM #" . $sel->index() . " -> " .$sel->label() . "\n" if $sel;
             }
