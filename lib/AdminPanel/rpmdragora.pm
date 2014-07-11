@@ -674,7 +674,7 @@ later.",
     );
 
     $pb->setValue(100);
-    $dlg->waitForEvent(5);
+    $dlg->waitForEvent(10);
     $dlg->pollEvent();
 
 cancel_update:

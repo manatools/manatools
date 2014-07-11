@@ -37,7 +37,7 @@ use AdminPanel::Shared::GUI;
 use URPM::Signature;
 use MDK::Common::Math qw(max);
 use MDK::Common::File;
-use MDK::Common::DataStructure qw(member);
+use MDK::Common::DataStructure qw(member put_in_hash);
 use urpm::media;
 use urpm::download;
 use urpm::lock;
@@ -567,20 +567,27 @@ sub edit_callback {
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
     $label        = $factory->createLabel($hbox, N("Downloader:") );
-    my $downloader_entry   = $factory->createComboBox($hbox, $verbatim_medium->{downloader} || "", 0);
+    my $downloader_entry   = $factory->createComboBox($hbox, "", 0);
     $downloader_entry->setWeight($yui::YD_HORIZ, 2);
 
     my @comboList =  urpm::download::available_ftp_http_downloaders() ;
+    my $downloader = $verbatim_medium->{downloader} || $urpm->{global_config}{downloader} || $comboList[0];
+
     if (scalar(@comboList) > 0) {
         my $itemColl = new yui::YItemCollection;
         foreach my $elem (@comboList) {
             my $it = new yui::YItem($elem, 0);
+            if ($elem eq $downloader) {
+                $it->setSelected(1);
+            }
             $itemColl->push($it);
             $it->DISOWN();
         }
         $downloader_entry->addItems($itemColl);
     }
     $factory->createVSpacing($vbox, 0.5);
+
+    my $url = $url_entry->value();
 
     $hbox    = $factory->createHBox($factory->createLeft($vbox));
     $factory->createHSpacing($hbox, 1.0);
@@ -630,7 +637,36 @@ sub edit_callback {
                 if ( $changed ) {
                     urpm::media::write_config($urpm);
                 }
-                ## TODO proxy and URL data save
+
+                my ($m_name, $m_update) = map { $medium->{$_} } qw(name update);
+                # TODO check if really changed first
+                $url = $url_entry->value();
+                $downloader = $downloader_entry->value();
+                $url =~ m|^removable://| and (
+                    interactive_msg(
+                        N("You need to insert the medium to continue"),
+                                    N("In order to save the changes, you need to insert the medium in the drive."),
+                                    yesno => 1, text => { yes => N("Ok"), no => N("Cancel") }
+                    ) or return 0
+                );
+                my $saved_proxy = urpm::download::get_proxy($m_name);
+                undef $saved_proxy if !defined $saved_proxy->{http_proxy} && !defined $saved_proxy->{ftp_proxy};
+                urpm::media::select_media($urpm, $m_name);
+                if (my ($media) = grep { $_->{name} eq $m_name } @{$urpm->{media}}) {
+                    MDK::Common::DataStructure::put_in_hash($media, {
+                        ($verbatim_medium->{mirrorlist} ? 'mirrorlist' : 'url') => $url,
+                        name => $m_name,
+                        if_($m_update && $m_update ne $media->{update} || $m_update, update => $m_update),
+                        if_($saved_proxy && $saved_proxy ne $media->{proxy} || $saved_proxy, proxy => $saved_proxy),
+                        if_($downloader ne $media->{downloader} || $downloader, downloader => $downloader),
+                        modified => 1,
+                    });
+                    urpm::media::write_config($urpm);
+                    update_sources_noninteractive($urpm, [ $m_name ]);
+                } else {
+                    urpm::media::remove_selected_media($urpm);
+                    add_medium_and_check($urpm, { nolock => 1, proxy => $saved_proxy }, $m_name, $url, undef, update => $m_update, if_($downloader, downloader => $downloader));
+                }
                 last;
             }
             elsif ($widget == $proxyButton) {
@@ -639,94 +675,11 @@ sub edit_callback {
         }
     }
 ### End ###
+
     $dialog->destroy();
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
-
-##############################################
-
-
-sub tobe_removed {
-    my ($row) = selected_rows();
-    $row == -1 and return;
-    my $medium = $urpm->{media}[$row];
-    my $config = urpm::cfg::load_config_raw($urpm->{config}, 1);
-    my ($verbatim_medium) = grep { $medium->{name} eq $_->{name} } @$config;
-
-    my $old_main_window = $::main_window;
-    my $w = ugtk2->new(N("Edit a medium"), grab => 1, center => 1,  transient => $::main_window);
-    local $::main_window = $w->{real_window};
-    my ($url_entry, $downloader_entry, $url, $downloader);
-    gtkadd(
-	$w->{window},
-	gtkpack_(
-	    gtknew('VBox', spacing => 5),
-	    0, gtknew('Title2', label => N("Editing medium \"%s\":", $medium->{name})),
-
-	    0, create_packtable(
-		{},
-		[ gtknew('Label_Left', text => N("URL:")), $url_entry = gtkentry($verbatim_medium->{url} || $verbatim_medium->{mirrorlist}) ],
-		[ gtknew('Label_Left', text => N("Downloader:")),
-            my $download_combo = Gtk2::ComboBox->new_with_strings([ urpm::download::available_ftp_http_downloaders() ],
-                                                                  $verbatim_medium->{downloader} || '') ],
-	    ),
-	    0, gtknew('HSeparator'),
-	    0, gtkpack(
-		gtknew('HButtonBox'),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Cancel")),
-		    clicked => sub { $w->{retval} = 0; Gtk2->main_quit },
-		),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Save changes")),
-		    clicked => sub {
-			$w->{retval} = 1;
-			$url = $url_entry->get_text;
-			$downloader = $downloader_entry->get_text;
-			Gtk2->main_quit;
-		    },
-		),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Proxy...")),
-		    clicked => sub { proxy_callback($medium) },
-		),
-	    )
-	)
-    );
-    $downloader_entry = $download_combo->entry;
-    $w->{rwindow}->set_size_request(600, -1);
-    if ($w->main) {
-	my ($name, $update) = map { $medium->{$_} } qw(name update);
-	$url =~ m|^removable://| and (
-	    interactive_msg(
-		N("You need to insert the medium to continue"),
-		N("In order to save the changes, you need to insert the medium in the drive."),
-		yesno => 1, text => { yes => N("Ok"), no => N("Cancel") }
-	    ) or return 0
-	);
-	my $saved_proxy = urpm::download::get_proxy($name);
-	undef $saved_proxy if !defined $saved_proxy->{http_proxy} && !defined $saved_proxy->{ftp_proxy};
-	urpm::media::select_media($urpm, $name);
-     if (my ($media) = grep { $_->{name} eq $name } @{$urpm->{media}}) {
-         put_in_hash($media, {
-             ($verbatim_medium->{mirrorlist} ? 'mirrorlist' : 'url') => $url,
-             name => $name,
-             if_($update ne $media->{update} || $update, update => $update),
-             if_($saved_proxy ne $media->{proxy} || $saved_proxy, proxy => $saved_proxy),
-             if_($downloader ne $media->{downloader} || $downloader, downloader => $downloader),
-             modified => 1,
-         });
-         urpm::media::write_config($urpm);
-         local $::main_window = $old_main_window;
-         update_sources_noninteractive($urpm, [ $name ], transient => $::main_window, nolock => 1);
-     } else {
-         urpm::media::remove_selected_media($urpm);
-         add_medium_and_check($urpm, { nolock => 1, proxy => $saved_proxy }, $name, $url, undef, update => $update, if_($downloader, downloader => $downloader));
-     }
-	return $name;
-    }
-}
 
     return $changed;
 }
