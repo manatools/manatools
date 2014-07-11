@@ -341,79 +341,166 @@ really want to replace it?"), yesno => 1) or return 0;
 }
 
 sub options_callback() {
-    my $w = ugtk2->new(N("Global options for package installation"), grab => 1, center => 1,  transient => $::main_window);
-    local $::main_window = $w->{real_window};
-    my %verif = (0 => N("never"), 1 => N("always"));
-    my $verify_rpm = $urpm->{global_config}{'verify-rpm'};
-    my @avail_downloaders = urpm::download::available_ftp_http_downloaders();
-    my $downloader = $urpm->{global_config}{downloader} || $avail_downloaders[0];
-    my %xml_info_policies = (
-        'never'       => N("Never"), 
-        'on-demand'   => N("On-demand"), 
-        'update-only' => N("Update-only"), 
-        'always'      => N("Always"), 
-    );
-    my $xml_info_policy = $urpm->{global_config}{'xml-info'};
 
-    gtkadd(
-	$w->{window},
-	gtkpack(
-	    gtknew('VBox', spacing => 5),
-	    gtknew('HBox', children_loose => [ gtknew('Label', text => N("Verify RPMs to be installed:")),
-                                               gtknew('ComboBox', list => [ keys %verif ], text_ref => \$verify_rpm,
-                                                      format => sub { $verif{$_[0]} || $_[0] },
-                                                  )
-                                           ]),
-	    gtknew('HBox', children_loose => [ gtknew('Label', text => N("Download program to use:")),
-                                               gtknew('ComboBox', list => \@avail_downloaders, text_ref => \$downloader,
-                                                      format => sub { $verif{$_[0]} || $_[0] },
-                                                  )
-                                           ]),
-	    gtknew('HBox',
-                   children_loose =>
-                     [ gtknew('Label', text => N("XML meta-data download policy:")),
-                       gtknew('ComboBox',
-                              list => [ keys %xml_info_policies ], text_ref => \$xml_info_policy,
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Global options for package installation"));
 
-                              format => sub { $xml_info_policies{$_[0]} || $_[0] },
-                              tip => 
-                                join("\n",
-                                     N("For remote media, specify when XML meta-data (file lists, changelogs & information) are downloaded."),
-                                     '',
-                                     N("Never"),
-                                     N("For remote media, XML meta-data are never downloaded."),
-                                     '',
-                                     N("On-demand"),
-                                     N("(This is the default)"),
-                                     N("The specific XML info file is downloaded when clicking on package."),
-                                     '',
-                                     N("Update-only"), 
-                                     N("Updating media implies updating XML info files already required at least once."),
-                                     '',
-                                     N("Always"),
-                                     N("All XML info files are downloaded when adding or updating media."),
-                                 ),
-                          ),
-                   ]),
+    my $factory      = yui::YUI::widgetFactory;
 
-	    gtkpack(
-		gtknew('HButtonBox'),
-		gtknew('Button', text => N("Cancel"), clicked => sub { Gtk2->main_quit }),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Ok")), clicked => sub {
-                        $urpm->{global_config}{'verify-rpm'} = $verify_rpm;
-                        $urpm->{global_config}{downloader} = $downloader;
-                        $urpm->{global_config}{'xml-info'} = $xml_info_policy;
-                        $something_changed = 1;
-			urpm::media::write_config($urpm);
-			$urpm = fast_open_urpmi_db();
-			Gtk2->main_quit;
-		    },
-		),
-	    ),
-	),
-    );
-    $w->main;
+    my $dialog  = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dialog, 50, 5 );
+    my $vbox    = $factory->createVBox( $minSize );
+
+    my $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    my $label        = $factory->createLabel($hbox, N("Verify RPMs to be installed:") );
+    $factory->createHSpacing($hbox, 3.5);
+    my $verify_rpm   = $factory->createComboBox($hbox, "", 0);
+    $verify_rpm->setWeight($yui::YD_HORIZ, 2);
+    my @verif = (N("never"), N("always"));
+    my $verify_rpm_value = $urpm->{global_config}{'verify-rpm'};
+
+    my $itemColl = new yui::YItemCollection;
+    my $counter = 0;
+    foreach my $elem (@verif) {
+        my $it = new yui::YItem($elem, 0);
+        if ($counter == $verify_rpm_value) {
+            $it->setSelected(1);
+        }
+        $itemColl->push($it);
+        $DB::single = 1;
+        $it->DISOWN();
+        $counter++;
+    }
+    $verify_rpm->addItems($itemColl);
+
+    $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    $label        = $factory->createLabel($hbox, N("Download program to use:") );
+    $factory->createHSpacing($hbox, 4.0);
+    my $downloader_entry   = $factory->createComboBox($hbox, "", 0);
+    $downloader_entry->setWeight($yui::YD_HORIZ, 2);
+
+    my @comboList =  urpm::download::available_ftp_http_downloaders() ;
+    my $downloader = $urpm->{global_config}{downloader} || $comboList[0];
+
+    if (scalar(@comboList) > 0) {
+        $itemColl = new yui::YItemCollection;
+        foreach my $elem (@comboList) {
+            my $it = new yui::YItem($elem, 0);
+            if ($elem eq $downloader) {
+                $it->setSelected(1);
+            }
+            $itemColl->push($it);
+            $it->DISOWN();
+        }
+        $downloader_entry->addItems($itemColl);
+    }
+
+    $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    $label        = $factory->createLabel($hbox, N("XML meta-data download policy:") );
+    my $xml_info_policy   = $factory->createComboBox($hbox, "", 0);
+    $xml_info_policy->setWeight($yui::YD_HORIZ, 2);
+
+    my @xml_info_policies   = ('',   'never',    'on-demand',    'update-only',    'always');
+    my @xml_info_policiesL  = ('', N("Never"), N("On-demand"), N("Update-only"), N("Always"));
+    my $xml_info_policy_value = $urpm->{global_config}{'xml-info'};
+
+    $itemColl = new yui::YItemCollection;
+    my $counter = 0;
+    foreach my $elem (@xml_info_policiesL) {
+        my $it = new yui::YItem($elem, 0);
+        if ($xml_info_policy_value && $xml_info_policy_value eq @xml_info_policies[$counter]) {
+            $it->setSelected(1);
+        }
+        $itemColl->push($it);
+        $DB::single = 1;
+        $it->DISOWN();
+        $counter++;
+    }
+    $xml_info_policy->addItems($itemColl);
+
+    ### TODO tips ###
+    #tip =>
+    #join("\n",
+    #N("For remote media, specify when XML meta-data (file lists, changelogs & information) are downloaded."),
+    #'',
+    #N("Never"),
+    #N("For remote media, XML meta-data are never downloaded."),
+    #'',
+    #N("On-demand"),
+    #N("(This is the default)"),
+    #N("The specific XML info file is downloaded when clicking on package."),
+    #'',
+    #N("Update-only"),
+    #N("Updating media implies updating XML info files already required at least once."),
+    #'',
+    #N("Always"),
+    #N("All XML info files are downloaded when adding or updating media."),
+
+    $factory->createVSpacing($vbox, 0.5);
+
+
+    ### last line buttons
+    $factory->createVSpacing($vbox, 0.5);
+    $hbox            = $factory->createHBox($vbox);
+    my $cancelButton = $factory->createPushButton($hbox,  N("Cancel"));
+    $factory->createHSpacing($hbox, 3.0);
+    my $okButton   = $factory->createPushButton($hbox,  N("Ok"));
+
+    $cancelButton->setDefaultButton(1);
+
+    # dialog event loop
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### widget
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $okButton) {
+                my $changed = 0;
+                my $item = $verify_rpm->selectedItem();
+                if ($item->index() != $verify_rpm_value) {
+                    $changed = 1;
+                    $urpm->{global_config}{'verify-rpm'} = $item->index();
+                }
+                $item = $downloader_entry->selectedItem();
+                if ($item->label() ne $downloader) {
+                    $changed = 1;
+                    $urpm->{global_config}{downloader} = $item->label();
+                }
+                $item = $xml_info_policy->selectedItem();
+                if ($xml_info_policies[$item->index()] ne $xml_info_policy_value) {
+                    $changed = 1;
+                    $urpm->{global_config}{'xml-info'} = $xml_info_policies[$item->index()];
+                }
+                if ($changed) {
+                    urpm::media::write_config($urpm);
+                    $urpm = fast_open_urpmi_db();
+                }
+
+                last;
+            }
+        }
+    }
+
+    ### End ###
+
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
 }
 
 #=============================================================
@@ -1411,6 +1498,10 @@ sub mainwindow() {
             }
             elsif ($menuLabel eq $optionsMenu{ proxy }->label()) {
                 proxy_callback();
+            }
+            elsif ($menuLabel eq $optionsMenu{ global }->label()) {
+                options_callback();
+                # TODO verify if readMedia() is necessary in case of changes
             }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
