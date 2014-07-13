@@ -362,16 +362,16 @@ sub options_callback() {
     my $verify_rpm_value = $urpm->{global_config}{'verify-rpm'};
 
     my $itemColl = new yui::YItemCollection;
-    my $counter = 0;
+    my $cnt = 0;
     foreach my $elem (@verif) {
         my $it = new yui::YItem($elem, 0);
-        if ($counter == $verify_rpm_value) {
+        if ($cnt == $verify_rpm_value) {
             $it->setSelected(1);
         }
         $itemColl->push($it);
         $DB::single = 1;
         $it->DISOWN();
-        $counter++;
+        $cnt++;
     }
     $verify_rpm->addItems($itemColl);
 
@@ -409,16 +409,16 @@ sub options_callback() {
     my $xml_info_policy_value = $urpm->{global_config}{'xml-info'};
 
     $itemColl = new yui::YItemCollection;
-    my $counter = 0;
+    $cnt = 0;
     foreach my $elem (@xml_info_policiesL) {
         my $it = new yui::YItem($elem, 0);
-        if ($xml_info_policy_value && $xml_info_policy_value eq @xml_info_policies[$counter]) {
+        if ($xml_info_policy_value && $xml_info_policy_value eq $xml_info_policies[$cnt]) {
             $it->setSelected(1);
         }
         $itemColl->push($it);
         $DB::single = 1;
         $it->DISOWN();
-        $counter++;
+        $cnt++;
     }
     $xml_info_policy->addItems($itemColl);
 
@@ -1501,7 +1501,6 @@ sub mainwindow() {
             }
             elsif ($menuLabel eq $optionsMenu{ global }->label()) {
                 options_callback();
-                # TODO verify if readMedia() is necessary in case of changes
             }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
