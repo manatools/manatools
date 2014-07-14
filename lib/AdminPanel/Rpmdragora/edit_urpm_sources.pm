@@ -197,7 +197,7 @@ sub _build_add_dialog  {
         $options->{info}->{$options->{selected}}->{url}
     );
 
-    $factory->createHSpacing($hbox, 1.0);
+    $factory->createHSpacing($hbox, 3.0);
     $widgets{url}   = $factory->createInputField($hbox, "", 0);
     $widgets{url}->setWeight($yui::YD_HORIZ, 2);
     if (defined($options->{info}->{$options->{selected}}->{dirsel})) {
@@ -207,15 +207,17 @@ sub _build_add_dialog  {
         $hbox           = $factory->createHBox($vbox);
         $factory->createHSpacing($hbox, 1.0);
         $label          = $factory->createLabel($hbox, N("Login:") );
-        $factory->createHSpacing($hbox, 2.0);
+        $factory->createHSpacing($hbox, 1.0);
         $widgets{login} = $factory->createInputField($hbox, "", 0);
-        $widgets{login}->setWeight($yui::YD_HORIZ, 2);
+        $label->setWeight($yui::YD_HORIZ, 1);
+        $widgets{login}->setWeight($yui::YD_HORIZ, 3);
         $hbox           = $factory->createHBox($vbox);
         $factory->createHSpacing($hbox, 1.0);
         $label          = $factory->createLabel($hbox, N("Password:") );
-        $factory->createHSpacing($hbox, 2.0);
+        $factory->createHSpacing($hbox, 1.0);
         $widgets{pass}  = $factory->createInputField($hbox, "", 1);
-        $widgets{pass}->setWeight($yui::YD_HORIZ, 2);
+        $label->setWeight($yui::YD_HORIZ, 1);
+        $widgets{pass}->setWeight($yui::YD_HORIZ, 3);
 
     }
     # recalc layout
@@ -275,6 +277,7 @@ sub add_callback() {
     $hbox           = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
     $label          = $factory->createLabel($hbox, N("Medium name:") );
+    $factory->createHSpacing($hbox, 1.0);
     my $media_name = $factory->createInputField($hbox, "", 0);
     $media_name->setWeight($yui::YD_HORIZ, 2);
 
