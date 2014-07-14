@@ -26,6 +26,7 @@ package AdminPanel::Rpmdragora::edit_urpm_sources;
 
 use strict;
 use File::ShareDir ':ALL';
+use File::HomeDir qw(home);
 
 use lib qw(/usr/lib/libDrakX);
 use common;
@@ -171,7 +172,193 @@ sub easy_add_callback() {
     return 1;
 }
 
+## Internal routine that builds input fields needed to manage
+## the selected media type to be added
+## return HASH reference with the added widgets
+sub _build_add_dialog  {
+    my $options = shift;
+
+    die "replace point is needed" if !defined ($options->{replace_pnt});
+    die "dialog is needed" if !defined ($options->{dialog});
+    die "selected item is needed" if !defined ($options->{selected});
+    die "media info is needed" if !defined ($options->{info});
+
+    my %widgets;
+    my $factory  = yui::YUI::widgetFactory;
+
+    $options->{dialog}->startMultipleChanges();
+    $options->{replace_pnt}->deleteChildren();
+
+    # replace widgets
+    my $vbox    = $factory->createVBox( $options->{replace_pnt} );
+    my $hbox           = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    my $label          = $factory->createLabel($hbox,
+        $options->{info}->{$options->{selected}}->{url}
+    );
+
+    $factory->createHSpacing($hbox, 1.0);
+    $widgets{url}   = $factory->createInputField($hbox, "", 0);
+    $widgets{url}->setWeight($yui::YD_HORIZ, 2);
+    if (defined($options->{info}->{$options->{selected}}->{dirsel})) {
+        $widgets{dirsel} = $factory->createPushButton($hbox, N("Browse..."));
+    }
+    elsif (defined($options->{info}->{$options->{selected}}->{loginpass})) {
+        $hbox           = $factory->createHBox($vbox);
+        $factory->createHSpacing($hbox, 1.0);
+        $label          = $factory->createLabel($hbox, N("Login:") );
+        $factory->createHSpacing($hbox, 2.0);
+        $widgets{login} = $factory->createInputField($hbox, "", 0);
+        $widgets{login}->setWeight($yui::YD_HORIZ, 2);
+        $hbox           = $factory->createHBox($vbox);
+        $factory->createHSpacing($hbox, 1.0);
+        $label          = $factory->createLabel($hbox, N("Password:") );
+        $factory->createHSpacing($hbox, 2.0);
+        $widgets{pass}  = $factory->createInputField($hbox, "", 1);
+        $widgets{pass}->setWeight($yui::YD_HORIZ, 2);
+
+    }
+    # recalc layout
+    $options->{replace_pnt}->showChild();
+    $options->{dialog}->recalcLayout();
+    $options->{dialog}->doneMultipleChanges();
+
+    return \%widgets;
+}
+
 sub add_callback() {
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Add a medium"));
+
+    my $factory      = yui::YUI::widgetFactory;
+
+    my $dialog  = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dialog, 60, 5 );
+    my $vbox    = $factory->createVBox( $minSize );
+
+    $factory->createVSpacing($vbox, 0.5);
+
+    my $hbox    = $factory->createHBox( $factory->createLeft($vbox) );
+    $factory->createHeading($hbox, N("Adding a medium:"));
+    $factory->createVSpacing($vbox, 0.5);
+
+    $hbox    = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    my $label         = $factory->createLabel($hbox, N("Type of medium:") );
+    my $media_type = $factory->createComboBox($hbox, "", 0);
+    $media_type->setWeight($yui::YD_HORIZ, 2);
+
+    my %radios_infos = (
+            local => { name => N("Local files"),  url => N("Medium path:"), dirsel => 1 },
+            ftp   => { name => N("FTP server"),   url => N("URL:"), loginpass => 1 },
+            rsync => { name => N("RSYNC server"), url => N("URL:") },
+            http  => { name => N("HTTP server"),  url => N("URL:") },
+        removable => { name => N("Removable device (CD-ROM, DVD, ...)"),
+                       url  => N("Path or mount point:"), dirsel => 1 },
+    );
+    my @radios_names_ordered = qw(local ftp rsync http removable);
+
+    my $itemColl = new yui::YItemCollection;
+    foreach my $elem (@radios_names_ordered) {
+        my $it = new yui::YItem($radios_infos{$elem}->{'name'}, 0);
+        if ($elem eq $radios_names_ordered[0])  {
+            $it->setSelected(1);
+        }
+        $itemColl->push($it);
+        $it->DISOWN();
+    }
+    $media_type->addItems($itemColl);
+    $media_type->setNotify(1);
+
+    $hbox           = $factory->createHBox($vbox);
+    $factory->createHSpacing($hbox, 1.0);
+    $label          = $factory->createLabel($hbox, N("Medium name:") );
+    my $media_name = $factory->createInputField($hbox, "", 0);
+    $media_name->setWeight($yui::YD_HORIZ, 2);
+
+    # per function layout (replace point)
+    my $align       = $factory->createLeft($vbox);
+    my $replace_pnt = $factory->createReplacePoint($align);
+
+    my $add_widgets = _build_add_dialog({replace_pnt => $replace_pnt, dialog => $dialog,
+                                     info => \%radios_infos, selected => $radios_names_ordered[0]}
+    );
+    # check-boxes
+    $hbox    = $factory->createHBox($factory->createLeft($vbox));
+    $factory->createHSpacing($hbox, 1.3);
+    my $dist_media   = $factory->createCheckBox($hbox, N("Create media for a whole distribution"), 0);
+    $hbox    = $factory->createHBox($factory->createLeft($vbox));
+    $factory->createHSpacing($hbox, 1.3);
+    my $update_media = $factory->createCheckBox($hbox, N("Tag this medium as an update medium"),   0);
+    $dist_media->setNotify(1);
+
+    # Last line buttons
+    $factory->createVSpacing($vbox, 0.5);
+    $hbox            = $factory->createHBox($vbox);
+    my $cancelButton = $factory->createPushButton($hbox,  N("Cancel"));
+    $factory->createHSpacing($hbox, 3.0);
+    my $okButton   = $factory->createPushButton($hbox,  N("Ok"));
+
+    $cancelButton->setDefaultButton(1);
+
+    # dialog event loop
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### widget
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $media_type) {
+                my $item = $media_type->selectedItem();
+                my $sel = $item ? $item->index() : 0 ;
+                $add_widgets = _build_add_dialog({replace_pnt => $replace_pnt, dialog => $dialog,
+                                     info => \%radios_infos, selected => $radios_names_ordered[$sel]}
+                );
+            }
+            elsif ($widget == $dist_media) {
+                $update_media->setEnabled(!$dist_media->value());
+            }
+            elsif ($widget == $okButton) {
+            }
+            else {
+                my $item = $media_type->selectedItem();
+                my $sel = $item ? $item->index() : 0 ;
+                $DB::single = 1;
+                if (defined($radios_infos{$radios_names_ordered[$sel]}->{dirsel}) &&
+                    defined($add_widgets->{dirsel}) ) {
+                    if ($widget == $add_widgets->{dirsel}) {
+                        my $dir = yui::YUI::app()->askForExistingDirectory(home(),
+                                          $radios_infos{$radios_names_ordered[$sel]}->{url}
+                        );
+                        $add_widgets->{url}->setValue($dir) if ($dir);
+                    }
+                }
+                elsif (defined($radios_infos{$radios_names_ordered[$sel]}->{loginpass})) {
+                }
+            }
+        }
+    }
+### End ###
+
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+
+
+
+sub to_be_removed {
     my $w = ugtk2->new(N("Add a medium"), grab => 1, center => 1,  transient => $::main_window);
     my $prev_main_window = $::main_window;
     local $::main_window = $w->{real_window};
@@ -338,6 +525,8 @@ really want to replace it?"), yesno => 1) or return 0;
 	return 1;
     }
     return 0;
+}
+
 }
 
 sub options_callback() {
@@ -1495,6 +1684,9 @@ sub mainwindow() {
             }
             elsif ($menuLabel eq $fileMenu{ update }->label()) {
                 update_callback();
+            }
+            elsif ($menuLabel eq $fileMenu{ custom }->label()) {
+                add_callback();
             }
             elsif ($menuLabel eq $optionsMenu{ proxy }->label()) {
                 proxy_callback();
