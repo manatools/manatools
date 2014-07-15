@@ -336,7 +336,6 @@ sub add_callback() {
             else {
                 my $item = $media_type->selectedItem();
                 my $sel = $item ? $item->index() : 0 ;
-                $DB::single = 1;
                 if (defined($radios_infos{$radios_names_ordered[$sel]}->{dirsel}) &&
                     defined($add_widgets->{dirsel}) ) {
                     if ($widget == $add_widgets->{dirsel}) {
@@ -561,7 +560,6 @@ sub options_callback() {
             $it->setSelected(1);
         }
         $itemColl->push($it);
-        $DB::single = 1;
         $it->DISOWN();
         $cnt++;
     }
@@ -608,7 +606,6 @@ sub options_callback() {
             $it->setSelected(1);
         }
         $itemColl->push($it);
-        $DB::single = 1;
         $it->DISOWN();
         $cnt++;
     }
