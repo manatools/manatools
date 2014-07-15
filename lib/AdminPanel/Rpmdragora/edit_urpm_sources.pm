@@ -230,6 +230,8 @@ sub _build_add_dialog  {
 
 sub add_callback() {
 
+    my $retVal = 0;
+
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle(N("Add a medium"));
@@ -332,6 +334,57 @@ sub add_callback() {
                 $update_media->setEnabled(!$dist_media->value());
             }
             elsif ($widget == $okButton) {
+                my $item = $media_type->selectedItem();
+                my $sel = $item ? $item->index() : 0 ;
+                my $info = $radios_infos{$radios_names_ordered[$sel]};
+                my $name = $media_name->value();
+                my $url  = $add_widgets->{url}->value();
+                $name eq '' || $url eq '' and interactive_msg('rpmdragora', N("You need to fill up at least the two first entries.")), next;
+                if (member($name, map { $_->{name} } @{$urpm->{media}})) {
+                    interactive_msg('rpmdragora',
+                                    N("There is already a medium called <%s>,
+                                      do you really want to replace it?", $name), yesno => 1) or next;
+                }
+
+                my %i = (
+                    name    => $name,
+                    url     => $url,
+                    distrib => $dist_media->value()   ? 1 : 0,
+                    update  => $update_media->value() ? 1 : undef,
+                );
+                my %make_url = (
+                    local => "file:/$i{url}",
+                    http => $i{url},
+                    rsync => $i{url},
+                    removable => "removable:/$i{url}",
+                );
+                $i{url} =~ s|^ftp://||;
+                $make_url{ftp} = sprintf "ftp://%s%s",
+                        defined($add_widgets->{login}) ?
+                            $add_widgets->{login}->value() . ':' . $add_widgets->{pass}->value() :
+                            '',
+                        $i{url};
+
+                if ($i{distrib}) {
+                    add_medium_and_check(
+                        $urpm,
+                        { nolock => 1, distrib => 1 },
+                        $i{name}, $make_url{$radios_names_ordered[$sel]}, probe_with => 'synthesis', update => $i{update},
+                    );
+                } else {
+                    if (member($i{name}, map { $_->{name} } @{$urpm->{media}})) {
+                        urpm::media::select_media($urpm, $i{name});
+                        urpm::media::remove_selected_media($urpm);
+                    }
+                    add_medium_and_check(
+                        $urpm,
+                        { nolock => 1 },
+                        $i{name}, $make_url{$radios_names_ordered[$sel]}, $i{hdlist}, update => $i{update},
+                    );
+                }
+
+                $retVal = 1;
+                last;
             }
             else {
                 my $item = $media_type->selectedItem();
@@ -357,177 +410,7 @@ sub add_callback() {
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 
-
-
-
-sub to_be_removed {
-    my $w = ugtk2->new(N("Add a medium"), grab => 1, center => 1,  transient => $::main_window);
-    my $prev_main_window = $::main_window;
-    local $::main_window = $w->{real_window};
-    my %radios_infos = (
-	local => { name => N("Local files"), url => N("Medium path:"), dirsel => 1 },
-	ftp => { name => N("FTP server"), url => N("URL:"), loginpass => 1 },
-	rsync => { name => N("RSYNC server"), url => N("URL:") },
-	http => { name => N("HTTP server"), url => N("URL:") },
-	removable => { name => N("Removable device (CD-ROM, DVD, ...)"), url => N("Path or mount point:"), dirsel => 1 },
-    );
-    my @radios_names_ordered = qw(local ftp rsync http removable);
-    # TODO: replace NoteBook by sensitive widgets and Label->set()
-    my $notebook = gtknew('Notebook');
-    $notebook->set_show_tabs(0); $notebook->set_show_border(0);
-    my ($count_nbs, %pages);
-    my $size_group = Gtk2::SizeGroup->new('horizontal');
-    my ($cb1, $cb2);
-    foreach (@radios_names_ordered) {
-	my $info = $radios_infos{$_};
-	my $url_entry = sub {
-	    gtkpack_(
-		gtknew('HBox'),
-		1, $info->{url_entry} = gtkentry(),
-		if_(
-		    $info->{dirsel},
-		    0, gtksignal_connect(
-			gtknew('Button', text => but(N("Browse..."))),
-			clicked => sub { $info->{url_entry}->set_text(ask_dir()) },
-		    )
-		),
-	    );
-	};
-        my $checkbut_entry = sub {
-            my ($name, $label, $visibility, $callback, $tip) = @_;
-            my $w = [ gtksignal_connect(
-		    $info->{$name . '_check'} = gtkset(gtknew('CheckButton', text => $label), tip => $tip),
-		    clicked => sub {
-			$info->{$name . '_entry'}->set_sensitive($_[0]->get_active);
-			$callback and $callback->(@_);
-		    },
-	    ),
-	    gtkset_visibility(gtkset_sensitive($info->{$name . '_entry'} = gtkentry(), 0), $visibility) ];
-	    $size_group->add_widget($info->{$name . '_check'});
-	    $w;
-        };
-	my $loginpass_entries = sub {
-	    map {
-		$checkbut_entry->(
-		    @$_, sub {
-			$info->{pass_check}->set_active($_[0]->get_active);
-			$info->{login_check}->set_active($_[0]->get_active);
-		    }
-		);
-	    } ([ 'login', N("Login:"), 1 ], [ 'pass', N("Password:"), 0 ]);
-	};
-	$pages{$info->{name}} = $count_nbs++;
-	$notebook->append_page(
-	    gtkshow(create_packtable(
-		{ xpadding => 0, ypadding => 0 },
-		[ gtkset_alignment(gtknew('Label', text => N("Medium name:")), 0, 0.5),
-		    $info->{name_entry} = gtkentry('') ],
-		[ gtkset_alignment(gtknew('Label', text => $info->{url}), 0, 0.5),
-		    $url_entry->() ],
-		if_($info->{loginpass}, $loginpass_entries->()),
-		sub {
-		    [ $info->{distrib_check} = $cb1 = gtknew('CheckButton', text => N("Create media for a whole distribution"),
-                                                         toggled => sub {
-                                                             return if !$cb2;
-                                                             my ($w) = @_;
-                                                             $info->{update_check}->set_sensitive(!$w->get_active);
-                                                         })
-		    ];
-		}->(),
-		sub {
-		    [ $info->{update_check} = $cb2 = gtknew('CheckButton', text => N("Tag this medium as an update medium")) ];
-		}->(),
-	    ))
-	);
-    }
-    $size_group->add_widget($_) foreach $cb1, $cb2;
-
-    my $checkok = sub {
-	my $info = $radios_infos{$radios_names_ordered[$notebook->get_current_page]};
-	my ($name, $url) = map { $info->{$_ . '_entry'}->get_text } qw(name url);
-	$name eq '' || $url eq '' and interactive_msg('rpmdragora', N("You need to fill up at least the two first entries.")), return 0;
-	if (member($name, map { $_->{name} } @{$urpm->{media}})) {
-	    $info->{name_entry}->select_region(0, -1);
-	    interactive_msg('rpmdragora',
-N("There is already a medium by that name, do you
-really want to replace it?"), yesno => 1) or return 0;
-	}
-	1;
-    };
-
-    my $type = 'local';
-    my (%i, %make_url);
-    gtkadd(
-	$w->{window},
-	gtkpack(
-	    gtknew('VBox', spacing => 5),
-	    gtknew('Title2', label => N("Adding a medium:")),
-	    gtknew('HBox', children_tight => [
-                      Gtk2::Label->new(but(N("Type of medium:"))),
-                      gtknew('ComboBox', text_ref => \$type, 
-                             list => \@radios_names_ordered,
-                             format => sub { $radios_infos{$_[0]}{name} },
-                             changed => sub { $notebook->set_current_page($pages{$_[0]->get_text}) })
-                     ]),
-	    $notebook,
-	    gtknew('HSeparator'),
-	    gtkpack(
-		gtknew('HButtonBox'),
-		gtknew('Button', text => N("Cancel"), clicked => sub { $w->{retval} = 0; Gtk2->main_quit }),
-		gtksignal_connect(
-		    gtknew('Button', text => N("Ok")), clicked => sub {
-			if ($checkok->()) {
-			    $w->{retval} = { nb => $notebook->get_current_page };
-			    my $info = $radios_infos{$type};
-			    %i = (
-				name => $info->{name_entry}->get_text,
-				url => $info->{url_entry}->get_text,
-				distrib => $info->{distrib_check} ? $info->{distrib_check}->get_active : 0,
-				update => $info->{update_check}->get_active ? 1 : undef,
-			    );
-			    %make_url = (
-				local => "file:/$i{url}",
-				http => $i{url},
-				rsync => $i{url},
-				removable => "removable:/$i{url}",
-			    );
-			    $i{url} =~ s|^ftp://||;
-			    $make_url{ftp} = sprintf "ftp://%s%s",
-				$info->{login_check}->get_active
-				    ? ($info->{login_entry}->get_text . ':' . $info->{pass_entry}->get_text . '@')
-				    : '',
-				$i{url};
-			    Gtk2->main_quit;
-			}
-		    },
-		),
-	    ),
-	),
-    );
-
-    if ($w->main) {
-	$::main_window = $prev_main_window;
-	if ($i{distrib}) {
-	    add_medium_and_check(
-		$urpm,
-		{ nolock => 1, distrib => 1 },
-		$i{name}, $make_url{$type}, probe_with => 'synthesis', update => $i{update},
-	    );
-	} else {
-	    if (member($i{name}, map { $_->{name} } @{$urpm->{media}})) {
-		urpm::media::select_media($urpm, $i{name});
-		urpm::media::remove_selected_media($urpm);
-	    }
-	    add_medium_and_check(
-		$urpm,
-		{ nolock => 1 },
-		$i{name}, $make_url{$type}, $i{hdlist}, update => $i{update},
-	    );
-	}
-	return 1;
-    }
-    return 0;
-}
+    return $retVal;
 
 }
 
@@ -1686,7 +1569,18 @@ sub mainwindow() {
                 update_callback();
             }
             elsif ($menuLabel eq $fileMenu{ custom }->label()) {
-                add_callback();
+                if (add_callback()) {
+                    yui::YUI::app()->busyCursor();
+                    $dialog->startMultipleChanges();
+
+                    $mirrorTbl->deleteAllItems();
+                    my $itemCollection = readMedia();
+                    $mirrorTbl->addItems($itemCollection);
+
+                    $dialog->recalcLayout();
+                    $dialog->doneMultipleChanges();
+                    yui::YUI::app()->normalCursor();
+                }
             }
             elsif ($menuLabel eq $optionsMenu{ proxy }->label()) {
                 proxy_callback();
