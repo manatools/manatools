@@ -398,8 +398,6 @@ sub add_callback() {
                         $add_widgets->{url}->setValue($dir) if ($dir);
                     }
                 }
-                elsif (defined($radios_infos{$radios_names_ordered[$sel]}->{loginpass})) {
-                }
             }
         }
     }
