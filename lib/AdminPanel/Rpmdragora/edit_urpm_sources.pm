@@ -138,16 +138,16 @@ sub easy_add_callback_with_mirror() {
     #- cooker and community don't have update sources
     my $want_base_distro = _want_base_distro();
     defined $want_base_distro or return;
-    my $distro = $rpmdragora::mandrake_release;
+    my $distro = $rpmdragora::mageia_release;
     my ($mirror) = choose_mirror($urpm, message =>
-N("This will attempt to install all official sources corresponding to your
-distribution (%s).
+        N("This will attempt to install all official sources corresponding to your
+        distribution (%s).
 
-I need to contact the Mageia website to get the mirror list.
-Please check that your network is currently running.
+        I need to contact the Mageia website to get the mirror list.
+        Please check that your network is currently running.
 
-Is it ok to continue?", $distro),
-     transient => $::main_window,
+        Is it ok to continue?", $distro),
+        transient => $::main_window,
     ) or return 0;
     ref $mirror or return;
     my $wait = wait_msg(N("Please wait, adding media..."));
