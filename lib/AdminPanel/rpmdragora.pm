@@ -921,7 +921,7 @@ by Mageia Official Updates.")), %options
         header => N("Please choose the desired mirror."),
         default_button => 1,
         item_separator => "-",
-        default_item => $mirrors[0]->{url},\
+        default_item => $mirrors[0]->{url},
         list  => \@mirrorlist }
     );
 
