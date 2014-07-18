@@ -377,7 +377,7 @@ sub getTimeZones {
 
 =head3 OUTPUT
 
-    hash containing:
+    hash reference containing:
         UTC  => HW clock is set as UTC
         ZONE => Time Zone set
 
