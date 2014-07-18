@@ -118,16 +118,17 @@ sub remove_from_list {
 }
 
 sub _want_base_distro() {
-    distro_type(0) eq 'updates' ? interactive_msg(
-	N("Choose media type"),
-N("In order to keep your system secure and stable, you must at a minimum set up
+    $::expert && distro_type(0) eq 'updates' ? interactive_msg(
+        N("Choose media type"),
+        N("In order to keep your system secure and stable, you must at a minimum set up
 sources for official security and stability updates. You can also choose to set
 up a fuller set of sources which includes the complete official Mageia
 repositories, giving you access to more software than can fit on the Mageia
 discs. Please choose whether to configure update sources only, or the full set
-of sources."),
-	 transient => $::main_window,
-	yesno => 1, text => { yes => N("Full set of sources"), no => N("Update sources only") },
+of sources."
+        ),
+        transient => $::main_window,
+        yesno => 1, text => { yes => N("Full set of sources"), no => N("Update sources only") },
     ) : 1;
 }
 
@@ -138,15 +139,13 @@ sub easy_add_callback_with_mirror() {
     #- cooker and community don't have update sources
     my $want_base_distro = _want_base_distro();
     defined $want_base_distro or return;
-    my $distro = $rpmdragora::mageia_release;
+    my $distro = $AdminPanel::rpmdragora::mageia_release;
     my ($mirror) = choose_mirror($urpm, message =>
         N("This will attempt to install all official sources corresponding to your
-        distribution (%s).
-
-        I need to contact the Mageia website to get the mirror list.
-        Please check that your network is currently running.
-
-        Is it ok to continue?", $distro),
+distribution (%s).\n
+I need to contact the Mageia website to get the mirror list.
+Please check that your network is currently running.\n
+Is it ok to continue?", $distro),
         transient => $::main_window,
     ) or return 0;
     ref $mirror or return;
@@ -342,8 +341,8 @@ sub add_callback() {
                 $name eq '' || $url eq '' and interactive_msg('rpmdragora', N("You need to fill up at least the two first entries.")), next;
                 if (member($name, map { $_->{name} } @{$urpm->{media}})) {
                     interactive_msg('rpmdragora',
-                                    N("There is already a medium called <%s>,
-                                      do you really want to replace it?", $name), yesno => 1) or next;
+                                    N("There is already a medium called <%s>,\ndo you really want to replace it?", $name),
+                                    yesno => 1) or next;
                 }
 
                 my %i = (
@@ -360,8 +359,12 @@ sub add_callback() {
                 );
                 $i{url} =~ s|^ftp://||;
                 $make_url{ftp} = sprintf "ftp://%s%s",
-                        defined($add_widgets->{login}) ?
-                            $add_widgets->{login}->value() . ':' . $add_widgets->{pass}->value() :
+                        defined($add_widgets->{login})
+                        ?
+                            $add_widgets->{login}->value() . ':' . ( $add_widgets->{pass}->value() ?
+                                                                     $add_widgets->{pass}->value() :
+                                                                     '')
+                        :
                             '',
                         $i{url};
 
@@ -1565,6 +1568,9 @@ sub mainwindow() {
             }
             elsif ($menuLabel eq $fileMenu{ update }->label()) {
                 update_callback();
+            }
+            elsif ($menuLabel eq $fileMenu{ add_media }->label()) {
+                easy_add_callback_with_mirror();
             }
             elsif ($menuLabel eq $fileMenu{ custom }->label()) {
                 if (add_callback()) {

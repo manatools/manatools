@@ -165,7 +165,7 @@ sub myexit {
 
 my ($root) = grep { $_->[2] == 0 } list_passwd();
 $ENV{HOME} = $> == 0 ? $root->[7] : $ENV{HOME} || '/root';
-$ENV{HOME} = $::env if $::env = $Rpmdragora::init::rpmdragora_options{env}[0];
+$ENV{HOME} = $::env if $::env = $AdminPanel::Rpmdragora::init::rpmdragora_options{env}[0];
 
 our $configfile = "$ENV{HOME}/.rpmdragora";
 
@@ -221,7 +221,7 @@ sub readconf() {
     }
     # special cases:
     $::rpmdragora_options{'no-confirmation'} = $no_confirmation->[0] if !defined $::rpmdragora_options{'no-confirmation'};
-    $Rpmdragora::init::default_list_mode = $tree_mode->[0] if ref $tree_mode && !$Rpmdragora::init::overriding_config;
+    $AdminPanel::Rpmdragora::init::default_list_mode = $tree_mode->[0] if ref $tree_mode && !$AdminPanel::Rpmdragora::init::overriding_config;
 }
 
 sub writeconf() {
@@ -266,9 +266,8 @@ sub interactive_msg {
         $info->{richtext} = 1;
         ## richtext needs <br> instead of '\n'
         $contents =~ s/\n/<br>/g;
-    } else { #- because we'll use a WrappedLabel
-        $contents = MDK::Common::String::formatAlaTeX($contents) if !ref $contents;
     }
+
     $info->{text} = $contents;
 
     my $dlg;
@@ -288,7 +287,7 @@ sub interactive_msg {
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
     $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
 
-    $dlg->setMinSize(50, 5);
+    $dlg->setMinSize(75, 6);
 
     $retVal = $dlg->show() == $yui::YMGAMessageBox::B_ONE ? 1 : 0;
 
@@ -462,75 +461,75 @@ sub slow_func_statusbar ($$&) {
 }
 
 my %u2l = (
-	   at => N_("Austria"),
-	   au => N_("Australia"),
-	   be => N_("Belgium"),
-	   br => N_("Brazil"),
-	   ca => N_("Canada"),
-	   ch => N_("Switzerland"),
-	   cr => N_("Costa Rica"),
-	   cz => N_("Czech Republic"),
-	   de => N_("Germany"),
-	   dk => N_("Danmark"),
-	   el => N_("Greece"),
-	   es => N_("Spain"),
-	   fi => N_("Finland"),
-	   fr => N_("France"),
-	   gr => N_("Greece"),
-	   hu => N_("Hungary"),
-	   il => N_("Israel"),
-	   it => N_("Italy"),
-	   jp => N_("Japan"),
-	   ko => N_("Korea"),
-	   nl => N_("Netherlands"),
-	   no => N_("Norway"),
-	   pl => N_("Poland"),
-	   pt => N_("Portugal"),
-	   ru => N_("Russia"),
-	   se => N_("Sweden"),
-	   sg => N_("Singapore"),
-	   sk => N_("Slovakia"),
-	   tw => N_("Taiwan"),
-	   uk => N_("United Kingdom"),
-	   cn => N_("China"),
-	   com => N_("United States"),
-	   org => N_("United States"),
-	   net => N_("United States"),
-	   edu => N_("United States"),
-	  );
+       at => N_("Austria"),
+       au => N_("Australia"),
+       be => N_("Belgium"),
+       br => N_("Brazil"),
+       ca => N_("Canada"),
+       ch => N_("Switzerland"),
+       cr => N_("Costa Rica"),
+       cz => N_("Czech Republic"),
+       de => N_("Germany"),
+       dk => N_("Danmark"),
+       el => N_("Greece"),
+       es => N_("Spain"),
+       fi => N_("Finland"),
+       fr => N_("France"),
+       gr => N_("Greece"),
+       hu => N_("Hungary"),
+       il => N_("Israel"),
+       it => N_("Italy"),
+       jp => N_("Japan"),
+       ko => N_("Korea"),
+       nl => N_("Netherlands"),
+       no => N_("Norway"),
+       pl => N_("Poland"),
+       pt => N_("Portugal"),
+       ru => N_("Russia"),
+       se => N_("Sweden"),
+       sg => N_("Singapore"),
+       sk => N_("Slovakia"),
+       tw => N_("Taiwan"),
+       uk => N_("United Kingdom"),
+       cn => N_("China"),
+       com => N_("United States"),
+       org => N_("United States"),
+       net => N_("United States"),
+       edu => N_("United States"),
+);
 my $us = [ qw(com org net edu) ];
 my %t2l = (
-	   'America/\w+' =>       $us,
-	   'Asia/Tel_Aviv' =>     [ qw(il ru it cz at de fr se) ],
-	   'Asia/Tokyo' =>        [ qw(jp ko tw), @$us ],
-	   'Asia/Seoul' =>        [ qw(ko jp tw), @$us ],
-	   'Asia/Taipei' =>       [ qw(tw jp), @$us ],
-	   'Asia/(Shanghai|Beijing)' => [ qw(cn tw sg), @$us ],
-	   'Asia/Singapore' =>    [ qw(cn sg), @$us ],
-	   'Atlantic/Reykjavik' => [ qw(uk no se fi dk), @$us, qw(nl de fr at cz it) ],
-	   'Australia/\w+' =>     [ qw(au jp ko tw), @$us ],
-	   'Brazil/\w+' =>        [ 'br', @$us ],
-	   'Canada/\w+' =>        [ 'ca', @$us ],
-	   'Europe/Amsterdam' =>  [ qw(nl be de at cz fr se dk it) ],
-	   'Europe/Athens' =>     [ qw(gr pl cz de it nl at fr) ],
-	   'Europe/Berlin' =>     [ qw(de be at nl cz it fr se) ],
-	   'Europe/Brussels' =>   [ qw(be de nl fr cz at it se) ],
-	   'Europe/Budapest' =>   [ qw(cz it at de fr nl se) ],
-	   'Europe/Copenhagen' => [ qw(dk nl de be se at cz it) ],
-	   'Europe/Dublin' =>     [ qw(uk fr be nl dk se cz it) ],
-	   'Europe/Helsinki' =>   [ qw(fi se no nl be de fr at it) ],
-	   'Europe/Istanbul' =>   [ qw(il ru it cz it at de fr nl se) ],
-	   'Europe/Lisbon' =>     [ qw(pt es fr it cz at de se) ],
-	   'Europe/London' =>     [ qw(uk fr be nl de at cz se it) ],
-	   'Europe/Madrid' =>     [ qw(es fr pt it cz at de se) ],
-	   'Europe/Moscow' =>     [ qw(ru de pl cz at se be fr it) ],
-	   'Europe/Oslo' =>       [ qw(no se fi dk de be at cz it) ],
-	   'Europe/Paris' =>      [ qw(fr be de at cz nl it se) ],
-	   'Europe/Prague' =>     [ qw(cz it at de fr nl se) ],
-	   'Europe/Rome' =>       [ qw(it fr cz de at nl se) ],
-	   'Europe/Stockholm' =>  [ qw(se no dk fi nl de at cz fr it) ],
-	   'Europe/Vienna' =>     [ qw(at de cz it fr nl se) ],
-	  );
+       'America/\w+' =>       $us,
+       'Asia/Tel_Aviv' =>     [ qw(il ru it cz at de fr se) ],
+       'Asia/Tokyo' =>        [ qw(jp ko tw), @$us ],
+       'Asia/Seoul' =>        [ qw(ko jp tw), @$us ],
+       'Asia/Taipei' =>       [ qw(tw jp), @$us ],
+       'Asia/(Shanghai|Beijing)' => [ qw(cn tw sg), @$us ],
+       'Asia/Singapore' =>    [ qw(cn sg), @$us ],
+       'Atlantic/Reykjavik' => [ qw(uk no se fi dk), @$us, qw(nl de fr at cz it) ],
+       'Australia/\w+' =>     [ qw(au jp ko tw), @$us ],
+       'Brazil/\w+' =>        [ 'br', @$us ],
+       'Canada/\w+' =>        [ 'ca', @$us ],
+       'Europe/Amsterdam' =>  [ qw(nl be de at cz fr se dk it) ],
+       'Europe/Athens' =>     [ qw(gr pl cz de it nl at fr) ],
+       'Europe/Berlin' =>     [ qw(de be at nl cz it fr se) ],
+       'Europe/Brussels' =>   [ qw(be de nl fr cz at it se) ],
+       'Europe/Budapest' =>   [ qw(cz it at de fr nl se) ],
+       'Europe/Copenhagen' => [ qw(dk nl de be se at cz it) ],
+       'Europe/Dublin' =>     [ qw(uk fr be nl dk se cz it) ],
+       'Europe/Helsinki' =>   [ qw(fi se no nl be de fr at it) ],
+       'Europe/Istanbul' =>   [ qw(il ru it cz it at de fr nl se) ],
+       'Europe/Lisbon' =>     [ qw(pt es fr it cz at de se) ],
+       'Europe/London' =>     [ qw(uk fr be nl de at cz se it) ],
+       'Europe/Madrid' =>     [ qw(es fr pt it cz at de se) ],
+       'Europe/Moscow' =>     [ qw(ru de pl cz at se be fr it) ],
+       'Europe/Oslo' =>       [ qw(no se fi dk de be at cz it) ],
+       'Europe/Paris' =>      [ qw(fr be de at cz nl it se) ],
+       'Europe/Prague' =>     [ qw(cz it at de fr nl se) ],
+       'Europe/Rome' =>       [ qw(it fr cz de at nl se) ],
+       'Europe/Stockholm' =>  [ qw(se no dk fi nl de at cz fr it) ],
+       'Europe/Vienna' =>     [ qw(at de cz it fr nl se) ],
+);
 
 #- get distrib release number (2006.0, etc)
 sub etc_version() {
@@ -855,6 +854,159 @@ sub update_sources_noninteractive {
         return 1;
 }
 
+sub add_distrib_update_media {
+    my ($urpm, $mirror, %options) = @_;
+    #- ensure a unique medium name
+    my $medium_name = $rpmdragora::mageia_release =~ /(\d+\.\d+) \((\w+)\)/ ? $2 . $1 . '-' : 'distrib';
+    my $initial_number = 1 + max map { $_->{name} =~ /\(\Q$medium_name\E(\d+)\b/ ? $1 : 0 } @{$urpm->{media}};
+    add_medium_and_check(
+        $urpm,
+        { nolock => 1, distrib => 1 },
+        $medium_name,
+        ($mirror ? $mirror->{url} : (undef, mirrorlist => '$MIRRORLIST')),
+        probe_with => 'synthesis', initial_number => $initial_number, %options,
+        usedistrib => 1,
+    );
+}
+
+sub warn_for_network_need {
+    my ($message, %options) = @_;
+    $message ||=
+        $branded
+        ? N("I need to access internet to get the mirror list.
+Please check that your network is currently running.
+
+Is it ok to continue?")
+        : N("I need to contact the Mageia website to get the mirror list.
+Please check that your network is currently running.
+
+Is it ok to continue?");
+    interactive_msg(N("Mirror choice"), $message, yesno => 1, %options) or return '';
+}
+
+sub choose_mirror {
+    my ($urpm, %options) = @_;
+    delete $options{message};
+    my @transient_options = exists $options{transient} ? (transient => $options{transient}) : ();
+    warn_for_network_need($options{message}, %options) or return;
+    my @mirrors = eval { mirrors($urpm, $options{want_base_distro}) };
+    my $error = $@;
+    if ($error) {
+        $error = "\n$error\n";
+        interactive_msg(N("Error during download"),
+                        ($branded
+                        ? N("There was an error downloading the mirror list:\n%s\n
+The network, or the website, may be unavailable.
+Please try again later.", $error)
+                        : N("There was an error downloading the mirror list:\n%s\n
+The network, or the Mageia website, may be unavailable.
+Please try again later.", $error)), %options
+        );
+        return '';
+    }
+
+    !@mirrors and interactive_msg(N("No mirror"),
+                                  ($branded
+                                  ? N("I can't find any suitable mirror.")
+                                  : N("I can't find any suitable mirror.\n
+There can be many reasons for this problem; the most frequent is
+the case when the architecture of your processor is not supported
+by Mageia Official Updates.")), %options
+    ), return '';
+
+    my @mirrorlist = map {$_->{country} . "-" . $_->{url}} @mirrors;
+
+    my $sh_gui = AdminPanel::Shared::GUI->new();
+    my $mirror = $sh_gui->ask_fromTreeList({title => N("Mirror choice"),
+        header => N("Please choose the desired mirror."),
+        default_button => 1,
+        item_separator => "-",
+#       default_item => 'leaf 2',
+        list  => \@mirrorlist }
+    );
+
+sub choose_mirror_to_be_removed {
+    my $w = ugtk2->new(N("Mirror choice"), grab => 1, @transient_options);
+    $w->{rwindow}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
+    my $tree_model = Gtk2::TreeStore->new("Glib::String");
+    my $tree = Gtk2::TreeView->new_with_model($tree_model);
+    $tree->get_selection->set_mode('browse');
+    $tree->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::CellRendererText->new, text => 0));
+    $tree->set_headers_visible(0);
+
+    gtkadd(
+        $w->{window},
+        gtkpack_(
+            Gtk2::VBox->new(0,5),
+                 0, N("Please choose the desired mirror."),
+                 1, create_scrolled_window($tree),
+                 0, gtkpack(
+                     create_hbox('edge'),
+                            map {
+                                my $retv = $_->[1];
+                                gtksignal_connect(
+                                    Gtk2::Button->new(but($_->[0])),
+                                                  clicked => sub {
+                                                      if ($retv) {
+                                                          my ($model, $iter) = $tree->get_selection->get_selected;
+                                                          $model and $w->{retval} = { sel => $model->get($iter, 0) };
+                                                      }
+                                                      Gtk2->main_quit;
+                                                  },
+                                );
+                            } [ N("Cancel"), 0 ], [ N("Ok"), 1 ]
+                 ),
+        )
+    );
+    my %roots;
+    $tree_model->append_set($roots{$_->{country}} ||= $tree_model->append_set(undef, [ 0 => $_->{country} ]),
+                            [ 0 => $_->{url} ]) foreach @mirrors;
+
+                            $w->{window}->set_size_request(500, 400);
+                            $w->{rwindow}->show_all;
+
+                            my $path = Gtk2::TreePath->new_first;
+                            $tree->expand_row($path, 0);
+                            $path->down;
+                            $tree->get_selection->select_path($path);
+
+                            $w->main && return grep { $w->{retval}{sel} eq $_->{url} } @mirrors;
+}
+
+}
+
+
+
+
+
+
+
+#- Check whether the default update media (added by installation)
+#- matches the current mdk version
+sub check_update_media_version {
+    my $urpm = shift;
+    foreach (@_) {
+        if ($_->{name} =~ /(\d+\.\d+).*\bftp\du\b/ && $1 ne $distro_version) {
+            interactive_msg(
+                N("Warning"),
+                $branded
+                ? N("Your medium `%s', used for updates, does not match the version of %s you're running (%s).
+It will be disabled.",
+                    $_->{name}, $distrib{system}, $distrib{product})
+                : N("Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).
+It will be disabled.",
+                    $_->{name}, $distro_version)
+            );
+            $_->{ignore} = 1;
+            urpm::media::write_config($urpm) if -w $urpm->{config};
+            return 0;
+        }
+    }
+    1;
+}
+
+
+
 sub mirrors {
     my ($urpm, $want_base_distro) = @_;
     my $cachedir = $urpm->{cachedir} || '/root';
@@ -879,182 +1031,44 @@ sub mirrors {
                 $id and statusbar_msg_remove($id);
             };
 
-            require Rpmdragora::gurpm;
-            require Rpmdragora::pkg;
+            require AdminPanel::Rpmdragora::gurpm;
+            require AdminPanel::Rpmdragora::pkg;
 
             my $res = urpm::download::sync_url($urpm, $url,
                                            dir => $cachedir,
                                            callback => sub {
-                                               $gurpm ||= 
-                                                 Rpmdragora::gurpm->new(N("Please wait"),
+                                               $gurpm ||=
+                                                 AdminPanel::Rpmdragora::gurpm->new(N("Please wait"),
                                                                       transient => $::main_window);
                                                $canceled ||=
-                                                 !Rpmdragora::pkg::download_callback($gurpm, @_);
-                                               gtkflush();
+                                                 !AdminPanel::Rpmdragora::pkg::download_callback($gurpm, @_);
+                                               $gurpm->flush();
                                            },
                                        );
             $res or die N("retrieval of [%s] failed", $file) . "\n";
             return $canceled ? () : MDK::Common::File::cat_($file);
         });
     my @mirrors = @{ mirror::list(common::parse_LDAP_namespace_structure(MDK::Common::File::cat_('/etc/product.id')), 'distrib') || [] };
-    require timezone;
-    my $tz = ${timezone::read()}{timezone};
+
+    require AdminPanel::Shared::TimeZone;
+    my $tzo = AdminPanel::Shared::TimeZone->new();
+    my $tz = $tzo->readConfiguration()->{ZONE};
+
     foreach my $mirror (@mirrors) {
-	    my $goodness;
-	    each_index { $_ = $u2l{$_} || $_; $_ eq $mirror->{country} and $goodness ||= 100-$::i } (map { if_($tz =~ /^$_$/, @{$t2l{$_}}) } keys %t2l), @$us;
+        my $goodness;
+        each_index { $_ = $u2l{$_} || $_; $_ eq $mirror->{country} and $goodness ||= 100-$::i } (map { if_($tz =~ /^$_$/, @{$t2l{$_}}) } keys %t2l), @$us;
          $mirror->{goodness} = $goodness + rand();
          $mirror->{country} = translate($mirror->{country});
     }
     unless (-x '/usr/bin/rsync') {
-	@mirrors = grep { $_->{url} !~ /^rsync:/ } @mirrors;
+    @mirrors = grep { $_->{url} !~ /^rsync:/ } @mirrors;
     }
     return sort { $b->{goodness} <=> $a->{goodness} } @mirrors;
 }
 
-sub warn_for_network_need {
-    my ($message, %options) = @_;
-    $message ||=
-$branded
-? N("I need to access internet to get the mirror list.
-Please check that your network is currently running.
-
-Is it ok to continue?")
-: N("I need to contact the Mageia website to get the mirror list.
-Please check that your network is currently running.
-
-Is it ok to continue?");
-    interactive_msg(N("Mirror choice"), $message, yesno => 1, %options) or return '';
-}
-
-sub choose_mirror {
-    my ($urpm, %options) = @_;
-    delete $options{message};
-    my @transient_options = exists $options{transient} ? (transient => $options{transient}) : ();
-    warn_for_network_need($options{message}, %options) or return;
-    my @mirrors = eval { mirrors($urpm, $options{want_base_distro}) };
-    my $error = $@;
-    if ($error) {
-        $error = "\n$error\n";
-	interactive_msg(N("Error during download"),
-($branded
-? N("There was an error downloading the mirror list:
-
-%s
-The network, or the website, may be unavailable.
-Please try again later.", $error)
-: N("There was an error downloading the mirror list:
-
-%s
-The network, or the Mageia website, may be unavailable.
-Please try again later.", $error)), %options
-
-	);
-	return '';
-    }
-
-    !@mirrors and interactive_msg(N("No mirror"),
-($branded
-? N("I can't find any suitable mirror.")
-: N("I can't find any suitable mirror.
-
-There can be many reasons for this problem; the most frequent is
-the case when the architecture of your processor is not supported
-by Mageia Official Updates.")), %options
-    ), return '';
-
-    my $w = ugtk2->new(N("Mirror choice"), grab => 1, @transient_options);
-    $w->{rwindow}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
-    my $tree_model = Gtk2::TreeStore->new("Glib::String");
-    my $tree = Gtk2::TreeView->new_with_model($tree_model);
-    $tree->get_selection->set_mode('browse');
-    $tree->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::CellRendererText->new, text => 0));
-    $tree->set_headers_visible(0);
-
-    gtkadd(
-	$w->{window}, 
-	gtkpack_(
-	    Gtk2::VBox->new(0,5),
-	    0, N("Please choose the desired mirror."),
-	    1, create_scrolled_window($tree),
-	    0, gtkpack(
-		create_hbox('edge'),
-		map {
-		    my $retv = $_->[1];
-		    gtksignal_connect(
-			Gtk2::Button->new(but($_->[0])),
-			clicked => sub {
-			    if ($retv) {
-				my ($model, $iter) = $tree->get_selection->get_selected;
-				$model and $w->{retval} = { sel => $model->get($iter, 0) };
-			    }
-			    Gtk2->main_quit;
-			},
-		    );
-		} [ N("Cancel"), 0 ], [ N("Ok"), 1 ]
-	    ),
-	)
-    );
-    my %roots;
-    $tree_model->append_set($roots{$_->{country}} ||= $tree_model->append_set(undef, [ 0 => $_->{country} ]),
-			    [ 0 => $_->{url} ]) foreach @mirrors;
-
-    $w->{window}->set_size_request(500, 400);
-    $w->{rwindow}->show_all;
-
-    my $path = Gtk2::TreePath->new_first;
-    $tree->expand_row($path, 0);
-    $path->down;
-    $tree->get_selection->select_path($path);
-
-    $w->main && return grep { $w->{retval}{sel} eq $_->{url} } @mirrors;
-}
 
 
 
-
-
-
-
-
-
-#- Check whether the default update media (added by installation)
-#- matches the current mdk version
-sub check_update_media_version {
-    my $urpm = shift;
-    foreach (@_) {
-	if ($_->{name} =~ /(\d+\.\d+).*\bftp\du\b/ && $1 ne $distro_version) {
-	    interactive_msg(
-		N("Warning"),
-		$branded
-		? N("Your medium `%s', used for updates, does not match the version of %s you're running (%s).
-It will be disabled.",
-		    $_->{name}, $distrib{system}, $distrib{product})
-		: N("Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).
-It will be disabled.",
-		    $_->{name}, $distro_version)
-	    );
-	    $_->{ignore} = 1;
-	    urpm::media::write_config($urpm) if -w $urpm->{config};
-	    return 0;
-	}
-    }
-    1;
-}
-
-sub add_distrib_update_media {
-    my ($urpm, $mirror, %options) = @_;
-    #- ensure a unique medium name
-    my $medium_name = $rpmdragora::mageia_release =~ /(\d+\.\d+) \((\w+)\)/ ? $2 . $1 . '-' : 'distrib';
-    my $initial_number = 1 + max map { $_->{name} =~ /\(\Q$medium_name\E(\d+)\b/ ? $1 : 0 } @{$urpm->{media}};
-    add_medium_and_check(
-        $urpm,
-        { nolock => 1, distrib => 1 },
-        $medium_name,
-        ($mirror ? $mirror->{url} : (undef, mirrorlist => '$MIRRORLIST')),
-        probe_with => 'synthesis', initial_number => $initial_number, %options, 
-        usedistrib => 1,
-    );
-}
 
 sub open_help {
     my ($mode) = @_;
