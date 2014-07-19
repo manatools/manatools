@@ -148,7 +148,7 @@ Please check that your network is currently running.\n
 Is it ok to continue?", $distro),
         transient => $::main_window,
     ) or return 0;
-    ref $mirror or return;
+    ref $mirror or return 0;
     my $wait = wait_msg(N("Please wait, adding media..."));
     add_distrib_update_media($urpm, $mirror, if_(!$want_base_distro, only_updates => 1));
     $offered_to_add_sources->[0] = 1;
@@ -1570,7 +1570,18 @@ sub mainwindow() {
                 update_callback();
             }
             elsif ($menuLabel eq $fileMenu{ add_media }->label()) {
-                easy_add_callback_with_mirror();
+                if (easy_add_callback_with_mirror()) {
+                    yui::YUI::app()->busyCursor();
+                    $dialog->startMultipleChanges();
+
+                    $mirrorTbl->deleteAllItems();
+                    my $itemCollection = readMedia();
+                    $mirrorTbl->addItems($itemCollection);
+
+                    $dialog->recalcLayout();
+                    $dialog->doneMultipleChanges();
+                    yui::YUI::app()->normalCursor();
+                }
             }
             elsif ($menuLabel eq $fileMenu{ custom }->label()) {
                 if (add_callback()) {
