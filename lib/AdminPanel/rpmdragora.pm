@@ -461,16 +461,20 @@ sub slow_func_statusbar ($$&) {
 }
 
 my %u2l = (
+       ar => N_("Argentina"),
        at => N_("Austria"),
        au => N_("Australia"),
+       by => N_("Belarus"),
        be => N_("Belgium"),
        br => N_("Brazil"),
+       gb => N_("Britain"),
        ca => N_("Canada"),
        ch => N_("Switzerland"),
        cr => N_("Costa Rica"),
        cz => N_("Czech Republic"),
        de => N_("Germany"),
        dk => N_("Danmark"),
+       ec => N_("Ecuador"),
        el => N_("Greece"),
        es => N_("Spain"),
        fi => N_("Finland"),
@@ -489,7 +493,10 @@ my %u2l = (
        se => N_("Sweden"),
        sg => N_("Singapore"),
        sk => N_("Slovakia"),
+       za => N_("South Africa"),
        tw => N_("Taiwan"),
+       th => N_("Thailand"),
+       tr => N_("Turkey"),
        uk => N_("United Kingdom"),
        cn => N_("China"),
        us => N_("United States"),
@@ -507,7 +514,7 @@ my %t2l = (
        'Asia/Taipei' =>       [ qw(tw jp), @$us ],
        'Asia/(Shanghai|Beijing)' => [ qw(cn tw sg), @$us ],
        'Asia/Singapore' =>    [ qw(cn sg), @$us ],
-       'Atlantic/Reykjavik' => [ qw(uk no se fi dk), @$us, qw(nl de fr at cz it) ],
+       'Atlantic/Reykjavik' => [ qw(gb uk no se fi dk), @$us, qw(nl de fr at cz it) ],
        'Australia/\w+' =>     [ qw(au jp ko tw), @$us ],
        'Brazil/\w+' =>        [ 'br', @$us ],
        'Canada/\w+' =>        [ 'ca', @$us ],
@@ -517,11 +524,11 @@ my %t2l = (
        'Europe/Brussels' =>   [ qw(be de nl fr cz at it se) ],
        'Europe/Budapest' =>   [ qw(cz it at de fr nl se) ],
        'Europe/Copenhagen' => [ qw(dk nl de be se at cz it) ],
-       'Europe/Dublin' =>     [ qw(uk fr be nl dk se cz it) ],
+       'Europe/Dublin' =>     [ qw(gb uk fr be nl dk se cz it) ],
        'Europe/Helsinki' =>   [ qw(fi se no nl be de fr at it) ],
        'Europe/Istanbul' =>   [ qw(il ru it cz it at de fr nl se) ],
        'Europe/Lisbon' =>     [ qw(pt es fr it cz at de se) ],
-       'Europe/London' =>     [ qw(uk fr be nl de at cz se it) ],
+       'Europe/London' =>     [ qw(gb uk fr be nl de at cz se it) ],
        'Europe/Madrid' =>     [ qw(es fr pt it cz at de se) ],
        'Europe/Moscow' =>     [ qw(ru de pl cz at se be fr it) ],
        'Europe/Oslo' =>       [ qw(no se fi dk de be at cz it) ],
@@ -891,7 +898,6 @@ sub choose_mirror {
     my @transient_options = exists $options{transient} ? (transient => $options{transient}) : ();
     warn_for_network_need($options{message}, %options) or return;
     my @mirrors = eval { mirrors($urpm, $options{want_base_distro}) };
-$DB::single = 1;
     my $error = $@;
     if ($error) {
         $error = "\n$error\n";
@@ -917,7 +923,6 @@ by Mageia Official Updates.")), %options
     ), return '';
 
     my @mirrorlist = map {$_->{country} . "|" . $_->{url}} @mirrors;
-    $DB::single=1;
 
     my $sh_gui = AdminPanel::Shared::GUI->new();
     my $mirror = $sh_gui->ask_fromTreeList({title => N("Mirror choice"),
@@ -925,56 +930,11 @@ by Mageia Official Updates.")), %options
         default_button => 1,
         item_separator => "|",
         default_item => $mirrors[0]->{url},
+        skip_path => 1,
         list  => \@mirrorlist }
     );
 
-sub choose_mirror_to_be_removed {
-    my $w = ugtk2->new(N("Mirror choice"), grab => 1, @transient_options);
-    $w->{rwindow}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
-    my $tree_model = Gtk2::TreeStore->new("Glib::String");
-    my $tree = Gtk2::TreeView->new_with_model($tree_model);
-    $tree->get_selection->set_mode('browse');
-    $tree->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::CellRendererText->new, text => 0));
-    $tree->set_headers_visible(0);
-
-    gtkadd(
-        $w->{window},
-        gtkpack_(
-            Gtk2::VBox->new(0,5),
-                 0, N("Please choose the desired mirror."),
-                 1, create_scrolled_window($tree),
-                 0, gtkpack(
-                     create_hbox('edge'),
-                            map {
-                                my $retv = $_->[1];
-                                gtksignal_connect(
-                                    Gtk2::Button->new(but($_->[0])),
-                                                  clicked => sub {
-                                                      if ($retv) {
-                                                          my ($model, $iter) = $tree->get_selection->get_selected;
-                                                          $model and $w->{retval} = { sel => $model->get($iter, 0) };
-                                                      }
-                                                      Gtk2->main_quit;
-                                                  },
-                                );
-                            } [ N("Cancel"), 0 ], [ N("Ok"), 1 ]
-                 ),
-        )
-    );
-    my %roots;
-    $tree_model->append_set($roots{$_->{country}} ||= $tree_model->append_set(undef, [ 0 => $_->{country} ]),
-                            [ 0 => $_->{url} ]) foreach @mirrors;
-
-                            $w->{window}->set_size_request(500, 400);
-                            $w->{rwindow}->show_all;
-
-                            my $path = Gtk2::TreePath->new_first;
-                            $tree->expand_row($path, 0);
-                            $path->down;
-                            $tree->get_selection->select_path($path);
-
-                            $w->main && return grep { $w->{retval}{sel} eq $_->{url} } @mirrors;
-}
+    return { url => $mirror};
 
 }
 
@@ -1056,12 +1016,19 @@ sub mirrors {
     require AdminPanel::Shared::TimeZone;
     my $tzo = AdminPanel::Shared::TimeZone->new();
     my $tz = $tzo->readConfiguration()->{ZONE};
-$DB::single =1;
     foreach my $mirror (@mirrors) {
-        my $goodness;
-        each_index { $_ = $u2l{$_} || $_; $_ eq lc($mirror->{country}) and $goodness ||= 100-$::i } (map { if_($tz =~ /^$_$/, @{$t2l{$_}}) } keys %t2l), @$us;
-         $mirror->{goodness} = $goodness + rand();
-         $mirror->{country} = $u2l{lc($mirror->{country})} ? translate($u2l{lc($mirror->{country})}) : $mirror->{country};
+        my $goodness = 0;
+        my $pri_mirr = defined ($t2l{$tz}) ? $t2l{$tz} : $us;
+        my $ind = 0;
+        foreach (@{$pri_mirr}) {
+            if ($_ eq lc($mirror->{country})) {
+                $goodness = scalar(@{$pri_mirr}) - $ind;
+            }
+            $ind ++;
+        }
+
+        $mirror->{goodness} = $goodness + rand();
+        $mirror->{country} = $u2l{lc($mirror->{country})} ? translate($u2l{lc($mirror->{country})}) : $mirror->{country};
     }
     unless (-x '/usr/bin/rsync') {
     @mirrors = grep { $_->{url} !~ /^rsync:/ } @mirrors;
