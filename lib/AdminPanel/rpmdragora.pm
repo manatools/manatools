@@ -492,12 +492,13 @@ my %u2l = (
        tw => N_("Taiwan"),
        uk => N_("United Kingdom"),
        cn => N_("China"),
+       us => N_("United States"),
        com => N_("United States"),
        org => N_("United States"),
        net => N_("United States"),
        edu => N_("United States"),
 );
-my $us = [ qw(com org net edu) ];
+my $us = [ qw(us com org net edu) ];
 my %t2l = (
        'America/\w+' =>       $us,
        'Asia/Tel_Aviv' =>     [ qw(il ru it cz at de fr se) ],
@@ -890,6 +891,7 @@ sub choose_mirror {
     my @transient_options = exists $options{transient} ? (transient => $options{transient}) : ();
     warn_for_network_need($options{message}, %options) or return;
     my @mirrors = eval { mirrors($urpm, $options{want_base_distro}) };
+$DB::single = 1;
     my $error = $@;
     if ($error) {
         $error = "\n$error\n";
@@ -914,13 +916,14 @@ the case when the architecture of your processor is not supported
 by Mageia Official Updates.")), %options
     ), return '';
 
-    my @mirrorlist = map {$_->{country} . "-" . $_->{url}} @mirrors;
+    my @mirrorlist = map {$_->{country} . "|" . $_->{url}} @mirrors;
+    $DB::single=1;
 
     my $sh_gui = AdminPanel::Shared::GUI->new();
     my $mirror = $sh_gui->ask_fromTreeList({title => N("Mirror choice"),
         header => N("Please choose the desired mirror."),
         default_button => 1,
-        item_separator => "-",
+        item_separator => "|",
         default_item => $mirrors[0]->{url},
         list  => \@mirrorlist }
     );
@@ -1053,12 +1056,12 @@ sub mirrors {
     require AdminPanel::Shared::TimeZone;
     my $tzo = AdminPanel::Shared::TimeZone->new();
     my $tz = $tzo->readConfiguration()->{ZONE};
-
+$DB::single =1;
     foreach my $mirror (@mirrors) {
         my $goodness;
-        each_index { $_ = $u2l{$_} || $_; $_ eq $mirror->{country} and $goodness ||= 100-$::i } (map { if_($tz =~ /^$_$/, @{$t2l{$_}}) } keys %t2l), @$us;
+        each_index { $_ = $u2l{$_} || $_; $_ eq lc($mirror->{country}) and $goodness ||= 100-$::i } (map { if_($tz =~ /^$_$/, @{$t2l{$_}}) } keys %t2l), @$us;
          $mirror->{goodness} = $goodness + rand();
-         $mirror->{country} = translate($mirror->{country});
+         $mirror->{country} = $u2l{lc($mirror->{country})} ? translate($u2l{lc($mirror->{country})}) : $mirror->{country};
     }
     unless (-x '/usr/bin/rsync') {
     @mirrors = grep { $_->{url} !~ /^rsync:/ } @mirrors;
