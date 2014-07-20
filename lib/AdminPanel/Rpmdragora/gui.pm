@@ -708,7 +708,7 @@ sub fast_toggle {
         interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return ''; 
         $urpm_obj->set_flag_skip(0);
     } 
-    if ($Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) { 
+    if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
         $priority_up_alread_warned = 1;
         interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
     } 
@@ -809,7 +809,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
             $urpm_obj->set_flag_skip(0);
         }
 
-        if ($Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
+        if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
             $priority_up_alread_warned = 1;
             interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
         }
@@ -883,7 +883,7 @@ sub pkgs_provider {
         },
         all_updates => sub {
             # potential "updates" from media not tagged as updates:
-            if (!$options{pure_updates} && !$Rpmdragora::pkg::need_restart) {
+            if (!$options{pure_updates} && !$AdminPanel::Rpmdragora::pkg::need_restart) {
                 [ @{$h->{updates}},
                   difference2([ grep { is_updatable($_) } @{$h->{installable}} ], $h->{backports}) ];
             } else {
@@ -1143,7 +1143,7 @@ sub do_action__real {
         $urpm->{fatal}(1, N("Error: %s appears to be mounted read-only.", $urpm::sys::mountpoint));
         return 1;
     }
-    if (!$Rpmdragora::pkg::need_restart && !is_there_selected_packages()) {
+    if (!$AdminPanel::Rpmdragora::pkg::need_restart && !is_there_selected_packages()) {
         interactive_msg(N("You need to select some packages first."), N("You need to select some packages first."));
         return 1;
     }
@@ -1161,7 +1161,7 @@ Do you really want to install all the selected packages?"), yesno => 1)
     my $res = $callback_action->($urpm, $pkgs);
     if (!$res) {
         $force_rebuild = 1;
-        pkgs_provider($options->{tree_mode}, if_($Rpmdragora::pkg::probe_only_for_updates, pure_updates => 1), skip_updating_mu => 1);
+        pkgs_provider($options->{tree_mode}, if_($AdminPanel::Rpmdragora::pkg::probe_only_for_updates, pure_updates => 1), skip_updating_mu => 1);
         reset_search();
         $size_selected = 0;
         (undef, $size_free) = MDK::Common::System::df('/usr');
