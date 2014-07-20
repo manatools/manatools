@@ -485,6 +485,7 @@ my %u2l = (
        fr => N_("France"),
        gr => N_("Greece"),
        hu => N_("Hungary"),
+       id => N_("Indonesia"),
        il => N_("Israel"),
        it => N_("Italy"),
        jp => N_("Japan"),
