@@ -301,7 +301,7 @@ sub do_search($$$$$$$) {
                                             ($current_search_type eq 'files' ? 'files' : 'info'),
                                             undef, 
                                             sub {
-                                                $gurpm ||= Rpmdragora::gurpm->new(N("Please wait"),
+                                                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(N("Please wait"),
                                                                                 transient => $::main_window);
                                                 download_callback($gurpm, @_) or do {
                                                     $searchstop = 1;
@@ -875,8 +875,8 @@ sub run_treeview_dialog {
               }, 
               undef, '<CheckItem>' ],
         [ N("/_Options") . N("/_Media Manager"), undef, sub {
-               require Rpmdragora::edit_urpm_sources;
-               Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
+               require AdminPanel::Rpmdragora::edit_urpm_sources;
+               AdminPanel::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
            }, undef, '<Item>' ],
         [ N("/_Options") . N("/_Show automatically selected packages"), undef, sub {
         $dont_show_selections->[0] = !$checkbox_show_autoselect->get_active;
@@ -904,12 +904,12 @@ sub run_treeview_dialog {
         } qw(flat by_group by_leaves by_presence by_selection by_size by_source)),
     [ N("/_Help"), undef, undef, undef, '<Branch>' ],
      [ N("/_Help") . N("/_Report Bug"), undef, sub { run_drakbug('rpmdragora') }, undef, '<Item>' ],
-    [ N("/_Help") . N("/_Help"), undef, sub { rpmdragora::open_help('') }, undef, '<Item>' ],
+    [ N("/_Help") . N("/_Help"), undef, sub { AdminPanel::rpmdragora::open_help('') }, undef, '<Item>' ],
      [ N("/_Help") . N("/_About..."), undef, sub {
          my $license = formatAlaTeX(translate($::license));
          $license =~ s/\n/\n\n/sg; # nicer formatting
          my $w = gtknew('AboutDialog', name => N("Rpmdragora"),
-                        version => $Rpmdragora::init::version,
+                        version => $AdminPanel::Rpmdragora::init::version,
                         copyright => N("Copyright (C) %s by Mandriva", '2002-2009')."\n".N("Copyright (C) %s by Mageia.Org", '2010-2013'),
                         license => $license, wrap_license => 1,
                         comments => N("Rpmdragora is the Mageia package management tool."),
