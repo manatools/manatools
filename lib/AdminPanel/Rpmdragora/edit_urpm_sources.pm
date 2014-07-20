@@ -611,15 +611,14 @@ sub remove_callback {
         yesno => 1, scroll => 1,
     ) or return 0;
 
-    # TODO dialog waiting if needed
-    #     my $wait = wait_msg(N("Please wait, removing medium..."));
+    my $wait = wait_msg(N("Please wait, removing medium..."));
     foreach my $row (reverse(@rows)) {
         $something_changed = 1;
         urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
         urpm::media::write_urpmi_cfg($urpm);
-        #         undef $wait
-        # 	remove_wait_msg($wait);
     }
+    remove_wait_msg($wait);
+
     return 1;
 }
 
