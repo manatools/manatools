@@ -1595,6 +1595,7 @@ sub mainwindow() {
             }
             elsif ($widget == $upButton) {
                 yui::YUI::app()->busyCursor();
+                yui::YUI::ui()->blockEvents();
                 $dialog->startMultipleChanges();
 
                 my $row = upwards_callback($mirrorTbl);
@@ -1606,10 +1607,12 @@ sub mainwindow() {
 
                 $dialog->recalcLayout();
                 $dialog->doneMultipleChanges();
+                yui::YUI::ui()->unblockEvents();
                 yui::YUI::app()->normalCursor();
             }
             elsif ($widget == $downButton) {
                 yui::YUI::app()->busyCursor();
+                yui::YUI::ui()->blockEvents();
                 $dialog->startMultipleChanges();
 
                 my $row = downwards_callback($mirrorTbl);
@@ -1621,6 +1624,7 @@ sub mainwindow() {
 
                 $dialog->recalcLayout();
                 $dialog->doneMultipleChanges();
+                yui::YUI::ui()->unblockEvents();
                 yui::YUI::app()->normalCursor();
             }
             elsif ($widget == $edtButton) {
@@ -1628,6 +1632,8 @@ sub mainwindow() {
                 if ($item && edit_callback($mirrorTbl) ) {
                     my $row = $item->index();
                     yui::YUI::app()->busyCursor();
+                    yui::YUI::ui()->blockEvents();
+
                     $dialog->startMultipleChanges();
 
                     $mirrorTbl->deleteAllItems();
@@ -1650,6 +1656,7 @@ sub mainwindow() {
 
                     $dialog->recalcLayout();
                     $dialog->doneMultipleChanges();
+                    yui::YUI::ui()->unblockEvents();
                     yui::YUI::app()->normalCursor();
                 }
             }
@@ -1676,14 +1683,18 @@ sub mainwindow() {
         }
         if ($changed) {
             yui::YUI::app()->busyCursor();
+            yui::YUI::ui()->blockEvents();
+
             $dialog->startMultipleChanges();
 
             $mirrorTbl->deleteAllItems();
             my $itemCollection = readMedia();
+            selectRow($itemCollection, 0); #default selection
             $mirrorTbl->addItems($itemCollection);
 
             $dialog->recalcLayout();
             $dialog->doneMultipleChanges();
+            yui::YUI::ui()->unblockEvents();
             yui::YUI::app()->normalCursor();
         }
     }
