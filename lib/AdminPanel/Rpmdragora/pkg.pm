@@ -131,7 +131,7 @@ sub extract_header {
             $bar_id = statusbar_msg(N("Getting '%s' from XML meta-data...", $xml_info), 0);
             my $_gurpm_clean_guard = before_leaving { undef $gurpm };
                 if (my $xml_info_file = eval { urpm::media::any_xml_info($urpm, $medium, $xml_info, undef, sub {
-                                                                      $gurpm ||= Rpmdragora::gurpm->new(N("Please wait"),
+                                                                      $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(N("Please wait"),
                                                                                                       '', # FIXME: add a real string after cooker
                                                                                                       transient => $::main_window);
                                                                       download_callback($gurpm, @_)
@@ -267,7 +267,7 @@ all of them are currently disabled. You should run the Software
 Media Manager to enable at least one (check it in the \"%s\"
 column).
 
-Then, restart \"%s\".", N("Enabled"), $rpmdragora::myname_update));
+Then, restart \"%s\".", N("Enabled"), $AdminPanel::rpmdragora::myname_update));
 		    myexit(-1);
 		}
 		my ($mirror) = choose_mirror($urpm, transient => $w->{real_window} || $::main_window,
@@ -285,7 +285,7 @@ N("You may also choose your desired mirror manually: to do so,
 launch the Software Media Manager, and then add a `Security
 updates' medium.
 
-Then, restart %s.", $rpmdragora::myname_update)), myexit(-1);
+Then, restart %s.", $AdminPanel::rpmdragora::myname_update)), myexit(-1);
 		add_distrib_update_media($urpm, $mirror, only_updates => 1);
 	    }
 }
@@ -386,7 +386,7 @@ sub get_updates_list {
     );
 
     my %common_opts = (
-        callback_choices => \&Rpmdragora::gui::callback_choices,
+        callback_choices => \&AdminPanel::Rpmdragora::gui::callback_choices,
         priority_upgrade => $urpm->{options}{'priority-upgrade'},
     );
 
@@ -407,7 +407,7 @@ sub get_updates_list {
     if ($probe_only_for_updates && !$need_restart) {
         @$requested_strict = sort map {
             urpm_name($_);
-        } $urpm->resolve_requested($db, $state, $requested, callback_choices => \&Rpmdragora::gui::callback_choices);
+        } $urpm->resolve_requested($db, $state, $requested, callback_choices => \&AdminPanel::Rpmdragora::gui::callback_choices);
 
         if (my @l = grep { $state->{selected}{$_->id} }
               urpm::select::_priority_upgrade_pkgs($urpm, $urpm->{options}{'priority-upgrade'})) {
@@ -690,7 +690,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     urpm::select::resolve_dependencies(
         $urpm, $state, $requested,
         rpmdb => $::env && "$::env/rpmdb.cz",
-        callback_choices => \&Rpmdragora::gui::callback_choices,
+        callback_choices => \&AdminPanel::Rpmdragora::gui::callback_choices,
     );
     statusbar_msg_remove($bar_id);
 
@@ -739,7 +739,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     # select packages to uninstall for !update mode:
     perform_removal($urpm, { map { $_ => $pkgs->{$_} } @to_remove }) if !$probe_only_for_updates;
 
-    # $gurpm = Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Package installation..."), N("Initializing..."), transient => $::main_window);
+    # $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Package installation..."), N("Initializing..."), transient => $::main_window);
     # my $_gurpm_clean_guard = before_leaving { undef $gurpm };
     my $something_installed;
  
@@ -910,7 +910,7 @@ you may now inspect some in order to take actions:"),
         #- added --previous-priority-upgrade to allow checking if yet if
         #-   priority-upgrade list has changed. and make sure we don't uselessly restart
         my @argv = ('--previous-priority-upgrade=' . $urpm->{options}{'priority-upgrade'}, 
-                grep { !/^--no-priority-upgrade$|--previous-priority-upgrade=/ } @Rpmdragora::init::ARGV_copy);
+                grep { !/^--no-priority-upgrade$|--previous-priority-upgrade=/ } @AdminPanel::Rpmdragora::init::ARGV_copy);
         # remove "--emmbedded <id>" from argv:
         my $i = 0;
         foreach (@argv) {
@@ -949,7 +949,7 @@ sub perform_removal {
     my ($urpm, $pkgs) = @_;
     my @toremove = map { if_($pkgs->{$_}{selected}, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
     return if !@toremove;
-    my $gurpm = Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Please wait, removing packages..."), N("Initializing..."), transient => $::main_window);
+    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Please wait, removing packages..."), N("Initializing..."), transient => $::main_window);
     my $_gurpm_clean_guard = before_leaving { undef $gurpm };
 
     my $may_be_orphans = 1;
