@@ -1026,7 +1026,7 @@ sub mirrors {
         my $pri_mirr = defined ($t2l{$tz}) ? $t2l{$tz} : $us;
         my $ind = 0;
         foreach (@{$pri_mirr}) {
-            if ($_ eq lc($mirror->{country})) {
+            if (($_ eq lc($mirror->{zone})) || ($_ eq lc($mirror->{country}))) {
                 $goodness = scalar(@{$pri_mirr}) - $ind;
             }
             $ind ++;
