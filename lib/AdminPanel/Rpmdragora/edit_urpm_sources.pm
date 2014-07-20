@@ -138,7 +138,7 @@ sub easy_add_callback_with_mirror() {
 
     #- cooker and community don't have update sources
     my $want_base_distro = _want_base_distro();
-    defined $want_base_distro or return;
+    defined $want_base_distro or return 0;
     my $distro = $AdminPanel::rpmdragora::mageia_release;
     my ($mirror) = choose_mirror($urpm, message =>
         N("This will attempt to install all official sources corresponding to your
@@ -162,8 +162,8 @@ sub easy_add_callback() {
 
     #- cooker and community don't have update sources
     my $want_base_distro = _want_base_distro();
-    defined $want_base_distro or return;
-    warn_for_network_need(undef, transient => $::main_window) or return;
+    defined $want_base_distro or return 0;
+    warn_for_network_need(undef, transient => $::main_window) or return 0;
     my $wait = wait_msg(N("Please wait, adding media..."));
     add_distrib_update_media($urpm, undef, if_(!$want_base_distro, only_updates => 1));
     $offered_to_add_sources->[0] = 1;
@@ -601,7 +601,7 @@ sub remove_callback {
         my $item = $selection->get($it);
         push @rows, $item->index();
     }
-    @rows == 0 and return;
+    @rows == 0 and return 0;
     interactive_msg(
         N("Source Removal"),
         @rows == 1 ?
@@ -609,7 +609,7 @@ sub remove_callback {
             N("Are you sure you want to remove the following sources?") . "\n\n" .
                 format_list(map { $urpm->{media}[$_]{name} } @rows),
         yesno => 1, scroll => 1,
-    ) or return;
+    ) or return 0;
 
     # TODO dialog waiting if needed
     #     my $wait = wait_msg(N("Please wait, removing medium..."));
@@ -1531,6 +1531,7 @@ sub mainwindow() {
     while(1) {
         my $event       = $dialog->waitForEvent();
         my $eventType   = $event->eventType();
+        my $changed = 0;
 
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
@@ -1538,7 +1539,6 @@ sub mainwindow() {
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             ### MENU ###
-            my $changed = 0;
             my $item = $event->item();
             my $menuLabel = $item->label();
             if ($menuLabel eq $fileMenu{ quit }->label()) {
@@ -1582,19 +1582,6 @@ sub mainwindow() {
             elsif ($menuLabel eq $optionsMenu{ global }->label()) {
                 options_callback();
             }
-            if ($changed) {
-                yui::YUI::app()->busyCursor();
-                $dialog->startMultipleChanges();
-
-                $mirrorTbl->deleteAllItems();
-                my $itemCollection = readMedia();
-                $mirrorTbl->addItems($itemCollection);
-
-                $dialog->recalcLayout();
-                $dialog->doneMultipleChanges();
-                yui::YUI::app()->normalCursor();
-            }
-
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
@@ -1667,18 +1654,11 @@ sub mainwindow() {
                 }
             }
             elsif ($widget == $remButton) {
-                yui::YUI::app()->busyCursor();
-                $dialog->startMultipleChanges();
-
                 my $sel = $mirrorTbl->selectedItems();
-                remove_callback($sel);
-                $mirrorTbl->deleteAllItems();
-                my $itemCollection = readMedia();
-                $mirrorTbl->addItems($itemCollection);
-
-                $dialog->recalcLayout();
-                $dialog->doneMultipleChanges();
-                yui::YUI::app()->normalCursor();
+                $changed = remove_callback($sel);
+            }
+            elsif ($widget == $addButton) {
+                $changed = easy_add_callback();
             }
             elsif ($widget == $mirrorTbl) {
                 my $sel = $mirrorTbl->selectedItems();
@@ -1693,6 +1673,18 @@ sub mainwindow() {
                     $downButton->setEnabled(1);
                 }
             }
+        }
+        if ($changed) {
+            yui::YUI::app()->busyCursor();
+            $dialog->startMultipleChanges();
+
+            $mirrorTbl->deleteAllItems();
+            my $itemCollection = readMedia();
+            $mirrorTbl->addItems($itemCollection);
+
+            $dialog->recalcLayout();
+            $dialog->doneMultipleChanges();
+            yui::YUI::app()->normalCursor();
         }
     }
     $dialog->destroy();
