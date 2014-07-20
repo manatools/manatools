@@ -1532,6 +1532,7 @@ sub mainwindow() {
         my $event       = $dialog->waitForEvent();
         my $eventType   = $event->eventType();
         my $changed = 0;
+        my $selection_changed = 0;
 
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
@@ -1668,17 +1669,7 @@ sub mainwindow() {
                 $changed = easy_add_callback();
             }
             elsif ($widget == $mirrorTbl) {
-                my $sel = $mirrorTbl->selectedItems();
-                if ($sel->size() > 1 ) {
-                    $edtButton->setEnabled(0);
-                    $upButton->setEnabled(0);
-                    $downButton->setEnabled(0);
-                }
-                else {
-                    $edtButton->setEnabled(1);
-                    $upButton->setEnabled(1);
-                    $downButton->setEnabled(1);
-                }
+                $selection_changed = 1;
             }
         }
         if ($changed) {
@@ -1696,6 +1687,20 @@ sub mainwindow() {
             $dialog->doneMultipleChanges();
             yui::YUI::ui()->unblockEvents();
             yui::YUI::app()->normalCursor();
+            $selection_changed = 1;
+        }
+        if ($selection_changed) {
+            my $sel = $mirrorTbl->selectedItems();
+            if ($sel->size() > 1 ) {
+                $edtButton->setEnabled(0);
+                $upButton->setEnabled(0);
+                $downButton->setEnabled(0);
+            }
+            else {
+                $edtButton->setEnabled(1);
+                $upButton->setEnabled(1);
+                $downButton->setEnabled(1);
+            }
         }
     }
     $dialog->destroy();
