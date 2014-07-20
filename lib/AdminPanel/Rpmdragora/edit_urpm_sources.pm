@@ -1664,12 +1664,7 @@ sub mainwindow() {
                     $dialog->recalcLayout();
                     $dialog->doneMultipleChanges();
                     yui::YUI::app()->normalCursor();
-
-
                 }
-
-#                 my $sel = $mirrorTbl->selectedItem();
-#                 print " ITEM #" . $sel->index() . " -> " .$sel->label() . "\n" if $sel;
             }
             elsif ($widget == $remButton) {
                 yui::YUI::app()->busyCursor();
@@ -1684,7 +1679,6 @@ sub mainwindow() {
                 $dialog->recalcLayout();
                 $dialog->doneMultipleChanges();
                 yui::YUI::app()->normalCursor();
-
             }
             elsif ($widget == $mirrorTbl) {
                 my $sel = $mirrorTbl->selectedItems();
