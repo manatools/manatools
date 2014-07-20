@@ -1538,6 +1538,7 @@ sub mainwindow() {
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             ### MENU ###
+            my $changed = 0;
             my $item = $event->item();
             my $menuLabel = $item->label();
             if ($menuLabel eq $fileMenu{ quit }->label()) {
@@ -1570,32 +1571,10 @@ sub mainwindow() {
                 update_callback();
             }
             elsif ($menuLabel eq $fileMenu{ add_media }->label()) {
-                if (easy_add_callback_with_mirror()) {
-                    yui::YUI::app()->busyCursor();
-                    $dialog->startMultipleChanges();
-
-                    $mirrorTbl->deleteAllItems();
-                    my $itemCollection = readMedia();
-                    $mirrorTbl->addItems($itemCollection);
-
-                    $dialog->recalcLayout();
-                    $dialog->doneMultipleChanges();
-                    yui::YUI::app()->normalCursor();
-                }
+                $changed = easy_add_callback_with_mirror();
             }
             elsif ($menuLabel eq $fileMenu{ custom }->label()) {
-                if (add_callback()) {
-                    yui::YUI::app()->busyCursor();
-                    $dialog->startMultipleChanges();
-
-                    $mirrorTbl->deleteAllItems();
-                    my $itemCollection = readMedia();
-                    $mirrorTbl->addItems($itemCollection);
-
-                    $dialog->recalcLayout();
-                    $dialog->doneMultipleChanges();
-                    yui::YUI::app()->normalCursor();
-                }
+                $changed = add_callback();
             }
             elsif ($menuLabel eq $optionsMenu{ proxy }->label()) {
                 proxy_callback();
@@ -1603,6 +1582,19 @@ sub mainwindow() {
             elsif ($menuLabel eq $optionsMenu{ global }->label()) {
                 options_callback();
             }
+            if ($changed) {
+                yui::YUI::app()->busyCursor();
+                $dialog->startMultipleChanges();
+
+                $mirrorTbl->deleteAllItems();
+                my $itemCollection = readMedia();
+                $mirrorTbl->addItems($itemCollection);
+
+                $dialog->recalcLayout();
+                $dialog->doneMultipleChanges();
+                yui::YUI::app()->normalCursor();
+            }
+
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
