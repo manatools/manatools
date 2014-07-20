@@ -393,6 +393,8 @@ sub wait_msg {
     $mainw->pollEvent();
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
+    yui::YUI::app()->busyCursor();
+
     $mainw;
 }
 
@@ -400,6 +402,7 @@ sub remove_wait_msg {
     my $w = shift;
     #gtkset_mousecursor_normal($w->{rwindow}->window);
     $w->destroy;
+    yui::YUI::app()->normalCursor();
 }
 
 sub but { "    $_[0]    " }
@@ -865,6 +868,7 @@ sub update_sources_noninteractive {
 
 sub add_distrib_update_media {
     my ($urpm, $mirror, %options) = @_;
+    $DB::single = 1;
     #- ensure a unique medium name
     my $medium_name = $AdminPanel::rpmdragora::mageia_release =~ /(\d+\.\d+) \((\w+)\)/ ? $2 . $1 . '-' : 'distrib';
     my $initial_number = 1 + max map { $_->{name} =~ /\(\Q$medium_name\E(\d+)\b/ ? $1 : 0 } @{$urpm->{media}};
