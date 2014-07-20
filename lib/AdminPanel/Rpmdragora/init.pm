@@ -154,7 +154,7 @@ $::noborderWhenEmbedded = 1;
 
 require AdminPanel::rpmdragora;
 
-our $changelog_first = $rpmdragora::changelog_first_config->[0];
+our $changelog_first = $AdminPanel::rpmdragora::changelog_first_config->[0];
 $changelog_first = 1 if $rpmdragora_options{'changelog-first'};
 
 sub warn_about_user_mode() {
