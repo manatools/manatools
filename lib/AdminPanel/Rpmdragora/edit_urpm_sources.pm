@@ -615,8 +615,8 @@ sub remove_callback {
     foreach my $row (reverse(@rows)) {
         $something_changed = 1;
         urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
-        urpm::media::write_urpmi_cfg($urpm);
     }
+    urpm::media::write_urpmi_cfg($urpm);
     remove_wait_msg($wait);
 
     return 1;
