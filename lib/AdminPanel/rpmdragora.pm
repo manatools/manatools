@@ -868,10 +868,10 @@ sub update_sources_noninteractive {
 
 sub add_distrib_update_media {
     my ($urpm, $mirror, %options) = @_;
-    $DB::single = 1;
     #- ensure a unique medium name
     my $medium_name = $AdminPanel::rpmdragora::mageia_release =~ /(\d+\.\d+) \((\w+)\)/ ? $2 . $1 . '-' : 'distrib';
     my $initial_number = 1 + max map { $_->{name} =~ /\(\Q$medium_name\E(\d+)\b/ ? $1 : 0 } @{$urpm->{media}};
+    $DB::single = 1;
     add_medium_and_check(
         $urpm,
         { nolock => 1, distrib => 1 },
@@ -939,7 +939,7 @@ by Mageia Official Updates.")), %options
         list  => \@mirrorlist }
     );
 
-    return { url => $mirror};
+    return $mirror ? { url => $mirror} : undef;
 
 }
 
