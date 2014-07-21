@@ -1582,6 +1582,12 @@ sub mainwindow() {
             elsif ($menuLabel eq $optionsMenu{ global }->label()) {
                 options_callback();
             }
+            elsif ($menuLabel eq $optionsMenu{ man_keys }->label()) {
+#                 keys_callback();
+            }
+            elsif ($menuLabel eq $optionsMenu{ parallel }->label()) {
+#                 parallel_callback();
+            }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
