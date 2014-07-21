@@ -1460,6 +1460,20 @@ sub mainwindow() {
     }
     $helpMenu{ widget }->rebuildMenuTree();
 
+#     my %contextMenu = (
+#         enable  => N("Enable/Disable"),
+#         update  => N("Check as updates"),
+#     );
+#     @ordered_menu_lines = qw(enable update);
+#     my $itemColl = new yui::YItemCollection;
+#     foreach (@ordered_menu_lines) {
+# #         last if (!$::expert && $_ eq "update");
+#         my $item = new yui::YMenuItem($contextMenu{$_});
+#         $item->DISOWN();
+#         $itemColl->push($item);
+#     }
+#     yui::YUI::app()->openContextMenu($itemColl) or die "Cannot create contextMenu";
+
     my $hbox_content = $factory->createHBox($vbox);
     my $leftContent = $factory->createLeft($hbox_content);
     $leftContent->setWeight($yui::YD_HORIZ,3);
@@ -1675,6 +1689,23 @@ sub mainwindow() {
             }
             elsif ($widget == $mirrorTbl) {
                 $selection_changed = 1;
+                # contextMenu in libyui does not work as expected let's enable/disable
+                # medium by double clicking on it
+                my $wEvent = yui::YMGAWidgetFactory::getYWidgetEvent($event);
+                if ($wEvent && $wEvent->reason() == $yui::YEvent::Activated) {
+                    my $item = $mirrorTbl->selectedItem();
+                    if ($item) {
+                        if (interactive_msg("rpmdragora", N("Do you want to change the status of %s?", $item->label()),
+                                            yesno => 1)) {
+                            my $row = $item->index();
+                            $urpm->{media}[$row]{ignore} = !$urpm->{media}[$row]{ignore} || undef;
+                            urpm::media::write_config($urpm);
+                            $changed = 1;
+                        }
+                    }
+
+                }
+
             }
         }
         if ($changed) {
