@@ -82,6 +82,7 @@ use yui;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
+use MDK::Common::DataStructure qw(member);
 
 use Moose;
 extends qw( AdminPanel::Module );
@@ -1839,7 +1840,7 @@ sub _groupUsersTabWidget {
     my $members = $groupData{members};
     foreach my $user (@susers) {
         my $item = new yui::YCBTableItem($user);
-        $item->check(member($user, @$members));
+        $item->check(MDK::Common::DataStructure::member($user, @$members));
         $item->setLabel($user);
         $itemCollection->push($item);
         $item->DISOWN();    
@@ -1884,7 +1885,7 @@ sub _userGroupsTabWidget {
     my $members = $userData{members};
     foreach my $group (@sgroups) {
         my $item = new yui::YCBTableItem($group);
-        $item->check(member($group, @$members));
+        $item->check(MDK::Common::DataStructure::member($group, @$members));
         $item->setLabel($group);
         $itemCollection->push($item);
         $item->DISOWN();    
@@ -1945,7 +1946,7 @@ sub _groupEdit_Ok {
         if ($uEnt) {
             my $ugid = $uEnt->Gid($self->USER_GetValue);
             my $m    = $self->ctx->EnumerateUsersByGroup($groupData{start_groupname});
-            if (member($user, @$members)) {
+            if (MDK::Common::DataStructure::member($user, @$members)) {
                 if (!$self->_inArray($user, $m)) {
                     if ($ugid != $gid) {
                         eval { $groupEnt->MemberName($user,1) };
@@ -2011,7 +2012,7 @@ sub _userEdit_Ok {
         my $gEnt = $self->ctx->LookupGroupByName($group);
         my $ugid = $gEnt->Gid($self->USER_GetValue);
         my $m    = $gEnt->MemberName(1,0);
-        if (member($group, @$members)) {
+        if (MDK::Common::DataStructure::member($group, @$members)) {
             if (!$self->_inArray($username, $m) && $userData{primary_group} != $ugid) {
                 eval { $gEnt->MemberName($username, 1) };
                 $self->ctx->GroupModify($gEnt);
