@@ -1737,10 +1737,20 @@ sub mainwindow() {
             elsif ($widget == $update) {
                 my $item = $mirrorTbl->selectedItem();
                 if ($item) {
+                    yui::YUI::app()->busyCursor();
                     my $row = $item->index();
                     $urpm->{media}[$row]{update} = !$urpm->{media}[$row]{update} || undef;
                     urpm::media::write_config($urpm);
-                    $changed = 1;
+                    yui::YUI::ui()->blockEvents();
+                    $dialog->startMultipleChanges();
+                    $mirrorTbl->deleteAllItems();
+                    my $itemCollection = readMedia();
+                    selectRow($itemCollection, $row);
+                    $mirrorTbl->addItems($itemCollection);
+                    $dialog->recalcLayout();
+                    $dialog->doneMultipleChanges();
+                    yui::YUI::ui()->unblockEvents();
+                    yui::YUI::app()->normalCursor();
                 }
             }
             elsif ($widget == $enabled) {
