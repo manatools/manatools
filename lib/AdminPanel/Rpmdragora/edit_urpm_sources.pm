@@ -750,7 +750,7 @@ sub edit_callback {
 
     $hbox    = $factory->createHBox($factory->createLeft($vbox));
     $factory->createHSpacing($hbox, 1.0);
-    ### TODO cell to get info
+
     my $tableItem = yui::toYTableItem($item);
     # enabled cell 0, updates cell 1
     my $cellEnabled = $tableItem->cell(0)->label() ? 1 : 0;
@@ -1397,6 +1397,40 @@ sub selectRow {
     }
 }
 
+#=============================================================
+
+=head2 _showMediaStatus
+
+=head3 INPUT
+
+$info: HASH reference containing
+       item => selected item
+       updates => updates checkbox widget
+       enabled => enabled checkbox widget
+
+=head3 DESCRIPTION
+
+This internal function enables/disables checkboxes according to the
+passed item value.
+
+=cut
+
+#=============================================================
+sub _showMediaStatus {
+    my $info = shift;
+
+    die "Item is mandatory" if !defined($info->{item}) || !$info->{item};
+    die "Updates checkbox is mandatory" if !defined($info->{updates}) || !$info->{updates};
+    die "Enabled checkbox is mandatory" if !defined($info->{enabled}) || !$info->{enabled};
+
+    my $tableItem = yui::toYTableItem($info->{item});
+    # enabled cell 0, updates cell 1
+    my $cellEnabled = $tableItem && $tableItem->cell(0)->label() ? 1 : 0;
+    my $cellUpdates = $tableItem && $tableItem->cell(1)->label() ? 1 : 0;
+    $info->{enabled}->setValue($cellEnabled);
+    $info->{updates}->setValue($cellUpdates);
+}
+
 sub mainwindow() {
 
     my $something_changed = 0;
@@ -1510,6 +1544,15 @@ sub mainwindow() {
     my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Remove"));
     my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Edit"));
     my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Add"));
+
+    $hbox = $factory->createHBox( $vbox_commands );
+    my $item = $mirrorTbl->selectedItem();
+    $factory->createHSpacing($hbox, 1.0);
+    my $enabled = $factory->createCheckBox($factory->createLeft($hbox), N("Enabled"));
+    my $update  = $factory->createCheckBox($factory->createLeft($hbox), N("Updates"));
+    _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
+    $update->setDisabled() if (!$::expert);
+
     $hbox = $factory->createHBox( $vbox_commands );
     ## TODO icon and label for ncurses
     my $upIcon     = File::ShareDir::dist_file('AdminPanel', 'images/Up_16x16.png');
@@ -1688,24 +1731,9 @@ sub mainwindow() {
                 $changed = easy_add_callback();
             }
             elsif ($widget == $mirrorTbl) {
+                my $item = $mirrorTbl->selectedItem();
+                _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
                 $selection_changed = 1;
-                # contextMenu in libyui does not work as expected let's enable/disable
-                # medium by double clicking on it
-                my $wEvent = yui::YMGAWidgetFactory::getYWidgetEvent($event);
-                if ($wEvent && $wEvent->reason() == $yui::YEvent::Activated) {
-                    my $item = $mirrorTbl->selectedItem();
-                    if ($item) {
-                        if (interactive_msg("rpmdragora", N("Do you want to change the status of %s?", $item->label()),
-                                            yesno => 1)) {
-                            my $row = $item->index();
-                            $urpm->{media}[$row]{ignore} = !$urpm->{media}[$row]{ignore} || undef;
-                            urpm::media::write_config($urpm);
-                            $changed = 1;
-                        }
-                    }
-
-                }
-
             }
         }
         if ($changed) {
@@ -1731,11 +1759,15 @@ sub mainwindow() {
                 $edtButton->setEnabled(0);
                 $upButton->setEnabled(0);
                 $downButton->setEnabled(0);
+                $enabled->setEnabled(0);
+                $update->setEnabled(0);
             }
             else {
                 $edtButton->setEnabled(1);
                 $upButton->setEnabled(1);
                 $downButton->setEnabled(1);
+                $enabled->setEnabled(1);
+                $update->setEnabled(1) if $::expert;
             }
         }
     }
