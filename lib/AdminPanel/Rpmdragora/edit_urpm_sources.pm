@@ -1551,6 +1551,8 @@ sub mainwindow() {
     my $enabled = $factory->createCheckBox($factory->createLeft($hbox), N("Enabled"));
     my $update  = $factory->createCheckBox($factory->createLeft($hbox), N("Updates"));
     _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
+    $update->setNotify(1);
+    $enabled->setNotify(1);
     $update->setDisabled() if (!$::expert);
 
     $hbox = $factory->createHBox( $vbox_commands );
@@ -1699,7 +1701,6 @@ sub mainwindow() {
 
                     $dialog->startMultipleChanges();
 
-                    $mirrorTbl->deleteAllItems();
                     my $ignored = $urpm->{media}[$row]{ignore};
                     my $itemCollection = readMedia();
                     if (!$ignored && $urpm->{media}[$row]{ignore}) {
@@ -1715,12 +1716,15 @@ sub mainwindow() {
                                         yesno => 1,
                         ) and $itemCollection = readMedia($urpm->{media}[$row]{name});
                     }
+                    $mirrorTbl->deleteAllItems();
+                    selectRow($itemCollection, $row);
                     $mirrorTbl->addItems($itemCollection);
 
                     $dialog->recalcLayout();
                     $dialog->doneMultipleChanges();
                     yui::YUI::ui()->unblockEvents();
                     yui::YUI::app()->normalCursor();
+                    $selection_changed = 1; # to align $enabled and $update status
                 }
             }
             elsif ($widget == $remButton) {
@@ -1730,9 +1734,54 @@ sub mainwindow() {
             elsif ($widget == $addButton) {
                 $changed = easy_add_callback();
             }
-            elsif ($widget == $mirrorTbl) {
+            elsif ($widget == $update) {
                 my $item = $mirrorTbl->selectedItem();
-                _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
+                if ($item) {
+                    my $row = $item->index();
+                    $urpm->{media}[$row]{update} = !$urpm->{media}[$row]{update} || undef;
+                    urpm::media::write_config($urpm);
+                    $changed = 1;
+                }
+            }
+            elsif ($widget == $enabled) {
+                ## TODO same as $edtButton after edit_callback
+                my $item = $mirrorTbl->selectedItem();
+                $DB::single = 1;
+                if ($item) {
+                    my $row = $item->index();
+                    yui::YUI::app()->busyCursor();
+                    yui::YUI::ui()->blockEvents();
+
+                    $dialog->startMultipleChanges();
+
+                    $urpm->{media}[$row]{ignore} = !$urpm->{media}[$row]{ignore} || undef;
+                    urpm::media::write_config($urpm);
+                    my $ignored = $urpm->{media}[$row]{ignore};
+                    my $itemCollection = readMedia();
+                    if (!$ignored && $urpm->{media}[$row]{ignore}) {
+                        # reread media failed to un-ignore an ignored medium
+                        # probably because urpm::media::check_existing_medium() complains
+                        # about missing synthesis when the medium never was enabled before;
+                        # thus it restored the ignore bit
+                        $urpm->{media}[$row]{ignore} = !$urpm->{media}[$row]{ignore} || undef;
+                        urpm::media::write_config($urpm);
+                        #- Enabling this media failed, force update
+                        interactive_msg('rpmdragora',
+                                        N("This medium needs to be updated to be usable. Update it now?"),
+                                        yesno => 1,
+                        ) and $itemCollection = readMedia($urpm->{media}[$row]{name});
+                    }
+                    $mirrorTbl->deleteAllItems();
+                    selectRow($itemCollection, $row);
+                    $mirrorTbl->addItems($itemCollection);
+
+                    $dialog->recalcLayout();
+                    $dialog->doneMultipleChanges();
+                    yui::YUI::ui()->unblockEvents();
+                    yui::YUI::app()->normalCursor();
+                }
+            }
+            elsif ($widget == $mirrorTbl) {
                 $selection_changed = 1;
             }
         }
@@ -1749,11 +1798,14 @@ sub mainwindow() {
 
             $dialog->recalcLayout();
             $dialog->doneMultipleChanges();
-            yui::YUI::ui()->unblockEvents();
             yui::YUI::app()->normalCursor();
             $selection_changed = 1;
         }
         if ($selection_changed) {
+            yui::YUI::ui()->blockEvents();
+            my $item = $mirrorTbl->selectedItem();
+            _showMediaStatus({item => $item, enabled => $enabled, updates => $update}) if $item;
+
             my $sel = $mirrorTbl->selectedItems();
             if ($sel->size() > 1 ) {
                 $edtButton->setEnabled(0);
@@ -1769,6 +1821,7 @@ sub mainwindow() {
                 $enabled->setEnabled(1);
                 $update->setEnabled(1) if $::expert;
             }
+            yui::YUI::ui()->unblockEvents();
         }
     }
     $dialog->destroy();
