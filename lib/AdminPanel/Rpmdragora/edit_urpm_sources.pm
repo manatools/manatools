@@ -1756,7 +1756,6 @@ sub mainwindow() {
             elsif ($widget == $enabled) {
                 ## TODO same as $edtButton after edit_callback
                 my $item = $mirrorTbl->selectedItem();
-                $DB::single = 1;
                 if ($item) {
                     my $row = $item->index();
                     yui::YUI::app()->busyCursor();
