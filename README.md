@@ -1,4 +1,4 @@
-﻿AdminPanel
+# AdminPanel #
 
 AdminPanel is a generic launcher application that can run 
 internal or external modules, such as system configuration tools.
@@ -14,7 +14,7 @@ an easy and common interface to developer to add new modules based
 on libYui. Every modules as well as AdminPanel itself can be run
 using QT, Gtk or ncurses interface.
 
-REQUIREMENTS
+# REQUIREMENTS #
 * SUSE libyui *
 https://github.com/libyui/libyui
 Consider to to check some not yet approved changes here
@@ -46,7 +46,7 @@ on https://bitbucket.org/_pmat_/libyui-YYY (where
 YYY is mga, mga-gtk, mga-ncurses, mga-qt) and then synchronized on 
 github.
 
-INSTALLATION
+# INSTALLATION #
 
 To install this module, run the following commands:
 
@@ -70,7 +70,7 @@ variable to know which ones run perl -Mlocal::lib as user and
 execute the output as root.
 
 
-SUPPORT AND DOCUMENTATION
+# SUPPORT AND DOCUMENTATION #
 
 After installing, you can find documentation for this module with the
 perldoc command.
@@ -78,7 +78,7 @@ perldoc command.
     perldoc AdminPanel
 
 
-LICENSE AND COPYRIGHT
+# LICENSE AND COPYRIGHT #
 
 Copyright (C) 2012-2014 Angelo Naselli, Matteo Pasotti, Steven Tucker
 
