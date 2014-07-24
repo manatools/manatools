@@ -1443,8 +1443,6 @@ sub mainwindow() {
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;
-    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
-    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
 
     my $dialog  = $factory->createMainDialog;
     my $vbox    = $factory->createVBox( $dialog );
@@ -1524,9 +1522,6 @@ sub mainwindow() {
     $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
 
     ## mirror list
-    # NOTE let's use YTable and not YCBTable atm
-#     my $mirrorTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
-#     $mirrorTbl->setKeepSorting(1);
     my $multiselection = 1;
     my $mirrorTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $mirrorTbl->setKeepSorting(1);
