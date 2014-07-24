@@ -1217,7 +1217,7 @@ sub keys_callback() {
 
     ## media list
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Medium"), $yui::YAlignLeft);
+    $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
     my $multiselection = 0;
     my $mediaTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $mediaTbl->setKeepSorting(1);
@@ -1242,11 +1242,10 @@ sub keys_callback() {
     $frmVbox = $factory->createVBox( $frame );
     $hbox = $factory->createHBox( $frmVbox );
     $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Keys"), $yui::YAlignLeft);
+    $yTableHeader->addColumn(N("Keys"), $yui::YAlignBegin);
     $multiselection = 0;
     my $keyTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $keyTbl->setKeepSorting(1);
-    $keyTbl->setImmediateMode(1);
 
     my $rightContent = $factory->createRight($hbox_content);
     $rightContent->setWeight($yui::YD_HORIZ,1);
