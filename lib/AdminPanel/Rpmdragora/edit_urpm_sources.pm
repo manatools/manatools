@@ -1188,117 +1188,224 @@ sub parallel_callback() {
 }
 
 sub keys_callback() {
-    my $w = ugtk2->new(N("Manage keys for digital signatures of packages"), grab => 1, center => 1,  transient => $mainw->{real_window});
-    local $::main_window = $w->{real_window};
-    $w->{real_window}->set_size_request(600, 300);
+    my $appTitle = yui::YUI::app()->applicationTitle();
 
-    my $media_list_ls = Gtk2::ListStore->new("Glib::String");
-    my $media_list = Gtk2::TreeView->new_with_model($media_list_ls);
-    $media_list->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Medium"), Gtk2::CellRendererText->new, 'text' => 0));
-    $media_list->get_selection->set_mode('browse');
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle(N("Manage keys for digital signatures of packages"));
 
-    my $key_col_size = 200;
-    my $keys_list_ls = Gtk2::ListStore->new("Glib::String", "Glib::String");
-    my $keys_list = Gtk2::TreeView->new_with_model($keys_list_ls);
-    $keys_list->set_rules_hint(1);
-    $keys_list->append_column(my $col = Gtk2::TreeViewColumn->new_with_attributes(N("_:cryptographic keys\nKeys"), my $renderer = Gtk2::CellRendererText->new, 'text' => 0));
-    $col->set_sizing('fixed');
-    $col->set_fixed_width($key_col_size);
-    $renderer->set_property('width' => 1);
-    $renderer->set_property('wrap-width', $key_col_size);
-    $keys_list->get_selection->set_mode('browse');
+    my $factory      = yui::YUI::widgetFactory;
 
-    my ($current_medium, $current_medium_nb, @keys);
+    my $dialog  = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dialog, 80, 20 );
+    my $vbox    = $factory->createVBox( $minSize );
 
-    my $read_conf = sub {
-        $urpm->parse_pubkeys(root => $urpm->{root});
-        @keys = map { [ split /[,\s]+/, $_->{'key-ids'} ] } @{$urpm->{media}};
-    };
-    my $write = sub {
-        $something_changed = 1;
-        urpm::media::write_config($urpm);
-        $urpm = fast_open_urpmi_db();
+    my $hbox_headbar = $factory->createHBox($vbox);
+    my $head_align_left = $factory->createLeft($hbox_headbar);
+    my $head_align_right = $factory->createRight($hbox_headbar);
+    my $headbar = $factory->createHBox($head_align_left);
+    my $headRight = $factory->createHBox($head_align_right);
+
+
+    my $hbox_content = $factory->createHBox($vbox);
+    my $leftContent = $factory->createLeft($hbox_content);
+    $leftContent->setWeight($yui::YD_HORIZ,3);
+
+    my $frame   = $factory->createFrame ($leftContent, "");
+
+    my $frmVbox = $factory->createVBox( $frame );
+    my $hbox = $factory->createHBox( $frmVbox );
+
+    ## media list
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn(N("Medium"), $yui::YAlignLeft);
+    my $multiselection = 0;
+    my $mediaTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
+    $mediaTbl->setKeepSorting(1);
+    $mediaTbl->setImmediateMode(1);
+
+    my $itemColl = new yui::YItemCollection;
+    foreach (@{$urpm->{media}}) {
+        my $name = $_->{name};
+
+        my $item = new yui::YTableItem ($name);
+        # NOTE row is $item->index()
+        $item->setLabel( $name );
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+    $mediaTbl->addItems($itemColl);
+
+    ## key list
+    $leftContent = $factory->createLeft($hbox_content);
+    $leftContent->setWeight($yui::YD_HORIZ,3);
+    $frame   = $factory->createFrame ($leftContent, "");
+    $frmVbox = $factory->createVBox( $frame );
+    $hbox = $factory->createHBox( $frmVbox );
+    $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn(N("Keys"), $yui::YAlignLeft);
+    $multiselection = 0;
+    my $keyTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
+    $keyTbl->setKeepSorting(1);
+    $keyTbl->setImmediateMode(1);
+
+    my $rightContent = $factory->createRight($hbox_content);
+    $rightContent->setWeight($yui::YD_HORIZ,1);
+    my $topContent = $factory->createTop($rightContent);
+    my $vbox_commands = $factory->createVBox($topContent);
+    $factory->createVSpacing($vbox_commands, 1.0);
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Add"));
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Remove"));
+
+    # dialog buttons
+    $factory->createVSpacing($vbox, 1.0);
+    $hbox = $factory->createHBox( $vbox );
+
+    ### Close button
+    my $closeButton = $factory->createPushButton($hbox, N("Ok") );
+
+    ### dialog event loop
+    while(1) {
+        my $event       = $dialog->waitForEvent();
+        my $eventType   = $event->eventType();
+        my $changed = 0;
+        my $selection_changed = 0;
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+         elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            my $wEvent = yui::toYWidgetEvent($event);
+
+            if ($widget == $closeButton) {
+                last;
+            }
+        }
+    }
+
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+
+    sub to_be_removed {
+        my $w = ugtk2->new(N("Manage keys for digital signatures of packages"), grab => 1, center => 1,  transient => $mainw->{real_window});
+        local $::main_window = $w->{real_window};
+        $w->{real_window}->set_size_request(600, 300);
+
+        my $media_list_ls = Gtk2::ListStore->new("Glib::String");
+        my $media_list = Gtk2::TreeView->new_with_model($media_list_ls);
+        $media_list->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Medium"), Gtk2::CellRendererText->new, 'text' => 0));
+        $media_list->get_selection->set_mode('browse');
+
+        my $key_col_size = 200;
+        my $keys_list_ls = Gtk2::ListStore->new("Glib::String", "Glib::String");
+        my $keys_list = Gtk2::TreeView->new_with_model($keys_list_ls);
+        $keys_list->set_rules_hint(1);
+        $keys_list->append_column(my $col = Gtk2::TreeViewColumn->new_with_attributes(N("_:cryptographic keys\nKeys"), my $renderer = Gtk2::CellRendererText->new, 'text' => 0));
+        $col->set_sizing('fixed');
+        $col->set_fixed_width($key_col_size);
+        $renderer->set_property('width' => 1);
+        $renderer->set_property('wrap-width', $key_col_size);
+        $keys_list->get_selection->set_mode('browse');
+
+        my ($current_medium, $current_medium_nb, @keys);
+
+        my $read_conf = sub {
+            $urpm->parse_pubkeys(root => $urpm->{root});
+            @keys = map { [ split /[,\s]+/, $_->{'key-ids'} ] } @{$urpm->{media}};
+        };
+        my $write = sub {
+            $something_changed = 1;
+            urpm::media::write_config($urpm);
+            $urpm = fast_open_urpmi_db();
+            $read_conf->();
+            $media_list->get_selection->signal_emit('changed');
+        };
         $read_conf->();
-        $media_list->get_selection->signal_emit('changed');
-    };
-    $read_conf->();
-    my $key_name = sub {
-        exists $urpm->{keys}{$_[0]} ? $urpm->{keys}{$_[0]}{name}
-                                    : N("no name found, key doesn't exist in rpm keyring!");
-    };
-    $media_list_ls->append_set([ 0 => $_->{name} ]) foreach @{$urpm->{media}};
-    $media_list->get_selection->signal_connect(changed => sub {
-        my ($model, $iter) = $_[0]->get_selected;
-        $model && $iter or return;
-        $current_medium = $model->get($iter, 0);
-        $current_medium_nb = $model->get_path($iter)->to_string;
-        $keys_list_ls->clear;
-        $keys_list_ls->append_set([ 0 => sprintf("%s (%s)", $_, $key_name->($_)), 1 => $_ ]) foreach @{$keys[$current_medium_nb]};
-    });
+        my $key_name = sub {
+            exists $urpm->{keys}{$_[0]} ? $urpm->{keys}{$_[0]}{name}
+                                        : N("no name found, key doesn't exist in rpm keyring!");
+        };
+        $media_list_ls->append_set([ 0 => $_->{name} ]) foreach @{$urpm->{media}};
+        $media_list->get_selection->signal_connect(changed => sub {
+            my ($model, $iter) = $_[0]->get_selected;
+            $model && $iter or return;
+            $current_medium = $model->get($iter, 0);
+            $current_medium_nb = $model->get_path($iter)->to_string;
+            $keys_list_ls->clear;
+            $keys_list_ls->append_set([ 0 => sprintf("%s (%s)", $_, $key_name->($_)), 1 => $_ ]) foreach @{$keys[$current_medium_nb]};
+        });
 
-    my $add_key = sub {
-        my $available_keyz_ls = Gtk2::ListStore->new("Glib::String", "Glib::String");
-        my $available_keyz = Gtk2::TreeView->new_with_model($available_keyz_ls);
-        $available_keyz->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::CellRendererText->new, 'text' => 0));
-        $available_keyz->set_headers_visible(0);
-        $available_keyz->get_selection->set_mode('browse');
-        $available_keyz_ls->append_set([ 0 => sprintf("%s (%s)", $_, $key_name->($_)), 1 => $_ ]) foreach keys %{$urpm->{keys}};
-        my $key;
-        add_callback_(N("Add a key"), N("Choose a key to add to the medium %s", $current_medium), $w, $available_keyz,
-                      sub {
-                          my ($model, $iter) = $available_keyz->get_selection->get_selected;
-                          $model && $iter and $key = $model->get($iter, 1);
-                      },
-                      sub {
-                          return if !defined $key;
-                          $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', sort(uniq(@{$keys[$current_medium_nb]}, $key)));
-                          $write->();
-                      }
-                  );
+        my $add_key = sub {
+            my $available_keyz_ls = Gtk2::ListStore->new("Glib::String", "Glib::String");
+            my $available_keyz = Gtk2::TreeView->new_with_model($available_keyz_ls);
+            $available_keyz->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::CellRendererText->new, 'text' => 0));
+            $available_keyz->set_headers_visible(0);
+            $available_keyz->get_selection->set_mode('browse');
+            $available_keyz_ls->append_set([ 0 => sprintf("%s (%s)", $_, $key_name->($_)), 1 => $_ ]) foreach keys %{$urpm->{keys}};
+            my $key;
+            add_callback_(N("Add a key"), N("Choose a key to add to the medium %s", $current_medium), $w, $available_keyz,
+                        sub {
+                            my ($model, $iter) = $available_keyz->get_selection->get_selected;
+                            $model && $iter and $key = $model->get($iter, 1);
+                        },
+                        sub {
+                            return if !defined $key;
+                            $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', sort(uniq(@{$keys[$current_medium_nb]}, $key)));
+                            $write->();
+                        }
+                    );
 
 
-    };
+        };
 
-    my $remove_key = sub {
-        my ($model, $iter) = $keys_list->get_selection->get_selected;
-        $model && $iter or return;
-        my $key = $model->get($iter, 1);
-	interactive_msg(N("Remove a key"),
-                        N("Are you sure you want to remove the key %s from medium %s?\n(name of the key: %s)",
-                          $key, $current_medium, $key_name->($key)),
-                        yesno => 1,  transient => $w->{real_window}) or return;
-        $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', difference2(\@{$keys[$current_medium_nb]}, [ $key ]));
-        $write->();
-    };
+        my $remove_key = sub {
+            my ($model, $iter) = $keys_list->get_selection->get_selected;
+            $model && $iter or return;
+            my $key = $model->get($iter, 1);
+        interactive_msg(N("Remove a key"),
+                            N("Are you sure you want to remove the key %s from medium %s?\n(name of the key: %s)",
+                            $key, $current_medium, $key_name->($key)),
+                            yesno => 1,  transient => $w->{real_window}) or return;
+            $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', difference2(\@{$keys[$current_medium_nb]}, [ $key ]));
+            $write->();
+        };
 
-    gtkadd(
-	$w->{window},
-	gtkpack_(
-	    gtknew('VBox', spacing => 5),
-	    1, gtkpack_(
-		gtknew('HBox', spacing => 10),
-		1, create_scrolled_window($media_list),
-		1, create_scrolled_window($keys_list),
-		0, gtkpack__(
-		    gtknew('VBox', spacing => 5),
-		    gtksignal_connect(
-			Gtk2::Button->new(but(N("Add"))),
-			clicked => \&$add_key,
-		    ),
-		    gtksignal_connect(
-			Gtk2::Button->new(but(N("Remove"))),
-			clicked => \&$remove_key,
-		    )
-		)
-	    ),
-	    0, gtknew('HSeparator'),
-	    0, gtkpack(
-		gtknew('HButtonBox'),
-		gtknew('Button', text => N("Ok"), clicked => sub { Gtk2->main_quit })
-	    ),
-	),
-    );
-    $w->main;
+        gtkadd(
+        $w->{window},
+        gtkpack_(
+            gtknew('VBox', spacing => 5),
+            1, gtkpack_(
+            gtknew('HBox', spacing => 10),
+            1, create_scrolled_window($media_list),
+            1, create_scrolled_window($keys_list),
+            0, gtkpack__(
+                gtknew('VBox', spacing => 5),
+                gtksignal_connect(
+                Gtk2::Button->new(but(N("Add"))),
+                clicked => \&$add_key,
+                ),
+                gtksignal_connect(
+                Gtk2::Button->new(but(N("Remove"))),
+                clicked => \&$remove_key,
+                )
+            )
+            ),
+            0, gtknew('HSeparator'),
+            0, gtkpack(
+            gtknew('HButtonBox'),
+            gtknew('Button', text => N("Ok"), clicked => sub { Gtk2->main_quit })
+            ),
+        ),
+        );
+        $w->main;
+    }
+
+
 }
 
 #=============================================================
@@ -1443,8 +1550,6 @@ sub mainwindow() {
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;
-    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
-    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
 
     my $dialog  = $factory->createMainDialog;
     my $vbox    = $factory->createVBox( $dialog );
@@ -1524,9 +1629,6 @@ sub mainwindow() {
     $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
 
     ## mirror list
-    # NOTE let's use YTable and not YCBTable atm
-#     my $mirrorTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
-#     $mirrorTbl->setKeepSorting(1);
     my $multiselection = 1;
     my $mirrorTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $mirrorTbl->setKeepSorting(1);
@@ -1642,7 +1744,7 @@ sub mainwindow() {
                 options_callback();
             }
             elsif ($menuLabel eq $optionsMenu{ man_keys }->label()) {
-#                 keys_callback();
+                keys_callback();
             }
             elsif ($menuLabel eq $optionsMenu{ parallel }->label()) {
 #                 parallel_callback();
