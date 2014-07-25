@@ -1247,6 +1247,57 @@ sub keys_callback() {
     my $keyTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $keyTbl->setKeepSorting(1);
 
+    my ($current_medium, $current_medium_nb, @keys);
+
+    my $read_conf = sub {
+        $urpm->parse_pubkeys(root => $urpm->{root});
+        @keys = map { [ split /[,\s]+/, $_->{'key-ids'} ] } @{$urpm->{media}};
+    };
+
+    my $write = sub {
+            $something_changed = 1;
+            urpm::media::write_config($urpm);
+            $urpm = fast_open_urpmi_db();
+            $read_conf->();
+#             $media_list->get_selection->signal_emit('changed');
+        };
+    $read_conf->();
+    my $key_name = sub {
+        exists $urpm->{keys}{$_[0]} ? $urpm->{keys}{$_[0]}{name}
+                                    : N("no name found, key doesn't exist in rpm keyring!");
+    };
+
+    my $sel_changed = sub {
+        my $item = $mediaTbl->selectedItem();
+        if ($item) {
+            $current_medium = $item->label();
+            $current_medium_nb = $item->index();
+
+            yui::YUI::app()->busyCursor();
+            yui::YUI::ui()->blockEvents();
+            $dialog->startMultipleChanges();
+
+
+            $keyTbl->deleteAllItems();
+            my $itemColl = new yui::YItemCollection;
+            foreach ( @{$keys[$current_medium_nb]} ) {
+                my $it = new yui::YTableItem (sprintf("%s (%s)", $_, $key_name->($_)));
+                # NOTE row is $item->index()
+                $it->setLabel( $_ );
+                $itemColl->push($it);
+                $it->DISOWN();
+            }
+            $keyTbl->addItems($itemColl);
+
+            $dialog->recalcLayout();
+            $dialog->doneMultipleChanges();
+            yui::YUI::ui()->unblockEvents();
+            yui::YUI::app()->normalCursor();
+        }
+    };
+
+    $sel_changed->();
+
     my $rightContent = $factory->createRight($hbox_content);
     $rightContent->setWeight($yui::YD_HORIZ,1);
     my $topContent = $factory->createTop($rightContent);
@@ -1280,6 +1331,13 @@ sub keys_callback() {
 
             if ($widget == $closeButton) {
                 last;
+            }
+            elsif ($widget == $addButton) {
+            }
+            elsif ($widget == $remButton) {
+            }
+            elsif ($widget == $mediaTbl) {
+                $sel_changed->();
             }
         }
     }
