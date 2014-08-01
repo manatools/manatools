@@ -1188,6 +1188,7 @@ sub parallel_callback() {
 }
 
 sub keys_callback() {
+    my $changed = 0;
     my $appTitle = yui::YUI::app()->applicationTitle();
 
     ## set new title to get it in dialog
@@ -1249,6 +1250,7 @@ sub keys_callback() {
 
     my ($current_medium, $current_medium_nb, @keys);
 
+    ### internal subroutines
     my $read_conf = sub {
         $urpm->parse_pubkeys(root => $urpm->{root});
         @keys = map { [ split /[,\s]+/, $_->{'key-ids'} ] } @{$urpm->{media}};
@@ -1295,7 +1297,37 @@ sub keys_callback() {
             yui::YUI::app()->normalCursor();
         }
     };
-
+    
+    my $add_key = sub {
+        my $sh_gui = AdminPanel::Shared::GUI->new();
+        my $item = $mediaTbl->selectedItem();
+        if ($item) {
+            $current_medium = $item->label();
+            $current_medium_nb = $item->index();
+            my @list;
+            my %key;
+            foreach (keys %{$urpm->{keys}}) {
+                my $k = sprintf("%s (%s)", $_, $key_name->($_));
+                $key{$k} = $_;
+                push @list, $k;
+            }
+            my $choice = $sh_gui->ask_fromList({
+                title   => N("Add a key"),
+                header  => N("Choose a key to add to the medium %s", $current_medium),
+                list    => \@list,
+            });
+            if ($choice) {
+                my $k = $key{$choice};
+                $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', sort(uniq(@{$keys[$current_medium_nb]}, $k)));
+                $write->();
+                return 1;
+            }
+        }
+        return 0;
+    };
+    
+    
+    #### end subroutines
     $sel_changed->();
 
     my $rightContent = $factory->createRight($hbox_content);
@@ -1333,6 +1365,8 @@ sub keys_callback() {
                 last;
             }
             elsif ($widget == $addButton) {
+                $changed = $add_key->();
+                $sel_changed->() if $changed;
             }
             elsif ($widget == $remButton) {
             }
@@ -1347,7 +1381,8 @@ sub keys_callback() {
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 
-
+    return $changed;
+    
     sub to_be_removed {
         my $w = ugtk2->new(N("Manage keys for digital signatures of packages"), grab => 1, center => 1,  transient => $mainw->{real_window});
         local $::main_window = $w->{real_window};
@@ -1801,7 +1836,7 @@ sub mainwindow() {
                 options_callback();
             }
             elsif ($menuLabel eq $optionsMenu{ man_keys }->label()) {
-                keys_callback();
+                $changed = keys_callback();
             }
             elsif ($menuLabel eq $optionsMenu{ parallel }->label()) {
 #                 parallel_callback();
