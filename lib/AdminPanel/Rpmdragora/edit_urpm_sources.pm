@@ -1249,7 +1249,7 @@ sub keys_callback() {
     $keyTbl->setKeepSorting(1);
 
     my ($current_medium, $current_medium_nb, @keys);
-
+    
     ### internal subroutines
     my $read_conf = sub {
         $urpm->parse_pubkeys(root => $urpm->{root});
@@ -1261,9 +1261,10 @@ sub keys_callback() {
             urpm::media::write_config($urpm);
             $urpm = fast_open_urpmi_db();
             $read_conf->();
-#             $media_list->get_selection->signal_emit('changed');
         };
+
     $read_conf->();
+
     my $key_name = sub {
         exists $urpm->{keys}{$_[0]} ? $urpm->{keys}{$_[0]}{name}
                                     : N("no name found, key doesn't exist in rpm keyring!");
@@ -1278,7 +1279,6 @@ sub keys_callback() {
             yui::YUI::app()->busyCursor();
             yui::YUI::ui()->blockEvents();
             $dialog->startMultipleChanges();
-
 
             $keyTbl->deleteAllItems();
             my $itemColl = new yui::YItemCollection;
@@ -1311,6 +1311,7 @@ sub keys_callback() {
                 $key{$k} = $_;
                 push @list, $k;
             }
+
             my $choice = $sh_gui->ask_fromList({
                 title   => N("Add a key"),
                 header  => N("Choose a key to add to the medium %s", $current_medium),
@@ -1324,6 +1325,35 @@ sub keys_callback() {
             }
         }
         return 0;
+    };
+    
+    my $remove_key = sub {
+        my $sh_gui = AdminPanel::Shared::GUI->new();
+        my $keyItem   = $keyTbl->selectedItem();
+        my $mediaItem = $mediaTbl->selectedItem();
+        if ($keyItem && $mediaItem) {
+            $current_medium = $mediaItem->label();
+            $current_medium_nb = $mediaItem->index();
+            my $current_key    = $keyItem->label();
+            my $current_keyVal = yui::toYTableItem($keyItem)->cell(0)->label();
+            my $choice = $sh_gui->ask_YesOrNo({
+                title   => N("Remove a key"),
+                text    => N("Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name of the key: %s)",
+                             $current_keyVal, $current_medium, $current_key
+                           ),
+                richtext => 1,
+            });
+            if ($choice) {
+                $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', 
+                    difference2(\@{$keys[$current_medium_nb]}, [ $current_key ])
+                );
+                $write->();
+                return 1;
+            }            
+        }
+        
+        return 0;
+        
     };
     
     
@@ -1369,6 +1399,8 @@ sub keys_callback() {
                 $sel_changed->() if $changed;
             }
             elsif ($widget == $remButton) {
+                $changed = $remove_key->();
+                $sel_changed->() if $changed;
             }
             elsif ($widget == $mediaTbl) {
                 $sel_changed->();
