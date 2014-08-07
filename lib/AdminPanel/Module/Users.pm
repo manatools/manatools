@@ -139,6 +139,14 @@ has 'ctx' => (
     builder => '_USERInitialize',
 );
 
+## min UID was 500 now is 1000, let's change in a single point
+has 'min_UID' => (
+    default   => 1000,
+    is        => 'ro',
+    isa       => 'Int',
+    init_arg  => undef,
+);
+
 sub _USERInitialize {
     my $self = shift;
 
@@ -906,7 +914,7 @@ sub addUserDialog {
     $hbox            = $factory->createHBox($align);
     my $uidManually  = $factory->createCheckBox($hbox, $self->loc->N("Specify user ID manually"), 0);
     $factory->createHSpacing($hbox, 2.0);
-    my $UID = $factory->createIntField($hbox, $self->loc->N("UID"), 1, 65000, 500);
+    my $UID = $factory->createIntField($hbox, $self->loc->N("UID"), 1, 65000, $self->min_UID);
     $UID->setEnabled($uidManually->value());
     $uidManually->setNotify(1);
 #     $uidManually->setWeight($yui::YD_HORIZ, 2);
@@ -988,10 +996,10 @@ sub addUserDialog {
                 }
                 my $uid = 0;
                 if ($continue && $uidManually->value()) {
-                    if (($uid = $UID->value()) < 500) {
+                    if (($uid = $UID->value()) < $self->min_UID) {
                         $errorString = "";
-                        my $uidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N("User Uid is < 500"),
-                                        text => $self->loc->N("Creating a user with a UID less than 500 is not recommended.\nAre you sure you want to do this?\n\n")}); 
+                        my $uidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N("User Uid is < %d", $self->min_UID),
+                                        text => $self->loc->N("Creating a user with a UID less than %d is not recommended.\nAre you sure you want to do this?\n\n", $self->min_UID)});
                         $continue = $uidchoice and $userEnt->Uid($uid);
                     } else { 
                         $userEnt and $userEnt->Uid($uid);
@@ -1206,7 +1214,7 @@ sub _refreshUsers {
 
     my $strfilt = $self->get_widget('filter')->value();
     my $filterusers = $self->get_widget('filter_system')->isChecked();
-    
+
     my ($users, $group, $groupnm, $expr); 
     defined $self->ctx and $users = $self->ctx->UsersEnumerateFull;
 
@@ -1219,6 +1227,8 @@ sub _refreshUsers {
     my @UserReal;
   LOOP: foreach my $l (@$users) {
         next LOOP if $filterusers && $l->Uid($self->USER_GetValue) <= 499 || $l->Uid($self->USER_GetValue) == 65534;
+        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) > 499 && $l->Uid($self->USER_GetValue) < $self->min_UID &&
+                     ($l->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/);
         push @UserReal, $l if $l->UserName($self->USER_GetValue) =~ /^\Q$strfilt/;
     }
     my $i;
