@@ -988,9 +988,15 @@ sub addUserDialog {
                 }
                 my $userEnt = $continue && $self->ctx->InitUser($username, $is_system);
                 if ($continue && $createHome->value()) {
-                    $dontcreatehomedir = 0;
                     my $homedir = $homeDir->value();
-                    $userEnt and $userEnt->HomeDir($homedir);
+                    if ( -d $homedir) {
+                        $errorString = $self->loc->N("Home directory <%s> already exists.\nPlease uncheck the home creation option, or change the directory path name", $homedir);
+                        $continue = 0;
+                    }
+                    else {
+                        $dontcreatehomedir = 0;
+                        $userEnt and $userEnt->HomeDir($homedir);
+                    }
                 } else {
                     $dontcreatehomedir = 1;
                 }
