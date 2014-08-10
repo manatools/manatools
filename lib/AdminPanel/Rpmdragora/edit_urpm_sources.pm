@@ -1253,7 +1253,7 @@ sub keys_callback() {
     ### internal subroutines
     my $read_conf = sub {
         $urpm->parse_pubkeys(root => $urpm->{root});
-        @keys = map { [ split /[,\s]+/, $_->{'key-ids'} ] } @{$urpm->{media}};
+        @keys = map { [ split /[,\s]+/, ($_->{'key-ids'} || '') ] } @{$urpm->{media}};
     };
 
     my $write = sub {
@@ -1414,122 +1414,6 @@ sub keys_callback() {
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 
     return $changed;
-    
-    sub to_be_removed {
-        my $w = ugtk2->new(N("Manage keys for digital signatures of packages"), grab => 1, center => 1,  transient => $mainw->{real_window});
-        local $::main_window = $w->{real_window};
-        $w->{real_window}->set_size_request(600, 300);
-
-        my $media_list_ls = Gtk2::ListStore->new("Glib::String");
-        my $media_list = Gtk2::TreeView->new_with_model($media_list_ls);
-        $media_list->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Medium"), Gtk2::CellRendererText->new, 'text' => 0));
-        $media_list->get_selection->set_mode('browse');
-
-        my $key_col_size = 200;
-        my $keys_list_ls = Gtk2::ListStore->new("Glib::String", "Glib::String");
-        my $keys_list = Gtk2::TreeView->new_with_model($keys_list_ls);
-        $keys_list->set_rules_hint(1);
-        $keys_list->append_column(my $col = Gtk2::TreeViewColumn->new_with_attributes(N("_:cryptographic keys\nKeys"), my $renderer = Gtk2::CellRendererText->new, 'text' => 0));
-        $col->set_sizing('fixed');
-        $col->set_fixed_width($key_col_size);
-        $renderer->set_property('width' => 1);
-        $renderer->set_property('wrap-width', $key_col_size);
-        $keys_list->get_selection->set_mode('browse');
-
-        my ($current_medium, $current_medium_nb, @keys);
-
-        my $read_conf = sub {
-            $urpm->parse_pubkeys(root => $urpm->{root});
-            @keys = map { [ split /[,\s]+/, $_->{'key-ids'} ] } @{$urpm->{media}};
-        };
-        my $write = sub {
-            $something_changed = 1;
-            urpm::media::write_config($urpm);
-            $urpm = fast_open_urpmi_db();
-            $read_conf->();
-            $media_list->get_selection->signal_emit('changed');
-        };
-        $read_conf->();
-        my $key_name = sub {
-            exists $urpm->{keys}{$_[0]} ? $urpm->{keys}{$_[0]}{name}
-                                        : N("no name found, key doesn't exist in rpm keyring!");
-        };
-        $media_list_ls->append_set([ 0 => $_->{name} ]) foreach @{$urpm->{media}};
-        $media_list->get_selection->signal_connect(changed => sub {
-            my ($model, $iter) = $_[0]->get_selected;
-            $model && $iter or return;
-            $current_medium = $model->get($iter, 0);
-            $current_medium_nb = $model->get_path($iter)->to_string;
-            $keys_list_ls->clear;
-            $keys_list_ls->append_set([ 0 => sprintf("%s (%s)", $_, $key_name->($_)), 1 => $_ ]) foreach @{$keys[$current_medium_nb]};
-        });
-
-        my $add_key = sub {
-            my $available_keyz_ls = Gtk2::ListStore->new("Glib::String", "Glib::String");
-            my $available_keyz = Gtk2::TreeView->new_with_model($available_keyz_ls);
-            $available_keyz->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::CellRendererText->new, 'text' => 0));
-            $available_keyz->set_headers_visible(0);
-            $available_keyz->get_selection->set_mode('browse');
-            $available_keyz_ls->append_set([ 0 => sprintf("%s (%s)", $_, $key_name->($_)), 1 => $_ ]) foreach keys %{$urpm->{keys}};
-            my $key;
-            add_callback_(N("Add a key"), N("Choose a key to add to the medium %s", $current_medium), $w, $available_keyz,
-                        sub {
-                            my ($model, $iter) = $available_keyz->get_selection->get_selected;
-                            $model && $iter and $key = $model->get($iter, 1);
-                        },
-                        sub {
-                            return if !defined $key;
-                            $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', sort(uniq(@{$keys[$current_medium_nb]}, $key)));
-                            $write->();
-                        }
-                    );
-
-
-        };
-
-        my $remove_key = sub {
-            my ($model, $iter) = $keys_list->get_selection->get_selected;
-            $model && $iter or return;
-            my $key = $model->get($iter, 1);
-        interactive_msg(N("Remove a key"),
-                            N("Are you sure you want to remove the key %s from medium %s?\n(name of the key: %s)",
-                            $key, $current_medium, $key_name->($key)),
-                            yesno => 1,  transient => $w->{real_window}) or return;
-            $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', difference2(\@{$keys[$current_medium_nb]}, [ $key ]));
-            $write->();
-        };
-
-        gtkadd(
-        $w->{window},
-        gtkpack_(
-            gtknew('VBox', spacing => 5),
-            1, gtkpack_(
-            gtknew('HBox', spacing => 10),
-            1, create_scrolled_window($media_list),
-            1, create_scrolled_window($keys_list),
-            0, gtkpack__(
-                gtknew('VBox', spacing => 5),
-                gtksignal_connect(
-                Gtk2::Button->new(but(N("Add"))),
-                clicked => \&$add_key,
-                ),
-                gtksignal_connect(
-                Gtk2::Button->new(but(N("Remove"))),
-                clicked => \&$remove_key,
-                )
-            )
-            ),
-            0, gtknew('HSeparator'),
-            0, gtkpack(
-            gtknew('HButtonBox'),
-            gtknew('Button', text => N("Ok"), clicked => sub { Gtk2->main_quit })
-            ),
-        ),
-        );
-        $w->main;
-    }
-
-
 }
 
 #=============================================================
