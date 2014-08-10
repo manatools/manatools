@@ -30,6 +30,7 @@ use File::HomeDir qw(home);
 
 use lib qw(/usr/lib/libDrakX);
 use common;
+use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::init;
 use AdminPanel::Rpmdragora::open_db;
@@ -47,9 +48,8 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(run);
 
-#use mygtk2 qw(gtknew gtkset);
-#use ugtk2 qw(:all);
 
+my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
 my $urpm;
 my ($mainw, $list_tv, $something_changed);
 
@@ -67,19 +67,19 @@ my %col = (
 sub get_medium_type {
     my ($medium) = @_;
     my %medium_type = (
-        cdrom     => N("CD-ROM"),
-        ftp       => N("FTP"),
-        file      => N("Local"),
-        http      => N("HTTP"),
-        https     => N("HTTPS"),
-        nfs       => N("NFS"),
-        removable => N("Removable"),
-        rsync     => N("rsync"),
-        ssh       => N("NFS"),
+        cdrom     => $loc->N("CD-ROM"),
+        ftp       => $loc->N("FTP"),
+        file      => $loc->N("Local"),
+        http      => $loc->N("HTTP"),
+        https     => $loc->N("HTTPS"),
+        nfs       => $loc->N("NFS"),
+        removable => $loc->N("Removable"),
+        rsync     => $loc->N("rsync"),
+        ssh       => $loc->N("NFS"),
     );
-    return N("Mirror list") if $medium->{mirrorlist};
+    return $loc->N("Mirror list") if $medium->{mirrorlist};
     return $medium_type{$1} if $medium->{url} =~ m!^([^:]*)://!;
-    return N("Local");
+    return $loc->N("Local");
 }
 
 sub selrow {
@@ -119,8 +119,8 @@ sub remove_from_list {
 
 sub _want_base_distro() {
     $::expert && distro_type(0) eq 'updates' ? interactive_msg(
-        N("Choose media type"),
-        N("In order to keep your system secure and stable, you must at a minimum set up
+        $loc->N("Choose media type"),
+        $loc->N("In order to keep your system secure and stable, you must at a minimum set up
 sources for official security and stability updates. You can also choose to set
 up a fuller set of sources which includes the complete official Mageia
 repositories, giving you access to more software than can fit on the Mageia
@@ -128,7 +128,7 @@ discs. Please choose whether to configure update sources only, or the full set
 of sources."
         ),
         transient => $::main_window,
-        yesno => 1, text => { yes => N("Full set of sources"), no => N("Update sources only") },
+        yesno => 1, text => { yes => $loc->N("Full set of sources"), no => $loc->N("Update sources only") },
     ) : 1;
 }
 
@@ -141,7 +141,7 @@ sub easy_add_callback_with_mirror() {
     defined $want_base_distro or return 0;
     my $distro = $AdminPanel::rpmdragora::mageia_release;
     my ($mirror) = choose_mirror($urpm, message =>
-        N("This will attempt to install all official sources corresponding to your
+        $loc->N("This will attempt to install all official sources corresponding to your
 distribution (%s).\n
 I need to contact the Mageia website to get the mirror list.
 Please check that your network is currently running.\n
@@ -149,7 +149,7 @@ Is it ok to continue?", $distro),
         transient => $::main_window,
     ) or return 0;
     ref $mirror or return 0;
-    my $wait = wait_msg(N("Please wait, adding media..."));
+    my $wait = wait_msg($loc->N("Please wait, adding media..."));
     add_distrib_update_media($urpm, $mirror, if_(!$want_base_distro, only_updates => 1));
     $offered_to_add_sources->[0] = 1;
     remove_wait_msg($wait);
@@ -164,7 +164,7 @@ sub easy_add_callback() {
     my $want_base_distro = _want_base_distro();
     defined $want_base_distro or return 0;
     warn_for_network_need(undef, transient => $::main_window) or return 0;
-    my $wait = wait_msg(N("Please wait, adding media..."));
+    my $wait = wait_msg($loc->N("Please wait, adding media..."));
     add_distrib_update_media($urpm, undef, if_(!$want_base_distro, only_updates => 1));
     $offered_to_add_sources->[0] = 1;
     remove_wait_msg($wait);
@@ -200,19 +200,19 @@ sub _build_add_dialog  {
     $widgets{url}   = $factory->createInputField($hbox, "", 0);
     $widgets{url}->setWeight($yui::YD_HORIZ, 2);
     if (defined($options->{info}->{$options->{selected}}->{dirsel})) {
-        $widgets{dirsel} = $factory->createPushButton($hbox, N("Browse..."));
+        $widgets{dirsel} = $factory->createPushButton($hbox, $loc->N("Browse..."));
     }
     elsif (defined($options->{info}->{$options->{selected}}->{loginpass})) {
         $hbox           = $factory->createHBox($vbox);
         $factory->createHSpacing($hbox, 1.0);
-        $label          = $factory->createLabel($hbox, N("Login:") );
+        $label          = $factory->createLabel($hbox, $loc->N("Login:") );
         $factory->createHSpacing($hbox, 1.0);
         $widgets{login} = $factory->createInputField($hbox, "", 0);
         $label->setWeight($yui::YD_HORIZ, 1);
         $widgets{login}->setWeight($yui::YD_HORIZ, 3);
         $hbox           = $factory->createHBox($vbox);
         $factory->createHSpacing($hbox, 1.0);
-        $label          = $factory->createLabel($hbox, N("Password:") );
+        $label          = $factory->createLabel($hbox, $loc->N("Password:") );
         $factory->createHSpacing($hbox, 1.0);
         $widgets{pass}  = $factory->createInputField($hbox, "", 1);
         $label->setWeight($yui::YD_HORIZ, 1);
@@ -233,7 +233,7 @@ sub add_callback() {
 
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Add a medium"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Add a medium"));
 
     my $factory      = yui::YUI::widgetFactory;
 
@@ -244,22 +244,22 @@ sub add_callback() {
     $factory->createVSpacing($vbox, 0.5);
 
     my $hbox    = $factory->createHBox( $factory->createLeft($vbox) );
-    $factory->createHeading($hbox, N("Adding a medium:"));
+    $factory->createHeading($hbox, $loc->N("Adding a medium:"));
     $factory->createVSpacing($vbox, 0.5);
 
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    my $label         = $factory->createLabel($hbox, N("Type of medium:") );
+    my $label         = $factory->createLabel($hbox, $loc->N("Type of medium:") );
     my $media_type = $factory->createComboBox($hbox, "", 0);
     $media_type->setWeight($yui::YD_HORIZ, 2);
 
     my %radios_infos = (
-            local => { name => N("Local files"),  url => N("Medium path:"), dirsel => 1 },
-            ftp   => { name => N("FTP server"),   url => N("URL:"), loginpass => 1 },
-            rsync => { name => N("RSYNC server"), url => N("URL:") },
-            http  => { name => N("HTTP server"),  url => N("URL:") },
-        removable => { name => N("Removable device (CD-ROM, DVD, ...)"),
-                       url  => N("Path or mount point:"), dirsel => 1 },
+            local => { name => $loc->N("Local files"),  url => $loc->N("Medium path:"), dirsel => 1 },
+            ftp   => { name => $loc->N("FTP server"),   url => $loc->N("URL:"), loginpass => 1 },
+            rsync => { name => $loc->N("RSYNC server"), url => $loc->N("URL:") },
+            http  => { name => $loc->N("HTTP server"),  url => $loc->N("URL:") },
+        removable => { name => $loc->N("Removable device (CD-ROM, DVD, ...)"),
+                       url  => $loc->N("Path or mount point:"), dirsel => 1 },
     );
     my @radios_names_ordered = qw(local ftp rsync http removable);
 
@@ -277,7 +277,7 @@ sub add_callback() {
 
     $hbox           = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    $label          = $factory->createLabel($hbox, N("Medium name:") );
+    $label          = $factory->createLabel($hbox, $loc->N("Medium name:") );
     $factory->createHSpacing($hbox, 1.0);
     my $media_name = $factory->createInputField($hbox, "", 0);
     $media_name->setWeight($yui::YD_HORIZ, 2);
@@ -292,18 +292,18 @@ sub add_callback() {
     # check-boxes
     $hbox    = $factory->createHBox($factory->createLeft($vbox));
     $factory->createHSpacing($hbox, 1.3);
-    my $dist_media   = $factory->createCheckBox($hbox, N("Create media for a whole distribution"), 0);
+    my $dist_media   = $factory->createCheckBox($hbox, $loc->N("Create media for a whole distribution"), 0);
     $hbox    = $factory->createHBox($factory->createLeft($vbox));
     $factory->createHSpacing($hbox, 1.3);
-    my $update_media = $factory->createCheckBox($hbox, N("Tag this medium as an update medium"),   0);
+    my $update_media = $factory->createCheckBox($hbox, $loc->N("Tag this medium as an update medium"),   0);
     $dist_media->setNotify(1);
 
     # Last line buttons
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $cancelButton = $factory->createPushButton($hbox,  N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("Cancel"));
     $factory->createHSpacing($hbox, 3.0);
-    my $okButton   = $factory->createPushButton($hbox,  N("Ok"));
+    my $okButton   = $factory->createPushButton($hbox,  $loc->N("Ok"));
 
     $cancelButton->setDefaultButton(1);
 
@@ -338,10 +338,10 @@ sub add_callback() {
                 my $info = $radios_infos{$radios_names_ordered[$sel]};
                 my $name = $media_name->value();
                 my $url  = $add_widgets->{url}->value();
-                $name eq '' || $url eq '' and interactive_msg('rpmdragora', N("You need to fill up at least the two first entries.")), next;
+                $name eq '' || $url eq '' and interactive_msg('rpmdragora', $loc->N("You need to fill up at least the two first entries.")), next;
                 if (member($name, map { $_->{name} } @{$urpm->{media}})) {
                     interactive_msg('rpmdragora',
-                                    N("There is already a medium called <%s>,\ndo you really want to replace it?", $name),
+                                    $loc->N("There is already a medium called <%s>,\ndo you really want to replace it?", $name),
                                     yesno => 1) or next;
                 }
 
@@ -419,7 +419,7 @@ sub options_callback() {
 
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Global options for package installation"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Global options for package installation"));
 
     my $factory      = yui::YUI::widgetFactory;
 
@@ -429,11 +429,11 @@ sub options_callback() {
 
     my $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    my $label        = $factory->createLabel($hbox, N("Verify RPMs to be installed:") );
+    my $label        = $factory->createLabel($hbox, $loc->N("Verify RPMs to be installed:") );
     $factory->createHSpacing($hbox, 3.5);
     my $verify_rpm   = $factory->createComboBox($hbox, "", 0);
     $verify_rpm->setWeight($yui::YD_HORIZ, 2);
-    my @verif = (N("never"), N("always"));
+    my @verif = ($loc->N("never"), $loc->N("always"));
     my $verify_rpm_value = $urpm->{global_config}{'verify-rpm'};
 
     my $itemColl = new yui::YItemCollection;
@@ -451,7 +451,7 @@ sub options_callback() {
 
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    $label        = $factory->createLabel($hbox, N("Download program to use:") );
+    $label        = $factory->createLabel($hbox, $loc->N("Download program to use:") );
     $factory->createHSpacing($hbox, 4.0);
     my $downloader_entry   = $factory->createComboBox($hbox, "", 0);
     $downloader_entry->setWeight($yui::YD_HORIZ, 2);
@@ -474,12 +474,12 @@ sub options_callback() {
 
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    $label        = $factory->createLabel($hbox, N("XML meta-data download policy:") );
+    $label        = $factory->createLabel($hbox, $loc->N("XML meta-data download policy:") );
     my $xml_info_policy   = $factory->createComboBox($hbox, "", 0);
     $xml_info_policy->setWeight($yui::YD_HORIZ, 2);
 
     my @xml_info_policies   = ('',   'never',    'on-demand',    'update-only',    'always');
-    my @xml_info_policiesL  = ('', N("Never"), N("On-demand"), N("Update-only"), N("Always"));
+    my @xml_info_policiesL  = ('', $loc->N("Never"), $loc->N("On-demand"), $loc->N("Update-only"), $loc->N("Always"));
     my $xml_info_policy_value = $urpm->{global_config}{'xml-info'};
 
     $itemColl = new yui::YItemCollection;
@@ -498,20 +498,20 @@ sub options_callback() {
     ### TODO tips ###
     #tip =>
     #join("\n",
-    #N("For remote media, specify when XML meta-data (file lists, changelogs & information) are downloaded."),
+    #$loc->N("For remote media, specify when XML meta-data (file lists, changelogs & information) are downloaded."),
     #'',
-    #N("Never"),
-    #N("For remote media, XML meta-data are never downloaded."),
+    #$loc->N("Never"),
+    #$loc->N("For remote media, XML meta-data are never downloaded."),
     #'',
-    #N("On-demand"),
-    #N("(This is the default)"),
-    #N("The specific XML info file is downloaded when clicking on package."),
+    #$loc->N("On-demand"),
+    #$loc->N("(This is the default)"),
+    #$loc->N("The specific XML info file is downloaded when clicking on package."),
     #'',
-    #N("Update-only"),
-    #N("Updating media implies updating XML info files already required at least once."),
+    #$loc->N("Update-only"),
+    #$loc->N("Updating media implies updating XML info files already required at least once."),
     #'',
-    #N("Always"),
-    #N("All XML info files are downloaded when adding or updating media."),
+    #$loc->N("Always"),
+    #$loc->N("All XML info files are downloaded when adding or updating media."),
 
     $factory->createVSpacing($vbox, 0.5);
 
@@ -519,9 +519,9 @@ sub options_callback() {
     ### last line buttons
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $cancelButton = $factory->createPushButton($hbox,  N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("Cancel"));
     $factory->createHSpacing($hbox, 3.0);
-    my $okButton   = $factory->createPushButton($hbox,  N("Ok"));
+    my $okButton   = $factory->createPushButton($hbox,  $loc->N("Ok"));
 
     $cancelButton->setDefaultButton(1);
 
@@ -603,15 +603,15 @@ sub remove_callback {
     }
     @rows == 0 and return 0;
     interactive_msg(
-        N("Source Removal"),
+        $loc->N("Source Removal"),
         @rows == 1 ?
-            N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
-            N("Are you sure you want to remove the following sources?") . "\n\n" .
+            $loc->N("Are you sure you want to remove source \"%s\"?", $urpm->{media}[$rows[0]]{name}) :
+            $loc->N("Are you sure you want to remove the following sources?") . "\n\n" .
                 format_list(map { $urpm->{media}[$_]{name} } @rows),
         yesno => 1, scroll => 1,
     ) or return 0;
 
-    my $wait = wait_msg(N("Please wait, removing medium..."));
+    my $wait = wait_msg($loc->N("Please wait, removing medium..."));
     foreach my $row (reverse(@rows)) {
         $something_changed = 1;
         urpm::media::remove_media($urpm, [ $urpm->{media}[$row] ]);
@@ -704,7 +704,7 @@ sub edit_callback {
 
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Edit a medium"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Edit a medium"));
 
     my $factory      = yui::YUI::widgetFactory;
 
@@ -713,19 +713,19 @@ sub edit_callback {
     my $vbox    = $factory->createVBox( $minSize );
 
     my $hbox    = $factory->createHBox( $factory->createLeft($vbox) );
-    $factory->createHeading($hbox, N("Editing medium \"%s\":", $medium->{name}));
+    $factory->createHeading($hbox, $loc->N("Editing medium \"%s\":", $medium->{name}));
     $factory->createVSpacing($vbox, 1.0);
 
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    my $label     = $factory->createLabel($hbox, N("URL:"));
+    my $label     = $factory->createLabel($hbox, $loc->N("URL:"));
     my $url_entry = $factory->createInputField($hbox, "", 0);
     $url_entry->setWeight($yui::YD_HORIZ, 2);
     $url_entry->setValue($verbatim_medium->{url} || $verbatim_medium->{mirrorlist});
 
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    $label        = $factory->createLabel($hbox, N("Downloader:") );
+    $label        = $factory->createLabel($hbox, $loc->N("Downloader:") );
     my $downloader_entry   = $factory->createComboBox($hbox, "", 0);
     $downloader_entry->setWeight($yui::YD_HORIZ, 2);
 
@@ -754,18 +754,18 @@ sub edit_callback {
     my $tableItem = yui::toYTableItem($item);
     # enabled cell 0, updates cell 1
     my $cellEnabled = $tableItem->cell(0)->label() ? 1 : 0;
-    my $enabled = $factory->createCheckBox($hbox, N("Enabled"), $cellEnabled);
+    my $enabled = $factory->createCheckBox($hbox, $loc->N("Enabled"), $cellEnabled);
     my $cellUpdates = $tableItem->cell(1)->label() ? 1 : 0;
-    my $update  = $factory->createCheckBox($hbox, N("Updates"), $cellUpdates);
+    my $update  = $factory->createCheckBox($hbox, $loc->N("Updates"), $cellUpdates);
     $update->setDisabled() if (!$::expert);
 
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $cancelButton = $factory->createPushButton($hbox,  N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("Cancel"));
     $factory->createHSpacing($hbox, 3.0);
-    my $saveButton   = $factory->createPushButton($hbox,  N("Save changes"));
+    my $saveButton   = $factory->createPushButton($hbox,  $loc->N("Save changes"));
     $factory->createHSpacing($hbox, 3.0);
-    my $proxyButton  = $factory->createPushButton($hbox,  N("Proxy..."));
+    my $proxyButton  = $factory->createPushButton($hbox,  $loc->N("Proxy..."));
 
     $cancelButton->setDefaultButton(1);
 
@@ -803,9 +803,9 @@ sub edit_callback {
                 $downloader = $downloader_entry->value();
                 $url =~ m|^removable://| and (
                     interactive_msg(
-                        N("You need to insert the medium to continue"),
-                                    N("In order to save the changes, you need to insert the medium in the drive."),
-                                    yesno => 1, text => { yes => N("Ok"), no => N("Cancel") }
+                        $loc->N("You need to insert the medium to continue"),
+                                    $loc->N("In order to save the changes, you need to insert the medium in the drive."),
+                                    yesno => 1, text => { yes => $loc->N("Ok"), no => $loc->N("Cancel") }
                     ) or return 0
                 );
                 my $saved_proxy = urpm::download::get_proxy($m_name);
@@ -872,7 +872,7 @@ sub proxy_callback {
 
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Configure proxies"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Configure proxies"));
 
     my $factory      = yui::YUI::widgetFactory;
 
@@ -883,28 +883,28 @@ sub proxy_callback {
     my $hbox    = $factory->createHBox( $factory->createLeft($vbox) );
     $factory->createHeading($hbox,
                             $medium_name
-                            ? N("Proxy settings for media \"%s\"", $medium_name)
-                            : N("Global proxy settings"));
+                            ? $loc->N("Proxy settings for media \"%s\"", $medium_name)
+                            : $loc->N("Global proxy settings"));
     $factory->createVSpacing($vbox, 0.5);
 
     $hbox    = $factory->createHBox($vbox);
     $factory->createHSpacing($hbox, 1.0);
-    my $label     = $factory->createLabel($hbox, N("If you need a proxy, enter the hostname and an optional port (syntax: <proxyhost[:port]>):"));
+    my $label     = $factory->createLabel($hbox, $loc->N("If you need a proxy, enter the hostname and an optional port (syntax: <proxyhost[:port]>):"));
     $factory->createVSpacing($vbox, 0.5);
 
     my ($proxybutton, $proxyentry, $proxyuserbutton, $proxyuserentry, $proxypasswordentry);
 
     $hbox    = $factory->createHBox($factory->createLeft($vbox));
-    $proxybutton = $factory->createCheckBoxFrame($hbox, N("Enable proxy"), 1);
+    $proxybutton = $factory->createCheckBoxFrame($hbox, $loc->N("Enable proxy"), 1);
     my $frm_vbox    = $factory->createVBox( $proxybutton );
     my $align       = $factory->createRight($frm_vbox);
     $hbox           = $factory->createHBox($align);
-    $label          = $factory->createLabel($hbox, N("Proxy hostname:") );
+    $label          = $factory->createLabel($hbox, $loc->N("Proxy hostname:") );
     $proxyentry = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $proxyentry->setWeight($yui::YD_HORIZ, 2);
     $proxyuserbutton = $factory->createCheckBoxFrame($factory->createLeft($frm_vbox),
-                                                     N("You may specify a username/password for the proxy authentication:"), 1);
+                                                     $loc->N("You may specify a username/password for the proxy authentication:"), 1);
     $proxyentry->setValue($proxy) if $proxy;
     
     $frm_vbox    = $factory->createVBox( $proxyuserbutton );
@@ -912,7 +912,7 @@ sub proxy_callback {
     ## proxy user name
     $align       = $factory->createRight($frm_vbox);
     $hbox           = $factory->createHBox($align);
-    $label          = $factory->createLabel($hbox, N("User:") );
+    $label          = $factory->createLabel($hbox, $loc->N("User:") );
     $proxyuserentry = $factory->createInputField($hbox, "", 0);
     $label->setWeight($yui::YD_HORIZ, 1);
     $proxyuserentry->setWeight($yui::YD_HORIZ, 2);
@@ -921,7 +921,7 @@ sub proxy_callback {
     ## proxy user password
     $align           = $factory->createRight($frm_vbox);
     $hbox            = $factory->createHBox($align);
-    $label           = $factory->createLabel($hbox, N("Password:") );
+    $label           = $factory->createLabel($hbox, $loc->N("Password:") );
     $proxypasswordentry = $factory->createInputField($hbox, "", 1);
     $label->setWeight($yui::YD_HORIZ, 1);
     $proxypasswordentry->setWeight($yui::YD_HORIZ, 2);
@@ -933,9 +933,9 @@ sub proxy_callback {
     # dialog low level buttons
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $okButton   = $factory->createPushButton($hbox,   N("Ok"));
+    my $okButton   = $factory->createPushButton($hbox,   $loc->N("Ok"));
     $factory->createHSpacing($hbox, 3.0);
-    my $cancelButton = $factory->createPushButton($hbox, N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox, $loc->N("Cancel"));
 
     $cancelButton->setDefaultButton(1);
 
@@ -1011,8 +1011,8 @@ sub add_callback_ {
             gtknew('HSeparator'),
             gtkpack(
                 gtknew('HButtonBox'),
-                gtknew('Button', text => N("Ok"), clicked => sub { $w->{retval} = 1; $get_value->(); Gtk2->main_quit }),
-                gtknew('Button', text => N("Cancel"), clicked => sub { $w->{retval} = 0; Gtk2->main_quit })
+                gtknew('Button', text => $loc->N("Ok"), clicked => sub { $w->{retval} = 1; $get_value->(); Gtk2->main_quit }),
+                gtknew('Button', text => $loc->N("Cancel"), clicked => sub { $w->{retval} = 0; Gtk2->main_quit })
             )
         )
     );
@@ -1022,7 +1022,7 @@ sub add_callback_ {
 sub edit_parallel {
     my ($num, $conf) = @_;
     my $edited = $num == -1 ? {} : $conf->[$num];
-    my $w = ugtk2->new($num == -1 ? N("Add a parallel group") : N("Edit a parallel group"), grab => 1, center => 1,  transient => $::main_window);
+    my $w = ugtk2->new($num == -1 ? $loc->N("Add a parallel group") : $loc->N("Edit a parallel group"), grab => 1, center => 1,  transient => $::main_window);
     local $::main_window = $w->{real_window};
     my $name_entry;
 
@@ -1046,7 +1046,7 @@ sub edit_parallel {
         $medias_list->get_selection->set_mode('browse');
         $medias_list_ls->append_set([ 0 => $_->{name} ]) foreach @{$urpm->{media}};
         my $sel;
-        add_callback_(N("Add a medium limit"), N("Choose a medium to add to the media limit:"),
+        add_callback_($loc->N("Add a medium limit"), $loc->N("Choose a medium to add to the media limit:"),
                       $w, $medias_list, sub { $sel = selrow($medias_list) },
                       sub {
                           return if $sel == -1;
@@ -1063,7 +1063,7 @@ sub edit_parallel {
     $hosts_ls->append_set([ 0 => $_ ]) foreach @$hosts_list;
     my $add_host = sub {
         my ($entry, $value);
-        add_callback_(N("Add a host"), N("Type in the hostname or IP address of the host to add:"),
+        add_callback_($loc->N("Add a host"), $loc->N("Type in the hostname or IP address of the host to add:"),
                       $mainw, $entry = gtkentry(), sub { $value = $entry->get_text },
                       sub { $hosts_ls->append_set([ 0 => $value ]); push @$hosts_list, $value }
                   );
@@ -1077,29 +1077,29 @@ sub edit_parallel {
 	    gtknew('VBox', spacing => 5),
 	    if_(
 		$num != -1,
-		0, gtknew('Label', text => N("Editing parallel group \"%s\":", $edited->{name}))
+		0, gtknew('Label', text => $loc->N("Editing parallel group \"%s\":", $edited->{name}))
 	    ),
 	    1, create_packtable(
 		{},
-		[ N("Group name:"), $name_entry = gtkentry($edited->{name}) ],
-		[ N("Protocol:"), gtknew('HBox', children_tight => [
+		[ $loc->N("Group name:"), $name_entry = gtkentry($edited->{name}) ],
+		[ $loc->N("Protocol:"), gtknew('HBox', children_tight => [
 		    @protocols = gtkradio($edited->{protocol}, @protocols_names) ]) ],
-		[ N("Media limit:"),
+		[ $loc->N("Media limit:"),
 		gtknew('HBox', spacing => 5, children => [
 		    1, gtknew('Frame', shadow_type => 'in', child => 
 			gtknew('ScrolledWindow', h_policy => 'never', child => $medias)),
 		    0, gtknew('VBox', children_tight => [
-			gtksignal_connect(Gtk2::Button->new(but(N("Add"))),    clicked => sub { $add_media->() }),
-			gtksignal_connect(Gtk2::Button->new(but(N("Remove"))), clicked => sub {
+			gtksignal_connect(Gtk2::Button->new(but($loc->N("Add"))),    clicked => sub { $add_media->() }),
+			gtksignal_connect(Gtk2::Button->new(but($loc->N("Remove"))), clicked => sub {
                                               remove_from_list($medias, $edited->{medias}, $medias_ls);
                                           }) ]) ]) ],
-		[ N("Hosts:"),
+		[ $loc->N("Hosts:"),
 		gtknew('HBox', spacing => 5, children => [
 		    1, gtknew('Frame', shadow_type => 'in', child => 
 			gtknew('ScrolledWindow', h_policy => 'never', child => $hosts)),
 		    0, gtknew('VBox', children_tight => [
-			gtksignal_connect(Gtk2::Button->new(but(N("Add"))),    clicked => sub { $add_host->() }),
-			gtksignal_connect(Gtk2::Button->new(but(N("Remove"))), clicked => sub {
+			gtksignal_connect(Gtk2::Button->new(but($loc->N("Add"))),    clicked => sub { $add_host->() }),
+			gtksignal_connect(Gtk2::Button->new(but($loc->N("Remove"))), clicked => sub {
                                               remove_from_list($hosts, $hosts_list, $hosts_ls);
                                           }) ]) ]) ]
 	    ),
@@ -1107,14 +1107,14 @@ sub edit_parallel {
 	    0, gtkpack(
 		gtknew('HButtonBox'),
 		gtksignal_connect(
-		    gtknew('Button', text => N("Ok")), clicked => sub {
+		    gtknew('Button', text => $loc->N("Ok")), clicked => sub {
 			$w->{retval} = 1;
 			$edited->{name} = $name_entry->get_text;
 			mapn { $_[0]->get_active and $edited->{protocol} = $_[1] } \@protocols, \@protocols_names;
 			Gtk2->main_quit;
 		    }
 		),
-		gtknew('Button', text => N("Cancel"), clicked => sub { $w->{retval} = 0; Gtk2->main_quit }))
+		gtknew('Button', text => $loc->N("Cancel"), clicked => sub { $w->{retval} = 0; Gtk2->main_quit }))
 	)
     );
     $w->{rwindow}->set_size_request(600, -1);
@@ -1129,12 +1129,12 @@ sub edit_parallel {
 }
 
 sub parallel_callback() {
-    my $w = ugtk2->new(N("Configure parallel urpmi (distributed execution of urpmi)"), grab => 1, center => 1,  transient => $mainw->{real_window});
+    my $w = ugtk2->new($loc->N("Configure parallel urpmi (distributed execution of urpmi)"), grab => 1, center => 1,  transient => $mainw->{real_window});
     local $::main_window = $w->{real_window};
     my $list_ls = Gtk2::ListStore->new("Glib::String", "Glib::String", "Glib::String", "Glib::String");
     my $list = Gtk2::TreeView->new_with_model($list_ls);
-    each_index { $list->append_column(Gtk2::TreeViewColumn->new_with_attributes($_, Gtk2::CellRendererText->new, 'text' => $::i)) } N("Group"), N("Protocol"), N("Media limit");
-    $list->append_column(my $commandcol = Gtk2::TreeViewColumn->new_with_attributes(N("Command"), Gtk2::CellRendererText->new, 'text' => 3));
+    each_index { $list->append_column(Gtk2::TreeViewColumn->new_with_attributes($_, Gtk2::CellRendererText->new, 'text' => $::i)) } $loc->N("Group"), $loc->N("Protocol"), $loc->N("Media limit");
+    $list->append_column(my $commandcol = Gtk2::TreeViewColumn->new_with_attributes($loc->N("Command"), Gtk2::CellRendererText->new, 'text' => 3));
     $commandcol->set_max_width(200);
 
     my $conf;
@@ -1144,7 +1144,7 @@ sub parallel_callback() {
 	foreach (@$conf) {
             $list_ls->append_set([ 0 => $_->{name},
                                    1 => $_->{protocol},
-                                   2 => @{$_->{medias}} ? join(', ', @{$_->{medias}}) : N("(none)"),
+                                   2 => @{$_->{medias}} ? join(', ', @{$_->{medias}}) : $loc->N("(none)"),
                                    3 => $_->{command} ]);
 	}
     };
@@ -1160,11 +1160,11 @@ sub parallel_callback() {
 		0, gtkpack__(
 		    gtknew('VBox', spacing => 5),
 		    gtksignal_connect(
-			Gtk2::Button->new(but(N("Remove"))),
+			Gtk2::Button->new(but($loc->N("Remove"))),
 			clicked => sub { remove_parallel(selrow($list), $conf); $reread->() },
 		    ),
 		    gtksignal_connect(
-			Gtk2::Button->new(but(N("Edit..."))),
+			Gtk2::Button->new(but($loc->N("Edit..."))),
 			clicked => sub {
 			    my $row = selrow($list);
 			    $row != -1 and edit_parallel($row, $conf);
@@ -1172,7 +1172,7 @@ sub parallel_callback() {
 			},
 		    ),
 		    gtksignal_connect(
-			Gtk2::Button->new(but(N("Add..."))),
+			Gtk2::Button->new(but($loc->N("Add..."))),
 			clicked => sub { edit_parallel(-1, $conf) and $reread->() },
 		    )
 		)
@@ -1180,7 +1180,7 @@ sub parallel_callback() {
 	    0, gtknew('HSeparator'),
 	    0, gtkpack(
 		gtknew('HButtonBox'),
-		gtknew('Button', text => N("Ok"), clicked => sub { Gtk2->main_quit })
+		gtknew('Button', text => $loc->N("Ok"), clicked => sub { Gtk2->main_quit })
 	    )
 	)
     );
@@ -1192,7 +1192,7 @@ sub keys_callback() {
     my $appTitle = yui::YUI::app()->applicationTitle();
 
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Manage keys for digital signatures of packages"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Manage keys for digital signatures of packages"));
 
     my $factory      = yui::YUI::widgetFactory;
 
@@ -1218,7 +1218,7 @@ sub keys_callback() {
 
     ## media list
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Medium"), $yui::YAlignBegin);
     my $multiselection = 0;
     my $mediaTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $mediaTbl->setKeepSorting(1);
@@ -1243,7 +1243,7 @@ sub keys_callback() {
     $frmVbox = $factory->createVBox( $frame );
     $hbox = $factory->createHBox( $frmVbox );
     $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Keys"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Keys"), $yui::YAlignBegin);
     $multiselection = 0;
     my $keyTbl = $factory->createTable($hbox, $yTableHeader, $multiselection);
     $keyTbl->setKeepSorting(1);
@@ -1267,7 +1267,7 @@ sub keys_callback() {
 
     my $key_name = sub {
         exists $urpm->{keys}{$_[0]} ? $urpm->{keys}{$_[0]}{name}
-                                    : N("no name found, key doesn't exist in rpm keyring!");
+                                    : $loc->N("no name found, key doesn't exist in rpm keyring!");
     };
 
     my $sel_changed = sub {
@@ -1313,8 +1313,8 @@ sub keys_callback() {
             }
 
             my $choice = $sh_gui->ask_fromList({
-                title   => N("Add a key"),
-                header  => N("Choose a key to add to the medium %s", $current_medium),
+                title   => $loc->N("Add a key"),
+                header  => $loc->N("Choose a key to add to the medium %s", $current_medium),
                 list    => \@list,
             });
             if ($choice) {
@@ -1337,8 +1337,8 @@ sub keys_callback() {
             my $current_key    = $keyItem->label();
             my $current_keyVal = yui::toYTableItem($keyItem)->cell(0)->label();
             my $choice = $sh_gui->ask_YesOrNo({
-                title   => N("Remove a key"),
-                text    => N("Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name of the key: %s)",
+                title   => $loc->N("Remove a key"),
+                text    => $loc->N("Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name of the key: %s)",
                              $current_keyVal, $current_medium, $current_key
                            ),
                 richtext => 1,
@@ -1365,15 +1365,15 @@ sub keys_callback() {
     my $topContent = $factory->createTop($rightContent);
     my $vbox_commands = $factory->createVBox($topContent);
     $factory->createVSpacing($vbox_commands, 1.0);
-    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Add"));
-    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Remove"));
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), $loc->N("Add"));
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), $loc->N("Remove"));
 
     # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
     $hbox = $factory->createHBox( $vbox );
 
     ### Close button
-    my $closeButton = $factory->createPushButton($hbox, N("Ok") );
+    my $closeButton = $factory->createPushButton($hbox, $loc->N("Ok") );
 
     ### dialog event loop
     while(1) {
@@ -1445,7 +1445,7 @@ sub readMedia {
         update_sources_check(
             $urpm,
             { nolock => 1 },
-            N_("Unable to update medium, errors reported:\n\n%s"),
+            $loc->N_("Unable to update medium, errors reported:\n\n%s"),
                              $name,
         );
     }
@@ -1552,7 +1552,7 @@ sub mainwindow() {
     my $appTitle = yui::YUI::app()->applicationTitle();
 
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Configure media"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Configure media"));
     ## set icon if not already set by external launcher TODO
     yui::YUI::app()->setApplicationIcon("/usr/share/mcc/themes/default/rpmdrake-mdk.png");
 
@@ -1569,11 +1569,11 @@ sub mainwindow() {
     my $headRight = $factory->createHBox($head_align_right);
 
     my %fileMenu = (
-            widget => $factory->createMenuButton($headbar,N("File")),
-            update => new yui::YMenuItem(N("Update")),
-         add_media => new yui::YMenuItem(N("Add a specific media mirror")),
-            custom => new yui::YMenuItem(N("Add a custom medium")),
-            quit   => new yui::YMenuItem(N("&Close")),
+            widget => $factory->createMenuButton($headbar,$loc->N("File")),
+            update => new yui::YMenuItem($loc->N("Update")),
+         add_media => new yui::YMenuItem($loc->N("Add a specific media mirror")),
+            custom => new yui::YMenuItem($loc->N("Add a custom medium")),
+            quit   => new yui::YMenuItem($loc->N("&Close")),
     );
 
     my @ordered_menu_lines = qw(update add_media custom quit);
@@ -1583,11 +1583,11 @@ sub mainwindow() {
     $fileMenu{ widget }->rebuildMenuTree();
 
     my %optionsMenu = (
-            widget => $factory->createMenuButton($headbar, N("Options")),
-            global => new yui::YMenuItem(N("Global options")),
-          man_keys => new yui::YMenuItem(N("Manage keys")),
-          parallel => new yui::YMenuItem(N("Parallel")),
-             proxy => new yui::YMenuItem(N("Proxy")),
+            widget => $factory->createMenuButton($headbar, $loc->N("&Options")),
+            global => new yui::YMenuItem($loc->N("Global options")),
+          man_keys => new yui::YMenuItem($loc->N("Manage keys")),
+          parallel => new yui::YMenuItem($loc->N("Parallel")),
+             proxy => new yui::YMenuItem($loc->N("Proxy")),
     );
     @ordered_menu_lines = qw(global man_keys parallel proxy);
     foreach (@ordered_menu_lines) {
@@ -1596,10 +1596,10 @@ sub mainwindow() {
     $optionsMenu{ widget }->rebuildMenuTree();
 
     my %helpMenu = (
-            widget     => $factory->createMenuButton($headRight, N("&Help")),
-            help       => new yui::YMenuItem(N("Manual")),
-            report_bug => new yui::YMenuItem(N("Report Bug")),
-            about      => new yui::YMenuItem(N("&About")),
+            widget     => $factory->createMenuButton($headRight, $loc->N("&Help")),
+            help       => new yui::YMenuItem($loc->N("Manual")),
+            report_bug => new yui::YMenuItem($loc->N("Report Bug")),
+            about      => new yui::YMenuItem($loc->N("&About")),
     );
     @ordered_menu_lines = qw(help report_bug about);
     foreach (@ordered_menu_lines) {
@@ -1608,8 +1608,8 @@ sub mainwindow() {
     $helpMenu{ widget }->rebuildMenuTree();
 
 #     my %contextMenu = (
-#         enable  => N("Enable/Disable"),
-#         update  => N("Check as updates"),
+#         enable  => $loc->N("Enable/Disable"),
+#         update  => $loc->N("Check as updates"),
 #     );
 #     @ordered_menu_lines = qw(enable update);
 #     my $itemColl = new yui::YItemCollection;
@@ -1631,10 +1631,10 @@ sub mainwindow() {
     my $hbox = $factory->createHBox( $frmVbox );
 
     my $yTableHeader = new yui::YTableHeader();
-    $yTableHeader->addColumn(N("Enabled"), $yui::YAlignCenter);
-    $yTableHeader->addColumn(N("Updates"),  $yui::YAlignCenter);
-    $yTableHeader->addColumn(N("Type"), $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Medium"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Enabled"), $yui::YAlignCenter);
+    $yTableHeader->addColumn($loc->N("Updates"),  $yui::YAlignCenter);
+    $yTableHeader->addColumn($loc->N("Type"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Medium"), $yui::YAlignBegin);
 
     ## mirror list
     my $multiselection = 1;
@@ -1651,15 +1651,15 @@ sub mainwindow() {
     my $topContent = $factory->createTop($rightContent);
     my $vbox_commands = $factory->createVBox($topContent);
     $factory->createVSpacing($vbox_commands, 1.0);
-    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Remove"));
-    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Edit"));
-    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), N("Add"));
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands), $loc->N("Remove"));
+    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands), $loc->N("Edit"));
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands), $loc->N("Add"));
 
     $hbox = $factory->createHBox( $vbox_commands );
     my $item = $mirrorTbl->selectedItem();
     $factory->createHSpacing($hbox, 1.0);
-    my $enabled = $factory->createCheckBox($factory->createLeft($hbox), N("Enabled"));
-    my $update  = $factory->createCheckBox($factory->createLeft($hbox), N("Updates"));
+    my $enabled = $factory->createCheckBox($factory->createLeft($hbox), $loc->N("Enabled"));
+    my $update  = $factory->createCheckBox($factory->createLeft($hbox), $loc->N("Updates"));
     _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
     $update->setNotify(1);
     $enabled->setNotify(1);
@@ -1669,8 +1669,8 @@ sub mainwindow() {
     ## TODO icon and label for ncurses
     my $upIcon     = File::ShareDir::dist_file('AdminPanel', 'images/Up_16x16.png');
     my $downIcon   = File::ShareDir::dist_file('AdminPanel', 'images/Down_16x16.png');
-    my $upButton   = $factory->createPushButton($factory->createHBox($hbox), N("Up"));
-    my $downButton = $factory->createPushButton($factory->createHBox($hbox), N("Down"));
+    my $upButton   = $factory->createPushButton($factory->createHBox($hbox), $loc->N("Up"));
+    my $downButton = $factory->createPushButton($factory->createHBox($hbox), $loc->N("Down"));
     $upButton->setIcon($upIcon);
     $downButton->setIcon($downIcon);
 
@@ -1688,12 +1688,12 @@ sub mainwindow() {
     my $align = $factory->createLeft($hbox);
     $hbox     = $factory->createHBox($align);
 
-    my $helpButton = $factory->createPushButton($hbox, N("Help") );
+    my $helpButton = $factory->createPushButton($hbox, $loc->N("Help") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
 
     ### Close button
-    my $closeButton = $factory->createPushButton($hbox, N("Ok") );
+    my $closeButton = $factory->createPushButton($hbox, $loc->N("Ok") );
 
     ### dialog event loop
     while(1) {
@@ -1714,16 +1714,16 @@ sub mainwindow() {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{ about }->label()) {
-                my $translators = N("_: Translator(s) name(s) & email(s)\n");
+                my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
                 my $sh_gui = AdminPanel::Shared::GUI->new();
                 $sh_gui->AboutDialog({ name => "Rpmdragora",
                                              version => "TODO",
-                         credits => N("Copyright (C) %s Mageia community", '2013-2014'),
-                         license => N("GPLv2"),
-                         description => N("Rpmdragora is the Mageia package management tool."),
-                         authors => N("<h3>Developers</h3>
+                         credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                         license => $loc->N("GPLv2"),
+                         description => $loc->N("Rpmdragora is the Mageia package management tool."),
+                         authors => $loc->N("<h3>Developers</h3>
                                                     <ul><li>%s</li>
                                                            <li>%s</li>
                                                        </ul>
@@ -1822,7 +1822,7 @@ sub mainwindow() {
                         urpm::media::write_config($urpm);
                         #- Enabling this media failed, force update
                         interactive_msg('rpmdragora',
-                                        N("This medium needs to be updated to be usable. Update it now?"),
+                                        $loc->N("This medium needs to be updated to be usable. Update it now?"),
                                         yesno => 1,
                         ) and $itemCollection = readMedia($urpm->{media}[$row]{name});
                     }
@@ -1886,7 +1886,7 @@ sub mainwindow() {
                         urpm::media::write_config($urpm);
                         #- Enabling this media failed, force update
                         interactive_msg('rpmdragora',
-                                        N("This medium needs to be updated to be usable. Update it now?"),
+                                        $loc->N("This medium needs to be updated to be usable. Update it now?"),
                                         yesno => 1,
                         ) and $itemCollection = readMedia($urpm->{media}[$row]{name});
                     }
@@ -1954,42 +1954,42 @@ sub mainwindow() {
 
 sub OLD_mainwindow() {
     undef $something_changed;
-    $mainw = ugtk2->new(N("Configure media"), center => 1, transient => $::main_window, modal => 1);
+    $mainw = ugtk2->new($loc->N("Configure media"), center => 1, transient => $::main_window, modal => 1);
     local $::main_window = $mainw->{real_window};
 
     my $reread_media;
 
     my ($menu, $_factory) = create_factory_menu(
 	$mainw->{real_window},
-	[ N("/_File"), undef, undef, undef, '<Branch>' ],
-	[ N("/_File") . N("/_Update"), N("<control>U"), sub { update_callback() and $reread_media->() }, undef, '<Item>', ],
-        [ N("/_File") . N("/Add a specific _media mirror"), N("<control>M"), sub { easy_add_callback_with_mirror() and $reread_media->() }, undef, '<Item>' ],
-        [ N("/_File") . N("/_Add a custom medium"), N("<control>A"), sub { add_callback() and $reread_media->() }, undef, '<Item>' ],
-	[ N("/_File") . N("/Close"), N("<control>W"), sub { Gtk2->main_quit }, undef, '<Item>', ],
-     [ N("/_Options"), undef, undef, undef, '<Branch>' ],
-     [ N("/_Options") . N("/_Global options"), N("<control>G"), \&options_callback, undef, '<Item>' ],
-     [ N("/_Options") . N("/Manage _keys"), N("<control>K"), \&keys_callback, undef, '<Item>' ],
-     [ N("/_Options") . N("/_Parallel"), N("<control>P"), \&parallel_callback, undef, '<Item>' ],
-     [ N("/_Options") . N("/P_roxy"), N("<control>R"), \&proxy_callback, undef, '<Item>' ],
+	[ $loc->N("/_File"), undef, undef, undef, '<Branch>' ],
+	[ $loc->N("/_File") . $loc->N("/_Update"), $loc->N("<control>U"), sub { update_callback() and $reread_media->() }, undef, '<Item>', ],
+        [ $loc->N("/_File") . $loc->N("/Add a specific _media mirror"), $loc->N("<control>M"), sub { easy_add_callback_with_mirror() and $reread_media->() }, undef, '<Item>' ],
+        [ $loc->N("/_File") . $loc->N("/_Add a custom medium"), $loc->N("<control>A"), sub { add_callback() and $reread_media->() }, undef, '<Item>' ],
+	[ $loc->N("/_File") . $loc->N("/Close"), $loc->N("<control>W"), sub { Gtk2->main_quit }, undef, '<Item>', ],
+     [ $loc->N("/_Options"), undef, undef, undef, '<Branch>' ],
+     [ $loc->N("/_Options") . $loc->N("/_Global options"), $loc->N("<control>G"), \&options_callback, undef, '<Item>' ],
+     [ $loc->N("/_Options") . $loc->N("/Manage _keys"), $loc->N("<control>K"), \&keys_callback, undef, '<Item>' ],
+     [ $loc->N("/_Options") . $loc->N("/_Parallel"), $loc->N("<control>P"), \&parallel_callback, undef, '<Item>' ],
+     [ $loc->N("/_Options") . $loc->N("/P_roxy"), $loc->N("<control>R"), \&proxy_callback, undef, '<Item>' ],
      if_($0 =~ /edit-urpm-sources/,
-         [ N("/_Help"), undef, undef, undef, '<Branch>' ],
-         [ N("/_Help") . N("/_Report Bug"), undef, sub { run_drakbug('edit-urpm-sources.pl') }, undef, '<Item>' ],
-         [ N("/_Help") . N("/_Help"), undef, sub { rpmdragora::open_help('sources') }, undef, '<Item>' ],
-         [ N("/_Help") . N("/_About..."), undef, sub {
+         [ $loc->N("/_Help"), undef, undef, undef, '<Branch>' ],
+         [ $loc->N("/_Help") . $loc->N("/_Report Bug"), undef, sub { run_drakbug('edit-urpm-sources.pl') }, undef, '<Item>' ],
+         [ $loc->N("/_Help") . $loc->N("/_Help"), undef, sub { rpmdragora::open_help('sources') }, undef, '<Item>' ],
+         [ $loc->N("/_Help") . $loc->N("/_About..."), undef, sub {
                my $license = formatAlaTeX(translate($::license));
                $license =~ s/\n/\n\n/sg; # nicer formatting
-               my $w = gtknew('AboutDialog', name => N("Rpmdragora"),
+               my $w = gtknew('AboutDialog', name => $loc->N("Rpmdragora"),
                               version => $rpmdragora::distro_version,
-                              copyright => N("Copyright (C) %s by Mandriva", '2002-2008'),
+                              copyright => $loc->N("Copyright (C) %s by Mandriva", '2002-2008'),
                               license => $license, wrap_license => 1,
-                              comments => N("Rpmdragora is the Mageia package management tool."),
+                              comments => $loc->N("Rpmdragora is the Mageia package management tool."),
                               website => 'http://www.mageia.org/',
-                              website_label => N("Mageia"),
+                              website_label => $loc->N("Mageia"),
                               authors => 'Thierry Vignaud <vignaud@mandriva.com>',
                               artists => 'Hélène Durosini <ln@mandriva.com>',
                               translator_credits =>
                                 #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-                                N("_: Translator(s) name(s) & email(s)\n"),
+                                $loc->N("_: Translator(s) name(s) & email(s)\n"),
                               transient_for => $::main_window, modal => 1, position_policy => 'center-on-parent',
                           );
                $w->show_all;
@@ -2044,17 +2044,17 @@ sub OLD_mainwindow() {
 	},
     );
 
-    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Enabled"),
+    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes($loc->N("Enabled"),
                                                                       my $tr = Gtk2::CellRendererToggle->new,
                                                                       'active' => $col{mainw}{is_enabled}));
-    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Updates"),
+    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes($loc->N("Updates"),
                                                                       my $cu = Gtk2::CellRendererToggle->new,
                                                                       'active' => $col{mainw}{is_update},
                                                                       activatable => $col{mainw}{activatable}));
-    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Type"),
+    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes($loc->N("Type"),
                                                                       Gtk2::CellRendererText->new,
                                                                       'text' => $col{mainw}{type}));
-    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes(N("Medium"),
+    $list_tv->append_column(Gtk2::TreeViewColumn->new_with_attributes($loc->N("Medium"),
                                                                       Gtk2::CellRendererText->new,
                                                                       'text' => $col{mainw}{name}));
     my $id;
@@ -2078,7 +2078,7 @@ sub OLD_mainwindow() {
 		urpm::media::write_config($urpm);
 		#- Enabling this media failed, force update
 		interactive_msg('rpmdragora',
-		    N("This medium needs to be updated to be usable. Update it now?"),
+		    $loc->N("This medium needs to be updated to be usable. Update it now?"),
 		    yesno => 1,
 		) and $reread_media->($urpm->{media}[$path]{name});
 	    }
@@ -2104,7 +2104,7 @@ sub OLD_mainwindow() {
 	    update_sources_check(
 		$urpm,
 		{ nolock => 1 },
-		N_("Unable to update medium, errors reported:\n\n%s"),
+		$loc->N_("Unable to update medium, errors reported:\n\n%s"),
 		$name,
 	    );
 	}
@@ -2131,24 +2131,24 @@ sub OLD_mainwindow() {
 	gtkpack_(
 	    gtknew('VBox', spacing => 5),
 	    0, $menu,
-	    ($0 =~ /rpm-edit-media|edit-urpm-sources/ ? (0, Gtk2::Banner->new($ugtk2::wm_icon, N("Configure media"))) : ()),
+	    ($0 =~ /rpm-edit-media|edit-urpm-sources/ ? (0, Gtk2::Banner->new($ugtk2::wm_icon, $loc->N("Configure media"))) : ()),
 	    1, gtkpack_(
 		gtknew('HBox', spacing => 10),
 		1, gtknew('ScrolledWindow', child => $list_tv),
 		0, gtkpack__(
 		    gtknew('VBox', spacing => 5),
 		    gtksignal_connect(
-			$remove_button = Gtk2::Button->new(but(N("Remove"))),
+			$remove_button = Gtk2::Button->new(but($loc->N("Remove"))),
 			clicked => sub { remove_callback() and $reread_media->() },
 		    ),
 		    gtksignal_connect(
-			$edit_button = Gtk2::Button->new(but(N("Edit"))),
+			$edit_button = Gtk2::Button->new(but($loc->N("Edit"))),
 			clicked => sub {
 			    my $name = edit_callback(); defined $name and $reread_media->($name);
 			}
 		    ),
 		    gtksignal_connect(
-			Gtk2::Button->new(but(N("Add"))),
+			Gtk2::Button->new(but($loc->N("Add"))),
 			clicked => sub { easy_add_callback() and $reread_media->() },
 		    ),
 		    gtkpack(
@@ -2167,8 +2167,8 @@ sub OLD_mainwindow() {
 	    ),
 	    0, gtknew('HSeparator'),
 	    0, gtknew('HButtonBox', layout => 'edge', children_loose => [
-		gtksignal_connect(Gtk2::Button->new(but(N("Help"))), clicked => sub { rpmdragora::open_help('sources') }),
-		gtksignal_connect(Gtk2::Button->new(but(N("Ok"))), clicked => sub { Gtk2->main_quit })
+		gtksignal_connect(Gtk2::Button->new(but($loc->N("Help"))), clicked => sub { rpmdragora::open_help('sources') }),
+		gtksignal_connect(Gtk2::Button->new(but($loc->N("Ok"))), clicked => sub { Gtk2->main_quit })
 	    ])
 	)
     );
@@ -2190,7 +2190,7 @@ sub run() {
         my $err_msg = "urpmdb locked\n";
         local $urpm->{fatal} = sub {
             interactive_msg('rpmdragora',
-                            N("The Package Database is locked. Please close other applications
+                            $loc->N("The Package Database is locked. Please close other applications
 working with the Package Database. Do you have another media
 manager on another desktop, or are you currently installing
 packages as well?"));
