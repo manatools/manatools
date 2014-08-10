@@ -35,7 +35,7 @@ if (AdminPanel::Privileges::is_root_capability_required()) {
     require AdminPanel::Shared::GUI;
     my $sh_gui = AdminPanel::Shared::GUI->new();
     $sh_gui->warningMsgBox({
-        title => "gurpmi.addmedia",
+        title => $loc->N("Configure media"),
         text  => $loc->N("root privileges required"),
     });
     exit (-1);
