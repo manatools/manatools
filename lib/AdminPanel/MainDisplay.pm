@@ -141,8 +141,8 @@ sub new {
 ## Default values
     $self->{name} =     "Administration panel";
     $self->{categories} = [];
-    $self->{confDir}    = "/etc/apanel",
-    $self->{title}      = "apanel",
+    $self->{confDir}    = "/etc/mpan",
+    $self->{title}      = "mpan",
     
     my $cmdline = new yui::YCommandLine;
 

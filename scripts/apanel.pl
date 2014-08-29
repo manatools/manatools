@@ -75,13 +75,19 @@ sub usage {
 # adpanel settings
 sub getSettings {
     my ($self) = @_;
+
+    my $confDir = "/etc/mpan";
     # yui commandline parser
     my $pos = $cmdline->find("--conf_dir");
-    my $confDir = "/etc/apanel";
     if($pos > 0){
         $confDir = $cmdline->arg($pos + 1);
-    }else{
-        $confDir = "/etc/apanel";
+    }
+    else {
+        $pos = $cmdline->find("--name");
+        if ($pos > 0)
+        {
+            $confDir = "/etc/" . $cmdline->arg($pos+1);
+        }
     }
     # configuration file name
     my $fileName = "$confDir/settings.conf";
