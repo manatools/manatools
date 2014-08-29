@@ -195,8 +195,6 @@ sub start {
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             ### MENU ###
             my $item = $self->{event}->item();
-            $DB::single = 1;
-
             my $menuLabel = $item->label();
             if ($menuLabel eq $self->{menus}->{file}->{ quit }->label()) {
                 ## quit menu item
