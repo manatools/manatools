@@ -48,14 +48,17 @@ WriteMakefile(
         "Modern::Perl"       => 1.03,
         "autodie"            => 2.20,
     },
-    EXE_FILES => [ qw( scripts/adminClock
-                       scripts/adminService
-                       scripts/adminUser
-                       scripts/apanel.pl
-                       scripts/hostmanager
-                       scripts/proxymanager
-                       scripts/logviewer
-                       scripts/mgaAddUser
+    EXE_FILES => [ qw( scripts/apanel.pl
+                       scripts/manaadduser
+                       scripts/manaclock
+                       scripts/manahost
+                       scripts/manalog
+                       scripts/manaproxy
+                       scripts/manaservice
+                       scripts/manauser
+                       modules/contribfinder.py
+                       modules/rpmdragora/dragora-urpm-addmedia
+                       modules/rpmdragora/dragora-urpm-sources.pl
                        ) ],
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'AdminPanel-*' },
