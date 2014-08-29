@@ -93,7 +93,10 @@ use AdminPanel::SettingsReader;
 use AdminPanel::ConfigReader;
 use AdminPanel::Category;
 use AdminPanel::Module;
-use Data::Dumper;
+use AdminPanel::Shared::GUI;
+use AdminPanel::Shared::Locales;
+use File::ShareDir ':ALL';
+
 use yui;
 
 #=============================================================
@@ -129,7 +132,8 @@ sub new {
         my $title   = 0,
         my $settings = 0,
         my $exitButton = 0,
-#        my $justToGetRidOfERROR = 0,
+        my $loc = 0,
+        my $justToGetRidOfERROR = 0,
         my $replacePoint = 0
     };
     bless $self, 'AdminPanel::MainDisplay';
@@ -158,6 +162,8 @@ sub new {
         $self->{confDir} = "/etc/$self->{title}";
     }
 
+    # TODO localize
+    $self->{loc} = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone');
     $self->setupGui();
 
     return $self;
@@ -189,9 +195,38 @@ sub start {
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             ### MENU ###
             my $item = $self->{event}->item();
-            if ($item->label() eq $self->{menus}->{file}[0]->label()) {
+            $DB::single = 1;
+
+            my $menuLabel = $item->label();
+            if ($menuLabel eq $self->{menus}->{file}->{ quit }->label()) {
                 ## quit menu item
                 last;
+            }
+            elsif ($menuLabel eq $self->{menus}->{help}->{ about }->label()) {
+                my $translators = $self->{loc}->N("_: Translator(s) name(s) & email(s)\n");
+                $translators =~ s/\</\&lt\;/g;
+                $translators =~ s/\>/\&gt\;/g;
+                my $sh_gui = AdminPanel::Shared::GUI->new();
+                $sh_gui->AboutDialog({ name => "Rpmdragora",
+                         version => $AdminPanel::MainDisplay::VERSION,
+                         credits => $self->{loc}->N("Copyright (C) %s Mageia community", '2013-2014'),
+                         license => $self->{loc}->N("GPLv2"),
+                         description => $self->{loc}->N("mpan is the administration panel that collects all the utilities."),
+                         authors => $self->{loc}->N("<h3>Developers</h3>
+                                                    <ul><li>%s</li>
+                                                           <li>%s</li>
+                                                       </ul>
+                                                       <h3>Translators</h3>
+                                                       <ul><li>%s</li></ul>",
+                                                      "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                                      "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                                      $translators
+                         ),
+
+                });
+            }
+            elsif ($menuLabel eq $self->{menus}->{help}->{ help }->label()) {
+                # TODO Help
             }
         }        
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
@@ -233,6 +268,7 @@ sub start {
 #=============================================================
 sub destroy {
     my ($self) = shift;
+
     $self->{mainWin}->destroy();
     for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
         @{$self->{categories}}[$cat]->{button} = 0;
@@ -259,10 +295,14 @@ sub setupGui {
     my ($self) = shift;
 
     $self->_loadSettings();
-    yui::YUILog::setLogFileName($self->{settings}->{log});
+    yui::YUILog::setLogFileName($self->{settings}->{log}) if defined($self->{settings}->{log});
     $self->{name} = $self->{settings}->{title};
     yui::YUI::app()->setApplicationTitle($self->{name});
-    yui::YUI::app()->setApplicationIcon($self->{settings}->{icon});
+    my $icon = defined($self->{settings}->{icon}) ?
+               $self->{settings}->{icon} :
+               File::ShareDir::dist_file('AdminPanel', 'images/mageia.png');
+
+    yui::YUI::app()->setApplicationIcon($icon);
 
     $self->{factory} = yui::YUI::widgetFactory;
     $self->{mainWin} = $self->{factory}->createMainDialog;
@@ -270,25 +310,32 @@ sub setupGui {
     $self->{mainLayout} = $self->{factory}->createVBox($self->{mainWin});
     $self->{menuLayout} = $self->{factory}->createHBox($self->{mainLayout});
    
-    ## Menu file
-    ## TODO i8n 
+    ## Menu File
     my $align = $self->{factory}->createAlignment($self->{menuLayout}, 1, 0);
-    my $menu            = $self->{factory}->createMenuButton($align, "File");
-    my $item = new yui::YMenuItem("Exit");
+    $self->{menus}->{file} = {
+            widget => $self->{factory}->createMenuButton($align, $self->{loc}->N("File")),
+            quit   => new yui::YMenuItem($self->{loc}->N("&Exit")),
+    };
 
-    push(@{$self->{menus}->{file}}, $item);
-    $menu->addItem($item);
-    $menu->rebuildMenuTree();
+    my @ordered_menu_lines = qw(quit);
+    foreach (@ordered_menu_lines) {
+        $self->{menus}->{file}->{ widget }->addItem($self->{menus}->{file}->{ $_ });
+    }
+    $self->{menus}->{file}->{ widget }->rebuildMenuTree();
 
     $align = $self->{factory}->createAlignment($self->{menuLayout}, 2, 0);
-    $menu           = $self->{factory}->createMenuButton($align, "Help");
-    $item = new yui::YMenuItem("Help");
-    $menu->addItem($item);
-    push(@{$self->{menus}->{help}}, $item);
-    $item = new yui::YMenuItem("About");
-    $menu->addItem($item);
-    push(@{$self->{menus}->{help}}, $item);
-    $menu->rebuildMenuTree();
+    $self->{menus}->{help} = {
+            widget => $self->{factory}->createMenuButton($align, $self->{loc}->N("Help")),
+            help   => new yui::YMenuItem($self->{loc}->N("Help")),
+            about  => new yui::YMenuItem($self->{loc}->N("About")),
+    };
+
+    ## Menu Help
+    @ordered_menu_lines = qw(help about);
+    foreach (@ordered_menu_lines) {
+        $self->{menus}->{help}->{ widget }->addItem($self->{menus}->{help}->{ $_ });
+    }
+    $self->{menus}->{help}->{ widget }->rebuildMenuTree();
 
     $self->{layout}     = $self->{factory}->createHBox($self->{mainLayout});
 
@@ -303,7 +350,11 @@ sub setupGui {
     $self->{leftPane} = $self->{factory}->createVBox($self->{leftPaneFrame});
 
     #logo from settings
-    my $logo = $self->{factory}->createImage($self->{leftPane}, $self->{settings}->{logo});
+    my $logofile = defined($self->{settings}->{logo}) ?
+               $self->{settings}->{logo} :
+               File::ShareDir::dist_file('AdminPanel', 'images/logo_mageia.png');
+
+    my $logo = $self->{factory}->createImage($self->{leftPane}, $logofile);
     $logo->setAutoScale(1);
 
 #     $self->{leftPaneFrame}->setWeight(0, 1);
@@ -313,7 +364,8 @@ sub setupGui {
     $self->{factory}->createVStretch($self->{leftPane});
 
     $self->{exitButton} = $self->{factory}->createPushButton($self->{leftPane}, "Exit");
-    $self->{exitButton}->setIcon("$self->{settings}->{images_dir}/quit.png");    
+    my $quitIcon = File::ShareDir::dist_file('AdminPanel', 'images/quit.png');
+    $self->{exitButton}->setIcon($quitIcon);
     $self->{exitButton}->setStretchable(0, 1);
 }
 
