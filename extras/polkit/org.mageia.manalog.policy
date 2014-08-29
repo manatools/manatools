@@ -7,7 +7,7 @@
  <vendor>Mageia</vendor>
  <vendor_url>http://www.mageia.org/</vendor_url>
 
- <action id="org.mageia.logviewer.pkexec.run">
+ <action id="org.mageia.manalog.pkexec.run">
     <description>Run Mageia Log Viewer</description>
     <description xml:lang="ca">Executa el visor de registres de Mageia</description>
     <description xml:lang="el">Εκτέλεση του Προβολέα Καταγραφών Mageia</description>
@@ -45,7 +45,7 @@
      <allow_inactive>no</allow_inactive>
      <allow_active>auth_admin_keep</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/logviewer</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/manalog</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
  </action>
 </policyconfig>
