@@ -59,7 +59,7 @@ while (1) {
 
 sub usage {
     print "\n";
-    print "Usage apanel [options...]\n\n";
+    print "Usage mpan.pl [options...]\n\n";
     print "Options:\n";
     print "\t--help | -h        print this help\n";
 ## anaselli: --name now is used only to add a path to /etc (e.g. --name mcc2 means /etc/mcc2)

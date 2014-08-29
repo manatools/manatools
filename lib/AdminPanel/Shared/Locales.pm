@@ -69,7 +69,7 @@ use Text::Iconv;
 =head3 INPUT
 
     hash ref containing 
-        domain_name: gettext domain name (default apanel)
+        domain_name: gettext domain name (default mpan)
         dir_name:    gettext optional catalog directory (default undef)
         codeset:     gettext codeset (default UTF8)
 
@@ -83,7 +83,7 @@ use Text::Iconv;
 
 has 'domain_name' => (
     is      => 'rw',
-    default => 'apanel', 
+    default => 'mpan',
 );
 
 has 'dir_name' => (
