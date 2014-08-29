@@ -7,15 +7,15 @@
   <vendor>Mageia.Org</vendor>
   <vendor_url>http://www.mageia.org</vendor_url>
 
-  <action id="org.mageia.hostmanager.pkexec.run">
+  <action id="org.mageia.manahost.pkexec.run">
     <description>Allow APanel GUI</description>
-    <message>Authentication is required to run the program hostmanager (user=$(user), program=$(program), command_line=$(command_line))</message>
+    <message>Authentication is required to run the program manahost (user=$(user), program=$(program), command_line=$(command_line))</message>
     <defaults>
       <allow_any>no</allow_any>
       <allow_inactive>auth_admin</allow_inactive>
       <allow_active>auth_admin</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/hostmanager</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/manahost</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
   </action>
 </policyconfig>
