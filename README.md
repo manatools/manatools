@@ -97,3 +97,15 @@ if not, write to the Free Software Foundation, Inc.,
 NOTE: some icons are under the license:
 Creative Commons Attribution-No Derivative Works 3.0 Unported 
 http://creativecommons.org/licenses/by-nd/3.0/
+
+NOTE 1: 
+To avoid file name duplication we renamed icon from drakxtools,
+rpmdrake and userdrake, to fit new naming convention:
+time-mdk      -> manaclock
+drakhosts     -> manahost
+logdrake-mdk  -> manalog
+drakproxy-mdk -> manaproxy
+service-mdk   -> manaservice
+userdrake     -> manauser
+drakconf      -> mpan
+
