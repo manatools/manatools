@@ -20,6 +20,7 @@ WriteMakefile(
     },
     BUILD_REQUIRES => {
         'Test::More' => 0,
+	'File::ShareDir::Install' => 0,
     },
     PREREQ_PM => {
         "Moose"              => 0,
