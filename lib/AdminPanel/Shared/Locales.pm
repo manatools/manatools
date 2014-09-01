@@ -120,6 +120,11 @@ has 'domain' => (
 sub BUILD {
     my $self = shift;
 
+    if ($^V ge v5.20.0) {
+        require POSIX;
+        POSIX::setlocale (POSIX::LC_ALL (), '');
+    }
+
     $self->domain(Locale::gettext->domain_raw($self->domain_name));
     $self->domain->dir($self->dir_name) if $self->dir_name;
     $self->domain->codeset($self->codeset)
