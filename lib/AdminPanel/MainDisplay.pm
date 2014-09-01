@@ -205,7 +205,7 @@ sub start {
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
                 my $sh_gui = AdminPanel::Shared::GUI->new();
-                $sh_gui->AboutDialog({ name => "Rpmdragora",
+                $sh_gui->AboutDialog({ name => $self->{name},
                          version => $AdminPanel::MainDisplay::VERSION,
                          credits => $self->{loc}->N("Copyright (C) %s Mageia community", '2013-2014'),
                          license => $self->{loc}->N("GPLv2"),
@@ -588,6 +588,7 @@ sub _loadCategories {
                     undef $tmpMod if !$loaded;
                 }
                 $hasNextMod = $inFile->hasNextMod();
+
             }
         }
     }
