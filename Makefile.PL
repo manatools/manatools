@@ -9,6 +9,7 @@ install_share dist => 'share';
 
 WriteMakefile(
     NAME             => 'AdminPanel',
+    DISTNAME         => 'adminpanel',
     AUTHOR           => q{Angelo Naselli <anaselli@linux.it> - Matteo Pasotti <matteo.pasotti@gmail.com>},
     VERSION_FROM     => 'lib/AdminPanel/MainDisplay.pm',
     ABSTRACT         => 'AdminPanel is a generic launcher application that can run perl modules or external programs using Suse YUI abstarction.',
