@@ -58,6 +58,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 use Moose;
 use strict;
+use English;
 
 use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::DataStructure qw(member);
@@ -227,6 +228,14 @@ sub BUILD {
 #=============================================================
 sub start {
     my $self = shift;
+
+    if ($EUID != 0) {
+        $self->sh_gui->warningMsgBox({
+            title => $self->name,
+            text  => $self->loc->N("root privileges required"),
+        });
+        return;
+    }
 
     $self->_servicePanel();
 };
