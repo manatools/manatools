@@ -461,7 +461,7 @@ sub _get_ntp_server_tree {
               $self->loc->N($zone) . "|" . $self->loc->N($_)
         ),
         $self->_get_ntp_server_tree($_)
-    } keys $ns;
+    } keys %{$ns};
 }
 
 #=============================================================

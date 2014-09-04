@@ -61,7 +61,7 @@ sub _getHosts {
 	# $self->configHosts(Config::Hosts->new());
 	my $hosts = $self->configHosts->read_hosts();
 	my @result = ();
-	while( my ($key, $value) = each($hosts)){
+	while( my ($key, $value) = each(%{$hosts})){
 		if($self->configHosts->determine_ip_or_host($key) == $is_ip){
 			my $tmp = {};
 			$tmp = $self->configHosts->query_host($key);
