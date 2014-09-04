@@ -114,27 +114,26 @@ the startup GUI.
 sub new {
 
     my $self = {
-        my $categories = 0,
-        my $event = 0,
-        my $factory = 0,
-        my $mainWin = 0,
-        my $mainLayout = 0,
-        my $menuLayout = 0,
-        my $menus = {
-            my $file = 0,
-            my $help = 0
+        categories => 0,
+        event      => 0,
+        factory    => 0,
+        mainWin    => 0,
+        mainLayout => 0,
+        menuLayout => 0,
+        menus => {
+            file => 0,
+            help => 0
         },
-        my $layout = 0,
-        my $leftPane = 0,
-        my $rightPane = 0,
-        my $currCategory = 0,
-        my $confDir = 0,
-        my $title   = 0,
-        my $settings = 0,
-        my $exitButton = 0,
-        my $loc = 0,
-        my $justToGetRidOfERROR = 0,
-        my $replacePoint = 0
+        layout       => 0,
+        leftPane     => 0,
+        rightPane    => 0,
+        currCategory => 0,
+        confDir      => 0,
+        title        => 0,
+        settings     => 0,
+        exitButton   => 0,
+        loc          => 0,
+        replacePoint => 0,
     };
     bless $self, 'AdminPanel::MainDisplay';
     
@@ -570,6 +569,7 @@ sub _loadCategories {
                 $tmp = $inFile->getNextMod();
                 my $tmpMod;
                 my $loaded = 0;
+
                 if (exists $tmp->{title}) {
                     if (not $currCategory->moduleLoaded($tmp->{title})) {
                         $tmpMod = AdminPanel::Module->create(name => $tmp->{title}, 
@@ -588,7 +588,6 @@ sub _loadCategories {
                     undef $tmpMod if !$loaded;
                 }
                 $hasNextMod = $inFile->hasNextMod();
-
             }
         }
     }

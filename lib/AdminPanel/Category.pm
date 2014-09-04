@@ -51,10 +51,10 @@ use yui;
 sub new {
     my ($class, $newName, $newIcon) = @_;
     my $self = {
-        my $name = 0,
-        my $button = 0,
-        my $icon = 0,
-        my $modules = 0
+        name    => 0,
+        button  => 0,
+        icon    => 0,
+        modules => [],
     };
     bless $self, 'AdminPanel::Category';
 
@@ -128,7 +128,7 @@ sub moduleLoaded {
 
     my $present = 0;
 
-    if (!$module_name) {
+    if (!$module_name || ! $self->{modules}) {
         return $present;
     }
 

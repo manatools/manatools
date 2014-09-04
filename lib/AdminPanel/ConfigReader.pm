@@ -30,12 +30,12 @@ sub new {
     my ($class, $fileName) = @_;
     
     my $self = {
-        my $data = 0,
-        my $catLen = 0,
-        my $currCat = 0,
-        my $modLen = 0,
-        my $currMod = 0,
-        my $placeHolder = 0
+        data        => 0,
+        catLen      => 0,
+        currCat     => 0,
+        modLen      => 0,
+        currMod     => 0,
+        placeHolder => 0,
     };
     bless $self, 'AdminPanel::ConfigReader';
     

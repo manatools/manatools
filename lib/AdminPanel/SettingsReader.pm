@@ -85,8 +85,7 @@ sub new {
     my ($class, $fileName) = @_;
 
     my $self = {
-        my $settings = 0,
-        my $justToGetRidOfERROR = 0
+        settings => 0,
     };
     bless $self, 'AdminPanel::SettingsReader';
 
