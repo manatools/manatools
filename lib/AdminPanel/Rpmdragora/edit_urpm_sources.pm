@@ -30,6 +30,7 @@ use File::HomeDir qw(home);
 
 use lib qw(/usr/lib/libDrakX);
 use common;
+use AdminPanel::Shared;
 use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::init;
@@ -1464,7 +1465,7 @@ sub readMedia {
         ## NOTE anaselli: next lines add check icon to cells, but they are 8x8, a dimension should
         ##      be evaluated by font size, so disabled atm
 #         my $cell = $item->cell(0); # Checked
-#         my $checkedIcon = File::ShareDir::dist_file('AdminPanel', 'images/Check_8x8.png');
+#         my $checkedIcon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Check_8x8.png');
 #
 #         $cell->setIconName($checkedIcon) if (!$_->{ignore});
 #         $cell    = $item->cell(1); # Updates
@@ -1667,8 +1668,8 @@ sub mainwindow() {
 
     $hbox = $factory->createHBox( $vbox_commands );
     ## TODO icon and label for ncurses
-    my $upIcon     = File::ShareDir::dist_file('AdminPanel', 'images/Up_16x16.png');
-    my $downIcon   = File::ShareDir::dist_file('AdminPanel', 'images/Down_16x16.png');
+    my $upIcon     = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Up_16x16.png');
+    my $downIcon   = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Down_16x16.png');
     my $upButton   = $factory->createPushButton($factory->createHBox($hbox), $loc->N("Up"));
     my $downButton = $factory->createPushButton($factory->createHBox($hbox), $loc->N("Down"));
     $upButton->setIcon($upIcon);

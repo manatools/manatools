@@ -93,6 +93,7 @@ use AdminPanel::SettingsReader;
 use AdminPanel::ConfigReader;
 use AdminPanel::Category;
 use AdminPanel::Module;
+use AdminPanel::Shared;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use File::ShareDir ':ALL';
@@ -297,7 +298,7 @@ sub setupGui {
     yui::YUI::app()->setApplicationTitle($self->{name});
     my $icon = defined($self->{settings}->{icon}) ?
                $self->{settings}->{icon} :
-               File::ShareDir::dist_file('AdminPanel', 'images/mageia.png');
+               File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/mageia.png');
 
     yui::YUI::app()->setApplicationIcon($icon);
 
@@ -349,7 +350,7 @@ sub setupGui {
     #logo from settings
     my $logofile = defined($self->{settings}->{logo}) ?
                $self->{settings}->{logo} :
-               File::ShareDir::dist_file('AdminPanel', 'images/logo_mageia.png');
+               File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/logo_mageia.png');
 
     my $logo = $self->{factory}->createImage($self->{leftPane}, $logofile);
     $logo->setAutoScale(1);
@@ -361,7 +362,7 @@ sub setupGui {
     $self->{factory}->createVStretch($self->{leftPane});
 
     $self->{exitButton} = $self->{factory}->createPushButton($self->{leftPane}, "Exit");
-    my $quitIcon = File::ShareDir::dist_file('AdminPanel', 'images/quit.png');
+    my $quitIcon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/quit.png');
     $self->{exitButton}->setIcon($quitIcon);
     $self->{exitButton}->setStretchable(0, 1);
 }

@@ -79,6 +79,7 @@ use Sys::Syslog;
 use Glib;
 use English;
 use yui;
+use AdminPanel::Shared;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
