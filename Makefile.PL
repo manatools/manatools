@@ -45,8 +45,6 @@ WriteMakefile(
         "Digest::MD5"        => 0,
         "IO::All"            => 0,
 	"XML::Simple"        => 0,
-	# yui binding 
-	#"yui"                => 0, 
         #Mandriva
         "MDK::Common"         => 0,
         "MDK::Common::File"   => 0,
