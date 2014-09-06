@@ -86,6 +86,7 @@ our @EXPORT = qw(
                 trim 
                 md5sum
                 pathList2hash
+                distName
 );
 
 
@@ -97,6 +98,28 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+
+#=============================================================
+
+=head2 distName
+
+=head3 OUTPUT
+
+$distname: name of the distributed package
+
+=head3 DESCRIPTION
+
+This function return the distname, useful to retrieve data
+with File::ShareDir::dist_file and must be the same as into
+Makefile.PL (e.g. adminpanel)
+
+=cut
+
+#=============================================================
+
+sub distName {
+    return "adminpanel";
+}
 
 
 #=============================================================

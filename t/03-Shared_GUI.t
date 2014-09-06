@@ -9,6 +9,8 @@ BEGIN {
     use_ok( 'AdminPanel::Shared' ) || print "AdminPanel::Shared failed!\n";
 }
 
+    is (AdminPanel::Shared::distName(), 'adminpanel', 'distname');
+
     ok( my $gui = AdminPanel::Shared::GUI->new(), 'create');
 
     diag "\n\nNext tests will create some gui dialogs";
