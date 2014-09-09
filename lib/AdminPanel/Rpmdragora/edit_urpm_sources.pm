@@ -1661,7 +1661,9 @@ sub mainwindow() {
     $factory->createHSpacing($hbox, 1.0);
     my $enabled = $factory->createCheckBox($factory->createLeft($hbox), $loc->N("Enabled"));
     my $update  = $factory->createCheckBox($factory->createLeft($hbox), $loc->N("Updates"));
-    _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
+    eval {
+        _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
+    };
     $update->setNotify(1);
     $enabled->setNotify(1);
     $update->setDisabled() if (!$::expert);
