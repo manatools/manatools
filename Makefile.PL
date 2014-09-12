@@ -63,6 +63,7 @@ WriteMakefile(
     EXE_FILES => [ qw( scripts/mpan.pl
                        scripts/manaadduser
                        scripts/manaclock
+                       scripts/manadm
                        scripts/manahost
                        scripts/manalog
                        scripts/manaproxy
