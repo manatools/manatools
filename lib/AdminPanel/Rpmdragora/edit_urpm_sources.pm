@@ -1,24 +1,24 @@
 # vim: set et ts=4 sw=4:
 package AdminPanel::Rpmdragora::edit_urpm_sources;
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2002 Guillaume Cottenceau
 #  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
 #  Copyright (c) 2002-2007 Mandriva Linux
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 #
 # $Id: edit_urpm_sources.pm 266598 2010-03-03 12:00:58Z tv $
@@ -907,7 +907,7 @@ sub proxy_callback {
     $proxyuserbutton = $factory->createCheckBoxFrame($factory->createLeft($frm_vbox),
                                                      $loc->N("You may specify a username/password for the proxy authentication:"), 1);
     $proxyentry->setValue($proxy) if $proxy;
-    
+
     $frm_vbox    = $factory->createVBox( $proxyuserbutton );
 
     ## proxy user name
@@ -1087,7 +1087,7 @@ sub edit_parallel {
 		    @protocols = gtkradio($edited->{protocol}, @protocols_names) ]) ],
 		[ $loc->N("Media limit:"),
 		gtknew('HBox', spacing => 5, children => [
-		    1, gtknew('Frame', shadow_type => 'in', child => 
+		    1, gtknew('Frame', shadow_type => 'in', child =>
 			gtknew('ScrolledWindow', h_policy => 'never', child => $medias)),
 		    0, gtknew('VBox', children_tight => [
 			gtksignal_connect(Gtk2::Button->new(but($loc->N("Add"))),    clicked => sub { $add_media->() }),
@@ -1096,7 +1096,7 @@ sub edit_parallel {
                                           }) ]) ]) ],
 		[ $loc->N("Hosts:"),
 		gtknew('HBox', spacing => 5, children => [
-		    1, gtknew('Frame', shadow_type => 'in', child => 
+		    1, gtknew('Frame', shadow_type => 'in', child =>
 			gtknew('ScrolledWindow', h_policy => 'never', child => $hosts)),
 		    0, gtknew('VBox', children_tight => [
 			gtksignal_connect(Gtk2::Button->new(but($loc->N("Add"))),    clicked => sub { $add_host->() }),
@@ -1250,7 +1250,7 @@ sub keys_callback() {
     $keyTbl->setKeepSorting(1);
 
     my ($current_medium, $current_medium_nb, @keys);
-    
+
     ### internal subroutines
     my $read_conf = sub {
         $urpm->parse_pubkeys(root => $urpm->{root});
@@ -1298,7 +1298,7 @@ sub keys_callback() {
             yui::YUI::app()->normalCursor();
         }
     };
-    
+
     my $add_key = sub {
         my $sh_gui = AdminPanel::Shared::GUI->new();
         my $item = $mediaTbl->selectedItem();
@@ -1327,7 +1327,7 @@ sub keys_callback() {
         }
         return 0;
     };
-    
+
     my $remove_key = sub {
         my $sh_gui = AdminPanel::Shared::GUI->new();
         my $keyItem   = $keyTbl->selectedItem();
@@ -1345,19 +1345,19 @@ sub keys_callback() {
                 richtext => 1,
             });
             if ($choice) {
-                $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',', 
+                $urpm->{media}[$current_medium_nb]{'key-ids'} = join(',',
                     difference2(\@{$keys[$current_medium_nb]}, [ $current_key ])
                 );
                 $write->();
                 return 1;
-            }            
+            }
         }
-        
+
         return 0;
-        
+
     };
-    
-    
+
+
     #### end subroutines
     $sel_changed->();
 
@@ -1535,16 +1535,21 @@ passed item value.
 sub _showMediaStatus {
     my $info = shift;
 
-    die "Item is mandatory" if !defined($info->{item}) || !$info->{item};
     die "Updates checkbox is mandatory" if !defined($info->{updates}) || !$info->{updates};
     die "Enabled checkbox is mandatory" if !defined($info->{enabled}) || !$info->{enabled};
 
-    my $tableItem = yui::toYTableItem($info->{item});
-    # enabled cell 0, updates cell 1
-    my $cellEnabled = $tableItem && $tableItem->cell(0)->label() ? 1 : 0;
-    my $cellUpdates = $tableItem && $tableItem->cell(1)->label() ? 1 : 0;
-    $info->{enabled}->setValue($cellEnabled);
-    $info->{updates}->setValue($cellUpdates);
+    if (defined($info->{item})) {
+        my $tableItem = yui::toYTableItem($info->{item});
+        # enabled cell 0, updates cell 1
+        my $cellEnabled = $tableItem && $tableItem->cell(0)->label() ? 1 : 0;
+        my $cellUpdates = $tableItem && $tableItem->cell(1)->label() ? 1 : 0;
+        $info->{enabled}->setValue($cellEnabled);
+        $info->{updates}->setValue($cellUpdates);
+    }
+    else {
+        $info->{enabled}->setDisabled();
+        $info->{updates}->setDisabled();
+    }
 }
 
 sub mainwindow() {
@@ -1661,9 +1666,7 @@ sub mainwindow() {
     $factory->createHSpacing($hbox, 1.0);
     my $enabled = $factory->createCheckBox($factory->createLeft($hbox), $loc->N("Enabled"));
     my $update  = $factory->createCheckBox($factory->createLeft($hbox), $loc->N("Updates"));
-    eval {
-        _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
-    };
+    _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
     $update->setNotify(1);
     $enabled->setNotify(1);
     $update->setDisabled() if (!$::expert);
@@ -1926,10 +1929,11 @@ sub mainwindow() {
         if ($selection_changed) {
             yui::YUI::ui()->blockEvents();
             my $item = $mirrorTbl->selectedItem();
-            _showMediaStatus({item => $item, enabled => $enabled, updates => $update}) if $item;
+            _showMediaStatus({item => $item, enabled => $enabled, updates => $update});
 
             my $sel = $mirrorTbl->selectedItems();
-            if ($sel->size() > 1 ) {
+            if ($sel->size() == 0 || $sel->size() > 1 ) {
+                $remButton->setEnabled(($sel->size() == 0) ? 0 : 1);
                 $edtButton->setEnabled(0);
                 $upButton->setEnabled(0);
                 $downButton->setEnabled(0);
@@ -1937,12 +1941,14 @@ sub mainwindow() {
                 $update->setEnabled(0);
             }
             else {
+                $remButton->setEnabled(1);
                 $edtButton->setEnabled(1);
                 $upButton->setEnabled(1);
                 $downButton->setEnabled(1);
                 $enabled->setEnabled(1);
                 $update->setEnabled(1) if $::expert;
             }
+
             yui::YUI::ui()->unblockEvents();
         }
     }
@@ -2017,7 +2023,7 @@ sub OLD_mainwindow() {
 
         # we can only up/down one item if not at begin/end:
         return if @rows != 1;
-	
+
         my $curr_path = $rows[0];
         my $first_path = $model->get_path($model->get_iter_first);
         $up_button->set_sensitive($first_path && $first_path->compare($curr_path));
