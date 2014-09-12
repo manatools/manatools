@@ -87,6 +87,8 @@ our @EXPORT = qw(
                 md5sum
                 pathList2hash
                 distName
+                apcat
+                find
 );
 
 
@@ -98,6 +100,80 @@ Version 0.01
 
 our $VERSION = '0.01';
 
+
+
+#=============================================================
+
+=head2 apcat
+
+=head3 PARAMETERS
+
+$filename the name of the file to read
+
+=head3 OUTPUT
+
+$content the content of the selected text file inside
+
+=head3 DESCRIPTION
+
+This function return the content of $filename or false/0
+if it fails
+
+=cut
+
+#=============================================================
+
+#sub apcat {
+#    my $fn = shift();
+#    my $fh = undef;
+#    my @content = ();
+#    open($fh, "<", $fn) || return 0;
+#    while(<$fh>)
+#    {
+#        push(@content,$_);
+#    }
+#    return \@content;
+#}
+
+sub apcat {
+    my $fn = shift();
+    my $fh = undef;
+    my $content = undef;
+    open($fh, "<", $fn) || return 0;
+    while(<$fh>)
+    {
+        $content .= $_;
+    }
+    return $content;
+}
+
+
+#=============================================================
+
+=head2 find
+
+=head3 PARAMETERS
+
+$code the CODE to search for inside the LIST
+
+=head3 OUTPUT
+
+returns the first element where CODE returns true (or returns undef)
+
+=head3 EXAMPLE
+
+find { /foo/ } "fo", "fob", "foobar", "foobir"
+gives "foobar"
+
+=cut
+
+#============================================================
+
+sub find(&@) {
+    my $f = shift;
+    $f->($_) and return $_ foreach @_;
+    undef;
+}
 
 #=============================================================
 
