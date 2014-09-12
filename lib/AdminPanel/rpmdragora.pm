@@ -1,25 +1,25 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2002 Guillaume Cottenceau
 #  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
 #  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
 #  Copyright (c) 2005, 2007 Mandriva SA
 #  Copyright (c) 2013 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 #
 # $Id: rpmdragora.pm 267936 2010-04-26 16:40:21Z jvictor $
@@ -184,13 +184,13 @@ our ($mandrakeupdate_wanted_categories, $ignore_debug_media, $offered_to_add_sou
 our ($rpmdragora_height, $rpmdragora_width, $mandrivaupdate_height, $mandrivaupdate_width);
 
 our %config = (
-    clean_cache => { 
-	var => \$clean_cache, 
-	default => [ 0 ] 
+    clean_cache => {
+	var => \$clean_cache,
+	default => [ 0 ]
     },
-    auto_select => { 
-	var => \$auto_select, 
-	default => [ 0 ] 
+    auto_select => {
+	var => \$auto_select,
+	default => [ 0 ]
     },
     changelog_first_config => { var => \$changelog_first_config, default => [ 0 ] },
     compute_updates => { var => \$compute_updates, default => [ 1 ] },
@@ -302,7 +302,7 @@ sub interactive_msg {
 
 sub interactive_packtable {
     my ($title, $parent_window, $top_label, $lines, $action_buttons) = @_;
-    
+
     my $w = ugtk2->new($title, grab => 1, transient => $parent_window);
     local $::main_window = $w->{real_window};
     $w->{rwindow}->set_position($parent_window ? 'center_on_parent' : 'center');
@@ -740,6 +740,12 @@ sub show_urpm_progress {
 sub update_sources_interactive {
     my ($urpm, %options) = @_;
 
+    my @media = grep { ! $_->{ignore} } @{$urpm->{media}};
+    unless (@media) {
+        interactive_msg(N("Warning"), N("No active medium found. You must enable some media to be able to update them."));
+        return 0;
+    }
+
     my $appTitle = yui::YUI::app()->applicationTitle();
 
     ## set new title to get it in dialog
@@ -760,11 +766,6 @@ sub update_sources_interactive {
     $yTableHeader->addColumn(N("Media"),  $yui::YAlignBegin);
 
     my $mediaTable = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
-    my @media = grep { ! $_->{ignore} } @{$urpm->{media}};
-    unless (@media) {
-        interactive_msg(N("Warning"), N("No active medium found. You must enable some media to be able to update them."));
-        return 0;
-    }
 
     my $itemCollection = new yui::YItemCollection;
     foreach (@media) {
