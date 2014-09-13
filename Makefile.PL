@@ -61,6 +61,7 @@ WriteMakefile(
         "autodie"             => 2.20,
     },
     EXE_FILES => [ qw( scripts/mpan.pl
+                       scripts/mana
                        scripts/manaadduser
                        scripts/manaclock
                        scripts/manadm

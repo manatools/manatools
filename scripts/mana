@@ -1,0 +1,48 @@
+#!/usr/bin/perl
+
+use AdminPanel::Privileges;
+
+use yui;
+
+# TODO from configuration file?
+my %modules = (
+        log     => '/usr/bin/manalog', 
+        user    => '/usr/bin/manauser',
+        service => '/usr/bin/manaservice',
+        clock   => '/usr/bin/manaclock',
+        host    => '/usr/bin/manahost',
+        pan     => '/usr/bin/mpan.pl',
+        proxy   => '/usr/bin/manaproxy',
+
+);	
+
+my $cmdline = new yui::YCommandLine;
+
+usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
+usage() if scalar(@ARGV) < 1;
+
+my $cmd = $ARGV[0];
+
+die "Command ". $cmd . " not found!\n" if !defined($modules{$cmd});
+
+my $mod =  $modules{$cmd};
+shift(@ARGV);
+
+if(is_root_capability_required()) {
+    system("/usr/bin/pkexec", $mod, @ARGV);
+} else {
+    system($mod, @ARGV);
+}
+
+sub usage {
+    print "\n";
+    print "Usage mana --help | -h        print this help\n";
+    print "Usage mana <command> [args...]\n\n";
+    print "valid <commands>:\n\t";
+# TODO better presentation
+    while ( my ($key, $value) = each(%modules) ) {
+        print " " . $key;
+    }
+    print "\n";
+    exit(0);
+}
