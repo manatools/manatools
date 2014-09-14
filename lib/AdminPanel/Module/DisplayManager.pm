@@ -225,9 +225,13 @@ sub _manageProxyDialog {
     my $vbox_inputfields = $factory->createVBox($hbox_content);
 
     # list of desktop managers
+    my $rb_group = $factory->createRadioButtonGroup($vbox_labels_flags);
+    my $rbbox = $factory->createVBox($rb_group);
     foreach my $d (@{$self->dmlist()})
     {
-        $factory->createLabel($vbox_labels_flags, $d->{NAME});
+        my $rb = $factory->createRadioButton($factory->createHBox($factory->createLeft($rbbox)), $d->{NAME});
+        $rb_group->addRadioButton($rb);
+        $rb->DISOWN();
     }
     my $hbox_filler = $factory->createHBox($layout);
     $factory->createSpacing($hbox_filler,$yui::YD_VERT,2);
