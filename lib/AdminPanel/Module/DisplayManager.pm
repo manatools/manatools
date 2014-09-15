@@ -272,7 +272,9 @@ sub _manageProxyDialog {
                     }
                 );
             }elsif ($widget == $okButton) {
-                addVarsInSh($self->conffile, { DISPLAYMANAGER => lc($rb_group->currentButton()->label()) } );
+                my $current_choice = AdminPanel::Shared::trim($rb_group->currentButton()->label());
+                $current_choice =~s/\&//g;
+                addVarsInSh($self->conffile, { DISPLAYMANAGER => lc($current_choice) } );
                 $self->ask_for_X_restart();
                 last;
             }
