@@ -35,7 +35,7 @@ use AdminPanel::Shared::GUI;
 # TODROP but provides network::network
 use lib qw(/usr/lib/libDrakX);
 use network::network;
-use MDK::Common::System qw(getVarsFromSh);
+use MDK::Common::System qw(getVarsFromSh addVarsInSh);
 
 extends qw( AdminPanel::Module );
 
@@ -147,13 +147,13 @@ sub _SharedUGUIInitialize {
 sub start {
     my $self = shift;
 
-    # if ($EUID != 0) {
-    #     $self->sh_gui->warningMsgBox({
-    #                             title => $self->name,
-    #                             text  => $self->loc->N("root privileges required"),
-    #                             });
-    #     return;
-    # }
+    if ($EUID != 0) {
+        $self->sh_gui->warningMsgBox({
+                                title => $self->name,
+                                text  => $self->loc->N("root privileges required"),
+                                });
+        return;
+    }
 
     # initialize dm descriptions for i18n
     $self->_build_desc_for_i18n();
@@ -202,7 +202,7 @@ sub _manageProxyDialog {
 
     my ($dm_NAME) = apcat($self->conffile) =~ /^DISPLAYMANAGER=(.*)/m;
     my $dm = (AdminPanel::Shared::find { uc($_->{NAME}) eq uc($dm_NAME) } @{$self->dmlist});
-
+    
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
 
@@ -230,6 +230,10 @@ sub _manageProxyDialog {
     foreach my $d (@{$self->dmlist()})
     {
         my $rb = $factory->createRadioButton($factory->createHBox($factory->createLeft($rbbox)), $d->{NAME});
+        if($d->{NAME} eq uc($dm_NAME))
+        {
+            $rb->setValue(1);
+        }
         $rb_group->addRadioButton($rb);
         $rb->DISOWN();
     }
@@ -268,7 +272,9 @@ sub _manageProxyDialog {
                     }
                 );
             }elsif ($widget == $okButton) {
-                next;
+                addVarsInSh($self->conffile, { DISPLAYMANAGER => lc($rb_group->currentButton()->label()) } );
+                $self->ask_for_X_restart();
+                last;
             }
         }
     }
