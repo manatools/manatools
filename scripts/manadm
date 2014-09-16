@@ -21,7 +21,7 @@ use AdminPanel::Module::DisplayManager;
 
 use yui;
 
-my $wm_icon = "/usr/lib/libDrakX/icons/IC-Dhost-48.png"; 
+my $wm_icon = "/usr/share/mcc/themes/default/drakedm-mdk.png";
 my $wm_name = "Display Manager";
 
 yui::YUI::app()->setApplicationTitle($wm_name);

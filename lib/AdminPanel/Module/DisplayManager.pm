@@ -41,7 +41,7 @@ extends qw( AdminPanel::Module );
 
 
 has '+icon' => (
-    default => "/usr/share/mcc/themes/default/drakproxy-mdk.png"
+    default => "/usr/share/mcc/themes/default/drakedm-mdk.png",
 );
 
 has '+name' => (
