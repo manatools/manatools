@@ -112,7 +112,8 @@ $filename the name of the file to read
 
 =head3 OUTPUT
 
-$content the content of the selected text file inside
+depending from the context it returns the content 
+of the file as an array or a string
 
 =head3 DESCRIPTION
 
@@ -123,28 +124,16 @@ if it fails
 
 #=============================================================
 
-#sub apcat {
-#    my $fn = shift();
-#    my $fh = undef;
-#    my @content = ();
-#    open($fh, "<", $fn) || return 0;
-#    while(<$fh>)
-#    {
-#        push(@content,$_);
-#    }
-#    return \@content;
-#}
-
 sub apcat {
     my $fn = shift();
     my $fh = undef;
-    my $content = undef;
+    my @content = ();
     open($fh, "<", $fn) || return 0;
     while(<$fh>)
     {
-        $content .= $_;
+        push(@content, $_);
     }
-    return $content;
+    return (wantarray() ? @content : join('',@content));
 }
 
 

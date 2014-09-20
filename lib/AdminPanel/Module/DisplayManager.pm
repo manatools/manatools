@@ -94,6 +94,7 @@ sub _build_desc_for_i18n {
     my $self = shift();
 
     my @_DESCRIPTIONS_for_i18n = (
+        $self->loc->N("LightDM (The Light Display Manager)"),
         $self->loc->N("GDM (GNOME Display Manager)"),
         $self->loc->N("KDM (KDE Display Manager)"),
         $self->loc->N("XDM (X Display Manager)"),
@@ -221,6 +222,8 @@ sub _manageProxyDialog {
 
     $hbox_content = $factory->createHBox($layout);
 
+    my $vbox_spacer = $factory->createVBox($hbox_content);
+    $factory->createHSpacing($vbox_spacer,2);
     my $vbox_labels_flags = $factory->createVBox($hbox_content);
     my $vbox_inputfields = $factory->createVBox($hbox_content);
 
@@ -229,8 +232,12 @@ sub _manageProxyDialog {
     my $rbbox = $factory->createVBox($rb_group);
     foreach my $d (@{$self->dmlist()})
     {
-        my $rb = $factory->createRadioButton($factory->createHBox($factory->createLeft($rbbox)), $d->{NAME});
-        if($d->{NAME} eq uc($dm_NAME))
+        my $rowentry = $factory->createHBox($factory->createLeft($rbbox)); 
+        my $rb = $factory->createRadioButton($rowentry, $d->{NAME});
+        $rb->setWeight($yui::YD_HORIZ, 1);
+        my $desc = $factory->createLabel($rowentry, $self->loc->N($d->{DESCRIPTION}));
+        $desc->setWeight($yui::YD_HORIZ, 2);
+        if($d->{PACKAGE} eq lc($dm_NAME))
         {
             $rb->setValue(1);
         }
