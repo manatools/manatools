@@ -30,8 +30,6 @@ Version 0.01
 
 our $VERSION = '1.0.0';
 
-use strict;
-use warnings;
 use diagnostics;
 use yui;
 

@@ -53,17 +53,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 =cut
 
 
-use strict;
-use warnings;
+use Moose;
+
 use diagnostics;
 use yui;
 
 use AdminPanel::Shared qw(pathList2hash);
 
 use AdminPanel::Shared::Locales;
-
-use Moose;
-
 
 has 'loc' => (
         is => 'rw',

@@ -66,8 +66,8 @@ our $VERSION = '1.0.0';
 ##
 ###############################################
 
+use Moose;
 
-use strict;
 use POSIX qw(ceil);
 use Config::Auto;
 use File::ShareDir ':ALL';
@@ -83,7 +83,6 @@ use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
 use MDK::Common::DataStructure qw(member);
 
-use Moose;
 extends qw( AdminPanel::Module );
 
 has '+icon' => (
