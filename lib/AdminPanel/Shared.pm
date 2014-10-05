@@ -89,6 +89,9 @@ our @EXPORT = qw(
                 distName
                 apcat
                 find
+                inArray
+                disable_x_screensaver
+                enable_x_screensaver
 );
 
 
@@ -214,6 +217,32 @@ sub trim {
     return $st;
 }
 
+#=============================================================
+
+=head2 inArray
+
+=head3 INPUT
+
+    $self: this object
+    $item: item to search
+    $arr:  array container
+
+=head3 OUTPUT
+
+    true: if the array contains the item
+
+=head3 DESCRIPTION
+
+This method returns if an item is into the array container
+
+=cut
+
+#=============================================================
+sub inArray {
+    my ($self, $item, $arr) = @_;
+
+    return grep( /^$item$/, @{$arr} );
+}
 
 
 #=============================================================
