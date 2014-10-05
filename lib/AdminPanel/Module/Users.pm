@@ -72,8 +72,6 @@ use POSIX qw(ceil);
 use Config::Auto;
 use File::ShareDir ':ALL';
 
-## USER is from userdrake
-use USER;
 use utf8;
 use Sys::Syslog;
 use Glib;
@@ -125,20 +123,6 @@ has 'action_menu' => (
     init_arg  => undef, 
 );
 
-## Used by USER (for getting values? TODO need explanations, where?)
-has 'USER_GetValue' => (
-    default   => -65533,
-    is        => 'ro',
-    isa       => 'Int',
-    init_arg  => undef,
-);
-
-## Used by USER (for getting values? TODO need explanations, where?)
-has 'ctx' => (
-    is        => 'ro',
-    init_arg  => undef,
-    builder => '_USERInitialize',
-);
 
 ## min UID was 500 now is 1000, let's change in a single point
 has 'min_UID' => (
@@ -147,17 +131,6 @@ has 'min_UID' => (
     isa       => 'Int',
     init_arg  => undef,
 );
-
-sub _USERInitialize {
-    my $self = shift;
-
-    # $EUID:  effective user identifier
-    if ($EUID == 0) {
-        return USER::ADMIN->new;
-    }
-
-    return undef;
-}
 
 has 'edit_tab_widgets' => ( 
     traits    => ['Hash'],
@@ -400,33 +373,6 @@ sub ChooseGroup {
 
 #=============================================================
 
-=head2 _updateOrDelUsersInGroup
-
-=head3 INPUT
-
-    $name:   username
-
-=head3 DESCRIPTION
-
-    Fixes user deletion into groups.
-
-=cut
-
-#=============================================================
-sub _updateOrDelUserInGroup {
-    my ($self, $name) = @_;
-    my $groups = $self->ctx->GroupsEnumerateFull;
-    foreach my $g (@$groups) {
-        my $members = $g->MemberName(1, 0);
-        if ($self->_inArray($name, $members)) { 
-            eval { $g->MemberName($name, 2) };
-            eval { $self->ctx->GroupModify($g) };
-        }
-    }
-}
-
-#=============================================================
-
 =head2 _deleteGroupDialog
 
 =head3 INPUT
@@ -483,21 +429,18 @@ sub _deleteGroupDialog {
                 last;
             }
             elsif ($widget == $deleteButton) {
-                my $groupEnt = $self->ctx->LookupGroupByName($groupname);
-                my $members  = $self->ctx->EnumerateUsersByGroup($groupname);
-                my $continue = 1;
-                GLOOP: foreach my $username (@$members) {
-                    my $userEnt = $self->ctx->LookupUserByName($username);
-                    if ($userEnt && $userEnt->Gid($self->USER_GetValue) == $groupEnt->Gid($self->USER_GetValue)) {
-                        $self->sh_gui->msgBox({text => $self->loc->N("%s is a primary group for user %s\n Remove the user first", 
-                                                     $groupname, $username)});
-                        $continue = 0;
-                        last GLOOP;
-                    }
+                my $username = $self->sh_users->isPrimaryGroup($groupname);
+                if (defined($username)) {
+                    $self->sh_gui->msgBox({
+                        text => $self->loc->N("%s is a primary group for user %s\n Remove the user first",
+                                              $groupname, $username
+                        )
+                    });
                 }
-                if ($continue) { 
-                    Sys::Syslog::syslog('info|local1', $self->loc->N("Removing group: %s", $groupname));
-                    eval { $self->ctx->GroupDel($groupEnt) }; 
+                else {
+                    if ($self->sh_users->deleteGroup($groupname)) {
+                        Sys::Syslog::syslog('info|local1', $self->loc->N("Removing group: %s", $groupname));
+                    }
                     $self->_refresh();
                 }
                 last;
@@ -536,8 +479,9 @@ sub _deleteUserDialog {
     } 
     my $username = $item->label(); 
 
-    my $userEnt = $self->ctx->LookupUserByName($username);
-    my $homedir = $userEnt->HomeDir($self->USER_GetValue);
+    my $homedir = $self->sh_users->getUserHome($username);
+    return if !defined($homedir);
+
 
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
@@ -583,25 +527,13 @@ sub _deleteUserDialog {
             }
             elsif ($widget == $deleteButton) {
                 Sys::Syslog::syslog('info|local1', $self->loc->N("Removing user: %s", $username));
-                $self->ctx->UserDel($userEnt);
-                $self->_updateOrDelUserInGroup($username);
-                #Let's check out the user's primary group
-                my $usergid = $userEnt->Gid($self->USER_GetValue);
-                my $groupEnt = $self->ctx->LookupGroupById($usergid);
-                if ($groupEnt) {
-                    my $member = $groupEnt->MemberName(1, 0);
-                    if (scalar(@$member) == 0 && $groupEnt->Gid($self->USER_GetValue) > 499) {
-                        $self->ctx->GroupDel($groupEnt);
-                    }
-                }
-                if ($checkhome->isChecked()) { 
-                    eval { $self->ctx->CleanHome($userEnt) };
-                    $@ and $self->sh_gui->msgBox({text => $@}) and last;
-                }
-                if ($checkspool->isChecked()) {
-                    eval { $self->ctx->CleanSpool($userEnt) };
-                    $@ and $self->sh_gui->msgBox({text => $@}) and last;
-                }
+                my $option = undef;
+                $option->{clean_home} = $checkhome->isChecked() if $checkhome->isChecked();
+                $option->{clean_spool} = $checkspool->isChecked() if $checkspool->isChecked();
+
+                my $err = $self->sh_users->deleteUser($username, $option);
+                $self->sh_gui->msgBox({text => $err}) if (defined($err));
+
                 #remove added icon
                 $self->sh_users->removeKdmIcon($username);
                 $self->_refresh();
@@ -678,31 +610,26 @@ sub _addGroupDialog {
                 ## check data
                 my $groupname = $groupName->value();
                 my ($continue, $errorString) = $self->sh_users->valid_groupname($groupname);
-                my $nm = $continue && $self->ctx->LookupGroupByName($groupname);
+                my $nm = $continue && $self->sh_users->groupNameExist($groupname);
                 if ($nm) {
                     $groupName->setValue("");
                     $errorString = $self->loc->N("Group already exists, please choose another Group Name");
                     $continue = 0;
                 }
-                my $groupEnt = $self->ctx->InitGroup($groupname, $is_system);
-        
+
                 my $gid = 0;
                 if ($continue && $gidManually->value()) {
                     if (($gid = $GID->value()) < 500) {
                         $errorString = "";
                         my $gidchoice = $self->sh_gui->ask_YesOrNo({ title => $self->loc->N(" Group Gid is < 500"),
                                         text => $self->loc->N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n")});
-                        $continue = $gidchoice and $groupEnt->Gid($gid);
-                    } else { 
-                        my $g = $self->ctx->LookupGroupById($gid);
-                        if ($g) {
+                        $continue = $gidchoice;
+                    } else {
+                        if ($self->sh_users->groupIDExists($gid)) {
                             $errorString = "";
                             my $gidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N(" Group ID is already used "),
                                         text => $self->loc->N("Creating a group with a non unique GID?\n\n")});
-                            $continue = $gidchoice and $groupEnt->Gid($gid);
-                        }
-                        else {
-                            $groupEnt and $groupEnt->Gid($gid);
+                            $continue = $gidchoice;
                         }
                     }
                 }
@@ -714,7 +641,11 @@ sub _addGroupDialog {
                 }
                 else {
                     Sys::Syslog::syslog('info|local1', $self->loc->N("Adding group: %s ", $groupname));
-                    $self->ctx->GroupAdd($groupEnt);
+                    $self->sh_users->addGroup({
+                        groupname  => $groupname,
+                        gid        => $gid,
+                        is_system  => $is_system,
+                    });
                     $self->_refresh();
                     last;
                 }
@@ -757,7 +688,7 @@ sub _buildUserData {
     my ($self, $layout, $selected_shell) = @_;
 
 
-    my @shells = @{$self->ctx->GetUserShells};
+    my @shells = @{$self->sh_users->getUserShells()};
 
     my $factory  = yui::YUI::widgetFactory;
 
@@ -971,7 +902,7 @@ sub addUserDialog {
                 ## check data
                 my $username = $userData{ login_name }->value();
                 my ($continue, $errorString) = $self->sh_users->valid_username($username);
-                my $nm = $continue && $self->ctx->LookupUserByName($username);
+                my $nm = $continue && $self->sh_users->userNameExists($username);
                 if ($nm) {
                     $userData{ login_name }->setValue("");
                     $homeDir->setValue("");
@@ -987,46 +918,42 @@ sub addUserDialog {
                     $errorString = $self->loc->N("This password is too simple. \n Good passwords should be > 6 characters");
                     $continue = 0;
                 }
-                my $userEnt = $continue && $self->ctx->InitUser($username, $is_system);
+                my $homedir;
                 if ($continue && $createHome->value()) {
-                    my $homedir = $homeDir->value();
+                    $homedir = $homeDir->value();
                     if ( -d $homedir) {
                         $errorString = $self->loc->N("Home directory <%s> already exists.\nPlease uncheck the home creation option, or change the directory path name", $homedir);
                         $continue = 0;
                     }
                     else {
                         $dontcreatehomedir = 0;
-                        $userEnt and $userEnt->HomeDir($homedir);
                     }
                 } else {
                     $dontcreatehomedir = 1;
                 }
-                my $uid = 0;
+                my $uid = -1;
                 if ($continue && $uidManually->value()) {
                     if (($uid = $UID->value()) < $self->min_UID) {
                         $errorString = "";
                         my $uidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N("User Uid is < %d", $self->min_UID),
                                         text => $self->loc->N("Creating a user with a UID less than %d is not recommended.\nAre you sure you want to do this?\n\n", $self->min_UID)});
-                        $continue = $uidchoice and $userEnt->Uid($uid);
-                    } else { 
-                        $userEnt and $userEnt->Uid($uid);
+                        $continue = $uidchoice;
                     }
                 }
-                my $gid = 0;
+                my $gid = undef;
                 if ($createGroup->value()) {
                     if ($continue) {
                         #Check if group exist
-                        my $gr = $self->ctx->LookupGroupByName($username);
-                        if ($gr) { 
+                        if ($self->sh_users->groupNameExists($username)) {
                             my $groupchoice = $self->ChooseGroup();
                             if ($groupchoice == 0 ) {
                                 #You choose to put it in the existing group
-                                $gid = $gr->Gid($self->USER_GetValue);
+                                $gid = $self->sh_users->groupID($username);
                             } elsif ($groupchoice == 1) {
                                 # Put it in 'users' group
                                 Sys::Syslog::syslog('info|local1', $self->loc->N("Putting %s to 'users' group",
                                                     $username));
-                                $gid = $self->sh_users->Add2UsersGroup($username, $self->ctx);
+                                $gid = $self->sh_users->Add2UsersGroup($username);
                             }
                             else {
                                 $errorString = "";
@@ -1034,14 +961,15 @@ sub addUserDialog {
                             }
                         } else { 
                             #it's a new group: Add it
-                            my $newgroup = $self->ctx->InitGroup($username,$is_system);
+                            $gid = $self->sh_users->addGroup({
+                                groupname => $username,
+                                is_system => $is_system,
+                            });
                             Sys::Syslog::syslog('info|local1', $self->loc->N("Creating new group: %s", $username));
-                            $gid = $newgroup->Gid($self->USER_GetValue);
-                            $self->ctx->GroupAdd($newgroup);
                         }
                     }
                 } else {
-                    $continue and $gid = $self->sh_users->Add2UsersGroup($username, $self->ctx);
+                    $continue and $gid = $self->sh_users->Add2UsersGroup($username);
                 }
 
                 if (!$continue) {
@@ -1055,12 +983,20 @@ sub addUserDialog {
                     my $loginshell = $userData{ login_shell }->value();
                     my $fullname   = $userData{ full_name }->value();
                     utf8::decode($fullname);
-                    $userEnt->Gecos($fullname);  $userEnt->LoginShell($loginshell);
-                    $userEnt->Gid($gid);
-                    $userEnt->ShadowMin(-1); $userEnt->ShadowMax(99999);
-                    $userEnt->ShadowWarn(-1); $userEnt->ShadowInact(-1);
-                    $self->ctx->UserAdd($userEnt, $is_system, $dontcreatehomedir);
-                    $self->ctx->UserSetPass($userEnt, $passwd);
+
+                    my $userParams = {
+                        username        => $username,
+                        is_system       => $is_system,
+                        donotcreatehome => $dontcreatehomedir,
+                        shell           => $loginshell,
+                        fullname        => $fullname,
+                        gid             => $gid,
+                        password  => $passwd,
+                    };
+                    $userParams->{uid} = $uid if $uid != -1;
+                    $userParams->{homedir} = $homedir if !$dontcreatehomedir;
+                    $self->sh_users->addUser($userParams);
+
                     defined $icon->label() and
                          $self->sh_users->addKdmIcon($username, $icon->label());
 ###  TODO Migration wizard
@@ -1171,34 +1107,7 @@ sub _createGroupTable {
 }
 
 
-#=============================================================
 
-=head2 _computeLockExpire
-
-=head3 INPUT
-
-    $l: login user info
-
-=head3 OUTPUT
-
-    $status: Locked, Expired, or empty string
-
-=head3 DESCRIPTION
-
-    This method returns if the login is Locked, Expired or ok.
-    Note this function is meant for internal use only
-
-=cut
-
-#=============================================================
-sub _computeLockExpire {
-    my ( $self, $l ) = @_;
-    my $ep = $l->ShadowExpire($self->USER_GetValue);
-    my $tm = ceil(time()/(24*60*60));
-    $ep = -1 if int($tm) <= $ep;
-    my $status = $self->ctx->IsLocked($l) ? $self->loc->N("Locked") : ($ep != -1 ? $self->loc->N("Expired") : '');
-    $status;
-}
 
 #=============================================================
 
@@ -1223,7 +1132,7 @@ sub _refreshUsers {
     my $filterusers = $self->get_widget('filter_system')->isChecked();
 
     my ($users, $group, $groupnm, $expr); 
-    defined $self->ctx and $users = $self->ctx->UsersEnumerateFull;
+    defined $self->sh_users->ctx and $users = $self->sh_users->ctx->UsersEnumerateFull;
 
     $self->dialog->startMultipleChanges();
     #for some reasons QT send an event using table->selectItem()
@@ -1233,31 +1142,31 @@ sub _refreshUsers {
 
     my @UserReal;
   LOOP: foreach my $l (@$users) {
-        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) <= 499 || $l->Uid($self->USER_GetValue) == 65534;
-        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) > 499 && $l->Uid($self->USER_GetValue) < $self->min_UID &&
-                     ($l->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/);
-        push @UserReal, $l if $l->UserName($self->USER_GetValue) =~ /^\Q$strfilt/;
+        next LOOP if $filterusers && $l->Uid($self->sh_users->USER_GetValue) <= 499 || $l->Uid($self->sh_users->USER_GetValue) == 65534;
+        next LOOP if $filterusers && $l->Uid($self->sh_users->USER_GetValue) > 499 && $l->Uid($self->sh_users->USER_GetValue) < $self->min_UID &&
+                     ($l->HomeDir($self->sh_users->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->sh_users->USER_GetValue) =~ /(nologin|false)$/);
+        push @UserReal, $l if $l->UserName($self->sh_users->USER_GetValue) =~ /^\Q$strfilt/;
     }
     my $i;
     my $itemColl = new yui::YItemCollection;
     foreach my $l (@UserReal) {
         $i++;
-        my $uid = $l->Uid($self->USER_GetValue);
+        my $uid = $l->Uid($self->sh_users->USER_GetValue);
         if (!defined $uid) {
          warn "bogus user at line $i\n";
          next;
         }
-        my $a = $l->Gid($self->USER_GetValue);
-        $group = $self->ctx->LookupGroupById($a);
+        my $a = $l->Gid($self->sh_users->USER_GetValue);
+        $group = $self->sh_users->ctx->LookupGroupById($a);
         $groupnm = '';
-        $expr = $self->_computeLockExpire($l);
-        $group and $groupnm = $group->GroupName($self->USER_GetValue); 
-        my $fulln = $l->Gecos($self->USER_GetValue);
+        $expr = $self->sh_users->computeLockExpire($l);
+        $group and $groupnm = $group->GroupName($self->sh_users->USER_GetValue);
+        my $fulln = $l->Gecos($self->sh_users->USER_GetValue);
         utf8::decode($fulln);
-        my $username = $l->UserName($self->USER_GetValue);
-        my $Uid      = $l->Uid($self->USER_GetValue);
-        my $shell    = $l->LoginShell($self->USER_GetValue);
-        my $homedir  = $l->HomeDir($self->USER_GetValue); 
+        my $username = $l->UserName($self->sh_users->USER_GetValue);
+        my $Uid      = $l->Uid($self->sh_users->USER_GetValue);
+        my $shell    = $l->LoginShell($self->sh_users->USER_GetValue);
+        my $homedir  = $l->HomeDir($self->sh_users->USER_GetValue);
         my $item = new yui::YTableItem ("$username",
                                         "$Uid",
                                         "$groupnm",
@@ -1303,7 +1212,7 @@ sub _refreshGroups {
     my $filtergroups = $self->get_widget('filter_system')->isChecked();
 
     my $groups;
-    defined $self->ctx and $groups = $self->ctx->GroupsEnumerateFull;
+    defined $self->sh_users->ctx and $groups = $self->sh_users->ctx->GroupsEnumerateFull;
 
     $self->dialog->startMultipleChanges();
     #for some reasons QT send an event using table->selectItem()
@@ -1312,18 +1221,18 @@ sub _refreshGroups {
     $self->get_widget('table')->deleteAllItems();    
     my @GroupReal;
   LOOP: foreach my $g (@$groups) {
-        next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
-        push @GroupReal, $g if $g->GroupName($self->USER_GetValue) =~ /^\Q$strfilt/;
+        next LOOP if $filtergroups && $g->Gid($self->sh_users->USER_GetValue) <= 499 || $g->Gid($self->sh_users->USER_GetValue) == 65534;
+        push @GroupReal, $g if $g->GroupName($self->sh_users->USER_GetValue) =~ /^\Q$strfilt/;
     }
 
     my $itemColl = new yui::YItemCollection;
     foreach my $g (@GroupReal) {
-     my $a = $g->GroupName($self->USER_GetValue);
+     my $a = $g->GroupName($self->sh_users->USER_GetValue);
         #my $group = $ctx->LookupGroupById($a);
-        my $u_b_g = $a && $self->ctx->EnumerateUsersByGroup($a);
+        my $u_b_g = $a && $self->sh_users->ctx->EnumerateUsersByGroup($a);
         my $listUbyG  = join(',', @$u_b_g);
-        my $group_id  = $g->Gid($self->USER_GetValue);
-        my $groupname = $g->GroupName($self->USER_GetValue);
+        my $group_id  = $g->Gid($self->sh_users->USER_GetValue);
+        my $groupname = $g->GroupName($self->sh_users->USER_GetValue);
         my $item      = new yui::YTableItem ("$groupname",
                                              "$group_id",
                                              "$listUbyG");
@@ -1402,14 +1311,14 @@ sub _getUserInfo {
     
     my %userData;
     $userData{username}  = $item->label(); 
-    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
+    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData{username});
 
-    my $s                = $userEnt->Gecos($self->USER_GetValue);
+    my $s                = $userEnt->Gecos($self->sh_users->USER_GetValue);
     utf8::decode($s);
     $userData{full_name} = $s;
-    $userData{shell}     = $userEnt->LoginShell($self->USER_GetValue);
-    $userData{homedir}   = $userEnt->HomeDir($self->USER_GetValue);
-    $userData{UID}       = $userEnt->Uid($self->USER_GetValue);
+    $userData{shell}     = $userEnt->LoginShell($self->sh_users->USER_GetValue);
+    $userData{homedir}   = $userEnt->HomeDir($self->sh_users->USER_GetValue);
+    $userData{UID}       = $userEnt->Uid($self->sh_users->USER_GetValue);
 
     # default expiration time
     my ($day, $mo, $ye)      = (localtime())[3, 4, 5];
@@ -1417,7 +1326,7 @@ sub _getUserInfo {
     $userData{acc_expm}      = $mo+1;
     $userData{acc_expd}      = $day;
     $userData{acc_check_exp} = 0;
-    my $expire               = $userEnt->ShadowExpire($self->USER_GetValue);
+    my $expire               = $userEnt->ShadowExpire($self->sh_users->USER_GetValue);
     if ($expire && $expire != -1) {
         my $times                = _TimeOfArray($expire, 1); 
         $userData{acc_expy}      = $times->{year};
@@ -1432,14 +1341,14 @@ sub _getUserInfo {
     $userData{password1}     = undef;
     # Check if user account is locked 
 
-    $userData{lockuser}      = $self->ctx->IsLocked($userEnt);
+    $userData{lockuser}      = $self->sh_users->ctx->IsLocked($userEnt);
 
     $userData{icon_face}     = $self->sh_users->GetFaceIcon($userData{username});
     $userData{pwd_check_exp} = 0;
-    $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->USER_GetValue); 
-    $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->USER_GetValue); 
-    $userData{pwd_exp_warn}  = $userEnt->ShadowWarn($self->USER_GetValue);
-    $userData{pwd_exp_inact} = $userEnt->ShadowInact($self->USER_GetValue);
+    $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->sh_users->USER_GetValue);
+    $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->sh_users->USER_GetValue);
+    $userData{pwd_exp_warn}  = $userEnt->ShadowWarn($self->sh_users->USER_GetValue);
+    $userData{pwd_exp_inact} = $userEnt->ShadowInact($self->sh_users->USER_GetValue);
  
     if ($userData{pwd_exp_min} && $userData{pwd_exp_min} != -1 || 
         $userData{pwd_exp_max} && $userData{pwd_exp_max} != 99999 || 
@@ -1448,8 +1357,8 @@ sub _getUserInfo {
         $userData{pwd_check_exp} = 1;
     }
 
-    $userData{members}       = $self->ctx->EnumerateGroupsByUser($userData{username});
-    $userData{primary_group} = $userEnt->Gid($self->USER_GetValue);
+    $userData{members}       = $self->sh_users->ctx->EnumerateGroupsByUser($userData{username});
+    $userData{primary_group} = $userEnt->Gid($self->sh_users->USER_GetValue);
     
     return %userData;
 
@@ -1494,8 +1403,8 @@ sub _getGroupInfo {
     $groupData{start_groupname} = $item->label();
     $groupData{groupname}       = $item->label();
 
-    my $groupEnt = $self->ctx->LookupGroupByName($groupData{groupname}); 
-    $groupData{members} = $self->ctx->EnumerateUsersByGroup($groupData{groupname});
+    my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{groupname});
+    $groupData{members} = $self->sh_users->ctx->EnumerateUsersByGroup($groupData{groupname});
     
     return %groupData;
 
@@ -1569,8 +1478,8 @@ sub _storeDataFromUserEditPreviousTab {
         $userData{members} = [ @members ];
 
         if ($self->get_edit_tab_widget('primary_group')->selectedItem()) {
-            my $Gent      = $self->ctx->LookupGroupByName($self->get_edit_tab_widget('primary_group')->selectedItem()->label());
-            my $primgroup = $Gent->Gid($self->USER_GetValue);
+            my $Gent      = $self->sh_users->ctx->LookupGroupByName($self->get_edit_tab_widget('primary_group')->selectedItem()->label());
+            my $primgroup = $Gent->Gid($self->sh_users->USER_GetValue);
 
             $userData{primary_group} = $primgroup;
         }
@@ -1766,8 +1675,8 @@ sub _userPasswordInfoTabWidget {
     my $layout  = $factory->createVBox($replace_pnt);
 
     my %userPasswordWidget;
-    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
-    my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
+    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData{username});
+    my $lastchg = $userEnt->ShadowLastChange($self->sh_users->USER_GetValue);
 
     my $align   = $factory->createLeft($layout);
     my $hbox    = $factory->createHBox($align);    
@@ -1849,8 +1758,8 @@ sub _groupUsersTabWidget {
 
     $groupUsersWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
-    my $groupEnt = $self->ctx->LookupGroupByName($groupData{groupname}); 
-    my $users  = $self->ctx->UsersEnumerate;
+    my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{groupname});
+    my $users  = $self->sh_users->ctx->UsersEnumerate;
     my @susers = sort(@$users);
 
     my $itemCollection = new yui::YItemCollection;
@@ -1884,8 +1793,8 @@ sub _userGroupsTabWidget {
     $replace_pnt->deleteChildren();
 
     my %userGroupsWidget;
-    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
-    my $lastchg = $userEnt->ShadowLastChange($self->USER_GetValue);
+    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData{username});
+    my $lastchg = $userEnt->ShadowLastChange($self->sh_users->USER_GetValue);
 
     my $layout   = _labeledFrameBox($replace_pnt, $self->loc->N("Select groups that the user will be member of:"));
 
@@ -1895,7 +1804,7 @@ sub _userGroupsTabWidget {
 
     $userGroupsWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
-    my $grps = $self->ctx->GroupsEnumerate;
+    my $grps = $self->sh_users->ctx->GroupsEnumerate;
     my @sgroups = sort @$grps;
  
     my $itemCollection = new yui::YItemCollection;
@@ -1911,8 +1820,8 @@ sub _userGroupsTabWidget {
     $userGroupsWidget{members}->setNotify(1);
     my $primgroup = '';
     if ($userData{primary_group} != -1) {
-        my $Gent      = $self->ctx->LookupGroupById($userData{primary_group});
-        $primgroup    = $Gent->GroupName($self->USER_GetValue);
+        my $Gent      = $self->sh_users->ctx->LookupGroupById($userData{primary_group});
+        $primgroup    = $Gent->GroupName($self->sh_users->USER_GetValue);
     }
 
     my $align   = $factory->createLeft($layout);
@@ -1948,30 +1857,30 @@ sub _groupEdit_Ok {
         $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
         return $continue;
     }
-    my $groupEnt = $self->ctx->LookupGroupByName($groupData{start_groupname}); 
+    my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{start_groupname});
     if ($groupData{start_groupname} ne $groupData{groupname}) { 
         $groupEnt->GroupName($groupData{groupname}); 
     }
 
     my $members = $groupData{members};
-    my $gid     = $groupEnt->Gid($self->USER_GetValue);
-    my $users   = $self->ctx->UsersEnumerate;
+    my $gid     = $groupEnt->Gid($self->sh_users->USER_GetValue);
+    my $users   = $self->sh_users->ctx->UsersEnumerate;
     my @susers  = sort(@$users);
 
     foreach my $user (@susers) {
-        my $uEnt = $self->ctx->LookupGroupByName($user);
+        my $uEnt = $self->sh_users->ctx->LookupGroupByName($user);
         if ($uEnt) {
-            my $ugid = $uEnt->Gid($self->USER_GetValue);
-            my $m    = $self->ctx->EnumerateUsersByGroup($groupData{start_groupname});
+            my $ugid = $uEnt->Gid($self->sh_users->USER_GetValue);
+            my $m    = $self->sh_users->ctx->EnumerateUsersByGroup($groupData{start_groupname});
             if (MDK::Common::DataStructure::member($user, @$members)) {
-                if (!$self->_inArray($user, $m)) {
+                if (!AdminPanel::Shared::inArray($user, $m)) {
                     if ($ugid != $gid) {
                         eval { $groupEnt->MemberName($user,1) };
                     }
                 }
             }
             else {
-                if ($self->_inArray($user, $m)) {
+                if (AdminPanel::Shared::inArray($user, $m)) {
                     if ($ugid == $gid) {
                         $self->sh_gui->msgBox({text => $self->loc->N("You cannot remove user '%s' from their primary group", $user)});
                         return 0;
@@ -1984,7 +1893,7 @@ sub _groupEdit_Ok {
         }
     }    
 
-    $self->ctx->GroupModify($groupEnt);
+    $self->sh_users->ctx->GroupModify($groupEnt);
     $self->_refresh();
 
     return 1;
@@ -2006,39 +1915,39 @@ sub _userEdit_Ok {
         $self->sh_gui->msgBox({text => $self->loc->N("Password Mismatch")});
         return 0;
     }
-    my $userEnt = $self->ctx->LookupUserByName($userData{username}); 
+    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData{username});
     if ($userData{password} ne '') {
         if ($self->sh_users->weakPasswordForSecurityLevel($userData{password})) {
             $self->sh_gui->msgBox({text => $self->loc->N("This password is too simple. \n Good passwords should be > 6 characters")});
             return 0;
         }
-        $self->ctx->UserSetPass($userEnt, $userData{password});
+        $self->sh_users->ctx->UserSetPass($userEnt, $userData{password});
     }
 
     $userEnt->UserName($userData{username});
     $userEnt->Gecos($userData{full_name});
     $userEnt->HomeDir($userData{homedir});
     $userEnt->LoginShell($userData{shell});
-    my $username = $userEnt->UserName($self->USER_GetValue);
-    my $grps = $self->ctx->GroupsEnumerate;
+    my $username = $userEnt->UserName($self->sh_users->USER_GetValue);
+    my $grps = $self->sh_users->ctx->GroupsEnumerate;
     my @sgroups = sort @$grps;
  
     my $members = $userData{members};
     foreach my $group (@sgroups) {
 
-        my $gEnt = $self->ctx->LookupGroupByName($group);
-        my $ugid = $gEnt->Gid($self->USER_GetValue);
+        my $gEnt = $self->sh_users->ctx->LookupGroupByName($group);
+        my $ugid = $gEnt->Gid($self->sh_users->USER_GetValue);
         my $m    = $gEnt->MemberName(1,0);
         if (MDK::Common::DataStructure::member($group, @$members)) {
-            if (!$self->_inArray($username, $m) && $userData{primary_group} != $ugid) {
+            if (!AdminPanel::Shared::inArray($username, $m) && $userData{primary_group} != $ugid) {
                 eval { $gEnt->MemberName($username, 1) };
-                $self->ctx->GroupModify($gEnt);
+                $self->sh_users->ctx->GroupModify($gEnt);
             }
         }
         else {
-            if ($self->_inArray($username, $m)) {
+            if (AdminPanel::Shared::inArray($username, $m)) {
                 eval { $gEnt->MemberName($username, 2) };
-                $self->ctx->GroupModify($gEnt);
+                $self->sh_users->ctx->GroupModify($gEnt);
             }
         }
     }
@@ -2086,13 +1995,13 @@ sub _userEdit_Ok {
         $userEnt->ShadowInact(-1); 
     }
    
-    $self->ctx->UserModify($userEnt);
+    $self->sh_users->ctx->UserModify($userEnt);
 
     if ($userData{lockuser}) {
-        !$self->ctx->IsLocked($userEnt) and $self->ctx->Lock($userEnt);
+        !$self->sh_users->ctx->IsLocked($userEnt) and $self->sh_users->ctx->Lock($userEnt);
     } 
     else { 
-        $self->ctx->IsLocked($userEnt) and $self->ctx->UnLock($userEnt); 
+        $self->sh_users->ctx->IsLocked($userEnt) and $self->sh_users->ctx->UnLock($userEnt);
     }
             
     defined $userData{icon_face} and $self->sh_users->addKdmIcon($userData{username}, $userData{icon_face});
@@ -2261,8 +2170,8 @@ sub _editUserDialog {
                                     for(my $i=0;$i < $tbl->itemsCount();$i++) {
                                         if ($tbl->toCBYTableItem($tbl->item($i))->checked()) {
                                             my $pgItem = new yui::YItem ($tbl->item($i)->label(), 0);
-                                            my $Gent   = $self->ctx->LookupGroupById($userData{primary_group});
-                                            my $primgroup = $Gent->GroupName($self->USER_GetValue);
+                                            my $Gent   = $self->sh_users->ctx->LookupGroupById($userData{primary_group});
+                                            my $primgroup = $Gent->GroupName($self->sh_users->USER_GetValue);
                                             $pgItem->setSelected(1) if ($pgItem->label() eq $primgroup);
 
                                             $itemColl->push($pgItem);
@@ -2745,33 +2654,6 @@ sub _skipShortcut {
     $label =~ s/&// if ($label);
 
     return ($label);
-}
-
-#=============================================================
-
-=head2 _inArray
-
-=head3 INPUT
-
-    $self: this object
-    $item: item to search
-    $arr:  array container
-
-=head3 OUTPUT
-
-    true: if the array contains the item
-
-=head3 DESCRIPTION
-
-This method returns if an item is into the array container
-
-=cut
-
-#=============================================================
-sub _inArray {
-    my ($self, $item, $arr) = @_;
-    
-    return grep( /^$item$/, @$arr );
 }
 
 

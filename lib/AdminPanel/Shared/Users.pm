@@ -51,8 +51,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 =cut
 
-
-
 use diagnostics;
 use strict;
 
@@ -62,6 +60,11 @@ use IO::All;
 use File::Basename;
 use File::Copy;
 use File::Remove 'remove';
+
+## USER is from userdrake
+use USER;
+use English;
+use POSIX qw/ceil/;
 
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared;
@@ -119,6 +122,32 @@ sub _localeInitialize {
     # TODO fix domain binding for translation
     $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'userdrake') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+}
+
+## Used by USER (for getting values? TODO need explanations, where?)
+has 'USER_GetValue' => (
+    default   => -65533,
+    is        => 'ro',
+    isa       => 'Int',
+    init_arg  => undef,
+);
+
+## Used by USER (for getting values? TODO need explanations, where?)
+has 'ctx' => (
+    is        => 'ro',
+    init_arg  => undef,
+    builder => '_USERInitialize',
+);
+
+sub _USERInitialize {
+    my $self = shift;
+
+    # $EUID:  effective user identifier
+    if ($EUID == 0) {
+        return USER::ADMIN->new;
+    }
+
+    return undef;
 }
 
 
@@ -238,13 +267,13 @@ sub face2png {
 
 #=============================================================
 
-sub facenames() {
+sub facenames {
     my $self = shift;
 
     my $dir = $self->face_dir;
     my @files    = io->dir($dir)->all_files;
     my @l = grep { /^[A-Z]/ } @files;
-    my @namelist = map { my $f =fileparse($_->filename, qr/\Q.png\E/) } (@l ? @l : @files);
+    my @namelist = map { my $f = fileparse($_->filename, qr/\Q.png\E/) } (@l ? @l : @files);
 
     return \@namelist;
 }
@@ -400,6 +429,493 @@ sub valid_groupname {
 
 #=============================================================
 
+=head2 updateOrDelUsersInGroup
+
+=head3 INPUT
+
+    $name:   username
+
+=head3 DESCRIPTION
+
+    Fixes user deletion into groups.
+
+=cut
+
+#=============================================================
+sub updateOrDelUserInGroup {
+    my ($self, $name) = @_;
+    my $groups = $self->ctx->GroupsEnumerateFull;
+    foreach my $g (@$groups) {
+        my $members = $g->MemberName(1, 0);
+        if (AdminPanel::Shared::inArray($name, $members)) {
+            eval { $g->MemberName($name, 2) };
+            eval { $self->ctx->GroupModify($g) };
+        }
+    }
+}
+
+
+#=============================================================
+
+=head2 groupNameExists
+
+=head3 INPUT
+
+$groupname: the name of the group to check
+
+=head3 OUTPUT
+
+if group exists
+
+=head3 DESCRIPTION
+
+This method return if a given group exists
+
+=cut
+
+#=============================================================
+sub groupNameExists {
+    my ($self, $groupname) = @_;
+
+    return 0 if (!defined($groupname));
+
+    return (defined($self->ctx->LookupGroupByName($groupname)));
+}
+
+#=============================================================
+
+=head2 groupIDExists
+
+=head3 INPUT
+
+$group: the id of the group to check
+
+=head3 OUTPUT
+
+if group exists
+
+=head3 DESCRIPTION
+
+This method return if a given group exists
+
+=cut
+
+#=============================================================
+sub groupIDExists {
+    my ($self, $group) = @_;
+
+    return 0 if (!defined($group));
+
+    return (defined($self->ctx->LookupGroupById($group)));
+}
+
+
+#=============================================================
+
+=head2 groupID
+
+=head3 INPUT
+
+$groupname: group name
+
+=head3 OUTPUT
+
+groupid or undef
+
+=head3 DESCRIPTION
+
+This method returns the group id for the group name
+
+=cut
+
+#=============================================================
+sub groupID {
+    my ($self, $groupname) = @_;
+
+    my $gr = $self->ctx->LookupGroupByName($groupname);
+    return $gr->Gid($self->USER_GetValue) if ($gr);
+
+    return undef;
+}
+#=============================================================
+
+=head2 addGroup
+
+=head3 INPUT
+
+$params: HASH reference containing:
+    groupname => name of teh group to be added
+    gid       => group id of the group to be added
+    is_system => is a system group?
+
+=head3 OUTPUT
+
+    $gid the actual group id
+
+=head3 DESCRIPTION
+
+This method add a group to system
+
+=cut
+
+#=============================================================
+
+sub addGroup {
+    my ($self, $params) = @_;
+
+    my $is_system = defined($params->{is_system}) ?
+                    $params->{is_system}          :
+                    0;
+
+    return -1 if !defined($params->{groupname});
+
+    my $groupEnt = $self->ctx->InitGroup($params->{groupname}, $is_system);
+
+    return -1 if !defined($groupEnt);
+
+    $groupEnt->Gid($params->{gid}) if defined($params->{gid});
+
+    $self->ctx->GroupAdd($groupEnt);
+
+    return $groupEnt->Gid($self->USER_GetValue);
+}
+
+#=============================================================
+
+=head2 groupMembers
+
+=head3 INPUT
+
+$groupname: The group name
+
+=head3 OUTPUT
+
+$members: ARRAY reference containing all the user belonging
+          to the given $groupname
+
+=head3 DESCRIPTION
+
+This method gets the group name and returns the users belonging
+to it
+
+=cut
+
+#=============================================================
+sub groupMembers {
+    my ($self, $groupname) = @_;
+
+    return $groupname if !defined($groupname);
+
+    my $groupEnt = $self->ctx->LookupGroupByName($groupname);
+    my $members  = $self->ctx->EnumerateUsersByGroup($groupname);
+
+    return $members;
+}
+
+
+#=============================================================
+
+=head2 isPrimaryGroup
+
+=head3 INPUT
+
+$groupname: the name of the group
+
+=head3 OUTPUT
+
+$username: undef if it is primary group or the username for
+           which the group is the primary one.
+
+=head3 DESCRIPTION
+
+This methods check if the given group name is primary group
+for any users belonging to the group
+
+=cut
+
+#=============================================================
+sub isPrimaryGroup {
+    my ($self, $groupname) = @_;
+
+    return $groupname if !defined($groupname);
+
+    my $groupEnt = $self->ctx->LookupGroupByName($groupname);
+    my $members  = $self->ctx->EnumerateUsersByGroup($groupname);
+    foreach my $username (@$members) {
+        my $userEnt = $self->ctx->LookupUserByName($username);
+        if ($userEnt && $userEnt->Gid($self->USER_GetValue) == $groupEnt->Gid($self->USER_GetValue)) {
+            return $username;
+        }
+    }
+    return undef;
+}
+
+
+#=============================================================
+
+=head2 deleteGroup
+
+=head3 INPUT
+
+$groupname: in_par_description
+
+=head3 OUTPUT
+
+0: if error occurred
+1: if removed
+
+=head3 DESCRIPTION
+
+This method remove the group from the system
+
+=cut
+
+#=============================================================
+sub deleteGroup {
+     my ($self, $groupname) = @_;
+
+     return 0 if !defined($groupname);
+
+     my $groupEnt = $self->ctx->LookupGroupByName($groupname);
+     eval { $self->ctx->GroupDel($groupEnt) };
+     return 0 if $@;
+
+     return 1;
+}
+
+#=============================================================
+
+=head2 getUserHome
+
+=head3 INPUT
+
+    $username: given user name
+
+=head3 OUTPUT
+
+    $homedir: user home directory
+
+=head3 DESCRIPTION
+
+    This method return the home directory belonging to the given
+    username
+
+=cut
+
+#=============================================================
+sub getUserHome {
+    my ($self, $username) = @_;
+
+    return $username if !defined($username);
+
+    my $userEnt = $self->ctx->LookupUserByName($username);
+    my $homedir = $userEnt->HomeDir($self->USER_GetValue);
+
+    return $homedir;
+}
+
+#=============================================================
+
+=head2 userNameExists
+
+=head3 INPUT
+
+$username: the name of the user to check
+
+=head3 OUTPUT
+
+if user exists
+
+=head3 DESCRIPTION
+
+This method return if a given user exists
+
+=cut
+
+#=============================================================
+sub userNameExists {
+    my ($self, $username) = @_;
+
+    return 0 if (!defined($username));
+
+    return (defined($self->ctx->LookupUserByName($username)));
+}
+
+#=============================================================
+
+=head2 computeLockExpire
+
+=head3 INPUT
+
+    $l: login user info
+
+=head3 OUTPUT
+
+    $status: Locked, Expired, or empty string
+
+=head3 DESCRIPTION
+
+    This method returns if the login is Locked, Expired or ok.
+    Note this function is meant for internal use only
+
+=cut
+
+#=============================================================
+sub computeLockExpire {
+    my ( $self, $l ) = @_;
+    my $ep = $l->ShadowExpire($self->USER_GetValue);
+    my $tm = ceil(time()/(24*60*60));
+    $ep = -1 if int($tm) <= $ep;
+    my $status = $self->ctx->IsLocked($l) ? $self->loc->N("Locked") : ($ep != -1 ? $self->loc->N("Expired") : '');
+    $status;
+}
+
+#=============================================================
+
+=head2 addUser
+
+=head3 INPUT
+
+$params: HASH reference containing:
+    username  => name of teh user to be added
+    uid       => user id of the username to be added
+    is_system => is a system user?
+    homedir   => user home directory
+    donotcreatehome => do not create the home directory
+    shell => user shall
+    fullname => user full name
+    gid => group id for the user
+    shadowMin => min time password validity
+    shadowMax => max time password validity
+    shadowInact =>
+    shadowWarn  =>
+    password  => user password
+
+=head3 OUTPUT
+
+    0 if errors 1 if ok
+
+=head3 DESCRIPTION
+
+This method add a user to system
+
+=cut
+
+#=============================================================
+
+sub addUser {
+    my ($self, $params) = @_;
+
+    return 0 if !defined($params->{username});
+
+    my $is_system = defined($params->{is_system}) ?
+                    $params->{is_system}          :
+                    0;
+
+    my $userEnt = $self->ctx->InitUser($params->{username}, $is_system);
+    return 0 if !defined($userEnt);
+
+
+    $userEnt->HomeDir($params->{homedir}) if defined($params->{homedir});
+    $userEnt->Uid($params->{uid}) if defined($params->{uid});
+    $userEnt->Gecos($params->{fullname}) if defined($params->{fullname});
+    $userEnt->LoginShell($params->{shell}) if defined($params->{shell});
+    $userEnt->Gid($params->{gid}) if defined ($params->{gid});
+    my $shd = defined ($params->{shadowMin}) ? $params->{shadowMin} : -1;
+    $userEnt->ShadowMin($shd);
+    $shd = defined ($params->{shadowMax}) ? $params->{shadowMax} : 99999;
+    $userEnt->ShadowMax($shd);
+    $shd = defined ($params->{shadowWarn}) ? $params->{shadowWarn} : -1;
+    $userEnt->ShadowWarn($shd);
+    $shd = defined ($params->{shadowInact}) ? $params->{shadowInact} : -1;
+    $userEnt->ShadowInact($shd);
+    $self->ctx->UserAdd($userEnt, $is_system, $params->{donotcreatehome});
+    $self->ctx->UserSetPass($userEnt, $params->{password});
+
+    return 1;
+}
+
+
+#=============================================================
+
+=head2 deleteUser
+
+=head3 INPUT
+
+$username: username to be deleted
+$options:  HASH reference containing
+           clean_home  => if home has to be removed
+           clean_spool => if sppol has to be removed
+
+=head3 OUTPUT
+
+error string or undef if no errors occurred
+
+=head3 DESCRIPTION
+
+This method delete a user from the system.
+
+=cut
+
+#=============================================================
+sub deleteUser {
+    my ($self, $username, $options) = @_;
+
+    return $username if !defined($username);
+
+    my $userEnt = $self->ctx->LookupUserByName($username);
+
+    $self->ctx->UserDel($userEnt);
+    $self->updateOrDelUserInGroup($username);
+    #Let's check out the user's primary group
+    my $usergid = $userEnt->Gid($self->USER_GetValue);
+    my $groupEnt = $self->ctx->LookupGroupById($usergid);
+    if ($groupEnt) {
+        my $member = $groupEnt->MemberName(1, 0);
+        # TODO check if 499 is ok nowadays
+        if (scalar(@$member) == 0 && $groupEnt->Gid($self->USER_GetValue) > 499) {
+            $self->ctx->GroupDel($groupEnt);
+        }
+    }
+    if (defined($options)) {
+        ## testing jusr if exists also undef is allowed
+        ## as valid option
+        if (exists($options->{clean_home})) {
+            eval { $self->ctx->CleanHome($userEnt) };
+            return $@ if $@;
+        }
+        if (exists($options->{clean_spool})) {
+            eval { $self->ctx->CleanSpool($userEnt) };
+            return $@ if $@;
+        }
+    }
+    return undef;
+}
+
+#=============================================================
+
+=head2 getUserShells
+
+
+=head3 OUTPUT
+
+GetUserShells: from libUSER
+
+=head3 DESCRIPTION
+
+This method returns the available shell
+
+=cut
+
+#=============================================================
+
+sub getUserShells {
+    my $self = shift;
+
+    return $self->ctx->GetUserShells;
+}
+#=============================================================
+
 =head2 GetFaceIcon
 
 =head3 INPUT
@@ -540,7 +1056,6 @@ sub weakPasswordForSecurityLevel {
 =head3 INPUT
 
     $name: username
-    $ctx: USER::ADMIN object
 
 =head3 OUTPUT
 
@@ -554,12 +1069,11 @@ Adds the given username $name to 'users' group
 
 #=============================================================
 sub Add2UsersGroup {
-    my ($self, $name, $ctx) = @_;
-    my $GetValue = -65533; ## Used by USER (for getting values? TODO need explanations, where?)
+    my ($self, $name) = @_;
 
-    my $usersgroup = $ctx->LookupGroupByName('users');
+    my $usersgroup = $self->ctx->LookupGroupByName('users');
     $usersgroup->MemberName($name, 1);
-    return $usersgroup->Gid($GetValue);
+    return $usersgroup->Gid($self->USER_GetValue);
 }
 
 
