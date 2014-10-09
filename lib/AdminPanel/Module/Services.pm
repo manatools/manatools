@@ -57,7 +57,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 
 use Moose;
-use strict;
 use English;
 
 use MDK::Common::String qw(formatAlaTeX);

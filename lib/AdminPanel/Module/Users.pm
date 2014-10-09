@@ -66,8 +66,8 @@ our $VERSION = '1.0.0';
 ##
 ###############################################
 
+use Moose;
 
-use strict;
 use POSIX qw(ceil);
 use Config::Auto;
 use File::ShareDir ':ALL';
@@ -83,7 +83,6 @@ use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
 use MDK::Common::DataStructure qw(member);
 
-use Moose;
 extends qw( AdminPanel::Module );
 
 has '+icon' => (
@@ -123,14 +122,6 @@ has 'action_menu' => (
     init_arg  => undef, 
 );
 
-
-## min UID was 500 now is 1000, let's change in a single point
-has 'min_UID' => (
-    default   => 1000,
-    is        => 'ro',
-    isa       => 'Int',
-    init_arg  => undef,
-);
 
 has 'edit_tab_widgets' => ( 
     traits    => ['Hash'],
@@ -846,7 +837,7 @@ sub addUserDialog {
     $hbox            = $factory->createHBox($align);
     my $uidManually  = $factory->createCheckBox($hbox, $self->loc->N("Specify user ID manually"), 0);
     $factory->createHSpacing($hbox, 2.0);
-    my $UID = $factory->createIntField($hbox, $self->loc->N("UID"), 1, 65000, $self->min_UID);
+    my $UID = $factory->createIntField($hbox, $self->loc->N("UID"), 1, 65000, $self->sh_users->min_UID);
     $UID->setEnabled($uidManually->value());
     $uidManually->setNotify(1);
 #     $uidManually->setWeight($yui::YD_HORIZ, 2);
@@ -933,10 +924,10 @@ sub addUserDialog {
                 }
                 my $uid = -1;
                 if ($continue && $uidManually->value()) {
-                    if (($uid = $UID->value()) < $self->min_UID) {
+                    if (($uid = $UID->value()) < $self->sh_users->min_UID) {
                         $errorString = "";
-                        my $uidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N("User Uid is < %d", $self->min_UID),
-                                        text => $self->loc->N("Creating a user with a UID less than %d is not recommended.\nAre you sure you want to do this?\n\n", $self->min_UID)});
+                        my $uidchoice = $self->sh_gui->ask_YesOrNo({title => $self->loc->N("User Uid is < %d", $self->sh_users->min_UID),
+                                        text => $self->loc->N("Creating a user with a UID less than %d is not recommended.\nAre you sure you want to do this?\n\n", $self->sh_users->min_UID)});
                         $continue = $uidchoice;
                     }
                 }
@@ -1131,8 +1122,11 @@ sub _refreshUsers {
     my $strfilt = $self->get_widget('filter')->value();
     my $filterusers = $self->get_widget('filter_system')->isChecked();
 
-    my ($users, $group, $groupnm, $expr); 
-    defined $self->sh_users->ctx and $users = $self->sh_users->ctx->UsersEnumerateFull;
+    my $usersInfo = $self->sh_users->getUsersInfo({
+        username_filter => $strfilt,
+        filter_system   => $filterusers,
+    });
+
 
     $self->dialog->startMultipleChanges();
     #for some reasons QT send an event using table->selectItem()
@@ -1140,46 +1134,26 @@ sub _refreshUsers {
     $self->get_widget('table')->setImmediateMode(0);
     $self->get_widget('table')->deleteAllItems();
 
-    my @UserReal;
-  LOOP: foreach my $l (@$users) {
-        next LOOP if $filterusers && $l->Uid($self->sh_users->USER_GetValue) <= 499 || $l->Uid($self->sh_users->USER_GetValue) == 65534;
-        next LOOP if $filterusers && $l->Uid($self->sh_users->USER_GetValue) > 499 && $l->Uid($self->sh_users->USER_GetValue) < $self->min_UID &&
-                     ($l->HomeDir($self->sh_users->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->sh_users->USER_GetValue) =~ /(nologin|false)$/);
-        push @UserReal, $l if $l->UserName($self->sh_users->USER_GetValue) =~ /^\Q$strfilt/;
-    }
-    my $i;
     my $itemColl = new yui::YItemCollection;
-    foreach my $l (@UserReal) {
-        $i++;
-        my $uid = $l->Uid($self->sh_users->USER_GetValue);
-        if (!defined $uid) {
-         warn "bogus user at line $i\n";
-         next;
-        }
-        my $a = $l->Gid($self->sh_users->USER_GetValue);
-        $group = $self->sh_users->ctx->LookupGroupById($a);
-        $groupnm = '';
-        $expr = $self->sh_users->computeLockExpire($l);
-        $group and $groupnm = $group->GroupName($self->sh_users->USER_GetValue);
-        my $fulln = $l->Gecos($self->sh_users->USER_GetValue);
-        utf8::decode($fulln);
-        my $username = $l->UserName($self->sh_users->USER_GetValue);
-        my $Uid      = $l->Uid($self->sh_users->USER_GetValue);
-        my $shell    = $l->LoginShell($self->sh_users->USER_GetValue);
-        my $homedir  = $l->HomeDir($self->sh_users->USER_GetValue);
-        my $item = new yui::YTableItem ("$username",
-                                        "$Uid",
-                                        "$groupnm",
-                                        "$fulln",
-                                        "$shell",
-                                        "$homedir",
-                                        "$expr");
+    foreach my $username (keys %{$usersInfo}) {
+        my $info = $usersInfo->{$username};
+        my $item = new yui::YTableItem (
+            "$username",
+            "$info->{uid}",
+            "$info->{group}",
+            "$info->{fullname}",
+            "$info->{shell}",
+            "$info->{home}",
+            "$info->{status}"
+        );
+
         # TODO workaround to get first cell at least until we don't
         # a cast from YItem
         $item->setLabel( $username );
         $itemColl->push($item);
         $item->DISOWN();
     }
+
     $self->get_widget('table')->addItems($itemColl);
     my $item = $self->get_widget('table')->selectedItem();
     $self->get_widget('table')->selectItem($item, 0) if $item;

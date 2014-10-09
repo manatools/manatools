@@ -51,8 +51,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 =cut
 
+use Moose;
 use diagnostics;
-use strict;
 
 use Config::Auto;
 use Data::Password::Meter;
@@ -69,7 +69,6 @@ use POSIX qw/ceil/;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared;
 
-use Moose;
 
 #=============================================================
 
@@ -150,6 +149,13 @@ sub _USERInitialize {
     return undef;
 }
 
+## min UID was 500 now is 1000, let's change in a single point
+has 'min_UID' => (
+    default   => 1000,
+    is        => 'ro',
+    isa       => 'Int',
+    init_arg  => undef,
+);
 
 #=============================================================
 
@@ -681,6 +687,91 @@ sub deleteGroup {
      return 0 if $@;
 
      return 1;
+}
+
+#=============================================================
+
+=head2 getUsersInfo
+
+=head3 INPUT
+
+$options: HASH reference containing
+            username_filter => username search string
+            filter_system   => hides system users
+
+=head3 OUTPUT
+
+%users: HASH reference containing
+        username-1 => {
+            uid    => user identifier
+            group  => primary group name
+            gid    => group identifier
+         fullname  => user full name
+            home   => home directory
+            shell  => user shell
+            status => login status (locked, expired, etc)
+        }
+        username-2 => {
+            ...
+        }
+
+=head3 DESCRIPTION
+
+This method get users information (all or by using a filter)
+
+=cut
+
+#=============================================================
+sub getUsersInfo {
+    my ($self, $options) = @_;
+
+    my $usersInfo = {};
+    return $usersInfo if !defined $self->ctx;
+
+    my $strfilt = $options->{username_filter} if exists($options->{username_filter});
+    my $filterusers = $options->{filter_system} if exists($options->{filter_system});
+
+    my ($users, $group, $groupnm, $expr);
+    $users = $self->ctx->UsersEnumerateFull;
+
+    my @UserReal;
+  LOOP: foreach my $l (@$users) {
+        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) <= 499 || $l->Uid($self->USER_GetValue) == 65534;
+        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) > 499 && $l->Uid($self->USER_GetValue) < $self->min_UID &&
+                     ($l->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/);
+        push @UserReal, $l if $l->UserName($self->USER_GetValue) =~ /^\Q$strfilt/;
+    }
+    my $i;
+    my $itemColl = new yui::YItemCollection;
+    foreach my $l (@UserReal) {
+        $i++;
+        my $uid = $l->Uid($self->USER_GetValue);
+        if (!defined $uid) {
+         warn "bogus user at line $i\n";
+         next;
+        }
+        my $gid = $l->Gid($self->USER_GetValue);
+        $group = $self->ctx->LookupGroupById($gid);
+        $groupnm = '';
+        $expr = $self->computeLockExpire($l);
+        $group and $groupnm = $group->GroupName($self->USER_GetValue);
+        my $fulln = $l->Gecos($self->USER_GetValue);
+        utf8::decode($fulln);
+        my $username = $l->UserName($self->USER_GetValue);
+        my $shell    = $l->LoginShell($self->USER_GetValue);
+        my $homedir  = $l->HomeDir($self->USER_GetValue);
+        $usersInfo->{"$username"} = {
+            uid    => $uid,
+            group  => $groupnm,
+            gid    => $gid,
+         fullname  => $fulln,
+            home   => $homedir,
+            status => $expr,
+            shell  => $shell,
+        };
+    }
+
+    return $usersInfo;
 }
 
 #=============================================================

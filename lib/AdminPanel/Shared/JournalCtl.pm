@@ -49,11 +49,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 =cut
 
+use Moose;
 
 use diagnostics;
-use strict;
-
-use Moose;
 
 
 has 'this_boot' => (
