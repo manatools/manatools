@@ -1,0 +1,526 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-10-09 20:16+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/AdminPanel/Module/Users.pm:265
+msgid "adminUser"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:269
+msgid "User Data"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:270
+msgid "Account Info"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:271
+msgid "Password Info"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:272 lib/AdminPanel/Module/Users.pm:1367
+#: lib/AdminPanel/Module/Users.pm:2491
+msgid "Groups"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:275
+msgid "Group Data"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:276
+msgid "Group Users"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:310
+msgid "Choose group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:318
+msgid "A group with this name already exists.  What would you like to do?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:324
+msgid "Add to the existing group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:328
+msgid "Add to the 'users' group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:334 lib/AdminPanel/Module/Users.pm:405
+#: lib/AdminPanel/Module/Users.pm:496 lib/AdminPanel/Module/Users.pm:580
+#: lib/AdminPanel/Module/Users.pm:856 lib/AdminPanel/Module/Users.pm:2053
+#: lib/AdminPanel/Module/Users.pm:2214
+msgid "Cancel"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:335 lib/AdminPanel/Module/Users.pm:581
+#: lib/AdminPanel/Module/Users.pm:857 lib/AdminPanel/Module/Users.pm:2054
+#: lib/AdminPanel/Module/Users.pm:2215
+msgid "Ok"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:392
+msgid "Warning"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:400
+#, perl-format
+msgid "Do you really want to delete the group %s?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:406 lib/AdminPanel/Module/Users.pm:497
+#: lib/AdminPanel/Module/Users.pm:2456
+msgid "Delete"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:426
+#, perl-format
+msgid ""
+"%s is a primary group for user %s\n"
+" Remove the user first"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:433
+#, perl-format
+msgid "Removing group: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:480
+msgid "Delete files or not?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:487
+#, perl-format
+msgid ""
+"Deleting user %s\n"
+"Also perform the following actions\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:490
+#, perl-format
+msgid "Delete Home Directory: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:492
+#, perl-format
+msgid "Delete Mailbox: /var/spool/mail/%s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:520
+#, perl-format
+msgid "Removing user: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:552
+msgid "Create New Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:562 lib/AdminPanel/Module/Users.pm:1588
+msgid "Group Name:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:572
+msgid "Specify group ID manually"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:574
+msgid "GID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:607
+msgid "Group already exists, please choose another Group Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:615
+msgid " Group Gid is < 500"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:616
+msgid ""
+"Creating a group with a GID less than 500 is not recommended.\n"
+" Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:621
+msgid " Group ID is already used "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:622
+msgid ""
+"Creating a group with a non unique GID?\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:634
+#, perl-format
+msgid "Adding group: %s "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:689
+msgid "Full Name:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:698
+msgid "Login:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:708
+msgid "Password:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:730
+msgid "Confirm Password:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:739
+msgid "Login Shell:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:790 lib/AdminPanel/Module/Users.pm:2394
+msgid "root privileges required"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:805
+msgid "Create New User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:820
+msgid "Create Home Directory"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:824
+msgid "Home Directory:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:833
+msgid "Create a private group for the user"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:838
+msgid "Specify user ID manually"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:840
+msgid "UID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:848
+msgid "Click on icon to change it"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:900
+msgid "User already exists, please choose another User Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:905 lib/AdminPanel/Module/Users.pm:1889
+msgid "Password Mismatch"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:909 lib/AdminPanel/Module/Users.pm:1895
+msgid ""
+"This password is too simple. \n"
+" Good passwords should be > 6 characters"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:916
+#, perl-format
+msgid ""
+"Home directory <%s> already exists.\n"
+"Please uncheck the home creation option, or change the directory path name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:929
+#, perl-format
+msgid "User Uid is < %d"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:930
+#, perl-format
+msgid ""
+"Creating a user with a UID less than %d is not recommended.\n"
+"Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:945
+#, perl-format
+msgid "Putting %s to 'users' group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:959
+#, perl-format
+msgid "Creating new group: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:972
+msgid "Adding user: "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:973
+#, perl-format
+msgid "Adding user: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1039
+msgid "User Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1040
+msgid "User ID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1041 lib/AdminPanel/Module/Users.pm:1803
+msgid "Primary Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1042
+msgid "Full Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1043
+msgid "Login Shell"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1044
+msgid "Home Directory"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1045
+msgid "Status"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1085
+msgid "Group Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1086
+msgid "Group ID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1087
+msgid "Group Members"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1277 lib/AdminPanel/Module/Users.pm:2287
+#: lib/AdminPanel/Module/Users.pm:2302 lib/AdminPanel/Module/Users.pm:2318
+#: lib/AdminPanel/Module/Users.pm:2487
+msgid "Users"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1515
+msgid "Home:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1614
+msgid "Enable account expiration"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1617
+msgid "Account expires (YYYY-MM-DD):"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1624
+msgid "Lock User Account"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1628
+msgid "Click on the icon to change it"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1657
+msgid "User last changed password on: "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1670
+msgid "Enable Password Expiration"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1674
+msgid "Days before change allowed:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1682
+msgid "Days before change required:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1690
+msgid "Days warning before change:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1698
+msgid "Days before account inactive:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1727
+msgid "Select the users to join this group:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1731
+msgid "User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1773
+msgid "Select groups that the user will be member of:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1777
+msgid "Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1859
+#, perl-format
+msgid "You cannot remove user '%s' from their primary group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1929
+msgid "Please select at least one group for the user"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1939
+msgid ""
+"Please specify Year, Month and Day \n"
+" for Account Expiration "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1961
+msgid "Please fill up all fields in password aging\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2002
+msgid "Strong"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2002
+msgid "Weak"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2015
+msgid "Edit User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2169 lib/AdminPanel/Module/Users.pm:2272
+msgid "Cannot create tab widgets"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2185
+msgid "Edit Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2353 lib/AdminPanel/Module/Users.pm:2453
+msgid "Add User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2354 lib/AdminPanel/Module/Users.pm:2454
+msgid "Add Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2355
+msgid "&Edit"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2356
+msgid "&Delete"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2357
+msgid "Install guest account"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2424
+msgid "File"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2425 lib/AdminPanel/Module/Users.pm:2457
+msgid "Refresh"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2426
+msgid "&Quit"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2433
+msgid "Actions"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2437
+msgid "&Help"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2438
+msgid "Help"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2439
+msgid "Report Bug"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2440
+msgid "&About"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2455
+msgid "Edit"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2470
+msgid "Filter system users"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2475
+msgid "Search:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2477
+msgid "Apply filter"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2521
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2524
+msgid "AdminUser"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2526
+#, perl-format
+msgid "Copyright (C) %s Mageia community"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2527
+msgid "GPLv2"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2528
+msgid ""
+"AdminUser is a Mageia user management tool \n"
+"(from the original idea of Mandriva userdrake)."
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2529
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                       <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Translators</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
+msgstr ""
