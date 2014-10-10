@@ -1196,6 +1196,14 @@ sub _refreshGroups {
     my @GroupReal;
   LOOP: foreach my $g (@$groups) {
         next LOOP if $filtergroups && $g->Gid($self->sh_users->USER_GetValue) <= 499 || $g->Gid($self->sh_users->USER_GetValue) == 65534;
+
+        if ($filtergroups && $g->Gid($self->sh_users->USER_GetValue) > 499 && $g->Gid($self->sh_users->USER_GetValue) < 1000) {
+            my $groupname = $g->GroupName($self->sh_users->USER_GetValue);
+            my $l = $self->sh_users->ctx->LookupUserByName($groupname);
+            next if ! defined($l);
+            next LOOP if $l->HomeDir($self->sh_users->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->sh_users->USER_GetValue) =~ /(nologin|false)$/;
+        }
+
         push @GroupReal, $g if $g->GroupName($self->sh_users->USER_GetValue) =~ /^\Q$strfilt/;
     }
 
