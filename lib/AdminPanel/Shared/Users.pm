@@ -490,26 +490,6 @@ sub getGoups {
     return $self->ctx->GroupsEnumerate;
 }
 
-#=============================================================
-
-=head2 getUsers
-
-=head3 OUTPUT
-
-    $users: ARRAY reference containing all the users
-
-=head3 DESCRIPTION
-
-    This method return the configured users
-
-=cut
-
-#=============================================================
-sub getUsers {
-    my $self = shift;
-
-    return $self->ctx->UsersEnumerate;
-}
 
 #=============================================================
 
@@ -814,6 +794,26 @@ sub getGroupsInfo {
     return $groupsInfo;
 }
 
+#=============================================================
+
+=head2 getUsers
+
+=head3 OUTPUT
+
+    $users: ARRAY reference containing all the users
+
+=head3 DESCRIPTION
+
+    This method return the configured users
+
+=cut
+
+#=============================================================
+sub getUsers {
+    my $self = shift;
+
+    return $self->ctx->UsersEnumerate;
+}
 
 #=============================================================
 

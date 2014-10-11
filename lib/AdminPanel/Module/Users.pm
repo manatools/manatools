@@ -1437,17 +1437,16 @@ sub _storeDataFromUserEditPreviousTab {
     elsif ($previus_tab eq $userEditLabel{groups}) {
         my $tbl = $self->get_edit_tab_widget('members');
         $userData->{members} = undef;
-        my @members; 
+        my @members;
         my $i;
         for($i=0;$i<$tbl->itemsCount();$i++) {
             push (@members, $tbl->item($i)->label()) if $tbl->toCBYTableItem($tbl->item($i))->checked();
         }
-        $userData->{members} = [ @members ];
+        $userData->{members} = \@members;
 
         if ($self->get_edit_tab_widget('primary_group')->selectedItem()) {
-            my $Gent      = $self->sh_users->ctx->LookupGroupByName($self->get_edit_tab_widget('primary_group')->selectedItem()->label());
-            my $primgroup = $Gent->Gid($self->sh_users->USER_GetValue);
-
+            my $groupname = $self->get_edit_tab_widget('primary_group')->selectedItem()->label();
+            my $primgroup = $self->sh_users->groupID($groupname);
             $userData->{primary_group} = $primgroup;
         }
         else {
@@ -1725,8 +1724,6 @@ sub _groupUsersTabWidget {
 
     my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{groupname});
     my $users  = $self->sh_users->getUsers();
-    $DB::single = 1;
-
     my @susers = sort(@$users);
 
     my $itemCollection = new yui::YItemCollection;
@@ -1901,7 +1898,6 @@ sub _userEdit_Ok {
  
     my $members = $userData->{members};
     foreach my $group (@sgroups) {
-
         my $gEnt = $self->sh_users->ctx->LookupGroupByName($group);
         my $ugid = $gEnt->Gid($self->sh_users->USER_GetValue);
         my $m    = $gEnt->MemberName(1,0);
