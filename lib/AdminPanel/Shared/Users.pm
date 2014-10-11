@@ -149,8 +149,16 @@ sub _USERInitialize {
     return undef;
 }
 
-## min UID was 500 now is 1000, let's change in a single point
+## min (custom) UID was 500 now is 1000, let's change in a single point
 has 'min_UID' => (
+    default   => 1000,
+    is        => 'ro',
+    isa       => 'Int',
+    init_arg  => undef,
+);
+
+## min (custom) GID was 500 now should be 1000 as for users
+has 'min_GID' => (
     default   => 1000,
     is        => 'ro',
     isa       => 'Int',
@@ -729,10 +737,10 @@ sub getGroupsInfo {
     my $groups = $self->ctx->GroupsEnumerateFull;
 
     my @GroupReal;
-  LOOP: foreach my $g (@$groups) {
-        next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
-
-        if ($filtergroups && $g->Gid($self->USER_GetValue) > 499 && $g->Gid($self->USER_GetValue) < 1000) {
+  LOOP: foreach my $g (@{$groups}) {
+        my $gid = $g->Gid($self->USER_GetValue);
+        next LOOP if $filtergroups && $gid <= 499 || $gid == 65534;
+        if ($filtergroups && $gid > 499 && $gid < $self->min_GID) {
             my $groupname = $g->GroupName($self->USER_GetValue);
             my $l = $self->ctx->LookupUserByName($groupname);
             if (!defined($l)) {
@@ -811,7 +819,7 @@ sub getUsersInfo {
     $users = $self->ctx->UsersEnumerateFull;
 
     my @UserReal;
-  LOOP: foreach my $l (@$users) {
+  LOOP: foreach my $l (@{$users}) {
         next LOOP if $filterusers && $l->Uid($self->USER_GetValue) <= 499 || $l->Uid($self->USER_GetValue) == 65534;
         next LOOP if $filterusers && $l->Uid($self->USER_GetValue) > 499 && $l->Uid($self->USER_GetValue) < $self->min_UID &&
                      ($l->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/);

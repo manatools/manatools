@@ -571,7 +571,7 @@ sub _addGroupDialog {
     $hbox            = $factory->createHBox($align);
     my $gidManually  = $factory->createCheckBox($hbox, $self->loc->N("Specify group ID manually"), 0);
     $factory->createHSpacing($hbox, 2);
-    my $GID = $factory->createIntField($hbox, $self->loc->N("GID"), 1, 65000, 500);
+    my $GID = $factory->createIntField($hbox, $self->loc->N("GID"), 1, 65000, $self->sh_users->min_GID);
     $GID->setEnabled($gidManually->value());
     $gidManually->setNotify(1);
 
@@ -608,12 +608,15 @@ sub _addGroupDialog {
                     $continue = 0;
                 }
 
-                my $gid = 0;
+                my $gid = -1;
                 if ($continue && $gidManually->value()) {
-                    if (($gid = $GID->value()) < 500) {
+                    if (($gid = $GID->value()) < $self->sh_users->min_GID) {
                         $errorString = "";
-                        my $gidchoice = $self->sh_gui->ask_YesOrNo({ title => $self->loc->N(" Group Gid is < 500"),
-                                        text => $self->loc->N("Creating a group with a GID less than 500 is not recommended.\n Are you sure you want to do this?\n\n")});
+                        my $gidchoice = $self->sh_gui->ask_YesOrNo({ title => $self->loc->N(" Group Gid is < %n", $self->sh_users->min_GID),
+                                        text => $self->loc->N("Creating a group with a GID less than %d is not recommended.\n Are you sure you want to do this?\n\n",
+                                                              $self->sh_users->min_GID
+                                        )
+                        });
                         $continue = $gidchoice;
                     } else {
                         if ($self->sh_users->groupIDExists($gid)) {
@@ -632,11 +635,12 @@ sub _addGroupDialog {
                 }
                 else {
                     Sys::Syslog::syslog('info|local1', $self->loc->N("Adding group: %s ", $groupname));
-                    $self->sh_users->addGroup({
+                    my $groupParams = {
                         groupname  => $groupname,
-                        gid        => $gid,
                         is_system  => $is_system,
-                    });
+                    };
+                    $groupParams->{gid} = $gid if $gid != -1;
+                    $self->sh_users->addGroup($groupParams);
                     $self->_refresh();
                     last;
                 }
@@ -1185,9 +1189,6 @@ sub _refreshGroups {
     my $strfilt = $self->get_widget('filter')->value();
     my $filtergroups = $self->get_widget('filter_system')->isChecked();
 
-    my $groups;
-    defined $self->sh_users->ctx and $groups = $self->sh_users->ctx->GroupsEnumerateFull;
-
     $self->dialog->startMultipleChanges();
     #for some reasons QT send an event using table->selectItem()
     # WA remove notification immediate
@@ -1196,7 +1197,7 @@ sub _refreshGroups {
 
     my $groupInfo = $self->sh_users->getGroupsInfo({
         groupname_filter => $strfilt,
-        filter_system   => $filtergroups,
+        filter_system    => $filtergroups,
     });
 
     my $itemColl = new yui::YItemCollection;
