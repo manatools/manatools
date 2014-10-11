@@ -485,9 +485,9 @@ sub updateOrDelUserInGroup {
 
 #=============================================================
 sub getGoups {
-    my $self = shelf;
+    my $self = shift;
 
-    return $self->GroupsEnumerate;
+    return $self->ctx->GroupsEnumerate;
 }
 
 #=============================================================
@@ -506,7 +506,7 @@ sub getGoups {
 
 #=============================================================
 sub getUsers {
-    my $self = shelf;
+    my $self = shift;
 
     return $self->ctx->UsersEnumerate;
 }

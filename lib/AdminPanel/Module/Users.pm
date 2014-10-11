@@ -1724,7 +1724,9 @@ sub _groupUsersTabWidget {
     $groupUsersWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
     my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{groupname});
-    my $users  = $self->sh_users->ctx->UsersEnumerate;
+    my $users  = $self->sh_users->getUsers();
+    $DB::single = 1;
+
     my @susers = sort(@$users);
 
     my $itemCollection = new yui::YItemCollection;
@@ -1769,7 +1771,7 @@ sub _userGroupsTabWidget {
 
     $userGroupsWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
-    my $grps = $self->sh_users->ctx->GroupsEnumerate;
+    my $grps = $self->sh_users->getGoups();
     my @sgroups = sort @$grps;
  
     my $itemCollection = new yui::YItemCollection;
@@ -1829,7 +1831,7 @@ sub _groupEdit_Ok {
 
     my $members = $groupData{members};
     my $gid     = $groupEnt->Gid($self->sh_users->USER_GetValue);
-    my $users   = $self->sh_users->ctx->UsersEnumerate;
+    my $users   = $self->sh_users->getUsers();
     my @susers  = sort(@$users);
 
     foreach my $user (@susers) {
@@ -1894,7 +1896,7 @@ sub _userEdit_Ok {
     $userEnt->HomeDir($userData->{homedir});
     $userEnt->LoginShell($userData->{shell});
     my $username = $userEnt->UserName($self->sh_users->USER_GetValue);
-    my $grps = $self->sh_users->ctx->GroupsEnumerate;
+    my $grps = $self->sh_users->getGoups();
     my @sgroups = sort @$grps;
  
     my $members = $userData->{members};
