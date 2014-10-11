@@ -612,7 +612,6 @@ sub groupMembers {
 
     return $groupname if !defined($groupname);
 
-    my $groupEnt = $self->ctx->LookupGroupByName($groupname);
     my $members  = $self->ctx->EnumerateUsersByGroup($groupname);
 
     return $members;
