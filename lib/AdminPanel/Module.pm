@@ -30,7 +30,6 @@ Version 0.01
 
 our $VERSION = '1.0.0';
 
-use diagnostics;
 use yui;
 
 =head1 SUBROUTINES/METHODS
