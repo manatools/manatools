@@ -1193,40 +1193,19 @@ sub _refreshGroups {
     # WA remove notification immediate
     $self->get_widget('table')->setImmediateMode(0);
     $self->get_widget('table')->deleteAllItems();    
-    my @GroupReal;
-  LOOP: foreach my $g (@$groups) {
-        next LOOP if $filtergroups && $g->Gid($self->sh_users->USER_GetValue) <= 499 || $g->Gid($self->sh_users->USER_GetValue) == 65534;
 
-        if ($filtergroups && $g->Gid($self->sh_users->USER_GetValue) > 499 && $g->Gid($self->sh_users->USER_GetValue) < 1000) {
-            my $groupname = $g->GroupName($self->sh_users->USER_GetValue);
-            my $l = $self->sh_users->ctx->LookupUserByName($groupname);
-            if (!defined($l)) {
-                my $members  = $self->sh_users->ctx->EnumerateUsersByGroup($groupname);
-                next LOOP if !scalar(@{$members});
-                foreach my $username (@$members) {
-                    my $userEnt = $self->sh_users->ctx->LookupUserByName($username);
-                    next LOOP if $userEnt->HomeDir($self->sh_users->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $userEnt->LoginShell($self->sh_users->USER_GetValue) =~ /(nologin|false)$/;
-                }
-            }
-            else {
-                next LOOP if $l->HomeDir($self->sh_users->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->sh_users->USER_GetValue) =~ /(nologin|false)$/;
-            }
-        }
-
-        push @GroupReal, $g if $g->GroupName($self->sh_users->USER_GetValue) =~ /^\Q$strfilt/;
-    }
+    my $groupInfo = $self->sh_users->getGroupsInfo({
+        groupname_filter => $strfilt,
+        filter_system   => $filtergroups,
+    });
 
     my $itemColl = new yui::YItemCollection;
-    foreach my $g (@GroupReal) {
-     my $a = $g->GroupName($self->sh_users->USER_GetValue);
-        #my $group = $ctx->LookupGroupById($a);
-        my $u_b_g = $a && $self->sh_users->ctx->EnumerateUsersByGroup($a);
-        my $listUbyG  = join(',', @$u_b_g);
-        my $group_id  = $g->Gid($self->sh_users->USER_GetValue);
-        my $groupname = $g->GroupName($self->sh_users->USER_GetValue);
-        my $item      = new yui::YTableItem ("$groupname",
-                                             "$group_id",
-                                             "$listUbyG");
+    foreach my $groupname (keys %{$groupInfo}) {
+        my $info = $groupInfo->{$groupname};
+        my $listUbyG  = join(',', @{$info->{members}});
+        my $item = new yui::YTableItem ("$groupname",
+                                        "$info->{gid}",
+                                        "$listUbyG");
         $item->setLabel( $groupname );
         $itemColl->push($item);
         $item->DISOWN();

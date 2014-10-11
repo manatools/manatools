@@ -688,6 +688,83 @@ sub deleteGroup {
      return 1;
 }
 
+
+#=============================================================
+
+=head2 getGroupsInfo
+
+$options: HASH reference containing
+            groupname_filter => groupname search string
+            filter_system   => hides system groups
+
+=head3 OUTPUT
+
+    $groupsInfo: HASH reference containing
+        groupname-1 => {
+            gid    => group identifier
+            members  => ARRAY of username
+        }
+        groupname-2 => {
+            ...
+        }
+
+=head3 DESCRIPTION
+
+    This method get group information (all groups or the
+    filtered ones)
+
+
+=cut
+
+#=============================================================
+sub getGroupsInfo {
+    my ($self, $options) = @_;
+
+    my $groupsInfo = {};
+    return $groupsInfo if !defined $self->ctx;
+
+    my $strfilt = $options->{groupname_filter} if exists($options->{groupname_filter});
+    my $filtergroups = $options->{filter_system} if exists($options->{filter_system});
+
+    my $groups = $self->ctx->GroupsEnumerateFull;
+
+    my @GroupReal;
+  LOOP: foreach my $g (@$groups) {
+        next LOOP if $filtergroups && $g->Gid($self->USER_GetValue) <= 499 || $g->Gid($self->USER_GetValue) == 65534;
+
+        if ($filtergroups && $g->Gid($self->USER_GetValue) > 499 && $g->Gid($self->USER_GetValue) < 1000) {
+            my $groupname = $g->GroupName($self->USER_GetValue);
+            my $l = $self->ctx->LookupUserByName($groupname);
+            if (!defined($l)) {
+                my $members  = $self->ctx->EnumerateUsersByGroup($groupname);
+                next LOOP if !scalar(@{$members});
+                foreach my $username (@$members) {
+                    my $userEnt = $self->ctx->LookupUserByName($username);
+                    next LOOP if $userEnt->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $userEnt->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/;
+                }
+            }
+            else {
+                next LOOP if $l->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/;
+            }
+        }
+        push @GroupReal, $g if $g->GroupName($self->USER_GetValue) =~ /^\Q$strfilt/;
+    }
+
+    foreach my $g (@GroupReal) {
+        my $groupname = $g->GroupName($self->USER_GetValue);
+        my $u_b_g     = $self->ctx->EnumerateUsersByGroup($groupname);
+        my $group_id  = $g->Gid($self->USER_GetValue);
+
+        $groupsInfo->{"$groupname"} = {
+            gid      => $group_id,
+            members  => $u_b_g,
+        };
+    }
+
+    return $groupsInfo;
+}
+
+
 #=============================================================
 
 =head2 getUsersInfo
@@ -700,7 +777,7 @@ $options: HASH reference containing
 
 =head3 OUTPUT
 
-%users: HASH reference containing
+$usersInfo: HASH reference containing
         username-1 => {
             uid    => user identifier
             group  => primary group name
@@ -716,7 +793,7 @@ $options: HASH reference containing
 
 =head3 DESCRIPTION
 
-This method get users information (all or by using a filter)
+This method get user information (all users or filtered ones)
 
 =cut
 
@@ -746,8 +823,8 @@ sub getUsersInfo {
         $i++;
         my $uid = $l->Uid($self->USER_GetValue);
         if (!defined $uid) {
-         warn "bogus user at line $i\n";
-         next;
+            warn "bogus user at line $i\n";
+            next;
         }
         my $gid = $l->Gid($self->USER_GetValue);
         $group = $self->ctx->LookupGroupById($gid);
