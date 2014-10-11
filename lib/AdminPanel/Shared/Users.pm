@@ -573,6 +573,37 @@ sub groupID {
 
     return undef;
 }
+
+#=============================================================
+
+=head2 groupName
+
+=head3 INPUT
+
+$gid grou identifier
+
+=head3 OUTPUT
+
+group name or undef
+
+=head3 DESCRIPTION
+
+This method returns the group name for the given group
+identifier
+
+=cut
+
+#=============================================================
+sub groupName {
+    my ($self, $gid) = @_;
+
+    my $gr = $self->ctx->LookupGroupById($gid);
+    return $gr->GroupName($self->USER_GetValue) if ($gr);
+
+    return undef;
+}
+
+
 #=============================================================
 
 =head2 addGroup

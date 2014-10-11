@@ -1756,8 +1756,8 @@ sub _userGroupsTabWidget {
     $replace_pnt->deleteChildren();
 
     my %userGroupsWidget;
-    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData->{username});
-    my $lastchg = $userEnt->ShadowLastChange($self->sh_users->USER_GetValue);
+    my $userInfo = $self->sh_users->getUserInfo($userData->{username});
+    my $lastchg  = $userInfo->{last_change};
 
     my $layout   = _labeledFrameBox($replace_pnt, $self->loc->N("Select groups that the user will be member of:"));
 
@@ -1783,8 +1783,8 @@ sub _userGroupsTabWidget {
     $userGroupsWidget{members}->setNotify(1);
     my $primgroup = '';
     if ($userData->{primary_group} != -1) {
-        my $Gent      = $self->sh_users->ctx->LookupGroupById($userData->{primary_group});
-        $primgroup    = $Gent->GroupName($self->sh_users->USER_GetValue);
+        $DB::single = 1;
+        $primgroup    = $self->sh_users->groupName($userData->{primary_group});
     }
 
     my $align   = $factory->createLeft($layout);
