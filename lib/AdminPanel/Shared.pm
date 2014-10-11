@@ -223,7 +223,6 @@ sub trim {
 
 =head3 INPUT
 
-    $self: this object
     $item: item to search
     $arr:  array container
 
@@ -239,7 +238,7 @@ This method returns if an item is into the array container
 
 #=============================================================
 sub inArray {
-    my ($self, $item, $arr) = @_;
+    my ($item, $arr) = @_;
 
     return grep( /^$item$/, @{$arr} );
 }
