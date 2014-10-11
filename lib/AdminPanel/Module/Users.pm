@@ -1281,15 +1281,14 @@ sub _getUserInfo {
     }
     
     my %userData;
-    $userData{username}  = $item->label(); 
-    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData{username});
+    $userData{username}  = $item->label();
 
-    my $s                = $userEnt->Gecos($self->sh_users->USER_GetValue);
-    utf8::decode($s);
-    $userData{full_name} = $s;
-    $userData{shell}     = $userEnt->LoginShell($self->sh_users->USER_GetValue);
-    $userData{homedir}   = $userEnt->HomeDir($self->sh_users->USER_GetValue);
-    $userData{UID}       = $userEnt->Uid($self->sh_users->USER_GetValue);
+    my $userInfo = $self->sh_users->getUserInfo($userData{username});
+
+    $userData{full_name} = $userInfo->{fullname};
+    $userData{shell}     = $userInfo->{shell};
+    $userData{homedir}   = $userInfo->{home};
+    $userData{UID}       = $userInfo->{uid};
 
     # default expiration time
     my ($day, $mo, $ye)      = (localtime())[3, 4, 5];
@@ -1297,9 +1296,10 @@ sub _getUserInfo {
     $userData{acc_expm}      = $mo+1;
     $userData{acc_expd}      = $day;
     $userData{acc_check_exp} = 0;
-    my $expire               = $userEnt->ShadowExpire($self->sh_users->USER_GetValue);
+
+    my $expire = $userInfo->{expire};
     if ($expire && $expire != -1) {
-        my $times                = _TimeOfArray($expire, 1); 
+        my $times                = _TimeOfArray($expire, 1);
         $userData{acc_expy}      = $times->{year};
         $userData{acc_expm}      = $times->{month};
         $userData{acc_expd}      = $times->{dayint};
@@ -1310,29 +1310,27 @@ sub _getUserInfo {
     # to change it has to insert a new one
     $userData{password}      = undef;
     $userData{password1}     = undef;
-    # Check if user account is locked 
 
-    $userData{lockuser}      = $self->sh_users->ctx->IsLocked($userEnt);
-
+    $userData{lockuser} = $userInfo->{locked};
+    $DB::single = 1;
     $userData{icon_face}     = $self->sh_users->GetFaceIcon($userData{username});
+
     $userData{pwd_check_exp} = 0;
-    $userData{pwd_exp_min}   = $userEnt->ShadowMin($self->sh_users->USER_GetValue);
-    $userData{pwd_exp_max}   = $userEnt->ShadowMax($self->sh_users->USER_GetValue);
-    $userData{pwd_exp_warn}  = $userEnt->ShadowWarn($self->sh_users->USER_GetValue);
-    $userData{pwd_exp_inact} = $userEnt->ShadowInact($self->sh_users->USER_GetValue);
- 
-    if ($userData{pwd_exp_min} && $userData{pwd_exp_min} != -1 || 
-        $userData{pwd_exp_max} && $userData{pwd_exp_max} != 99999 || 
-        $userData{pwd_exp_warn} && $userData{pwd_exp_warn} != 7 && $userData{pwd_exp_warn} != -1 || 
+    $userData{pwd_exp_min} = $userInfo->{exp_min};
+    $userData{pwd_exp_max} = $userInfo->{exp_max};
+    $userData{pwd_exp_warn} = $userInfo->{exp_warn};
+    $userData{pwd_exp_inact} = $userInfo->{exp_inact};
+    if ($userData{pwd_exp_min} && $userData{pwd_exp_min} != -1 ||
+        $userData{pwd_exp_max} && $userData{pwd_exp_max} != 99999 ||
+        $userData{pwd_exp_warn} && $userData{pwd_exp_warn} != 7 && $userData{pwd_exp_warn} != -1 ||
         $userData{pwd_exp_inact} && $userData{pwd_exp_inact} != -1) {
         $userData{pwd_check_exp} = 1;
     }
 
-    $userData{members}       = $self->sh_users->ctx->EnumerateGroupsByUser($userData{username});
-    $userData{primary_group} = $userEnt->Gid($self->sh_users->USER_GetValue);
-    
-    return %userData;
+    $userData{members}       = $userInfo->{members};
+    $userData{primary_group} = $userInfo->{gid};
 
+    return %userData;
 }
 
 #=============================================================

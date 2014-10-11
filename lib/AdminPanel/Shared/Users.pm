@@ -775,6 +775,65 @@ sub getGroupsInfo {
 
 #=============================================================
 
+=head2 getUserInfo
+
+=head3 INPUT
+
+    $username: user name
+
+=head3 OUTPUT
+
+$userInfo: HASH reference containing
+            uid      => user identifier
+            gid      => group identifier
+         fullname    => user full name
+            home     => home directory
+            shell    => user shell
+            expire   => shadow expire time
+            locked   => is locked?
+            exp_min  => shadow Min
+            exp_max  => shadow Max
+            exp_warn => shadow Warn
+            exp_inact=> shadow Inact
+            members  => groups the user belongs to
+
+=head3 DESCRIPTION
+
+This method get all the information for the given user
+
+=cut
+
+#=============================================================
+sub getUserInfo {
+    my ($self, $username) = @_;
+
+    my $userInfo = {};
+    return $userInfo if !defined $self->ctx;
+
+    my $userEnt = $self->ctx->LookupUserByName($username);
+    return $userInfo if !defined($userEnt);
+
+    my $fullname         = $userEnt->Gecos($self->USER_GetValue);
+    utf8::decode($fullname);
+    $userInfo->{fullname}   = $fullname;
+    $userInfo->{shell}      = $userEnt->LoginShell($self->USER_GetValue);
+    $userInfo->{home}       = $userEnt->HomeDir($self->USER_GetValue);
+    $userInfo->{uid}        = $userEnt->Uid($self->USER_GetValue);
+    $userInfo->{gid}        = $userEnt->Gid($self->USER_GetValue);
+    $userInfo->{expire}     = $userEnt->ShadowExpire($self->USER_GetValue);
+    $userInfo->{locked}     = $self->ctx->IsLocked($userEnt);
+
+    $userInfo->{exp_min}    = $userEnt->ShadowMin($self->USER_GetValue);
+    $userInfo->{exp_max}    = $userEnt->ShadowMax($self->USER_GetValue);
+    $userInfo->{exp_warn}   = $userEnt->ShadowWarn($self->USER_GetValue);
+    $userInfo->{exp_inact}  = $userEnt->ShadowInact($self->USER_GetValue);
+    $userInfo->{members}    = $self->ctx->EnumerateGroupsByUser($username);
+
+    return $userInfo;
+}
+
+#=============================================================
+
 =head2 getUsersInfo
 
 =head3 INPUT
@@ -943,7 +1002,7 @@ sub computeLockExpire {
     my $tm = ceil(time()/(24*60*60));
     $ep = -1 if int($tm) <= $ep;
     my $status = $self->ctx->IsLocked($l) ? $self->loc->N("Locked") : ($ep != -1 ? $self->loc->N("Expired") : '');
-    $status;
+    return $status;
 }
 
 #=============================================================
