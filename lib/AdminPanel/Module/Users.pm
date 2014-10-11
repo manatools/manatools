@@ -1343,8 +1343,8 @@ sub _getUserInfo {
 =head3 OUTPUT
 
     %groupData:  selected group info as:
-    $groupname:  group name
-    $members:    users that are members of this group
+        $groupname:  group name
+        $members:    users that are members of this group
 
 =head3 DESCRIPTION
 
@@ -1371,8 +1371,7 @@ sub _getGroupInfo {
     $groupData{start_groupname} = $item->label();
     $groupData{groupname}       = $item->label();
 
-    my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{groupname});
-    $groupData{members} = $self->sh_users->ctx->EnumerateUsersByGroup($groupData{groupname});
+    $groupData{members} = $self->sh_users->groupMembers($groupData{groupname});
     
     return %groupData;
 
