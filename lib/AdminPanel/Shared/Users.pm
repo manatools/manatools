@@ -784,18 +784,19 @@ sub getGroupsInfo {
 =head3 OUTPUT
 
 $userInfo: HASH reference containing
-            uid      => user identifier
-            gid      => group identifier
-         fullname    => user full name
-            home     => home directory
-            shell    => user shell
-            expire   => shadow expire time
-            locked   => is locked?
-            exp_min  => shadow Min
-            exp_max  => shadow Max
-            exp_warn => shadow Warn
-            exp_inact=> shadow Inact
-            members  => groups the user belongs to
+            uid         => user identifier
+            gid         => group identifier
+            fullname    => user full name
+            home        => home directory
+            shell       => user shell
+            expire      => shadow expire time
+            locked      => is locked?
+            exp_min     => shadow Min
+            exp_max     => shadow Max
+            exp_warn    => shadow Warn
+            exp_inact   => shadow Inact
+            last_change => Shadow last change
+            members     => groups the user belongs to
 
 =head3 DESCRIPTION
 
@@ -813,21 +814,22 @@ sub getUserInfo {
     my $userEnt = $self->ctx->LookupUserByName($username);
     return $userInfo if !defined($userEnt);
 
-    my $fullname         = $userEnt->Gecos($self->USER_GetValue);
+    my $fullname             = $userEnt->Gecos($self->USER_GetValue);
     utf8::decode($fullname);
-    $userInfo->{fullname}   = $fullname;
-    $userInfo->{shell}      = $userEnt->LoginShell($self->USER_GetValue);
-    $userInfo->{home}       = $userEnt->HomeDir($self->USER_GetValue);
-    $userInfo->{uid}        = $userEnt->Uid($self->USER_GetValue);
-    $userInfo->{gid}        = $userEnt->Gid($self->USER_GetValue);
-    $userInfo->{expire}     = $userEnt->ShadowExpire($self->USER_GetValue);
-    $userInfo->{locked}     = $self->ctx->IsLocked($userEnt);
+    $userInfo->{fullname}    = $fullname;
+    $userInfo->{shell}       = $userEnt->LoginShell($self->USER_GetValue);
+    $userInfo->{home}        = $userEnt->HomeDir($self->USER_GetValue);
+    $userInfo->{uid}         = $userEnt->Uid($self->USER_GetValue);
+    $userInfo->{gid}         = $userEnt->Gid($self->USER_GetValue);
+    $userInfo->{expire}      = $userEnt->ShadowExpire($self->USER_GetValue);
+    $userInfo->{locked}      = $self->ctx->IsLocked($userEnt);
 
-    $userInfo->{exp_min}    = $userEnt->ShadowMin($self->USER_GetValue);
-    $userInfo->{exp_max}    = $userEnt->ShadowMax($self->USER_GetValue);
-    $userInfo->{exp_warn}   = $userEnt->ShadowWarn($self->USER_GetValue);
-    $userInfo->{exp_inact}  = $userEnt->ShadowInact($self->USER_GetValue);
-    $userInfo->{members}    = $self->ctx->EnumerateGroupsByUser($username);
+    $userInfo->{exp_min}     = $userEnt->ShadowMin($self->USER_GetValue);
+    $userInfo->{exp_max}     = $userEnt->ShadowMax($self->USER_GetValue);
+    $userInfo->{exp_warn}    = $userEnt->ShadowWarn($self->USER_GetValue);
+    $userInfo->{exp_inact}   = $userEnt->ShadowInact($self->USER_GetValue);
+    $userInfo->{last_change} = $userEnt->ShadowLastChange($self->USER_GetValue);
+    $userInfo->{members}     = $self->ctx->EnumerateGroupsByUser($username);
 
     return $userInfo;
 }

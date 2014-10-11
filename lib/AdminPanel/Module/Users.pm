@@ -1639,8 +1639,9 @@ sub _userPasswordInfoTabWidget {
     my $layout  = $factory->createVBox($replace_pnt);
 
     my %userPasswordWidget;
-    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData->{username});
-    my $lastchg = $userEnt->ShadowLastChange($self->sh_users->USER_GetValue);
+
+    my $userInfo = $self->sh_users->getUserInfo($userData->{username});
+    my $lastchg  = $userInfo->{last_change};
 
     my $align   = $factory->createLeft($layout);
     my $hbox    = $factory->createHBox($align);    
