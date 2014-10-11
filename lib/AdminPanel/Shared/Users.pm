@@ -820,8 +820,9 @@ sub getUsersInfo {
 
     my @UserReal;
   LOOP: foreach my $l (@{$users}) {
-        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) <= 499 || $l->Uid($self->USER_GetValue) == 65534;
-        next LOOP if $filterusers && $l->Uid($self->USER_GetValue) > 499 && $l->Uid($self->USER_GetValue) < $self->min_UID &&
+        my $uid = $l->Uid($self->USER_GetValue);
+        next LOOP if $filterusers && $uid <= 499 || $uid == 65534;
+        next LOOP if $filterusers && $uid > 499 && $uid < $self->min_UID &&
                      ($l->HomeDir($self->USER_GetValue) =~ /^\/($|var\/|run\/)/ || $l->LoginShell($self->USER_GetValue) =~ /(nologin|false)$/);
         push @UserReal, $l if $l->UserName($self->USER_GetValue) =~ /^\Q$strfilt/;
     }
