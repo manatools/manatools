@@ -471,6 +471,48 @@ sub updateOrDelUserInGroup {
 
 #=============================================================
 
+=head2 getGoups
+
+=head3 OUTPUT
+
+    $groups: ARRAY reference containing all the groups
+
+=head3 DESCRIPTION
+
+    This method return the configured groups
+
+=cut
+
+#=============================================================
+sub getGoups {
+    my $self = shelf;
+
+    return $self->GroupsEnumerate;
+}
+
+#=============================================================
+
+=head2 getUsers
+
+=head3 OUTPUT
+
+    $users: ARRAY reference containing all the users
+
+=head3 DESCRIPTION
+
+    This method return the configured users
+
+=cut
+
+#=============================================================
+sub getUsers {
+    my $self = shelf;
+
+    return $self->ctx->UsersEnumerate;
+}
+
+#=============================================================
+
 =head2 groupNameExists
 
 =head3 INPUT
