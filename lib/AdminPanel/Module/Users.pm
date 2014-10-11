@@ -1722,7 +1722,6 @@ sub _groupUsersTabWidget {
 
     $groupUsersWidget{members} = $mgaFactory->createCBTable($layout, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
-    my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{groupname});
     my $users  = $self->sh_users->getUsers();
     my @susers = sort(@$users);
 
