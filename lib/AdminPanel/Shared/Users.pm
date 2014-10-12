@@ -198,7 +198,7 @@ sub BUILD {
 
 =head3 OUTPUT
 
-        path to directory containing face icon
+    path to directory containing face icon
 
 =head3 DESCRIPTION
 
@@ -244,7 +244,7 @@ sub userfacedir {
 
 =head3 INPUT
 
-   $face: face icon name (usually username)
+    $face: face icon name (usually username)
 
 =head3 OUTPUT
 
@@ -271,7 +271,7 @@ sub face2png {
 
 =head3 OUTPUT
 
-    \@namelist: ARRAY reference containing the face name list
+    $namelist: ARRAY reference containing the face name list
 
 =head3 DESCRIPTION
 
@@ -395,7 +395,7 @@ sub _valid {
 
 =head3 INPUT
 
-$username: user name to check
+    $username: user name to check
 
 =head3 OUTPUT
 
@@ -421,7 +421,7 @@ sub valid_username {
 
 =head3 INPUT
 
-$groupname: user name to check
+    $groupname: user name to check
 
 =head3 OUTPUT
 
@@ -497,15 +497,15 @@ sub getGoups {
 
 =head3 INPUT
 
-$groupname: the name of the group to check
+    $groupname: the name of the group to check
 
 =head3 OUTPUT
 
-if group exists
+    if group exists
 
 =head3 DESCRIPTION
 
-This method return if a given group exists
+    This method return if a given group exists
 
 =cut
 
@@ -524,15 +524,15 @@ sub groupNameExists {
 
 =head3 INPUT
 
-$group: the id of the group to check
+    $group: the id of the group to check
 
 =head3 OUTPUT
 
-if group exists
+    if group exists
 
 =head3 DESCRIPTION
 
-This method return if a given group exists
+    This method return if a given group exists
 
 =cut
 
@@ -552,15 +552,15 @@ sub groupIDExists {
 
 =head3 INPUT
 
-$groupname: group name
+    $groupname: group name
 
 =head3 OUTPUT
 
-groupid or undef
+    groupid or undef
 
 =head3 DESCRIPTION
 
-This method returns the group id for the group name
+    This method returns the group id for the group name
 
 =cut
 
@@ -580,16 +580,16 @@ sub groupID {
 
 =head3 INPUT
 
-$gid grou identifier
+    $gid group identifier
 
 =head3 OUTPUT
 
-group name or undef
+    group name or undef
 
 =head3 DESCRIPTION
 
-This method returns the group name for the given group
-identifier
+    This method returns the group name for the given group
+    identifier
 
 =cut
 
@@ -610,10 +610,10 @@ sub groupName {
 
 =head3 INPUT
 
-$params: HASH reference containing:
-    groupname => name of teh group to be added
-    gid       => group id of the group to be added
-    is_system => is a system group?
+    $params: HASH reference containing:
+        groupname => name of teh group to be added
+        gid       => group id of the group to be added
+        is_system => is a system group?
 
 =head3 OUTPUT
 
@@ -621,12 +621,11 @@ $params: HASH reference containing:
 
 =head3 DESCRIPTION
 
-This method add a group to system
+    This method add a group to system
 
 =cut
 
 #=============================================================
-
 sub addGroup {
     my ($self, $params) = @_;
 
@@ -653,17 +652,17 @@ sub addGroup {
 
 =head3 INPUT
 
-$groupname: The group name
+    $groupname: The group name
 
 =head3 OUTPUT
 
-$members: ARRAY reference containing all the user belonging
-          to the given $groupname
+    $members: ARRAY reference containing all the user belonging
+              to the given $groupname
 
 =head3 DESCRIPTION
 
-This method gets the group name and returns the users belonging
-to it
+    This method gets the group name and returns the users
+    belonging to it
 
 =cut
 
@@ -685,17 +684,17 @@ sub groupMembers {
 
 =head3 INPUT
 
-$groupname: the name of the group
+    $groupname: the name of the group
 
 =head3 OUTPUT
 
-$username: undef if it is primary group or the username for
-           which the group is the primary one.
+    $username: undef if it is primary group or the username for
+               which the group is the primary one.
 
 =head3 DESCRIPTION
 
-This methods check if the given group name is primary group
-for any users belonging to the group
+    This methods check if the given group name is primary group
+    for any users belonging to the group
 
 =cut
 
@@ -723,16 +722,16 @@ sub isPrimaryGroup {
 
 =head3 INPUT
 
-$groupname: in_par_description
+    $groupname: in_par_description
 
 =head3 OUTPUT
 
-0: if error occurred
-1: if removed
+    0: if error occurred
+    1: if removed
 
 =head3 DESCRIPTION
 
-This method remove the group from the system
+    This method remove the group from the system
 
 =cut
 
@@ -754,7 +753,7 @@ sub deleteGroup {
 
 =head2 getGroupsInfo
 
-$options: HASH reference containing
+    $options: HASH reference containing
             groupname_filter => groupname search string
             filter_system   => hides system groups
 
@@ -773,7 +772,6 @@ $options: HASH reference containing
 
     This method get group information (all groups or the
     filtered ones)
-
 
 =cut
 
@@ -856,7 +854,8 @@ sub getUsers {
 
 =head3 OUTPUT
 
-$userInfo: HASH reference containing
+    $userInfo: HASH reference containing
+        {
             uid         => user identifier
             gid         => group identifier
             fullname    => user full name
@@ -870,10 +869,11 @@ $userInfo: HASH reference containing
             exp_inact   => shadow Inact
             last_change => Shadow last change
             members     => groups the user belongs to
+        }
 
 =head3 DESCRIPTION
 
-This method get all the information for the given user
+    This method get all the information for the given user
 
 =cut
 
@@ -913,18 +913,18 @@ sub getUserInfo {
 
 =head3 INPUT
 
-$options: HASH reference containing
-            username_filter => username search string
-            filter_system   => hides system users
+    $options: HASH reference containing
+        username_filter => username search string
+        filter_system   => hides system users
 
 =head3 OUTPUT
 
-$usersInfo: HASH reference containing
+    $usersInfo: HASH reference containing
         username-1 => {
             uid    => user identifier
             group  => primary group name
             gid    => group identifier
-         fullname  => user full name
+            fullname  => user full name
             home   => home directory
             shell  => user shell
             status => login status (locked, expired, etc)
@@ -935,7 +935,7 @@ $usersInfo: HASH reference containing
 
 =head3 DESCRIPTION
 
-This method get user information (all users or filtered ones)
+    This method get user information (all users or filtered ones)
 
 =cut
 
@@ -1030,15 +1030,15 @@ sub getUserHome {
 
 =head3 INPUT
 
-$username: the name of the user to check
+    $username: the name of the user to check
 
 =head3 OUTPUT
 
-if user exists
+    if user exists
 
 =head3 DESCRIPTION
 
-This method return if a given user exists
+    This method return if a given user exists
 
 =cut
 
@@ -1086,20 +1086,20 @@ sub computeLockExpire {
 
 =head3 INPUT
 
-$params: HASH reference containing:
-    username  => name of teh user to be added
-    uid       => user id of the username to be added
-    is_system => is a system user?
-    homedir   => user home directory
-    donotcreatehome => do not create the home directory
-    shell => user shall
-    fullname => user full name
-    gid => group id for the user
-    shadowMin => min time password validity
-    shadowMax => max time password validity
-    shadowInact =>
-    shadowWarn  =>
-    password  => user password
+    $params: HASH reference containing:
+        username  => name of teh user to be added
+        uid       => user id of the username to be added
+        is_system => is a system user?
+        homedir   => user home directory
+        donotcreatehome => do not create the home directory
+        shell => user shall
+        fullname => user full name
+        gid => group id for the user
+        shadowMin => min time password validity
+        shadowMax => max time password validity
+        shadowInact =>
+        shadowWarn  =>
+        password  => user password
 
 =head3 OUTPUT
 
@@ -1107,12 +1107,11 @@ $params: HASH reference containing:
 
 =head3 DESCRIPTION
 
-This method add a user to system
+    This method add a user to system
 
 =cut
 
 #=============================================================
-
 sub addUser {
     my ($self, $params) = @_;
 
@@ -1152,18 +1151,18 @@ sub addUser {
 
 =head3 INPUT
 
-$username: username to be deleted
-$options:  HASH reference containing
-           clean_home  => if home has to be removed
-           clean_spool => if sppol has to be removed
+    $username: username to be deleted
+    $options:  HASH reference containing
+            clean_home  => if home has to be removed
+            clean_spool => if sppol has to be removed
 
 =head3 OUTPUT
 
-error string or undef if no errors occurred
+    error string or undef if no errors occurred
 
 =head3 DESCRIPTION
 
-This method delete a user from the system.
+    This method delete a user from the system.
 
 =cut
 
@@ -1209,11 +1208,11 @@ sub deleteUser {
 
 =head3 OUTPUT
 
-GetUserShells: from libUSER
+    GetUserShells: from libUSER
 
 =head3 DESCRIPTION
 
-This method returns the available shell
+    This method returns the available shell
 
 =cut
 
@@ -1231,7 +1230,7 @@ sub getUserShells {
 =head3 INPUT
 
     $name: icon name for the given username
-    $next: if passed means getting next icon from the given $name 
+    $next: if passed means getting next icon from the given $name
 
 =head3 OUTPUT
 
@@ -1339,7 +1338,6 @@ sub strongPassword {
 =cut
 
 #=============================================================
-
 sub weakPasswordForSecurityLevel {
      my ($self, $passwd) = @_;
 
@@ -1373,7 +1371,7 @@ sub weakPasswordForSecurityLevel {
 
 =head3 DESCRIPTION
 
-Adds the given username $name to 'users' group
+    Adds the given username $name to 'users' group
 
 =cut
 
