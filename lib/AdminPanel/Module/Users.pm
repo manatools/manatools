@@ -2132,8 +2132,7 @@ sub _editUserDialog {
                                     for(my $i=0;$i < $tbl->itemsCount();$i++) {
                                         if ($tbl->toCBYTableItem($tbl->item($i))->checked()) {
                                             my $pgItem = new yui::YItem ($tbl->item($i)->label(), 0);
-                                            my $Gent   = $self->sh_users->ctx->LookupGroupById($userData->{primary_group});
-                                            my $primgroup = $Gent->GroupName($self->sh_users->USER_GetValue);
+                                            my $primgroup = $self->sh_users->groupName($userData->{primary_group});
                                             $pgItem->setSelected(1) if ($pgItem->label() eq $primgroup);
 
                                             $itemColl->push($pgItem);
