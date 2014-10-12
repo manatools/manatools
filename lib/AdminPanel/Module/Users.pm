@@ -1820,43 +1820,23 @@ sub _groupEdit_Ok {
         $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
         return $continue;
     }
-    my $groupEnt = $self->sh_users->ctx->LookupGroupByName($groupData{start_groupname});
+    $DB::single = 1;
+
+    my $groupInfo = {
+        groupname => $groupData{groupname},
+        members   => $groupData{members},
+    };
+
     if ($groupData{start_groupname} ne $groupData{groupname}) { 
-        $groupEnt->GroupName($groupData{groupname}); 
+        $groupInfo->{old_groupname} = $groupData{start_groupname};
     }
 
-    my $members = $groupData{members};
-    my $gid     = $groupEnt->Gid($self->sh_users->USER_GetValue);
-    my $users   = $self->sh_users->getUsers();
-    my @susers  = sort(@$users);
+    my $retval = $self->sh_users->modifyGroup($groupInfo);
 
-    foreach my $user (@susers) {
-        my $uEnt = $self->sh_users->ctx->LookupGroupByName($user);
-        if ($uEnt) {
-            my $ugid = $uEnt->Gid($self->sh_users->USER_GetValue);
-            my $m    = $self->sh_users->ctx->EnumerateUsersByGroup($groupData{start_groupname});
-            if (MDK::Common::DataStructure::member($user, @$members)) {
-                if (!AdminPanel::Shared::inArray($user, $m)) {
-                    if ($ugid != $gid) {
-                        eval { $groupEnt->MemberName($user,1) };
-                    }
-                }
-            }
-            else {
-                if (AdminPanel::Shared::inArray($user, $m)) {
-                    if ($ugid == $gid) {
-                        $self->sh_gui->msgBox({text => $self->loc->N("You cannot remove user '%s' from their primary group", $user)});
-                        return 0;
-                    }
-                    else {
-                        eval { $groupEnt->MemberName($user,2) };
-                    }
-                }
-            }
-        }
-    }    
+    if (!$retval->{status}) {
+        $self->sh_gui->msgBox({text => $retval->{error}} );
+    }
 
-    $self->sh_users->ctx->GroupModify($groupEnt);
     $self->_refresh();
 
     return 1;

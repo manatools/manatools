@@ -749,6 +749,84 @@ sub deleteGroup {
 }
 
 
+
+#=============================================================
+
+=head2 modifyGroup
+
+=head3 INPUT
+
+    $groupInfo: HASH reference containing:
+        old_groupname => old name of the group (if renaming)
+        groupname     => group name
+        members       => users belonging to the group
+
+=head3 INPUT
+    $retval => HASH reference
+        status => 1 (ok) 0 (error)
+        error  => error message if status is 0
+
+=head3 DESCRIPTION
+
+    This method modifies the group groupname
+
+=cut
+
+#=============================================================
+sub modifyGroup {
+    my ($self, $groupInfo) = @_;
+
+    die "group name is mandatory" if !defined($groupInfo->{groupname});
+
+    my $groupEnt = defined($groupInfo->{old_groupname}) ?
+                   $self->ctx->LookupGroupByName($groupInfo->{old_groupname}) :
+                   $self->ctx->LookupGroupByName($groupInfo->{groupname});
+
+    my $orig_groupname = $groupInfo->{groupname};
+    if (defined($groupInfo->{old_groupname}) &&
+        $groupInfo->{old_groupname} ne $groupInfo->{groupname}) {
+        $groupEnt->GroupName($groupInfo->{groupname});
+        $orig_groupname = $groupInfo->{old_groupname};
+    }
+
+    my $members = $groupInfo->{members};
+    my $gid     = $groupEnt->Gid($self->USER_GetValue);
+    my $users   = $self->getUsers();
+    my @susers  = sort(@{$users});
+
+    foreach my $user (@susers) {
+        my $uEnt = $self->ctx->LookupGroupByName($user);
+        if ($uEnt) {
+            my $ugid = $uEnt->Gid($self->USER_GetValue);
+            my $m    = $self->ctx->EnumerateUsersByGroup($orig_groupname);
+            if (MDK::Common::DataStructure::member($user, @{$members})) {
+                if (!AdminPanel::Shared::inArray($user, $m)) {
+                    if ($ugid != $gid) {
+                        eval { $groupEnt->MemberName($user, 1) };
+                    }
+                }
+            }
+            else {
+                if (AdminPanel::Shared::inArray($user, $m)) {
+                    if ($ugid == $gid) {
+                        return {
+                            status => 0,
+                            error =>$self->loc->N("You cannot remove user <%s> from their primary group", $user)
+                        };
+                    }
+                    else {
+                        eval { $groupEnt->MemberName($user, 2) };
+                    }
+                }
+            }
+        }
+    }
+
+    $self->ctx->GroupModify($groupEnt);
+
+    return {status => 1,};
+}
+
 #=============================================================
 
 =head2 getGroupsInfo
