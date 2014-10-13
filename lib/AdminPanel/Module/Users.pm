@@ -1845,6 +1845,7 @@ sub _groupEdit_Ok {
 sub _userEdit_Ok {
     my ($self, $userData) = @_;
 
+    $DB::single = 1;
     # update last changes if any 
     $self->_storeDataFromUserEditPreviousTab($userData);
     
@@ -1858,46 +1859,32 @@ sub _userEdit_Ok {
         $self->sh_gui->msgBox({text => $self->loc->N("Password Mismatch")});
         return 0;
     }
-    my $userEnt = $self->sh_users->ctx->LookupUserByName($userData->{username});
+
     if ($userData->{password} ne '') {
         if ($self->sh_users->weakPasswordForSecurityLevel($userData->{password})) {
             $self->sh_gui->msgBox({text => $self->loc->N("This password is too simple. \n Good passwords should be > 6 characters")});
             return 0;
         }
-        $self->sh_users->ctx->UserSetPass($userEnt, $userData->{password});
     }
 
-    $userEnt->UserName($userData->{username});
-    $userEnt->Gecos($userData->{full_name});
-    $userEnt->HomeDir($userData->{homedir});
-    $userEnt->LoginShell($userData->{shell});
-    my $username = $userEnt->UserName($self->sh_users->USER_GetValue);
-    my $grps = $self->sh_users->getGoups();
-    my @sgroups = sort @$grps;
- 
-    my $members = $userData->{members};
-    foreach my $group (@sgroups) {
-        my $gEnt = $self->sh_users->ctx->LookupGroupByName($group);
-        my $ugid = $gEnt->Gid($self->sh_users->USER_GetValue);
-        my $m    = $gEnt->MemberName(1,0);
-        if (MDK::Common::DataStructure::member($group, @$members)) {
-            if (!AdminPanel::Shared::inArray($username, $m) && $userData->{primary_group} != $ugid) {
-                eval { $gEnt->MemberName($username, 1) };
-                $self->sh_users->ctx->GroupModify($gEnt);
-            }
-        }
-        else {
-            if (AdminPanel::Shared::inArray($username, $m)) {
-                eval { $gEnt->MemberName($username, 2) };
-                $self->sh_users->ctx->GroupModify($gEnt);
-            }
-        }
-    }
     if ($userData->{primary_group} == -1) {
         $self->sh_gui->msgBox({ text => $self->loc->N("Please select at least one group for the user")});
         return 0;
     }
-    $userEnt->Gid($userData->{primary_group});
+
+    my $userInfo = {
+#         old_username  => $TDODO,
+        username      => $userData->{username},
+        fullname      => $userData->{full_name},
+        homedir       => $userData->{homedir},
+        shell         => $userData->{shell},
+        members       => $userData->{members},
+        gid           => $userData->{primary_group},
+        lockuser      => $userData->{lockuser},
+    };
+
+    $userInfo->{password} = $userData->{password} if $userData->{password} ne '';
+
 
     if ($userData->{acc_check_exp}) {
         my $yr = $userData->{acc_expy};
@@ -1907,11 +1894,11 @@ sub _userEdit_Ok {
             $self->sh_gui->msgBox({text => $self->loc->N("Please specify Year, Month and Day \n for Account Expiration ")});
             return 0;
         }
-        my $Exp = _ConvTime($dy, $mo, $yr);
-        $userEnt->ShadowExpire($Exp);
-    }
-    else { 
-        $userEnt->ShadowExpire(ceil(-1)) 
+        $userInfo->{acc_expires} = {
+            exp_y     => $yr,
+            exp_m     => $mo,
+            exp_d     => $dy,
+        };
     }
 
     if ($userData->{pwd_check_exp}) {
@@ -1919,32 +1906,20 @@ sub _userEdit_Ok {
         my $required = int($userData->{pwd_exp_max});
         my $warning = int($userData->{pwd_exp_warn});
         my $inactive = int($userData->{pwd_exp_inact});
-        if ($allowed && $required && $warning && $inactive) {
-            $userEnt->ShadowMin($allowed);
-            $userEnt->ShadowMax($required);
-            $userEnt->ShadowWarn($warning);
-            $userEnt->ShadowInact($inactive);
-        }
-        else {
+        if (!$allowed || !$required || !$warning || !$inactive) {
             $self->sh_gui->msgBox({text => $self->loc->N("Please fill up all fields in password aging\n")});
             return 0;
         }
+        $userInfo->{password_expires} = {
+            exp_min   => $allowed,
+            exp_max   => $required,
+            exp_warn  => $warning,
+            exp_inact => $inactive,
+        };
     }
-    else {
-        $userEnt->ShadowMin(-1);
-        $userEnt->ShadowMax(99999);
-        $userEnt->ShadowWarn(-1);
-        $userEnt->ShadowInact(-1); 
-    }
-   
-    $self->sh_users->ctx->UserModify($userEnt);
 
-    if ($userData->{lockuser}) {
-        !$self->sh_users->ctx->IsLocked($userEnt) and $self->sh_users->ctx->Lock($userEnt);
-    } 
-    else { 
-        $self->sh_users->ctx->IsLocked($userEnt) and $self->sh_users->ctx->UnLock($userEnt);
-    }
+    $self->sh_users->modifyUser($userInfo);
+
             
     defined $userData->{icon_face} and $self->sh_users->addKdmIcon($userData->{username}, $userData->{icon_face});
     $self->_refresh();

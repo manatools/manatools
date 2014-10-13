@@ -761,7 +761,8 @@ sub deleteGroup {
         groupname     => group name
         members       => users belonging to the group
 
-=head3 INPUT
+=head3 OUTPUT
+
     $retval => HASH reference
         status => 1 (ok) 0 (error)
         error  => error message if status is 0
@@ -1218,6 +1219,140 @@ sub addUser {
     $userEnt->ShadowInact($shd);
     $self->ctx->UserAdd($userEnt, $is_system, $params->{donotcreatehome});
     $self->ctx->UserSetPass($userEnt, $params->{password});
+
+    return 1;
+}
+
+
+#=============================================================
+
+=head2 modifyUser
+
+=head3 INPUT
+
+    $userInfo: HASH reference containing:
+        old_username  => old name of the user (if renaming)
+        username      => user name
+        fullname      => full name of teh user
+        password      => password
+        homedir       => home directory
+        shell         => user shell
+        members       => groups the user belongs to
+        gid           => primary group identifier
+        lockuser      => lock user
+        acc_expires   => account expire time - containing:
+                exp_y     => year
+                exp_m     => month
+                exp_d     => day
+     password_expires => password expire time - containing:
+                exp_min   => min
+                exp_max   => max
+                exp_warn  => when warn
+                exp_inact => when inactive
+
+=head3 DESCRIPTION
+
+    This method modifies the group groupname
+
+=cut
+
+#=============================================================
+sub modifyUser {
+    my ($self, $userInfo) = @_;
+
+    die "user name is mandatory" if !defined($userInfo->{username});
+    die "primary group identifier is mandatory" if !defined($userInfo->{gid});
+    die "a valid group identifier is mandatory" if $userInfo->{gid} < 0;
+
+    if (defined($userInfo->{acc_expires})) {
+        die "expiring year is mandatory"  if !defined($userInfo->{acc_expires}->{exp_y});
+        die "expiring month is mandatory" if !defined($userInfo->{acc_expires}->{exp_m});
+        die "expiring day is mandatory"   if !defined($userInfo->{acc_expires}->{exp_d});
+    }
+    if (defined($userInfo->{password_expires})) {
+        die "password expiring min is mandatory"      if !($userInfo->{password_expires}->{exp_min});
+        die "password expiring max is mandatory"      if !($userInfo->{password_expires}->{exp_max});
+        die "password expiring warn is mandatory"     if !($userInfo->{password_expires}->{exp_warn});
+        die "password expiring inactive is mandatory" if !($userInfo->{password_expires}->{exp_inact});
+    }
+    my $userEnt = defined($userInfo->{old_username}) ?
+                  $self->ctx->LookupUserByName($userInfo->{old_username}) :
+                  $self->ctx->LookupUserByName($userInfo->{username});
+
+    my $orig_username = $userInfo->{username};
+    if (defined($userInfo->{old_username}) &&
+        $userInfo->{old_username} ne $userInfo->{username}) {
+        $userEnt->UserName($userInfo->{username});
+        $orig_username = $userInfo->{old_username};
+    }
+
+    # $userEnt->UserName($userInfo->{username});
+    $userEnt->Gecos($userInfo->{fullname})   if defined($userInfo->{fullname});
+    $userEnt->HomeDir($userInfo->{homedir})  if defined($userInfo->{homedir});
+    $userEnt->LoginShell($userInfo->{shell}) if defined($userInfo->{shell});
+
+
+    my $username = $userEnt->UserName($self->USER_GetValue);
+    my $grps = $self->getGoups();
+    my @sgroups = sort @{$grps};
+
+    my $members = $userInfo->{members};
+    foreach my $group (@sgroups) {
+        my $gEnt = $self->ctx->LookupGroupByName($group);
+        my $ugid = $gEnt->Gid($self->USER_GetValue);
+        my $m    = $gEnt->MemberName(1,0);
+        if (MDK::Common::DataStructure::member($group, @$members)) {
+            if (!AdminPanel::Shared::inArray($username, $m) && $userInfo->{gid} != $ugid) {
+                eval { $gEnt->MemberName($username, 1) };
+                $self->ctx->GroupModify($gEnt);
+            }
+        }
+        else {
+            if (AdminPanel::Shared::inArray($username, $m)) {
+                eval { $gEnt->MemberName($username, 2) };
+                $self->ctx->GroupModify($gEnt);
+            }
+        }
+    }
+
+    $userEnt->Gid($userInfo->{gid}) if defined($userInfo->{gid});
+
+    if (defined($userInfo->{acc_expires})) {
+        my $yr = $userInfo->{acc_expires}->{exp_y};
+        my $mo = $userInfo->{acc_expires}->{exp_m};
+        my $dy = $userInfo->{acc_expires}->{exp_d};
+        my $Exp = _ConvTime($dy, $mo, $yr);
+        $userEnt->ShadowExpire($Exp);
+    }
+    else {
+        $userEnt->ShadowExpire(ceil(-1))
+    }
+    if (defined($userInfo->{password_expires})) {
+        my $allowed  = $userInfo->{password_expires}->{exp_min};
+        my $required = $userInfo->{password_expires}->{exp_max};
+        my $warning  = $userInfo->{password_expires}->{exp_warn};
+        my $inactive = $userInfo->{password_expires}->{exp_inact};
+        $userEnt->ShadowMin($allowed);
+        $userEnt->ShadowMax($required);
+        $userEnt->ShadowWarn($warning);
+        $userEnt->ShadowInact($inactive);
+    }
+    else {
+        $userEnt->ShadowMin(-1);
+        $userEnt->ShadowMax(99999);
+        $userEnt->ShadowWarn(-1);
+        $userEnt->ShadowInact(-1);
+    }
+
+    $self->ctx->UserSetPass($userEnt, $userInfo->{password}) if defined($userInfo->{password});
+    $self->ctx->UserModify($userEnt);
+
+    if ($userInfo->{lockuser}) {
+        !$self->ctx->IsLocked($userEnt) and $self->ctx->Lock($userEnt);
+    }
+    else {
+        $self->ctx->IsLocked($userEnt) and $self->ctx->UnLock($userEnt);
+    }
 
     return 1;
 }
