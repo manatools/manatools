@@ -1597,6 +1597,14 @@ sub Add2UsersGroup {
     return $usersgroup->Gid($self->USER_GetValue);
 }
 
+sub _ConvTime {
+    my ($day, $month, $year) = @_;
+    my ($tm, $days, $mon, $yr);
+    $mon = $month - 1; $yr = $year - 1900;
+    $tm = POSIX::mktime(0, 0, 0, $day, $mon, $yr);
+    $days = ceil($tm / (24 * 60 * 60));
+    return $days;
+}
 
 no Moose;
 __PACKAGE__->meta->make_immutable;

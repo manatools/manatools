@@ -1281,7 +1281,8 @@ sub _getUserInfo {
     }
     
     my %userData;
-    $userData{username}  = $item->label();
+    $userData{old_username} = $item->label();
+    $userData{username}     = $item->label();
 
     my $userInfo = $self->sh_users->getUserInfo($userData{username});
 
@@ -1873,7 +1874,6 @@ sub _userEdit_Ok {
     }
 
     my $userInfo = {
-#         old_username  => $TDODO,
         username      => $userData->{username},
         fullname      => $userData->{full_name},
         homedir       => $userData->{homedir},
@@ -1883,6 +1883,7 @@ sub _userEdit_Ok {
         lockuser      => $userData->{lockuser},
     };
 
+    $userInfo->{old_username} = $userData->{old_username} if $userData->{username} ne $userData->{old_username};
     $userInfo->{password} = $userData->{password} if $userData->{password} ne '';
 
 
@@ -2578,14 +2579,6 @@ sub _ValidInt {
     return 1;
 }
 
-sub _ConvTime {
-    my ($day, $month, $year) = @_;
-    my ($tm, $days, $mon, $yr);
-    $mon = $month - 1; $yr = $year - 1900;
-    $tm = POSIX::mktime(0, 0, 0, $day, $mon, $yr);
-    $days = ceil($tm / (24 * 60 * 60));
-    return $days;
-}
 
 sub _TimeOfArray {
     my ($reltime, $cm) = @_;
