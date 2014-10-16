@@ -99,8 +99,9 @@ Creative Commons Attribution-No Derivative Works 3.0 Unported
 http://creativecommons.org/licenses/by-nd/3.0/
 
 NOTE 1: 
-To avoid file name duplication we renamed icon from drakxtools,
+To avoid file name duplication we renamed icons from drakxtools,
 rpmdrake and userdrake, to fit new naming convention:
+drakedm-mdk   -> manadm
 time-mdk      -> manaclock
 drakhosts     -> manahost
 logdrake-mdk  -> manalog

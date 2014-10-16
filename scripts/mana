@@ -38,6 +38,10 @@ my %modules = (
             exec  => '/usr/bin/manaservice',
             descr => "manaservice: service manager",
         },
+        dm      => {
+            exec => '/usr/bin/manadm',
+            descr => "manadm: login manager configuration",
+        },
         clock   => {
             exec => '/usr/bin/manaclock',
             descr => "manaclock: date/time manager",
@@ -68,10 +72,15 @@ die "Command ". $cmd . " not found!\n" if !defined($modules{$cmd});
 my $mod =  $modules{$cmd}->{exec};
 shift(@ARGV);
 
-if(is_root_capability_required()) {
-    system("/usr/bin/pkexec", $mod, @ARGV);
-} else {
-    system($mod, @ARGV);
+eval {
+    if(is_root_capability_required()) {
+        system("/usr/bin/pkexec", $mod, @ARGV);
+    } else {
+        system($mod, @ARGV);
+    }
+};
+if ( $@ ) {
+    print "ERROR: " . $@ ."\n";
 }
 
 #=============================================================
