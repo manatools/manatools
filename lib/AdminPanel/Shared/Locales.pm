@@ -127,7 +127,7 @@ sub BUILD {
 
     $self->domain(Locale::gettext->domain_raw($self->domain_name));
     $self->domain->dir($self->dir_name) if $self->dir_name;
-    $self->domain->codeset($self->codeset)
+    $self->domain->codeset($self->codeset);
 }
 
 
