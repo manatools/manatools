@@ -252,7 +252,6 @@ sub getbanner() {
 # - 1 if if Yes/Ok
 sub interactive_msg {
     my ($title, $contents, %options) = @_;
-    my $sh_gui = AdminPanel::Shared::GUI->new();
 
     my $retVal = 0;
     yui::YUI::widgetFactory;
@@ -294,10 +293,6 @@ sub interactive_msg {
     $dlg = undef;
 
     return $retVal;
-
-=comment
-    return $sh_gui->ask_YesOrNo({ title => $title, text => $contents, richtext => 0});
-=cut
 }
 
 sub interactive_packtable {
@@ -410,15 +405,18 @@ sub but_ { "        $_[0]        " }
 
 sub slow_func ($&) {
     my ($param, $func) = @_;
-    if (ref($param) =~ /^Gtk/) {
-	#gtkset_mousecursor_wait($param);
-	#ugtk2::flush();
-	#$func->();
-	#gtkset_mousecursor_normal($param);
-    } else {
-		my $w = wait_msg($param);
-		$func->();
-		remove_wait_msg($w);
+
+    # NOTE busy cursor is not implemented in yui-ncurses
+    #      but we can avoid a waiting dialog in Gtk and QT
+    if (yui::YUI::app()->isTextMode()) {
+        my $w = wait_msg($param);
+        $func->();
+        remove_wait_msg($w)
+    }
+    else {
+        yui::YUI::app()->busyCursor();
+        $func->();
+        yui::YUI::app()->normalCursor();
     }
 }
 
@@ -427,7 +425,7 @@ sub statusbar_msg {
 	if (defined &::wait_msg_) { goto &::wait_msg_ } else { goto &wait_msg }
     }
     my ($msg, $o_timeout) = @_;
-    $::statusbar->setText($msg);
+    $::statusbar->setLabel($msg);
     #- always use the same context description for now
     #my $cx = $::statusbar->get_context_id("foo");
     #$::w and $::w->{rwindow} and gtkset_mousecursor_wait($::w->{rwindow}->window);
@@ -435,15 +433,17 @@ sub statusbar_msg {
     #my $id = $::statusbar->push($cx, $msg);
     #gtkflush();
     #Glib::Timeout->add(5000, sub { statusbar_msg_remove($id); 0 }) if $o_timeout;
+    $::statusbar->setTimeout ( 5000 );
     Glib::Timeout->add(5000, sub { statusbar_msg_remove(); 0 }) if $o_timeout;
     #$id;
+    return 1;
 }
 
 sub statusbar_msg_remove {
-    #my ($msg_id) = @_;
-    #if (!$::statusbar || ref $msg_id) { #- fallback if no status bar
-	#goto &remove_wait_msg;
-    #}
+    if (!$::statusbar) { #- fallback if no status bar
+	goto &remove_wait_msg;
+    }
+    my ($msg_id) = @_;
     #my $cx = $::statusbar->get_context_id("foo");
     #if (defined $msg_id) {
 	#$::statusbar->remove($cx, $msg_id);
@@ -451,17 +451,18 @@ sub statusbar_msg_remove {
 	#$::statusbar->pop($cx);
     #}
     #$::w and $::w->{rwindow} and gtkset_mousecursor_normal($::w->{rwindow}->window);
-    $::statusbar->setValue("");
+    $::statusbar->setLabel("");
 }
 
 sub slow_func_statusbar ($$&) {
     my ($msg, $w, $func) = @_;
-    gtkset_mousecursor_wait($w->window);
+    yui::YUI::app()->busyCursor();
+
     my $msg_id = statusbar_msg($msg);
-    gtkflush();
     $func->();
     statusbar_msg_remove($msg_id);
-    gtkset_mousecursor_normal($w->window);
+
+    yui::YUI::app()->normalCursor();
 }
 
 my %u2l = (
