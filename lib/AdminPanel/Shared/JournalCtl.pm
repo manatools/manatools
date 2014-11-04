@@ -112,23 +112,23 @@ sub getLog {
         $params .= " -b";
     }
     if ($self->since ne "") {
-        $params .= " --since=".'"'.$self->since.'"';
+        $params .= " --since=" . '"' . $self->since . '"';
     }
     if ($self->until ne "") {
-        $params .= " --until=".'"'.$self->until.'"';
+        $params .= " --until=" . '"' . $self->until .'"';
     }
     if ($self->unit ne "") {
-        $params .= " --unit=".$self->unit;
+        $params .= " --unit=" . $self->unit;
     }
     if ($self->priority ne "") {
-        $params .= " --priority=".$self->priority;
+        $params .= " --priority=" . $self->priority;
     }
 
     $ENV{'PATH'} = '/usr/sbin:/usr/bin';
-    my $jctl = "/usr/bin/journalctl ". $params;
+    my $jctl = "/usr/bin/journalctl " . $params;
 
     # TODO remove or add to log
-    print " Running  " . $jctl ."\n";
+    print " Running  " . $jctl . "\n";
     my @content = `$jctl`;
 
     return \@content;
