@@ -26,7 +26,7 @@
 #
 # $Id: rpmdragora 267936 2010-04-26 16:40:21Z jvictor $
 
-use strict;
+
 use MDK::Common::Func 'any';
 use lib qw(/usr/lib/libDrakX);
 use common;
@@ -822,8 +822,9 @@ sub run_treeview_dialog {
     $helpMenu{ widget }->rebuildMenuTree();
 
     
-    $statusbar = $factory->createLabel($hbox_footbar, "");
-=comment
+    $statusbar = $factory->createBusyIndicator($hbox_footbar, "" );
+
+=for comment
     my ($menu, $factory) = create_factory_menu(
     $w->{real_window},
     [ N("/_File"), undef, undef, undef, '<Branch>' ],
@@ -1037,6 +1038,7 @@ sub run_treeview_dialog {
 
     $w->{rwindow}->set_default_size($typical_width*2.7, 500) if !$::isEmbedded;
 =cut
+
     $find_entry->setText($rpmdragora_options{search}[0]) if $rpmdragora_options{search};
 
     #if ($rpmdragora_width->[0] && $rpmdragora_height->[0]) {
