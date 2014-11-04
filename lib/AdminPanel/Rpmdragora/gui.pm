@@ -194,7 +194,7 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
- 
+
     join("<br />",
         format_header(join(' - ', $name, $summary)) .
             if_($txt, format_field(N("Notice: ")) . $txt),
@@ -227,8 +227,8 @@ sub get_new_deps {
     my $deps_textview;
     my @a = [ gtkadd(
         gtksignal_connect(
-            gtkshow(my $dependencies = Gtk2::Expander->new(format_field(N("New dependencies:")))), 
-            activate => sub { 
+            gtkshow(my $dependencies = Gtk2::Expander->new(format_field(N("New dependencies:")))),
+            activate => sub {
                 slow_func($::main_window->window, sub {
                               my $state = {};
                               my $db = open_rpm_db();
@@ -382,7 +382,7 @@ sub warn_if_no_pkg {
 
 #
 # @method node_state
-# 
+#
 =pod
 
 =head1 node_state(pkgname)
@@ -420,7 +420,7 @@ sub node_state {
       ($urpm_obj->flag_installed ?
          ($urpm_obj->flag_upgrade ? 'to_install' : 'to_remove')
            : 'to_install')
-        : ($urpm_obj->flag_installed ? 
+        : ($urpm_obj->flag_installed ?
             ($pkgs->{$name}{is_backport} ? 'backport' :
              ($urpm_obj->flag_upgrade ? 'to_update'
                 : ($urpm_obj->flag_base ? 'base' : 'installed')))
@@ -451,7 +451,7 @@ my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
 
 =item B<$detail_list> , reference to the YCBTable
 
-=back 
+=back
 
 =back
 
@@ -486,7 +486,7 @@ sub set_leaf_state {
     set_node_state($node, $state, $detail_list);
 }
 
-sub grep_unselected { 
+sub grep_unselected {
     my @l = shift();
     my @result = grep { exists $pkgs->{$_} && !$pkgs->{$_}{selected} } @l ;
     return @result;
@@ -530,7 +530,7 @@ sub add_parent {
     for my $item (@items) {
         chomp $item;
         $item = trim($item);
-		my $treeItem; 
+		my $treeItem;
 		if($i == 0){
 			$parent = $item;
 		    $treeItem = new yui::YTreeItem($item,get_icon_path($item,0),0);
@@ -679,6 +679,30 @@ sub itemAt {
     #}
 }
 
+#=============================================================
+
+=head2 toggle_all
+
+=head3 INPUT
+
+    $common: HASH reference containing (### TODO ###)
+            widgets => {
+                detail_list: YTable reference (?)
+            }
+            table_item_list: (?)
+            get_status: function reference (for what?)
+            partialsel_unsel: (?)
+
+    $_val: value to be set (so it seems not a toggle! unused?)
+
+=head3 DESCRIPTION
+
+This method (should) check -or un-check if already checked- all
+the packages
+
+=cut
+
+#=============================================================
 sub toggle_all {
     my ($common, $_val) = @_;
     my $w = $common->{widgets};
@@ -703,15 +727,15 @@ sub fast_toggle {
     if ($urpm_obj->flag_base) {
         interactive_msg(N("Warning"), N("Removing package %s would break your system", $name));
         return '';
-    } 
-    if ($urpm_obj->flag_skip) { 
-        interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return ''; 
+    }
+    if ($urpm_obj->flag_skip) {
+        interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
         $urpm_obj->set_flag_skip(0);
-    } 
+    }
     if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
         $priority_up_alread_warned = 1;
         interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
-    } 
+    }
     # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
     my $state;
 #pasmatt checked should be to install no?
@@ -736,7 +760,7 @@ sub fast_toggle {
 # - "state": a hash of misc flags: => { flat => '0' },
 #   o "flat": is the tree flat or not
 # - "tree_mode": mode of the tree ("gui_pkgs", "by_group", ...) (mainly used by rpmdragora)
-          
+
 sub ask_browse_tree_given_widgets_for_rpmdragora {
     ($common) = @_;
     $w = $common->{widgets};
@@ -784,7 +808,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     }
 	update_size($common);
     };
-    
+
     $common->{display_info} = sub {
         gtktext_insert($w->{info}, get_info($_[0], $w->{tree}->window));
         $w->{info}->scroll_to_iter($w->{info}->get_buffer->get_start_iter, 0, 0, 0, 0);
@@ -878,7 +902,7 @@ sub pkgs_provider {
         all => [ keys %$pkgs ],
     );
     my %tmp_filter_methods = (
-        all => sub { 
+        all => sub {
             [ difference2([ keys %$pkgs ], $h->{inactive_backports}) ];
         },
         all_updates => sub {
@@ -891,17 +915,17 @@ sub pkgs_provider {
             }
         },
         backports => sub { $h->{backports} },
-        meta_pkgs => sub { 
+        meta_pkgs => sub {
             [ difference2($h->{meta_pkgs}, $h->{inactive_backports}) ];
         },
-        gui_pkgs => sub { 
+        gui_pkgs => sub {
             [ difference2($h->{gui_pkgs}, $h->{inactive_backports}) ];
         },
     );
     foreach my $importance (qw(bugfix security normal)) {
         $tmp_filter_methods{$importance} = sub {
             my @media = keys %$descriptions;
-            [ grep { 
+            [ grep {
                 my ($name) = split_fullname($_);
                 my $medium = find { $descriptions->{$_}{$name} } @media;
                 $medium && $descriptions->{$medium}{$name}{importance} eq $importance } @{$h->{updates}} ];
@@ -943,49 +967,134 @@ sub callback_choices {
     }
     my $callback = sub { interactive_msg(N("More information on package..."), get_info($_[0]), scroll => 1) };
     $choices = [ sort { $a->name cmp $b->name } @$choices ];
-    my @choices = interactive_list_(N("Please choose"), (scalar(@$choices) == 1 ? 
+    my @choices = interactive_list_(N("Please choose"), (scalar(@$choices) == 1 ?
     N("The following package is needed:") : N("One of the following packages is needed:")),
                                     [ map { urpm_name($_) } @$choices ], $callback, nocancel => 1);
     defined $choices[0] ? $choices->[$choices[0]] : undef;
 }
 
 sub deps_msg {
-        return 1 if $dont_show_selections->[0];
-        my ($title, $msg, $nodes, $nodes_with_deps) = @_;
-        my @deps = sort { $a cmp $b } difference2($nodes_with_deps, $nodes);
-        @deps > 0 or return 1;
-      deps_msg_again:
-        my $results = interactive_msg(
-            $title, $msg .
-              format_list(map { scalar(urpm::select::translate_why_removed_one($urpm, $urpm->{state}, $_)) } @deps)
-                . "\n\n" . format_size($urpm->selected_size($urpm->{state})),
-            yesno => [ N("Cancel"), N("More info"), N("Ok") ],
-            scroll => 1,
-        );
-        if ($results eq
-		    #-PO: Keep it short, this is gonna be on a button
-		    N("More info")) {
-            interactive_packtable(
-                N("Information on packages"),
-                $::main_window,
-                undef,
-                [ map { my $pkg = $_;
-                        [ gtknew('HBox', children_tight => [ gtkset_selectable(gtknew('Label', text => $pkg), 1) ]),
-                          gtknew('Button', text => N("More information on package..."), 
-                                 clicked => sub {
-                                     interactive_msg(N("More information on package..."), get_info($pkg), scroll => 1);
-                                 }) ] } @deps ],
-                [ gtknew('Button', text => N("Ok"), 
-                         clicked => sub { Gtk2->main_quit }) ]
-            );
-            goto deps_msg_again;
-        } else {
-            return $results eq N("Ok");
+    return 1 if $dont_show_selections->[0];
+    my ($title, $msg, $nodes, $nodes_with_deps) = @_;
+
+    my @deps = sort { $a cmp $b } difference2($nodes_with_deps, $nodes);
+    @deps > 0 or return 1;
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($title);
+#     TODO icon if needed
+#     yui::YUI::app()->setApplicationIcon($which_icon);
+
+    my $factory      = yui::YUI::widgetFactory;
+
+    ## | [msg-label]                     |
+    ## |                                 |
+    ## | pkg-list | info on selected pkg |(1)
+    ## |                                 |
+    ## | [cancel] [ok]                   |
+    ####
+    # (1) info on pkg list:
+    #  [ label info ]
+    #  tree sub info (Details, Files, Changelog, New dependencies)
+
+    my $dialog       = $factory->createPopupDialog;
+    my $vbox         = $factory->createVBox( $dialog );
+    my $msgBox       = $factory->createRichText($vbox, $msg, 1);
+                       $factory->createVSpacing($vbox, 1);
+    my $hbox         = $factory->createHBox( $vbox );
+    my $pkgList      = $factory->createSelectionBox( $hbox, N("Select package") );
+
+    my $frame        = $factory->createFrame ($hbox, N("Information on packages"));
+    my $frmVbox      = $factory->createVBox( $frame );
+    my $infoBox      = $factory->createRichText($frmVbox, "", 1);
+#     my $treeWidget = $factory->createTree($frmVbox, "");
+                       $factory->createVSpacing($vbox, 1);
+    $hbox            = $factory->createHBox( $vbox );
+    my $align        = $factory->createRight($hbox);
+    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+
+    # adding packages to the list
+    my $itemColl = new yui::YItemCollection;
+    foreach my $p (map { scalar(urpm::select::translate_why_removed_one($urpm, $urpm->{state}, $_)) } @deps) {
+        my $item = new yui::YTableItem ("$p");
+        $item->setLabel( $p );
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+    $pkgList->addItems($itemColl);
+    $pkgList->setImmediateMode(1);
+
+    my $retval = 0;
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
         }
+        elsif ($eventType == $yui::YEvent::MenuEvent) {
+            my $item = $event->item();
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### widget
+            my $widget = $event->widget();
+            if ($widget == $pkgList) {
+                #change info
+                my $pkg = $pkgList->selectedItem()->label();
+                $infoBox->setValue( get_info($pkg) );
+            }
+            elsif ($widget == $okButton) {
+                $retval = 1;
+                last;
+            }
+            elsif ($widget == $cancelButton) {
+                last;
+            }
+        }
+    }
+
+    destroy $dialog;
+
+    return $retval;
+
+#       deps_msg_again:
+#         my $results = interactive_msg(
+#             $title, $msg .
+#               format_list(map { scalar(urpm::select::translate_why_removed_one($urpm, $urpm->{state}, $_)) } @deps)
+#                 . "\n\n" . format_size($urpm->selected_size($urpm->{state})),
+#             yesno => [ N("Cancel"), N("More info"), N("Ok") ],
+#             scroll => 1,
+#         );
+#         if ($results eq
+# 		    #-PO: Keep it short, this is gonna be on a button
+# 		    N("More info")) {
+#             interactive_packtable(
+#                 N("Information on packages"),
+#                 $::main_window,
+#                 undef,
+#                 [ map { my $pkg = $_;
+#                         [ gtknew('HBox', children_tight => [ gtkset_selectable(gtknew('Label', text => $pkg), 1) ]),
+#                           gtknew('Button', text => N("More information on package..."),
+#                                  clicked => sub {
+#                                      interactive_msg(N("More information on package..."), get_info($pkg), scroll => 1);
+#                                  }) ] } @deps ],
+#                 [ gtknew('Button', text => N("Ok"),
+#                          clicked => sub { Gtk2->main_quit }) ]
+#             );
+#             goto deps_msg_again;
+#         } else {
+#             return $results eq N("Ok");
+#         }
 }
 
 sub toggle_nodes {
     my ($widget, $detail_list, $set_state, $old_state, @nodes) = @_;
+    $DB::single = 1;
+
     @nodes = grep { exists $pkgs->{$_} } @nodes
       or return;
     #- avoid selecting too many packages at once
@@ -1076,7 +1185,7 @@ sub toggle_nodes {
                 my $count = @reasons;
                 interactive_msg(
                     ($count == 1 ? N("One package cannot be installed") : N("Some packages cannot be installed")),
-		    ($count == 1 ? 
+		    ($count == 1 ?
                  N("Sorry, the following package cannot be selected:\n\n%s", format_list(@reasons))
                    : N("Sorry, the following packages cannot be selected:\n\n%s", format_list(@reasons))),
                     scroll => 1,
@@ -1091,7 +1200,7 @@ sub toggle_nodes {
         } else {
             my @unrequested;
             @unrequested = $urpm->disable_selected(open_rpm_db(), $urpm->{state},
-                                                                   map { $pkgs->{$_}{pkg} } @nodes); 
+                                                                   map { $pkgs->{$_}{pkg} } @nodes);
             @nodes_with_deps = map { urpm_name($_) } @unrequested;
             statusbar_msg_remove($bar_id);
             if (!deps_msg(N("Some packages need to be removed"),
@@ -1256,7 +1365,7 @@ or you already installed all of them."));
     } else {
         if (0 && $MODE eq 'update') {
             foreach ($sortmethods{flat}->(@elems)){
-                add_node($tree->currentItem()->label(), $_->[0], N("All")) 
+                add_node($tree->currentItem()->label(), $_->[0], N("All"))
             }
             $tree->expand_row($tree_model->get_path($tree_model->get_iter_first), 0);
         } elsif ($::mode->[0] eq 'by_source') {
