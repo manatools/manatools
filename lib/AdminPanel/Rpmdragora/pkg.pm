@@ -174,7 +174,7 @@ sub extract_header {
                 my @files = map { chomp_(to_utf8($_)) } split("\n", $xml_info_pkgs{$name}{files});
                 add2hash($pkg, { files => [ @files ? @files : N("(none)") ] });
             } elsif ($xml_info eq 'changelog') {
-                add2hash($pkg, { 
+                add2hash($pkg, {
                     changelog => format_changelog_changelogs($o_installed_version,
                                                              @{$xml_info_pkgs{$name}{changelogs}})
                 });
@@ -251,10 +251,11 @@ sub warn_about_media {
 N("I need to contact the mirror to get latest update packages.
 Please check that your network is currently running.
 
-Is it ok to continue?"), yesno => 1,
-                   widget =>  gtknew('CheckButton', text => N("Do not ask me next time"),
-                                     active_ref => \$::rpmdragora_options{'no-confirmation'}
-                                 )) or myexit(-1);
+Is it ok to continue?"), yesno => 1
+# TODO                   widget =>  gtknew('CheckButton', text => N("Do not ask me next time"),
+#                                      active_ref => \$::rpmdragora_options{'no-confirmation'}
+#                                  )
+                                                                        ) or myexit(-1);
 		    writeconf();
 		    urpm::media::select_media($urpm, map { $_->{name} } @update_medias);
 		    update_sources($urpm, noclean => 1, medialist => [ map { $_->{name} } @update_medias ]);
@@ -303,7 +304,7 @@ sub init_progress_bar {
     $level = 0.05;
     $total = @{$urpm->{depslist}};
 }
-    
+
 sub reset_pbar_count {
     undef $prev_stage;
     $count = 0;
@@ -465,7 +466,7 @@ sub get_pkgs {
 
     $gurpm->label(N("Please wait, listing base packages..."));
     $gurpm->progress(ceil($level*100));
-    
+
     my $db = eval { open_rpm_db() };
     if (my $err = $@) {
 	interactive_msg(N("Error"), N("A fatal error occurred: %s.", $err));
@@ -475,7 +476,7 @@ sub get_pkgs {
     my $sig_handler = sub { undef $db; exit 3 };
     local $SIG{INT} = $sig_handler;
     local $SIG{QUIT} = $sig_handler;
-    
+
     $gurpm->label(N("Please wait, finding installed packages..."));
     $level = 0.33*100;
     $gurpm->progress(ceil($level));
@@ -549,7 +550,7 @@ sub get_pkgs {
         # (because that option was passed to urpm::media::configure to
         # temporarily enable them)
 
-        my $backports =  
+        my $backports =
             $medium->{searchmedia} ? \@inactive_backports : \@active_backports;
 
       foreach my $pkg_id ($medium->{start} .. $medium->{end}) {
@@ -572,7 +573,7 @@ sub get_pkgs {
     @installable_pkgs = uniq(difference2(\@installable_pkgs, \@updates));
 
     my @meta_pkgs = grep { /^task-|^basesystem/ } keys %all_pkgs;
- 
+
     my @gui_pkgs = map { chomp; $_ } cat_('/usr/share/rpmdrake/gui.lst');
     # add meta packages to GUI packages list (which expect basic names not fullnames):
     push @gui_pkgs, map { (split_fullname($_))[0] } @meta_pkgs;
@@ -721,8 +722,8 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
       . "\n\n" . format_list(map { s!.*/!!; $_ } @pkgs));
     my $remove_count =  scalar(@to_remove);
     interactive_msg(($to_install ? N("Confirmation") : N("Some packages need to be removed")),
-                    join("\n\n", 
-                     ($r ? 
+                    join("\n\n",
+                     ($r ?
                         (!$to_install ? (P("Remove one package?", "Remove %d packages?", $remove_count, $remove_count), $r) :
  (($remove_count == 1 ?
  N("The following package has to be removed for others to be upgraded:")
@@ -742,7 +743,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     # $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? N("Please wait") : N("Package installation..."), N("Initializing..."), transient => $::main_window);
     # my $_gurpm_clean_guard = before_leaving { undef $gurpm };
     my $something_installed;
- 
+
     if (@to_install && $::rpmdragora_options{auto_orphans}) {
         urpm::orphans::compute_future_unrequested_orphans($urpm, $state);
         if (my @orphans = map { scalar $_->fullname } @{$state->{orphans_to_remove}}) {
@@ -784,14 +785,14 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
         my $pkg = $urpm->{depslist}[$_];
         $pkg->set_flag_requested($saved_flags{$pkg->id});
     }
-    my $exit_code = 
+    my $exit_code =
       urpm::main_loop::run($urpm, $state, 1, \@ask_unselect,
                          {
                              completed => sub {
                                  # explicitly destroy the progress window when it's over; we may
                                  # have sg to display before returning (errors, rpmnew/rpmsave, ...):
                                  undef $gurpm;
-                                       
+
                                  undef $lock;
                                  undef $rpm_lock;
                              },
@@ -823,7 +824,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  # Gtk2::GUI_Update_Guard->new use of alarm() kill us when
                                  # running system(), thus making DVD being ejected and printing
                                  # wrong error messages (#30463)
-                                       
+
                                  local $SIG{ALRM} = sub { die "ALARM" };
                                  $remaining = alarm(0);
                              },
@@ -909,7 +910,7 @@ you may now inspect some in order to take actions:"),
         #- it seems to work correctly with exec instead of system, provided we stop timers
         #- added --previous-priority-upgrade to allow checking if yet if
         #-   priority-upgrade list has changed. and make sure we don't uselessly restart
-        my @argv = ('--previous-priority-upgrade=' . $urpm->{options}{'priority-upgrade'}, 
+        my @argv = ('--previous-priority-upgrade=' . $urpm->{options}{'priority-upgrade'},
                 grep { !/^--no-priority-upgrade$|--previous-priority-upgrade=/ } @AdminPanel::Rpmdragora::init::ARGV_copy);
         # remove "--emmbedded <id>" from argv:
         my $i = 0;
