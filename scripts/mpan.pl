@@ -29,17 +29,15 @@ use yui;
 
 my $cmdline = new yui::YCommandLine;
 
-usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
+usage() if $cmdline->find("--help") > 0 || $cmdline->find("-h") > 0;
 
 my $settings = getSettings();
 
-if($cmdline->find("--dev") > 0)
-{
+if ($cmdline->find("--dev") > 0) {
     print "== Development mode ON\n";
 }
-else
-{
-    ask_for_authentication($settings->{priv_method}) if(is_root_capability_required());
+else {
+    ask_for_authentication($settings->{priv_method}) if is_root_capability_required();
 }
 my $mainWin = new AdminPanel::MainDisplay();
 while (1) {
@@ -79,13 +77,12 @@ sub getSettings {
     my $confDir = "/etc/mpan";
     # yui commandline parser
     my $pos = $cmdline->find("--conf_dir");
-    if($pos > 0){
+    if ($pos > 0) {
         $confDir = $cmdline->arg($pos + 1);
     }
     else {
         $pos = $cmdline->find("--name");
-        if ($pos > 0)
-        {
+        if ($pos > 0) {
             $confDir = "/etc/" . $cmdline->arg($pos+1);
         }
     }
