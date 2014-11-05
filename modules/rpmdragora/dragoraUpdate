@@ -79,6 +79,7 @@ my %update_icons = (
 
 my %icons_cache;
 
+
 sub _refresh_packages_list {
     my ($dialog, $packageTbl) = @_;
 
@@ -115,7 +116,7 @@ sub _refresh_packages_list {
         my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
         my $icon = "";
 
-        my $item = new yui::YCBTableItem("", join($name, ' ', $summary), $version, $release, $arch);
+        my $item = new yui::YCBTableItem("", $name . "\n" . $summary, $version, $release, $arch);
 
         my $importance = $medium && $descriptions->{$medium}{$name}{importance};
         if ($importance) {
@@ -166,7 +167,6 @@ sub toggle {
     toggle_nodes($packageTbl, $packageTbl, sub {
 #                      my ($leaf, $_state, $_model) = @_;
 #                      $done = 1;
-#                      $DB::single = 1;
 #                      $list->{data}[$data{$leaf}][$pkg_columns{selected}] = $pkgs->{$name}{selected};
                  },
                  $old_status, @names);
@@ -177,7 +177,7 @@ sub toggle {
 
 sub quit() {
 #     ($mandrivaupdate_width->[0], $mandrivaupdate_height->[0]) = $::w->{real_window}->get_size;
-#     real_quit();
+    real_quit();
 }
 
 sub run_treeview_dialog {
@@ -219,7 +219,9 @@ sub run_treeview_dialog {
     my $packageTbl = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
     $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
+
     $DB::single = 1;
+
     pkgs_provider('all_updates', pure_updates => 1); # default mode
 
     _refresh_packages_list($dialog, $packageTbl);
@@ -252,14 +254,14 @@ sub run_treeview_dialog {
 
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
-            last;
+            last if quit();
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
             my $widget = $event->widget();
 
             if ($widget == $closeButton) {
-                last;
+                last if quit();
             }
             elsif ($widget == $aboutButton) {
 #                 my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
