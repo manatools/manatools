@@ -1,0 +1,333 @@
+#!/usr/bin/perl
+#*****************************************************************************
+#
+#  Copyright (c) 2002 Guillaume Cottenceau
+#  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
+#  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
+#  Copyright (c) 2005-2007 Mandriva SA
+#
+#  This program is free software; you can redistribute it and/or modify
+#  it under the terms of the GNU General Public License version 2, as
+#  published by the Free Software Foundation.
+#
+#  This program is distributed in the hope that it will be useful,
+#  but WITHOUT ANY WARRANTY; without even the implied warranty of
+#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+#  GNU General Public License for more details.
+#
+#  You should have received a copy of the GNU General Public License
+#  along with this program; if not, write to the Free Software
+#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+#
+#*****************************************************************************
+#
+# $Id: MageiaUpdate 261845 2009-10-13 12:33:58Z tv $
+
+use strict;
+use MDK::Common::Func 'any';
+# use lib qw(/usr/lib/libDrakX);
+# use common;
+
+
+
+use AdminPanel::Rpmdragora::init;
+# use standalone;  #- standalone must be loaded very first, for 'explanations', but after rpmdragora::init
+# use rpmdrake;
+use AdminPanel::Rpmdragora::gui;
+use AdminPanel::Rpmdragora::rpmnew;
+use AdminPanel::Rpmdragora::formatting;
+use AdminPanel::Rpmdragora::pkg;
+use AdminPanel::Shared::Locales;
+
+use yui;
+
+my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+
+
+#use mygtk2 qw(gtknew);  #- do not import anything else, especially gtkadd() which conflicts with ugtk2 one
+#use ugtk2 qw(:all);
+# use Gtk2::SimpleList;
+
+
+
+# make Rpmdrake::gui aware MageiaUpdate do not use the same columns ids as rpmdrake:
+%pkg_columns = (
+    image => 0,
+    selected => 1,
+    text => 2,
+    short_name => 3,
+    version => 4,
+    release => 5,
+    'arch' => 6,
+    importance => 7,
+);
+
+
+our $w;
+# TODO try to see if we can Moosify all!
+our $statusbar;
+
+warn_about_user_mode();
+
+my (%data, $initialized);
+
+my %update_icons = (
+    security => { icon => 'images/rpmdragora/security-update.png', text => $loc->N("Security") },
+    bugfix   => { icon => 'images/rpmdragora/bugfix-update.png',   text => $loc->N("Bug fixing") },
+    normal   => { icon => 'images/rpmdragora/general-update.png',  text => '' },
+);
+
+my %icons_cache;
+
+sub _refresh_packages_list {
+    my ($dialog, $packageTbl) = @_;
+
+    # select packages to update:
+    my @requested = sort grep { $pkgs->{$_}{pkg} } @filtered_pkgs;
+
+    # don't select packages in skip list:
+    if (!$initialized) {
+        undef $pkgs->{$_}{selected} foreach @requested;
+        my @selectable = grep { !$pkgs->{$_}{pkg}->flag_skip } @requested;
+        toggle($packageTbl, @selectable) if @selectable;
+        $initialized = 1;
+    }
+
+#     gtktext_insert($info,
+#       formatAlaTeX($loc->N("The list of updates is empty. This means that either there is
+# no available update for the packages installed on your computer,
+# or you already installed all of them."))) if !@{$list->{data}};
+#     $button->set_sensitive(scalar(@{$list->{data}}));
+
+    $dialog->startMultipleChanges();
+    $packageTbl->deleteAllItems();
+    my $itemCollection = new yui::YItemCollection;
+    my $i = 0;
+    foreach (@requested) {
+
+
+        my $summary = get_summary($_);
+        my ($name, $version, $release, $arch) = split_fullname($_);
+        # TODO check if %data is needed
+        $data{$i} = { name => $name, fullname => $_ }; $i++;
+        my $pkg = $pkgs->{$_};
+        my $raw_medium = pkg2medium($pkg->{pkg}, $urpm);
+        my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
+        my $icon = "";
+
+        my $item = new yui::YCBTableItem("", join($name, ' ', $summary), $version, $release, $arch);
+
+        my $importance = $medium && $descriptions->{$medium}{$name}{importance};
+        if ($importance) {
+            my $update_label = "";
+            if (yui::YUI::app()->hasImageSupport()) {
+                $icon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), $update_icons{$importance}->{icon});
+            }
+            else {
+                # For ncurses set a label
+                $update_label = $update_icons{$importance}->{name};
+            }
+            my $cell = new yui::YTableCell($item, 1, $update_label, $icon);
+        }
+
+# TODO icon
+#        if ($importance) {
+#             $icon = $icons_cache{$importance} ||= gtknew('Pixbuf', file => $update_icons{$importance});
+#         }
+#  my $cell   = new yui::YTableCell($started);
+#         $item->addCell($cell);
+#
+
+
+        $item->check($pkgs->{$_}{selected});
+        $item->setLabel($name);
+        $itemCollection->push($item);
+        $item->DISOWN();
+    }
+    $packageTbl->addItems($itemCollection);
+
+    $dialog->doneMultipleChanges();
+
+    # return number of packages to be updated
+    return $i;
+}
+
+sub toggle {
+    my ($packageTbl, @names) = @_;
+    my $name = $names[0];
+    my $val = $pkgs->{$name}{selected};
+    my $old_status = $val ? 'to_install' : 'to_update';
+    my $done;
+    my $pkg = $pkgs->{$name}{pkg};
+    return if !$pkg;
+    $pkg->set_flag_skip(0);
+  #  toggle_nodes($packageTbl, $packageTbl, \&set_leaf_state, node_state($p[0][0]), @{$p[0]});
+
+    toggle_nodes($packageTbl, $packageTbl, sub {
+#                      my ($leaf, $_state, $_model) = @_;
+#                      $done = 1;
+#                      $DB::single = 1;
+#                      $list->{data}[$data{$leaf}][$pkg_columns{selected}] = $pkgs->{$name}{selected};
+                 },
+                 $old_status, @names);
+#     # handle canceling:
+#     $list->{data}[$data{$name}][$pkg_columns{selected}] = !$list->{data}[$data{$name}][$pkg_columns{selected}] if !$done;
+}
+
+
+sub quit() {
+#     ($mandrivaupdate_width->[0], $mandrivaupdate_height->[0]) = $::w->{real_window}->get_size;
+#     real_quit();
+}
+
+sub run_treeview_dialog {
+    my ($callback_action) = @_;
+
+    my ($list, $info, $update_button);
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+
+# TODO $w = ugtk2->new(N("Software Management"));
+
+## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($loc->N("Here is the list of software package updates"));
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon("/usr/share/mcc/themes/default/MageiaUpdate.png");
+
+    my $mageiaPlugin = "mga";
+    my $factory      = yui::YUI::widgetFactory;
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+
+    my $dialog  = $factory->createMainDialog;
+
+    $::main_window = $dialog; # rpmdrake way of working :(
+
+    my $vbox    = $factory->createVBox( $dialog );
+
+    my $yTableHeader = new yui::YTableHeader();
+    # checkbox
+    $yTableHeader->addColumn("", $yui::YAlignCenter);
+    # icon
+    $yTableHeader->addColumn("", $yui::YAlignCenter);
+    $yTableHeader->addColumn($loc->N("Name"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Version"),  $yui::YAlignCenter);
+    $yTableHeader->addColumn($loc->N("Release"), $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Arch"), $yui::YAlignBegin);
+
+    ## service list (serviceBox)
+    my $packageTbl = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
+
+    $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
+    $DB::single = 1;
+    pkgs_provider('all_updates', pure_updates => 1); # default mode
+
+    _refresh_packages_list($dialog, $packageTbl);
+
+    $packageTbl->setImmediateMode(1);
+    $packageTbl->setWeight(0, 50);
+
+
+    # dialog buttons
+    $factory->createVSpacing($vbox, 1.0);
+    ## Window push buttons
+    my $hbox  = $factory->createHBox( $vbox );
+    my $align = $factory->createLeft($hbox);
+    $hbox     = $factory->createHBox($align);
+
+    my $helpButton  = $factory->createPushButton($hbox, $loc->N("Help"));
+    my $aboutButton = $factory->createPushButton($hbox, $loc->N("About") );
+    $align = $factory->createRight($hbox);
+    $hbox  = $factory->createHBox($align);
+
+    ### Service Refresh button ($refreshButton)
+    my $selectButton = $factory->createPushButton($hbox, $loc->N("Select all"));
+    my $updateButton = $factory->createPushButton($hbox, $loc->N("Update"));
+    my $closeButton  = $factory->createPushButton($hbox, $loc->N("Quit") );
+    $statusbar       = $factory->createBusyIndicator($vbox, "" );
+
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+
+            if ($widget == $closeButton) {
+                last;
+            }
+            elsif ($widget == $aboutButton) {
+#                 my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
+#                 $translators =~ s/\</\&lt\;/g;
+#                 $translators =~ s/\>/\&gt\;/g;
+#                 $self->sh_gui->AboutDialog({ name => $self->name,
+#                                              version => $self->VERSION,
+#                          credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+#                          license => $loc->N("GPLv2"),
+#                          description => $loc->N("dragoraUpdate is the Mageia update tool\n
+#                                                        (from the original idea of Mandriva MandrivaUpdate)."),
+#                          authors => $loc->N("<h3>Developers</h3>
+#                                                     <ul><li>%s</li>
+#                                                            <li>%s</li>
+#                                                        </ul>
+#                                                        <h3>Translators</h3>
+#                                                        <ul><li>%s</li></ul>",
+#                                                       "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+#                                                       "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+#                                                       $translators
+#                                                      ),
+#                             }
+#                 );
+            }
+            elsif ($widget == $packageTbl) {
+                yui::YUI::app()->busyCursor();
+                my $wEvent = yui::toYWidgetEvent($event);
+                if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
+                    my $item = $packageTbl->changedItem();
+                    if ($item) {
+                        my $name = $data{$item->index()}{fullname};
+                        $DB::single = 1;
+                        toggle($packageTbl, $name );
+                    }
+                }
+                yui::YUI::app()->normalCursor();
+            }
+            elsif ($widget == $selectButton) {
+                yui::YUI::app()->busyCursor();
+                $initialized = 0;
+                _refresh_packages_list($dialog, $packageTbl);
+
+                yui::YUI::app()->normalCursor();
+            }
+            elsif ($widget == $updateButton) {
+                my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
+                $initialized = 0 if !$res;
+                _refresh_packages_list($dialog, $packageTbl);
+            }
+            elsif ($widget == $helpButton) {
+            }
+        }
+    }
+    $dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+}
+# -=-=-=---=-=-=---=-=-=-- main -=-=-=---=-=-=---=-=-=-
+
+# ---- do_merge_if_needed();
+
+AdminPanel::rpmdragora::readconf();
+
+init();
+run_treeview_dialog(\&perform_installation);
+
+AdminPanel::rpmdragora::writeconf();
+
+# myexit(0);
