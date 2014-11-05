@@ -6,7 +6,7 @@ package AdminPanel::Module::Users;
 
 =head1 NAME
 
-AdminPanel::Module::Users - This module aims to manage service 
+AdminPanel::Module::Users - This module aims to manage service
                                with GUI
 
 =head1 SYNOPSIS
@@ -17,7 +17,7 @@ AdminPanel::Module::Users - This module aims to manage service
 =head1 DESCRIPTION
 
     This module is a tool to manage users on the system.
-    
+
     From the original code adduserdrake and userdrake.
 
 =head1 SUPPORT
@@ -27,7 +27,7 @@ AdminPanel::Module::Users - This module aims to manage service
     perldoc AdminPanel::Module::Users
 
 =head1 SEE ALSO
-   
+
    AdminPanel::Module
 
 =head1 AUTHOR
@@ -96,7 +96,7 @@ has 'dialog'     => (
     init_arg  => undef,
 );
 
-has 'widgets' => ( 
+has 'widgets' => (
     traits    => ['Hash'],
     default   => sub { {} },
     is        => 'rw',
@@ -119,11 +119,11 @@ has 'action_menu' => (
         get_action_menu     => 'get',
         action_menu_pairs   => 'kv',
     },
-    init_arg  => undef, 
+    init_arg  => undef,
 );
 
 
-has 'edit_tab_widgets' => ( 
+has 'edit_tab_widgets' => (
     traits    => ['Hash'],
     default   => sub { {} },
     is        => 'rw',
@@ -190,7 +190,7 @@ sub _localeInitialize {
 
 =cut
 
-has 'config_file' => ( 
+has 'config_file' => (
     is      => 'rw',
     isa     => 'Str',
     default => '/etc/sysconfig/adminuser',
@@ -293,7 +293,7 @@ sub BUILD {
 
 =head3 DESCRIPTION
 
-creates a popup dialog to ask if adding user to an existing 
+creates a popup dialog to ask if adding user to an existing
 group or to the 'users' group
 
 =cut
@@ -308,7 +308,7 @@ sub ChooseGroup {
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($self->loc->N("Choose group"));
-    
+
     my $factory  = yui::YUI::widgetFactory;
 
     my $dlg      = $factory->createPopupDialog();
@@ -336,7 +336,7 @@ sub ChooseGroup {
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -355,7 +355,7 @@ sub ChooseGroup {
     }
 
     destroy $dlg;
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
 
@@ -385,7 +385,7 @@ sub _deleteGroupDialog {
        return;
     }
 
-    my $groupname = $item->label(); 
+    my $groupname = $item->label();
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
@@ -397,7 +397,7 @@ sub _deleteGroupDialog {
 
     my $align    = $factory->createLeft($layout);
 
-    $factory->createLabel($align, $self->loc->N("Do you really want to delete the group %s?", 
+    $factory->createLabel($align, $self->loc->N("Do you really want to delete the group %s?",
                                     $groupname));
 
     $align    = $factory->createRight($layout);
@@ -408,7 +408,7 @@ sub _deleteGroupDialog {
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -440,7 +440,7 @@ sub _deleteGroupDialog {
     }
 
     destroy $dlg;
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
 }
@@ -467,8 +467,8 @@ sub _deleteUserDialog {
     my $item = $self->get_widget('table')->selectedItem();
     if (! $item) {
        return;
-    } 
-    my $username = $item->label(); 
+    }
+    my $username = $item->label();
 
     my $homedir = $self->sh_users->getUserHome($username);
     return if !defined($homedir);
@@ -495,17 +495,17 @@ sub _deleteUserDialog {
     my $hbox  = $factory->createHBox($align);
     my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
     my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("Delete"));
-    
-    if ($homedir !~ m!(?:/home|/var/spool)!) { 
-        $checkhome->setDisabled(); 
-        $checkspool->setDisabled(); 
+
+    if ($homedir !~ m!(?:/home|/var/spool)!) {
+        $checkhome->setDisabled();
+        $checkspool->setDisabled();
     }
 
-    
+
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -534,7 +534,7 @@ sub _deleteUserDialog {
     }
 
     destroy $dlg;
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
 
@@ -582,7 +582,7 @@ sub _addGroupDialog {
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -648,7 +648,7 @@ sub _addGroupDialog {
         }
     }
     destroy $dlg;
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
 }
@@ -662,7 +662,7 @@ sub _addGroupDialog {
 
     $self:    this object
     $layout : layout in wich drawing graphic user data
- 
+
 =head3 OUTPUT
 
     $userData: hash reference containing reference to graphical object
@@ -727,7 +727,7 @@ sub _buildUserData {
     $password->setWeight($yui::YD_HORIZ, 4);
     # notify input to check weakness
     $password->setNotify(1);
-        
+
     ## user 'confirm Password'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
@@ -736,7 +736,7 @@ sub _buildUserData {
     my $password1    = $factory->createInputField($hbox, "", 1);
     $label->setWeight($yui::YD_HORIZ, 1);
     $password1->setWeight($yui::YD_HORIZ, 2);
-    
+
     ## user 'Login Shell'
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
@@ -753,7 +753,7 @@ sub _buildUserData {
     $loginShell->addItems($itemColl);
     $label->setWeight($yui::YD_HORIZ, 1);
     $loginShell->setWeight($yui::YD_HORIZ, 2);
-    
+
     my %userData = (
         full_name   => $fullName,
         login_name  => $loginName,
@@ -762,7 +762,7 @@ sub _buildUserData {
         weakness    => $weakness,
         login_shell => $loginShell,
     );
-    
+
     return ( \%userData );
 }
 
@@ -790,13 +790,13 @@ sub addUserDialog {
 
     if ($EUID != 0) {
         $self->sh_gui->warningMsgBox({
-            title => $self->name, 
+            title => $self->name,
             text  => $self->loc->N("root privileges required"),
         });
         return;
     }
 
-    my $dontcreatehomedir = 0; 
+    my $dontcreatehomedir = 0;
     my $is_system = 0;
 
     ## push application title
@@ -808,15 +808,15 @@ sub addUserDialog {
     else {
         yui::YUI::app()->setApplicationTitle($self->loc->N("Create New User"));
     }
-    
+
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
 
     my $dlg      = $factory->createPopupDialog();
     my $layout   = $factory->createVBox($dlg);
-    
+
     my $userData = $self->_buildUserData($layout);
-    
+
     ##### add a separator
     ## Create Home directory
     my $align           = $factory->createLeft($layout);
@@ -835,7 +835,7 @@ sub addUserDialog {
     $align           = $factory->createLeft($layout);
     $hbox            = $factory->createHBox($align);
     my $createGroup  = $factory->createCheckBox($hbox, $self->loc->N("Create a private group for the user"), 1);
-    
+
     # Specify user id manually
     $align           = $factory->createRight($layout);
     $hbox            = $factory->createHBox($align);
@@ -852,7 +852,7 @@ sub addUserDialog {
     $factory->createLabel($hbox, $self->loc->N("Click on icon to change it") );
     my $iconFace = $self->sh_users->GetFaceIcon();
     my $icon = $factory->createPushButton($hbox, "");
-    $icon->setIcon($self->sh_users->face2png($iconFace)); 
+    $icon->setIcon($self->sh_users->face2png($iconFace));
     $icon->setLabel($iconFace);
 
     $hbox            = $factory->createHBox($layout);
@@ -862,7 +862,7 @@ sub addUserDialog {
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -954,7 +954,7 @@ sub addUserDialog {
                                 $errorString = "";
                                 $continue = 0;
                             }
-                        } else { 
+                        } else {
                             #it's a new group: Add it
                             $gid = $self->sh_users->addGroup({
                                 groupname => $username,
@@ -995,7 +995,7 @@ sub addUserDialog {
                     defined $icon->label() and
                          $self->sh_users->addKdmIcon($username, $icon->label());
 ###  TODO Migration wizard
-#                     
+#
 #                     Refresh($sysfilter, $stringsearch);
 #                     transfugdrake::get_windows_disk()
 #                         and $in->ask_yesorno($self->loc->N("Migration wizard"),
@@ -1010,9 +1010,9 @@ sub addUserDialog {
     }
 
     destroy $dlg;
-    
+
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle; 
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
 
 #=============================================================
@@ -1025,8 +1025,8 @@ sub addUserDialog {
 
 =head3 DESCRIPTION
 
-This function create the User table to be added to the replace 
-point of the tab widget. Note this function is meant for internal 
+This function create the User table to be added to the replace
+point of the tab widget. Note this function is meant for internal
 use only
 
 =cut
@@ -1048,7 +1048,7 @@ sub _createUserTable {
     $yTableHeader->addColumn($self->loc->N("Home Directory"), $yui::YAlignBegin);
     $yTableHeader->addColumn($self->loc->N("Status"),         $yui::YAlignBegin);
     $yTableHeader->DISOWN();
-    
+
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
 
     $self->get_widget('table')->setImmediateMode(1);
@@ -1069,8 +1069,8 @@ sub _createUserTable {
 
 =head3 DESCRIPTION
 
-This function create the Group table to be added to the replace 
-point of the tab widget. Note this function is meant for internal 
+This function create the Group table to be added to the replace
+point of the tab widget. Note this function is meant for internal
 use only
 
 
@@ -1092,12 +1092,12 @@ sub _createGroupTable {
     $yTableHeader->DISOWN();
 
     $self->set_widget(table => $factory->createTable($parent, $yTableHeader));
-   
+
     $self->get_widget('table')->setImmediateMode(1);
     $self->get_widget('table')->DISOWN();
     $self->get_widget('replace_pnt')->showChild();
     $self->dialog->recalcLayout();
-    $self->dialog->doneMultipleChanges(); 
+    $self->dialog->doneMultipleChanges();
     $self->_refreshGroups();
 }
 
@@ -1162,7 +1162,7 @@ sub _refreshUsers {
     my $item = $self->get_widget('table')->selectedItem();
     $self->get_widget('table')->selectItem($item, 0) if $item;
     $self->dialog->recalcLayout();
-    $self->dialog->doneMultipleChanges(); 
+    $self->dialog->doneMultipleChanges();
     $self->_refreshActions();
     $self->get_widget('table')->setImmediateMode(1);
 }
@@ -1193,7 +1193,7 @@ sub _refreshGroups {
     #for some reasons QT send an event using table->selectItem()
     # WA remove notification immediate
     $self->get_widget('table')->setImmediateMode(0);
-    $self->get_widget('table')->deleteAllItems();    
+    $self->get_widget('table')->deleteAllItems();
 
     my $groupInfo = $self->sh_users->getGroupsInfo({
         groupname_filter => $strfilt,
@@ -1216,7 +1216,7 @@ sub _refreshGroups {
     my $item = $self->get_widget('table')->selectedItem();
     $self->get_widget('table')->selectItem($item, 0) if $item;
     $self->dialog->recalcLayout();
-    $self->dialog->doneMultipleChanges(); 
+    $self->dialog->doneMultipleChanges();
     $self->_refreshActions();
     $self->get_widget('table')->setImmediateMode(1);
 }
@@ -1235,7 +1235,7 @@ sub _refreshGroups {
     $userData: HASH reference containing:
                 username:      username
                 full_name:      full name of user
-                shell:         shell used  
+                shell:         shell used
                 homedir:       home dir path
                 UID:           User identifier
                 acc_check_exp: account expiration enabling
@@ -1244,12 +1244,12 @@ sub _refreshGroups {
                 acc_expd:      account expiration day
                 lockuser:      account locked
                 pwd_check_exp: password expiration enabling
-                pwd_exp_min:   days before changing password 
+                pwd_exp_min:   days before changing password
                                is allowed
-                pwd_exp_max:   days before changing password 
+                pwd_exp_max:   days before changing password
                                is required
                 pwd_exp_warn:  warning days before changing
-                pwd_exp_inact: days before account becomes 
+                pwd_exp_inact: days before account becomes
                                inact
                 members:       Array containing groups the user
                                belongs to.
@@ -1258,7 +1258,7 @@ sub _refreshGroups {
 =head3 DESCRIPTION
 
     Retrieves the selected user info from the system
-    Note that acc_expy,  acc_expm and acc_expd are valid if 
+    Note that acc_expy,  acc_expm and acc_expd are valid if
     acc_check_exp is enabled.
     Note that pwd_exp_min, pwd_exp_max, pwd_exp_warn,
     pwd_exp_inact are valid if pwd_check_exp is enabled.
@@ -1279,7 +1279,7 @@ sub _getUserInfo {
     if (! $item) {
        return undef;
     }
-    
+
     my %userData;
     $userData{old_username} = $item->label();
     $userData{username}     = $item->label();
@@ -1367,13 +1367,13 @@ sub _getGroupInfo {
     if (! $item) {
        return undef;
     }
-    
+
     my %groupData;
     $groupData{start_groupname} = $item->label();
     $groupData{groupname}       = $item->label();
 
     $groupData{members} = $self->sh_users->groupMembers($groupData{groupname});
-    
+
     return %groupData;
 
 }
@@ -1391,7 +1391,7 @@ sub _storeDataFromGroupEditPreviousTab {
     elsif ($previus_tab eq $groupEditLabel{group_users}) {
         my $tbl = $self->get_edit_tab_widget('members');
         $groupData{members} = undef;
-        my @members; 
+        my @members;
         my $i;
         for($i=0;$i<$tbl->itemsCount();$i++) {
             push (@members, $tbl->item($i)->label()) if $tbl->toCBYTableItem($tbl->item($i))->checked();
@@ -1399,7 +1399,7 @@ sub _storeDataFromGroupEditPreviousTab {
         $groupData{members} = [ @members ];
     }
 
-    return %groupData;       
+    return %groupData;
 }
 
 
@@ -1477,7 +1477,7 @@ sub _storeDataFromUserEditPreviousTab {
     $userDataWidget: hash containing new YUI widget objects
                      such as:
                      returned onject from _buildUserData and
-                     homedir. 
+                     homedir.
 
 =head3 DESCRIPTION
 
@@ -1490,7 +1490,7 @@ sub _storeDataFromUserEditPreviousTab {
 #=============================================================
 sub _userDataTabWidget {
     my ($self, $dialog, $replace_pnt, $userData) = @_;
-     
+
     my $factory  = yui::YUI::widgetFactory;
 
     $dialog->startMultipleChanges();
@@ -1523,7 +1523,7 @@ sub _userDataTabWidget {
     $replace_pnt->showChild();
     $dialog->recalcLayout();
     $dialog->doneMultipleChanges();
-    
+
     return $userDataWidget;
 }
 
@@ -1538,18 +1538,18 @@ sub _userDataTabWidget {
     $dialog:      YUI dialog that owns the YUI replace point
     $replace_pnt: YUI replace point, needed to add a new tab
                   widget
-    %groupData:   hash containing group data info, tabs are 
+    %groupData:   hash containing group data info, tabs are
                   removed and added again on selection, so
                   data must be saved outside of widgets.
     $previus_tab: previous tab widget label, needed to store
                   group data from the old tab before removing
-                  it, if user changed something. 
+                  it, if user changed something.
 
 =head3 OUTPUT
 
     %groupDataWidget: hash containing new YUI widget objects
                       such as:
-                       groupname. 
+                       groupname.
 
 =head3 DESCRIPTION
 
@@ -1562,7 +1562,7 @@ sub _userDataTabWidget {
 #=============================================================
 sub _groupDataTabWidget {
     my ($self, $dialog, $replace_pnt, %groupData) = @_;
-     
+
     my $factory  = yui::YUI::widgetFactory;
 
     $dialog->startMultipleChanges();
@@ -1585,7 +1585,7 @@ sub _groupDataTabWidget {
     $replace_pnt->showChild();
     $dialog->recalcLayout();
     $dialog->doneMultipleChanges();
-    
+
     return %groupDataWidget;
 }
 
@@ -1594,7 +1594,7 @@ sub _userAccountInfoTabWidget {
     my ($self, $dialog, $replace_pnt, $userData) = @_;
 
     my $factory  = yui::YUI::widgetFactory;
-    
+
     $dialog->startMultipleChanges();
 
     $replace_pnt->deleteChildren();
@@ -1603,7 +1603,7 @@ sub _userAccountInfoTabWidget {
     my %userAccountWidget;
     $userAccountWidget{acc_check_exp} = $factory->createCheckBoxFrame($layout, $self->loc->N("Enable account expiration"), 1);
     my $align                         = $factory->createRight($userAccountWidget{acc_check_exp});
-    my $hbox                          = $factory->createHBox($align);    
+    my $hbox                          = $factory->createHBox($align);
     my $label                         = $factory->createLabel($hbox, $self->loc->N("Account expires (YYYY-MM-DD):"));
     $userAccountWidget{acc_expy}      = $factory->createIntField($hbox, "", 1970, 9999, $userData->{acc_expy});
     $userAccountWidget{acc_expm}      = $factory->createIntField($hbox, "", 1, 12, $userData->{acc_expm});
@@ -1612,18 +1612,18 @@ sub _userAccountInfoTabWidget {
     $label->setWeight($yui::YD_HORIZ, 2);
     $align                            = $factory->createLeft($layout);
     $userAccountWidget{lockuser}      = $factory->createCheckBox($align, $self->loc->N("Lock User Account"), $userData->{lockuser});
-    
+
     $align                            = $factory->createLeft($layout);
-    $hbox                             = $factory->createHBox($align); 
+    $hbox                             = $factory->createHBox($align);
     $label                            = $factory->createLabel($hbox, $self->loc->N("Click on the icon to change it"));
     $userAccountWidget{icon_face}     = $factory->createPushButton($hbox, "");
     $userAccountWidget{icon_face}->setIcon($self->sh_users->face2png($userData->{icon_face}));
     $userAccountWidget{icon_face}->setLabel($userData->{icon_face});
-    
+
     $replace_pnt->showChild();
     $dialog->recalcLayout();
     $dialog->doneMultipleChanges();
-    
+
     return \%userAccountWidget;
 }
 
@@ -1632,7 +1632,7 @@ sub _userPasswordInfoTabWidget {
     my ($self, $dialog, $replace_pnt, $userData) = @_;
 
     my $factory  = yui::YUI::widgetFactory;
-    
+
     $dialog->startMultipleChanges();
 
     $replace_pnt->deleteChildren();
@@ -1644,20 +1644,20 @@ sub _userPasswordInfoTabWidget {
     my $lastchg  = $userInfo->{last_change};
 
     my $align   = $factory->createLeft($layout);
-    my $hbox    = $factory->createHBox($align);    
+    my $hbox    = $factory->createHBox($align);
     my $label   = $factory->createLabel($hbox, $self->loc->N("User last changed password on: "));
     my $dayStr  = $factory->createLabel($hbox, "");
     my $month   = $factory->createLabel($hbox, "");
     my $dayInt  = $factory->createLabel($hbox, "");
     my $year    = $factory->createLabel($hbox, "");
     if ($lastchg) {
-        my $times = _TimeOfArray($lastchg, 0); 
+        my $times = _TimeOfArray($lastchg, 0);
         $dayStr->setValue($times->{daystr});
         $month->setValue($times->{month});
         $dayInt->setValue($times->{dayint});
         $year->setValue($times->{year});
     }
-    
+
     $userPasswordWidget{pwd_check_exp} = $factory->createCheckBoxFrame($layout, $self->loc->N("Enable Password Expiration"), 1);
     $layout  = $factory->createVBox($userPasswordWidget{pwd_check_exp});
     $align   = $factory->createLeft($layout);
@@ -1667,7 +1667,7 @@ sub _userPasswordInfoTabWidget {
     $userPasswordWidget{pwd_exp_min}->setValue("$userData->{pwd_exp_min}");
     $label->setWeight($yui::YD_HORIZ, 1);
     $userPasswordWidget{pwd_exp_min}->setWeight($yui::YD_HORIZ, 2);
-    
+
     $align   = $factory->createLeft($layout);
     $hbox    = $factory->createHBox($align);
     $label   = $factory->createLabel($hbox, $self->loc->N("Days before change required:"));
@@ -1697,7 +1697,7 @@ sub _userPasswordInfoTabWidget {
     $replace_pnt->showChild();
     $dialog->recalcLayout();
     $dialog->doneMultipleChanges();
-    
+
     return \%userPasswordWidget;
 }
 
@@ -1708,7 +1708,7 @@ sub _groupUsersTabWidget {
     my $mageiaPlugin = "mga";
     my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
     $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
-    
+
     $dialog->startMultipleChanges();
 
     $replace_pnt->deleteChildren();
@@ -1733,14 +1733,14 @@ sub _groupUsersTabWidget {
         $item->check(MDK::Common::DataStructure::member($user, @$members));
         $item->setLabel($user);
         $itemCollection->push($item);
-        $item->DISOWN();    
-    }    
+        $item->DISOWN();
+    }
     $groupUsersWidget{members}->addItems($itemCollection);
 
     $replace_pnt->showChild();
     $dialog->recalcLayout();
     $dialog->doneMultipleChanges();
-    
+
     return %groupUsersWidget;
 }
 
@@ -1751,7 +1751,7 @@ sub _userGroupsTabWidget {
     my $mageiaPlugin = "mga";
     my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
     $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
-    
+
     $dialog->startMultipleChanges();
 
     $replace_pnt->deleteChildren();
@@ -1770,7 +1770,7 @@ sub _userGroupsTabWidget {
 
     my $grps = $self->sh_users->getGoups();
     my @sgroups = sort @$grps;
- 
+
     my $itemCollection = new yui::YItemCollection;
     my $members = $userData->{members};
     foreach my $group (@sgroups) {
@@ -1778,18 +1778,17 @@ sub _userGroupsTabWidget {
         $item->check(MDK::Common::DataStructure::member($group, @$members));
         $item->setLabel($group);
         $itemCollection->push($item);
-        $item->DISOWN();    
-    }    
+        $item->DISOWN();
+    }
     $userGroupsWidget{members}->addItems($itemCollection);
     $userGroupsWidget{members}->setNotify(1);
     my $primgroup = '';
     if ($userData->{primary_group} != -1) {
-        $DB::single = 1;
         $primgroup    = $self->sh_users->groupName($userData->{primary_group});
     }
 
     my $align   = $factory->createLeft($layout);
-    my $hbox    = $factory->createHBox($align);    
+    my $hbox    = $factory->createHBox($align);
     my $label   = $factory->createLabel($hbox, $self->loc->N("Primary Group"));
     $userGroupsWidget{primary_group} = $factory->createComboBox($hbox, "", 0);
     my $itemColl = new yui::YItemCollection;
@@ -1806,29 +1805,28 @@ sub _userGroupsTabWidget {
     $replace_pnt->showChild();
     $dialog->recalcLayout();
     $dialog->doneMultipleChanges();
-    
+
     return \%userGroupsWidget;
 }
 
 sub _groupEdit_Ok {
     my ($self, %groupData) = @_;
 
-    # update last changes if any 
+    # update last changes if any
     %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
-    
+
     my ($continue, $errorString) = $self->sh_users->valid_groupname($groupData{groupname});
     if (!$continue) {
         $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
         return $continue;
     }
-    $DB::single = 1;
 
     my $groupInfo = {
         groupname => $groupData{groupname},
         members   => $groupData{members},
     };
 
-    if ($groupData{start_groupname} ne $groupData{groupname}) { 
+    if ($groupData{start_groupname} ne $groupData{groupname}) {
         $groupInfo->{old_groupname} = $groupData{start_groupname};
     }
 
@@ -1846,10 +1844,9 @@ sub _groupEdit_Ok {
 sub _userEdit_Ok {
     my ($self, $userData) = @_;
 
-    $DB::single = 1;
-    # update last changes if any 
+    # update last changes if any
     $self->_storeDataFromUserEditPreviousTab($userData);
-    
+
     my ($continue, $errorString) = $self->sh_users->valid_username($userData->{username});
     if (!$continue) {
         $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
@@ -1921,7 +1918,7 @@ sub _userEdit_Ok {
 
     $self->sh_users->modifyUser($userInfo);
 
-            
+
     defined $userData->{icon_face} and $self->sh_users->addKdmIcon($userData->{username}, $userData->{icon_face});
     $self->_refresh();
 
@@ -1950,20 +1947,20 @@ sub _checkWeaknessPassword {
 sub _editUserDialog {
     my $self = shift;
 
-    my $dontcreatehomedir = 0; 
+    my $dontcreatehomedir = 0;
     my $is_system = 0;
 
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($self->loc->N("Edit User"));
-    
+
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
 
     my $dlg      = $factory->createPopupDialog();
     my $layout   = $factory->createVBox($dlg);
-    
+
     my %tabs;
     if ($optional->hasDumbTab()) {
         my $hbox = $factory->createHBox($layout);
@@ -1991,23 +1988,23 @@ sub _editUserDialog {
         my $vbox           = $factory->createVBox($tabs{widget});
         $align             = $factory->createLeft($vbox);
         $tabs{replace_pnt} = $factory->createReplacePoint($align);
-        
+
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
         my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
         my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
-        
+
         my $userData        = $self->_getUserInfo();
         # userData here should be tested because it could be undef
-        
-        # Useful entry point for the current edit user/group tab widget 
+
+        # Useful entry point for the current edit user/group tab widget
         $self->set_edit_tab_widget( %{$self->_userDataTabWidget($dlg, $tabs{replace_pnt}, $userData)} );
         $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{user_data});
 
         while(1) {
             my $event     = $dlg->waitForEvent();
             my $eventType = $event->eventType();
-            
+
             #event type checking
             if ($eventType == $yui::YEvent::CancelEvent) {
                 last;
@@ -2045,7 +2042,7 @@ sub _editUserDialog {
                 }
             }
             elsif ($eventType == $yui::YEvent::WidgetEvent) {
-                ### widget 
+                ### widget
                 my $widget = $event->widget();
                 if ($widget == $cancelButton) {
                     last;
@@ -2070,7 +2067,7 @@ sub _editUserDialog {
                             $self->get_edit_tab_widget('icon_face')->setLabel($nextIcon);
                             $self->get_edit_tab_widget('icon_face')->setIcon($self->sh_users->face2png($nextIcon));
                         }
-                    }                    
+                    }
                     elsif ($current_tab && $current_tab eq $userEditLabel{groups}) {
                         if ($widget == $self->get_edit_tab_widget('members')) {
                             my $item = $self->get_edit_tab_widget('members')->changedItem();
@@ -2093,7 +2090,7 @@ sub _editUserDialog {
 
                                             $itemColl->push($pgItem);
                                             $pgItem->DISOWN();
-                                        } 
+                                        }
                                     }
                                     $self->get_edit_tab_widget('primary_group')->deleteAllItems();
                                     $self->get_edit_tab_widget('primary_group')->addItems($itemColl);
@@ -2101,7 +2098,7 @@ sub _editUserDialog {
                                     $dlg->doneMultipleChanges();
                                 }
                             }
-                        }                        
+                        }
                     }
                 }
             }
@@ -2113,7 +2110,7 @@ sub _editUserDialog {
     }
 
     destroy $dlg;
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
 
@@ -2121,18 +2118,18 @@ sub _editUserDialog {
 
 sub _editGroupDialog {
     my $self = shift;
- 
+
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($self->loc->N("Edit Group"));
-    
+
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
 
     my $dlg      = $factory->createPopupDialog();
     my $layout   = $factory->createVBox($dlg);
-    
+
     my %tabs;
     if ($optional->hasDumbTab()) {
         my $hbox = $factory->createHBox($layout);
@@ -2151,12 +2148,12 @@ sub _editGroupDialog {
         my $vbox           = $factory->createVBox($tabs{widget});
         $align             = $factory->createLeft($vbox);
         $tabs{replace_pnt} = $factory->createReplacePoint($align);
-        
+
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
         my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
         my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
-        
+
         my %groupData        = $self->_getGroupInfo();
         # groupData here should be tested because it could be undef
 
@@ -2165,14 +2162,14 @@ sub _editGroupDialog {
 # $members:    users that are members of this group
 
 
-        # Useful entry point for the current edit user/group tab widget 
+        # Useful entry point for the current edit user/group tab widget
         $self->set_edit_tab_widget( $self->_groupDataTabWidget($dlg, $tabs{replace_pnt}, %groupData) );
         $self->set_edit_tab_widget( edit_tab_label => $groupEditLabel{group_data});
 
         while(1) {
             my $event     = $dlg->waitForEvent();
             my $eventType = $event->eventType();
-            
+
             #event type checking
             if ($eventType == $yui::YEvent::CancelEvent) {
                 last;
@@ -2196,7 +2193,7 @@ sub _editGroupDialog {
                 }
             }
             elsif ($eventType == $yui::YEvent::WidgetEvent) {
-                ### widget 
+                ### widget
                 my $widget = $event->widget();
                 if ($widget == $cancelButton) {
                     last;
@@ -2216,7 +2213,7 @@ sub _editGroupDialog {
     }
 
     destroy $dlg;
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
 
@@ -2228,7 +2225,7 @@ sub _editUserOrGroup {
     # TODO item management avoid label if possible
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
     if ($label eq $self->loc->N("Users") ) {
-        $self->_editUserDialog(); 
+        $self->_editUserDialog();
     }
     else {
         $self->_editGroupDialog();
@@ -2259,7 +2256,7 @@ sub _refresh {
     # TODO item management avoid label if possible
     my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
     if ($label eq $self->loc->N("Users") ) {
-        $self->_refreshUsers(); 
+        $self->_refreshUsers();
     }
     else {
         $self->_refreshGroups();
@@ -2268,7 +2265,7 @@ sub _refresh {
 #     RefreshXguest(1);
 }
 
-# TODO context menu creation is missed in libyui 
+# TODO context menu creation is missed in libyui
 sub _contextMenuActions {
     my $self = shift;
 
@@ -2279,21 +2276,21 @@ sub _contextMenuActions {
 
 sub _refreshActions {
     my $self = shift;
-    
+
     my $item = $self->get_widget('table')->selectedItem();
     $self->dialog->startMultipleChanges();
     $self->get_widget('action_menu')->deleteAllItems();
-    
+
     # do we need to undef them first?
     $self->set_action_menu(
-            add_user  => undef, 
+            add_user  => undef,
             add_group => undef,
             edit      => undef,
             del       => undef,
             inst      => undef,
     );
     $self->set_action_menu(
-            add_user  => new yui::YMenuItem($self->loc->N("Add User")), 
+            add_user  => new yui::YMenuItem($self->loc->N("Add User")),
             add_group => new yui::YMenuItem($self->loc->N("Add Group")),
             edit      => new yui::YMenuItem($self->loc->N("&Edit")),
             del       => new yui::YMenuItem($self->loc->N("&Delete")),
@@ -2309,7 +2306,7 @@ sub _refreshActions {
             }
         }
         else {
-            $itemColl->push($menuItem);           
+            $itemColl->push($menuItem);
         }
         $menuItem->DISOWN();
     }
@@ -2333,7 +2330,7 @@ sub _manageUsersDialog {
 
     if ($EUID != 0) {
         $self->sh_gui->warningMsgBox({
-            title => $self->name, 
+            title => $self->name,
             text  => $self->loc->N("root privileges required"),
         });
         return;
@@ -2352,7 +2349,7 @@ sub _manageUsersDialog {
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
 
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
@@ -2365,20 +2362,20 @@ sub _manageUsersDialog {
 
     my %fileMenu = (
             widget  => $factory->createMenuButton($headbar,$self->loc->N("File")),
-            refresh => new yui::YMenuItem($self->loc->N("Refresh")), 
+            refresh => new yui::YMenuItem($self->loc->N("Refresh")),
             quit    => new yui::YMenuItem($self->loc->N("&Quit")),
     );
 
     $fileMenu{ widget }->addItem($fileMenu{ refresh });
     $fileMenu{ widget }->addItem($fileMenu{ quit });
     $fileMenu{ widget }->rebuildMenuTree();
-   
+
     my $actionMenu = $factory->createMenuButton($headbar, $self->loc->N("Actions"));
     $actionMenu->DISOWN();
-    
+
     my %helpMenu = (
             widget     => $factory->createMenuButton($headRight, $self->loc->N("&Help")),
-            help       => new yui::YMenuItem($self->loc->N("Help")), 
+            help       => new yui::YMenuItem($self->loc->N("Help")),
             report_bug => new yui::YMenuItem($self->loc->N("Report Bug")),
             about      => new yui::YMenuItem($self->loc->N("&About")),
     );
@@ -2400,17 +2397,17 @@ sub _manageUsersDialog {
         refresh     => $factory->createIconButton($hbox, $pixdir . 'refresh.png', $self->loc->N("Refresh")),
         action_menu => $actionMenu,
     );
-    
+
 
     $hbox                   = $factory->createHBox($layout);
     $head_align_left        = $factory->createLeft($hbox);
-    
+
     my $sysfilter = 1;
     if (-e $self->config_file) {
         my $prefs  = Config::Auto::parse($self->config_file);
         $sysfilter = ($prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq '1');
     }
-    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, $self->loc->N("Filter system users"), 
+    $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, $self->loc->N("Filter system users"),
                                                                 $sysfilter));
                               $factory->createHSpacing($hbox, 3);
     $head_align_right       = $factory->createRight($hbox);
@@ -2441,14 +2438,14 @@ sub _manageUsersDialog {
         $self->get_widget('table')->setImmediateMode(1);
         $self->get_widget('table')->DISOWN();
     }
-    
+
     $self->_refreshActions();
-    
+
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -2528,10 +2525,10 @@ sub _manageUsersDialog {
                 $self->_refresh();
             }
             elsif ($widget == $self->get_widget('edit')) {
-                $self->_editUserOrGroup();                
+                $self->_editUserOrGroup();
             }
-            elsif ( $widget == $self->get_widget('filter_system') || 
-                    $widget == $self->get_widget('refresh') || 
+            elsif ( $widget == $self->get_widget('filter_system') ||
+                    $widget == $self->get_widget('refresh') ||
                     $widget == $self->get_widget('apply_filter') ) {
                 $self->_refresh();
             }
@@ -2555,7 +2552,7 @@ sub _manageUsersDialog {
 
 =head3 OUTPUT
 
-    $label: cleaned label 
+    $label: cleaned label
 
 =head3 DESCRIPTION
 
@@ -2588,7 +2585,7 @@ sub _TimeOfArray {
     $h->{month} = $2;
     $h->{dayint} = $3;
     $h->{year} = $5;
-    $cm and $h->{month} = $mth{$2}; 
+    $cm and $h->{month} = $mth{$2};
     $h;
 }
 
