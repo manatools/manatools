@@ -34,6 +34,9 @@ our @ISA = qw(Exporter);
 use lib qw(/usr/lib/libDrakX);
 use common;
 
+use utf8;
+use HTML::Entities;
+
 # TO WORKAROUND LOCALIZATION ISSUE
 use AdminPanel::Rpmdragora::localization;
 
@@ -143,9 +146,12 @@ sub build_expander {
 
 sub get_advisory_link {
     my ($update_descr) = @_;
-    my $link = gtkshow(Gtk2::LinkButton->new($update_descr->{URL}, N("Security advisory")));
-    $link->set_uri_hook(\&run_help_callback);
-    [ $link ];
+
+    my $webref = "<br /><a href=\"". $update_descr->{URL} ."\">". N("Security advisory") ."</a><br />";
+
+#  TODO manage on click as event from RichText
+#    $link->set_uri_hook(\&run_help_callback);
+    [ $webref ];
 }
 
 sub get_description {
@@ -153,7 +159,7 @@ sub get_description {
 
     join("<br />",
         (eval {
-            $pkg->{description} || $update_descr->{description};
+            encode_entities($pkg->{description}) || encode_entities($update_descr->{description});
             } || '<i>'. N("No description").'</i>'));
 }
 
@@ -194,13 +200,16 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
+    my $string = encode_entities($txt);
+
 
     join("<br />",
-        format_header(join(' - ', $name, $summary)) .
-            if_($txt, format_field(N("Notice: ")) . $txt),
+        format_header(join(' - ', $name, $summary)),
+            "<br />" ,
+            if_($txt, format_field(N("Notice: ")) . $string),
             if_($is_update, # is it an update?
-            format_field(N("Importance: ")) . format_update_field($update_descr->{importance}),
-            format_field(N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
+                format_field(N("Importance: ")) . format_update_field($update_descr->{importance}),
+                format_field(N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
             ),
             ''  # extra empty line
         );
@@ -285,6 +294,9 @@ sub format_pkg_simplifiedinfo {
     my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
     my $update_descr = $descriptions->{$medium}{$name};
     # discard update fields if not matching:
+
+    $DB::single = 1;
+
     my $is_update = ($upkg->flag_upgrade && $update_descr && $update_descr->{pre});
     my $summary = get_summary($key);
     my $dummy_string = get_main_text($raw_medium, $key, $name, $summary, $is_update, $update_descr);
@@ -298,7 +310,9 @@ sub format_pkg_simplifiedinfo {
 
     #push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field(N("Details:")))),
     #                   gtknew('TextView', text => get_details($pkg, $upkg, $installed_version, $raw_medium))) ];
-    push @$s, join("\n", format_field(N("Details:"))."\n".get_details($pkg, $upkg, $installed_version, $raw_medium));
+    my $details = get_details($pkg, $upkg, $installed_version, $raw_medium);
+    utf8::encode($details);
+    push @$s, join("\n", format_field(N("Details:")). "\n" . $details);
     #$details_exp->set_use_markup(1);
     push @$s, [ "\n\n" ];
     #push @$s, [ build_expander($pkg, N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
@@ -973,6 +987,26 @@ sub callback_choices {
     defined $choices[0] ? $choices->[$choices[0]] : undef;
 }
 
+
+sub _setInfoOnWidget {
+    my ($pkgname, $infoWidget) = @_;
+    $infoWidget->setValue("");
+    $infoWidget->setValue("<h2>".N("Informations")."</h2>");
+
+    my @data = get_info($pkgname);
+    for(@{$data[0]}){
+        if(ref $_ ne "ARRAY"){
+            $infoWidget->setValue($infoWidget->value()."<br />$_");
+        }else{
+            $infoWidget->setValue($infoWidget->value()."<br />");
+            for my $subitem(@{$_}){
+                $infoWidget->setValue($infoWidget->value()."<br />&nbsp;&nbsp;&nbsp;".$subitem);
+            }
+        }
+    }
+}
+
+
 sub deps_msg {
     return 1 if $dont_show_selections->[0];
     my ($title, $msg, $nodes, $nodes_with_deps) = @_;
@@ -1008,7 +1042,7 @@ sub deps_msg {
 
     my $frame        = $factory->createFrame ($hbox, N("Information on packages"));
     my $frmVbox      = $factory->createVBox( $frame );
-    my $infoBox      = $factory->createRichText($frmVbox, "", 1);
+    my $infoBox      = $factory->createRichText($frmVbox, "", 0);
 #     my $treeWidget = $factory->createTree($frmVbox, "");
                        $factory->createVSpacing($vbox, 1);
     $hbox            = $factory->createHBox( $vbox );
@@ -1026,6 +1060,11 @@ sub deps_msg {
     }
     $pkgList->addItems($itemColl);
     $pkgList->setImmediateMode(1);
+    my $item = $pkgList->selectedItem();
+    if ($item) {
+        my $pkg = $item->label();
+        _setInfoOnWidget($pkg, $infoBox);
+    }
 
     my $retval = 0;
     while(1) {
@@ -1044,8 +1083,13 @@ sub deps_msg {
             my $widget = $event->widget();
             if ($widget == $pkgList) {
                 #change info
-                my $pkg = $pkgList->selectedItem()->label();
-                $infoBox->setValue( get_info($pkg) );
+                $item = $pkgList->selectedItem();
+                if ( $item ) {
+                    my $pkg = $item->label();
+                    $DB::single = 1;
+                    _setInfoOnWidget($pkg, $infoBox);
+                }
+#                 $infoBox->setValue( get_info($pkg) );
             }
             elsif ($widget == $okButton) {
                 $retval = 1;
@@ -1093,7 +1137,6 @@ sub deps_msg {
 
 sub toggle_nodes {
     my ($widget, $detail_list, $set_state, $old_state, @nodes) = @_;
-    $DB::single = 1;
 
     @nodes = grep { exists $pkgs->{$_} } @nodes
       or return;
@@ -1240,9 +1283,10 @@ sub is_there_selected_packages() {
 
 sub real_quit() {
     if (is_there_selected_packages()) {
-        interactive_msg(N("Some packages are selected."), N("Some packages are selected.") . "\n" . N("Do you really want to quit?"), yesno => 1) or return;
+        return interactive_msg(N("Some packages are selected."), N("Some packages are selected.") . "\n" . N("Do you really want to quit?"), yesno => 1);
     }
-    Gtk2->main_quit;
+
+    return 1;
 }
 
 sub do_action__real {
