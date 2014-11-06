@@ -199,20 +199,27 @@ sub detaillist_changeditem_callback {
 
 sub detaillist_callback {
     my ($selection, $info, $options) = @_;
+
     $info->setValue("");
-    $info->setValue("<h2>" . $loc->N("Informations") . "</h2>");
     return if( ref $selection ne "yui::YItem");
+
+    my $info_text ="<h2>" . $loc->N("Informations") . "</h2>";
+
     my @data = get_info($options->{table_item_list}[$selection->index()],$info->parent()->parent());
     for(@{$data[0]}){
         if(ref $_ ne "ARRAY"){
-            $info->setValue($info->value()."<br />$_");
+            $info_text .= "<br />" . $_;
         }else{
-            $info->setValue($info->value()."<br />");
-            for my $subitem(@{$_}){
-                $info->setValue($info->value()."<br />&nbsp;&nbsp;&nbsp;".$subitem);
+            $info_text .= "<br />";
+            for my $subitem(@{$_}) {
+                $info_text .= "<br />" . "<br />&nbsp;&nbsp;&nbsp;" . $subitem;
             }
         }
     }
+    # change \n to <br/>
+    $info_text =~ s|\n|<br/>|g;
+
+    $info->setValue($info_text);
 }
 
 sub do_search($$$$$$$) {

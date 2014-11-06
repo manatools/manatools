@@ -87,6 +87,7 @@ our @EXPORT = qw(
                     toggle_all
                     toggle_nodes
                     fast_toggle
+                    setInfoOnWidget
             );
 
 my $loc = AdminPanel::rpmdragora::locale();
@@ -175,9 +176,11 @@ sub get_string_from_keywords {
         @media_types = split(':', $distribconf->getvalue($medium_path, 'media_type')) if $distribconf;
     }
 
+    $DB::single = 1;
+
     my $unsupported = $loc->N("It is <b>not supported</b> by Mageia.");
     my $dangerous = $loc->N("It may <b>break</b> your system.");
-    my $s;
+    my $s = "";
     $s .= $loc->N("This package is not free software") . "\n" if member('non-free', @media_types);
     if ($pkgs->{$name}{is_backport} || member('backport', @media_types)) {
         return join("\n",
@@ -204,19 +207,25 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
-    # TODO my $string = encode_entities($txt);
-    ensure_utf8($txt);
+    my $notice = if_($txt, format_field($loc->N("Notice: ")) . $txt . "\n");
+    ensure_utf8($notice);
 
-    join("<br />",
-        format_header(join(' - ', $name, $summary)),
-            "<br />" ,
-            if_($txt, format_field($loc->N("Notice: ")) . $txt),
-            if_($is_update, # is it an update?
-                format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}),
-                format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
-            ),
-            ''  # extra empty line
-        );
+    my $hdr = format_header(join(' - ', $name, $summary)) . "\n";
+    ensure_utf8($hdr);
+
+    my $update = if_($is_update, # is it an update?
+        format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}) . "\n",
+        format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})) . "\n",
+    );
+    ensure_utf8($update);
+
+    # TODO Too many lines
+    join(
+        "\n",
+        $hdr,
+        $notice,
+        $update
+     );
 }
 
 sub get_details {
@@ -276,7 +285,7 @@ sub get_url_link {
     return if !$url;
 
     my @a;
-    push @a, format_field($loc->N("URL: "))."${spacing}$url";
+    push @a, format_field($loc->N("URL: ")) . ${spacing} . "<a href=\"". $url ."\">". $url ."</a>";
     @a;
 }
 
@@ -992,22 +1001,46 @@ sub callback_choices {
 }
 
 
-sub _setInfoOnWidget {
+#=============================================================
+
+=head2 setInfoOnWidget
+
+=head3 INPUT
+
+    $pckgname: full name of the package
+    $infoWidget: YRichText object to fill
+
+=head3 DESCRIPTION
+
+    This function writes on a YRichText object package info
+
+=cut
+
+#=============================================================
+sub setInfoOnWidget {
     my ($pkgname, $infoWidget) = @_;
+
+    return if( ref $infoWidget ne "yui::YRichText");
+
     $infoWidget->setValue("");
-    $infoWidget->setValue("<h2>".$loc->N("Informations")."</h2>");
+
+    my $info_text ="<h2>" . $loc->N("Informations") . "</h2>";
 
     my @data = get_info($pkgname);
     for(@{$data[0]}){
         if(ref $_ ne "ARRAY"){
-            $infoWidget->setValue($infoWidget->value()."<br />$_");
+            $info_text .= "<br />" . $_;
         }else{
-            $infoWidget->setValue($infoWidget->value()."<br />");
-            for my $subitem(@{$_}){
-                $infoWidget->setValue($infoWidget->value()."<br />&nbsp;&nbsp;&nbsp;".$subitem);
+            $info_text .= "<br />";
+            for my $subitem(@{$_}) {
+                $info_text .= "<br />" . "<br />&nbsp;&nbsp;&nbsp;" . $subitem;
             }
         }
     }
+    # change \n to <br/>
+    $info_text =~ s|\n|<br/>|g;
+
+    $infoWidget->setValue($info_text);
 }
 
 
@@ -1067,7 +1100,7 @@ sub deps_msg {
     my $item = $pkgList->selectedItem();
     if ($item) {
         my $pkg = $item->label();
-        _setInfoOnWidget($pkg, $infoBox);
+        setInfoOnWidget($pkg, $infoBox);
     }
 
     my $retval = 0;
@@ -1090,8 +1123,7 @@ sub deps_msg {
                 $item = $pkgList->selectedItem();
                 if ( $item ) {
                     my $pkg = $item->label();
-                    $DB::single = 1;
-                    _setInfoOnWidget($pkg, $infoBox);
+                    setInfoOnWidget($pkg, $infoBox);
                 }
 #                 $infoBox->setValue( get_info($pkg) );
             }

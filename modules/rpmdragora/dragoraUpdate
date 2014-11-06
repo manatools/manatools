@@ -216,7 +216,8 @@ sub run_treeview_dialog {
 
     ## service list (serviceBox)
     my $packageTbl = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
-
+                     $factory->createVSpacing($vbox, 1);
+    my $infoBox    = $factory->createRichText($vbox, "", 0);
     $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
 
     $DB::single = 1;
@@ -227,7 +228,11 @@ sub run_treeview_dialog {
 
     $packageTbl->setImmediateMode(1);
     $packageTbl->setWeight(0, 50);
-
+    my $item = $packageTbl->selectedItem();
+    if ($item) {
+        my $pkg = $data{$item->index()}{fullname};
+        AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+    }
 
     # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
@@ -287,9 +292,14 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $packageTbl) {
                 yui::YUI::app()->busyCursor();
+                my $item = $packageTbl->selectedItem();
+                if ($item) {
+                    my $pkg = $data{$item->index()}{fullname};
+                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+                }
                 my $wEvent = yui::toYWidgetEvent($event);
                 if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
-                    my $item = $packageTbl->changedItem();
+                    $item = $packageTbl->changedItem();
                     if ($item) {
                         my $name = $data{$item->index()}{fullname};
                         $DB::single = 1;
@@ -297,6 +307,9 @@ sub run_treeview_dialog {
                     }
                 }
                 yui::YUI::app()->normalCursor();
+            }
+            elsif ($widget == $infoBox) {
+                print "RichText widget Event\n";
             }
             elsif ($widget == $selectButton) {
                 yui::YUI::app()->busyCursor();

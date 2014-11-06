@@ -125,7 +125,7 @@ sub extract_header {
         print "p->filename: ". $p->filename."\n";
         $local_source = "$dir/" . $p->filename if $dir;
         print "local_source: $local_source\n";
-        if (-e $local_source) {
+        if ($local_source && -e $local_source) {
             $bar_id = statusbar_msg($loc->N("Getting information from %s...", $dir), 0);
             $urpm->{log}("getting information from rpms from $dir");
         } else {
