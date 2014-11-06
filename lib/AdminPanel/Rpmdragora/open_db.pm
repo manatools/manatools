@@ -45,6 +45,8 @@ our @EXPORT = qw(fast_open_urpmi_db
                  open_urpmi_db
             );
 
+my $loc = AdminPanel::rpmdragora::locale();
+
 
 # because rpm blocks some signals when rpm DB is opened, we don't keep open around:
 sub open_rpm_db {
@@ -82,8 +84,8 @@ sub fast_open_urpmi_db() {
     my $error_happened;
     $urpm->{fatal} = sub {
         $error_happened = 1;
-        interactive_msg(N("Fatal error"),
-                         N("A fatal error occurred: %s.", $_[1]));
+        interactive_msg($loc->N("Fatal error"),
+                         $loc->N("A fatal error occurred: %s.", $_[1]));
     };
 
     urpm::set_files($urpm, $::rpmdragora_options{'urpmi-root'}[0]) if $::rpmdragora_options{'urpmi-root'}[0];
@@ -129,7 +131,7 @@ sub is_it_a_devel_distro() {
 
 sub get_backport_media {
     my ($urpm) = @_;
-    grep { $_->{name} =~ /backport/i && 
+    grep { $_->{name} =~ /backport/i &&
 	       $_->{name} !~ /debug|sources|testing/i } @{$urpm->{media}};
 }
 

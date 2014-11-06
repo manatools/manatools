@@ -36,6 +36,8 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(dialog_rpmnew do_merge_if_needed);
 
+my $loc = AdminPanel::rpmdragora::locale();
+
 # /var/lib/nfs/etab /var/lib/nfs/rmtab /var/lib/nfs/xtab /var/cache/man/whatis
 my %ignores_rpmnew = map { $_ => 1 } qw(
     /etc/adjtime
@@ -77,8 +79,8 @@ sub inspect {
             local $ENV{$_} = $ENV{$_} . '.UTF-8' if $ENV{$_} && $ENV{$_} !~ /UTF-8/;
 	}
 	my @diff = map { ensure_utf8($_); $_ } `/usr/bin/diff -u '$file' '$rpmnew'`;
-	@diff = N("(none)") if !@diff;
-	my $d = ugtk2->new(N("Inspecting %s", $file), grab => 1, transient => $::main_window);
+	@diff = $loc->N("(none)") if !@diff;
+	my $d = ugtk2->new($loc->N("Inspecting %s", $file), grab => 1, transient => $::main_window);
 	my $save_wsize = sub { @inspect_wsize = $d->{rwindow}->get_size };
 	my %texts;
 	require Gtk2::SourceView2;
@@ -103,7 +105,7 @@ sub inspect {
 		    ),
 		    gtkpack_(
 			gtknew('VBox'),
-			0, gtknew('Label', text => N("Changes:")),
+			0, gtknew('Label', text => $loc->N("Changes:")),
 			1, gtknew('ScrolledWindow', child => $texts{diff} = Gtk2::SourceView2::View->new),
 		    ),
 		    resize1 => 1,
@@ -112,21 +114,21 @@ sub inspect {
 		0, gtknew('WrappedLabel',
                     # prevent bad sizing of Gtk2::WrappedLabel:
                     width => $inspect_wsize[0],
-                    text => N("You can either remove the .%s file, use it as main file or do nothing. If unsure, keep the current file (\"%s\").",
-                              $rpmfile, N("Remove .%s", $rpmfile)),
+                    text => $loc->N("You can either remove the .%s file, use it as main file or do nothing. If unsure, keep the current file (\"%s\").",
+                              $rpmfile, $loc->N("Remove .%s", $rpmfile)),
                     ),
 		0, gtkpack__(
 		    gtknew('HButtonBox'),
 		    gtksignal_connect(
-			gtknew('Button', text => N("Remove .%s", $rpmfile)),
+			gtknew('Button', text => $loc->N("Remove .%s", $rpmfile)),
 			clicked => sub { $save_wsize->(); unlink $rpmnew; Gtk2->main_quit },
 		    ),
 		    gtksignal_connect(
-			gtknew('Button', text => N("Use .%s as main file", $rpmfile)),
+			gtknew('Button', text => $loc->N("Use .%s as main file", $rpmfile)),
 			clicked => sub { $save_wsize->(); renamef($rpmnew, $file); Gtk2->main_quit },
 		    ),
 		    gtksignal_connect(
-			gtknew('Button', text => N("Do nothing")),
+			gtknew('Button', text => $loc->N("Do nothing")),
 			clicked => sub { $save_wsize->(); Gtk2->main_quit },
 		    ),
 		)
@@ -154,7 +156,7 @@ sub dialog_rpmnew {
     my $sum_rpmnew = sum(map { int @{$p2r{$_}} } keys %p2r);
     $sum_rpmnew == 0 and return 1;
     interactive_packtable(
-	N("Installation finished"),
+	$loc->N("Installation finished"),
 	$::main_window,
 	$msg,
 	[ map { my $pkg = $_;
@@ -169,7 +171,7 @@ sub dialog_rpmnew {
 		    )
 		),
 		gtksignal_connect(
-		    $b = gtknew('Button', text => N("Inspect...")),
+		    $b = gtknew('Button', text => $loc->N("Inspect...")),
 		    clicked => sub {
 			inspect($f);
 			-r "$f.rpmnew" || -r "$f.rpmsave" or $b->set_sensitive(0);
@@ -177,7 +179,7 @@ sub dialog_rpmnew {
 		) ];
 	    } @{$p2r{$pkg}};
 	} keys %p2r ],
-	[ gtknew('Button', text => N("Ok"), 
+	[ gtknew('Button', text => $loc->N("Ok"),
 	    clicked => sub { Gtk2->main_quit }) ]
     );
     return 0;
@@ -187,7 +189,7 @@ sub dialog_rpmnew {
 sub do_merge_if_needed() {
     if ($rpmdragora_options{'merge-all-rpmnew'}) {
         my %pkg2rpmnew;
-        my $wait = wait_msg(N("Please wait, searching..."));
+        my $wait = wait_msg($loc->N("Please wait, searching..."));
         print "Searching .rpmnew and .rpmsave files...\n";
         # costly:
         open_rpm_db()->traverse(sub {

@@ -1,23 +1,23 @@
 #!/usr/bin/perl
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2004 Guillaume Cottenceau (gc at mandrakesoft dot com)
 #  Copyright (c) 2006-2007 Thierry Vignaud <tvignaud@mandriva.com>
 #  Copyright (c) 2004-2007 Mandriva SA
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 #
 # $Id: gurpmi.addmedia 261187 2009-10-01 14:44:34Z tv $
@@ -45,15 +45,18 @@ and [options] are from
     };
 }
 use AdminPanel::Rpmdragora::init;
+use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
-
+use AdminPanel::Shared::Locales;
 use AdminPanel::Privileges;
 
 use lib qw(/usr/lib/libDrakX);
 use urpm::media;
 use MDK::Common::Func;
-use common qw(N);
+
+my $loc = AdminPanel::rpmdragora::locale();
+
 
 #
 if (AdminPanel::Privileges::is_root_capability_required()) {
@@ -61,7 +64,7 @@ if (AdminPanel::Privileges::is_root_capability_required()) {
     my $sh_gui = AdminPanel::Shared::GUI->new();
     $sh_gui->warningMsgBox({
         title => "gurpmi.addmedia",
-        text  => N("root privileges required"),
+        text  => $loc->N("root privileges required"),
     });
     exit (-1);
 }
@@ -110,7 +113,7 @@ while (@ARGV) {
     } elsif ($url !~ m,^(([^:]*):/)?/,) {
 	AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia',
 			AdminPanel::Rpmdragora::formatting::escape_text_for_TextView_markup_format(
-                            N("bad <url> (for local directory, the path must be absolute)") . "\n\n$url"));
+                            $loc->N("bad <url> (for local directory, the path must be absolute)") . "\n\n$url"));
 	AdminPanel::rpmdragora::myexit(-1);
     }
     push @addmedia_args, [ $name, $url ];
@@ -124,18 +127,18 @@ if ($mirrorlist && $distrib && !@addmedia_args) {
 
 $fromfile and do {
     AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia',
-N("%s
+$loc->N("%s
 
 Is it ok to continue?",
 $distrib || !@names
-? N("You are about to add new package media.
+? $loc->N("You are about to add new package media.
 That means you will be able to add new software packages
 to your system from these new media.")
 : 1 < @names
-? N("You are about to add new package medium, %s.
+? $loc->N("You are about to add new package medium, %s.
 That means you will be able to add new software packages
 to your system from these new media.", join ", ", @names)
-: N("You are about to add a new package medium, `%s'.
+: $loc->N("You are about to add a new package medium, `%s'.
 That means you will be able to add new software packages
 to your system from that new medium.", $names[0])
 ),
@@ -159,10 +162,10 @@ foreach (@addmedia_args) {
 }
 if ($success) {
     my $message =
-      $distrib ? N("Successfully added media.")
+      $distrib ? $loc->N("Successfully added media.")
         : @names > 1
-	    ? N("Successfully added media %s.", join ", ", @names)
-	    : N("Successfully added medium `%s'.", $names[0]);
+	    ? $loc->N("Successfully added media %s.", join ", ", @names)
+	    : $loc->N("Successfully added medium `%s'.", $names[0]);
     AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia', $message) if !$silent_success;
     AdminPanel::rpmdragora::myexit(0);
 } else {

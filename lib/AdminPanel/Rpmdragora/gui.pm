@@ -47,6 +47,7 @@ use AdminPanel::Rpmdragora::init;
 use AdminPanel::Rpmdragora::icon;
 use AdminPanel::Rpmdragora::pkg;
 use AdminPanel::Shared;
+use AdminPanel::Shared::Locales;
 use yui;
 use feature 'state';
 
@@ -88,8 +89,10 @@ our @EXPORT = qw(
                     fast_toggle
             );
 
+my $loc = AdminPanel::rpmdragora::locale();
+
 our ($descriptions, %filters, @filtered_pkgs, %filter_methods, $force_displaying_group, $force_rebuild, @initial_selection, $pkgs, $size_free, $size_selected, $urpm);
-our ($results_ok, $results_none) = (N("Search results"), N("Search results (none)"));
+our ($results_ok, $results_none) = ($loc->N("Search results"), $loc->N("Search results (none)"));
 
 our %grp_columns = (
     label => 0,
@@ -107,6 +110,7 @@ our %pkg_columns = (
     'arch' => 7,
     selectable => 8,
 );
+
 
 sub compute_main_window_size {
     my ($w) = @_;
@@ -134,7 +138,7 @@ sub build_expander {
                 $first = 1;
                 slow_func($::main_window->window, sub {
                               extract_header($pkg, $urpm, $type, $o_installed_version);
-                              gtktext_insert($textview, $get_data->() || [ [  N("(Not available)") ] ]);
+                              gtktext_insert($textview, $get_data->() || [ [  $loc->N("(Not available)") ] ]);
                           });
             })),
         $textview = gtknew('TextView')
@@ -147,7 +151,7 @@ sub build_expander {
 sub get_advisory_link {
     my ($update_descr) = @_;
 
-    my $webref = "<br /><a href=\"". $update_descr->{URL} ."\">". N("Security advisory") ."</a><br />";
+    my $webref = "<br /><a href=\"". $update_descr->{URL} ."\">". $loc->N("Security advisory") ."</a><br />";
 
 #  TODO manage on click as event from RichText
 #    $link->set_uri_hook(\&run_help_callback);
@@ -160,7 +164,7 @@ sub get_description {
     join("<br />",
         (eval {
             encode_entities($pkg->{description}) || encode_entities($update_descr->{description});
-            } || '<i>'. N("No description").'</i>'));
+            } || '<i>'. $loc->N("No description").'</i>'));
 }
 
 sub get_string_from_keywords {
@@ -171,27 +175,27 @@ sub get_string_from_keywords {
         @media_types = split(':', $distribconf->getvalue($medium_path, 'media_type')) if $distribconf;
     }
 
-    my $unsupported = N("It is <b>not supported</b> by Mageia.");
-    my $dangerous = N("It may <b>break</b> your system.");
+    my $unsupported = $loc->N("It is <b>not supported</b> by Mageia.");
+    my $dangerous = $loc->N("It may <b>break</b> your system.");
     my $s;
-    $s .= N("This package is not free software") . "\n" if member('non-free', @media_types);
+    $s .= $loc->N("This package is not free software") . "\n" if member('non-free', @media_types);
     if ($pkgs->{$name}{is_backport} || member('backport', @media_types)) {
         return join("\n",
-                    N("This package contains a new version that was backported."),
+                    $loc->N("This package contains a new version that was backported."),
                     $unsupported, $dangerous, $s);
     } elsif (member('testing', @media_types)) {
         return join("\n",
-                    N("This package is a potential candidate for an update."),
+                    $loc->N("This package is a potential candidate for an update."),
                     $unsupported, $dangerous, $s);
     } elsif (member('updates', @media_types)) {
         return join("\n",
                     (member('official', @media_types) ?
-                       N("This is an official update which is supported by Mageia.")
-                       : (N("This is an unofficial update."), $unsupported))
+                       $loc->N("This is an official update which is supported by Mageia.")
+                       : ($loc->N("This is an unofficial update."), $unsupported))
                     ,
                     $s);
     } else {
-        $s .= N("This is an official package supported by Mageia") . "\n" if member('official', @media_types);
+        $s .= $loc->N("This is an official package supported by Mageia") . "\n" if member('official', @media_types);
         return $s;
     }
 }
@@ -200,16 +204,16 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
-    my $string = encode_entities($txt);
-
+    # TODO my $string = encode_entities($txt);
+    ensure_utf8($txt);
 
     join("<br />",
         format_header(join(' - ', $name, $summary)),
             "<br />" ,
-            if_($txt, format_field(N("Notice: ")) . $string),
+            if_($txt, format_field($loc->N("Notice: ")) . $txt),
             if_($is_update, # is it an update?
-                format_field(N("Importance: ")) . format_update_field($update_descr->{importance}),
-                format_field(N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
+                format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}),
+                format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
             ),
             ''  # extra empty line
         );
@@ -218,12 +222,12 @@ sub get_main_text {
 sub get_details {
     my ($pkg, $upkg, $installed_version, $raw_medium) = @_;
     my @details = ();
-    push @details, format_field(N("Version: ")) . $upkg->EVR;
-    push @details, format_field(N("Currently installed version: ")) . $installed_version if($upkg->flag_installed);
-    push @details, format_field(N("Group: ")) . translate_group($upkg->group);
-    push @details, format_field(N("Architecture: ")) . $upkg->arch;
-    push @details, format_field(N("Size: ")) . N("%s KB", int($upkg->size/1024));
-    push @details, eval { format_field(N("Medium: ")) . $raw_medium->{name} };
+    push @details, format_field($loc->N("Version: ")) . $upkg->EVR;
+    push @details, format_field($loc->N("Currently installed version: ")) . $installed_version if($upkg->flag_installed);
+    push @details, format_field($loc->N("Group: ")) . translate_group($upkg->group);
+    push @details, format_field($loc->N("Architecture: ")) . $upkg->arch;
+    push @details, format_field($loc->N("Size: ")) . $loc->N("%s KB", int($upkg->size/1024));
+    push @details, eval { format_field($loc->N("Medium: ")) . $raw_medium->{name} };
 
     my @link = get_url_link($upkg, $pkg);
     push @details, join("<br />&nbsp;&nbsp;&nbsp;",@link) if(@link);
@@ -236,7 +240,7 @@ sub get_new_deps {
     my $deps_textview;
     my @a = [ gtkadd(
         gtksignal_connect(
-            gtkshow(my $dependencies = Gtk2::Expander->new(format_field(N("New dependencies:")))),
+            gtkshow(my $dependencies = Gtk2::Expander->new(format_field($loc->N("New dependencies:")))),
             activate => sub {
                 slow_func($::main_window->window, sub {
                               my $state = {};
@@ -249,7 +253,7 @@ sub get_new_deps {
                               undef $db;
                               my @nodes_with_deps = map { urpm_name($_) } @requested;
                               my @deps = sort { $a cmp $b } difference2(\@nodes_with_deps, [ urpm_name($upkg) ]);
-                              @deps = N("All dependencies installed.") if !@deps;
+                              @deps = $loc->N("All dependencies installed.") if !@deps;
                               gtktext_insert($deps_textview, join("\n", @deps));
                           });
             }
@@ -272,7 +276,7 @@ sub get_url_link {
     return if !$url;
 
     my @a;
-    push @a, format_field(N("URL: "))."${spacing}$url";
+    push @a, format_field($loc->N("URL: "))."${spacing}$url";
     @a;
 }
 
@@ -308,16 +312,16 @@ sub format_pkg_simplifiedinfo {
     push @$s, [ "\n" ];
     my $installed_version = eval { find_installed_version($upkg) };
 
-    #push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field(N("Details:")))),
+    #push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field($loc->N("Details:")))),
     #                   gtknew('TextView', text => get_details($pkg, $upkg, $installed_version, $raw_medium))) ];
     my $details = get_details($pkg, $upkg, $installed_version, $raw_medium);
     utf8::encode($details);
-    push @$s, join("\n", format_field(N("Details:")). "\n" . $details);
+    push @$s, join("\n", format_field($loc->N("Details:")). "\n" . $details);
     #$details_exp->set_use_markup(1);
     push @$s, [ "\n\n" ];
-    #push @$s, [ build_expander($pkg, N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
+    #push @$s, [ build_expander($pkg, $loc->N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
     push @$s, [ "\n\n" ];
-    #push @$s, [ build_expander($pkg, N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
+    #push @$s, [ build_expander($pkg, $loc->N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
 
     push @$s, [ "\n\n" ];
     if ($upkg->id) { # If not installed
@@ -332,38 +336,38 @@ sub format_pkg_info {
     my $upkg = $pkg->{pkg};
     my ($name, $version) = split_fullname($key);
     my @files = (
-	format_field(N("Files:\n")),
+	format_field($loc->N("Files:\n")),
 	exists $pkg->{files}
 	    ? '<tt>' . join("\n", map { "\x{200e}$_" } @{$pkg->{files}}) . '</tt>' #- to highlight information
-	    : N("(Not available)"),
+	    : $loc->N("(Not available)"),
     );
-    my @chglo = (format_field(N("Changelog:\n")), ($pkg->{changelog} ? @{$pkg->{changelog}} : N("(Not available)")));
+    my @chglo = (format_field($loc->N("Changelog:\n")), ($pkg->{changelog} ? @{$pkg->{changelog}} : $loc->N("(Not available)")));
     my @source_info = (
 	$MODE eq 'remove' || !@$max_info_in_descr
 	    ? ()
 	    : (
-		format_field(N("Medium: ")) . pkg2medium($upkg, $urpm)->{name},
-		format_field(N("Currently installed version: ")) . find_installed_version($upkg),
+		format_field($loc->N("Medium: ")) . pkg2medium($upkg, $urpm)->{name},
+		format_field($loc->N("Currently installed version: ")) . find_installed_version($upkg),
 	    )
     );
     my @max_info = @$max_info_in_descr && $changelog_first ? (@chglo, @files) : (@files, '', @chglo);
-    ugtk2::markup_to_TextView_format(join("\n", format_field(N("Name: ")) . $name,
-      format_field(N("Version: ")) . $version,
-      format_field(N("Architecture: ")) . $upkg->arch,
-      format_field(N("Size: ")) . N("%s KB", int($upkg->size/1024)),
+    ugtk2::markup_to_TextView_format(join("\n", format_field($loc->N("Name: ")) . $name,
+      format_field($loc->N("Version: ")) . $version,
+      format_field($loc->N("Architecture: ")) . $upkg->arch,
+      format_field($loc->N("Size: ")) . $loc->N("%s KB", int($upkg->size/1024)),
       if_(
 	  $MODE eq 'update',
-	  format_field(N("Importance: ")) . $descriptions->{$name}{importance}
+	  format_field($loc->N("Importance: ")) . $descriptions->{$name}{importance}
       ),
       @source_info,
       '', # extra empty line
-      format_field(N("Summary: ")) . $upkg->summary,
+      format_field($loc->N("Summary: ")) . $upkg->summary,
       '', # extra empty line
       if_(
 	  $MODE eq 'update',
-	  format_field(N("Reason for update: ")) . rpm_description($descriptions->{$name}{pre}),
+	  format_field($loc->N("Reason for update: ")) . rpm_description($descriptions->{$name}{pre}),
       ),
-      format_field(N("Description: ")), ($pkg->{description} || $descriptions->{$name}{description} || N("No description")),
+      format_field($loc->N("Description: ")), ($pkg->{description} || $descriptions->{$name}{description} || $loc->N("No description")),
       @max_info,
     ));
 }
@@ -374,18 +378,18 @@ sub warn_if_no_pkg {
     state $warned;
     if (!$warned) {
         $warned = 1;
-        interactive_msg(N("Warning"),
+        interactive_msg($loc->N("Warning"),
                         join("\n",
-                             N("The package \"%s\" was found.", $name),
-                             N("However this package is not in the package list."),
-                             N("You may want to update your urpmi database."),
+                             $loc->N("The package \"%s\" was found.", $name),
+                             $loc->N("However this package is not in the package list."),
+                             $loc->N("You may want to update your urpmi database."),
                              '',
-                             N("Matching packages:"),
+                             $loc->N("Matching packages:"),
                              '',
                              join("\n", sort map {
                                  #-PO: this is list fomatting: "- <package_name> (medium: <medium_name>)"
                                  #-PO: eg: "- rpmdragora (medium: "Main Release"
-                                 N("- %s (medium: %s)", $_, pkg2medium($pkgs->{$_}{pkg}, $urpm)->{name});
+                                 $loc->N("- %s (medium: %s)", $_, pkg2medium($pkgs->{$_}{pkg}, $urpm)->{name});
                              } grep { /^$short_name/ } keys %$pkgs),
                          ),
                         scroll => 1,
@@ -739,16 +743,16 @@ sub fast_toggle {
     my $name = $common->{table_item_list}[$item->index()];
     my $urpm_obj = $pkgs->{$name}{pkg};
     if ($urpm_obj->flag_base) {
-        interactive_msg(N("Warning"), N("Removing package %s would break your system", $name));
+        interactive_msg($loc->N("Warning"), $loc->N("Removing package %s would break your system", $name));
         return '';
     }
     if ($urpm_obj->flag_skip) {
-        interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
+        interactive_msg($loc->N("Warning"), $loc->N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
         $urpm_obj->set_flag_skip(0);
     }
     if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
         $priority_up_alread_warned = 1;
-        interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
+        interactive_msg($loc->N("Warning"), '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
     }
     # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
     my $state;
@@ -837,19 +841,19 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         my $urpm_obj = $pkgs->{$name}{pkg};
 
         if ($urpm_obj->flag_base) {
-            interactive_msg(N("Warning"),
-                            N("Removing package %s would break your system", $name));
+            interactive_msg($loc->N("Warning"),
+                            $loc->N("Removing package %s would break your system", $name));
             return '';
         }
 
         if ($urpm_obj->flag_skip) {
-            interactive_msg(N("Warning"), N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
+            interactive_msg($loc->N("Warning"), $loc->N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
             $urpm_obj->set_flag_skip(0);
         }
 
         if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
             $priority_up_alread_warned = 1;
-            interactive_msg(N("Warning"), '<b>' . N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
+            interactive_msg($loc->N("Warning"), '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
         }
 
         # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
@@ -979,10 +983,10 @@ sub callback_choices {
             is_locale_available($_) and return $pkg;
         }
     }
-    my $callback = sub { interactive_msg(N("More information on package..."), get_info($_[0]), scroll => 1) };
+    my $callback = sub { interactive_msg($loc->N("More information on package..."), get_info($_[0]), scroll => 1) };
     $choices = [ sort { $a->name cmp $b->name } @$choices ];
-    my @choices = interactive_list_(N("Please choose"), (scalar(@$choices) == 1 ?
-    N("The following package is needed:") : N("One of the following packages is needed:")),
+    my @choices = interactive_list_($loc->N("Please choose"), (scalar(@$choices) == 1 ?
+    $loc->N("The following package is needed:") : $loc->N("One of the following packages is needed:")),
                                     [ map { urpm_name($_) } @$choices ], $callback, nocancel => 1);
     defined $choices[0] ? $choices->[$choices[0]] : undef;
 }
@@ -991,7 +995,7 @@ sub callback_choices {
 sub _setInfoOnWidget {
     my ($pkgname, $infoWidget) = @_;
     $infoWidget->setValue("");
-    $infoWidget->setValue("<h2>".N("Informations")."</h2>");
+    $infoWidget->setValue("<h2>".$loc->N("Informations")."</h2>");
 
     my @data = get_info($pkgname);
     for(@{$data[0]}){
@@ -1038,17 +1042,17 @@ sub deps_msg {
     my $msgBox       = $factory->createRichText($vbox, $msg, 1);
                        $factory->createVSpacing($vbox, 1);
     my $hbox         = $factory->createHBox( $vbox );
-    my $pkgList      = $factory->createSelectionBox( $hbox, N("Select package") );
+    my $pkgList      = $factory->createSelectionBox( $hbox, $loc->N("Select package") );
 
-    my $frame        = $factory->createFrame ($hbox, N("Information on packages"));
+    my $frame        = $factory->createFrame ($hbox, $loc->N("Information on packages"));
     my $frmVbox      = $factory->createVBox( $frame );
     my $infoBox      = $factory->createRichText($frmVbox, "", 0);
 #     my $treeWidget = $factory->createTree($frmVbox, "");
                        $factory->createVSpacing($vbox, 1);
     $hbox            = $factory->createHBox( $vbox );
     my $align        = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $loc->N("Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $loc->N("Ok"));
 
     # adding packages to the list
     my $itemColl = new yui::YItemCollection;
@@ -1110,28 +1114,28 @@ sub deps_msg {
 #             $title, $msg .
 #               format_list(map { scalar(urpm::select::translate_why_removed_one($urpm, $urpm->{state}, $_)) } @deps)
 #                 . "\n\n" . format_size($urpm->selected_size($urpm->{state})),
-#             yesno => [ N("Cancel"), N("More info"), N("Ok") ],
+#             yesno => [ $loc->N("Cancel"), $loc->N("More info"), $loc->N("Ok") ],
 #             scroll => 1,
 #         );
 #         if ($results eq
 # 		    #-PO: Keep it short, this is gonna be on a button
-# 		    N("More info")) {
+# 		    $loc->N("More info")) {
 #             interactive_packtable(
-#                 N("Information on packages"),
+#                 $loc->N("Information on packages"),
 #                 $::main_window,
 #                 undef,
 #                 [ map { my $pkg = $_;
 #                         [ gtknew('HBox', children_tight => [ gtkset_selectable(gtknew('Label', text => $pkg), 1) ]),
-#                           gtknew('Button', text => N("More information on package..."),
+#                           gtknew('Button', text => $loc->N("More information on package..."),
 #                                  clicked => sub {
-#                                      interactive_msg(N("More information on package..."), get_info($pkg), scroll => 1);
+#                                      interactive_msg($loc->N("More information on package..."), get_info($pkg), scroll => 1);
 #                                  }) ] } @deps ],
-#                 [ gtknew('Button', text => N("Ok"),
+#                 [ gtknew('Button', text => $loc->N("Ok"),
 #                          clicked => sub { Gtk2->main_quit }) ]
 #             );
 #             goto deps_msg_again;
 #         } else {
-#             return $results eq N("Ok");
+#             return $results eq $loc->N("Ok");
 #         }
 }
 
@@ -1146,12 +1150,12 @@ sub toggle_nodes {
 
     my @nodes_with_deps;
 
-    my $bar_id = statusbar_msg(N("Checking dependencies of package..."), 0);
+    my $bar_id = statusbar_msg($loc->N("Checking dependencies of package..."), 0);
 
     my $warn_about_additional_packages_to_remove = sub {
         my ($msg) = @_;
         statusbar_msg_remove($bar_id);
-        deps_msg(N("Some additional packages need to be removed"),
+        deps_msg($loc->N("Some additional packages need to be removed"),
                  formatAlaTeX($msg) . "\n\n",
                  \@nodes, \@nodes_with_deps) or @nodes_with_deps = ();
     };
@@ -1162,13 +1166,13 @@ sub toggle_nodes {
             slow_func($widget, sub { @remove = closure_removal(@nodes) });
             @nodes_with_deps = grep { !$pkgs->{$_}{selected} && !/^basesystem/ } @remove;
             $warn_about_additional_packages_to_remove->(
-                N("Because of their dependencies, the following package(s) also need to be removed:"));
+                $loc->N("Because of their dependencies, the following package(s) also need to be removed:"));
             my @impossible_to_remove;
             foreach (grep { exists $pkgs->{$_}{base} } @remove) {
                 ${$pkgs->{$_}{base}} == 1 ? push @impossible_to_remove, $_ : ${$pkgs->{$_}{base}}--;
             }
-            @impossible_to_remove and interactive_msg(N("Some packages cannot be removed"),
-                                                      N("Removing these packages would break your system, sorry:\n\n") .
+            @impossible_to_remove and interactive_msg($loc->N("Some packages cannot be removed"),
+                                                      $loc->N("Removing these packages would break your system, sorry:\n\n") .
                                                         format_list(@impossible_to_remove));
             @nodes_with_deps = difference2(\@nodes_with_deps, \@impossible_to_remove);
         } else {
@@ -1176,7 +1180,7 @@ sub toggle_nodes {
                               grep { $pkgs->{$_}{selected} && !member($_, @nodes) } keys %$pkgs;
             push @nodes_with_deps, @nodes;
             $warn_about_additional_packages_to_remove->(
-                N("Because of their dependencies, the following package(s) must be unselected now:\n\n"));
+                $loc->N("Because of their dependencies, the following package(s) must be unselected now:\n\n"));
             $pkgs->{$_}{base} && ${$pkgs->{$_}{base}}++ foreach @nodes_with_deps;
         }
     } else {
@@ -1200,8 +1204,8 @@ sub toggle_nodes {
             );
             @nodes_with_deps = map { urpm_name($_) } @requested;
             statusbar_msg_remove($bar_id);
-            if (!deps_msg(N("Additional packages needed"),
-                             formatAlaTeX(N("To satisfy dependencies, the following package(s) also need to be installed:\n\n")) . "\n\n",
+            if (!deps_msg($loc->N("Additional packages needed"),
+                             formatAlaTeX($loc->N("To satisfy dependencies, the following package(s) also need to be installed:\n\n")) . "\n\n",
                              \@nodes, \@nodes_with_deps)) {
                 @nodes_with_deps = ();
                 $urpm->disable_selected(open_rpm_db(), $urpm->{state}, @requested);
@@ -1209,7 +1213,7 @@ sub toggle_nodes {
             }
 
 	    if (my $conflicting_msg = urpm::select::conflicting_packages_msg($urpm, $urpm->{state})) {
-                if (!interactive_msg(N("Conflicting Packages"), $conflicting_msg, yesno => 1, scroll => 1)) {
+                if (!interactive_msg($loc->N("Conflicting Packages"), $conflicting_msg, yesno => 1, scroll => 1)) {
 		    @nodes_with_deps = ();
 		    $urpm->disable_selected(open_rpm_db(), $urpm->{state}, @requested);
 		    goto packages_selection_ok;
@@ -1223,14 +1227,14 @@ sub toggle_nodes {
                     my $unsel = find { $_ eq $cant } @ask_unselect;
                     $unsel
                       ? join("\n", urpm::select::translate_why_unselected($urpm, $urpm->{state}, $unsel))
-                        : ($pkgs->{$_}{pkg}->flag_skip ? N("%s (belongs to the skip list)", $cant) : $cant);
+                        : ($pkgs->{$_}{pkg}->flag_skip ? $loc->N("%s (belongs to the skip list)", $cant) : $cant);
                 } @cant;
                 my $count = @reasons;
                 interactive_msg(
-                    ($count == 1 ? N("One package cannot be installed") : N("Some packages cannot be installed")),
+                    ($count == 1 ? $loc->N("One package cannot be installed") : $loc->N("Some packages cannot be installed")),
 		    ($count == 1 ?
-                 N("Sorry, the following package cannot be selected:\n\n%s", format_list(@reasons))
-                   : N("Sorry, the following packages cannot be selected:\n\n%s", format_list(@reasons))),
+                 $loc->N("Sorry, the following package cannot be selected:\n\n%s", format_list(@reasons))
+                   : $loc->N("Sorry, the following packages cannot be selected:\n\n%s", format_list(@reasons))),
                     scroll => 1,
                 );
                 foreach (@cant) {
@@ -1246,8 +1250,8 @@ sub toggle_nodes {
                                                                    map { $pkgs->{$_}{pkg} } @nodes);
             @nodes_with_deps = map { urpm_name($_) } @unrequested;
             statusbar_msg_remove($bar_id);
-            if (!deps_msg(N("Some packages need to be removed"),
-                             N("Because of their dependencies, the following package(s) must be unselected now:\n\n"),
+            if (!deps_msg($loc->N("Some packages need to be removed"),
+                             $loc->N("Because of their dependencies, the following package(s) must be unselected now:\n\n"),
                              \@nodes, \@nodes_with_deps)) {
                 @nodes_with_deps = ();
                 $urpm->resolve_requested(open_rpm_db(), $urpm->{state}, { map { $_->id => 1 } @unrequested });
@@ -1283,7 +1287,7 @@ sub is_there_selected_packages() {
 
 sub real_quit() {
     if (is_there_selected_packages()) {
-        return interactive_msg(N("Some packages are selected."), N("Some packages are selected.") . "\n" . N("Do you really want to quit?"), yesno => 1);
+        return interactive_msg($loc->N("Some packages are selected."), $loc->N("Some packages are selected.") . "\n" . $loc->N("Do you really want to quit?"), yesno => 1);
     }
 
     return 1;
@@ -1293,17 +1297,17 @@ sub do_action__real {
     my ($options, $callback_action, $o_info) = @_;
     require urpm::sys;
     if (!urpm::sys::check_fs_writable()) {
-        $urpm->{fatal}(1, N("Error: %s appears to be mounted read-only.", $urpm::sys::mountpoint));
+        $urpm->{fatal}(1, $loc->N("Error: %s appears to be mounted read-only.", $urpm::sys::mountpoint));
         return 1;
     }
     if (!$AdminPanel::Rpmdragora::pkg::need_restart && !is_there_selected_packages()) {
-        interactive_msg(N("You need to select some packages first."), N("You need to select some packages first."));
+        interactive_msg($loc->N("You need to select some packages first."), $loc->N("You need to select some packages first."));
         return 1;
     }
     my $size_added = sum(map { if_($_->flag_selected && !$_->flag_installed, $_->size) } @{$urpm->{depslist}});
     if ($MODE eq 'install' && $size_free - $size_added/1024 < 50*1024) {
-        interactive_msg(N("Too many packages are selected"),
-                        N("Warning: it seems that you are attempting to add so many
+        interactive_msg($loc->N("Too many packages are selected"),
+                        $loc->N("Warning: it seems that you are attempting to add so many
 packages that your filesystem may run out of free diskspace,
 during or after package installation ; this is particularly
 dangerous and should be considered with care.
@@ -1330,8 +1334,8 @@ sub do_action {
     my $err = $@;
     # FIXME: offer to report the problem into bugzilla:
     if ($err && $err !~ /cancel_perform/) {
-        interactive_msg(N("Fatal error"),
-                        N("A fatal error occurred: %s.", $err));
+        interactive_msg($loc->N("Fatal error"),
+                        $loc->N("A fatal error occurred: %s.", $err));
     }
     $res;
 }
@@ -1368,7 +1372,7 @@ sub build_tree {
     $old_mode = $mode;
     undef $force_rebuild;
     my @elems;
-    my $wait; $wait = statusbar_msg(N("Please wait, listing packages...")) if $MODE ne 'update';
+    my $wait; $wait = statusbar_msg($loc->N("Please wait, listing packages...")) if $MODE ne 'update';
     {
         my @keys = @filtered_pkgs;
         if (member($mode, qw(all_updates security bugfix normal))) {
@@ -1378,10 +1382,10 @@ sub build_tree {
                   || ! $descriptions->{$name}{importance};
             } @keys;
             if (@keys == 0) {
-                add_node('', N("(none)"), { nochild => 1 });
+                add_node('', $loc->N("(none)"), { nochild => 1 });
                 state $explanation_only_once;
-                $explanation_only_once or interactive_msg(N("No update"),
-                                                          N("The list of updates is empty. This means that either there is
+                $explanation_only_once or interactive_msg($loc->N("No update"),
+                                                          $loc->N("The list of updates is empty. This means that either there is
 no available update for the packages installed on your computer,
 or you already installed all of them."));
                 $explanation_only_once = 1;
@@ -1409,7 +1413,7 @@ or you already installed all of them."));
     } else {
         if (0 && $MODE eq 'update') {
             foreach ($sortmethods{flat}->(@elems)){
-                add_node($tree->currentItem()->label(), $_->[0], N("All"))
+                add_node($tree->currentItem()->label(), $_->[0], $loc->N("All"))
             }
             $tree->expand_row($tree_model->get_path($tree_model->get_iter_first), 0);
         } elsif ($::mode->[0] eq 'by_source') {
@@ -1420,8 +1424,8 @@ or you already installed all of them."));
             _build_tree($tree, $elems, map {
                 my $pkg = $pkgs->{$_->[0]}{pkg};
                 [ $_->[0], $pkg->flag_installed ?
-                    (!$pkg->flag_skip && $pkg->flag_upgrade ? N("Upgradable") : N("Installed"))
-                      : N("Addable") ];
+                    (!$pkg->flag_skip && $pkg->flag_upgrade ? $loc->N("Upgradable") : $loc->N("Installed"))
+                      : $loc->N("Addable") ];
               } $sortmethods{flat}->(@elems));
         } else {
             _build_tree($tree, $elems, @elems);
@@ -1434,7 +1438,7 @@ or you already installed all of them."));
 sub get_info {
     my ($key, $widget) = @_;
     #- the package information hasn't been loaded. Instead of rescanning the media, just give up.
-    exists $pkgs->{$key} or return [ [ N("Description not available for this package\n") ] ];
+    exists $pkgs->{$key} or return [ [ $loc->N("Description not available for this package\n") ] ];
     #- get the description if needed:
     exists $pkgs->{$key}{description} or slow_func($widget, sub { extract_header($pkgs->{$key}, $urpm, 'info', find_installed_version($pkgs->{$key}{pkg})) });
     format_pkg_simplifiedinfo($pkgs, $key, $urpm, $descriptions);

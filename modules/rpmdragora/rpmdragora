@@ -39,6 +39,7 @@ use AdminPanel::Rpmdragora::init;
 use standalone;  #- standalone must be loaded very first, for 'explanations', but after rpmdragora::init
 use AdminPanel::rpmdragora;
 use AdminPanel::Shared;
+use AdminPanel::Shared::Locales;
 use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::gui;
 use AdminPanel::Rpmdragora::rpmnew;
@@ -68,6 +69,7 @@ my @itemsToBeInstalled;
 
 our $w;
 our $statusbar;
+my $loc = AdminPanel::rpmdragora::locale();
 
 my %elems;
 
@@ -186,7 +188,7 @@ sub detaillist_changeditem_callback {
 	    }
 	    if ($found == 0) {
 	        push(@itemsToBeRemoved, $changedItem);
-            # $pkgs->{$options->{table_item_list}[$changedItem->index()]}{selected} = 0; 
+            # $pkgs->{$options->{table_item_list}[$changedItem->index()]}{selected} = 0;
             # toggle_veloce($options->{table_item_list}[$changedItem->index()],"to_remove");
             fast_toggle($changedItem);
 	    }
@@ -198,7 +200,7 @@ sub detaillist_changeditem_callback {
 sub detaillist_callback {
     my ($selection, $info, $options) = @_;
     $info->setValue("");
-    $info->setValue("<h2>".N("Informations")."</h2>");
+    $info->setValue("<h2>" . $loc->N("Informations") . "</h2>");
     return if( ref $selection ne "yui::YItem");
     my @data = get_info($options->{table_item_list}[$selection->index()],$info->parent()->parent());
     for(@{$data[0]}){
@@ -255,23 +257,23 @@ sub do_search($$$$$$$) {
         }
     } else {
         my $searchstop;
-        #my $searchw = ugtk2->new(N("Software Management"), grab => 1, transient => $w->{real_window});
+        #my $searchw = ugtk2->new($loc->N("Software Management"), grab => 1, transient => $w->{real_window});
         my $searchw = $factory->createPopupDialog;
         my $vbox = $factory->createVBox($searchw);
-        my $lblWIP = $factory->createLabel($vbox, N("Please wait, searching..."));
+        my $lblWIP = $factory->createLabel($vbox, $loc->N("Please wait, searching..."));
         my $searchprogress = $factory->createProgressBar($vbox, 'ProgressBar');
-        my $stop_button = $factory->createIconButton($vbox,"",N("Stop"));
-        
+        my $stop_button = $factory->createIconButton($vbox,"",$loc->N("Stop"));
+
         #gtkadd(
         #$searchw->{window},
         #gtkpack__(
             #gtknew('VBox', spacing => 5),
-            #gtknew('Label', text => N("Please wait, searching...")),
+            #gtknew('Label', text => $loc->N("Please wait, searching...")),
             #my $searchprogress = gtknew('ProgressBar', width => 300),
             #gtkpack__(
             #gtknew('HButtonBox', layout => 'spread'),
             #gtksignal_connect(
-                #Gtk2::Button->new(but(N("Stop"))),
+                #Gtk2::Button->new(but($loc->N("Stop"))),
                 #clicked => sub { $searchstop = 1 },
             #),
             #),
@@ -296,19 +298,19 @@ sub do_search($$$$$$$) {
                 $searchstop and last;
                 my $gurpm; # per medium download progress bar (if needed)
                 my $_gurpm_clean_guard = before_leaving { undef $gurpm };
-                my $xml_info_file = 
+                my $xml_info_file =
                   urpm::media::any_xml_info($urpm, $medium,
                                             ($current_search_type eq 'files' ? 'files' : 'info'),
-                                            undef, 
+                                            undef,
                                             sub {
-                                                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(N("Please wait"),
+                                                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
                                                                                 transient => $::main_window);
                                                 download_callback($gurpm, @_) or do {
                                                     $searchstop = 1;
                                                 };
                                             });
                 if (!$xml_info_file) {
-                    $urpm->{error}(N("no xml-info available for medium \"%s\"", $medium->{name}));
+                    $urpm->{error}($loc->N("no xml-info available for medium \"%s\"", $medium->{name}));
                     next;
                 }
                 $searchstop and last;
@@ -324,10 +326,10 @@ sub do_search($$$$$$$) {
                     local $_;
                     while (<$F>) {
                         if ($searchstop) {
-                            statusbar_msg(N("Search aborted"), 1);
+                            statusbar_msg($loc->N("Search aborted"), 1);
                             goto end_search;
                         }
-                        if (m!^<!) { 
+                        if (m!^<!) {
                             ($fn) = /fn="(.*)"/;
                             $update_search_pb->();
                         } elsif (/$entry_rx/) {
@@ -352,7 +354,7 @@ sub do_search($$$$$$$) {
                     };
                     my $err = $@;
                     if ($err =~ /search aborted/) {
-                        statusbar_msg(N("Search aborted"), 1);
+                        statusbar_msg($loc->N("Search aborted"), 1);
                     }
                 }
             }
@@ -369,18 +371,18 @@ sub do_search($$$$$$$) {
         $elems{$results_ok} = [ map { [ $_, $results_ok ] } @search_results ];
         $iter = $options->{add_parent}->($tree, $results_ok);
         $options->{add_nodes}->(map { [ $_, $results_ok . ($options->{tree_mode} eq 'by_presence'
-                                 ? '|' . ($pkgs->{$_}{pkg}->flag_installed ? N("Upgradable") : N("Addable"))
+                                 ? '|' . ($pkgs->{$_}{pkg}->flag_installed ? $loc->N("Upgradable") : $loc->N("Addable"))
                                  : ($options->{tree_mode} eq 'by_selection'
-                                    ? '|' . ($pkgs->{$_}{selected} ? N("Selected") : N("Not selected"))
+                                    ? '|' . ($pkgs->{$_}{selected} ? $loc->N("Selected") : $loc->N("Not selected"))
                                     : ''))
                       ] } @search_results);
     } else {
         $iter = $options->{add_parent}->($tree, $results_none);
         # clear package list:
         $options->{add_nodes}->();
-        my $string = $default_list_mode eq 'all' && $filter->[0] eq 'all' ? N("No search results.") :
-          N("No search results. You may want to switch to the '%s' view and to the '%s' filter",
-            N("All"), N("All"),);
+        my $string = $default_list_mode eq 'all' && $filter->[0] eq 'all' ? $loc->N("No search results.") :
+          $loc->N("No search results. You may want to switch to the '%s' view and to the '%s' filter",
+            $loc->N("All"), $loc->N("All"),);
         statusbar_msg($string , 1);
         #gtkset_mousecursor_normal($::w->{rwindow}->window);
     }
@@ -418,7 +420,7 @@ sub run_treeview_dialog {
             @$unsel < @$sel;
         },
         get_status => sub {
-            N("Selected: %s / Free disk space: %s", formatXiB($size_selected), formatXiB($size_free*1024));
+            $loc->N("Selected: %s / Free disk space: %s", formatXiB($size_selected), formatXiB($size_free*1024));
         },
         rebuild_tree => sub { $tree->rebuildTree(); },
     };
@@ -430,14 +432,14 @@ sub run_treeview_dialog {
     my $head_align_right = $factory->createRight($hbox_headbar);
     my $headbar = $factory->createHBox($head_align_left);
     my $headRight = $factory->createHBox($head_align_right);
-    
+
     #Line for logo and title
     my $hbox_iconbar  = $factory->createHBox($vbox);
     $head_align_left  = $factory->createLeft($hbox_iconbar);
     $hbox_iconbar     = $factory->createHBox($head_align_left);
     $factory->createImage($hbox_iconbar, $wm_icon);
-    
-    $factory->createHeading($hbox_iconbar, $::MODE eq 'update' ? N("Software Packages Update") : N("Software Management"));
+
+    $factory->createHeading($hbox_iconbar, $::MODE eq 'update' ? $loc->N("Software Packages Update") : $loc->N("Software Management"));
 
     my $hbox_top = $factory->createHBox($vbox);
     my $hbox_middle = $factory->createHBox($vbox);
@@ -469,7 +471,7 @@ sub run_treeview_dialog {
     #                                          "Glib::String",
     #                                          "Glib::String",
     #                                          "Glib::String",
-    #                                          "Glib::String", 
+    #                                          "Glib::String",
     #                                          "Glib::Boolean");
     #OLD $detail_list = Gtk2::TreeView->new_with_model($detail_list_model);
     my $detail_list_header = new yui::YTableHeader();
@@ -489,25 +491,25 @@ sub run_treeview_dialog {
 
     my %columns = (
         'name' => {
-            title => N("Package"),
+            title => $loc->N("Package"),
             markup => $pkg_columns{short_name},
         },
         'version' => {
-            title => N("Version"),
+            title => $loc->N("Version"),
             text => $pkg_columns{version},
         },
         'release' => {
-            title => N("Release"),
+            title => $loc->N("Release"),
             text => $pkg_columns{release},
         },
         if_($display_arch_col, 'arch' => {
             title =>
               #-PO: "Architecture" but to be kept *small* !!!
-              N("Arch."),
+              $loc->N("Arch."),
             text => $pkg_columns{arch},
         }),
         'mark' => {
-            title => N("ToInst"),
+            title => $loc->N("ToInst"),
         }
     );
     ## check column is first no title needed here, but we need to add it
@@ -529,7 +531,7 @@ sub run_treeview_dialog {
     #OLD $columns{name}{widget}->set_property('expand', '1');
     #OLD $columns{name}{renderer}->set_property('ellipsize', 'end');
     #OLD $columns{$_}{renderer}->set_property('xpad', '6') foreach @columns;
-    #OLD $columns{name}{widget}->set_resizable(1); 
+    #OLD $columns{name}{widget}->set_resizable(1);
     #OLD $detail_list_model->set_sort_column_id($pkg_columns{text}, 'ascending');
     #OLD $detail_list_model->set_sort_func($pkg_columns{version}, \&sort_callback);
     #OLD $detail_list->set_rules_hint(1);
@@ -538,13 +540,13 @@ sub run_treeview_dialog {
     #    my $pixcolumn =
     #      Gtk2::TreeViewColumn->new_with_attributes(
     #          #-PO: "Status" should be kept *small* !!!
-    #          N("Status"),
+    #          $loc->N("Status"),
     #          my $rdr = Gtk2::CellRendererPixbuf->new,
     #          'pixbuf' => $pkg_columns{state_icon})
     #    );
     #$rdr->set_fixed_size(34, 24);
     #$pixcolumn->set_sort_column_id($pkg_columns{state});
-    $detail_list_header->addColumn(N("Status"));
+    $detail_list_header->addColumn($loc->N("Status"));
 
     # it should be istanciated this way
     $detail_list = $mgaFactory->createCBTable($hbox_middle,$detail_list_header,$yui::YCBTableCheckBoxOnFirstColumn);
@@ -560,7 +562,7 @@ sub run_treeview_dialog {
         gtkset_mousecursor_normal($tree->window);
         undef $cursor_to_restore;
     },) foreach $tree, $detail_list;
-    
+
     $tree->currentItem(changed => sub {
         my ($model, $iter) = $_[0]->get_selected;
         return if !$iter;
@@ -586,9 +588,9 @@ sub run_treeview_dialog {
 
     my $is_backports = get_inactive_backport_media(fast_open_urpmi_db());
 
-    my %filters = (all => N("All"),
-                   installed => N("Installed"),
-                   non_installed => N("Not installed"),
+    my %filters = (all => $loc->N("All"),
+                   installed => $loc->N("Installed"),
+                   non_installed => $loc->N("Not installed"),
                );
 
     my %rfilters = reverse %filters;
@@ -603,27 +605,27 @@ sub run_treeview_dialog {
     $options->{tree_mode} = $default_list_mode;
 
     my %modes = (
-        flat => N("All packages, alphabetical"),
-        by_group => N("All packages, by group"),
-        by_leaves => N("Leaves only, sorted by install date"),
-        by_presence => N("All packages, by update availability"),
-        by_selection => N("All packages, by selection state"),
-        by_size => N("All packages, by size"),
-        by_source => N("All packages, by medium repository"),
+        flat => $loc->N("All packages, alphabetical"),
+        by_group => $loc->N("All packages, by group"),
+        by_leaves => $loc->N("Leaves only, sorted by install date"),
+        by_presence => $loc->N("All packages, by update availability"),
+        by_selection => $loc->N("All packages, by selection state"),
+        by_size => $loc->N("All packages, by size"),
+        by_source => $loc->N("All packages, by medium repository"),
     );
 
 
-    my %views = (all => N("All"),
+    my %views = (all => $loc->N("All"),
                  if_($is_backports, backports =>
                                      #-PO: Backports media are newer but less-tested versions of some packages in main
                                      #-PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
-                                     N("Backports")),
-                 meta_pkgs => N("Meta packages"),
-                 gui_pkgs => N("Packages with GUI"),
-                 all_updates => N("All updates"),
-                 security => N("Security updates"),
-                 bugfix => N("Bugfixes updates"),
-                 normal => N("General updates")
+                                     $loc->N("Backports")),
+                 meta_pkgs => $loc->N("Meta packages"),
+                 gui_pkgs => $loc->N("Packages with GUI"),
+                 all_updates => $loc->N("All updates"),
+                 security => $loc->N("Security updates"),
+                 bugfix => $loc->N("Bugfixes updates"),
+                 normal => $loc->N("General updates")
              );
     my %rviews = reverse %views;
     $options->{rviews} = \%rviews;
@@ -659,7 +661,7 @@ sub run_treeview_dialog {
         'ComboBox',
         list => [ qw(all installed non_installed) ], text => $filters{$filter->[0]},
         format => sub { $filters{$_[0]} },
-        tip => N("Filter"),
+        tip => $loc->N("Filter"),
         changed => sub {
             state $oldval;
             my $val = $_[0]->get_text;
@@ -702,7 +704,7 @@ sub run_treeview_dialog {
     my $search_menu = $factory->createComboBox($hbox_top,"");
     my $i = 0;
     my $previous;
-    foreach (N("in names"), N("in descriptions"), N("in summaries"), N("in file names")) { 
+    foreach ($loc->N("in names"), $loc->N("in descriptions"), $loc->N("in summaries"), $loc->N("in file names")) {
         my ($name, $val) = ($_, $i);
         #OLD $search_menu->append(gtksignal_connect(gtkshow(
         #    $previous = Gtk2::RadioMenuItem->new_with_label($previous, $name)),
@@ -712,9 +714,9 @@ sub run_treeview_dialog {
     }
 
     $find_entry = $factory->createInputField($hbox_top, "");
-    my $find_button = $factory->createIconButton($hbox_top, "/usr/share/mcc/themes/default/logdrake-mdk.png", N("Search"));
+    my $find_button = $factory->createIconButton($hbox_top, "/usr/share/mcc/themes/default/logdrake-mdk.png", $loc->N("Search"));
     $find_button->setWeight(0,6);
-    my $reset_search_button = $factory->createIconButton($hbox_top, "/usr/share/icons/gnome/22x22/actions/gtk-clear.png", N("Reset"));
+    my $reset_search_button = $factory->createIconButton($hbox_top, "/usr/share/icons/gnome/22x22/actions/gtk-clear.png", $loc->N("Reset"));
     $reset_search_button->setWeight(0,7);
     $find_entry->setWeight(0,10);
 
@@ -731,15 +733,15 @@ sub run_treeview_dialog {
         do_search($find_entry, $tree, $tree_model, $options, $current_search_type, $urpm, $pkgs);
     };
 
-    my $select_all_button = $factory->createIconButton($hbox_footbar,"",N("Select all"));
+    my $select_all_button = $factory->createIconButton($hbox_footbar,"",$loc->N("Select all"));
     $select_all_button->setWeight(0,6);
 
-    my $apply_button = $factory->createIconButton($hbox_footbar,"",N("Apply"));
+    my $apply_button = $factory->createIconButton($hbox_footbar,"",$loc->N("Apply"));
     $apply_button->setWeight(0,6);
 
-    my $QuitButton = $factory->createIconButton($hbox_footbar,"",N("Exit"));
+    my $QuitButton = $factory->createIconButton($hbox_footbar,"",$loc->N("Exit"));
     $QuitButton->setWeight(0,6);
-    
+
 
     #my $hpaned = gtknew('HPaned', position => $typical_width*0.9,
     #                    child1 => gtknew('ScrolledWindow', child => $tree),
@@ -767,21 +769,21 @@ sub run_treeview_dialog {
     my $checkbox_show_autoselect;
     my %check_boxes;
     my $auto_select_string =
-            N("/_Options") . N("/_Select dependencies without asking");
-    my $clean_cache_string = 
-            N("/_Options") . "/" . 
-            N("Clear download cache after successful install");
-    my $updates_string = N("/_Options") . N("/_Compute updates on startup");
-    my $NVR_string = N("/_Options") . "/" . N("Search in _full package names");
-    my $regexp_search_string = N("/_Options") . "/" . N("Use _regular expressions in searches");
-    
+            $loc->N("/_Options") . $loc->N("/_Select dependencies without asking");
+    my $clean_cache_string =
+            $loc->N("/_Options") . "/" .
+            $loc->N("Clear download cache after successful install");
+    my $updates_string = $loc->N("/_Options") . $loc->N("/_Compute updates on startup");
+    my $NVR_string = $loc->N("/_Options") . "/" . $loc->N("Search in _full package names");
+    my $regexp_search_string = $loc->N("/_Options") . "/" . $loc->N("Use _regular expressions in searches");
+
     # build File menu
     my %fileMenu = (
-            widget => $factory->createMenuButton($headbar,N("File")),
-            update => new yui::YMenuItem(N("Update media")),
-         reset_sel => new yui::YMenuItem(N("Reset the selection")),
-            reload => new yui::YMenuItem(N("Reload the packages list")),
-            quit   => new yui::YMenuItem(N("&Quit")),
+            widget => $factory->createMenuButton($headbar,$loc->N("File")),
+            update => new yui::YMenuItem($loc->N("Update media")),
+         reset_sel => new yui::YMenuItem($loc->N("Reset the selection")),
+            reload => new yui::YMenuItem($loc->N("Reload the packages list")),
+            quit   => new yui::YMenuItem($loc->N("&Quit")),
     );
 
     my @ordered_menu_lines = qw(update reset_sel reload quit);
@@ -791,10 +793,10 @@ sub run_treeview_dialog {
     $fileMenu{ widget }->rebuildMenuTree();
 
     # build View menu
-    my $view_menu = $factory->createMenuButton($headbar,N("View"));
-    
+    my $view_menu = $factory->createMenuButton($headbar,$loc->N("View"));
+
     # build Option menu
-    my $option_menu = $factory->createMenuButton($headbar,N("Options"));
+    my $option_menu = $factory->createMenuButton($headbar,$loc->N("Options"));
     my $a_s_string = $auto_select_string;
     my $c_c_string = $clean_cache_string;
     # stripping gtk-related stuff
@@ -802,18 +804,18 @@ sub run_treeview_dialog {
     $c_c_string =~s/\/.+\/_//g;
     my $optMnuItemAutoSelect = new yui::YMenuItem($a_s_string);
     my $optMnuItemCleanCache = new yui::YMenuItem($c_c_string);
-    
+
     $option_menu->addItem($optMnuItemAutoSelect);
     $option_menu->addItem($optMnuItemCleanCache);
-    
+
     $option_menu->rebuildMenuTree();
-    
+
     # build help menu
     my %helpMenu = (
-            widget     => $factory->createMenuButton($headRight, N("&Help")),
-            help       => new yui::YMenuItem(N("Manual")),
-            report_bug => new yui::YMenuItem(N("Report Bug")),
-            about      => new yui::YMenuItem(N("&About")),
+            widget     => $factory->createMenuButton($headRight, $loc->N("&Help")),
+            help       => new yui::YMenuItem($loc->N("Manual")),
+            report_bug => new yui::YMenuItem($loc->N("Report Bug")),
+            about      => new yui::YMenuItem($loc->N("&About")),
     );
     @ordered_menu_lines = qw(help report_bug about);
     foreach (@ordered_menu_lines) {
@@ -821,25 +823,25 @@ sub run_treeview_dialog {
     }
     $helpMenu{ widget }->rebuildMenuTree();
 
-    
+
     $statusbar = $factory->createBusyIndicator($hbox_footbar, "" );
 
 =for comment
     my ($menu, $factory) = create_factory_menu(
     $w->{real_window},
-    [ N("/_File"), undef, undef, undef, '<Branch>' ],
+    [ $loc->N("/_File"), undef, undef, undef, '<Branch>' ],
     if_(
         ! $>,
-        [ N("/_File") . N("/_Update media"), undef, sub {
+        [ $loc->N("/_File") . $loc->N("/_Update media"), undef, sub {
         update_sources_interactive($urpm, transient => $w->{real_window})
             and $reload_db_and_clear_all->();
         }, undef, '<Item>' ]
     ),
-    [ N("/_File") . N("/_Reset the selection"), undef, sub {
+    [ $loc->N("/_File") . $loc->N("/_Reset the selection"), undef, sub {
         if ($MODE ne 'remove') {
                 my $db = eval { open_rpm_db() };
                 if (!ref($db)) {
-                    statusbar_msg(N("Reset aborted (RPM DB is locked by another process)"), 1);
+                    statusbar_msg($loc->N("Reset aborted (RPM DB is locked by another process)"), 1);
                     return;
                 }
         $urpm->disable_selected(
@@ -855,12 +857,12 @@ sub run_treeview_dialog {
         $tree_selection->select_path(Gtk2::TreePath->new_from_string('0')) if !$tree_selection->get_selected;
         $tree_selection->signal_emit('changed');
     }, undef, '<Item>' ],
-    [ N("/_File") . N("/Reload the _packages list"), undef, $reload_db_and_clear_all, undef, '<Item>' ],
-    [ N("/_File") . N("/_Quit"), N("<control>Q"), \&quit, undef, '<Item>', ],
-    #[ N("/_View"), undef, undef, undef, '<Branch>' ],
+    [ $loc->N("/_File") . $loc->N("/Reload the _packages list"), undef, $reload_db_and_clear_all, undef, '<Item>' ],
+    [ $loc->N("/_File") . $loc->N("/_Quit"), $loc->N("<control>Q"), \&quit, undef, '<Item>', ],
+    #[ $loc->N("/_View"), undef, undef, undef, '<Branch>' ],
     if_(!$>,
-        [ N("/_Options"), undef, undef, undef, '<Branch>' ],
-        [ $auto_select_string, undef, 
+        [ $loc->N("/_Options"), undef, undef, undef, '<Branch>' ],
+        [ $auto_select_string, undef,
               sub {
                   my $box = $check_boxes{$auto_select_string};
                   $auto_select->[0] = $box->get_active;
@@ -868,18 +870,18 @@ sub run_treeview_dialog {
                   $urpm->{options}{auto} = $box->get_active;
               },
               undef, '<CheckItem>' ],
-        [ $clean_cache_string, undef, 
+        [ $clean_cache_string, undef,
               sub {
-                  $clean_cache->[0] = 
+                  $clean_cache->[0] =
                           $check_boxes{$clean_cache_string}->get_active;
                   $::noclean = !$clean_cache->[0];
-              }, 
+              },
               undef, '<CheckItem>' ],
-        [ N("/_Options") . N("/_Media Manager"), undef, sub {
+        [ $loc->N("/_Options") . $loc->N("/_Media Manager"), undef, sub {
                require AdminPanel::Rpmdragora::edit_urpm_sources;
                AdminPanel::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
            }, undef, '<Item>' ],
-        [ N("/_Options") . N("/_Show automatically selected packages"), undef, sub {
+        [ $loc->N("/_Options") . $loc->N("/_Show automatically selected packages"), undef, sub {
         $dont_show_selections->[0] = !$checkbox_show_autoselect->get_active;
         }, undef, '<CheckItem>' ],
 
@@ -893,34 +895,34 @@ sub run_treeview_dialog {
                 $use_regexp->[0] = $check_boxes{$regexp_search_string}->get_active;
         }, undef, '<CheckItem>' ],
     ),
-    [ N("/_View"), undef, undef, undef, '<Branch>' ],
+    [ $loc->N("/_View"), undef, undef, undef, '<Branch>' ],
         (map {
             state ($idx, $previous);
-            my $type = $idx ? join('/', N("/_View"), $previous) : '<RadioItem>';
+            my $type = $idx ? join('/', $loc->N("/_View"), $previous) : '<RadioItem>';
             $type =~ s/_//g; # gtk+ retrieve widgets by their path w/o any shortcut marks
             $previous = $modes{$_};
             $idx++;
             my $val = $_;
-            [ N("/_View") . '/' . $modes{$_}, undef, sub { $view_callback->($val) }, 0, $type ];
+            [ $loc->N("/_View") . '/' . $modes{$_}, undef, sub { $view_callback->($val) }, 0, $type ];
         } qw(flat by_group by_leaves by_presence by_selection by_size by_source)),
-    [ N("/_Help"), undef, undef, undef, '<Branch>' ],
-     [ N("/_Help") . N("/_Report Bug"), undef, sub { run_drakbug('rpmdragora') }, undef, '<Item>' ],
-    [ N("/_Help") . N("/_Help"), undef, sub { AdminPanel::rpmdragora::open_help('') }, undef, '<Item>' ],
-     [ N("/_Help") . N("/_About..."), undef, sub {
+    [ $loc->N("/_Help"), undef, undef, undef, '<Branch>' ],
+     [ $loc->N("/_Help") . $loc->N("/_Report Bug"), undef, sub { run_drakbug('rpmdragora') }, undef, '<Item>' ],
+    [ $loc->N("/_Help") . $loc->N("/_Help"), undef, sub { AdminPanel::rpmdragora::open_help('') }, undef, '<Item>' ],
+     [ $loc->N("/_Help") . $loc->N("/_About..."), undef, sub {
          my $license = formatAlaTeX(translate($::license));
          $license =~ s/\n/\n\n/sg; # nicer formatting
-         my $w = gtknew('AboutDialog', name => N("Rpmdragora"),
+         my $w = gtknew('AboutDialog', name => $loc->N("Rpmdragora"),
                         version => $AdminPanel::Rpmdragora::init::version,
-                        copyright => N("Copyright (C) %s by Mandriva", '2002-2009')."\n".N("Copyright (C) %s by Mageia.Org", '2010-2013'),
+                        copyright => $loc->N("Copyright (C) %s by Mandriva", '2002-2009')."\n".$loc->N("Copyright (C) %s by Mageia.Org", '2010-2013'),
                         license => $license, wrap_license => 1,
-                        comments => N("Rpmdragora is the Mageia package management tool."),
+                        comments => $loc->N("Rpmdragora is the Mageia package management tool."),
                         website => 'http://www.mageia.org',
-                        website_label => N("Mageia"),
+                        website_label => $loc->N("Mageia"),
                         authors => "Thierry Vignaud <vignaud@mandriva.com>\nAngelo Naselli <anaselli@gmail.com>\nMatteo Pasotti <matteo.pasotti@gmail.com>",
                         artists => 'Hélène Durosini <ln@mandriva.com>',
                         translator_credits =>
                           #-PO: put here name(s) and email(s) of translator(s) (eg: "John Smith <jsmith@nowhere.com>")
-                          N("_: Translator(s) name(s) & email(s)\n"),
+                          $loc->N("_: Translator(s) name(s) & email(s)\n"),
                         transient_for => $::main_window, modal => 1, position_policy => 'center-on-parent',
                     );
          $w->show_all;
@@ -933,7 +935,7 @@ sub run_treeview_dialog {
     # to retrieve a path, one must prevent "accelerators completion":
     my $get_path = sub { return join('', map { my $i = $_; $i =~ s/_//g; $i } @_) };
 
-    if (my $widget = $factory->get_item('<main>' . $get_path->(N("/_View") . '/' . $modes{$mode->[0]}))) {
+    if (my $widget = $factory->get_item('<main>' . $get_path->($loc->N("/_View") . '/' . $modes{$mode->[0]}))) {
         $widget->set_active(1);
     } else {
         warn "Impossible to set $mode->[0] view as default\n";
@@ -941,10 +943,10 @@ sub run_treeview_dialog {
 
     %check_boxes = map {
         $_ => $factory->get_widget("<main>" . $get_path->($_));
-    } ($auto_select_string, 
-       $clean_cache_string, 
-       $NVR_string, 
-       $updates_string, 
+    } ($auto_select_string,
+       $clean_cache_string,
+       $NVR_string,
+       $updates_string,
        $regexp_search_string);
 
     if (!$>) {
@@ -955,7 +957,7 @@ sub run_treeview_dialog {
         $check_boxes{$clean_cache_string}->set_active($clean_cache->[0]);
     }
 
-    $checkbox_show_autoselect = $factory->get_widget("<main>" . strip_first_underscore(N("/_Options"), N("/_Show automatically selected packages")))
+    $checkbox_show_autoselect = $factory->get_widget("<main>" . strip_first_underscore($loc->N("/_Options"), $loc->N("/_Show automatically selected packages")))
     and $checkbox_show_autoselect->set_active(!$dont_show_selections->[0]);
 
     my $accel = Gtk2::AccelGroup->new;
@@ -976,11 +978,11 @@ sub run_treeview_dialog {
             gtknew('HBox', spacing => 10),
             0, $view_box,
             0, $filter_box,
-            0, gtknew('Label', text => N("Find:")),
+            0, gtknew('Label', text => $loc->N("Find:")),
             1, $find_entry = gtknew('Entry', width => 260,
                                              primary_icon => 'gtk-find',
                                              secondary_icon => 'gtk-clear',
-                                             tip => N("Please type in the string you want to search then press the <enter> key"),
+                                             tip => $loc->N("Please type in the string you want to search then press the <enter> key"),
                                              'icon-release' => $find_callback,
                                              'icon-press' => sub {
                                                  my (undef, $pos, $event) = @_;
@@ -1003,18 +1005,18 @@ sub run_treeview_dialog {
             0, gtkpack_(
             gtknew('HBox', spacing => 20),
             0, gtksignal_connect(
-                Gtk2::Button->new(but_(N("Select all"))),
+                Gtk2::Button->new(but_($loc->N("Select all"))),
                 clicked => sub {
                        toggle_all($options, 1);
                    },
             ),
             1, gtknew('Label'),
             0, my $action_button = gtksignal_connect(
-                Gtk2::Button->new(but_(N("Apply"))),
+                Gtk2::Button->new(but_($loc->N("Apply"))),
                 clicked => sub { do_action($options, $callback_action, $info) },
             ),
             0, gtksignal_connect(
-                Gtk2::Button->new(but_(N("Quit"))),
+                Gtk2::Button->new(but_($loc->N("Quit"))),
                 clicked => \&quit,
             ),
             ),
@@ -1026,13 +1028,13 @@ sub run_treeview_dialog {
     $action_button->set_sensitive(0) if $>;
     $find_entry->grab_focus;
 
-    gtktext_insert($info, [ 
+    gtktext_insert($info, [
         [ $info->render_icon('gtk-dialog-info', 'GTK_ICON_SIZE_DIALOG', undef) ],
         @{ ugtk2::markup_to_TextView_format(
-            formatAlaTeX(join("\n\n\n", format_header(N("Quick Introduction")),
-                              N("You can browse the packages through the categories tree on the left."),
-                              N("You can view information about a package by clicking on it on the right list."),
-                              N("To install, update or remove a package, just click on its \"checkbox\"."))))
+            formatAlaTeX(join("\n\n\n", format_header($loc->N("Quick Introduction")),
+                              $loc->N("You can browse the packages through the categories tree on the left."),
+                              $loc->N("You can view information about a package by clicking on it on the right list."),
+                              $loc->N("To install, update or remove a package, just click on its \"checkbox\"."))))
       }
     ]);
 
@@ -1103,7 +1105,7 @@ sub run_treeview_dialog {
                 if ($MODE ne 'remove') {
                     my $db = eval { open_rpm_db() };
                     if (!ref($db)) {
-                        statusbar_msg(N("Reset aborted (RPM DB is locked by another process)"), 1);
+                        statusbar_msg($loc->N("Reset aborted (RPM DB is locked by another process)"), 1);
                         return;
                     }
                     $urpm->disable_selected(
@@ -1120,16 +1122,16 @@ sub run_treeview_dialog {
                 $reload_db_and_clear_all->();
             }
             elsif ($menuLabel eq $helpMenu{ about }->label()) {
-                my $translators = N("_: Translator(s) name(s) & email(s)\n");
+                my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
                 my $sh_gui = AdminPanel::Shared::GUI->new();
                 $sh_gui->AboutDialog({ name => "Rpmdragora",
                                              version => "TODO",
-                         credits => N("Copyright (C) %s Mageia community", '2013-2014'),
-                         license => N("GPLv2"),
-                         description => N("Rpmdragora is the Mageia package management tool."),
-                         authors => N("<h3>Developers</h3>
+                         credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                         license => $loc->N("GPLv2"),
+                         description => $loc->N("Rpmdragora is the Mageia package management tool."),
+                         authors => $loc->N("<h3>Developers</h3>
                                                     <ul><li>%s</li>
                                                            <li>%s</li>
                                                        </ul>
@@ -1189,11 +1191,11 @@ sub run_treeview_dialog {
 
 
 if (my $pid = is_running('rpmdragora')) {
-    interactive_msg(N("Warning"), N("rpmdragora is already running (pid: %s)", $pid), yesno => [ N("Quit") ]);
+    interactive_msg($loc->N("Warning"), $loc->N("rpmdragora is already running (pid: %s)", $pid), yesno => [ $loc->N("Quit") ]);
     exit(0);
 }
 
-yui::YUI::app()->setApplicationTitle(N("Software Management"));
+yui::YUI::app()->setApplicationTitle($loc->N("Software Management"));
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
 my $MGAPlugin = "mga";

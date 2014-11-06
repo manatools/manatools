@@ -34,6 +34,7 @@ BEGIN { $::no_global_argv_parsing = 1 }
 require urpm::args;
 
 use AdminPanel::Privileges;
+use AdminPanel::Shared::Locales;
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -49,25 +50,27 @@ our @EXPORT = qw(init
 our @ARGV_copy =  @ARGV;
 
 BEGIN {  #- we want to run this code before the Gtk->init of the use-my_gtk
+    my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+
     my $basename = sub { local $_ = shift; s|/*\s*$||; s|.*/||; $_ };
     any { /^--?h/ } @ARGV and do {
-	printf join("\n", N("Usage: %s [OPTION]...", $basename->($0)),
-N("  --auto                 assume default answers to questions"),
-N("  --changelog-first      display changelog before filelist in the description window"),
-N("  --media=medium1,..     limit to given media"),
-N("  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"),
-N("  --mode=MODE            set mode (install (default), remove, update)"),
-N("  --justdb               update the database, but do not modify the filesystem"),
-N("  --no-confirmation      don't ask first confirmation question in update mode"),
-N("  --no-media-update      don't update media at startup"),
-N("  --no-verify-rpm        don't verify package signatures"),
-if_($0 !~ /MageiaUpdate/, N("  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host\" machine to show needed deps")),
-N("  --rpm-root=path        use another root for rpm installation"),
-N("  --urpmi-root           use another root for urpmi db & rpm installation"),
-N("  --run-as-root          force to run as root"),
-N("  --search=pkg           run search for \"pkg\""),
-N("  --test                 only verify if the installation can be achieved correctly"),
-chomp_(N("  --version              print this tool's version number
+	printf join("\n", $loc->N("Usage: %s [OPTION]...", $basename->($0)),
+$loc->N("  --auto                 assume default answers to questions"),
+$loc->N("  --changelog-first      display changelog before filelist in the description window"),
+$loc->N("  --media=medium1,..     limit to given media"),
+$loc->N("  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"),
+$loc->N("  --mode=MODE            set mode (install (default), remove, update)"),
+$loc->N("  --justdb               update the database, but do not modify the filesystem"),
+$loc->N("  --no-confirmation      don't ask first confirmation question in update mode"),
+$loc->N("  --no-media-update      don't update media at startup"),
+$loc->N("  --no-verify-rpm        don't verify package signatures"),
+if_($0 !~ /MageiaUpdate/, $loc->N("  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host\" machine to show needed deps")),
+$loc->N("  --rpm-root=path        use another root for rpm installation"),
+$loc->N("  --urpmi-root           use another root for urpmi db & rpm installation"),
+$loc->N("  --run-as-root          force to run as root"),
+$loc->N("  --search=pkg           run search for \"pkg\""),
+$loc->N("  --test                 only verify if the installation can be achieved correctly"),
+chomp_($loc->N("  --version              print this tool's version number
 ")),
 ""
 );
@@ -158,8 +161,9 @@ our $changelog_first = $AdminPanel::rpmdragora::changelog_first_config->[0];
 $changelog_first = 1 if $rpmdragora_options{'changelog-first'};
 
 sub warn_about_user_mode() {
-    my $title = N("Running in user mode");
-    my $msg = N("You are launching this program as a normal user.\n".
+    my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+    my $title = $loc->N("Running in user mode");
+    my $msg = $loc->N("You are launching this program as a normal user.\n".
                 "You will not be able to perform modifications on the system,\n".
                 "but you may still browse the existing database.");
 

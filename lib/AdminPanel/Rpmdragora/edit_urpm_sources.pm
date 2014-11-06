@@ -50,7 +50,6 @@ our @ISA = qw(Exporter);
 our @EXPORT = qw(run);
 
 
-my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
 my $urpm;
 my ($mainw, $list_tv, $something_changed);
 
@@ -64,6 +63,7 @@ my %col = (
     },
 );
 
+my $loc = AdminPanel::rpmdragora::locale();
 
 sub get_medium_type {
     my ($medium) = @_;

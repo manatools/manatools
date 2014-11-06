@@ -27,6 +27,7 @@ package AdminPanel::Rpmdragora::formatting;
 use strict;
 use utf8;
 use POSIX qw(strftime);
+use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
 use lib qw(/usr/lib/libDrakX);
 use MDK::Common::Various; # included for internal_error subroutine
@@ -54,6 +55,7 @@ our @EXPORT = qw(
                     urpm_name
             );
 
+my $loc = AdminPanel::rpmdragora::locale();
 
 sub escape_text_for_TextView_markup_format {
     my ($str) = @_;
@@ -85,6 +87,7 @@ sub ensure_utf8 {
 sub rpm_description {
     my ($description) = @_;
     ensure_utf8($description);
+    $DB::single = 1;
     my ($t, $tmp);
     foreach (split "\n", $description) {
 	s/^\s*//;
@@ -114,8 +117,8 @@ sub urpm_name {
 sub pkg2medium {
     my ($p, $urpm) = @_;
     return if !ref $p;
-    return { name => N("None (installed)") } if !defined($p->id); # if installed
-    URPM::pkg2media($urpm->{media}, $p) || { name => N("Unknown"), fake => 1 };
+    return { name => $loc->N("None (installed)") } if !defined($p->id); # if installed
+    URPM::pkg2media($urpm->{media}, $p) || { name => $loc->N("Unknown"), fake => 1 };
 }
 
 # [ duplicate urpmi's urpm::msg::localtime2changelog() ]
@@ -141,7 +144,7 @@ sub format_changelog_string {
         if (/^\*/) {
             add2hash(\%attrs, \%date_attr);
             ($version) = /(\S*-\S*)\s*$/;
-            $highlight = $installed_version ne N("(none)") && 0 < URPM::rpmvercmp($version, $installed_version);
+            $highlight = $installed_version ne $loc->N("(none)") && 0 < URPM::rpmvercmp($version, $installed_version);
         }
         add2hash(\%attrs, \%update_attr) if $highlight;
         [ "$spacing$_\n", if_(%attrs, \%attrs) ];
@@ -177,14 +180,14 @@ sub format_field {
 
 sub format_size {
     my ($size) = @_;
-    $size >= 0 ? 
-      N("%s of additional disk space will be used.", formatXiB($size)) :
-        N("%s of disk space will be freed.", formatXiB(-$size));
+    $size >= 0 ?
+      $loc->N("%s of additional disk space will be used.", formatXiB($size)) :
+        $loc->N("%s of disk space will be freed.", formatXiB(-$size));
 }
 
 sub format_filesize {
     my ($filesize) = @_;
-    $filesize ? N("%s of packages will be retrieved.", formatXiB($filesize)) : ();
+    $filesize ? $loc->N("%s of packages will be retrieved.", formatXiB($filesize)) : ();
 }
 
 sub format_list { join("\n", map { s/^(\s)/  $1/mg; "- $_" } sort { uc($a) cmp uc($b) } @_) }

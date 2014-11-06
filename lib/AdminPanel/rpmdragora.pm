@@ -47,6 +47,7 @@ use Locale::gettext;
 use feature 'state';
 
 use AdminPanel::Shared;
+use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::GUI;
 
 our @ISA = qw(Exporter);
@@ -72,6 +73,7 @@ our @EXPORT = qw(
     $typical_width
     $clean_cache
     $auto_select
+    locale
     add_distrib_update_media
     add_medium_and_check
     but
@@ -115,7 +117,8 @@ use yui;
 use Glib;
 #ugtk2::add_icon_path('/usr/share/rpmdragora/icons');
 
-Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
+# Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
+my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');;
 
 our $mageia_release = MDK::Common::File::cat_(
     -e '/etc/mageia-release' ? '/etc/mageia-release' : '/etc/release'
@@ -125,9 +128,19 @@ our ($distro_version) = $mageia_release =~ /(\d+\.\d+)/;
 our ($branded, %distrib);
 $branded = -f '/etc/sysconfig/oem'
     and %distrib = MDK::Common::System::distrib();
-our $myname_update = $branded ? N_("Software Update") : N_("Mageia Update");
+our $myname_update = $branded ? $loc->N_("Software Update") : $loc->N_("Mageia Update");
 
 @rpmdragora::prompt::ISA = 'urpm::prompt';
+
+
+sub locale() {
+
+    if (!defined($loc)) {
+       $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+    }
+
+    return $loc;
+}
 
 sub rpmdragora::prompt::prompt {
     my ($self) = @_;
@@ -144,7 +157,7 @@ sub rpmdragora::prompt::prompt {
 		Gtk2::Label->new($self->{prompts}[$_]),
 		$answers[$_] = gtkset_visibility(gtkentry(), !$self->{hidden}[$_]),
 	    ) } 0 .. $#{$self->{prompts}}),
-	    gtksignal_connect(Gtk2::Button->new(N("Ok")), clicked => sub { Gtk2->main_quit }),
+	    gtksignal_connect(Gtk2::Button->new($loc->N("Ok")), clicked => sub { Gtk2->main_quit }),
 	),
     );
     $d->main;
@@ -152,8 +165,8 @@ sub rpmdragora::prompt::prompt {
 }
 
 $urpm::download::PROMPT_PROXY = new rpmdragora::prompt(
-    N_("Please enter your credentials for accessing proxy\n"),
-    [ N_("User name:"), N_("Password:") ],
+    $loc->N_("Please enter your credentials for accessing proxy\n"),
+    [ $loc->N_("User name:"), $loc->N_("Password:") ],
     undef,
     [ 0, 1 ],
 );
@@ -238,12 +251,12 @@ sub getbanner() {
     $::MODE or return undef;
     if (0) {
 	+{
-	remove  => N("Software Packages Removal"),
-	update  => N("Software Packages Update"),
-	install => N("Software Packages Installation"),
+	remove  => $loc->N("Software Packages Removal"),
+	update  => $loc->N("Software Packages Update"),
+	install => $loc->N("Software Packages Installation"),
 	};
     }
-#    Gtk2::Banner->new($ugtk2::wm_icon, $::MODE eq 'update' ? N("Software Packages Update") : N("Software Management"));
+#    Gtk2::Banner->new($ugtk2::wm_icon, $::MODE eq 'update' ? $loc->N("Software Packages Update") : $loc->N("Software Management"));
 }
 
 # return value:
@@ -273,12 +286,12 @@ sub interactive_msg {
 
     if ($options{yesno}) {
         $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
-        $dlg->setButtonLabel($options{text}{yes} || N("Yes"), $yui::YMGAMessageBox::B_ONE);
-        $dlg->setButtonLabel($options{text}{no}  || N("No"),  $yui::YMGAMessageBox::B_TWO);
+        $dlg->setButtonLabel($options{text}{yes} || $loc->N("Yes"), $yui::YMGAMessageBox::B_ONE);
+        $dlg->setButtonLabel($options{text}{no}  || $loc->N("No"),  $yui::YMGAMessageBox::B_TWO);
     }
     else {
         $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE);
-        $dlg->setButtonLabel(N("Ok"), $yui::YMGAMessageBox::B_ONE );
+        $dlg->setButtonLabel($loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
     }
 
     $dlg->setTitle($info->{title}) if (exists $info->{title});
@@ -323,7 +336,7 @@ sub interactive_list {
     my $factory = yui::YUI::widgetFactory;
     my $mainw = $factory->createPopupDialog();
     my $vbox = $factory->createVBox($mainw);
-    my $lbltitle = $factory->createLabel($vbox, N("Dependencies"));
+    my $lbltitle = $factory->createLabel($vbox, $loc->N("Dependencies"));
     my $radiobuttongroup = $factory->createRadioButtonGroup($vbox);
     my $rbbox = $factory->createVBox($radiobuttongroup);
     foreach my $item(@$list){
@@ -331,7 +344,7 @@ sub interactive_list {
         $radiobutton->setNotify(0);
         $radiobuttongroup->addRadioButton($radiobutton);
     }
-    my $submitButton = $factory->createIconButton($vbox,"", N("OK"));
+    my $submitButton = $factory->createIconButton($vbox,"", $loc->N("OK"));
     my $choice;
 
     while(1) {
@@ -366,7 +379,7 @@ sub fatal_msg {
 
 sub wait_msg {
     my ($msg, %options) = @_;
-    #OLD my $mainw = ugtk2->new(N("Please wait"), grab => 1, if_(exists $options{transient}, transient => $options{transient}));
+    #OLD my $mainw = ugtk2->new($loc->N("Please wait"), grab => 1, if_(exists $options{transient}, transient => $options{transient}));
     #$mainw->{real_window}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
     #my $label = $factory->createLabel($vbox, $msg);
     #OLD my $label = ref($msg) =~ /^Gtk/ ? $msg : Gtk2::WrappedLabel->new($msg);
@@ -381,7 +394,7 @@ sub wait_msg {
     my $factory = yui::YUI::widgetFactory;
     my $mainw = $factory->createPopupDialog();
     my $vbox = $factory->createVBox($mainw);
-    my $title = $factory->createLabel($vbox, N("Please wait"));
+    my $title = $factory->createLabel($vbox, $loc->N("Please wait"));
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
     $mainw->waitForEvent(10);
@@ -466,50 +479,50 @@ sub slow_func_statusbar ($$&) {
 }
 
 my %u2l = (
-       ar => N_("Argentina"),
-       at => N_("Austria"),
-       au => N_("Australia"),
-       by => N_("Belarus"),
-       be => N_("Belgium"),
-       br => N_("Brazil"),
-       gb => N_("Britain"),
-       ca => N_("Canada"),
-       ch => N_("Switzerland"),
-       cr => N_("Costa Rica"),
-       cz => N_("Czech Republic"),
-       de => N_("Germany"),
-       dk => N_("Danmark"),
-       ec => N_("Ecuador"),
-       el => N_("Greece"),
-       es => N_("Spain"),
-       fi => N_("Finland"),
-       fr => N_("France"),
-       gr => N_("Greece"),
-       hu => N_("Hungary"),
-       id => N_("Indonesia"),
-       il => N_("Israel"),
-       it => N_("Italy"),
-       jp => N_("Japan"),
-       ko => N_("Korea"),
-       nl => N_("Netherlands"),
-       no => N_("Norway"),
-       pl => N_("Poland"),
-       pt => N_("Portugal"),
-       ru => N_("Russia"),
-       se => N_("Sweden"),
-       sg => N_("Singapore"),
-       sk => N_("Slovakia"),
-       za => N_("South Africa"),
-       tw => N_("Taiwan"),
-       th => N_("Thailand"),
-       tr => N_("Turkey"),
-       uk => N_("United Kingdom"),
-       cn => N_("China"),
-       us => N_("United States"),
-       com => N_("United States"),
-       org => N_("United States"),
-       net => N_("United States"),
-       edu => N_("United States"),
+       ar => $loc->N_("Argentina"),
+       at => $loc->N_("Austria"),
+       au => $loc->N_("Australia"),
+       by => $loc->N_("Belarus"),
+       be => $loc->N_("Belgium"),
+       br => $loc->N_("Brazil"),
+       gb => $loc->N_("Britain"),
+       ca => $loc->N_("Canada"),
+       ch => $loc->N_("Switzerland"),
+       cr => $loc->N_("Costa Rica"),
+       cz => $loc->N_("Czech Republic"),
+       de => $loc->N_("Germany"),
+       dk => $loc->N_("Danmark"),
+       ec => $loc->N_("Ecuador"),
+       el => $loc->N_("Greece"),
+       es => $loc->N_("Spain"),
+       fi => $loc->N_("Finland"),
+       fr => $loc->N_("France"),
+       gr => $loc->N_("Greece"),
+       hu => $loc->N_("Hungary"),
+       id => $loc->N_("Indonesia"),
+       il => $loc->N_("Israel"),
+       it => $loc->N_("Italy"),
+       jp => $loc->N_("Japan"),
+       ko => $loc->N_("Korea"),
+       nl => $loc->N_("Netherlands"),
+       no => $loc->N_("Norway"),
+       pl => $loc->N_("Poland"),
+       pt => $loc->N_("Portugal"),
+       ru => $loc->N_("Russia"),
+       se => $loc->N_("Sweden"),
+       sg => $loc->N_("Singapore"),
+       sk => $loc->N_("Slovakia"),
+       za => $loc->N_("South Africa"),
+       tw => $loc->N_("Taiwan"),
+       th => $loc->N_("Thailand"),
+       tr => $loc->N_("Turkey"),
+       uk => $loc->N_("United Kingdom"),
+       cn => $loc->N_("China"),
+       us => $loc->N_("United States"),
+       com => $loc->N_("United States"),
+       org => $loc->N_("United States"),
+       net => $loc->N_("United States"),
+       edu => $loc->N_("United States"),
 );
 my $us = [ qw(us com org net edu) ];
 my %t2l = (
@@ -587,9 +600,9 @@ sub add_medium_and_check {
     }
     if (@error_msgs) {
         interactive_msg(
-            N("Error"),
-            N("Unable to add medium, errors reported:\n\n%s",
-            join("\n", map { MDK::Common::String::formatAlaTeX($_) } @error_msgs)) . "\n\n" . N("Medium: ") . "$_[0] ($_[1])",
+            $loc->N("Error"),
+            $loc->N("Unable to add medium, errors reported:\n\n%s",
+            join("\n", map { MDK::Common::String::formatAlaTeX($_) } @error_msgs)) . "\n\n" . $loc->N("Medium: ") . "$_[0] ($_[1])",
             scroll => 1,
         );
         return 0;
@@ -599,7 +612,7 @@ sub add_medium_and_check {
         urpm::download::set_proxy_config($_, $options->{proxy}{$_}, $name) foreach keys %{$options->{proxy} || {}};
     }
 
-    if (update_sources_check($urpm, $options, N_("Unable to add medium, errors reported:\n\n%s"), @newnames)) {
+    if (update_sources_check($urpm, $options, $loc->N_("Unable to add medium, errors reported:\n\n%s"), @newnames)) {
         urpm::media::write_config($urpm);
         $options->{proxy} and urpm::download::dump_proxy_config();
     } else {
@@ -611,13 +624,13 @@ sub add_medium_and_check {
     if (any { exists $newnames{$_->{name}} } @{$urpm->{media}}) {
         return 1;
     } else {
-        interactive_msg(N("Error"), N("Unable to create medium."));
+        interactive_msg($loc->N("Error"), $loc->N("Unable to create medium."));
         return 0;
     }
 
   fatal_error:
-    interactive_msg(N("Failure when adding medium"),
-                    N("There was a problem adding medium:\n\n%s", $fatal_msg));
+    interactive_msg($loc->N("Failure when adding medium"),
+                    $loc->N("There was a problem adding medium:\n\n%s", $fatal_msg));
     return 0;
 }
 
@@ -629,7 +642,7 @@ sub update_sources_check {
     update_sources($urpm, %$options, noclean => 1, medialist => \@media);
   fatal_error:
     if (@error_msgs) {
-        interactive_msg(N("Error"), translate($error_msg, join("\n", map { formatAlaTeX($_) } @error_msgs)), scroll => 1);
+        interactive_msg($loc->N("Error"), translate($error_msg, join("\n", map { formatAlaTeX($_) } @error_msgs)), scroll => 1);
         return 0;
     }
     return 1;
@@ -643,13 +656,13 @@ sub update_sources {
     my $factory = yui::YUI::widgetFactory;
 
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("rpmdragora"));
+    yui::YUI::app()->setApplicationTitle($loc->N("rpmdragora"));
 
     my $dlg = $factory->createPopupDialog();
     my $minSize = $factory->createMinSize( $dlg, 80, 5 );
     my $vbox = $factory->createVBox($minSize);
     my $hbox = $factory->createHBox($factory->createLeft($vbox));
-    my $label = $factory->createRichText($hbox, N("Please wait, updating media..."), 1 );
+    my $label = $factory->createRichText($hbox, $loc->N("Please wait, updating media..."), 1 );
     $label->setWeight($yui::YD_HORIZ, 1);
     $label->setWeight($yui::YD_VERT, 1);
 
@@ -672,8 +685,8 @@ sub update_sources {
             my ($type, $media) = @_;
             goto cancel_update if $type !~ /^(?:start|progress|end)$/ && @media && !member($media, @media);
             if ($type eq 'failed') {
-                $urpm->{fatal}->(N("Error retrieving packages"),
-N("It's impossible to retrieve the list of new packages from the media
+                $urpm->{fatal}->($loc->N("Error retrieving packages"),
+$loc->N("It's impossible to retrieve the list of new packages from the media
 `%s'. Either this update media is misconfigured, and in this case
 you should use the Software Media Manager to remove it and re-add it in order
 to reconfigure it, either it is currently unreachable and you should retry
@@ -701,37 +714,37 @@ sub show_urpm_progress {
 
     if ($mode eq 'copy') {
         $pb->setValue(0);
-        $label->setValue(N("Copying file for medium `%s'...", $file));
+        $label->setValue($loc->N("Copying file for medium `%s'...", $file));
     } elsif ($mode eq 'parse') {
         $pb->setValue(0);
-        $label->setValue(N("Examining file of medium `%s'...", $file));
+        $label->setValue($loc->N("Examining file of medium `%s'...", $file));
     } elsif ($mode eq 'retrieve') {
         $pb->setValue(0);
-        $label->setValue(N("Examining remote file of medium `%s'...", $file));
+        $label->setValue($loc->N("Examining remote file of medium `%s'...", $file));
         $medium = $file;
     } elsif ($mode eq 'done') {
         $pb->setValue(100);
-        $label->setValue($label->value() . N(" done."));
+        $label->setValue($label->value() . $loc->N(" done."));
         $medium = undef;
     } elsif ($mode eq 'failed') {
         $pb->setValue(100);
-        $label->setValue($label->value() . N(" failed!"));
+        $label->setValue($label->value() . $loc->N(" failed!"));
         $medium = undef;
     } else {
         # FIXME: we're displaying misplaced quotes such as "downloading `foobar from 'medium Main Updates'´"
         $file = $medium && length($file) < 40 ? #-PO: We're downloading the said file from the said medium
-                                                 N("%s from medium %s", basename($file), $medium)
+                                                 $loc->N("%s from medium %s", basename($file), $medium)
                                                : basename($file);
         if ($mode eq 'start') {
             $pb->setValue(0);
-            $label->setValue(N("Starting download of `%s'...", $file));
+            $label->setValue($loc->N("Starting download of `%s'...", $file));
         } elsif ($mode eq 'progress') {
             if (defined $total && defined $eta) {
                 $pb->setValue($percent);
-                $label->setValue(N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
+                $label->setValue($loc->N("Download of `%s'\ntime to go:%s, speed:%s", $file, $eta, $speed));
             } else {
                 $pb->setValue($percent);
-                $label->setValue(N("Download of `%s'\nspeed:%s", $file, $speed));
+                $label->setValue($loc->N("Download of `%s'\nspeed:%s", $file, $speed));
             }
         }
     }
@@ -743,14 +756,14 @@ sub update_sources_interactive {
 
     my @media = grep { ! $_->{ignore} } @{$urpm->{media}};
     unless (@media) {
-        interactive_msg(N("Warning"), N("No active medium found. You must enable some media to be able to update them."));
+        interactive_msg($loc->N("Warning"), $loc->N("No active medium found. You must enable some media to be able to update them."));
         return 0;
     }
 
     my $appTitle = yui::YUI::app()->applicationTitle();
 
     ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle(N("Update media"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Update media"));
 
     my $retVal  = 0;
     my $mageiaPlugin = "mga";
@@ -764,7 +777,7 @@ sub update_sources_interactive {
 
     my $yTableHeader = new yui::YTableHeader();
     $yTableHeader->addColumn("", $yui::YAlignBegin);
-    $yTableHeader->addColumn(N("Media"),  $yui::YAlignBegin);
+    $yTableHeader->addColumn($loc->N("Media"),  $yui::YAlignBegin);
 
     my $mediaTable = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
 
@@ -782,9 +795,9 @@ sub update_sources_interactive {
     ## Window push buttons
     my $hbox = $factory->createHBox( $vbox );
 
-    my $cancelButton = $factory->createPushButton($hbox, N("Cancel") );
-    my $selectButton = $factory->createPushButton($hbox, N("Select all") );
-    my $updateButton = $factory->createPushButton($hbox, N("Update") );
+    my $cancelButton = $factory->createPushButton($hbox, $loc->N("Cancel") );
+    my $selectButton = $factory->createPushButton($hbox, $loc->N("Select all") );
+    my $updateButton = $factory->createPushButton($hbox, $loc->N("Update") );
 
     while(1) {
         my $event       = $dialog->waitForEvent();
@@ -863,7 +876,7 @@ sub update_sources_noninteractive {
         update_sources_check(
             $urpm,
             {},
-            N_("Unable to update medium; it will be automatically disabled.\n\nErrors:\n%s"),
+            $loc->N_("Unable to update medium; it will be automatically disabled.\n\nErrors:\n%s"),
             @$media,
         );
         return 1;
@@ -888,15 +901,15 @@ sub warn_for_network_need {
     my ($message, %options) = @_;
     $message ||=
         $branded
-        ? N("I need to access internet to get the mirror list.
+        ? $loc->N("I need to access internet to get the mirror list.
 Please check that your network is currently running.
 
 Is it ok to continue?")
-        : N("I need to contact the Mageia website to get the mirror list.
+        : $loc->N("I need to contact the Mageia website to get the mirror list.
 Please check that your network is currently running.
 
 Is it ok to continue?");
-    interactive_msg(N("Mirror choice"), $message, yesno => 1, %options) or return '';
+    interactive_msg($loc->N("Mirror choice"), $message, yesno => 1, %options) or return '';
 }
 
 sub choose_mirror {
@@ -908,22 +921,22 @@ sub choose_mirror {
     my $error = $@;
     if ($error) {
         $error = "\n$error\n";
-        interactive_msg(N("Error during download"),
+        interactive_msg($loc->N("Error during download"),
                         ($branded
-                        ? N("There was an error downloading the mirror list:\n%s\n
+                        ? $loc->N("There was an error downloading the mirror list:\n%s\n
 The network, or the website, may be unavailable.
 Please try again later.", $error)
-                        : N("There was an error downloading the mirror list:\n%s\n
+                        : $loc->N("There was an error downloading the mirror list:\n%s\n
 The network, or the Mageia website, may be unavailable.
 Please try again later.", $error)), %options
         );
         return '';
     }
 
-    !@mirrors and interactive_msg(N("No mirror"),
+    !@mirrors and interactive_msg($loc->N("No mirror"),
                                   ($branded
-                                  ? N("I can't find any suitable mirror.")
-                                  : N("I can't find any suitable mirror.\n
+                                  ? $loc->N("I can't find any suitable mirror.")
+                                  : $loc->N("I can't find any suitable mirror.\n
 There can be many reasons for this problem; the most frequent is
 the case when the architecture of your processor is not supported
 by Mageia Official Updates.")), %options
@@ -932,8 +945,8 @@ by Mageia Official Updates.")), %options
     my @mirrorlist = map {$_->{country} . "|" . $_->{url}} @mirrors;
 
     my $sh_gui = AdminPanel::Shared::GUI->new();
-    my $mirror = $sh_gui->ask_fromTreeList({title => N("Mirror choice"),
-        header => N("Please choose the desired mirror."),
+    my $mirror = $sh_gui->ask_fromTreeList({title => $loc->N("Mirror choice"),
+        header => $loc->N("Please choose the desired mirror."),
         default_button => 1,
         item_separator => "|",
         default_item => $mirrors[0]->{url},
@@ -958,12 +971,12 @@ sub check_update_media_version {
     foreach (@_) {
         if ($_->{name} =~ /(\d+\.\d+).*\bftp\du\b/ && $1 ne $distro_version) {
             interactive_msg(
-                N("Warning"),
+                $loc->N("Warning"),
                 $branded
-                ? N("Your medium `%s', used for updates, does not match the version of %s you're running (%s).
+                ? $loc->N("Your medium `%s', used for updates, does not match the version of %s you're running (%s).
 It will be disabled.",
                     $_->{name}, $distrib{system}, $distrib{product})
-                : N("Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).
+                : $loc->N("Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).
 It will be disabled.",
                     $_->{name}, $distro_version)
             );
@@ -993,8 +1006,8 @@ sub mirrors {
             # display a message in statusbar (if availlable):
             $::statusbar and $id = statusbar_msg(
                 $branded
-                  ? N("Please wait, downloading mirror addresses.")
-                    : N("Please wait, downloading mirror addresses from the Mageia website."),
+                  ? $loc->N("Please wait, downloading mirror addresses.")
+                    : $loc->N("Please wait, downloading mirror addresses from the Mageia website."),
                 0);
             my $_clean_guard = before_leaving {
                 undef $gurpm;
@@ -1008,14 +1021,14 @@ sub mirrors {
                                            dir => $cachedir,
                                            callback => sub {
                                                $gurpm ||=
-                                                 AdminPanel::Rpmdragora::gurpm->new(N("Please wait"),
+                                                 AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
                                                                       transient => $::main_window);
                                                $canceled ||=
                                                  !AdminPanel::Rpmdragora::pkg::download_callback($gurpm, @_);
                                                $gurpm->flush();
                                            },
                                        );
-            $res or die N("retrieval of [%s] failed", $file) . "\n";
+            $res or die $loc->N("retrieval of [%s] failed", $file) . "\n";
             return $canceled ? () : MDK::Common::File::cat_($file);
         });
     my @mirrors = @{ mirror::list(common::parse_LDAP_namespace_structure(MDK::Common::File::cat_('/etc/product.id')), 'distrib') || [] };
@@ -1051,8 +1064,8 @@ sub open_help {
     my ($mode) = @_;
     use run_program;
     run_program::raw({ detach => 1, as_user => 1 },  'drakhelp', '--id', $mode ?  "software-management-$mode" : 'software-management');
-    my $_s = N("Help launched in background");
-    statusbar_msg(N("The help window has been started, it should appear shortly on your desktop."), 1);
+    my $_s = $loc->N("Help launched in background");
+    statusbar_msg($loc->N("The help window has been started, it should appear shortly on your desktop."), 1);
 }
 
 sub run_drakbug {
