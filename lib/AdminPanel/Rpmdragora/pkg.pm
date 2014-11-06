@@ -94,8 +94,8 @@ sub run_rpm {
 sub extract_header {
     my ($pkg, $urpm, $xml_info, $o_installed_version) = @_;
     my %fields = (
-        info => 'description',
-        files => 'files',
+        info      => 'description',
+        files     => 'files',
         changelog => 'changelog',
     );
     # already extracted:
@@ -114,16 +114,16 @@ sub extract_header {
 
     if ($p->flag_installed && !$p->flag_upgrade) {
         my @files = map { chomp_($_) } run_rpm("rpm -ql $name");
-	add2hash($pkg, { files => [ @files ? @files : $loc->N("(none)") ],
-                         description => rpm_description(scalar(run_rpm("rpm -q --qf '%{description}' $name"))),
-                         changelog => format_changelog_string($o_installed_version, scalar(run_rpm("rpm -q --changelog $name"))) });
+        add2hash($pkg, { files => [ @files ? @files : $loc->N("(none)") ],
+            description => rpm_description(scalar(run_rpm("rpm -q --qf '%{description}' $name"))),
+                 changelog => format_changelog_string($o_installed_version, scalar(run_rpm("rpm -q --changelog $name"))) });
     } else {
-	my $medium = pkg2medium($p, $urpm);
+        my $medium = pkg2medium($p, $urpm);
         my ($local_source, %xml_info_pkgs, $bar_id);
         my $_statusbar_clean_guard = before_leaving { $bar_id and statusbar_msg_remove($bar_id) };
         my $dir = urpm::file_from_local_url($medium->{url});
         print "p->filename: ". $p->filename."\n";
-	    $local_source = "$dir/" . $p->filename if $dir;
+        $local_source = "$dir/" . $p->filename if $dir;
         print "local_source: $local_source\n";
         if (-e $local_source) {
             $bar_id = statusbar_msg($loc->N("Getting information from %s...", $dir), 0);
@@ -132,46 +132,46 @@ sub extract_header {
             my $gurpm;
             $bar_id = statusbar_msg($loc->N("Getting '%s' from XML meta-data...", $xml_info), 0);
             my $_gurpm_clean_guard = before_leaving { undef $gurpm };
-                if (my $xml_info_file = eval { urpm::media::any_xml_info($urpm, $medium, $xml_info, undef, sub {
-                                                                      $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
-                                                                                                      '', # FIXME: add a real string after cooker
-                                                                                                      transient => $::main_window);
-                                                                      download_callback($gurpm, @_)
-                                                                        or goto header_non_available;
-                                                                  }) }) {
-                    require urpm::xml_info;
-                    require urpm::xml_info_pkg;
-                    $urpm->{log}("getting information from $xml_info_file");
-                    my %nodes = eval { urpm::xml_info::get_nodes($xml_info, $xml_info_file, [ $name ]) };
-                    goto header_non_available if $@;
-                    put_in_hash($xml_info_pkgs{$name} ||= {}, $nodes{$name});
+            if (my $xml_info_file = eval { urpm::media::any_xml_info($urpm, $medium, $xml_info, undef, sub {
+                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
+                                                              '', # FIXME: add a real string after cooker
+                                                              transient => $::main_window);
+                download_callback($gurpm, @_)
+                or goto header_non_available;
+            }) }) {
+                require urpm::xml_info;
+                require urpm::xml_info_pkg;
+                $urpm->{log}("getting information from $xml_info_file");
+                my %nodes = eval { urpm::xml_info::get_nodes($xml_info, $xml_info_file, [ $name ]) };
+                goto header_non_available if $@;
+                put_in_hash($xml_info_pkgs{$name} ||= {}, $nodes{$name});
+            } else {
+                if ($xml_info eq 'info') {
+                    $urpm->{info}($loc->N("No xml info for medium \"%s\", only partial result for package %s", $medium->{name}, $name));
                 } else {
-                    if ($xml_info eq 'info') {
-                        $urpm->{info}($loc->N("No xml info for medium \"%s\", only partial result for package %s", $medium->{name}, $name));
-                    } else {
-                        $urpm->{error}($loc->N("No xml info for medium \"%s\", unable to return any result for package %s", $medium->{name}, $name));
-                    }
+                    $urpm->{error}($loc->N("No xml info for medium \"%s\", unable to return any result for package %s", $medium->{name}, $name));
                 }
-	}
+            }
+        }
 
         #- even if non-root, search for a header in the global cachedir
         if (-s $local_source) {
             $p->update_header($local_source) or do {
-		warn "Warning, could not extract header for $name from $medium!";
-		goto header_non_available;
-	    };
-	    my @files = $p->files;
-	    @files = $loc->N("(none)") if !@files;
-	    add2hash($pkg, { description => rpm_description($p->description),
-	        files => \@files,
-	        url => $p->url,
-		changelog => format_changelog_changelogs($o_installed_version, $p->changelogs) });
-	    $p->pack_header; # needed in order to call methods on objects outside ->traverse
+                warn "Warning, could not extract header for $name from $medium!";
+                goto header_non_available;
+            };
+            my @files = $p->files;
+            @files = $loc->N("(none)") if !@files;
+            add2hash($pkg, { description => rpm_description($p->description),
+                files => \@files,
+                url => $p->url,
+                changelog => format_changelog_changelogs($o_installed_version, $p->changelogs) });
+            $p->pack_header; # needed in order to call methods on objects outside ->traverse
         } elsif ($xml_info_pkgs{$name}) {
             if ($xml_info eq 'info') {
                 add2hash($pkg, { description => rpm_description($xml_info_pkgs{$name}{description}),
-                                 url => $xml_info_pkgs{$name}{url}
-                             });
+                         url => $xml_info_pkgs{$name}{url}
+                });
             } elsif ($xml_info eq 'files') {
                 my @files = map { chomp_(to_utf8($_)) } split("\n", $xml_info_pkgs{$name}{files});
                 add2hash($pkg, { files => [ @files ? @files : $loc->N("(none)") ] });
@@ -185,8 +185,8 @@ sub extract_header {
             goto header_non_available;
         }
         return;
-           header_non_available:
-             add2hash($pkg, { summary => $p->summary || $loc->N("(Not available)"), description => undef });
+        header_non_available:
+        add2hash($pkg, { summary => $p->summary || $loc->N("(Not available)"), description => undef });
     }
 }
 
