@@ -64,6 +64,7 @@ our @EXPORT = qw(
                     $urpm
                     %grp_columns
                     %pkg_columns
+                    %hidden_info
                     @filtered_pkgs
                     @initial_selection
                     ask_browse_tree_given_widgets_for_rpmdragora
@@ -95,6 +96,13 @@ my $loc = AdminPanel::rpmdragora::locale();
 our ($descriptions, %filters, @filtered_pkgs, %filter_methods, $force_displaying_group, $force_rebuild, @initial_selection, $pkgs, $size_free, $size_selected, $urpm);
 our ($results_ok, $results_none) = ($loc->N("Search results"), $loc->N("Search results (none)"));
 
+our %hidden_info = (
+    details   => "details",
+    changelog => "changelog",
+    files     => "file",
+    new_deps  => "new_deps",
+
+);
 our %grp_columns = (
     label => 0,
     icon => 2,
@@ -291,14 +299,42 @@ sub get_url_link {
 
 sub files_format {
     my ($files) = @_;
-    ugtk2::markup_to_TextView_format(
+#     ugtk2::markup_to_TextView_format(
         '<tt>' . $spacing #- to highlight information
           . join("\n$spacing", map { "\x{200e}$_" } @$files)
-            . '</tt>');
+            . '</tt>';
+}
+
+#=============================================================
+
+=head2 format_link
+
+=head3 INPUT
+
+    $description: Description to be shown as link
+    $url: to be reach when click on $description link
+
+=head3 OUTPUT
+
+    $webref: href HTML tag
+
+=head3 DESCRIPTION
+
+    This function returns an href string to be published
+
+=cut
+
+#=============================================================
+sub format_link {
+    my ($description, $url) = @_;
+
+    my $webref = "<a href=\"". $url ."\">". $description ."</a>";
+
+    return $webref;
 }
 
 sub format_pkg_simplifiedinfo {
-    my ($pkgs, $key, $urpm, $descriptions) = @_;
+    my ($pkgs, $key, $urpm, $descriptions, $options) = @_;
     my ($name) = split_fullname($key);
     my $pkg = $pkgs->{$key};
     my $upkg = $pkg->{pkg};
@@ -323,16 +359,32 @@ sub format_pkg_simplifiedinfo {
 
     #push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field($loc->N("Details:")))),
     #                   gtknew('TextView', text => get_details($pkg, $upkg, $installed_version, $raw_medium))) ];
-    my $details = get_details($pkg, $upkg, $installed_version, $raw_medium);
-    utf8::encode($details);
-    push @$s, join("\n", format_field($loc->N("Details:")). "\n" . $details);
-    #$details_exp->set_use_markup(1);
-    push @$s, [ "\n\n" ];
-    #push @$s, [ build_expander($pkg, $loc->N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
-    push @$s, [ "\n\n" ];
-    #push @$s, [ build_expander($pkg, $loc->N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
+    my $detail_link = format_link(format_field($loc->N("Details:")), $hidden_info{details} );
+    if ($options->{details}) {
+        my $details = get_details($pkg, $upkg, $installed_version, $raw_medium);
+        utf8::encode($details);
+        $detail_link .= "\n" . $details;
+    }
+    push @$s, join("\n", $detail_link, "\n");
 
-    push @$s, [ "\n\n" ];
+    #push @$s, [ build_expander($pkg, $loc->N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
+    my $files_link = format_link(format_field($loc->N("Files:")), $hidden_info{files} );
+    if ($options->{files}) {
+#         my $files = files_format($pkg->{files});
+#         utf8::encode($files);
+#         $files_link .= "\n" . $files;
+    }
+    push @$s, join("\n", $files_link, "\n");
+
+    #push @$s, [ build_expander($pkg, $loc->N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
+    my $changelog_link = format_link(format_field($loc->N("Changelog:")), $hidden_info{changelog} );
+    if ($options->{files}) {
+#         my $changelog = $pkg->{changelog};
+#         utf8::encode($changelog);
+#         $changelog_link .= "\n" . $changelog;
+    }
+    push @$s, join("\n", $changelog_link, "\n");
+
     if ($upkg->id) { # If not installed
         #    push @$s, get_new_deps($urpm, $upkg);
     }
@@ -1018,7 +1070,7 @@ sub callback_choices {
 
 #=============================================================
 sub setInfoOnWidget {
-    my ($pkgname, $infoWidget) = @_;
+    my ($pkgname, $infoWidget, $options) = @_;
 
     return if( ref $infoWidget ne "yui::YRichText");
 
@@ -1026,7 +1078,7 @@ sub setInfoOnWidget {
 
     my $info_text ="<h2>" . $loc->N("Informations") . "</h2>";
 
-    my @data = get_info($pkgname);
+    my @data = get_info($pkgname, $options);
     for(@{$data[0]}){
         if(ref $_ ne "ARRAY"){
             $info_text .= "<br />" . $_;
@@ -1467,13 +1519,33 @@ or you already installed all of them."));
     statusbar_msg_remove($wait) if defined $wait;
 }
 
+#=============================================================
+
+=head2 get_info
+
+=head3 INPUT
+
+    $key: package full name
+    $options: HASH reference containing:
+                details   => show details
+                changelog => show changelog
+                files     => show files
+                new_deps  => show new dependencies
+
+=head3 DESCRIPTION
+
+    return a format_pkg_simplifiedinfo
+
+=cut
+
+#=============================================================
 sub get_info {
-    my ($key, $widget) = @_;
+    my ($key, $options) = @_;
     #- the package information hasn't been loaded. Instead of rescanning the media, just give up.
     exists $pkgs->{$key} or return [ [ $loc->N("Description not available for this package\n") ] ];
     #- get the description if needed:
-    exists $pkgs->{$key}{description} or slow_func($widget, sub { extract_header($pkgs->{$key}, $urpm, 'info', find_installed_version($pkgs->{$key}{pkg})) });
-    format_pkg_simplifiedinfo($pkgs, $key, $urpm, $descriptions);
+    exists $pkgs->{$key}{description} or slow_func("", sub { extract_header($pkgs->{$key}, $urpm, 'info', find_installed_version($pkgs->{$key}{pkg})) });
+    format_pkg_simplifiedinfo($pkgs, $key, $urpm, $descriptions, $options);
 }
 
 sub sort_callback {
@@ -1483,6 +1555,29 @@ sub sort_callback {
 
 sub run_help_callback {
     my (undef, $url) = @_;
+    my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
+    local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
+    run_program::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
+}
+
+#=============================================================
+
+=head2 run_browser
+
+=head3 INPUT
+
+    $url: url to be passed to the configured browser
+
+=head3 DESCRIPTION
+
+    This function calls the browser with the given URL
+
+=cut
+
+#=============================================================
+sub run_browser {
+    my $url = shift;
+
     my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
     run_program::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);

@@ -252,6 +252,8 @@ sub run_treeview_dialog {
     my $closeButton  = $factory->createPushButton($hbox, $loc->N("Quit") );
     $statusbar       = $factory->createBusyIndicator($vbox, "" );
 
+    my $info_options = {};
+
     while(1) {
         my $event     = $dialog->waitForEvent();
         my $eventType = $event->eventType();
@@ -259,6 +261,31 @@ sub run_treeview_dialog {
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last if quit();
+        }
+        elsif ($eventType == $yui::YEvent::MenuEvent) {
+            my $item = $event->item();
+            if (!$item) {
+                #URL emitted or at least a ref into RichText widget
+                my $url = yui::toYMenuEvent($event)->id ();
+                $item = $packageTbl->selectedItem();
+                my $pkg = $data{$item->index()}{fullname};
+                if ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{details}) {
+                    $info_options->{details} = 1;
+                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                }
+                elsif ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{files}) {
+                    $info_options->{files} = 1;
+                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                }
+                elsif ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{changelog}) {
+                    $info_options->{changelog} = 1;
+                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                }
+                else {
+                    # default it's really a URL
+                    AdminPanel::Rpmdragora::gui::run_browser($url);
+                }
+            }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             # widget selected
@@ -295,6 +322,7 @@ sub run_treeview_dialog {
                 my $item = $packageTbl->selectedItem();
                 if ($item) {
                     my $pkg = $data{$item->index()}{fullname};
+                    $info_options = {};
                     AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
                 }
                 my $wEvent = yui::toYWidgetEvent($event);
@@ -307,9 +335,6 @@ sub run_treeview_dialog {
                     }
                 }
                 yui::YUI::app()->normalCursor();
-            }
-            elsif ($widget == $infoBox) {
-                print "RichText widget Event\n";
             }
             elsif ($widget == $selectButton) {
                 yui::YUI::app()->busyCursor();
