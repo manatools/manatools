@@ -1052,6 +1052,40 @@ sub callback_choices {
     defined $choices[0] ? $choices->[$choices[0]] : undef;
 }
 
+#=============================================================
+
+=head2 info_details
+
+=head3 INPUT
+
+    $info_detail_selected: string to get more info details
+                           (see %hidden_info)
+    $info_options:         reference to info options that are going to changed
+                           based on passed $info_detail_selected
+
+=head3 OUTPUT
+
+    [0, 1]: 0 if $info_detail_selected not valid, 1 otherwise
+
+=head3 DESCRIPTION
+
+    This function change the info_options accordingly to the string passed
+    returning 0 if the string is not managed (see %hidden_info)
+
+=cut
+
+#=============================================================
+sub info_details {
+    my ($info_detail_selected, $info_options) = @_;
+
+    foreach my $k (keys %hidden_info) {
+        if ($info_detail_selected eq $hidden_info{$k}) {
+            $info_options->{$k} = $info_options->{$k} ? 0 : 1;
+            return 1;
+        }
+    }
+    return 0;
+}
 
 #=============================================================
 
@@ -1120,7 +1154,7 @@ sub deps_msg {
     ####
     # (1) info on pkg list:
     #  [ label info ]
-    #  tree sub info (Details, Files, Changelog, New dependencies)
+    #  sub info on click (Details, Files, Changelog, New dependencies)
 
     my $dialog       = $factory->createPopupDialog;
     my $vbox         = $factory->createVBox( $dialog );
@@ -1129,10 +1163,11 @@ sub deps_msg {
     my $hbox         = $factory->createHBox( $vbox );
     my $pkgList      = $factory->createSelectionBox( $hbox, $loc->N("Select package") );
 
-    my $frame        = $factory->createFrame ($hbox, $loc->N("Information on packages"));
-    my $frmVbox      = $factory->createVBox( $frame );
-    my $infoBox      = $factory->createRichText($frmVbox, "", 0);
-#     my $treeWidget = $factory->createTree($frmVbox, "");
+#     my $frame        = $factory->createFrame ($hbox, $loc->N("Information on packages"));
+#     my $frmVbox      = $factory->createVBox( $frame );
+    my $infoBox      = $factory->createRichText($hbox, "", 0);
+                       $pkgList->setWeight($yui::YD_HORIZ, 1);
+                       $infoBox->setWeight($yui::YD_HORIZ, 3);
                        $factory->createVSpacing($vbox, 1);
     $hbox            = $factory->createHBox( $vbox );
     my $align        = $factory->createRight($hbox);
@@ -1156,6 +1191,7 @@ sub deps_msg {
     }
 
     my $retval = 0;
+    my $info_options = {};
     while(1) {
         my $event     = $dialog->waitForEvent();
         my $eventType = $event->eventType();
@@ -1166,6 +1202,19 @@ sub deps_msg {
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             my $item = $event->item();
+            if (!$item) {
+                #URL emitted or at least a ref into RichText widget
+                my $url = yui::toYMenuEvent($event)->id ();
+                if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                    $item = $pkgList->selectedItem();
+                    my $pkg = $item->label();
+                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                }
+                else {
+                    # default it's really a URL
+                    AdminPanel::Rpmdragora::gui::run_browser($url);
+                }
+            }
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             ### widget
@@ -1173,6 +1222,7 @@ sub deps_msg {
             if ($widget == $pkgList) {
                 #change info
                 $item = $pkgList->selectedItem();
+                $info_options = {};
                 if ( $item ) {
                     my $pkg = $item->label();
                     setInfoOnWidget($pkg, $infoBox);

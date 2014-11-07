@@ -267,18 +267,9 @@ sub run_treeview_dialog {
             if (!$item) {
                 #URL emitted or at least a ref into RichText widget
                 my $url = yui::toYMenuEvent($event)->id ();
-                $item = $packageTbl->selectedItem();
-                my $pkg = $data{$item->index()}{fullname};
-                if ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{details}) {
-                    $info_options->{details} = $info_options->{details} ? 0 : 1;
-                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
-                }
-                elsif ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{files}) {
-                    $info_options->{files} = $info_options->{files} ? 0 : 1;
-                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
-                }
-                elsif ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{changelog}) {
-                    $info_options->{changelog} = $info_options->{changelog} ? 0 : 1;
+                if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                    $item = $packageTbl->selectedItem();
+                    my $pkg = $data{$item->index()}{fullname};
                     AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
                 }
                 else {

@@ -1103,9 +1103,8 @@ sub run_treeview_dialog {
             if (!$item) {
                 #URL emitted or at least a ref into RichText widget
                 my $url = yui::toYMenuEvent($event)->id ();
-                $item = $detail_list->selectedItem();
-                if ($url eq $AdminPanel::Rpmdragora::gui::hidden_info{details}) {
-                    $info_options->{details} = $info_options->{details} ? 0 : 1;
+                if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                    $item = $detail_list->selectedItem();
                     detaillist_callback($item, $info, \%$options, $info_options);
                 }
                 else {
