@@ -123,14 +123,14 @@ our %pkg_columns = (
 
 sub compute_main_window_size {
     my ($w) = @_;
-    ($typical_width) = string_size($w->{real_window}, translate("Graphical Environment") . "xmms-more-vis-plugins");
+    ($typical_width) = string_size($w->{real_window}, $loc->N("Graphical Environment") . "xmms-more-vis-plugins");
     $typical_width > 600 and $typical_width = 600;  #- try to not being crazy with a too large value
     $typical_width < 150 and $typical_width = 150;
 }
 
 sub get_summary {
     my ($key) = @_;
-    my $summary = translate($pkgs->{$key}{pkg}->summary);
+    my $summary = $loc->N($pkgs->{$key}{pkg}->summary);
     require utf8;
     utf8::valid($summary) ? $summary : @{[]};
 }
@@ -183,8 +183,6 @@ sub get_string_from_keywords {
         my ($distribconf, $medium_path) = @{$medium->{mediacfg}};
         @media_types = split(':', $distribconf->getvalue($medium_path, 'media_type')) if $distribconf;
     }
-
-    $DB::single = 1;
 
     my $unsupported = $loc->N("It is <b>not supported</b> by Mageia.");
     my $dangerous = $loc->N("It may <b>break</b> your system.");
@@ -344,8 +342,6 @@ sub format_pkg_simplifiedinfo {
     my $update_descr = $descriptions->{$medium}{$name};
     # discard update fields if not matching:
 
-    $DB::single = 1;
-
     my $is_update = ($upkg->flag_upgrade && $update_descr && $update_descr->{pre});
     my $summary = get_summary($key);
     my $dummy_string = get_main_text($raw_medium, $key, $name, $summary, $is_update, $update_descr);
@@ -370,15 +366,18 @@ sub format_pkg_simplifiedinfo {
     #push @$s, [ build_expander($pkg, $loc->N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
     my $files_link = format_link(format_field($loc->N("Files:")), $hidden_info{files} );
     if ($options->{files}) {
+        $DB::single = 1;
 #         my $files = files_format($pkg->{files});
 #         utf8::encode($files);
+        $files_link .= join("\n", $pkg->{files});
 #         $files_link .= "\n" . $files;
     }
     push @$s, join("\n", $files_link, "\n");
 
     #push @$s, [ build_expander($pkg, $loc->N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
     my $changelog_link = format_link(format_field($loc->N("Changelog:")), $hidden_info{changelog} );
-    if ($options->{files}) {
+    if ($options->{changelog}) {
+        $DB::single = 1;
 #         my $changelog = $pkg->{changelog};
 #         utf8::encode($changelog);
 #         $changelog_link .= "\n" . $changelog;
@@ -1475,11 +1474,11 @@ sub do_action {
 }
 
 sub translate_group {
-    join('/', map { translate($_) } split m|/|, $_[0]);
+    join('/', map { $loc->N($_) } split m|/|, $_[0]);
 }
 
 sub ctreefy {
-    join('|', map { translate($_) } split m|/|, $_[0]);
+    join('|', map { $loc->N($_) } split m|/|, $_[0]);
 }
 
 sub _build_tree {
