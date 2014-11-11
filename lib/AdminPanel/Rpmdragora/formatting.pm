@@ -63,7 +63,7 @@ sub escape_text_for_TextView_markup_format {
     );
     eval { $str =~ s!([&<>])!$rules{$1}!g }; #^(&(amp|lt|gt);)!!) {
     if (my $err = $@) {
-        internal_error("$err\n$str");
+        MDK::Common::Various::internal_error("$err\n$str");
     }
     $str;
 }

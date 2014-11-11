@@ -629,7 +629,7 @@ sub display_READMEs_if_needed {
 
 sub perform_parallel_install {
     my ($urpm, $group, $w, $statusbar_msg_id) = @_;
-    my @pkgs = map { if_($_->flag_requested, urpm_name($_)) } @{$urpm->{depslist}};
+    my @pkgs = map { MDK::Common::Func::if_($_->flag_requested, urpm_name($_)) } @{$urpm->{depslist}};
 
     my @error_msgs;
     my $res = !run_program::run('urpmi', '2>', \@error_msgs, '-v', '--X', '--parallel', $group, @pkgs);
@@ -715,7 +715,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     my @pkgs = map { scalar($_->fullname) } sort(grep { $_->flag_selected } @to_install);
 
     @{$urpm->{ask_remove}} = sort(urpm::select::removed_packages($urpm->{state}));
-    my @to_remove = map { if_($pkgs->{$_}{selected} && !$pkgs->{$_}{pkg}->flag_upgrade, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
+    my @to_remove = map { MDK::Common::Func::if_($pkgs->{$_}{selected} && !$pkgs->{$_}{pkg}->flag_upgrade, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
 
     my $r = format_list(map { scalar(urpm::select::translate_why_removed_one($urpm, $urpm->{state}, $_)) } @to_remove);
 
@@ -732,7 +732,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                         (!$to_install ? ($loc->P("Remove one package?", "Remove %d packages?", $remove_count, $remove_count), $r) :
  (($remove_count == 1 ?
  $loc->N("The following package has to be removed for others to be upgraded:")
-   : $loc->N("The following packages have to be removed for others to be upgraded:")), $r), if_($to_install, $to_install))
+   : $loc->N("The following packages have to be removed for others to be upgraded:")), $r), MDK::Common::Func::if_($to_install, $to_install))
                           : $to_install),
                          format_size($size),
                          format_filesize($filesize),
@@ -850,7 +850,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  local $::main_window = $gurpm->{real_window};
                                  $msg =~ s/:$/\n\n/m; # FIXME: to be fixed in urpmi after 2008.0
                                  interactive_msg(
-                                     $loc->N("Warning"), "$msg\n\n$msg2", yesno => 1, if_(10 < ($msg =~ tr/\n/\n/), scroll => 1),
+                                     $loc->N("Warning"), "$msg\n\n$msg2", yesno => 1, MDK::Common::Func::if_(10 < ($msg =~ tr/\n/\n/), scroll => 1),
                                  );
                              },
                              post_download => sub {
@@ -866,7 +866,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  my ($nok, $errors) = @_;
                                  interactive_msg(
                                      $loc->N("Problem during installation"),
-                                     if_($nok, $loc->N("%d installation transactions failed", $nok) . "\n\n") .
+                                     MDK::Common::Func::if_($nok, $loc->N("%d installation transactions failed", $nok) . "\n\n") .
                                        $loc->N("There was a problem during the installation:\n\n%s",
                                          join("\n\n", @$errors, @error_msgs)),
                                      scroll => 1,
@@ -953,7 +953,7 @@ you may now inspect some in order to take actions:"),
 
 sub perform_removal {
     my ($urpm, $pkgs) = @_;
-    my @toremove = map { if_($pkgs->{$_}{selected}, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
+    my @toremove = map { MDK::Common::Func::if_($pkgs->{$_}{selected}, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
     return if !@toremove;
     my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Please wait, removing packages..."), $loc->N("Initializing..."), transient => $::main_window);
     my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
@@ -990,7 +990,7 @@ sub perform_removal {
 	interactive_msg(
 	    $loc->N("Problem during removal"),
 	    $loc->N("There was a problem during the removal of packages:\n\n%s", join("\n",  @results)),
-	    if_(@results > 1, scroll => 1),
+	    MDK::Common::Func::if_(@results > 1, scroll => 1),
 	);
 	return 1;
     } else {
