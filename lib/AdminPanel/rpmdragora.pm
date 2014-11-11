@@ -312,6 +312,8 @@ sub interactive_msg {
 sub interactive_packtable {
     my ($title, $parent_window, $top_label, $lines, $action_buttons) = @_;
 
+    warnings::warn("AdminPanel::rpmdragora::interactive_packtable is deprecated and is going to be removed");
+
     my $w = ugtk2->new($title, grab => 1, transient => $parent_window);
     local $::main_window = $w->{real_window};
     $w->{rwindow}->set_position($parent_window ? 'center_on_parent' : 'center');
