@@ -561,7 +561,7 @@ sub run_treeview_dialog {
     $detail_list->setImmediateMode(1);
     #OLD compute_main_window_size($w);
 
-=comment
+=for comment
     my $cursor_to_restore;
     $_->signal_connect(
     expose_event => sub {
@@ -662,7 +662,7 @@ sub run_treeview_dialog {
     $options->{tree_submode} ||= $default_list_mode;
     $options->{tree_subflat} ||= $options->{state}{flat};
 
-=comment
+=for comment
     * OLD *
     my $filter_box = gtknew(
         'ComboBox',
