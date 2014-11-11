@@ -26,8 +26,14 @@ package AdminPanel::Rpmdragora::pkg;
 
 use strict;
 use MDK::Common::Func 'any';
-use lib qw(/usr/lib/libDrakX);
-use common;
+use MDK::Common::DataStructure;
+use MDK::Common::System;
+use MDK::Common::File;
+use MDK::Common::Various;
+
+# use lib qw(/usr/lib/libDrakX);
+# use common;
+
 use POSIX qw(_exit ceil);
 use URPM;
 use utf8;
@@ -63,9 +69,6 @@ our @EXPORT = qw(
                     sort_packages
                     );
 
-#use mygtk2 qw(gtknew);
-#use ugtk2 qw(:all);
-
 our $priority_up_alread_warned;
 
 sub sort_packages_biarch {
@@ -80,7 +83,7 @@ sub sort_packages_monoarch {
     sort { uc($a) cmp uc($b) } @_;
 }
 
-*sort_packages = arch() =~ /x86_64/ ? \&sort_packages_biarch : \&sort_packages_monoarch;
+*sort_packages = MDK::Common::System::arch() =~ /x86_64/ ? \&sort_packages_biarch : \&sort_packages_monoarch;
 
 sub run_rpm {
     foreach (qw(LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL)) {
@@ -113,14 +116,14 @@ sub extract_header {
     $name =~ s!\.src!!;
 
     if ($p->flag_installed && !$p->flag_upgrade) {
-        my @files = map { chomp_($_) } run_rpm("rpm -ql $name");
-        add2hash($pkg, { files => [ @files ? @files : $loc->N("(none)") ],
+        my @files = map { MDK::Common::Various::chomp_($_) } run_rpm("rpm -ql $name");
+        MDK::Common::DataStructure::add2hash($pkg, { files => [ @files ? @files : $loc->N("(none)") ],
             description => rpm_description(scalar(run_rpm("rpm -q --qf '%{description}' $name"))),
                  changelog => format_changelog_string($o_installed_version, scalar(run_rpm("rpm -q --changelog $name"))) });
     } else {
         my $medium = pkg2medium($p, $urpm);
         my ($local_source, %xml_info_pkgs, $bar_id);
-        my $_statusbar_clean_guard = before_leaving { $bar_id and statusbar_msg_remove($bar_id) };
+        my $_statusbar_clean_guard = MDK::Common::Func::before_leaving { $bar_id and statusbar_msg_remove($bar_id) };
         my $dir = urpm::file_from_local_url($medium->{url});
         print "p->filename: ". $p->filename."\n";
         $local_source = "$dir/" . $p->filename if $dir;
@@ -131,7 +134,7 @@ sub extract_header {
         } else {
             my $gurpm;
             $bar_id = statusbar_msg($loc->N("Getting '%s' from XML meta-data...", $xml_info), 0);
-            my $_gurpm_clean_guard = before_leaving { undef $gurpm };
+            my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
             if (my $xml_info_file = eval { urpm::media::any_xml_info($urpm, $medium, $xml_info, undef, sub {
                 $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
                                                               '', # FIXME: add a real string after cooker
@@ -144,7 +147,7 @@ sub extract_header {
                 $urpm->{log}("getting information from $xml_info_file");
                 my %nodes = eval { urpm::xml_info::get_nodes($xml_info, $xml_info_file, [ $name ]) };
                 goto header_non_available if $@;
-                put_in_hash($xml_info_pkgs{$name} ||= {}, $nodes{$name});
+                MDK::Common::DataStructure::put_in_hash($xml_info_pkgs{$name} ||= {}, $nodes{$name});
             } else {
                 if ($xml_info eq 'info') {
                     $urpm->{info}($loc->N("No xml info for medium \"%s\", only partial result for package %s", $medium->{name}, $name));
@@ -162,21 +165,21 @@ sub extract_header {
             };
             my @files = $p->files;
             @files = $loc->N("(none)") if !@files;
-            add2hash($pkg, { description => rpm_description($p->description),
+            MDK::Common::DataStructure::add2hash($pkg, { description => rpm_description($p->description),
                 files => \@files,
                 url => $p->url,
                 changelog => format_changelog_changelogs($o_installed_version, $p->changelogs) });
             $p->pack_header; # needed in order to call methods on objects outside ->traverse
         } elsif ($xml_info_pkgs{$name}) {
             if ($xml_info eq 'info') {
-                add2hash($pkg, { description => rpm_description($xml_info_pkgs{$name}{description}),
+                MDK::Common::DataStructure::add2hash($pkg, { description => rpm_description($xml_info_pkgs{$name}{description}),
                          url => $xml_info_pkgs{$name}{url}
                 });
             } elsif ($xml_info eq 'files') {
-                my @files = map { chomp_($loc->to_utf8($_)) } split("\n", $xml_info_pkgs{$name}{files});
-                add2hash($pkg, { files => scalar(@files) ? \@files : [ $loc->N("(none)") ] });
+                my @files = map { MDK::Common::Various::chomp_($loc->to_utf8($_)) } split("\n", $xml_info_pkgs{$name}{files});
+                MDK::Common::DataStructure::add2hash($pkg, { files => scalar(@files) ? \@files : [ $loc->N("(none)") ] });
             } elsif ($xml_info eq 'changelog') {
-                add2hash($pkg, {
+                MDK::Common::DataStructure::add2hash($pkg, {
                     changelog => format_changelog_changelogs($o_installed_version,
                                                              @{$xml_info_pkgs{$name}{changelogs}})
                 });
@@ -186,7 +189,7 @@ sub extract_header {
         }
         return;
         header_non_available:
-        add2hash($pkg, { summary => $p->summary || $loc->N("(Not available)"), description => undef });
+        MDK::Common::DataStructure::add2hash($pkg, { summary => $p->summary || $loc->N("(Not available)"), description => undef });
     }
 }
 
@@ -339,7 +342,7 @@ sub get_installed_packages {
 			      update_pbar($gurpm);
 			      my $name = $_[0]->fullname;
 			      # workaround looping in URPM:
-			      return if member($name, @processed_base);
+			      return if MDK::Common::DataStructure::member($name, @processed_base);
 			      push @processed_base, $name;
 			      push @{$basepackages{$_}}, $name;
 			      push @base, $_[0]->requires_nosense;
@@ -429,7 +432,7 @@ sub get_updates_list {
     }
 
     # list updates including skiped ones + their deps in MageiaUpdate:
-    @$requested_list = uniq(@$requested_list, @$requested_strict);
+    @$requested_list = MDK::Common::DataStructure::uniq(@$requested_list, @$requested_strict);
 
     # do not pre select updates in rpmdragora:
     @$requested_strict = () if !$probe_only_for_updates;
@@ -440,14 +443,14 @@ sub get_pkgs {
     my $w = $::main_window;
 
     my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Package installation..."), $loc->N("Initializing..."), transient => $::main_window);
-    my $_gurpm_clean_guard = before_leaving { undef $gurpm };
+    my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
     #my $_flush_guard = Gtk2::GUI_Update_Guard->new;
 
     warn_about_media($w, %options);
 
     my $urpm = open_urpmi_db(update => $probe_only_for_updates && !is_it_a_devel_distro());
 
-    my $_drop_lock = before_leaving { undef $urpm->{lock} };
+    my $_drop_lock = MDK::Common::Func::before_leaving { undef $urpm->{lock} };
 
     $priority_up_alread_warned = 0;
 
@@ -572,11 +575,11 @@ sub get_pkgs {
 
     # urpmi only care about the first medium where it found the package,
     # so there's no need to list the same package several time:
-    @installable_pkgs = uniq(difference2(\@installable_pkgs, \@updates));
+    @installable_pkgs = MDK::Common::DataStructure::uniq(MDK::Common::DataStructure::difference2(\@installable_pkgs, \@updates));
 
     my @meta_pkgs = grep { /^task-|^basesystem/ } keys %all_pkgs;
 
-    my @gui_pkgs = map { chomp; $_ } cat_('/usr/share/rpmdrake/gui.lst');
+    my @gui_pkgs = map { chomp; $_ } MDK::Common::File::cat_('/usr/share/rpmdrake/gui.lst');
     # add meta packages to GUI packages list (which expect basic names not fullnames):
     push @gui_pkgs, map { (split_fullname($_))[0] } @meta_pkgs;
 
@@ -586,7 +589,7 @@ sub get_pkgs {
        installable => \@installable_pkgs,
        updates => \@updates,
        meta_pkgs => \@meta_pkgs,
-       gui_pkgs => [ grep { my $p = $all_pkgs{$_}{pkg}; $p && member(($p->fullname)[0], @gui_pkgs) } keys %all_pkgs ],
+       gui_pkgs => [ grep { my $p = $all_pkgs{$_}{pkg}; $p && MDK::Common::DataStructure::member(($p->fullname)[0], @gui_pkgs) } keys %all_pkgs ],
        update_descr => $update_descr,
        backports => [ @inactive_backports, @active_backports ],
        inactive_backports => \@inactive_backports
@@ -613,7 +616,7 @@ sub display_READMEs_if_needed {
                       clicked => sub {
                           interactive_msg(
                               $loc->N("Upgrade information about package %s", $Readmes{$fullname}),
-                              (join '' => map { s/$/\n/smg; $_ } formatAlaTeX(scalar cat_($fullname))),
+                              (join '' => map { s/$/\n/smg; $_ } formatAlaTeX(scalar MDK::Common::File::cat_($fullname))),
                               scroll => 1,
                           );
                       },
@@ -666,7 +669,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
 
     my $w = $::main_window;
     #$w->set_sensitive(0);
-    #my $_restore_sensitive = before_leaving { $w->set_sensitive(1) };
+    #my $_restore_sensitive = MDK::Common::Func::before_leaving { $w->set_sensitive(1) };
 
     # my $_flush_guard = Gtk2::GUI_Update_Guard->new;
 
@@ -737,13 +740,13 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                      scroll => 1,
                      yesno => 1) or return 1;
 
-    my $_umount_guard = before_leaving { urpm::removable::try_umounting_removables($urpm) };
+    my $_umount_guard = MDK::Common::Func::before_leaving { urpm::removable::try_umounting_removables($urpm) };
 
     # select packages to uninstall for !update mode:
     perform_removal($urpm, { map { $_ => $pkgs->{$_} } @to_remove }) if !$probe_only_for_updates;
 
     # $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Package installation..."), $loc->N("Initializing..."), transient => $::main_window);
-    # my $_gurpm_clean_guard = before_leaving { undef $gurpm };
+    # my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
     my $something_installed;
 
     if (@to_install && $::rpmdragora_options{auto_orphans}) {
@@ -921,7 +924,7 @@ you may now inspect some in order to take actions:"),
             $i++;
         }
         alarm(0);
-        # remember not to ask again questions and the like:
+        # reMDK::Common::DataStructure::member not to ask again questions and the like:
         writeconf();
         exec($0, @argv);
         exit(0);
@@ -953,7 +956,7 @@ sub perform_removal {
     my @toremove = map { if_($pkgs->{$_}{selected}, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
     return if !@toremove;
     my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Please wait, removing packages..."), $loc->N("Initializing..."), transient => $::main_window);
-    my $_gurpm_clean_guard = before_leaving { undef $gurpm };
+    my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
 
     my $may_be_orphans = 1;
     urpm::orphans::unrequested_orphans_after_remove($urpm, \@toremove)
