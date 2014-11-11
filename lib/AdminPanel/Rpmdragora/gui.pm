@@ -134,35 +134,11 @@ sub get_summary {
     utf8::valid($summary) ? $summary : @{[]};
 }
 
-sub build_expander {
-    my ($pkg, $label, $type, $get_data, $o_installed_version) = @_;
-    my $textview;
-    gtkadd(
-        gtkshow(my $exp = gtksignal_connect(
-            Gtk2::Expander->new(format_field($label)),
-            activate => sub {
-                state $first;
-                return if $first;
-                $first = 1;
-                slow_func($::main_window->window, sub {
-                              extract_header($pkg, $urpm, $type, $o_installed_version);
-                              gtktext_insert($textview, $get_data->() || [ [  $loc->N("(Not available)") ] ]);
-                          });
-            })),
-        $textview = gtknew('TextView')
-    );
-    $exp->set_use_markup(1);
-    $exp;
-}
-
-
 sub get_advisory_link {
     my ($update_descr) = @_;
 
     my $webref = "<br /><a href=\"". $update_descr->{URL} ."\">". $loc->N("Security advisory") ."</a><br />";
 
-#  TODO manage on click as event from RichText
-#    $link->set_uri_hook(\&run_help_callback);
     [ $webref ];
 }
 
@@ -287,10 +263,7 @@ sub get_url_link {
 
 sub files_format {
     my ($files) = @_;
-#     ugtk2::markup_to_TextView_format(
-        '<tt>' . $spacing #- to highlight information
-          . join("\n\t", @$files)
-            . '</tt>';
+    return  '<tt>' . $spacing . join("\n\t", @$files) . '</tt>';
 }
 
 #=============================================================
@@ -321,7 +294,7 @@ sub format_link {
     return $webref;
 }
 
-sub format_pkg_simplifiedinfo {
+sub _format_pkg_simplifiedinfo {
     my ($pkgs, $key, $urpm, $descriptions, $options) = @_;
     my ($name) = split_fullname($key);
     my $pkg = $pkgs->{$key};
@@ -393,48 +366,6 @@ sub format_pkg_simplifiedinfo {
     push @$s, join("\n", $deps_link, "\n");
 
     return $s;
-}
-
-sub format_pkg_info {
-    my ($pkgs, $key, $urpm, $descriptions) = @_;
-    my $pkg = $pkgs->{$key};
-    my $upkg = $pkg->{pkg};
-    my ($name, $version) = split_fullname($key);
-    my @files = (
-	format_field($loc->N("Files:\n")),
-	exists $pkg->{files}
-	    ? '<tt>' . join("\n", map { "\x{200e}$_" } @{$pkg->{files}}) . '</tt>' #- to highlight information
-	    : $loc->N("(Not available)"),
-    );
-    my @chglo = (format_field($loc->N("Changelog:\n")), ($pkg->{changelog} ? @{$pkg->{changelog}} : $loc->N("(Not available)")));
-    my @source_info = (
-	$MODE eq 'remove' || !@$max_info_in_descr
-	    ? ()
-	    : (
-		format_field($loc->N("Medium: ")) . pkg2medium($upkg, $urpm)->{name},
-		format_field($loc->N("Currently installed version: ")) . find_installed_version($upkg),
-	    )
-    );
-    my @max_info = @$max_info_in_descr && $changelog_first ? (@chglo, @files) : (@files, '', @chglo);
-    ugtk2::markup_to_TextView_format(join("\n", format_field($loc->N("Name: ")) . $name,
-      format_field($loc->N("Version: ")) . $version,
-      format_field($loc->N("Architecture: ")) . $upkg->arch,
-      format_field($loc->N("Size: ")) . $loc->N("%s KB", int($upkg->size/1024)),
-      if_(
-	  $MODE eq 'update',
-	  format_field($loc->N("Importance: ")) . $descriptions->{$name}{importance}
-      ),
-      @source_info,
-      '', # extra empty line
-      format_field($loc->N("Summary: ")) . $upkg->summary,
-      '', # extra empty line
-      if_(
-	  $MODE eq 'update',
-	  format_field($loc->N("Reason for update: ")) . rpm_description($descriptions->{$name}{pre}),
-      ),
-      format_field($loc->N("Description: ")), ($pkg->{description} || $descriptions->{$name}{description} || $loc->N("No description")),
-      @max_info,
-    ));
 }
 
 sub warn_if_no_pkg {
@@ -1588,7 +1519,7 @@ or you already installed all of them."));
 
 =head3 DESCRIPTION
 
-    return a format_pkg_simplifiedinfo
+    return a string with all the package info
 
 =cut
 
@@ -1599,7 +1530,7 @@ sub get_info {
     exists $pkgs->{$key} or return [ [ $loc->N("Description not available for this package\n") ] ];
     #- get the description if needed:
     exists $pkgs->{$key}{description} or slow_func("", sub { extract_header($pkgs->{$key}, $urpm, 'info', find_installed_version($pkgs->{$key}{pkg})) });
-    format_pkg_simplifiedinfo($pkgs, $key, $urpm, $descriptions, $options);
+    _format_pkg_simplifiedinfo($pkgs, $key, $urpm, $descriptions, $options);
 }
 
 sub sort_callback {
