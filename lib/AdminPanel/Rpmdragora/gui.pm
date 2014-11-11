@@ -64,7 +64,6 @@ our @EXPORT = qw(
                     $urpm
                     %grp_columns
                     %pkg_columns
-                    %hidden_info
                     @filtered_pkgs
                     @initial_selection
                     ask_browse_tree_given_widgets_for_rpmdragora
@@ -252,31 +251,22 @@ sub get_details {
 
 sub get_new_deps {
     my ($urpm, $upkg) = @_;
-    my $deps_textview;
-    my @a = [ gtkadd(
-        gtksignal_connect(
-            gtkshow(my $dependencies = Gtk2::Expander->new(format_field($loc->N("New dependencies:")))),
-            activate => sub {
-                slow_func($::main_window->window, sub {
-                              my $state = {};
-                              my $db = open_rpm_db();
-                              my @requested = $urpm->resolve_requested__no_suggests_(
-                                  $db, $state,
-                                  { $upkg->id => 1 },
-                              );
-                              @requested = $urpm->resolve_requested_suggests($db, $state, \@requested);
-                              undef $db;
-                              my @nodes_with_deps = map { urpm_name($_) } @requested;
-                              my @deps = sort { $a cmp $b } difference2(\@nodes_with_deps, [ urpm_name($upkg) ]);
-                              @deps = $loc->N("All dependencies installed.") if !@deps;
-                              gtktext_insert($deps_textview, join("\n", @deps));
-                          });
-            }
-        ),
-        $deps_textview = gtknew('TextView')
-    ) ];
-    $dependencies->set_use_markup(1);
-    @a;
+
+    my $deps = slow_func(undef, sub {
+        my $state = {};
+        my $db = open_rpm_db();
+        my @requested = $urpm->resolve_requested__no_suggests_(
+            $db, $state,
+            { $upkg->id => 1 },
+        );
+        @requested = $urpm->resolve_requested_suggests($db, $state, \@requested);
+        undef $db;
+        my @nodes_with_deps = map { urpm_name($_) } @requested;
+        my @deps = sort { $a cmp $b } difference2(\@nodes_with_deps, [ urpm_name($upkg) ]);
+        @deps = $loc->N("All dependencies installed.") if !@deps;
+        return \@deps;
+    });
+    return $deps;
 }
 
 sub get_url_link {
@@ -299,7 +289,7 @@ sub files_format {
     my ($files) = @_;
 #     ugtk2::markup_to_TextView_format(
         '<tt>' . $spacing #- to highlight information
-          . join("\n$spacing", map { "\x{200e}$_" } @$files)
+          . join("\n\t", @$files)
             . '</tt>';
 }
 
@@ -350,7 +340,7 @@ sub format_pkg_simplifiedinfo {
     push @$s, get_advisory_link($update_descr) if $is_update;
 
     push @$s, get_description($pkg, $update_descr);
-    push @$s, [ "\n" ];
+
     my $installed_version = eval { find_installed_version($upkg) };
 
     #push @$s, [ gtkadd(gtkshow(my $details_exp = Gtk2::Expander->new(format_field($loc->N("Details:")))),
@@ -366,28 +356,43 @@ sub format_pkg_simplifiedinfo {
     #push @$s, [ build_expander($pkg, $loc->N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
     my $files_link = format_link(format_field($loc->N("Files:")), $hidden_info{files} );
     if ($options->{files}) {
-        $DB::single = 1;
-#         my $files = files_format($pkg->{files});
-#         utf8::encode($files);
-        $files_link .= join("\n", $pkg->{files});
-#         $files_link .= "\n" . $files;
+        my $wait = AdminPanel::rpmdragora::wait_msg();
+        if (!$pkg->{files}) {
+            extract_header($pkg, $urpm, 'files', $installed_version);
+        }
+        my $files = $pkg->{files} ? files_format($pkg->{files}) : $loc->N("(Not available)");
+        utf8::encode($files);
+        $files_link .= "\n\n" . $files;
+        AdminPanel::rpmdragora::remove_wait_msg($wait);
     }
     push @$s, join("\n", $files_link, "\n");
 
     #push @$s, [ build_expander($pkg, $loc->N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
     my $changelog_link = format_link(format_field($loc->N("Changelog:")), $hidden_info{changelog} );
     if ($options->{changelog}) {
-        $DB::single = 1;
-#         my $changelog = $pkg->{changelog};
-#         utf8::encode($changelog);
-#         $changelog_link .= "\n" . $changelog;
+        my $wait = AdminPanel::rpmdragora::wait_msg();
+        my @changelog = $pkg->{changelog} ? @{$pkg->{changelog}} : ( $loc->N("(Not available)") );
+        if (!$pkg->{changelog} || !scalar @{$pkg->{changelog}} ) {
+            # my ($pkg, $label, $type, $get_data, $o_installed_version) = @_;
+            extract_header($pkg, $urpm, 'changelog', $installed_version);
+            @changelog = $pkg->{changelog} ? @{$pkg->{changelog}} : ( $loc->N("(Not available)") );
+        }
+        utf8::encode(\@changelog);
+        $changelog_link .= "\n\n". join("", @changelog);
+        AdminPanel::rpmdragora::remove_wait_msg($wait);
     }
-    push @$s, join("\n", $changelog_link, "\n");
+    push @$s, join("\n\n", $changelog_link, "\n");
 
-    if ($upkg->id) { # If not installed
-        #    push @$s, get_new_deps($urpm, $upkg);
+    my $deps_link = format_link(format_field($loc->N("New dependencies:")), $hidden_info{new_deps} );
+    if ($options->{new_deps}) {
+        if ($upkg->id) { # If not installed
+            $deps_link .= "\n\n". join("\n", @{get_new_deps($urpm, $upkg)});
+            #    push @$s, get_new_deps($urpm, $upkg);
+        }
     }
-    $s;
+    push @$s, join("\n", $deps_link, "\n");
+
+    return $s;
 }
 
 sub format_pkg_info {

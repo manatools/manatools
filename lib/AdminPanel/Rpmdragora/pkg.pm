@@ -173,8 +173,8 @@ sub extract_header {
                          url => $xml_info_pkgs{$name}{url}
                 });
             } elsif ($xml_info eq 'files') {
-                my @files = map { chomp_(to_utf8($_)) } split("\n", $xml_info_pkgs{$name}{files});
-                add2hash($pkg, { files => [ @files ? @files : $loc->N("(none)") ] });
+                my @files = map { chomp_($loc->to_utf8($_)) } split("\n", $xml_info_pkgs{$name}{files});
+                add2hash($pkg, { files => scalar(@files) ? \@files : [ $loc->N("(none)") ] });
             } elsif ($xml_info eq 'changelog') {
                 add2hash($pkg, {
                     changelog => format_changelog_changelogs($o_installed_version,

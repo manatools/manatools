@@ -220,8 +220,6 @@ sub run_treeview_dialog {
     my $infoBox    = $factory->createRichText($vbox, "", 0);
     $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
 
-    $DB::single = 1;
-
     pkgs_provider('all_updates', pure_updates => 1); # default mode
 
     _refresh_packages_list($dialog, $packageTbl);
@@ -321,7 +319,6 @@ sub run_treeview_dialog {
                     $item = $packageTbl->changedItem();
                     if ($item) {
                         my $name = $data{$item->index()}{fullname};
-                        $DB::single = 1;
                         toggle($packageTbl, $name );
                     }
                 }

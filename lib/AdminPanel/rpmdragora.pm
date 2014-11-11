@@ -25,6 +25,7 @@
 # $Id: rpmdragora.pm 267936 2010-04-26 16:40:21Z jvictor $
 
 package AdminPanel::rpmdragora;
+use warnings::register;
 
 use lib qw(/usr/lib/libDrakX);
 use urpm::download ();
@@ -379,22 +380,17 @@ sub fatal_msg {
 
 sub wait_msg {
     my ($msg, %options) = @_;
-    #OLD my $mainw = ugtk2->new($loc->N("Please wait"), grab => 1, if_(exists $options{transient}, transient => $options{transient}));
-    #$mainw->{real_window}->set_position($options{transient} ? 'center_on_parent' : 'center_always');
-    #my $label = $factory->createLabel($vbox, $msg);
-    #OLD my $label = ref($msg) =~ /^Gtk/ ? $msg : Gtk2::WrappedLabel->new($msg);
-    #gtkadd(
-	#$mainw->{window},
-	#gtkpack__(
-	#    gtkset_border_width(Gtk2::VBox->new(0, 5), 6),
-	#    $label,
-	#    if_(exists $options{widgets}, @{$options{widgets}}),
-	#)
-    #);
+
+    if (ref \%options) {
+        warnings::warn("AdminPanel::rpmdragora::wait_msg: options parameter is deprecated, and discarded");
+    }
+
+    my $label = $msg ? $msg : $loc->N("Please wait");
+
     my $factory = yui::YUI::widgetFactory;
     my $mainw = $factory->createPopupDialog();
     my $vbox = $factory->createVBox($mainw);
-    my $title = $factory->createLabel($vbox, $loc->N("Please wait"));
+    my $title = $factory->createLabel($vbox, $label);
     #$mainw->recalcLayout();
     #$mainw->doneMultipleChanges();
     $mainw->waitForEvent(10);
@@ -419,23 +415,26 @@ sub but_ { "        $_[0]        " }
 sub slow_func ($&) {
     my ($param, $func) = @_;
 
+    my $retval = 1;
     # NOTE busy cursor is not implemented in yui-ncurses
     #      but we can avoid a waiting dialog in Gtk and QT
     if (yui::YUI::app()->isTextMode()) {
         my $w = wait_msg($param);
-        $func->();
+        $retval = $func->();
         remove_wait_msg($w)
     }
     else {
         yui::YUI::app()->busyCursor();
-        $func->();
+        $retval = $func->();
         yui::YUI::app()->normalCursor();
     }
+    return $retval;
 }
 
 sub statusbar_msg {
     unless ($::statusbar) { #- fallback if no status bar
-	if (defined &::wait_msg_) { goto &::wait_msg_ } else { goto &wait_msg }
+        my $msg = shift;
+        return wait_msg($msg);
     }
     my ($msg, $o_timeout) = @_;
     $::statusbar->setLabel($msg);
@@ -454,7 +453,8 @@ sub statusbar_msg {
 
 sub statusbar_msg_remove {
     if (!$::statusbar) { #- fallback if no status bar
-	goto &remove_wait_msg;
+        my $id = shift;
+	    return remove_wait_msg($id);;
     }
     my ($msg_id) = @_;
     #my $cx = $::statusbar->get_context_id("foo");

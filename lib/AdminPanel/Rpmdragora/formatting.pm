@@ -29,10 +29,8 @@ use utf8;
 use POSIX qw(strftime);
 use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
-use lib qw(/usr/lib/libDrakX);
 use MDK::Common::Various; # included for internal_error subroutine
-use common;
-#use ugtk2 qw(escape_text_for_TextView_markup_format);
+
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -86,11 +84,11 @@ sub ensure_utf8 {
 
 sub rpm_description {
     my ($description) = @_;
+
     ensure_utf8($description);
-    $DB::single = 1;
     my ($t, $tmp);
     foreach (split "\n", $description) {
-	s/^\s*//;
+        s/^\s*//;
         if (/^$/ || /^\s*(-|\*|\+|o)\s/) {
             $t || $tmp and $t .= "$tmp\n";
             $tmp = $_;
@@ -128,27 +126,33 @@ sub pkg2medium {
 #- as to_utf8() uses LC_CTYPE for locale encoding and strftime() uses LC_TIME,
 #- it doesn't work if those two variables have values with different
 #- encodings; but if a user has a so broken setup we can't do much anyway
-sub localtime2changelog { to_utf8(POSIX::strftime("%c", localtime($_[0]))) }
+sub localtime2changelog { $loc->to_utf8(POSIX::strftime("%c", localtime($_[0]))) }
 
 our $spacing = "        ";
 sub format_changelog_string {
     my ($installed_version, $string) = @_;
+
     #- preprocess changelog for faster TextView insert reaction
-    require Gtk2::Pango;
-    my %date_attr = ('weight' => Gtk2::Pango->PANGO_WEIGHT_BOLD);
-    my %update_attr = ('style' => 'italic');
     my $version;
     my $highlight;
-    [ map {
+    my $chl = [ map {
         my %attrs;
         if (/^\*/) {
-            add2hash(\%attrs, \%date_attr);
             ($version) = /(\S*-\S*)\s*$/;
             $highlight = $installed_version ne $loc->N("(none)") && 0 < URPM::rpmvercmp($version, $installed_version);
+            if ($highlight) {
+                "<b><i>" . $_ . "</i></b>";
+            }
+            else {
+                "<b>" . $_ . "</b>";
+            }
         }
-        add2hash(\%attrs, \%update_attr) if $highlight;
-        [ "$spacing$_\n", if_(%attrs, \%attrs) ];
+        else {
+            "$spacing" . $_ . "\n";
+        }
     } split("\n", $string) ];
+
+    return $chl;
 }
 
 sub format_changelog_changelogs {
