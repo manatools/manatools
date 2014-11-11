@@ -194,6 +194,8 @@ sub format_filesize {
     $filesize ? $loc->N("%s of packages will be retrieved.", formatXiB($filesize)) : ();
 }
 
-sub format_list { join("\n", map { s/^(\s)/  $1/mg; "- $_" } sort { uc($a) cmp uc($b) } @_) }
+sub format_list {
+    return join("\n", map { s/^(\s)/  $1/mg; "- $_" } sort { uc($a) cmp uc($b) } @_);
+}
 
 1;

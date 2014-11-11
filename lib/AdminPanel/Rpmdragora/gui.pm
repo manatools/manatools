@@ -1162,7 +1162,6 @@ sub deps_msg {
                     my $pkg = $item->label();
                     setInfoOnWidget($pkg, $infoBox);
                 }
-#                 $infoBox->setValue( get_info($pkg) );
             }
             elsif ($widget == $okButton) {
                 $retval = 1;
