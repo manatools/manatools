@@ -320,6 +320,7 @@ sub run_treeview_dialog {
                     if ($item) {
                         my $name = $data{$item->index()}{fullname};
                         toggle($packageTbl, $name );
+                        _refresh_packages_list($dialog, $packageTbl);
                     }
                 }
                 yui::YUI::app()->normalCursor();
