@@ -723,13 +723,13 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     my $install_count = int(@pkgs);
     my $to_install = $install_count == 0 ? '' :
       ($priority_state ? '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n" : '') .
-      (P("The following package is going to be installed:", "The following %d packages are going to be installed:", $install_count, $install_count)
+      ($loc->P("The following package is going to be installed:", "The following %d packages are going to be installed:", $install_count, $install_count)
       . "\n\n" . format_list(map { s!.*/!!; $_ } @pkgs));
     my $remove_count =  scalar(@to_remove);
     interactive_msg(($to_install ? $loc->N("Confirmation") : $loc->N("Some packages need to be removed")),
                     join("\n\n",
                      ($r ?
-                        (!$to_install ? (P("Remove one package?", "Remove %d packages?", $remove_count, $remove_count), $r) :
+                        (!$to_install ? ($loc->P("Remove one package?", "Remove %d packages?", $remove_count, $remove_count), $r) :
  (($remove_count == 1 ?
  $loc->N("The following package has to be removed for others to be upgraded:")
    : $loc->N("The following packages have to be removed for others to be upgraded:")), $r), if_($to_install, $to_install))
@@ -752,7 +752,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     if (@to_install && $::rpmdragora_options{auto_orphans}) {
         urpm::orphans::compute_future_unrequested_orphans($urpm, $state);
         if (my @orphans = map { scalar $_->fullname } @{$state->{orphans_to_remove}}) {
-            interactive_msg($loc->N("Orphan packages"), P("The following orphan package will be removed.",
+            interactive_msg($loc->N("Orphan packages"), $loc->P("The following orphan package will be removed.",
                     "The following orphan packages will be removed.", scalar(@orphans))
               . "\n" . urpm::orphans::add_leading_spaces(join("\n", @orphans) . "\n"), scroll => 1);
         }
