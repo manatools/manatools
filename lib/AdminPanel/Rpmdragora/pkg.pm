@@ -52,6 +52,7 @@ use urpm::get_pkgs;
 use urpm::select;
 use urpm::main_loop;
 use urpm::args qw();
+use urpm::util;
 
 my $loc = AdminPanel::rpmdragora::locale();
 
@@ -125,9 +126,11 @@ sub extract_header {
         my ($local_source, %xml_info_pkgs, $bar_id);
         my $_statusbar_clean_guard = MDK::Common::Func::before_leaving { $bar_id and statusbar_msg_remove($bar_id) };
         my $dir = urpm::file_from_local_url($medium->{url});
+
         print "p->filename: ". $p->filename."\n";
         $local_source = "$dir/" . $p->filename if $dir;
-        print "local_source: $local_source\n";
+        print "local_source: " . ($local_source ? $local_source : "") . "\n";
+
         if ($local_source && -e $local_source) {
             $bar_id = statusbar_msg($loc->N("Getting information from %s...", $dir), 0);
             $urpm->{log}("getting information from rpms from $dir");
@@ -195,9 +198,10 @@ sub extract_header {
 
 sub find_installed_version {
     my ($p) = @_;
-    my $version;
-    open_rpm_db()->traverse_tag_find('name', $p->name, sub { $version = $_[0]->EVR });
-    $version || $loc->N("(none)");
+
+    my $version = $loc->N("(none)");
+    open_rpm_db()->traverse_tag_find('name', $p->name, sub { $version = $_[0]->EVR; return ($version ? 1 : 0) }) if $p;
+    return $version;
 }
 
 my $canceled;
@@ -205,12 +209,12 @@ sub download_callback {
     my ($gurpm, $mode, $file, $percent, $total, $eta, $speed) = @_;
     $canceled = 0;
     if ($mode eq 'start') {
-        $gurpm->label($loc->N("Downloading package `%s'...", basename($file)));
+        $gurpm->label($loc->N("Downloading package `%s'...", urpm::util::basename($file)));
         $gurpm->validate_cancel(but($loc->N("Cancel")), sub { $canceled = 1 });
     } elsif ($mode eq 'progress') {
         $gurpm->label(
             join("\n",
-                 $loc->N("Downloading package `%s'...", basename($file)),
+                 $loc->N("Downloading package `%s'...", urpm::util::basename($file)),
                  (defined $total && defined $eta ?
                     $loc->N("        %s%% of %s completed, ETA = %s, speed = %s", $percent, $total, $eta, $speed)
                       : $loc->N("        %s%% completed, speed = %s", $percent, $speed)
@@ -557,15 +561,16 @@ sub get_pkgs {
 
         my $backports =
             $medium->{searchmedia} ? \@inactive_backports : \@active_backports;
-
-      foreach my $pkg_id ($medium->{start} .. $medium->{end}) {
-          next if !$pkg_id;
-          my $pkg = $urpm->{depslist}[$pkg_id];
-          $pkg->flag_upgrade or next;
-          my $name = $pkg->fullname;
-          push @$backports, $name;
-          $all_pkgs{$name} = { pkg => $pkg, is_backport => 1 };
-      }
+        if (defined($medium->{start}) || defined($medium->{end})) {
+            foreach my $pkg_id ($medium->{start} .. $medium->{end}) {
+                next if !$pkg_id;
+                my $pkg = $urpm->{depslist}[$pkg_id];
+                $pkg->flag_upgrade or next;
+                my $name = $pkg->fullname;
+                push @$backports, $name;
+                $all_pkgs{$name} = { pkg => $pkg, is_backport => 1 };
+            }
+        }
     }
     my @updates = @requested;
     # selecting updates by default but skipped ones (MageiaUpdate only):

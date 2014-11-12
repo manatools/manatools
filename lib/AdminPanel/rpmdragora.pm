@@ -381,11 +381,7 @@ sub fatal_msg {
 }
 
 sub wait_msg {
-    my ($msg, %options) = @_;
-
-    if (ref \%options) {
-        warnings::warn("AdminPanel::rpmdragora::wait_msg: options parameter is deprecated, and discarded");
-    }
+    my $msg = shift;
 
     my $label = $msg ? $msg : $loc->N("Please wait");
 
@@ -434,11 +430,12 @@ sub slow_func ($&) {
 }
 
 sub statusbar_msg {
+    my ($msg, $o_timeout) = @_;
+
     unless ($::statusbar) { #- fallback if no status bar
-        my $msg = shift;
         return wait_msg($msg);
     }
-    my ($msg, $o_timeout) = @_;
+
     $::statusbar->setLabel($msg);
     #- always use the same context description for now
     #my $cx = $::statusbar->get_context_id("foo");
