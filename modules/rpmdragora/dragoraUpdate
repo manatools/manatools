@@ -81,6 +81,9 @@ my %icons_cache;
 sub _refresh_packages_list {
     my ($dialog, $packageTbl) = @_;
 
+    my $item = $packageTbl->selectedItem();
+    my $packageName = $item ? $data{$item->index()}{name} : undef;
+
     # select packages to update:
     my @requested = sort grep { $pkgs->{$_}{pkg} } @filtered_pkgs;
 
@@ -103,8 +106,6 @@ sub _refresh_packages_list {
     my $itemCollection = new yui::YItemCollection;
     my $i = 0;
     foreach (@requested) {
-
-
         my $summary = get_summary($_);
         my ($name, $version, $release, $arch) = split_fullname($_);
         # TODO check if %data is needed
@@ -114,7 +115,7 @@ sub _refresh_packages_list {
         my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
         my $icon = "";
 
-        my $item = new yui::YCBTableItem("", $name , $summary, $version, $release, $arch);
+        $item = new yui::YCBTableItem("", $name , $summary, $version, $release, $arch);
 
         my $importance = $medium && $descriptions->{$medium}{$name}{importance};
         if ($importance) {
@@ -140,6 +141,7 @@ sub _refresh_packages_list {
 
         $item->check($pkgs->{$_}{selected});
         $item->setLabel($name);
+        $item->setSelected(1) if ($packageName && $name eq $packageName);
         $itemCollection->push($item);
         $item->DISOWN();
     }
