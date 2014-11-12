@@ -158,7 +158,7 @@ sub extract_header {
         }
 
         #- even if non-root, search for a header in the global cachedir
-        if (-s $local_source) {
+        if ($local_source && -s $local_source) {
             $p->update_header($local_source) or do {
                 warn "Warning, could not extract header for $name from $medium!";
                 goto header_non_available;

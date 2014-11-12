@@ -30,6 +30,7 @@ use POSIX qw(strftime);
 use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
 use MDK::Common::Various; # included for internal_error subroutine
+use urpm::msg;
 
 
 use Exporter;
@@ -86,7 +87,8 @@ sub rpm_description {
     my ($description) = @_;
 
     ensure_utf8($description);
-    my ($t, $tmp);
+    my $t   = "";
+    my $tmp = "";
     foreach (split "\n", $description) {
         s/^\s*//;
         if (/^$/ || /^\s*(-|\*|\+|o)\s/) {
