@@ -1158,18 +1158,18 @@ sub deps_msg {
 
     my $dialog       = $factory->createPopupDialog;
     my $vbox         = $factory->createVBox( $dialog );
-    my $msgBox       = $factory->createRichText($vbox, $msg, 1);
+    my $msgBox       = $factory->createLabel($vbox, $msg, 1);
+#     my $hbox         = $factory->createHBox( $vbox );
+    my $pkgList      = $factory->createSelectionBox( $vbox, $loc->N("Select package") );
                        $factory->createVSpacing($vbox, 1);
-    my $hbox         = $factory->createHBox( $vbox );
-    my $pkgList      = $factory->createSelectionBox( $hbox, $loc->N("Select package") );
 
 #     my $frame        = $factory->createFrame ($hbox, $loc->N("Information on packages"));
 #     my $frmVbox      = $factory->createVBox( $frame );
-    my $infoBox      = $factory->createRichText($hbox, "", 0);
-                       $pkgList->setWeight($yui::YD_HORIZ, 1);
+    my $infoBox      = $factory->createRichText($vbox, "", 0);
+                       $pkgList->setWeight($yui::YD_HORIZ, 2);
                        $infoBox->setWeight($yui::YD_HORIZ, 3);
                        $factory->createVSpacing($vbox, 1);
-    $hbox            = $factory->createHBox( $vbox );
+    my $hbox         = $factory->createHBox( $vbox );
     my $align        = $factory->createRight($hbox);
     my $cancelButton = $factory->createPushButton($align, $loc->N("Cancel"));
     my $okButton     = $factory->createPushButton($hbox,  $loc->N("Ok"));
