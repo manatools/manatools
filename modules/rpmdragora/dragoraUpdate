@@ -329,7 +329,15 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $selectButton) {
                 yui::YUI::app()->busyCursor();
-                $initialized = 0;
+                my @list;
+                foreach my $key (sort(keys %data)) {
+                    push @list, $data{$key}{fullname};
+                }
+                toggle_all({
+                    widgets => {detail_list => $packageTbl},
+                    table_item_list => \@list,
+                    set_state_callback => sub {1},
+                });
                 _refresh_packages_list($dialog, $packageTbl);
 
                 yui::YUI::app()->normalCursor();

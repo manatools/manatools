@@ -500,10 +500,31 @@ sub set_leaf_state {
     set_node_state($node, $state, $detail_list);
 }
 
+#=============================================================
+
+=head2 grep_unselected
+
+=head3 INPUT
+
+    $l: ARRAY reference containing the list of package fullnames
+
+=head3 OUTPUT
+
+    \@result: ARRAY reference containing the list of packages
+             that are not selected
+
+=head3 DESCRIPTION
+
+    Function returning the list of not selected packages
+
+=cut
+
+#=============================================================
 sub grep_unselected {
-    my @l = shift();
-    my @result = grep { exists $pkgs->{$_} && !$pkgs->{$_}{selected} } @l ;
-    return @result;
+    my $l = shift;
+
+    my @result = grep { exists $pkgs->{$_} && !$pkgs->{$_}{selected} } @{$l} ;
+    return \@result;
 }
 
 my %groups_tree = ();
@@ -646,8 +667,29 @@ sub update_size {
     }
 }
 
+#=============================================================
+
+=head2 treeview_children
+
+=head3 INPUT
+
+    $tbl: YCBTable widget containing the package list shown
+
+=head3 OUTPUT
+
+    \@l: ARRAY reference containing the list
+        of YItem contained into YCBTable
+
+=head3 DESCRIPTION
+
+    This functions just returns the YCBTable content such as all the
+    YItem objects
+
+=cut
+
+#=============================================================
 sub treeview_children {
-    my($tbl) = @_;
+    my ($tbl) = @_;
     my $it;
     my @l;
     my $i=0;
@@ -661,24 +703,41 @@ sub treeview_children {
             last;
        }
     }
-    # using items
-    #for($i=0;$i<$tbl->itemsCount();$i++) {
-    #    print " item label " .  $tbl->item($i)->cell(0)->label() . "\n";
-    #    push @l, $tbl->item($i);
-    #}
-    return @l;
+
+    return \@l;
 }
 
+#=============================================================
+
+=head2 children
+
+=head3 INPUT
+
+    $tbl: YCBTable object
+    @table_item_list: array containing package fullnames
+
+=head3 OUTPUT
+
+    \@result: ARRAY reference containing package fullnames
+
+=head3 DESCRIPTION
+
+    This Function return the list of package fullnames
+
+=cut
+
+#=============================================================
+
 sub children {
-    my ($w, @table_item_list) = @_;
+    my ($tbl, $table_item_list) = @_;
     # map { $w->{detail_list}->get($_, $pkg_columns{text}) } treeview_children($w->{detail_list});
     # map { $table_item_list[$_->index()] } treeview_children($w->{detail_list});
-    my @children = treeview_children($w->{detail_list});
+    my $children_list = treeview_children($tbl);
     my @result;
-    for my $child(@children){
-        push @result, $table_item_list[$child->index()];
+    for my $child(@{$children_list}){
+        push @result, $table_item_list->[$child->index()];
     }
-    return @result;
+    return \@result;
 }
 
 sub itemAt {
@@ -693,6 +752,7 @@ sub itemAt {
     #}
 }
 
+
 #=============================================================
 
 =head2 toggle_all
@@ -703,10 +763,12 @@ sub itemAt {
             widgets => {
                 detail_list: YTable reference (?)
             }
-            table_item_list: (?)
-            get_status: function reference (for what?)
-            partialsel_unsel: (?)
+            table_item_list  => array containing package fullnames
+            partialsel_unsel => (?)
 
+            set_state_callback => set state callback invoked by
+                                  toggle_nodes if needed. if undef
+                                  set_leaf_state is used.
     $_val: value to be set (so it seems not a toggle! unused?)
 
 =head3 DESCRIPTION
@@ -720,15 +782,18 @@ the packages
 sub toggle_all {
     my ($common, $_val) = @_;
     my $w = $common->{widgets};
-    my @l = children($w, $common->{table_item_list}) or return;
 
-    my @unsel = grep_unselected(@l);
-    my @p = @unsel ?
+    my $l = children($w->{detail_list}, $common->{table_item_list}) or return;
+
+    my $set_state =  $common->{set_state_callback} ? $common->{set_state_callback} : \&set_leaf_state;
+    my $unsel = grep_unselected($l);
+    my $p = $unsel ?
       #- not all is selected, select all if no option to potentially override
-      (exists $common->{partialsel_unsel} && $common->{partialsel_unsel}->(\@unsel, \@l) ? difference2(\@l, \@unsel) : @unsel)
-        : @l;
+      (exists $common->{partialsel_unsel} && $common->{partialsel_unsel}->($unsel, $l) ? difference2($l, $unsel) : $unsel)
+        : $l;
     # toggle_nodes($w->{detail_list}, $w->{detail_list_model}, \&set_leaf_state, node_state($p[0]), @p);
-    toggle_nodes($w->{detail_list}, $w->{detail_list}, \&set_leaf_state, node_state($p[0][0]), @{$p[0]});
+
+    toggle_nodes($w->{detail_list}, $w->{detail_list}, $set_state, node_state($p->[0]), @{$p});
     update_size($common);
 }
 
@@ -1207,6 +1272,7 @@ sub deps_msg {
 #         }
 }
 
+# set_state <- package-fullname, node_state = {to_install, to_remove,...}, list=YTable
 sub toggle_nodes {
     my ($widget, $detail_list, $set_state, $old_state, @nodes) = @_;
 
