@@ -95,62 +95,55 @@ sub _refresh_packages_list {
         $initialized = 1;
     }
 
-#     gtktext_insert($info,
-#       formatAlaTeX($loc->N("The list of updates is empty. This means that either there is
-# no available update for the packages installed on your computer,
-# or you already installed all of them."))) if !@{$list->{data}};
-#     $button->set_sensitive(scalar(@{$list->{data}}));
-
     $dialog->startMultipleChanges();
     $packageTbl->deleteAllItems();
-    my $itemCollection = new yui::YItemCollection;
-    my $i = 0;
-    foreach (@requested) {
-        my $summary = get_summary($_);
-        my ($name, $version, $release, $arch) = split_fullname($_);
-        # TODO check if %data is needed
-        $data{$i} = { name => $name, fullname => $_ }; $i++;
-        my $pkg = $pkgs->{$_};
-        my $raw_medium = pkg2medium($pkg->{pkg}, $urpm);
-        my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
-        my $icon = "";
 
-        $item = new yui::YCBTableItem("", $name , $summary, $version, $release, $arch);
-
-        my $importance = $medium && $descriptions->{$medium}{$name}{importance};
-        if ($importance) {
-            my $update_label = "";
-            if (yui::YUI::app()->hasImageSupport()) {
-                $icon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), $update_icons{$importance}->{icon});
-            }
-            else {
-                # For ncurses set a label
-                $update_label = $update_icons{$importance}->{name};
-            }
-            my $cell = new yui::YTableCell($item, 1, $update_label, $icon);
-        }
-
-# TODO icon
-#        if ($importance) {
-#             $icon = $icons_cache{$importance} ||= gtknew('Pixbuf', file => $update_icons{$importance});
-#         }
-#  my $cell   = new yui::YTableCell($started);
-#         $item->addCell($cell);
-#
-
-
-        $item->check($pkgs->{$_}{selected});
-        $item->setLabel($name);
-        $item->setSelected(1) if ($packageName && $name eq $packageName);
-        $itemCollection->push($item);
-        $item->DISOWN();
+    if (!scalar(@requested)) {
+        interactive_msg($loc->("rpmdragora update"),
+                        $loc->N("The list of updates is empty. This means that either there is no available update for the packages installed on your computer, or you already installed all of them."),
+                        scroll => 1);
     }
-    $packageTbl->addItems($itemCollection);
+    else {
+        my $itemCollection = new yui::YItemCollection;
+        my $i = 0;
+        foreach (@requested) {
+            my $summary = get_summary($_);
+            my ($name, $version, $release, $arch) = split_fullname($_);
+            # TODO check if %data is needed
+            $data{$i} = { name => $name, fullname => $_ }; $i++;
+            my $pkg = $pkgs->{$_};
+            my $raw_medium = pkg2medium($pkg->{pkg}, $urpm);
+            my $medium = !$raw_medium->{fake} ? $raw_medium->{name} : undef;
+            my $icon = "";
 
+            $item = new yui::YCBTableItem("", $name , $summary, $version, $release, $arch);
+
+            my $importance = $medium && $descriptions->{$medium}{$name}{importance};
+            if ($importance) {
+                my $update_label = "";
+                if (yui::YUI::app()->hasImageSupport()) {
+                    $icon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), $update_icons{$importance}->{icon});
+                }
+                else {
+                    # For ncurses set a label
+                    $update_label = $update_icons{$importance}->{name};
+                }
+                my $cell = new yui::YTableCell($item, 1, $update_label, $icon);
+            }
+
+            $item->check($pkgs->{$_}{selected});
+            $item->setLabel($name);
+            $item->setSelected(1) if ($packageName && $name eq $packageName);
+            $itemCollection->push($item);
+            $item->DISOWN();
+        }
+        $packageTbl->addItems($itemCollection);
+
+    }
     $dialog->doneMultipleChanges();
 
     # return number of packages to be updated
-    return $i;
+    return scalar(@requested);
 }
 
 sub toggle {
@@ -224,133 +217,137 @@ sub run_treeview_dialog {
 
     pkgs_provider('all_updates', pure_updates => 1); # default mode
 
-    _refresh_packages_list($dialog, $packageTbl);
+    my $num_pkgs = _refresh_packages_list($dialog, $packageTbl);
+    if ($num_pkgs) {
 
-    $packageTbl->setImmediateMode(1);
-    $packageTbl->setWeight(0, 50);
-    my $item = $packageTbl->selectedItem();
-    if ($item) {
-        my $pkg = $data{$item->index()}{fullname};
-        AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
-    }
-
-    # dialog buttons
-    $factory->createVSpacing($vbox, 1.0);
-    ## Window push buttons
-    my $hbox  = $factory->createHBox( $vbox );
-    my $align = $factory->createLeft($hbox);
-    $hbox     = $factory->createHBox($align);
-
-    my $helpButton  = $factory->createPushButton($hbox, $loc->N("Help"));
-    my $aboutButton = $factory->createPushButton($hbox, $loc->N("About") );
-    $align = $factory->createRight($hbox);
-    $hbox  = $factory->createHBox($align);
-
-    ### Service Refresh button ($refreshButton)
-    my $selectButton = $factory->createPushButton($hbox, $loc->N("Select all"));
-    my $updateButton = $factory->createPushButton($hbox, $loc->N("Update"));
-    my $closeButton  = $factory->createPushButton($hbox, $loc->N("Quit") );
-    $statusbar       = $factory->createBusyIndicator($vbox, "" );
-
-    my $info_options = {};
-
-    while(1) {
-        my $event     = $dialog->waitForEvent();
-        my $eventType = $event->eventType();
-
-        #event type checking
-        if ($eventType == $yui::YEvent::CancelEvent) {
-            last if quit();
+        $packageTbl->setImmediateMode(1);
+        $packageTbl->setWeight(0, 50);
+        my $item = $packageTbl->selectedItem();
+        if ($item) {
+            my $pkg = $data{$item->index()}{fullname};
+            AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
         }
-        elsif ($eventType == $yui::YEvent::MenuEvent) {
-            my $item = $event->item();
-            if (!$item) {
-                #URL emitted or at least a ref into RichText widget
-                my $url = yui::toYMenuEvent($event)->id ();
-                if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
-                    $item = $packageTbl->selectedItem();
-                    my $pkg = $data{$item->index()}{fullname};
-                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
-                }
-                else {
-                    # default it's really a URL
-                    AdminPanel::Rpmdragora::gui::run_browser($url);
-                }
-            }
-        }
-        elsif ($eventType == $yui::YEvent::WidgetEvent) {
-            # widget selected
-            my $widget = $event->widget();
 
-            if ($widget == $closeButton) {
+        # dialog buttons
+        $factory->createVSpacing($vbox, 1.0);
+        ## Window push buttons
+        my $hbox  = $factory->createHBox( $vbox );
+        my $align = $factory->createLeft($hbox);
+        $hbox     = $factory->createHBox($align);
+
+        my $helpButton  = $factory->createPushButton($hbox, $loc->N("Help"));
+        my $aboutButton = $factory->createPushButton($hbox, $loc->N("About") );
+        $align = $factory->createRight($hbox);
+        $hbox  = $factory->createHBox($align);
+
+        ### Service Refresh button ($refreshButton)
+        my $selectButton = $factory->createPushButton($hbox, $loc->N("Select all"));
+        my $updateButton = $factory->createPushButton($hbox, $loc->N("Update"));
+        my $closeButton  = $factory->createPushButton($hbox, $loc->N("Quit") );
+        $statusbar       = $factory->createBusyIndicator($vbox, "" );
+
+        my $info_options = {};
+
+        while(1) {
+            my $event     = $dialog->waitForEvent();
+            my $eventType = $event->eventType();
+
+            #event type checking
+            if ($eventType == $yui::YEvent::CancelEvent) {
                 last if quit();
             }
-            elsif ($widget == $aboutButton) {
-#                 my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
-#                 $translators =~ s/\</\&lt\;/g;
-#                 $translators =~ s/\>/\&gt\;/g;
-#                 $self->sh_gui->AboutDialog({ name => $self->name,
-#                                              version => $self->VERSION,
-#                          credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
-#                          license => $loc->N("GPLv2"),
-#                          description => $loc->N("dragoraUpdate is the Mageia update tool\n
-#                                                        (from the original idea of Mandriva MandrivaUpdate)."),
-#                          authors => $loc->N("<h3>Developers</h3>
-#                                                     <ul><li>%s</li>
-#                                                            <li>%s</li>
-#                                                        </ul>
-#                                                        <h3>Translators</h3>
-#                                                        <ul><li>%s</li></ul>",
-#                                                       "Angelo Naselli &lt;anaselli\@linux.it&gt;",
-#                                                       "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
-#                                                       $translators
-#                                                      ),
-#                             }
-#                 );
-            }
-            elsif ($widget == $packageTbl) {
-                yui::YUI::app()->busyCursor();
-                my $item = $packageTbl->selectedItem();
-                if ($item) {
-                    my $pkg = $data{$item->index()}{fullname};
-                    $info_options = {};
-                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
-                }
-                my $wEvent = yui::toYWidgetEvent($event);
-                if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
-                    $item = $packageTbl->changedItem();
-                    if ($item) {
-                        my $name = $data{$item->index()}{fullname};
-                        toggle($packageTbl, $name );
-                        _refresh_packages_list($dialog, $packageTbl);
+            elsif ($eventType == $yui::YEvent::MenuEvent) {
+                my $item = $event->item();
+                if (!$item) {
+                    #URL emitted or at least a ref into RichText widget
+                    my $url = yui::toYMenuEvent($event)->id ();
+                    if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                        $item = $packageTbl->selectedItem();
+                        my $pkg = $data{$item->index()}{fullname};
+                        AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                    }
+                    else {
+                        # default it's really a URL
+                        AdminPanel::Rpmdragora::gui::run_browser($url);
                     }
                 }
-                yui::YUI::app()->normalCursor();
             }
-            elsif ($widget == $selectButton) {
-                yui::YUI::app()->busyCursor();
-                my @list;
-                foreach my $key (sort(keys %data)) {
-                    push @list, $data{$key}{fullname};
-                }
-                toggle_all({
-                    widgets => {detail_list => $packageTbl},
-                    table_item_list => \@list,
-                    set_state_callback => sub {1},
-                });
-                _refresh_packages_list($dialog, $packageTbl);
+            elsif ($eventType == $yui::YEvent::WidgetEvent) {
+                # widget selected
+                my $widget = $event->widget();
 
-                yui::YUI::app()->normalCursor();
-            }
-            elsif ($widget == $updateButton) {
-                my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
-                $initialized = 0 if !$res;
-                _refresh_packages_list($dialog, $packageTbl);
-            }
-            elsif ($widget == $helpButton) {
+                if ($widget == $closeButton) {
+                    last if quit();
+                }
+                elsif ($widget == $aboutButton) {
+    #                 my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
+    #                 $translators =~ s/\</\&lt\;/g;
+    #                 $translators =~ s/\>/\&gt\;/g;
+    #                 $self->sh_gui->AboutDialog({ name => $self->name,
+    #                                              version => $self->VERSION,
+    #                          credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+    #                          license => $loc->N("GPLv2"),
+    #                          description => $loc->N("dragoraUpdate is the Mageia update tool\n
+    #                                                        (from the original idea of Mandriva MandrivaUpdate)."),
+    #                          authors => $loc->N("<h3>Developers</h3>
+    #                                                     <ul><li>%s</li>
+    #                                                            <li>%s</li>
+    #                                                        </ul>
+    #                                                        <h3>Translators</h3>
+    #                                                        <ul><li>%s</li></ul>",
+    #                                                       "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+    #                                                       "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+    #                                                       $translators
+    #                                                      ),
+    #                             }
+    #                 );
+                }
+                elsif ($widget == $packageTbl) {
+                    yui::YUI::app()->busyCursor();
+                    my $item = $packageTbl->selectedItem();
+                    if ($item) {
+                        my $pkg = $data{$item->index()}{fullname};
+                        $info_options = {};
+                        AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+                    }
+                    my $wEvent = yui::toYWidgetEvent($event);
+                    if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
+                        $item = $packageTbl->changedItem();
+                        if ($item) {
+                            my $name = $data{$item->index()}{fullname};
+                            toggle($packageTbl, $name );
+                            $num_pkgs = _refresh_packages_list($dialog, $packageTbl);
+                        }
+                    }
+                    yui::YUI::app()->normalCursor();
+                }
+                elsif ($widget == $selectButton) {
+                    yui::YUI::app()->busyCursor();
+                    my @list;
+                    foreach my $key (sort(keys %data)) {
+                        push @list, $data{$key}{fullname};
+                    }
+                    toggle_all({
+                        widgets => {detail_list => $packageTbl},
+                        table_item_list => \@list,
+                        set_state_callback => sub {1},
+                    });
+                    $num_pkgs = _refresh_packages_list($dialog, $packageTbl);
+
+                    yui::YUI::app()->normalCursor();
+                }
+                elsif ($widget == $updateButton) {
+                    my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
+                    $initialized = 0 if !$res;
+                   $num_pkgs =  _refresh_packages_list($dialog, $packageTbl);
+                }
+                elsif ($widget == $helpButton) {
+                }
+                last if !$num_pkgs;
             }
         }
     }
+
     $dialog->destroy();
 
     #restore old application title
