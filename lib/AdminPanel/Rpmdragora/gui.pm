@@ -1457,7 +1457,7 @@ Do you really want to install all the selected packages?"), yesno => 1)
         $size_selected = 0;
         (undef, $size_free) = MDK::Common::System::df('/usr');
         $options->{rebuild_tree}->() if $options->{rebuild_tree};
-        gtktext_insert($o_info, '') if $o_info;
+        $o_info->setValue("") if $o_info;
     }
     $res;
 }
