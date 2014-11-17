@@ -180,9 +180,7 @@ sub run_treeview_dialog {
 
     my $appTitle = yui::YUI::app()->applicationTitle();
 
-# TODO $w = ugtk2->new(N("Software Management"));
-
-## set new title to get it in dialog
+    ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($loc->N("Software Management"));
     ## set icon if not already set by external launcher
     yui::YUI::app()->setApplicationIcon("/usr/share/mcc/themes/default/MageiaUpdate.png");
@@ -349,7 +347,7 @@ sub run_treeview_dialog {
                 elsif ($widget == $updateButton) {
                     my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
                     $initialized = 0 if !$res;
-                   $num_pkgs =  _refresh_packages_list($dialog, $packageTbl);
+                    $num_pkgs =  _refresh_packages_list($dialog, $packageTbl);
                 }
                 elsif ($widget == $helpButton) {
                 }
