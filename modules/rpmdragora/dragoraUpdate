@@ -27,8 +27,7 @@ use strict;
 use MDK::Common::Func 'any';
 # use lib qw(/usr/lib/libDrakX);
 # use common;
-
-
+use File::ShareDir ':ALL';
 
 use AdminPanel::Rpmdragora::init;
 
@@ -73,6 +72,7 @@ my %update_icons = (
     security => { icon => 'images/rpmdragora/security-update.png', text => $loc->N("Security") },
     bugfix   => { icon => 'images/rpmdragora/bugfix-update.png',   text => $loc->N("Bug fixing") },
     normal   => { icon => 'images/rpmdragora/general-update.png',  text => '' },
+    title    => { icon => 'images/rpmdragora/title-update.png',    text => $loc->N("Here is the list of software package updates") },
 );
 
 my %icons_cache;
@@ -183,7 +183,7 @@ sub run_treeview_dialog {
 # TODO $w = ugtk2->new(N("Software Management"));
 
 ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($loc->N("Here is the list of software package updates"));
+    yui::YUI::app()->setApplicationTitle($loc->N("Software Management"));
     ## set icon if not already set by external launcher
     yui::YUI::app()->setApplicationIcon("/usr/share/mcc/themes/default/MageiaUpdate.png");
 
@@ -197,6 +197,16 @@ sub run_treeview_dialog {
     $::main_window = $dialog; # rpmdrake way of working :(
 
     my $vbox    = $factory->createVBox( $dialog );
+
+    #Line for logo and title
+    my $hbox_iconbar  = $factory->createHBox($vbox);
+    my $head_align_left  = $factory->createLeft($hbox_iconbar);
+    $hbox_iconbar     = $factory->createHBox($head_align_left);
+    my $wm_icon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), $update_icons{'title'}->{icon});
+    $factory->createImage($hbox_iconbar, $wm_icon);
+
+    $factory->createHeading($hbox_iconbar, $update_icons{'title'}->{text});
+
 
     my $yTableHeader = new yui::YTableHeader();
     # checkbox
