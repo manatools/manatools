@@ -644,10 +644,13 @@ sub add_node {
             $table_item_list[$newTableItem->index()] = $leaf;
             $newTableItem->DISOWN();
         } else {
+# print "TODO: add_node  !is_a_package(\$leaf)\n";
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             #push @{$wtree{$leaf}}, $iter;
         }
     } else {
+# print "TODO: add_node  !\$leaf\n";
+
         my $parent = add_parent($w->{tree}, $root, $state);
         #- hackery for partial displaying of trees, used in rpmdragora:
         #- if leaf is void, we may create the parent and one child (to have the [+] in front of the parent in the ctree)
@@ -879,13 +882,19 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
 	update_size($common);
     };
     $common->{add_nodes} = sub {
-	my (@nodes) = @_;
-	$w->{detail_list}->deleteAllItems();
-	#$w->{detail_list}->scroll_to_point(0, 0);
-    foreach(@nodes){
-	    add_node($_->[0], $_->[1], $_->[2]);
-    }
-	update_size($common);
+#        print "TODO ==================> ADD NODES\n";
+        my (@nodes) = @_;
+        yui::YUI::app()->busyCursor();
+
+        $w->{detail_list}->startMultipleChanges();
+        $w->{detail_list}->deleteAllItems();
+        #$w->{detail_list}->scroll_to_point(0, 0);
+        foreach(@nodes){
+            add_node($_->[0], $_->[1], $_->[2]);
+        }
+        update_size($common);
+        $w->{detail_list}->startMultipleChanges();
+        yui::YUI::app()->normalCursor();
     };
 
     $common->{display_info} = sub {
