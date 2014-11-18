@@ -1407,6 +1407,7 @@ sub toggle_nodes {
         }
         # invoke set_leaf_state($pkgname, node_state, )
         # node_state = {to_install, to_remove,...}
+
         $set_state->($_, node_state($_), $detail_list);
         if (my $pkg = $pkgs->{$_}{pkg}) {
             # FIXME: shouldn't we threat all of them as POSITIVE (as selected size)
@@ -1487,12 +1488,17 @@ sub _build_tree {
     #- we populate all the groups tree at first
     %$elems = ();
     # better loop on packages, create groups tree and push packages in the proper place:
+    my @groups = ();
     foreach my $pkg (@elems) {
         my $grp = $pkg->[1];
         # no state for groups (they're not packages and thus have no state)
-        add_parent($tree, $grp, undef);
+        push @groups, $grp;
+
         $elems->{$grp} ||= [];
         push @{$elems->{$grp}}, $pkg;
+    }
+    foreach my $grp (sort @groups) {
+        add_parent($tree, $grp, undef);
     }
 }
 
