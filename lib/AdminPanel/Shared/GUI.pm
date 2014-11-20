@@ -538,18 +538,27 @@ sub AboutDialog {
             parent       ==> YItem parent (if not root object)
             collection   ==> YItemCollection (mandatory)
             default_item ==> Selected item (if any)
-  default_item_separator ==> If default item is a path like string for tree representation
-                             the separator is needed to match the selected item e.g. using all
-                             the path instead of the just item itself
+  default_item_separator ==> If default item is passed and is a path like string
+                             the separator is needed to match the selected item, using
+                             the full pathname instead leaf (e.g. root/subroot/leaf).
+                             Default separator is also needed if '$treeInfo->{icons} entry is passed
+                             to match the right icon to set (e.g. using the full pathname).
             hash_tree    ==> HASH reference containing the path tree representation
-
-=head3 OUTPUT
-
-    $treeItem: YtreeItem to be added to YItemCollection
+            icons        ==> HASH reference containing item icons e.g.
+                             {
+                                 root         => 'root_icon_pathname',
+                                 root/subroot => 'root_subroot_icon_pathname',
+                                 ....
+                             }
+                             Do not add it if no icons are wanted.
+            default_icon ==> icon pathname to a default icon for all the items that are
+                             not into $treeInfo->{icons} or if $treeInfo->{icons} is not
+                             defined. Leave undef if no default icon is wanted
 
 =head3 DESCRIPTION
 
-Function desctription
+    This function add to the given $treeInfo->{collection} new tree items from
+    the the given $treeInfo->{hash_tree}
 
 =cut
 
@@ -585,15 +594,22 @@ sub hashTreeToYItemCollection {
             }
         }
 
+        # building full path name
+        my $label = $key;
+        if (exists $treeInfo->{default_item_separator}) {
+            my $parent = $item;
+            while($parent = $parent->parent()) {
+                $label = $parent->label() . $treeInfo->{default_item_separator} . $label ;
+            }
+        }
+        my $icon = undef;
+        $icon = $treeInfo->{default_icon} if defined($treeInfo->{default_icon});
+        $icon = $treeInfo->{icons}->{$label} if defined($treeInfo->{icons}) && defined($treeInfo->{icons}->{$label});
+
+        $item->setIconName($icon) if $icon;
+
         ### select item
         if ($treeInfo->{default_item}) {
-            my $label = $key;
-            if (exists $treeInfo->{default_item_separator}) {
-                my $parent = $item;
-                while($parent = $parent->parent()) {
-                    $label = $parent->label() . $treeInfo->{default_item_separator} . $label ;
-                }
-            }
             if ($treeInfo->{default_item} eq $label) {
                 $item->setSelected(1) ;
                 $item->setOpen(1);
@@ -611,6 +627,7 @@ sub hashTreeToYItemCollection {
             $tf{default_item} = $treeInfo->{default_item} if $treeInfo->{default_item};
             $tf{default_item_separator} = $treeInfo->{default_item_separator} if $treeInfo->{default_item_separator};
             $tf{hash_tree} = $treeInfo->{hash_tree}->{$key};
+            $tf{icons} =  $treeInfo->{icons};
             $self->hashTreeToYItemCollection(\%tf);
         }
         else {
@@ -632,12 +649,12 @@ sub hashTreeToYItemCollection {
 
 =head3 INPUT
 
-$info: HASH, information to be passed to the dialog.
+    $info: HASH, information to be passed to the dialog.
             title          =>     dialog title
             header         =>     TreeView header
             list           =>     path item list
             min_size       =>     minimum dialog size in the libYUI meaning
-                                  HASH {width => w, height => h} 
+                                  HASH {width => w, height => h}
             default_item   =>     selected item if any
             item_separator =>     item separator default "/"
             skip_path      =>     if set item is returned without its original path,
