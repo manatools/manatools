@@ -22,12 +22,12 @@ package AdminPanel::Shared;
 
 =head1 NAME
 
-AdminPanel::Shared - AdminPanel::Shared contains all the shared routines 
+AdminPanel::Shared - AdminPanel::Shared contains all the shared routines
                      needed by AdminPanel and modules
 
 =head1 SYNOPSIS
 
-    
+
 
 =head1 DESCRIPTION
 
@@ -35,7 +35,7 @@ This module collects all the routines shared between AdminPanel and its modules.
 
 =head1 EXPORT
 
-    trim 
+    trim
     member
     md5sum
     pathList2hash
@@ -83,7 +83,7 @@ use base qw(Exporter);
 
 # TODO move GUI dialogs to Shared::GUI
 our @EXPORT = qw(
-                trim 
+                trim
                 md5sum
                 pathList2hash
                 distName
@@ -115,7 +115,7 @@ $filename the name of the file to read
 
 =head3 OUTPUT
 
-depending from the context it returns the content 
+depending from the context it returns the content
 of the file as an array or a string
 
 =head3 DESCRIPTION
@@ -250,15 +250,15 @@ sub inArray {
 
 =head3 INPUT
 
-$filename: file for md5 calculation
+    $filename: file for md5 calculation
 
 =head3 OUTPUT
 
-md5 sum
+    md5 sum
 
 =head3 DESCRIPTION
 
- compute MD5 for the given file
+    compute MD5 for the given file
 
 =cut
 
@@ -285,19 +285,19 @@ sub md5sum {
 
 =head3 INPUT
 
-$param : HASH ref containing
-        paths     =>  ARRAY of string containing path like strings
-        separator => item separator inside a single path
-                     (default separator is /)
+    $param : HASH ref containing
+            paths     =>  ARRAY of string containing path like strings
+            separator => item separator inside a single path
+                        (default separator is /)
 
 =head3 OUTPUT
 
-\%tree: HASH reference containing the same structur passed as ARRAY
-        in a tree view form, leaves are undef.
+    \%tree: HASH reference containing the same structur passed as ARRAY
+            in a tree view form, leaves are undef.
 
 =head3 DESCRIPTION
 
-This function return a tree representation of the given array.
+    This function return a tree representation of the given array.
 
 =cut
 
@@ -329,7 +329,7 @@ sub pathList2hash {
 
 =head3 DESCRIPTION
 
-if exists /usr/bin/xset disable screensaver
+    if exists /usr/bin/xset disable screensaver
 
 =cut
 
@@ -348,7 +348,7 @@ sub disable_x_screensaver() {
 
 =head3 DESCRIPTION
 
-if exists /usr/bin/xset enables screensaver
+    if exists /usr/bin/xset enables screensaver
 
 =cut
 
