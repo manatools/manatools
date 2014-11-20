@@ -47,6 +47,7 @@ use AdminPanel::Rpmdragora::init;
 use AdminPanel::Rpmdragora::icon;
 use AdminPanel::Rpmdragora::pkg;
 use AdminPanel::Shared;
+use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use yui;
 use feature 'state';
@@ -90,7 +91,8 @@ our @EXPORT = qw(
                     setInfoOnWidget
             );
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc        = AdminPanel::rpmdragora::locale();
+my $shared_gui = AdminPanel::Shared::GUI->new() ;
 
 our ($descriptions, %filters, @filtered_pkgs, %filter_methods, $force_displaying_group, $force_rebuild, @initial_selection, $pkgs, $size_free, $size_selected, $urpm);
 our ($results_ok, $results_none) = ($loc->N("Search results"), $loc->N("Search results (none)"));
@@ -560,32 +562,42 @@ sub add_parent {
     $tree or return undef;
     #$root or return undef;
     my $parent = 0;
+
+    print "TODO: add_parent to be removed (called with " . $root . ")\n";
+
     my @items = split('\|', $root);
     my $i = 0;
+    my $parentItem = undef;
+    my $rootItem = undef;
     for my $item (@items) {
         chomp $item;
         $item = trim($item);
-		my $treeItem;
+        my $treeItem;
 		if($i == 0){
 			$parent = $item;
 		    $treeItem = new yui::YTreeItem($item,get_icon_path($item,0),0);
+            $rootItem = $treeItem;
+            $parentItem = $treeItem;
 			if(!defined($groups_tree{$parent})) {
 				$groups_tree{$parent}{parent} = $treeItem;
 				$groups_tree{$parent}{children} = ();
-				$tree->addItem($groups_tree{$parent}{'parent'});
+# 				$tree->addItem($groups_tree{$parent}{'parent'});
 			}
 		}else{
             #if(any { $_ ne $item } @{$groups_tree{$parent}{'children'}}){
             #    push @{$groups_tree{$parent}{'children'}}, $item;
             #}
+            $parentItem = new yui::YTreeItem($parentItem, $item,get_icon_path($item,$parent),0);
             if(!defined($groups_tree{$parent}{'children'}{$item})){
-		        $treeItem = new yui::YTreeItem($item,get_icon_path($item,$parent),0);
+# 		        $treeItem = new yui::YTreeItem($treeItem, $item,get_icon_path($item,$parent),0);
+                $treeItem = $parentItem;
                 $groups_tree{$parent}{'children'}{$item} = $treeItem;
 			    $groups_tree{$parent}{'parent'}->addChild($treeItem);
             }
 		}
 		$i++;
 	}
+	$tree->addItem($rootItem) if $rootItem;
     $tree->rebuildTree();
 }
 
@@ -886,9 +898,9 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         my (@nodes) = @_;
         yui::YUI::app()->busyCursor();
 
+        $DB::single = 1;
         $w->{detail_list}->startMultipleChanges();
         $w->{detail_list}->deleteAllItems();
-        #$w->{detail_list}->scroll_to_point(0, 0);
         foreach(@nodes){
             add_node($_->[0], $_->[1], $_->[2]);
         }
@@ -1494,6 +1506,7 @@ sub ctreefy {
 
 sub _build_tree {
     my ($tree, $elems, @elems) = @_;
+
     #- we populate all the groups tree at first
     %$elems = ();
     # better loop on packages, create groups tree and push packages in the proper place:
@@ -1506,9 +1519,39 @@ sub _build_tree {
         $elems->{$grp} ||= [];
         push @{$elems->{$grp}}, $pkg;
     }
-    foreach my $grp (sort @groups) {
-        add_parent($tree, $grp, undef);
+
+    my $tree_hash = AdminPanel::Shared::pathList2hash({
+        paths => \@groups,
+        separator => '|',
+    });
+
+    $tree->startMultipleChanges();
+
+    # TODO fixing geti icon api to get a better hash from the module
+    my %icons = ();
+    foreach my $group (@groups) {
+        next if defined($icons{$group});
+        my @items = split('\|', $group);
+        if (scalar(@items) > 1) {
+            $icons{$items[0]} = get_icon_path($items[0], 0);
+            $icons{$group} = get_icon_path($items[1], $items[0])
+        }
+        else {
+            $icons{$group} = get_icon_path($group, 0);
+        }
     }
+
+    my $itemColl = new yui::YItemCollection;
+    $shared_gui->hashTreeToYItemCollection({
+        collection             => $itemColl,
+        hash_tree              => $tree_hash,
+        icons                  => \%icons,
+        default_item_separator => '|',
+    });
+
+    $tree->addItems($itemColl);
+    $tree->doneMultipleChanges();
+    $tree->rebuildTree();
 }
 
 
@@ -1649,17 +1692,22 @@ sub run_browser {
 }
 
 sub groups_tree {
+    warn "DEPRECATE groups_tree: do not use it any more!";
+
     return %groups_tree;
 }
 
 sub group_has_parent {
     my ($group) = shift;
+    warn "DEPRECATE group_has_parent: do not use it any more!";
     return 0 if(!defined($group));
     return defined($groups_tree{$group}{parent});
 }
 
 sub group_parent {
     my ($group) = shift;
+
+    warn "DEPRECATE group_parent: do not use it any more!";
     # if group is a parent itself return it
     # who use group_parent have to take care of the comparison
     # between a group and its parent

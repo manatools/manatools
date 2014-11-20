@@ -124,20 +124,17 @@ sub tree_callback {
     #$current_group = $new_group;
     #OLD $model && $iter or return;
     $selection or return;
-    #OLD my $group = $model->get($iter, 0);
-    my $group = $selection->label();
-    # documentation reference for ->parent() method
-    # http://doc.opensuse.org/projects/libyui/HEAD/classYItem.html#af78069741ce6b64f7512bc08b5bc857b
-    # WARNING: it seems that parent method don't return 0 if there is no parent :-(
-    # WARNING: it seems that parent method actually don't work at all :-/
-    #DO NOT WORK my $parent = $selection->parent();
-    my $parent = group_parent($group);
-    while (defined($parent)) {
-        last if($parent->label() eq $group);
-        $group = join('|', $parent->label(), $group);
-        $parent = group_parent();
+
+    $DB::single = 1;
+
+    my $fullname = $selection->label();
+    my $it = $selection;
+    while ($it = $it->parent()) {
+        $fullname = join("|", $it->label(), $fullname);
     }
-    if(!$selection->hasChildren()){
+    my $group = $fullname;
+
+    if (!$selection->hasChildren()) {
         #$detail_list->window->freeze_updates;
         $options->{add_nodes}->(@{$elems{$group}});
         #$detail_list->window->thaw_updates if $detail_list->window;
