@@ -476,21 +476,30 @@ my ($common, $w, %wtree, %ptree, %pix, @table_item_list);
 sub set_node_state {
     my ($tblItem, $state, $detail_list) = @_;
     return if $state eq 'XXX' || !$state;
-    $detail_list->parent()->parent()->startMultipleChanges();
-    $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
-    if(to_bool(member($state, qw(base installed to_install)))){
-        # it should be parent()->setChecked(1)
-        $detail_list->checkItem($tblItem, 1);
-        # $tblItem->setSelected(1);
-    }else{
-        $detail_list->checkItem($tblItem, 0);
-        # $tblItem->setSelected(0);
+
+    if ($detail_list) {
+        $detail_list->parent()->parent()->startMultipleChanges();
+        $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
+        if(to_bool(member($state, qw(base installed to_install)))){
+            # it should be parent()->setChecked(1)
+            $detail_list->checkItem($tblItem, 1);
+            # $tblItem->setSelected(1);
+        }else{
+            $detail_list->checkItem($tblItem, 0);
+            # $tblItem->setSelected(0);
+        }
+        if(!to_bool($state ne 'base')){
+            #$iter->cell(0)->setLabel('-');
+            $tblItem->cell(0)->setLabel('-');
+        }
+        $detail_list->parent()->parent()->doneMultipleChanges();
     }
-    if(!to_bool($state ne 'base')){
-        #$iter->cell(0)->setLabel('-');
-        $tblItem->cell(0)->setLabel('-');
+    else {
+        # no item list means we use just the item to add state information
+        $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
+        $tblItem->check(to_bool(member($state, qw(base installed to_install))));
+        $tblItem->cell(0)->setLabel('-') if !to_bool($state ne 'base');
     }
-    $detail_list->parent()->parent()->doneMultipleChanges();
 }
 
 sub set_leaf_state {
@@ -563,7 +572,7 @@ sub add_parent {
     #$root or return undef;
     my $parent = 0;
 
-    print "TODO: add_parent to be removed (called with " . $root . ")\n";
+    warn "WARNING TODO: add_parent to be removed (called with " . $root . ")\n";
 
     my @items = split('\|', $root);
     my $i = 0;
@@ -601,6 +610,64 @@ sub add_parent {
     $tree->rebuildTree();
 }
 
+#=============================================================
+
+=head2 add_package_item
+
+=head3 INPUT
+
+=item B<$item_list>:  reference to a YItemCollection
+
+=item B<$pkg_name>:   package name
+
+=item B<$root>:       string containing a path-like sequence (e.g. "foo|bar")
+
+=head3 DESCRIPTION
+
+    populates the item list for the table view with the given rpm package
+
+=cut
+
+#=============================================================
+sub add_package_item {
+    my ($item_list, $pkg_name, $root) = @_;
+
+    return if !$pkg_name;
+
+    return if ref($item_list) ne "yui::YItemCollection";
+
+    my $state = node_state($pkg_name) or return;
+
+    my $iter;
+    if (is_a_package($pkg_name)) {
+        my ($name, $version, $release, $arch) = split_fullname($pkg_name);
+
+        $name    = "" if !defined($name);
+        $version = "" if !defined($version);
+        $release = "" if !defined($release);
+        $arch    = "" if !defined($arch);
+
+# TODO FIXME summary is not visible in necurses (adding a new column as in dragoraUpdate)
+        my $newTableItem = new yui::YCBTableItem(
+            $name."\n".get_summary($pkg_name),
+            $version,
+            $release,
+            $arch
+        );
+
+        set_node_state($newTableItem, $state);
+# TODO FIXME evaluate if $ptree is really needed.
+
+        $item_list->push($newTableItem);
+
+        $newTableItem->DISOWN();
+    }
+    else {
+        warn $pkg_name . " is not a leaf package and that is not managed!";
+    }
+
+}
+
 #
 # @method add_node
 #
@@ -633,6 +700,8 @@ sub add_node {
     if ($leaf) {
         my $iter;
         if (is_a_package($leaf)) {
+print "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
+
             my ($name, $version, $release, $arch) = split_fullname($leaf);
             #OLD $iter = $w->{detail_list_model}->append_set([ $pkg_columns{text} => $leaf,
             #                                              $pkg_columns{short_name} => format_name_n_summary($name, get_summary($leaf)),
@@ -656,12 +725,12 @@ sub add_node {
             $table_item_list[$newTableItem->index()] = $leaf;
             $newTableItem->DISOWN();
         } else {
-# print "TODO: add_node  !is_a_package(\$leaf)\n";
+ print "TODO: add_node  !is_a_package(\$leaf)\n";
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             #push @{$wtree{$leaf}}, $iter;
         }
     } else {
-# print "TODO: add_node  !\$leaf\n";
+ print "TODO: add_node  !\$leaf\n";
 
         my $parent = add_parent($w->{tree}, $root, $state);
         #- hackery for partial displaying of trees, used in rpmdragora:
@@ -871,6 +940,8 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{clear_all_caches} = $clear_all_caches;
     $common->{delete_all} = sub {
+       warn "WARNING TODO delete_all to be removed!";
+
 	    $clear_all_caches->();
         $w->{detail_list}->deleteAllItems() if($w->{detail_list}->hasItems());
 	    $w->{tree}->deleteAllItems() if($w->{tree}->hasItems());
@@ -882,38 +953,54 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
 	    update_size($common);
     };
     $common->{delete_category} = sub {
-	my ($cat) = @_;
-	exists $wtree{$cat} or return;
-	%ptree = ();
-
-	if (exists $wtree{$cat}) {
-	    my $_iter_str = $w->{tree_model}->get_path_str($wtree{$cat});
-	    $w->{tree_model}->remove($wtree{$cat});
-	    delete $wtree{$cat};
-	}
-	update_size($common);
+        my ($cat) = @_;
+        warn "WARNING TODO delete_category to be removed!";
+        exists $wtree{$cat} or return;
+        %ptree = ();
+        return;
+# 	exists $wtree{$cat} or return;
+# 	%ptree = ();
+#
+# 	if (exists $wtree{$cat}) {
+# 	    my $_iter_str = $w->{tree_model}->get_path_str($wtree{$cat});
+# 	    $w->{tree_model}->remove($wtree{$cat});
+# 	    delete $wtree{$cat};
+# 	}
+# 	update_size($common);
     };
     $common->{add_nodes} = sub {
-#        print "TODO ==================> ADD NODES\n";
         my (@nodes) = @_;
+        print "TODO ==================> ADD NODES (" . scalar(@nodes) . ") \n";
         yui::YUI::app()->busyCursor();
 
         $DB::single = 1;
         $w->{detail_list}->startMultipleChanges();
         $w->{detail_list}->deleteAllItems();
+        my $itemColl = new yui::YItemCollection;
+
+        @table_item_list = ();
+        my $index = 0;
         foreach(@nodes){
-            add_node($_->[0], $_->[1], $_->[2]);
+            add_package_item($itemColl, $_->[0], $_->[1]);
+            warn "Unmanaged param " . $_->[2] if defined $_->[2];
+            $ptree{$_->[0]} = [ $index ];
+            $index++;
+            push @table_item_list, $_->[0];
         }
+#         foreach(@nodes){
+#             add_node($_->[0], $_->[1], $_->[2]);
+#         }
         update_size($common);
-        $w->{detail_list}->startMultipleChanges();
+        $w->{detail_list}->addItems($itemColl);
+        $w->{detail_list}->doneMultipleChanges();
         yui::YUI::app()->normalCursor();
     };
 
-    $common->{display_info} = sub {
-        gtktext_insert($w->{info}, get_info($_[0], $w->{tree}->window));
-        $w->{info}->scroll_to_iter($w->{info}->get_buffer->get_start_iter, 0, 0, 0, 0);
-        0;
-    };
+#     $common->{display_info} = sub {
+#         gtktext_insert($w->{info}, get_info($_[0], $w->{tree}->window));
+#         $w->{info}->scroll_to_iter($w->{info}->get_buffer->get_start_iter, 0, 0, 0, 0);
+#         0;
+#     };
 
     my $fast_toggle = sub {
         my ($item) = @_;
@@ -1506,6 +1593,8 @@ sub ctreefy {
 
 sub _build_tree {
     my ($tree, $elems, @elems) = @_;
+
+    print "TODO ====> BUILD TREE\n";
 
     #- we populate all the groups tree at first
     %$elems = ();
