@@ -134,6 +134,8 @@ sub tree_callback {
     }
     my $group = $fullname;
 
+    utf8::decode($group);
+
     if (!$selection->hasChildren()) {
         #$detail_list->window->freeze_updates;
         $options->{add_nodes}->(@{$elems{$group}});
