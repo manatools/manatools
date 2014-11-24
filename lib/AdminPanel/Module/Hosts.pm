@@ -114,6 +114,85 @@ sub start {
     $self->_manageHostsDialog();
 };
 
+#=============================================================
+
+=head2 _changeHostNameDialog
+
+=head3 INPUT
+
+    $self: this object
+    
+    $headerString: a title for the dialog
+
+=head3 DESCRIPTION
+
+    This method display a dialog allowing the user
+    to change the hostname
+
+=cut
+
+#=============================================================
+sub _changeHostNameDialog {
+    my $self = shift;
+
+    my $headerString = shift();
+
+    my $hostIpString = "";
+    my $hostNameString = "";
+    my $hostAliasesString = "";
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $dlg = $factory->createPopupDialog();
+    my $layout = $factory->createVBox($dlg);
+
+    my $hbox_header = $factory->createHBox($layout);
+    my $vbox_content = $factory->createVBox($layout);
+    my $hbox_footer = $factory->createHBox($layout);
+
+    # header
+    my $labelDescription = $factory->createLabel($hbox_header,$headerString);
+
+    # content
+    my $firstHbox = $factory->createHBox($vbox_content);
+    my $secondHbox = $factory->createHBox($vbox_content);
+
+    my $labelHostName  = $factory->createLabel($secondHbox,$self->loc->N("Hostname"));
+    $labelHostName->setWeight($yui::YD_HORIZ, 10);
+
+    my $textHostName = $factory->createInputField($secondHbox,"");
+    $textHostName->setWeight($yui::YD_HORIZ, 30);
+
+    $hostNameString = $self->cfgHosts->_getLocalHostName();
+    
+    $textHostName->setValue($hostNameString);
+
+    # footer
+    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("Cancel"));
+    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),$self->loc->N("OK"));
+
+    while(1){
+        my $event     = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif($widget == $okButton) {
+		$self->cfgHosts->_setLocalHostName($textHostName->value());
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+}
 
 sub _manipulateHostDialog {
     my $self = shift;
@@ -345,9 +424,11 @@ sub _manageHostsDialog {
     my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Add"));
     my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Edit"));
     my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Remove"));
+    my $hnButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Hostname"));
     $addButton->setWeight($yui::YD_HORIZ,1);
     $edtButton->setWeight($yui::YD_HORIZ,1);
     $remButton->setWeight($yui::YD_HORIZ,1);
+    $hnButton->setWeight($yui::YD_HORIZ,1);
 
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
@@ -394,6 +475,8 @@ sub _manageHostsDialog {
                     $self->cfgHosts->_writeHosts();
                     $self->setupTable();
                 }
+            }elsif ($widget == $hnButton) {
+                $self->_changeHostNameDialog("Change the HostName FQDN");
             }elsif ($widget == $aboutButton) {
                 $self->sh_gui->AboutDialog({
                     name => $appTitle,
