@@ -22,6 +22,7 @@ package AdminPanel::Shared::Hosts;
 use Moose;
 use diagnostics;
 use Config::Hosts;
+use Net::DBus;
 use utf8;
 
 # costants by Config::Hosts
@@ -35,9 +36,21 @@ has 'configHosts' => (
 	builder => '_initialize'
 );
 
+has 'dbus' => (
+	is => 'ro',
+	isa => 'HashRef',
+	builder => '_initDBusServiceObject',
+);
+
 sub _initialize {
 	my $self = shift();
 	$self->configHosts(Config::Hosts->new());
+}
+
+sub _initDBusServiceObject {
+	my $self = shift();
+	my %dbus_so = ( 'servicePath' => 'org.freedesktop.hostname1', 'objectPath' => '/org/freedesktop/hostname1' );
+	return \%dbus_so;
 }
 
 =pod
@@ -97,6 +110,26 @@ sub _modifyHost {
 sub _writeHosts {
 	my $self = shift();
 	return $self->configHosts->write_hosts();
+}
+
+sub _getLocalHostName {
+	my $self = shift();
+	my %params = %{$self->dbus()};
+	my $bus = Net::DBus->system;
+	my $service = $bus->get_service($params{'servicePath'});
+	my $object = $service->get_object($params{'objectPath'});
+	my $properties = $object->GetAll($params{'servicePath'});
+	return $properties->{Hostname};
+}
+
+sub _setLocalHostName {
+	my $self = shift();
+	my $hostname = shift();
+	my %params = %{$self->dbus()};
+	my $bus = Net::DBus->system;
+	my $service = $bus->get_service($params{'servicePath'});
+	my $object = $service->get_object($params{'objectPath'});
+	$object->SetPrettyHostname($hostname, 1);
 }
 
 1;
