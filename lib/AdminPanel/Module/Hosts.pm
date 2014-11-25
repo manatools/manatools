@@ -137,10 +137,6 @@ sub _changeHostNameDialog {
 
     my $headerString = shift();
 
-    my $hostIpString = "";
-    my $hostNameString = "";
-    my $hostAliasesString = "";
-
     my $factory  = yui::YUI::widgetFactory;
     my $dlg = $factory->createPopupDialog();
     my $layout = $factory->createVBox($dlg);
@@ -155,16 +151,41 @@ sub _changeHostNameDialog {
     # content
     my $firstHbox = $factory->createHBox($vbox_content);
     my $secondHbox = $factory->createHBox($vbox_content);
+    my $thirdHbox = $factory->createHBox($vbox_content);
+    my $fourthHbox = $factory->createHBox($vbox_content);
+    my $fifthHbox = $factory->createHBox($vbox_content);
+    my $sixthHbox = $factory->createHBox($vbox_content);
 
     my $labelHostName  = $factory->createLabel($secondHbox,$self->loc->N("Hostname"));
     $labelHostName->setWeight($yui::YD_HORIZ, 10);
-
     my $textHostName = $factory->createInputField($secondHbox,"");
     $textHostName->setWeight($yui::YD_HORIZ, 30);
-
-    $hostNameString = $self->cfgHosts->_getLocalHostName();
     
-    $textHostName->setValue($hostNameString);
+    my $labelPrettyHostName  = $factory->createLabel($thirdHbox,$self->loc->N("Pretty Hostname"));
+    $labelPrettyHostName->setWeight($yui::YD_HORIZ, 10);
+    my $textPrettyHostName = $factory->createInputField($thirdHbox,"");
+    $textPrettyHostName->setWeight($yui::YD_HORIZ, 30);
+    
+    my $labelStaticHostName  = $factory->createLabel($fourthHbox,$self->loc->N("Static Hostname"));
+    $labelStaticHostName->setWeight($yui::YD_HORIZ, 10);
+    my $textStaticHostName = $factory->createInputField($fourthHbox,"");
+    $textStaticHostName->setWeight($yui::YD_HORIZ, 30);
+    
+    my $labelChassis  = $factory->createLabel($fifthHbox,$self->loc->N("Chassis"));
+    $labelChassis->setWeight($yui::YD_HORIZ, 10);
+    my $textChassis = $factory->createInputField($fifthHbox,"");
+    $textChassis->setWeight($yui::YD_HORIZ, 30);
+    
+    my $labelIconName  = $factory->createLabel($sixthHbox,$self->loc->N("Icon Name"));
+    $labelIconName->setWeight($yui::YD_HORIZ, 10);
+    my $textIconName = $factory->createInputField($sixthHbox,"");
+    $textIconName->setWeight($yui::YD_HORIZ, 30);
+
+    $textHostName->setValue($self->cfgHosts->_getLocalHostName());
+    $textPrettyHostName->setValue($self->cfgHosts->_getLocalPrettyHostName());
+    $textStaticHostName->setValue($self->cfgHosts->_getLocalStaticHostName());
+    $textChassis->setValue($self->cfgHosts->_getLocalChassis());
+    $textIconName->setValue($self->cfgHosts->_getLocalIconName());
 
     # footer
     my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("Cancel"));
@@ -186,6 +207,10 @@ sub _changeHostNameDialog {
             }
             elsif($widget == $okButton) {
 		$self->cfgHosts->_setLocalHostName($textHostName->value());
+		$self->cfgHosts->_setLocalPrettyHostName($textPrettyHostName->value());
+		$self->cfgHosts->_setLocalStaticHostName($textStaticHostName->value());
+		$self->cfgHosts->_setLocalChassis($textChassis->value());
+		$self->cfgHosts->_setLocalIconName($textIconName->value());
                 last;
             }
         }
@@ -477,6 +502,7 @@ sub _manageHostsDialog {
                 }
             }elsif ($widget == $hnButton) {
                 $self->_changeHostNameDialog("Change the HostName FQDN");
+                $self->setupTable();
             }elsif ($widget == $aboutButton) {
                 $self->sh_gui->AboutDialog({
                     name => $appTitle,
