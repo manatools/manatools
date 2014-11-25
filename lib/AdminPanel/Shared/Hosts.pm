@@ -36,10 +36,10 @@ has 'configHosts' => (
 	builder => '_initialize'
 );
 
-has 'dbus' => (
+has 'dbusConnectionParams' => (
 	is => 'ro',
 	isa => 'HashRef',
-	builder => '_initDBusServiceObject',
+	builder => '_initDBusConnectionParams',
 );
 
 sub _initialize {
@@ -47,10 +47,10 @@ sub _initialize {
 	$self->configHosts(Config::Hosts->new());
 }
 
-sub _initDBusServiceObject {
+sub _initDBusConnectionParams {
 	my $self = shift();
-	my %dbus_so = ( 'servicePath' => 'org.freedesktop.hostname1', 'objectPath' => '/org/freedesktop/hostname1' );
-	return \%dbus_so;
+	my %dbusConnParams = ( 'servicePath' => 'org.freedesktop.hostname1', 'objectPath' => '/org/freedesktop/hostname1' );
+	return \%dbusConnParams;
 }
 
 =pod
@@ -112,24 +112,105 @@ sub _writeHosts {
 	return $self->configHosts->write_hosts();
 }
 
-sub _getLocalHostName {
+sub _dbus_connection {
 	my $self = shift();
-	my %params = %{$self->dbus()};
+	my %params = %{$self->dbusConnectionParams()};
 	my $bus = Net::DBus->system;
 	my $service = $bus->get_service($params{'servicePath'});
 	my $object = $service->get_object($params{'objectPath'});
+	return $object;
+}
+
+sub _dbus_inquiry {
+	my $self = shift();
+	my $required_field = shift();
+	my $object = $self->_dbus_connection();
+	my %params = %{$self->dbusConnectionParams()};
 	my $properties = $object->GetAll($params{'servicePath'});
-	return $properties->{Hostname};
+	return $properties->{$required_field} if(defined($properties->{$required_field}));
+	return 0;
+}
+
+sub _dbus_setup {
+	my $self = shift();
+	my $attribute = shift();
+	my $value = shift();
+	my $object = $self->_dbus_connection();
+	if($attribute eq "Hostname")
+	{
+	  $object->SetHostname($value,1);
+	}
+	elsif($attribute eq "PrettyHostname")
+	{
+	  $object->SetPrettyHostname($value,1);
+	}
+	elsif($attribute eq "StaticHostname")
+	{
+	  $object->SetStaticHostname($value,1);
+	}
+	elsif($attribute eq "Chassis")
+	{
+	  $object->SetChassis($value,1);
+	}
+	elsif($attribute eq "IconName")
+	{
+	  $object->SetIconName($value,1);
+	}
+}
+
+sub _getLocalHostName {
+	my $self = shift();
+	return $self->_dbus_inquiry('Hostname');
+}
+
+sub _getLocalPrettyHostName {
+	my $self = shift();
+	return $self->_dbus_inquiry('PrettyHostname');
+}
+
+sub _getLocalStaticHostName {
+	my $self = shift();
+	return $self->_dbus_inquiry('StaticHostname');
+}
+
+sub _getLocalChassis {
+	my $self = shift();
+	return $self->_dbus_inquiry('Chassis');
+}
+
+sub _getLocalIconName {
+	my $self = shift();
+	return $self->_dbus_inquiry('IconName');
 }
 
 sub _setLocalHostName {
 	my $self = shift();
 	my $hostname = shift();
-	my %params = %{$self->dbus()};
-	my $bus = Net::DBus->system;
-	my $service = $bus->get_service($params{'servicePath'});
-	my $object = $service->get_object($params{'objectPath'});
-	$object->SetHostname($hostname, 1);
+	$self->_dbus_setup('Hostname',$hostname);
+}
+
+sub _setLocalPrettyHostName {
+	my $self = shift();
+	my $value = shift();
+	$self->_dbus_setup('PrettyHostname',$value);
+}
+
+sub _setLocalStaticHostName {
+	my $self = shift();
+	my $value = shift();
+	$self->_dbus_setup('StaticHostname',$value);
+}
+
+sub _setLocalIconName {
+	my $self = shift();
+	my $value = shift();
+	$self->_dbus_setup('IconName',$value);
+}
+
+sub _setLocalChassis {
+	my $self = shift();
+	my $value = shift();
+	$self->_dbus_setup('Chassis',$value);
 }
 
 1;
