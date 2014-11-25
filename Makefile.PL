@@ -4,7 +4,7 @@ use warnings FATAL => 'all';
 use ExtUtils::MakeMaker;
 use File::ShareDir::Install;
 
-install_share dist => 'share'; 
+install_share dist => 'share';
 
 
 WriteMakefile(
@@ -44,17 +44,18 @@ WriteMakefile(
         "Data::Password::Meter"    => 0,
         "Digest::MD5"        => 0,
         "IO::All"            => 0,
-	"XML::Simple"        => 0,
+        "XML::Simple"        => 0,
         #Mandriva
         "MDK::Common"         => 0,
         "MDK::Common::File"   => 0,
         "MDK::Common::Func"   => 0,
         "MDK::Common::System" => 0,
         "MDK::Common::String" => 0,
-	"URPM"                => 0,
-	"Glib"                => 0,
-	"POSIX"               => 0,
-	"utf8"               => 0,
+        "Net::DBus"           => 0,
+        "URPM"                => 0,
+        "Glib"                => 0,
+        "POSIX"               => 0,
+        "utf8"               => 0,
 
         "English"             => 0,
         "Modern::Perl"        => 1.03,
