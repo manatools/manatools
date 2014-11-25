@@ -1,23 +1,23 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2013-2014 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
-package AdminPanel::Shared::Hosts; 
+package AdminPanel::Shared::Hosts;
 
 use Moose;
 use diagnostics;
@@ -60,7 +60,7 @@ sub _initDBusServiceObject {
 =head3 OUTPUT
 
     @result: array of hashes; each one of them represent a host definition from the hosts configuration file
-    
+
     NOTE: the 'hosts' item into each hash is an array: it contains the hostname and -eventually- the aliases
 
 =head3 DESCRIPTION
@@ -79,7 +79,7 @@ sub _getHosts {
 			my $tmp = {};
 			$tmp = $self->configHosts->query_host($key);
 			$tmp->{'ip'} = $key;
-			push @result,$tmp; 
+			push @result,$tmp;
 		}
 	}
 	return @result;
@@ -129,7 +129,7 @@ sub _setLocalHostName {
 	my $bus = Net::DBus->system;
 	my $service = $bus->get_service($params{'servicePath'});
 	my $object = $service->get_object($params{'objectPath'});
-	$object->SetPrettyHostname($hostname, 1);
+	$object->SetHostname($hostname, 1);
 }
 
 1;
