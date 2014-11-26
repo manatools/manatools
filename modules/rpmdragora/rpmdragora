@@ -417,6 +417,7 @@ sub run_treeview_dialog {
 
     # OLD $::main_window = $w->{real_window};
     $::main_window = $my_win;
+    $size_selected = 0;
 
     $options = {
         build_tree => sub { build_tree($tree, $tree_model, \%elems, $options, $force_rebuild, @_) },
