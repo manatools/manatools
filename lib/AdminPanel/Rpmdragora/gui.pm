@@ -51,6 +51,7 @@ use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use yui;
 use feature 'state';
+use Carp;
 
 our @EXPORT = qw(
                     $descriptions
@@ -572,7 +573,7 @@ sub add_parent {
     #$root or return undef;
     my $parent = 0;
 
-    warn "WARNING TODO: add_parent to be removed (called with " . $root . ")\n";
+    carp "WARNING TODO: add_parent to be removed (called with " . $root . ")\n";
 
     my @items = split('\|', $root);
     my $i = 0;
@@ -700,7 +701,7 @@ sub add_node {
     if ($leaf) {
         my $iter;
         if (is_a_package($leaf)) {
-print "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
+carp "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
 
             my ($name, $version, $release, $arch) = split_fullname($leaf);
             #OLD $iter = $w->{detail_list_model}->append_set([ $pkg_columns{text} => $leaf,
@@ -725,12 +726,12 @@ print "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
             $table_item_list[$newTableItem->index()] = $leaf;
             $newTableItem->DISOWN();
         } else {
- print "TODO: add_node  !is_a_package(\$leaf)\n";
+ carp "TODO: add_node  !is_a_package(\$leaf)\n";
             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             #push @{$wtree{$leaf}}, $iter;
         }
     } else {
- print "TODO: add_node  !\$leaf\n";
+ carp "TODO: add_node  !\$leaf\n";
 
         my $parent = add_parent($w->{tree}, $root, $state);
         #- hackery for partial displaying of trees, used in rpmdragora:
@@ -940,7 +941,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{clear_all_caches} = $clear_all_caches;
     $common->{delete_all} = sub {
-       warn "WARNING TODO delete_all to be removed!";
+       carp "WARNING TODO delete_all to be removed!";
 
 	    $clear_all_caches->();
         $w->{detail_list}->deleteAllItems() if($w->{detail_list}->hasItems());
@@ -954,7 +955,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{delete_category} = sub {
         my ($cat) = @_;
-        warn "WARNING TODO delete_category to be removed!";
+        carp "WARNING TODO delete_category to be removed!";
         exists $wtree{$cat} or return;
         %ptree = ();
         return;
@@ -970,7 +971,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{add_nodes} = sub {
         my (@nodes) = @_;
-        print "TODO ==================> ADD NODES (" . scalar(@nodes) . ") \n";
+        print "TODO ==================> ADD NODES - add packages (" . scalar(@nodes) . ") \n";
         yui::YUI::app()->busyCursor();
 
         $DB::single = 1;
@@ -1663,7 +1664,8 @@ sub build_tree {
                   || ! $descriptions->{$name}{importance};
             } @keys;
             if (@keys == 0) {
-                add_node('', $loc->N("(none)"), { nochild => 1 });
+                _build_tree($tree, $elems, [$loc->N("(none)")]);
+#                 add_node('', $loc->N("(none)"), { nochild => 1 });
                 state $explanation_only_once;
                 $explanation_only_once or interactive_msg($loc->N("No update"),
                                                           $loc->N("The list of updates is empty. This means that either there is
