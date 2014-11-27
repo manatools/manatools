@@ -611,6 +611,41 @@ sub add_parent {
     $tree->rebuildTree();
 }
 
+
+#=============================================================
+
+=head2 add_tree_item
+
+=head3 INPUT
+
+=item B<$tree>  YTree for the group of the rpm packages
+
+=item B<$item>  string containing a group (to be added as leaf node)
+
+=item B<$selected> if the new item is selected
+
+
+=head3 DESCRIPTION
+
+    This function add a group to the tree view
+
+=cut
+
+#=============================================================
+sub add_tree_item {
+    my ($tree, $item, $selected) = @_;
+
+    $tree or return undef;
+
+    $tree->startMultipleChanges();
+    my $treeItem = new yui::YTreeItem($item, get_icon_path($item, 0), 0);
+    $treeItem->setSelected($selected);
+
+    $tree->addItem($treeItem);
+    $tree->rebuildTree();
+    $tree->doneMultipleChanges();
+}
+
 #=============================================================
 
 =head2 add_package_item
@@ -1041,9 +1076,15 @@ our $find_entry;
 
 sub reset_search() {
     return if !$common;
-    $common->{delete_category}->($_) foreach $results_ok, $results_none;
+
+# TODO    $common->{delete_category}->($_) foreach $results_ok, $results_none;
     # clear package list:
-    $common->{add_nodes}->();
+    yui::YUI::app()->busyCursor();
+    my $wdgt = $common->{widgets};
+    $wdgt->{detail_list}->startMultipleChanges();
+    $wdgt->{detail_list}->deleteAllItems();
+    $wdgt->{detail_list}->doneMultipleChanges();
+    yui::YUI::app()->normalCursor();
 }
 
 sub is_a_package {

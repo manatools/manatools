@@ -246,7 +246,12 @@ sub _do_search($$$$$$) {
         $entry =~ s/^\s*$//;
     }
     my $entry_rx = eval { qr/$entry/i } or return;
+
     reset_search();
+    # TODO FIXME speed up, we cannot remove an item but rebuilding all is slow
+    # We could just rebuild the tree items
+    $options->{rebuild_tree}->();
+
     $options->{state}{flat} and $options->{delete_all}->();
     # TODO: write a collapse_all method
     #$tree->collapse_all;
@@ -381,11 +386,13 @@ sub _do_search($$$$$$) {
         $searchw->destroy;
     }
 
-    my $iter;
+#     my $iter;
     if (@search_results) {
         @search_results = sort_packages(@search_results);
         $elems{$results_ok} = [ map { [ $_, $results_ok ] } @search_results ];
-        $iter = $options->{add_parent}->($tree, $results_ok);
+#         $iter = $options->{add_parent}->($tree, $results_ok);
+
+        AdminPanel::Rpmdragora::gui::add_tree_item($tree, $results_ok, 1);
         $options->{add_nodes}->(map { [ $_, $results_ok . ($options->{tree_mode} eq 'by_presence'
                                  ? '|' . ($pkgs->{$_}{pkg}->flag_installed ? $loc->N("Upgradable") : $loc->N("Addable"))
                                  : ($options->{tree_mode} eq 'by_selection'
@@ -393,7 +400,8 @@ sub _do_search($$$$$$) {
                                     : ''))
                       ] } @search_results);
     } else {
-        $iter = $options->{add_parent}->($tree, $results_none);
+        AdminPanel::Rpmdragora::gui::add_tree_item($tree, $results_none, 1);
+#         $iter = $options->{add_parent}->($tree, $results_none);
         # clear package list:
         $options->{add_nodes}->();
         my $string = $default_list_mode eq 'all' && $filter->[0] eq 'all' ? $loc->N("No search results.") :
@@ -1181,7 +1189,9 @@ sub run_treeview_dialog {
                 reset_search();
             }
             elsif ($widget == $find_button) {
+                yui::YUI::app()->busyCursor();
                 _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
+                yui::YUI::app()->normalCursor();
             }
             elsif ($widget == $select_all_button) {
                 toggle_all($options, 1);
