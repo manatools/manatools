@@ -936,22 +936,18 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
 
     $common->{add_parent} = \&add_parent;
     my $clear_all_caches = sub {
-	%ptree = %wtree = ();
-    @table_item_list = ();
+        %ptree = %wtree = ();
+        @table_item_list = ();
     };
     $common->{clear_all_caches} = $clear_all_caches;
     $common->{delete_all} = sub {
-       carp "WARNING TODO delete_all to be removed!";
-
-	    $clear_all_caches->();
-        $w->{detail_list}->deleteAllItems() if($w->{detail_list}->hasItems());
-	    $w->{tree}->deleteAllItems() if($w->{tree}->hasItems());
+        $clear_all_caches->();
         %groups_tree = ();
     };
     $common->{rebuild_tree} = sub {
-	    $common->{delete_all}->();
-	    $common->{build_tree}($common->{state}{flat}, $common->{tree_mode});
-	    update_size($common);
+        $common->{delete_all}->();
+        $common->{build_tree}($common->{state}{flat}, $common->{tree_mode});
+        update_size($common);
     };
     $common->{delete_category} = sub {
         my ($cat) = @_;
@@ -963,7 +959,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
     };
     $common->{add_nodes} = sub {
         my (@nodes) = @_;
-        print "TODO ==================> ADD NODES - add packages (" . scalar(@nodes) . ") \n";
+        carp "TODO ==================> ADD NODES - add packages (" . scalar(@nodes) . ") \n";
         yui::YUI::app()->busyCursor();
 
         $DB::single = 1;
@@ -980,9 +976,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
             $index++;
             push @table_item_list, $_->[0];
         }
-#         foreach(@nodes){
-#             add_node($_->[0], $_->[1], $_->[2]);
-#         }
+
         update_size($common);
         $w->{detail_list}->addItems($itemColl);
         $w->{detail_list}->doneMultipleChanges();
@@ -1019,7 +1013,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         }
 
         # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
-    toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $item->selected, $common->{table_item_list}[$item->index()]);
+        toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $item->selected, $common->{table_item_list}[$item->index()]);
 	    update_size($common);
     };
     #$w->{detail_list}->get_selection->signal_connect(changed => sub {
@@ -1613,6 +1607,9 @@ sub _build_tree {
     });
 
     $tree->startMultipleChanges();
+#     my $selected_group = $tree->selectedItem()->
+
+    $tree->deleteAllItems();
 
     # TODO fixing geti icon api to get a better hash from the module
     my %icons = ();
