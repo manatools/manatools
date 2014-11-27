@@ -53,6 +53,7 @@ use urpm::select;
 use urpm::main_loop;
 use urpm::args qw();
 use urpm::util;
+use Carp;
 
 my $loc = AdminPanel::rpmdragora::locale();
 
@@ -76,7 +77,9 @@ sub sort_packages_biarch {
     sort {
         my ($na, $aa) = $a =~ /^(.*-[^-]+-[^-]+)\.([^.-]+)$/;
         my ($nb, $ab) = $b =~ /^(.*-[^-]+-[^-]+)\.([^.-]+)$/;
-        $na cmp $nb || ($ab =~ /64$/) <=> ($aa =~ /64$/);
+        !defined($na) ?
+            (!defined($nb) ? 0 : 1) :
+            (!defined($nb) ? -1 : $na cmp $nb || ($ab =~ /64$/) <=> ($aa =~ /64$/));
     } @_;
 }
 
