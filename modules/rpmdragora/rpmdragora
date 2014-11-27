@@ -403,11 +403,6 @@ sub _do_search($$$$$$) {
         #gtkset_mousecursor_normal($::w->{rwindow}->window);
     }
     my $tree_selection = $tree->currentItem();
-    #if (my $path = $tree_model->get_path($iter)) {
-    #    $tree_selection->select_path($path);
-    #    $tree->scroll_to_cell($path, undef, 1, 0.5, 0);
-    #    $tree_selection->signal_emit('changed');
-    #}
 }
 
 #sub quit() {
@@ -422,7 +417,7 @@ sub quit {
 sub run_treeview_dialog {
     my ($callback_action) = @_;
 
-    my ($options, $tree, $tree_model, $detail_list, $detail_list_model);
+    my ($options, $tree, $detail_list, $detail_list_model);
     (undef, $size_free) = MDK::Common::System::df('/usr');
 
     # OLD $::main_window = $w->{real_window};
@@ -430,7 +425,7 @@ sub run_treeview_dialog {
     $size_selected = 0;
 
     $options = {
-        build_tree => sub { build_tree($tree, $tree_model, \%elems, $options, $force_rebuild, @_) },
+        build_tree => sub { build_tree($tree, \%elems, $options, $force_rebuild, @_) },
         partialsel_unsel => sub {
             my ($unsel, $sel) = @_;
             @$sel = grep { exists $pkgs->{$_} } @$sel;
@@ -469,9 +464,6 @@ sub run_treeview_dialog {
     $hbox_bottom->setWeight(1,30);
     $hbox_footbar->setWeight(1,10);
 
-    #OLD $tree_model = Gtk2::TreeStore->new("Glib::String", "Glib::String", "Gtk2::Gdk::Pixbuf");
-    #OLD $tree_model->set_sort_column_id($grp_columns{label}, 'ascending');
-    #OLD $tree = Gtk2::TreeView->new_with_model($tree_model);
     # Tree for groups
     $tree = $factory->createTree($hbox_middle, "");
     $tree->setWeight(0,20);
@@ -747,7 +739,7 @@ sub run_treeview_dialog {
     #OLD $info->set_right_margin(15);  #- workaround when right elevator of scrolled window appears
 
     my $find_callback = sub {
-        do_search($find_entry, $tree, $tree_model, $options, $current_search_type, $urpm, $pkgs);
+        _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
     };
 
     my $select_all_button = $factory->createIconButton($hbox_footbar,"",$loc->N("Select all"));
@@ -1084,7 +1076,6 @@ sub run_treeview_dialog {
     $options->{widgets} = {
         w => $my_win,
         tree => $tree,
-        #tree_model => $tree_model,
         #detail_list_model => $detail_list_model,
         detail_list => $detail_list,
         info => $info,
