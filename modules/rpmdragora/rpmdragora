@@ -1086,6 +1086,8 @@ sub run_treeview_dialog {
     ask_browse_tree_given_widgets_for_rpmdragora($options);
 
     my $info_options = {};
+    # select group and show items evenctually
+    tree_callback($tree->currentItem(),\%$options);
 
     ######## main loop ####################
     while(1) {
