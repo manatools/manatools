@@ -726,8 +726,8 @@ carp "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
             $table_item_list[$newTableItem->index()] = $leaf;
             $newTableItem->DISOWN();
         } else {
- carp "TODO: add_node  !is_a_package(\$leaf)\n";
-            $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
+ carp "TODO: add_node  !is_a_package(\$leaf) not MANAGED\n";
+#             $iter = $w->{tree_model}->append_set(add_parent($w->{tree},$root, $state), [ $grp_columns{label} => $leaf ]);
             #push @{$wtree{$leaf}}, $iter;
         }
     } else {
@@ -738,7 +738,7 @@ carp "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
         #- if leaf is void, we may create the parent and one child (to have the [+] in front of the parent in the ctree)
         #- though we use '' as the label of the child; then rpmdragora will connect on tree_expand, and whenever
         #- the first child has '' as the label, it will remove the child and add all the "right" children
-        $o_options->{nochild} or $w->{tree_model}->append_set($parent, [ $grp_columns{label} => '' ]); # test $leaf?
+#         $o_options->{nochild} or $w->{tree_model}->append_set($parent, [ $grp_columns{label} => '' ]); # test $leaf?
     }
 }
 
@@ -958,16 +958,8 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         carp "WARNING TODO delete_category to be removed!";
         exists $wtree{$cat} or return;
         %ptree = ();
+        update_size($common);
         return;
-# 	exists $wtree{$cat} or return;
-# 	%ptree = ();
-#
-# 	if (exists $wtree{$cat}) {
-# 	    my $_iter_str = $w->{tree_model}->get_path_str($wtree{$cat});
-# 	    $w->{tree_model}->remove($wtree{$cat});
-# 	    delete $wtree{$cat};
-# 	}
-# 	update_size($common);
     };
     $common->{add_nodes} = sub {
         my (@nodes) = @_;
@@ -1652,7 +1644,7 @@ sub _build_tree {
 
 
 sub build_tree {
-    my ($tree, $tree_model, $pkg_by_group_hash, $options, $force_rebuild, $flat, $mode) = @_;
+    my ($tree, $pkg_by_group_hash, $options, $force_rebuild, $flat, $mode) = @_;
     state $old_mode;
     $mode = $options->{rmodes}{$mode} || $mode;
     $old_mode = '' if(!defined($old_mode));
