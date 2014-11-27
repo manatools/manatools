@@ -1593,21 +1593,26 @@ sub ctreefy {
 }
 
 sub _build_tree {
-    my ($tree, $elems, @elems) = @_;
+    my ($tree, $pkg_by_group_hash, @pkg_name_and_group_list) = @_;
 
     print "TODO ====> BUILD TREE\n";
 
+    yui::YUI::app()->busyCursor();
+
     #- we populate all the groups tree at first
-    %$elems = ();
+    %{$pkg_by_group_hash} = ();
     # better loop on packages, create groups tree and push packages in the proper place:
     my @groups = ();
-    foreach my $pkg (@elems) {
+    foreach my $pkg (@pkg_name_and_group_list) {
+
+#         $DB::single = 1;
+
         my $grp = $pkg->[1];
         # no state for groups (they're not packages and thus have no state)
         push @groups, $grp;
 
-        $elems->{$grp} ||= [];
-        push @{$elems->{$grp}}, $pkg;
+        $pkg_by_group_hash->{$grp} ||= [];
+        push @{$pkg_by_group_hash->{$grp}}, $pkg;
     }
 
     my $tree_hash = AdminPanel::Shared::pathList2hash({
@@ -1642,11 +1647,12 @@ sub _build_tree {
     $tree->addItems($itemColl);
     $tree->doneMultipleChanges();
     $tree->rebuildTree();
+    yui::YUI::app()->normalCursor();
 }
 
 
 sub build_tree {
-    my ($tree, $tree_model, $elems, $options, $force_rebuild, $flat, $mode) = @_;
+    my ($tree, $tree_model, $pkg_by_group_hash, $options, $force_rebuild, $flat, $mode) = @_;
     state $old_mode;
     $mode = $options->{rmodes}{$mode} || $mode;
     $old_mode = '' if(!defined($old_mode));
@@ -1655,64 +1661,65 @@ sub build_tree {
     undef $force_rebuild;
     my @elems;
     my $wait; $wait = statusbar_msg($loc->N("Please wait, listing packages...")) if $MODE ne 'update';
-    {
-        my @keys = @filtered_pkgs;
-        if (member($mode, qw(all_updates security bugfix normal))) {
-            @keys = grep {
-                my ($name) = split_fullname($_);
-                member($descriptions->{$name}{importance}, @$mandrakeupdate_wanted_categories)
-                  || ! $descriptions->{$name}{importance};
-            } @keys;
-            if (@keys == 0) {
-                _build_tree($tree, $elems, [$loc->N("(none)")]);
+
+    my @keys = @filtered_pkgs;
+    if (member($mode, qw(all_updates security bugfix normal))) {
+        @keys = grep {
+            my ($name) = split_fullname($_);
+            member($descriptions->{$name}{importance}, @$mandrakeupdate_wanted_categories)
+                || ! $descriptions->{$name}{importance};
+        } @keys;
+        if (@keys == 0) {
+            _build_tree($tree, $pkg_by_group_hash, ['', $loc->N("(none)")]);
 #                 add_node('', $loc->N("(none)"), { nochild => 1 });
-                state $explanation_only_once;
-                $explanation_only_once or interactive_msg($loc->N("No update"),
-                                                          $loc->N("The list of updates is empty. This means that either there is
+            state $explanation_only_once;
+            $explanation_only_once or interactive_msg($loc->N("No update"),
+                                                        $loc->N("The list of updates is empty. This means that either there is
 no available update for the packages installed on your computer,
 or you already installed all of them."));
-                $explanation_only_once = 1;
-            }
+            $explanation_only_once = 1;
         }
+    }
+    if (scalar @keys) {
         # FIXME: better do this on first group access for faster startup...
         @elems = map { [ $_, !$flat && ctreefy($pkgs->{$_}{pkg}->group) ] } sort_packages(@keys);
-    }
-    my %sortmethods = (
-        by_size => sub { sort { $pkgs->{$b->[0]}{pkg}->size <=> $pkgs->{$a->[0]}{pkg}->size } @_ },
-        by_selection => sub { sort { $pkgs->{$b->[0]}{selected} <=> $pkgs->{$a->[0]}{selected}
-                                       || uc($a->[0]) cmp uc($b->[0]) } @_ },
-        by_leaves => sub {
-            # inlining part of MDK::Common::Data::difference2():
-            my %l; @l{map { $_->[0] } @_} = ();
-            my @pkgs_times = ('rpm', '-q', '--qf', '%{name}-%{version}-%{release}.%{arch} %{installtime}\n',
-		    map { chomp_($_) } run_program::get_stdout('urpmi_rpm-find-leaves'));
-            sort { $b->[1] <=> $a->[1] } grep { exists $l{$_->[0]} } map { chomp; [ split ] } run_rpm(@pkgs_times);
-        },
-        flat => sub { no locale; sort { uc($a->[0]) cmp uc($b->[0]) } @_ },
-        by_medium => sub { sort { $a->[2] <=> $b->[2] || uc($a->[0]) cmp uc($b->[0]) } @_ },
-    );
-    if ($flat) {
-        add_node($tree->currentItem()->label(), '') foreach $sortmethods{$::mode->[0] || 'flat'}->(@elems);
-    } else {
-        if (0 && $MODE eq 'update') {
-            foreach ($sortmethods{flat}->(@elems)){
-                add_node($tree->currentItem()->label(), $_->[0], $loc->N("All"))
+
+        my %sortmethods = (
+            by_size => sub { sort { $pkgs->{$b->[0]}{pkg}->size <=> $pkgs->{$a->[0]}{pkg}->size } @_ },
+            by_selection => sub { sort { $pkgs->{$b->[0]}{selected} <=> $pkgs->{$a->[0]}{selected}
+                                        || uc($a->[0]) cmp uc($b->[0]) } @_ },
+            by_leaves => sub {
+                # inlining part of MDK::Common::Data::difference2():
+                my %l; @l{map { $_->[0] } @_} = ();
+                my @pkgs_times = ('rpm', '-q', '--qf', '%{name}-%{version}-%{release}.%{arch} %{installtime}\n',
+                map { chomp_($_) } run_program::get_stdout('urpmi_rpm-find-leaves'));
+                sort { $b->[1] <=> $a->[1] } grep { exists $l{$_->[0]} } map { chomp; [ split ] } run_rpm(@pkgs_times);
+            },
+            flat => sub { no locale; sort { uc($a->[0]) cmp uc($b->[0]) } @_ },
+            by_medium => sub { sort { $a->[2] <=> $b->[2] || uc($a->[0]) cmp uc($b->[0]) } @_ },
+        );
+        if ($flat) {
+            carp "WARNING: TODO \$flat not tested\n";
+            _build_tree($tree, $pkg_by_group_hash, map {[$_->[0], '']} $sortmethods{$::mode->[0] || 'flat'}->(@elems));
+#             add_node($_->[0], '') foreach $sortmethods{$::mode->[0] || 'flat'}->(@elems);
+        }
+        else {
+            if ($::mode->[0] eq 'by_source') {
+                _build_tree($tree, $pkg_by_group_hash, $sortmethods{by_medium}->(map {
+                    my $m = pkg2medium($pkgs->{$_->[0]}{pkg}, $urpm); [ $_->[0], $m->{name}, $m->{priority} ];
+                } @elems));
             }
-            $tree->expand_row($tree_model->get_path($tree_model->get_iter_first), 0);
-        } elsif ($::mode->[0] eq 'by_source') {
-             _build_tree($tree, $elems, $sortmethods{by_medium}->(map {
-                my $m = pkg2medium($pkgs->{$_->[0]}{pkg}, $urpm); [ $_->[0], $m->{name}, $m->{priority} ];
-            } @elems));
-        } elsif ($::mode->[0] eq 'by_presence') {
-            _build_tree($tree, $elems, map {
-                my $pkg = $pkgs->{$_->[0]}{pkg};
-                [ $_->[0], $pkg->flag_installed ?
-                    (!$pkg->flag_skip && $pkg->flag_upgrade ? $loc->N("Upgradable") : $loc->N("Installed"))
-                      : $loc->N("Addable") ];
-              } $sortmethods{flat}->(@elems));
-        } else {
-            _build_tree($tree, $elems, @elems);
-            # INFO: $elems contains references to the packages of the group, see _build_tree
+            elsif ($::mode->[0] eq 'by_presence') {
+                _build_tree($tree, $pkg_by_group_hash, map {
+                    my $pkg = $pkgs->{$_->[0]}{pkg};
+                    [ $_->[0], $pkg->flag_installed ?
+                        (!$pkg->flag_skip && $pkg->flag_upgrade ? $loc->N("Upgradable") : $loc->N("Installed"))
+                        : $loc->N("Addable") ];
+                } $sortmethods{flat}->(@elems));
+            }
+            else {
+                _build_tree($tree, $pkg_by_group_hash, @elems);
+            }
         }
     }
     statusbar_msg_remove($wait) if defined $wait;
