@@ -76,7 +76,6 @@ my %elems;
 my $old_value;
 
 sub viewbox_callback {
-#     my %wanted_categories = ();
     my ($selection, $options, $wanted_categories) = @_;
     my $val = $selection;
     $old_value="" if(!defined($old_value));
@@ -86,9 +85,12 @@ sub viewbox_callback {
 
     $old_value = $val;
     $default_list_mode = $options->{rviews}{$val};
-    if (my @cat = $wanted_categories{$options->{rviews}{$val}} && @{$wanted_categories{$options->{rviews}{$val}}}) {
-        @$mandrakeupdate_wanted_categories = @cat;
-    }
+
+    # NOTE an undef value assignment produces a an array containing undef that is not a valid value to pass to
+    #      join into writeconf()
+    @$mandrakeupdate_wanted_categories = $wanted_categories->{$options->{rviews}{$val}} ?
+                                         @{$wanted_categories->{$options->{rviews}{$val}}} :
+                                         ();
 
     if ($options->{tree_mode} ne $val) {
         $tree_mode->[0] = $options->{tree_mode} = $options->{rviews}{$val};
@@ -233,7 +235,10 @@ sub detaillist_callback {
 
 sub _do_search($$$$$$) {
     my ($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs) = @_;
-    my $entry = $find_entry->value() or return;
+
+    my $entry = $find_entry->value();
+    return if !$entry;
+
     if (!$use_regexp->[0]) {
         $entry = quotemeta $entry;
         # enable OR search by default:
@@ -773,12 +778,12 @@ sub run_treeview_dialog {
     my $reload_db_and_clear_all = sub {
         slow_func($::main_window, sub {
                       $force_rebuild = 1;
-                      pkgs_provider($options->{tree_mode}, skip_updating_mu => 1);
-                      reset_search();
+                      AdminPanel::Rpmdragora::gui::pkgs_provider($options->{tree_mode}, skip_updating_mu => 1);
+                      AdminPanel::Rpmdragora::gui::reset_search();
                       $size_selected = 0;
                       $options->{rebuild_tree}->();
                       $find_callback->();
-                  });
+        });
     };
 
     #OLD my $status = gtknew('Label');
