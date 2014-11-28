@@ -1648,7 +1648,8 @@ sub _build_tree {
     });
 
     $tree->startMultipleChanges();
-#     my $selected_group = $tree->selectedItem()->
+    my $selected = $tree->selectedItem();
+    my $groupname = group_path_name($selected) if $selected;
 
     $tree->deleteAllItems() if $tree->hasItems();
 
@@ -1672,6 +1673,7 @@ sub _build_tree {
         hash_tree              => $tree_hash,
         icons                  => \%icons,
         default_item_separator => '|',
+        default_item           => $groupname,
     });
 
     $tree->addItems($itemColl);
@@ -1819,15 +1821,46 @@ sub run_browser {
     run_program::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
 }
 
+#=============================================================
+
+=head2 group_path_name
+
+=head3 INPUT
+
+    $treeItem: YTreeItem object
+
+=head3 OUTPUT
+
+    $fullname: completed path group name
+
+=head3 DESCRIPTION
+
+    This function returns the path name treeItem group name (e.g. foo|bar)
+
+=cut
+
+#=============================================================
+sub group_path_name {
+    my $treeItem = shift;
+
+    my $fullname = $treeItem->label();
+    my $it = $treeItem;
+    while ($it = $it->parent()) {
+        $fullname = join("|", $it->label(), $fullname);
+    }
+
+    return $fullname;
+}
+
 sub groups_tree {
-    warn "DEPRECATE groups_tree: do not use it any more!";
+    carp "DEPRECATED groups_tree: do not use it any more!";
 
     return %groups_tree;
 }
 
 sub group_has_parent {
     my ($group) = shift;
-    warn "DEPRECATE group_has_parent: do not use it any more!";
+    carp "DEPRECATED group_has_parent: do not use it any more!";
     return 0 if(!defined($group));
     return defined($groups_tree{$group}{parent});
 }
@@ -1835,7 +1868,7 @@ sub group_has_parent {
 sub group_parent {
     my ($group) = shift;
 
-    warn "DEPRECATE group_parent: do not use it any more!";
+    carp "DEPRECATED group_parent: do not use it any more!";
     # if group is a parent itself return it
     # who use group_parent have to take care of the comparison
     # between a group and its parent
