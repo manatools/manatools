@@ -244,8 +244,8 @@ sub writeconf() {
 
     # special case:
     $no_confirmation->[0] = $::rpmdragora_options{'no-confirmation'};
-
-    MDK::Common::File::output($configfile, map { "$_ " . (ref ${$config{$_}{var}} ? join(' ', @${$config{$_}{var}}) : undef) . "\n" } keys %config);
+$DB::single = 1;
+    MDK::Common::File::output($configfile, map { "$_ " . (ref ${$config{$_}{var}} ? join(' ', @${$config{$_}{var}}) : '') . "\n" } keys %config);
 }
 
 sub getbanner() {
