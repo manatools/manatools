@@ -766,9 +766,9 @@ carp "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
             #push @{$wtree{$leaf}}, $iter;
         }
     } else {
- carp "TODO: add_node  !\$leaf\n";
+ carp "TODO: add_node  !\$leaf not MANAGED\n";
 
-        my $parent = add_parent($w->{tree}, $root, $state);
+#         my $parent = add_parent($w->{tree}, $root, $state);
         #- hackery for partial displaying of trees, used in rpmdragora:
         #- if leaf is void, we may create the parent and one child (to have the [+] in front of the parent in the ctree)
         #- though we use '' as the label of the child; then rpmdragora will connect on tree_expand, and whenever
