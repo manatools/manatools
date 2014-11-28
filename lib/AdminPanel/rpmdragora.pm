@@ -410,14 +410,33 @@ sub remove_wait_msg {
 sub but { "    $_[0]    " }
 sub but_ { "        $_[0]        " }
 
-sub slow_func ($&) {
-    my ($param, $func) = @_;
+#=============================================================
+
+=head2 slow_func
+
+=head3 INPUT
+
+    $func: function to be executed with a busy cursor or waiting
+           dialog
+    $msg:  message to be shown in ncurses waiting dialog (if any)
+
+=head3 DESCRIPTION
+
+    This function executes a given function with a busy cursor set
+    in graphical environment, or with a waiting dialog if in ncurses
+    text mode
+
+=cut
+
+#=============================================================
+sub slow_func (&) {
+    my ($func, $msg) = @_;
 
     my $retval = 1;
     # NOTE busy cursor is not implemented in yui-ncurses
     #      but we can avoid a waiting dialog in Gtk and QT
     if (yui::YUI::app()->isTextMode()) {
-        my $w = wait_msg($param);
+        my $w = wait_msg($msg);
         $retval = $func->();
         remove_wait_msg($w)
     }

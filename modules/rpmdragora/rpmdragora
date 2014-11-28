@@ -116,7 +116,7 @@ sub filterbox_callback {
     if ($filter->[0] ne $val) {
         $filter->[0] = $val;
         reset_search();
-        slow_func($::main_window, sub { switch_pkg_list_mode($default_list_mode) });
+        slow_func(sub { switch_pkg_list_mode($default_list_mode) });
         $options->{rebuild_tree}->();
     }
 
@@ -776,7 +776,7 @@ sub run_treeview_dialog {
     #                );
 
     my $reload_db_and_clear_all = sub {
-        slow_func($::main_window, sub {
+        slow_func(sub {
                       $force_rebuild = 1;
                       AdminPanel::Rpmdragora::gui::pkgs_provider($options->{tree_mode}, skip_updating_mu => 1);
                       AdminPanel::Rpmdragora::gui::reset_search();
@@ -1077,7 +1077,7 @@ sub run_treeview_dialog {
     #gtkflush();
 
     #OLD slow_func($::main_window->window, sub { pkgs_provider($default_list_mode) }); # default mode
-    slow_func($::main_window, sub { pkgs_provider($default_list_mode) }); # default mode
+    slow_func(sub { pkgs_provider($default_list_mode) }); # default mode
     if (@initial_selection) {
         print "\n== Initial selection: @initial_selection\n";
         $options->{initial_selection} = \@initial_selection;

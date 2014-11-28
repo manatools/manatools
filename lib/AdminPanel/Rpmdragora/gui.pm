@@ -231,7 +231,7 @@ sub get_details {
 sub get_new_deps {
     my ($urpm, $upkg) = @_;
 
-    my $deps = slow_func(undef, sub {
+    my $deps = slow_func(sub {
         my $state = {};
         my $db = open_rpm_db();
         my @requested = $urpm->resolve_requested__no_suggests_(
@@ -1433,7 +1433,7 @@ sub toggle_nodes {
     if (member($old_state, qw(to_remove installed))) { # remove pacckages
         if ($new_state) {
             my @remove;
-            slow_func($widget, sub { @remove = closure_removal(@nodes) });
+            slow_func(sub { @remove = closure_removal(@nodes) });
             @nodes_with_deps = grep { !$pkgs->{$_}{selected} && !/^basesystem/ } @remove;
             $warn_about_additional_packages_to_remove->(
                 $loc->N("Because of their dependencies, the following package(s) also need to be removed:"));
@@ -1650,7 +1650,7 @@ sub _build_tree {
     $tree->startMultipleChanges();
 #     my $selected_group = $tree->selectedItem()->
 
-    $tree->deleteAllItems();
+    $tree->deleteAllItems() if $tree->hasItems();
 
     # TODO fixing geti icon api to get a better hash from the module
     my %icons = ();
@@ -1780,7 +1780,7 @@ sub get_info {
     #- the package information hasn't been loaded. Instead of rescanning the media, just give up.
     exists $pkgs->{$key} or return [ [ $loc->N("Description not available for this package\n") ] ];
     #- get the description if needed:
-    exists $pkgs->{$key}{description} or slow_func("", sub { extract_header($pkgs->{$key}, $urpm, 'info', find_installed_version($pkgs->{$key}{pkg})) });
+    exists $pkgs->{$key}{description} or slow_func(sub { extract_header($pkgs->{$key}, $urpm, 'info', find_installed_version($pkgs->{$key}{pkg})) });
     _format_pkg_simplifiedinfo($pkgs, $key, $urpm, $descriptions, $options);
 }
 
