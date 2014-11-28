@@ -211,6 +211,9 @@ my $canceled;
 sub download_callback {
     my ($gurpm, $mode, $file, $percent, $total, $eta, $speed) = @_;
     $canceled = 0;
+
+#     $DB::single = 1;
+
     if ($mode eq 'start') {
         $gurpm->label($loc->N("Downloading package `%s'...", urpm::util::basename($file)));
         $gurpm->validate_cancel(but($loc->N("Cancel")), sub { $canceled = 1 });
@@ -753,7 +756,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     # select packages to uninstall for !update mode:
     perform_removal($urpm, { map { $_ => $pkgs->{$_} } @to_remove }) if !$probe_only_for_updates;
 
-    # $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Package installation..."), $loc->N("Initializing..."), transient => $::main_window);
+    $gurpm = AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"), $loc->N("Initializing..."), transient => $::main_window);
     # my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
     my $something_installed;
 
