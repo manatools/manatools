@@ -509,12 +509,15 @@ sub run_treeview_dialog {
     #$col_sel->set_sort_column_id($pkg_columns{selected});
 
     my $display_arch_col = to_bool(arch() =~ /64/);
-    my @columns = (qw(name version release), if_($display_arch_col, 'arch'));
+    my @columns = (qw(name summary version release), if_($display_arch_col, 'arch'));
 
     my %columns = (
         'name' => {
             title => $loc->N("Package"),
             markup => $pkg_columns{short_name},
+        },
+        'summary' => {
+            title => $loc->N("Summary"),
         },
         'version' => {
             title => $loc->N("Version"),

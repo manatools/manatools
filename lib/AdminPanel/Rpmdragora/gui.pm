@@ -489,17 +489,17 @@ sub set_node_state {
             $detail_list->checkItem($tblItem, 0);
             # $tblItem->setSelected(0);
         }
-        if(!to_bool($state ne 'base')){
-            #$iter->cell(0)->setLabel('-');
-            $tblItem->cell(0)->setLabel('-');
-        }
+#         if(!to_bool($state ne 'base')){
+#             #$iter->cell(0)->setLabel('-');
+#             $tblItem->cell(0)->setLabel('-');
+#         }
         $detail_list->parent()->parent()->doneMultipleChanges();
     }
     else {
         # no item list means we use just the item to add state information
         $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
         $tblItem->check(to_bool(member($state, qw(base installed to_install))));
-        $tblItem->cell(0)->setLabel('-') if !to_bool($state ne 'base');
+#         $tblItem->cell(0)->setLabel('-') if !to_bool($state ne 'base');
     }
 }
 
@@ -685,7 +685,8 @@ sub add_package_item {
 
 # TODO FIXME summary is not visible in necurses (adding a new column as in dragoraUpdate)
         my $newTableItem = new yui::YCBTableItem(
-            $name."\n".get_summary($pkg_name),
+            $name,
+            get_summary($pkg_name),
             $version,
             $release,
             $arch
@@ -750,7 +751,8 @@ carp "TODO: add_node  is_a_package(\$leaf)" . $leaf . "\n";
             $release = "" if(!defined($release));
             $arch = "" if(!defined($arch));
             #my $newTableItem = new yui::YTableItem(format_name_n_summary($name, get_summary($leaf)),
-            my $newTableItem = new yui::YCBTableItem($name."\n".get_summary($leaf),
+            my $newTableItem = new yui::YCBTableItem($name,
+                                                     get_summary($leaf),
                                                      $version,
                                                      $release,
                                                      $arch);
