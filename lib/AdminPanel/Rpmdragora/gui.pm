@@ -1378,36 +1378,10 @@ sub deps_msg {
 
     destroy $dialog;
 
-    return $retval;
+    # restore original title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 
-#       deps_msg_again:
-#         my $results = interactive_msg(
-#             $title, $msg .
-#               format_list(map { scalar(urpm::select::translate_why_removed_one($urpm, $urpm->{state}, $_)) } @deps)
-#                 . "\n\n" . format_size($urpm->selected_size($urpm->{state})),
-#             yesno => [ $loc->N("Cancel"), $loc->N("More info"), $loc->N("Ok") ],
-#             scroll => 1,
-#         );
-#         if ($results eq
-# 		    #-PO: Keep it short, this is gonna be on a button
-# 		    $loc->N("More info")) {
-#             interactive_packtable(
-#                 $loc->N("Information on packages"),
-#                 $::main_window,
-#                 undef,
-#                 [ map { my $pkg = $_;
-#                         [ gtknew('HBox', children_tight => [ gtkset_selectable(gtknew('Label', text => $pkg), 1) ]),
-#                           gtknew('Button', text => $loc->N("More information on package..."),
-#                                  clicked => sub {
-#                                      interactive_msg($loc->N("More information on package..."), get_info($pkg), scroll => 1);
-#                                  }) ] } @deps ],
-#                 [ gtknew('Button', text => $loc->N("Ok"),
-#                          clicked => sub { Gtk2->main_quit }) ]
-#             );
-#             goto deps_msg_again;
-#         } else {
-#             return $results eq $loc->N("Ok");
-#         }
+    return $retval;
 }
 
 # set_state <- package-fullname, node_state = {to_install, to_remove,...}, list=YTable
