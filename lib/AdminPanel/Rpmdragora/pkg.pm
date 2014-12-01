@@ -897,12 +897,12 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  my $id = statusbar_msg($loc->N("Inspecting configuration files..."), 0);
                                  my %pkg2rpmnew;
                                  foreach my $id (@rpms_upgrade) {
-				     my $pkg = $urpm->{depslist}[$id];
-				     next if $pkg->arch eq 'src';
-				     $pkg2rpmnew{$pkg->fullname} = [ grep { -r "$_.rpmnew" || -r "$_.rpmsave" } $pkg->conf_files ];
+                                    my $pkg = $urpm->{depslist}[$id];
+                                    next if $pkg->arch eq 'src';
+                                    $pkg2rpmnew{$pkg->fullname} = [ grep { -r "$_.rpmnew" || -r "$_.rpmsave" } $pkg->conf_files ];
                                  }
                                  statusbar_msg_remove($id);
-                                 dialog_rpmnew($loc->N("The installation is finished; everything was installed correctly.
+                                 rpmnew_dialog($loc->N("The installation is finished; everything was installed correctly.
 
 Some configuration files were created as `.rpmnew' or `.rpmsave',
 you may now inspect some in order to take actions:"),

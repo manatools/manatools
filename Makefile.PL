@@ -31,6 +31,7 @@ WriteMakefile(
         # AdminPanel::Shared::Locales
         "Locale::gettext"    => 0,
         "Text::Iconv"        => 0,
+        "Text::Diff"         => 0,
         "Date::Simple"       => 0,
         "DateTime::TimeZone" => 0,
         "Time::Piece"        => 0,
