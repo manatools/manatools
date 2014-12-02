@@ -78,6 +78,7 @@ sub flush {
 
 sub label {
     my ($self, $label) = @_;
+    $self->{mainw}->startMultipleChanges();
     $self->{label}->setValue($label) if $label;
     #select(undef, undef, undef, 0.1);  #- hackish :-(
     $self->flush();

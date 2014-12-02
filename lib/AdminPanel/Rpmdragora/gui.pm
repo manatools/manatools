@@ -938,8 +938,10 @@ sub fast_toggle {
         interactive_msg($loc->N("Warning"), '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
     }
     # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
-    my $val = $pkgs->{$name}{selected};
-    my $old_status = $val ? 'to_install' : 'to_update';
+
+    my $old_status = node_state($name);
+
+    #$DB::single = 1;
 
 #    my $old_state;
 #     if($item->checked()){
