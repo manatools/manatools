@@ -836,7 +836,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                 $gurpm->label($loc->N("Preparing package installation..."));
                 } elsif (defined $pkg) {
                     $something_installed = 1;
-                    print($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))."\n" . $loc->N("Total: %s/%s", ++$progress_nb, $install_count));
+                    print($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, $transaction_progress_nb, scalar(@{$transaction->{upgrade}}))."\n" . $loc->N("Total: %s/%s", $progress_nb, $install_count));
                     $gurpm->label($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
                                         . "\n" . $loc->N("Total: %s/%s", ++$progress_nb, $install_count));
                 }
