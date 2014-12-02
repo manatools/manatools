@@ -132,8 +132,8 @@ sub _performDiff ($$) {
     }
 
     my $diff = diff $file, $rpmnew, { STYLE => "Unified" };
-    ensure_utf8($diff);
     $diff = $loc->N("(none)") if !$diff;
+    ensure_utf8($diff);
     $diff =~ s/\n/<br>/g;
 
     $diffBox->setValue($diff);
@@ -171,8 +171,6 @@ sub rpmnew_dialog {
     my $sum_rpmnew = MDK::Common::Math::sum(map { int @{$p2r{$_}} } keys %p2r);
     $sum_rpmnew == 0 and return 1;
 
-
-    ###########################################################
     my $appTitle = yui::YUI::app()->applicationTitle();
 
     ## set new title to get it in dialog
@@ -187,7 +185,7 @@ sub rpmnew_dialog {
     ## | info on selected pkg             |(1)
     ## | Remove( ) Use ( ) Do nothing (*) |
     ## |                                  |
-    ## | [cancel] [ok]                    |
+    ## |             [ok]                 |
     ####
     # (1) info on pkg list:
     #  selected configuration file diff between rpmnew/rpmsave and used one
@@ -197,7 +195,7 @@ sub rpmnew_dialog {
     my $msgBox       = $factory->createLabel($vbox, $msg, 1);
                        $factory->createVSpacing($vbox, 1);
     # Tree for groups
-    my $tree         = $factory->createTree($vbox, "");
+    my $tree         = $factory->createTree($vbox, $loc->N("Select a package"));
                        $tree->setWeight($yui::YD_VERT,10);
                        $factory->createVSpacing($vbox, 1);
     my $infoBox      = $factory->createRichText($vbox, "", 0);
@@ -211,50 +209,41 @@ sub rpmnew_dialog {
         use_rpmnew    => $loc->N("Use new file"),
         do_onthing    => $loc->N("Do nothing"),
     };
-#     my %byActionRdnBtn = reverse %{$rdnBtn};
+
     my %radiobutton    = ();
     my @rdnbtn_order   = ('remove_rpmnew', 'use_rpmnew', 'do_onthing');
     foreach my $btn_name (@rdnbtn_order) {
         $radiobutton{$btn_name} = $factory->createRadioButton($rbbox, $rdnBtn->{$btn_name});
+        $radiobutton{$btn_name}->setValue(1) if $btn_name eq 'do_onthing';
         $radiobutton{$btn_name}->setNotify(1);
         $radiobuttongroup->addRadioButton($radiobutton{$btn_name});
     }
     $radiobuttongroup->setEnabled(0);
     my $hbox         = $factory->createHBox( $vbox );
-    my $align        = $factory->createRight($hbox);
-    my $okButton     = $factory->createPushButton($hbox,  $loc->N("Ok"));
+    my $align        = $factory->createHCenter($hbox);
+    my $okButton     = $factory->createPushButton($align,  $loc->N("Ok"));
+                       $okButton->setDefaultButton(1);
 
     # adding packages to the list
     my $itemColl = new yui::YItemCollection;
-
     my $num = 0;
     my %file_action = ();
-    foreach my $p (keys %p2r) {
-        my $item = new yui::YTreeItem ("$p", ($num==0));
-        foreach my $f (@{$p2r{$p}}) {
-            my $child = new yui::YTreeItem ($item, "$f");
-            $child->DISOWN();
-            $file_action{$f} = 'do_onthing';
-            if ($num == 0) {
-                $child->setSelected(1);
-                $num = 1;
+    foreach my $p (sort keys %p2r) {
+        if (scalar @{$p2r{$p}}) {
+            my $item = new yui::YTreeItem ("$p");
+            foreach my $f (@{$p2r{$p}}) {
+                my $child = new yui::YTreeItem ($item, "$f");
+                $child->DISOWN();
+                $file_action{$f} = 'do_onthing';
             }
+            $itemColl->push($item);
+            $item->DISOWN();
         }
-        $itemColl->push($item);
-        $item->DISOWN();
     }
 
     $tree->addItems($itemColl);
     $tree->setImmediateMode(1);
     $tree->rebuildTree();
-
-    # show first diff occurence
-    my $filename = $tree->currentItem()->label();
-    _performDiff($filename, $infoBox);
-    $radiobuttongroup->setEnabled(1);
-    yui::YUI::ui()->blockEvents();
-    $radiobutton{$file_action{$filename}}->setValue(1);
-    yui::YUI::ui()->unblockEvents();
 
     while(1) {
         my $event     = $dialog->waitForEvent();
@@ -271,7 +260,7 @@ sub rpmnew_dialog {
                 #change info
                 my $item = $tree->selectedItem();
                 if ($item && !$item->hasChildren()) {
-                    $filename = $tree->currentItem()->label();
+                    my $filename = $tree->currentItem()->label();
                     _performDiff($filename, $infoBox);
                     $radiobuttongroup->setEnabled(1);
                     #$radiobuttongroup->uncheckOtherButtons ($radiobutton{$file_action{$filename}});
@@ -302,7 +291,7 @@ sub rpmnew_dialog {
                 # radio buttons
                 RDNBTN: foreach my $btn_name (@rdnbtn_order) {
                     if ($widget == $radiobutton{$btn_name}) {
-                        $filename = $tree->currentItem()->label();
+                        my $filename = $tree->currentItem()->label();
                         $file_action{$filename} = $btn_name;
                         last RDNBTN;
                     }

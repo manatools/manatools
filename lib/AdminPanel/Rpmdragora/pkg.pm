@@ -31,9 +31,6 @@ use MDK::Common::System;
 use MDK::Common::File;
 use MDK::Common::Various;
 
-# use lib qw(/usr/lib/libDrakX);
-# use common;
-
 use POSIX qw(_exit ceil);
 use URPM;
 use utf8;
@@ -607,35 +604,93 @@ sub get_pkgs {
    };
 }
 
-sub display_READMEs_if_needed {
-    my ($urpm, $w) = @_;
+sub _display_READMEs_if_needed {
+    my $urpm = shift;
     return if !$urpm->{readmes};
+
     my %Readmes = %{$urpm->{readmes}};
-    if (keys %Readmes) {        #- display the README*.urpmi files
-        interactive_packtable(
-            $loc->N("Upgrade information"),
-            $w,
-            $loc->N("These packages come with upgrade information"),
-            [ map {
-                my $fullname = $_;
-                [ gtkpack__(
-                    gtknew('HBox'),
-                    gtkset_selectable(gtknew('Label', text => $Readmes{$fullname}),1),
-                ),
-                  gtksignal_connect(
-                      gtknew('Button', text => $loc->N("Upgrade information about this package")),
-                      clicked => sub {
-                          interactive_msg(
-                              $loc->N("Upgrade information about package %s", $Readmes{$fullname}),
-                              (join '' => map { s/$/\n/smg; $_ } formatAlaTeX(scalar MDK::Common::File::cat_($fullname))),
-                              scroll => 1,
-                          );
-                      },
-                  ),
-		    ] } keys %Readmes ],
-            [ gtknew('Button', text => $loc->N("Ok"), clicked => sub { Gtk2->main_quit }) ]
-        );
+    return if ! scalar keys %Readmes;
+
+    my $appTitle = yui::YUI::app()->applicationTitle();
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($loc->N("Upgrade information"));
+    my $factory      = yui::YUI::widgetFactory;
+
+    ## | [msg-label]                      |
+    ## |                                  |
+    ## | pkg-list                         |
+    ## |                                  |
+    ## | info on selected pkg             |(1)
+    ## |                                  |
+    ## |             [ok]                 |
+    ####
+    # (1) info on pkg list:
+    #  selected package readmi.urpmi
+
+    my $dialog       = $factory->createPopupDialog;
+    my $vbox         = $factory->createVBox( $dialog );
+    my $msgBox       = $factory->createLabel($vbox, $loc->N("These packages come with upgrade information"), 1);
+    my $tree         = $factory->createTree($vbox, $loc->N("Select a package"));
+                       $factory->createVSpacing($vbox, 1);
+    my $infoBox      = $factory->createRichText($vbox, "", 0);
+                       $tree->setWeight($yui::YD_HORIZ, 2);
+                       $infoBox->setWeight($yui::YD_HORIZ, 4);
+                       $tree->setWeight($yui::YD_VERT,  10);
+                       $infoBox->setWeight($yui::YD_VERT,  10);
+                       $factory->createVSpacing($vbox, 1);
+    my $hbox         = $factory->createHBox( $vbox );
+    my $align        = $factory->createHCenter($hbox);
+    my $okButton     = $factory->createPushButton($align,  $loc->N("Ok"));
+                       $okButton->setDefaultButton(1);
+
+    # adding packages to the list
+    my $itemColl = new yui::YItemCollection;
+    foreach my $f (sort keys %Readmes) {
+        my $item  = new yui::YTreeItem ("$Readmes{$f}");
+        my $child = new yui::YTreeItem ($item, "$f");
+        $child->DISOWN();
+        $itemColl->push($item);
+        $item->DISOWN();
     }
+    $tree->addItems($itemColl);
+    $tree->setImmediateMode(1);
+
+    while(1) {
+        my $event     = $dialog->waitForEvent();
+        my $eventType = $event->eventType();
+
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### widget
+            my $widget = $event->widget();
+            if ($widget == $tree) {
+                my $content = "";
+                my $item = $tree->selectedItem();
+                if ($item && !$item->hasChildren()) {
+                    my $filename = $tree->currentItem()->label();
+                    $content = scalar MDK::Common::File::cat_($filename);
+                    $content = $loc->N("(none)") if !$content; # should not happen
+                    ensure_utf8($content);
+                    $content =~ s/\n/<br>/g;
+                }
+                $infoBox->setValue($content);
+            }
+            elsif ($widget == $okButton) {
+                last;
+            }
+        }
+    }
+
+    destroy $dialog;
+
+    # restore original title
+    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+
+    return;
 }
 
 sub perform_parallel_install {
@@ -780,16 +835,16 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
         if ($subtype eq 'start') {
             if ($type eq 'trans') {
                 print(1 ? $loc->N("Preparing package installation...") : $loc->N("Preparing package installation transaction..."));
-                # $gurpm->label(1 ? $loc->N("Preparing package installation...") : $loc->N("Preparing package installation transaction..."));
+                $gurpm->label($loc->N("Preparing package installation..."));
                 } elsif (defined $pkg) {
                     $something_installed = 1;
                     print($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))."\n" . $loc->N("Total: %s/%s", ++$progress_nb, $install_count));
-                        # $gurpm->label($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
-                        #                     . "\n" . $loc->N("Total: %s/%s", ++$progress_nb, $install_count));
+                    $gurpm->label($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
+                                        . "\n" . $loc->N("Total: %s/%s", ++$progress_nb, $install_count));
                 }
         } elsif ($subtype eq 'progress') {
             $gurpm->progress($total ? ceil(($amount/$total)*100) : 100);
-            print("Progress: ".($total ? ($amount/$total)*100 : 100)."\n");
+          #  print("Progress: ".($total ? ($amount/$total)*100 : 100)."\n");
         }
     };
 
@@ -909,7 +964,7 @@ you may now inspect some in order to take actions:"),
                                                %pkg2rpmnew)
                                    and statusbar_msg($loc->N("All requested packages were installed successfully."), 1);
                                  statusbar_msg($loc->N("Looking for \"README\" files..."), 1);
-                                 display_READMEs_if_needed($urpm, $w);
+                                 _display_READMEs_if_needed($urpm);
                              },
                              already_installed_or_not_installable => sub {
                                  my ($msg1, $msg2) = @_;
