@@ -374,13 +374,8 @@ sub _do_search($$$$$$) {
     my $tree_selection = $tree->currentItem();
 }
 
-#sub quit() {
-    #($rpmdragora_width->[0], $rpmdragora_height->[0]) = $::w->{real_window}->get_size;
-    #real_quit();
-#}
-
 sub quit {
-    $my_win->destroy();
+    real_quit();
 }
 
 sub run_treeview_dialog {
@@ -1069,8 +1064,7 @@ sub run_treeview_dialog {
 
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
-            quit();
-            last;
+            last if quit();
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             ### MENU ###
@@ -1091,8 +1085,7 @@ sub run_treeview_dialog {
                 my $menuLabel = $item->label();
                 if ($menuLabel eq $fileMenu{ quit }->label()) {
                     #menu File->Quit
-                    quit();
-                    last;
+                    last if quit();
                 }
                 elsif ($menuLabel eq $fileMenu{ update }->label()) {
                     update_sources_interactive($urpm, transient => $my_win)
@@ -1103,7 +1096,7 @@ sub run_treeview_dialog {
                         my $db = eval { open_rpm_db() };
                         if (!ref($db)) {
                             statusbar_msg($loc->N("Reset aborted (RPM DB is locked by another process)"), 1);
-                            return;
+                            last;
                         }
                         $urpm->disable_selected(
                             $db, $urpm->{state},
@@ -1192,6 +1185,7 @@ sub run_treeview_dialog {
 
     }
 
+    $my_win->destroy
 }
 
 
@@ -1200,6 +1194,10 @@ sub run_treeview_dialog {
 
 if (my $pid = is_running('rpmdragora')) {
     interactive_msg($loc->N("Warning"), $loc->N("rpmdragora is already running (pid: %s)", $pid), yesno => [ $loc->N("Quit") ]);
+    exit(0);
+}
+
+if(!warn_about_user_mode()) {
     exit(0);
 }
 
@@ -1213,23 +1211,17 @@ $mgaFactory = yui::YExternalWidgets::externalWidgetFactory($MGAPlugin);
 $mgaFactory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
 $optFactory = yui::YUI::optionalWidgetFactory;
 
-
-
 ### MAIN DIALOG ###
 $my_win = $factory->createMainDialog;
 
 readconf();
 
-if(!warn_about_user_mode()) {
-    quit();
-    exit(0);
-}
-
 AdminPanel::Rpmdragora::rpmnew::do_merge_if_needed();
-
 
 init();
 
 run_treeview_dialog(\&perform_installation);
 
 writeconf();
+
+1;
