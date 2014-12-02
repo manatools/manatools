@@ -223,7 +223,7 @@ sub download_callback {
               ),
         );
 	#$gurpm->progress($percenti/100);
-        $gurpm->progress(ceil($percent*100));
+        $gurpm->progress(ceil($percent));
     } elsif ($mode eq 'end') {
         $gurpm->progress(100);
         $gurpm->invalidate_cancel;
