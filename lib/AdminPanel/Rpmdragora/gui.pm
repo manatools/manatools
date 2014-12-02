@@ -656,7 +656,7 @@ sub add_tree_item {
 
 =item B<$pkg_name>:   package name
 
-=item B<$root>:       string containing a path-like sequence (e.g. "foo|bar")
+=item B<$select>:     select given package
 
 =head3 DESCRIPTION
 
@@ -666,7 +666,7 @@ sub add_tree_item {
 
 #=============================================================
 sub add_package_item {
-    my ($item_list, $pkg_name, $root) = @_;
+    my ($item_list, $pkg_name, $select) = @_;
 
     return if !$pkg_name;
 
@@ -683,7 +683,6 @@ sub add_package_item {
         $release = "" if !defined($release);
         $arch    = "" if !defined($arch);
 
-# TODO FIXME summary is not visible in necurses (adding a new column as in dragoraUpdate)
         my $newTableItem = new yui::YCBTableItem(
             $name,
             get_summary($pkg_name),
@@ -692,15 +691,16 @@ sub add_package_item {
             $arch
         );
 
+        $newTableItem->setSelected($select);
+
         set_node_state($newTableItem, $state);
-# TODO FIXME evaluate if $ptree is really needed.
 
         $item_list->push($newTableItem);
 
         $newTableItem->DISOWN();
     }
     else {
-        warn $pkg_name . " is not a leaf package and that is not managed!";
+        carp $pkg_name . " is not a leaf package and that is not managed!";
     }
 
 }
@@ -938,14 +938,16 @@ sub fast_toggle {
         interactive_msg($loc->N("Warning"), '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
     }
     # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
-    my $state;
-#pasmatt checked should be to install no?
-    if($item->checked()){
-        $state = "to_install";
-    }else{
-        $state = "to_remove";
-    }
-    toggle_nodes($w->{tree}, $w->{detail_list}, \&set_leaf_state, $state, $name);
+    my $val = $pkgs->{$name}{selected};
+    my $old_status = $val ? 'to_install' : 'to_update';
+
+#    my $old_state;
+#     if($item->checked()){
+#         $old_state = "to_install";
+#     }else{
+#         $old_state = "to_remove";
+#     }
+    toggle_nodes($w->{tree}, $w->{detail_list}, \&set_leaf_state, $old_status, $name);
     update_size($common);
 };
 
@@ -1000,6 +1002,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         yui::YUI::app()->busyCursor();
 
         $DB::single = 1;
+        my $lastItem = $w->{detail_list}->selectedItem() ? $w->{detail_list}->selectedItem()->label() : "";
         $w->{detail_list}->startMultipleChanges();
         $w->{detail_list}->deleteAllItems();
         my $itemColl = new yui::YItemCollection;
@@ -1007,7 +1010,7 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         @table_item_list = ();
         my $index = 0;
         foreach(@nodes){
-            add_package_item($itemColl, $_->[0], $_->[1]);
+            add_package_item($itemColl, $_->[0], ($lastItem eq $_->[0]));
             warn "Unmanaged param " . $_->[2] if defined $_->[2];
             $ptree{$_->[0]} = [ $index ];
             $index++;

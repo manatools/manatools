@@ -161,51 +161,9 @@ sub detaillist_changeditem_callback {
     my $changedItem = $detail_list->changedItem();
     return if (!$changedItem);
 
-    # handles installist and droplist
-    my $index=0;
-    if ($changedItem->checked()) {
-	    # to be installed if not in to be removed list
-	    my $found = 0;
-	    foreach $index (0 .. scalar(@itemsToBeRemoved) -1) {
-	        my $currItem = $itemsToBeRemoved[$index];
-#pasmatt why? changedItem is YCBTableItem now so it's what you're looking for
-#             if(ref $currItem eq "yui::YCBTableItem") {
-                if ($currItem->label() eq $changedItem->label()) {
-                    $found = 1;
-                    splice (@itemsToBeRemoved, $index ,1);
-                    last;
-                }
-#             }
-	    }
-	    if ($found == 0) {
-	        push(@itemsToBeInstalled, $changedItem);
-            # $pkgs->{$options->{table_item_list}[$changedItem->index()]}{selected} = 1;
-            # toggle_veloce($options->{table_item_list}[$changedItem->index()],"to_install");
-            fast_toggle($changedItem);
-	    }
-    }
-    else {
-	    # to be removed if not in to be installed list
-	    my $found = 0;
-	    foreach $index (0 .. scalar(@itemsToBeInstalled)-1) {
-	        my $currItem = $itemsToBeInstalled[$index];
-#                 if(ref $currItem eq "yui::YCBTableItem") {
-	            if ($currItem->label() eq $changedItem->label()) {
-		            $found = 1;
-		            splice (@itemsToBeInstalled, $index ,1);
-		            last;
-	            }
-#             }
-	    }
-	    if ($found == 0) {
-	        push(@itemsToBeRemoved, $changedItem);
-            # $pkgs->{$options->{table_item_list}[$changedItem->index()]}{selected} = 0;
-            # toggle_veloce($options->{table_item_list}[$changedItem->index()],"to_remove");
-            fast_toggle($changedItem);
-	    }
-    }
-    print "itemsToBeRemoved counts ".scalar(@itemsToBeRemoved)." items\n";
-    print "itemsToBeInstalled counts ".scalar(@itemsToBeInstalled)." items\n";
+    fast_toggle($changedItem);
+
+    return;
 }
 
 sub detaillist_callback {
@@ -1219,8 +1177,15 @@ sub run_treeview_dialog {
             }
             elsif ($widget == $detail_list){
                 $info_options = {};
+                my $wEvent = yui::toYWidgetEvent($event);
+
+                if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
+                    yui::YUI::app()->busyCursor();
+                    detaillist_changeditem_callback($detail_list, \%$options);
+                    yui::YUI::app()->normalCursor();
+                    tree_callback($tree->currentItem(),\%$options);
+                }
                 detaillist_callback($detail_list->selectedItem(), $info, \%$options);
-                detaillist_changeditem_callback($detail_list, \%$options);
             }
             elsif ($widget == $QuitButton) {
                 quit();

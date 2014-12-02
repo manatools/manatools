@@ -341,10 +341,15 @@ sub interactive_list {
     my $mainw = $factory->createPopupDialog();
     my $vbox = $factory->createVBox($mainw);
     my $lbltitle = $factory->createLabel($vbox, $loc->N("Dependencies"));
-    my $radiobuttongroup = $factory->createRadioButtonGroup($vbox);
+    my $left = $factory->createLeft($factory->createHBox($vbox));
+    my $radiobuttongroup = $factory->createRadioButtonGroup($left);
     my $rbbox = $factory->createVBox($radiobuttongroup);
-    foreach my $item(@$list){
+    foreach my $item (@$list) {
         my $radiobutton = $factory->createRadioButton($rbbox,$item);
+        if ($item eq $list->[0]) {
+            # select first by default
+            $radiobutton->setValue(1);
+        }
         $radiobutton->setNotify(0);
         $radiobuttongroup->addRadioButton($radiobutton);
     }
@@ -364,7 +369,8 @@ sub interactive_list {
             my $widget = $event->widget();
 
             if($widget == $submitButton) {
-                $choice = $radiobuttongroup->currentButton->label();
+                # NOTE if for any reason radio button is not checked let's take the first package
+                $choice = $radiobuttongroup->currentButton() ? $radiobuttongroup->currentButton()->label() : $list->[0];
                 $choice =~s/\&//g;
                 last;
             }
