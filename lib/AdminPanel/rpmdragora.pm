@@ -90,7 +90,6 @@ our @EXPORT = qw(
     interactive_list
     interactive_list_
     interactive_msg
-    interactive_packtable
     myexit
     readconf
     remove_wait_msg
@@ -308,30 +307,6 @@ sub interactive_msg {
     $dlg = undef;
 
     return $retVal;
-}
-
-sub interactive_packtable {
-    my ($title, $parent_window, $top_label, $lines, $action_buttons) = @_;
-
-    carp "AdminPanel::rpmdragora::interactive_packtable is deprecated and is going to be removed";
-
-    my $w = ugtk2->new($title, grab => 1, transient => $parent_window);
-    local $::main_window = $w->{real_window};
-    $w->{rwindow}->set_position($parent_window ? 'center_on_parent' : 'center');
-    my $packtable = create_packtable({}, @$lines);
-
-    gtkadd($w->{window},
-	   gtkpack_(Gtk2::VBox->new(0, 5),
-		    if_($top_label, 0, Gtk2::Label->new($top_label)),
-		    1, create_scrolled_window($packtable),
-		    0, gtkpack__(create_hbox(), @$action_buttons)));
-    my $preq = $packtable->size_request;
-    my ($xpreq, $ypreq) = ($preq->width, $preq->height);
-    my $wreq = $w->{rwindow}->size_request;
-    my ($xwreq, $ywreq) = ($wreq->width, $wreq->height);
-    $w->{rwindow}->set_default_size(max($typical_width, min($typical_width*2.5, $xpreq+$xwreq)),
- 				    max(200, min(450, $ypreq+$ywreq)));
-    $w->main;
 }
 
 sub interactive_list {
