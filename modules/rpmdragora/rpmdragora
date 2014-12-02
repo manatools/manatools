@@ -137,8 +137,6 @@ sub tree_callback {
     #OLD $model && $iter or return;
     $selection or return;
 
-    $DB::single = 1;
-
     my $fullname = $selection->label();
     my $it = $selection;
     while ($it = $it->parent()) {
@@ -1188,8 +1186,7 @@ sub run_treeview_dialog {
                 detaillist_callback($detail_list->selectedItem(), $info, \%$options);
             }
             elsif ($widget == $QuitButton) {
-                quit();
-                last;
+                last if quit();
             }
         }
 

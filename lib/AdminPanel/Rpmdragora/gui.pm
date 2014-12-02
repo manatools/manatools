@@ -1001,7 +1001,6 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         carp "TODO ==================> ADD NODES - add packages (" . scalar(@nodes) . ") \n";
         yui::YUI::app()->busyCursor();
 
-        $DB::single = 1;
         my $lastItem = $w->{detail_list}->selectedItem() ? $w->{detail_list}->selectedItem()->label() : "";
         $w->{detail_list}->startMultipleChanges();
         $w->{detail_list}->deleteAllItems();
@@ -1610,9 +1609,6 @@ sub _build_tree {
     # better loop on packages, create groups tree and push packages in the proper place:
     my @groups = ();
     foreach my $pkg (@pkg_name_and_group_list) {
-
-#         $DB::single = 1;
-
         my $grp = $pkg->[1];
         # no state for groups (they're not packages and thus have no state)
         push @groups, $grp;

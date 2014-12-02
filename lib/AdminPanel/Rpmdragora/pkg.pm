@@ -209,8 +209,6 @@ sub download_callback {
     my ($gurpm, $mode, $file, $percent, $total, $eta, $speed) = @_;
     $canceled = 0;
 
-#     $DB::single = 1;
-
     if ($mode eq 'start') {
         $gurpm->label($loc->N("Downloading package `%s'...", urpm::util::basename($file)));
         $gurpm->validate_cancel(but($loc->N("Cancel")), sub { $canceled = 1 });
