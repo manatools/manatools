@@ -99,9 +99,10 @@ sub _refresh_packages_list {
     $packageTbl->deleteAllItems();
 
     if (!scalar(@requested)) {
-        interactive_msg($loc->("rpmdragora update"),
+        AdminPanel::rpmdragora::interactive_msg($loc->N("rpmdragora update"),
                         $loc->N("The list of updates is empty. This means that either there is no available update for the packages installed on your computer, or you already installed all of them."),
-                        scroll => 1);
+                        scroll => 1
+        );
     }
     else {
         my $itemCollection = new yui::YItemCollection;
