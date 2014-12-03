@@ -75,6 +75,8 @@ WriteMakefile(
                        modules/contribfinder.py
                        modules/rpmdragora/dragora-urpm-addmedia
                        modules/rpmdragora/dragora-urpm-sources.pl
+                       modules/rpmdragora/dragoraUpdate
+                       modules/rpmdragora/rpmdragora
                        ) ],
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
     clean => { FILES => 'AdminPanel-*' },
