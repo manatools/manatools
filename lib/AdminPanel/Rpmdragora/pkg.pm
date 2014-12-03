@@ -25,11 +25,13 @@ package AdminPanel::Rpmdragora::pkg;
 # $Id: pkg.pm 270160 2010-06-22 19:55:40Z jvictor $
 
 use strict;
-use MDK::Common::Func 'any';
-use MDK::Common::DataStructure;
-use MDK::Common::System;
-use MDK::Common::File;
-use MDK::Common::Various;
+use Sys::Syslog;
+
+use MDK::Common::Func;  #qw(before_leaving any);
+use MDK::Common::DataStructure; # qw (uniq difference2 member add2hash put_in_hash);
+use MDK::Common::System qw(arch);
+use MDK::Common::File; # qw(cat_);
+use MDK::Common::Various qw(chomp_);
 
 use POSIX qw(_exit ceil);
 use URPM;
@@ -39,7 +41,7 @@ use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::gurpm;
 use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Rpmdragora::rpmnew;
-
+use AdminPanel::Shared::RunProgram qw(run get_stdout);
 use AdminPanel::rpmdragora;
 use urpm;
 use urpm::lock;
@@ -90,7 +92,7 @@ sub run_rpm {
     foreach (qw(LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL)) {
         local $ENV{$_} = $ENV{$_} . '.UTF-8' if $ENV{$_} && $ENV{$_} !~ /UTF-8/;
     }
-    my @l = map { ensure_utf8($_); $_ } run_program::get_stdout(@_);
+    my @l = map { ensure_utf8($_); $_ } AdminPanel::Shared::RunProgram::get_stdout(@_);
     wantarray() ? @l : join('', @l);
 }
 
@@ -271,7 +273,7 @@ Is it ok to continue?"), yesno => 1
 		    update_sources($urpm, noclean => 1, medialist => [ map { $_->{name} } @update_medias ]);
 		}
 	    } else {
-		if (any { $_->{update} } @{$urpm->{media}}) {
+		if (MDK::Common::Func::any { $_->{update} } @{$urpm->{media}}) {
 		    interactive_msg($loc->N("Already existing update media"),
 $loc->N("You already have at least one update medium configured, but
 all of them are currently disabled. You should run the Software
@@ -470,7 +472,7 @@ sub get_pkgs {
 
     my $_unused = $loc->N("Please wait, finding available packages...");
 
-    # find out installed packages:
+#     # find out installed packages:
 
     init_progress_bar($urpm);
 
@@ -696,7 +698,7 @@ sub perform_parallel_install {
     my @pkgs = map { MDK::Common::Func::if_($_->flag_requested, urpm_name($_)) } @{$urpm->{depslist}};
 
     my @error_msgs;
-    my $res = !run_program::run('urpmi', '2>', \@error_msgs, '-v', '--X', '--parallel', $group, @pkgs);
+    my $res = !AdminPanel::Shared::RunProgram::run('urpmi', '2>', \@error_msgs, '-v', '--X', '--parallel', $group, @pkgs);
 
     if ($res) {
         $$statusbar_msg_id = statusbar_msg(
@@ -975,7 +977,7 @@ you may now inspect some in order to take actions:"),
 
     #- restart rpmdragora if needed, keep command line for that.
     if ($need_restart && !$exit_code && $something_installed) {
-        log::explanations("restarting rpmdragora");
+        Sys::Syslog::syslog('info|local1', "restarting rpmdragora");
         #- it seems to work correctly with exec instead of system, provided we stop timers
         #- added --previous-priority-upgrade to allow checking if yet if
         #-   priority-upgrade list has changed. and make sure we don't uselessly restart

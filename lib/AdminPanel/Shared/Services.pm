@@ -9,14 +9,14 @@ AdminPanel::Shared::Services - shares the API to manage services
 =head1 SYNOPSIS
 
 use AdminPanel::Shared::Services;
- 
+
 my ($l, $on_services) = AdminPanel::Shared::Services::services();
 
 =head1 DESCRIPTION
 
   This module aims to share all the API to manage system services,
   to be used from GUI applications or console.
-  
+
   From the original code drakx services.
 
 =head1 EXPORT
@@ -83,14 +83,12 @@ use strict;
 use diagnostics;
 
 use Sys::Syslog;
-use File::Basename qw( basename );
 use AdminPanel::Shared::Locales;
 
-use lib qw(/usr/lib/libDrakX);
 use MDK::Common::Func qw(find);
-use MDK::Common::File qw(cat_);
+use MDK::Common::File qw(cat_ basename);
 use MDK::Common::DataStructure qw(member);
-use run_program qw(rooted);
+use AdminPanel::Shared::RunProgram qw(rooted);
 
 use base qw(Exporter);
 
@@ -138,7 +136,7 @@ THis function return the description for the given service
 #=============================================================
 sub description {
     my %services = (
-acpid => $loc->N_("Listen and dispatch ACPI events from the kernel"),	    
+acpid => $loc->N_("Listen and dispatch ACPI events from the kernel"),
 alsa => $loc->N_("Launch the ALSA (Advanced Linux Sound Architecture) sound system"),
 anacron => $loc->N_("Anacron is a periodic command scheduler."),
 apmd => $loc->N_("apmd is used for monitoring battery status and logging it via syslog.
@@ -155,10 +153,10 @@ cups => $loc->N_("Common UNIX Printing System (CUPS) is an advanced printer spoo
 dm => $loc->N_("Launches the graphical display manager"),
 fam => $loc->N_("FAM is a file monitoring daemon. It is used to get reports when files change.
 It is used by GNOME and KDE"),
-g15daemon => $loc->N_("G15Daemon allows users access to all extra keys by decoding them and 
-pushing them back into the kernel via the linux UINPUT driver. This driver must be loaded 
-before g15daemon can be used for keyboard access. The G15 LCD is also supported. By default, 
-with no other clients active, g15daemon will display a clock. Client applications and 
+g15daemon => $loc->N_("G15Daemon allows users access to all extra keys by decoding them and
+pushing them back into the kernel via the linux UINPUT driver. This driver must be loaded
+before g15daemon can be used for keyboard access. The G15 LCD is also supported. By default,
+with no other clients active, g15daemon will display a clock. Client applications and
 scripts can access the LCD via a simple API."),
 gpm => $loc->N_("GPM adds mouse support to text-based Linux applications such the
 Midnight Commander. It also allows mouse-based console cut-and-paste operations,
@@ -282,7 +280,7 @@ $enable:  enable/disable service
 
 =head3 DESCRIPTION
 
-This function enable/disable at boot the given service 
+This function enable/disable at boot the given service
 
 =cut
 
@@ -294,25 +292,25 @@ sub set_service {
 
     if (MDK::Common::DataStructure::member($service, @xinetd_services)) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        run_program::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
+        AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif (_running_systemd() || _has_systemd()) {
         # systemctl rejects any symlinked units. You have to enabled the real file
         if (-l "/lib/systemd/system/$service.service") {
             my $name = readlink("/lib/systemd/system/$service.service");
-            $service = File::Basename::basename($name);
+            $service = MDK::Common::File::basename($name);
         } else {
             $service = $service . ".service";
         }
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        run_program::rooted($::prefix, "/usr/bin/systemctl", $enable ? "enable" : "disable", $service);
+        AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/bin/systemctl", $enable ? "enable" : "disable", $service);
     } else {
         my $script = "/etc/rc.d/init.d/$service";
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        run_program::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
+        AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
         #- FIXME: handle services with no chkconfig line and with no Default-Start levels in LSB header
         if ($enable && MDK::Common::File::cat_("$::prefix$script") =~ /^#\s+chkconfig:\s+-/m) {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            run_program::rooted($::prefix, "/usr/sbin/chkconfig", "--level", "35", $service, "on");
+            AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/sbin/chkconfig", "--level", "35", $service, "on");
         }
     }
 }
@@ -322,26 +320,26 @@ sub _run_action {
     if (_running_systemd()) {
         if ($do_not_block) {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            run_program::rooted($::prefix, '/usr//bin/systemctl', '--no-block', $action, "$service.service");
+            AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', '--no-block', $action, "$service.service");
         }
         else {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            run_program::rooted($::prefix, '/usr/bin/systemctl', $action, "$service.service");
+            AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', $action, "$service.service");
         }
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin:/etc/rc.d/init.d/";
-        run_program::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
+        AdminPanel::Shared::RunProgram::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
     }
 }
 
 sub _running_systemd() {
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    run_program::rooted($::prefix, '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
+    AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
 sub _has_systemd() {
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    run_program::rooted($::prefix, '/usr/bin/rpm', '-q', 'systemd');
+    AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/rpm', '-q', 'systemd');
 }
 
 #=============================================================
@@ -364,7 +362,7 @@ sub xinetd_services() {
     local $ENV{LANGUAGE} = 'C';
     my @xinetd_services;
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    foreach (run_program::rooted_get_stdout($::prefix, '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
         if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
             push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
         }
@@ -378,19 +376,19 @@ sub _systemd_services() {
     my %loaded;
     # Running system using systemd
     Sys::Syslog::syslog('info|local1', "Detected systemd running. Using systemctl introspection.");
-    foreach (run_program::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', '--all', 'list-units')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', '--all', 'list-units')) {
         if (my ($name) = m!^(\S+)\.service\s+loaded!) {
             # We only look at non-template, non-linked service files in /lib
             # We also check for any non-masked sysvinit files as these are
             # also handled by systemd
             if ($name !~ /.*\@$/g && (-e "$::prefix/lib/systemd/system/$name.service" or -e "$::prefix/etc/rc.d/init.d/$name") && ! -l "$::prefix/lib/systemd/system/$name.service") {
-                push @services, [ $name, !!run_program::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
+                push @services, [ $name, !!AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
                 $loaded{$name} = 1;
             }
         }
     }
     # list-units will not list disabled units that can be enabled
-    foreach (run_program::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', 'list-unit-files')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', 'list-unit-files')) {
         if (my ($name) = m!^(\S+)\.service\s+disabled!) {
             # We only look at non-template, non-linked service files in /lib
             # We also check for any non-masked sysvinit files as these are
@@ -450,7 +448,7 @@ sub _legacy_services() {
     if (!$::isInstall) {
         $runlevel = (split " ", `/sbin/runlevel`)[1];
     }
-    foreach (run_program::rooted_get_stdout($::prefix, '/sbin/chkconfig', '--list', '--type', 'sysv')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/sbin/chkconfig', '--list', '--type', 'sysv')) {
         if (my ($name, $l) = m!^(\S+)\s+(0:(on|off).*)!) {
             # If we expect to use systemd (i.e. installer) only show those
             # sysvinit scripts which are not masked by a native systemd unit.
@@ -678,10 +676,10 @@ sub is_service_running ($) {
     my $out;
     if (_running_systemd()) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        $out = run_program::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
+        $out = AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        $out = run_program::rooted($::prefix, '/usr/sbin/service', $service, 'status');
+        $out = AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/sbin/service', $service, 'status');
     }
     return $out;
 }

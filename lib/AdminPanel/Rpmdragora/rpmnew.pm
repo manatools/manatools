@@ -26,8 +26,9 @@ package AdminPanel::Rpmdragora::rpmnew;
 
 use strict;
 use Text::Diff;
-use MDK::Common::Math;
-use MDK::Common::File;
+use MDK::Common::Math qw(sum);
+use MDK::Common::File qw(renamef);
+use MDK::Common::Various qw(chomp_);
 
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::init;

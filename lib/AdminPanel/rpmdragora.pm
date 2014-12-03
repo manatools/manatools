@@ -27,7 +27,9 @@
 package AdminPanel::rpmdragora;
 use warnings::register;
 
-use lib qw(/usr/lib/libDrakX);
+use urpm;
+use urpm::cfg;
+use urpm::mirrors;
 use urpm::download ();
 use urpm::prompt;
 use urpm::media;
@@ -35,16 +37,12 @@ use urpm::media;
 use MDK::Common;
 use MDK::Common::System;
 use MDK::Common::String;
-use MDK::Common::File;
-use urpm;
-use urpm::cfg;
+use MDK::Common::File qw(basename cat_ output);
 use URPM;
 use URPM::Resolve;
 use strict;
-use c;
 use POSIX qw(_exit);
-use common;
-use Locale::gettext;
+
 use feature 'state';
 
 use AdminPanel::Shared;
@@ -1031,7 +1029,7 @@ sub mirrors {
             $res or die $loc->N("retrieval of [%s] failed", $file) . "\n";
             return $canceled ? () : MDK::Common::File::cat_($file);
         });
-    my @mirrors = @{ mirror::list(common::parse_LDAP_namespace_structure(MDK::Common::File::cat_('/etc/product.id')), 'distrib') || [] };
+    my @mirrors = @{ mirror::list(urpm::mirrors::parse_LDAP_namespace_structure(MDK::Common::File::cat_('/etc/product.id')), 'distrib') || [] };
 
     require AdminPanel::Shared::TimeZone;
     my $tzo = AdminPanel::Shared::TimeZone->new();
@@ -1062,15 +1060,16 @@ sub mirrors {
 
 sub open_help {
     my ($mode) = @_;
-    use run_program;
-    run_program::raw({ detach => 1, as_user => 1 },  'drakhelp', '--id', $mode ?  "software-management-$mode" : 'software-management');
+    require AdminPanel::Shared::RunProgram;
+    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 },  'drakhelp', '--id', $mode ?  "software-management-$mode" : 'software-management');
     my $_s = $loc->N("Help launched in background");
     statusbar_msg($loc->N("The help window has been started, it should appear shortly on your desktop."), 1);
 }
 
 sub run_drakbug {
     my ($id) = @_;
-    run_program::raw({ detach => 1, as_user => 1 }, 'drakbug', '--report', $id);
+    require AdminPanel::Shared::RunProgram;
+    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'drakbug', '--report', $id);
 }
 
 #mygtk2::add_icon_path('/usr/share/mcc/themes/default/');

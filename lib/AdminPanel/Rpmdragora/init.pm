@@ -27,11 +27,10 @@ package AdminPanel::Rpmdragora::init;
 
 use strict;
 use MDK::Common::Func 'any';
-use lib qw(/usr/lib/libDrakX);
-use common;
 use English;
 BEGIN { $::no_global_argv_parsing = 1 }
 require urpm::args;
+use MDK::Common::Various qw(chomp_);
 
 use AdminPanel::Privileges;
 use AdminPanel::Shared::Locales;

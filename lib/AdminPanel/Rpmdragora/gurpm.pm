@@ -26,7 +26,7 @@ package AdminPanel::Rpmdragora::gurpm;
 # $Id: gurpm.pm 255450 2009-04-03 16:00:16Z tv $
 
 use strict;
-use lib qw(/usr/lib/libDrakX);
+
 use yui;
 use Time::HiRes;
 use feature 'state';

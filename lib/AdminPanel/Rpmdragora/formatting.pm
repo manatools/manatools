@@ -27,9 +27,9 @@ package AdminPanel::Rpmdragora::formatting;
 use strict;
 use utf8;
 use POSIX qw(strftime);
+use MDK::Common::Various qw(internal_error);
 use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
-use MDK::Common::Various; # included for internal_error subroutine
 use urpm::msg;
 
 

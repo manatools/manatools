@@ -25,17 +25,16 @@ package AdminPanel::Rpmdragora::icon;
 # $Id: icon.pm 237459 2008-02-26 14:20:47Z tv $
 
 use strict;
-our @ISA = qw(Exporter);
-use lib qw(/usr/lib/libDrakX);
-use POSIX;
-use common;
+use POSIX qw (isdigit);
 
 use AdminPanel::rpmdragora;
 use AdminPanel::Shared::Locales;
 
 my $loc = AdminPanel::rpmdragora::locale();
 
-our @EXPORT = qw(get_icon_path);
+use Exporter;
+our @ISA = qw(Exporter);
+our @EXPORT_OK = qw(get_icon_path);
 #- /usr/share/rpmlint/config (duplicates are normal, so that we are not too far away from .py)
 my %group_icons = (
 	$loc->N("All") => 'system_section',

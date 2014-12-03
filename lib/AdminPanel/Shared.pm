@@ -1,4 +1,3 @@
-#!/usr/bin/perl
 # vim: set et ts=4 sw=4:
 #    Copyright 2012-2013 Angelo Naselli <anaselli@linux.it>
 #    Copyright 2013-2014 Matteo Pasotti <matteo.pasotti@gmail.com>
@@ -36,9 +35,15 @@ This module collects all the routines shared between AdminPanel and its modules.
 =head1 EXPORT
 
     trim
-    member
     md5sum
     pathList2hash
+    distName
+    apcat
+    inArray
+    disable_x_screensaver
+    enable_x_screensaver
+    isRunning
+    isProcessRunning
 
 =head1 SUPPORT
 
@@ -82,16 +87,17 @@ use yui;
 use base qw(Exporter);
 
 # TODO move GUI dialogs to Shared::GUI
-our @EXPORT = qw(
-                trim
-                md5sum
-                pathList2hash
-                distName
-                apcat
-                find
-                inArray
-                disable_x_screensaver
-                enable_x_screensaver
+our @EXPORT_OK = qw(
+    trim
+    md5sum
+    pathList2hash
+    distName
+    apcat
+    inArray
+    disable_x_screensaver
+    enable_x_screensaver
+    isRunning
+    isProcessRunning
 );
 
 
@@ -139,33 +145,6 @@ sub apcat {
     return (wantarray() ? @content : join('',@content));
 }
 
-
-#=============================================================
-
-=head2 find
-
-=head3 PARAMETERS
-
-$code the CODE to search for inside the LIST
-
-=head3 OUTPUT
-
-returns the first element where CODE returns true (or returns undef)
-
-=head3 EXAMPLE
-
-find { /foo/ } "fo", "fob", "foobar", "foobir"
-gives "foobar"
-
-=cut
-
-#============================================================
-
-sub find(&@) {
-    my $f = shift;
-    $f->($_) and return $_ foreach @_;
-    undef;
-}
 
 #=============================================================
 
@@ -360,6 +339,37 @@ sub enable_x_screensaver() {
         system ("/usr/bin/xset s on");
         system ("/usr/bin/xset s reset");
     }
+}
+
+#=============================================================
+
+=head2 isProcessRunning
+
+=head3 INPUT
+
+    $name: Process name
+    $o_user: user who the process belongs to
+
+=head3 OUTPUT
+
+    $pid: process identifier
+
+=head3 DESCRIPTION
+
+    Function returns the process identifier if the given
+    process is running
+
+=cut
+
+#=============================================================
+sub isProcessRunning {
+    my ($name, $o_user) = @_;
+    my $user = $o_user || $ENV{USER};
+    foreach (`ps -o '%P %p %c' -u $user`) {
+        my ($ppid, $pid, $n) = /^\s*(\d+)\s+(\d+)\s+(.*)/;
+        return $pid if $ppid != 1 && $pid != $$ && $n eq $name;
+    }
+    return;
 }
 
 1; # End of AdminPanel::Shared

@@ -51,9 +51,8 @@ use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Privileges;
 
-use lib qw(/usr/lib/libDrakX);
 use urpm::media;
-use MDK::Common::Func;
+use MDK::Common::File qw(cat_);
 
 my $loc = AdminPanel::rpmdragora::locale();
 

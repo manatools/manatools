@@ -25,7 +25,7 @@
 
 use AdminPanel::Rpmdragora::init;
 use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::edit_urpm_sources;
+use AdminPanel::Rpmdragora::edit_urpm_sources qw(run);
 use AdminPanel::Privileges;
 use AdminPanel::Shared::Locales;
 

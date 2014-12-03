@@ -25,13 +25,17 @@ package AdminPanel::Rpmdragora::open_db;
 # $Id: open_db.pm 268344 2010-05-06 13:06:08Z jvictor $
 
 use strict;
-use common;
+use Sys::Syslog;
+
+use MDK::Common::File qw(cat_ mkdir_p);
+use MDK::Common::Func;
 use AdminPanel::rpmdragora;
 use URPM;
 use urpm;
 use urpm::args;
 use urpm::select;
 use urpm::media;
+use urpm::mirrors;
 use feature 'state';
 
 use Exporter;
@@ -52,7 +56,7 @@ my $loc = AdminPanel::rpmdragora::locale();
 sub open_rpm_db {
     my ($o_force) = @_;
     my $host;
-    log::explanations("opening the RPM database");
+    Sys::Syslog::syslog('info|local1', "opening the RPM database");
     if ($::rpmdragora_options{parallel} && ((undef, $host) = @{$::rpmdragora_options{parallel}})) {
         state $done;
         my $dblocation = "/var/cache/urpmi/distantdb/$host";
@@ -125,7 +129,7 @@ sub is_it_a_devel_distro() {
 
     my $path = '/etc/product.id';
     $path = $::rpmdragora_options{'urpmi-root'}[0] . $path if defined($::rpmdragora_options{'urpmi-root'}[0]);
-    $res = common::parse_LDAP_namespace_structure(cat_($path))->{branch} eq 'Devel';
+    $res = urpm::mirrors::parse_LDAP_namespace_structure(cat_($path))->{branch} eq 'Devel';
     return $res;
 }
 
@@ -158,7 +162,7 @@ sub open_urpmi_db {
     $urpm->{lock} = urpm::lock::urpmi_db($urpm, undef, wait => $urpm->{options}{wait_lock}) if !$::env;
     my $previous = $::rpmdragora_options{'previous-priority-upgrade'};
     urpm::select::set_priority_upgrade_option($urpm, (ref $previous ? join(',', @$previous) : ()));
-    urpm::media::configure($urpm, media => $media, if_($searchmedia, searchmedia => $searchmedia), %urpmi_options);
+    urpm::media::configure($urpm, media => $media, MDK::Common::Func::if_($searchmedia, searchmedia => $searchmedia), %urpmi_options);
     $urpm;
 }
 

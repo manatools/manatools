@@ -30,29 +30,32 @@ package AdminPanel::Rpmdragora::gui;
 ############################################################
 
 use strict;
-our @ISA = qw(Exporter);
-use lib qw(/usr/lib/libDrakX);
-use common;
+use Sys::Syslog;
 
 use utf8;
-use HTML::Entities;
 
-# TO WORKAROUND LOCALIZATION ISSUE
-use AdminPanel::Rpmdragora::localization;
+use MDK::Common::Func qw(before_leaving find any if_);
+use MDK::Common::DataStructure qw(difference2 member intersection);
+use MDK::Common::Various qw(chomp_ to_bool);
+use MDK::Common::String qw(formatAlaTeX);
+use MDK::Common::Math qw(sum);
 
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Rpmdragora::init;
-use AdminPanel::Rpmdragora::icon;
+use AdminPanel::Rpmdragora::icon qw(get_icon_path);
 use AdminPanel::Rpmdragora::pkg;
 use AdminPanel::Shared;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
+use AdminPanel::Shared::RunProgram qw(get_stdout raw);
 use yui;
 use feature 'state';
 use Carp;
 
+use Exporter;
+our @ISA = qw(Exporter);
 our @EXPORT = qw(
                     $descriptions
                     $find_entry
@@ -191,13 +194,13 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
-    my $notice = if_($txt, format_field($loc->N("Notice: ")) . $txt . "\n");
+    my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt . "\n");
     ensure_utf8($notice);
 
     my $hdr = format_header(join(' - ', $name, $summary)) . "\n";
     ensure_utf8($hdr);
 
-    my $update = if_($is_update, # is it an update?
+    my $update = MDK::Common::Func::if_($is_update, # is it an update?
         format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}) . "\n",
         format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})) . "\n",
     );
@@ -1024,57 +1027,12 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         yui::YUI::app()->normalCursor();
     };
 
-#     $common->{display_info} = sub {
-#         gtktext_insert($w->{info}, get_info($_[0], $w->{tree}->window));
-#         $w->{info}->scroll_to_iter($w->{info}->get_buffer->get_start_iter, 0, 0, 0, 0);
-#         0;
-#     };
-
-    my $fast_toggle = sub {
-        my ($item) = @_;
-        #gtkset_mousecursor_wait($w->{w}{rwindow}->window);
-        #my $_cleaner = before_leaving { gtkset_mousecursor_normal($w->{w}{rwindow}->window) };
-        my $name = $common->{table_item_list}[$item->index()];
-        my $urpm_obj = $pkgs->{$name}{pkg};
-
-        if ($urpm_obj->flag_base) {
-            interactive_msg($loc->N("Warning"),
-                            $loc->N("Removing package %s would break your system", $name));
-            return '';
-        }
-
-        if ($urpm_obj->flag_skip) {
-            interactive_msg($loc->N("Warning"), $loc->N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
-            $urpm_obj->set_flag_skip(0);
-        }
-
-        if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
-            $priority_up_alread_warned = 1;
-            interactive_msg($loc->N("Warning"), '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
-        }
-
-        # toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $w->{detail_list_model}->get($iter, $pkg_columns{state}),
-        toggle_nodes($w->{tree}->window, $w->{detail_list_model}, \&set_leaf_state, $item->selected, $common->{table_item_list}[$item->index()]);
-	    update_size($common);
-    };
-    #$w->{detail_list}->get_selection->signal_connect(changed => sub {
-	#my ($model, $iter) = $_[0]->get_selected;
-	#$model && $iter or return;
-    # $common->{display_info}($model->get($iter, $pkg_columns{text}));
-	#});
-    # WARNING: è interessante!
-    #($w->{detail_list}->get_column(0)->get_cell_renderers)[0]->signal_connect(toggled => sub {
-    #    my ($_cell, $path) = @_; #text_
-    #    my $iter = $w->{detail_list_model}->get_iter_from_string($path);
-    #    $fast_toggle->($iter) if $iter;
-    # 1;
-    #});
     $common->{rebuild_tree}->();
     update_size($common);
     $common->{initial_selection} and toggle_nodes($w->{tree}->window, $w->{detail_list}, \&set_leaf_state, undef, @{$common->{initial_selection}});
     my $_b = before_leaving { $clear_all_caches->() };
     $common->{init_callback}->() if $common->{init_callback};
-    #OLD $w->{w}->main;
+
     $w->{w};
 }
 
@@ -1148,7 +1106,7 @@ sub pkgs_provider {
             my @media = keys %$descriptions;
             [ grep {
                 my ($name) = split_fullname($_);
-                my $medium = find { $descriptions->{$_}{$name} } @media;
+                my $medium = MDK::Common::Func::find { $descriptions->{$_}{$name} } @media;
                 $medium && $descriptions->{$medium}{$name}{importance} eq $importance } @{$h->{updates}} ];
         };
     }
@@ -1406,7 +1364,7 @@ sub toggle_nodes {
         my ($msg) = @_;
         statusbar_msg_remove($bar_id);
         deps_msg($loc->N("Some additional packages need to be removed"),
-                 formatAlaTeX($msg) . "\n\n",
+                 MDK::Common::String::formatAlaTeX($msg) . "\n\n",
                  \@nodes, \@nodes_with_deps) or @nodes_with_deps = ();
     };
 
@@ -1455,7 +1413,7 @@ sub toggle_nodes {
             @nodes_with_deps = map { urpm_name($_) } @requested;
             statusbar_msg_remove($bar_id);
             if (!deps_msg($loc->N("Additional packages needed"),
-                             formatAlaTeX($loc->N("To satisfy dependencies, the following package(s) also need to be installed:\n\n")) . "\n\n",
+                             MDK::Common::String::formatAlaTeX($loc->N("To satisfy dependencies, the following package(s) also need to be installed:\n\n")) . "\n\n",
                              \@nodes, \@nodes_with_deps)) {
                 @nodes_with_deps = ();
                 $urpm->disable_selected(open_rpm_db(), $urpm->{state}, @requested);
@@ -1474,7 +1432,7 @@ sub toggle_nodes {
                 my @ask_unselect = urpm::select::unselected_packages($urpm->{state});
                 my @reasons = map {
                     my $cant = $_;
-                    my $unsel = find { $_ eq $cant } @ask_unselect;
+                    my $unsel = MDK::Common::Func::find { $_ eq $cant } @ask_unselect;
                     $unsel
                       ? join("\n", urpm::select::translate_why_unselected($urpm, $urpm->{state}, $unsel))
                         : ($pkgs->{$_}{pkg}->flag_skip ? $loc->N("%s (belongs to the skip list)", $cant) : $cant);
@@ -1517,7 +1475,7 @@ sub toggle_nodes {
         exists $pkgs->{$_} or next;
         if (!$pkgs->{$_}{pkg}) { #- can't be removed  # FIXME; what about next packages in the loop?
             undef $pkgs->{$_}{selected};
-            log::explanations("can't be removed: $_");
+            Sys::Syslog::syslog('info|local1', "can't be removed: $_");
         } else {
             $pkgs->{$_}{selected} = $new_state;
         }
@@ -1555,7 +1513,7 @@ sub do_action__real {
         interactive_msg($loc->N("You need to select some packages first."), $loc->N("You need to select some packages first."));
         return 1;
     }
-    my $size_added = sum(map { if_($_->flag_selected && !$_->flag_installed, $_->size) } @{$urpm->{depslist}});
+    my $size_added = MDK::Common::Math::sum(map { MDK::Common::Func::if_($_->flag_selected && !$_->flag_installed, $_->size) } @{$urpm->{depslist}});
     if ($MODE eq 'install' && $size_free - $size_added/1024 < 50*1024) {
         interactive_msg($loc->N("Too many packages are selected"),
                         $loc->N("Warning: it seems that you are attempting to add so many
@@ -1569,7 +1527,7 @@ Do you really want to install all the selected packages?"), yesno => 1)
     my $res = $callback_action->($urpm, $pkgs);
     if (!$res) {
         $force_rebuild = 1;
-        pkgs_provider($options->{tree_mode}, if_($AdminPanel::Rpmdragora::pkg::probe_only_for_updates, pure_updates => 1), skip_updating_mu => 1);
+        pkgs_provider($options->{tree_mode}, MDK::Common::Func::if_($AdminPanel::Rpmdragora::pkg::probe_only_for_updates, pure_updates => 1), skip_updating_mu => 1);
         reset_search();
         $size_selected = 0;
         (undef, $size_free) = MDK::Common::System::df('/usr');
@@ -1701,7 +1659,7 @@ or you already installed all of them."));
                 # inlining part of MDK::Common::Data::difference2():
                 my %l; @l{map { $_->[0] } @_} = ();
                 my @pkgs_times = ('rpm', '-q', '--qf', '%{name}-%{version}-%{release}.%{arch} %{installtime}\n',
-                map { chomp_($_) } run_program::get_stdout('urpmi_rpm-find-leaves'));
+                map { chomp_($_) } AdminPanel::Shared::RunProgram::get_stdout('urpmi_rpm-find-leaves'));
                 sort { $b->[1] <=> $a->[1] } grep { exists $l{$_->[0]} } map { chomp; [ split ] } run_rpm(@pkgs_times);
             },
             flat => sub { no locale; sort { uc($a->[0]) cmp uc($b->[0]) } @_ },
@@ -1772,7 +1730,7 @@ sub run_help_callback {
     my (undef, $url) = @_;
     my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
-    run_program::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
+    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
 }
 
 #=============================================================
@@ -1795,7 +1753,7 @@ sub run_browser {
 
     my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
-    run_program::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
+    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
 }
 
 #=============================================================

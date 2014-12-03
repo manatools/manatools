@@ -28,8 +28,11 @@ use strict;
 use File::ShareDir ':ALL';
 use File::HomeDir qw(home);
 
-use lib qw(/usr/lib/libDrakX);
-use common;
+use MDK::Common::Math qw(max);
+use MDK::Common::File qw(cat_ output);
+use MDK::Common::DataStructure qw(member put_in_hash uniq);
+use MDK::Common::Various qw(to_bool);
+
 use AdminPanel::Shared;
 use AdminPanel::Shared::Locales;
 use AdminPanel::rpmdragora;
@@ -38,16 +41,13 @@ use AdminPanel::Rpmdragora::open_db;
 use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Shared::GUI;
 use URPM::Signature;
-use MDK::Common::Math qw(max);
-use MDK::Common::File;
-use MDK::Common::DataStructure qw(member put_in_hash);
 use urpm::media;
 use urpm::download;
 use urpm::lock;
 
 use Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT = qw(run);
+our @EXPORT_OK = qw(run);
 
 
 my $urpm;
@@ -435,7 +435,7 @@ sub options_callback() {
     my $verify_rpm   = $factory->createComboBox($hbox, "", 0);
     $verify_rpm->setWeight($yui::YD_HORIZ, 2);
     my @verif = ($loc->N("never"), $loc->N("always"));
-    my $verify_rpm_value = $urpm->{global_config}{'verify-rpm'};
+    my $verify_rpm_value = $urpm->{global_config}{'verify-rpm'} || 0;
 
     my $itemColl = new yui::YItemCollection;
     my $cnt = 0;
@@ -1985,7 +1985,7 @@ sub OLD_mainwindow() {
          [ $loc->N("/_Help") . $loc->N("/_Report Bug"), undef, sub { run_drakbug('edit-urpm-sources.pl') }, undef, '<Item>' ],
          [ $loc->N("/_Help") . $loc->N("/_Help"), undef, sub { rpmdragora::open_help('sources') }, undef, '<Item>' ],
          [ $loc->N("/_Help") . $loc->N("/_About..."), undef, sub {
-               my $license = formatAlaTeX(translate($::license));
+               my $license = MDK::Common::String::formatAlaTeX(translate($::license));
                $license =~ s/\n/\n\n/sg; # nicer formatting
                my $w = gtknew('AboutDialog', name => $loc->N("Rpmdragora"),
                               version => $rpmdragora::distro_version,

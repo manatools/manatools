@@ -61,8 +61,9 @@ use File::Copy;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Services;
 
-use MDK::Common::File;
-use MDK::Common::Func;
+use MDK::Common::File qw(cat_ output_p substInFile);
+use MDK::Common::Func qw(find if_);
+
 
 #=============================================================
 

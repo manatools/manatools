@@ -1,21 +1,21 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2013-2014 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 
 package AdminPanel::Module::DisplayManager;
@@ -36,6 +36,7 @@ use AdminPanel::Shared::GUI;
 use lib qw(/usr/lib/libDrakX);
 use network::network;
 use MDK::Common::System qw(getVarsFromSh addVarsInSh);
+use MDK::Common::Func qw(find);
 
 extends qw( AdminPanel::Module );
 
@@ -197,13 +198,13 @@ sub _manageProxyDialog {
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
     my $label_width = 25;
     my $inputfield_width = 45;
 
     my ($dm_NAME) = apcat($self->conffile) =~ /^DISPLAYMANAGER=(.*)/m;
-    my $dm = (AdminPanel::Shared::find { uc($_->{NAME}) eq uc($dm_NAME) } @{$self->dmlist});
-    
+    my $dm = (MDK::Common::Func::find { uc($_->{NAME}) eq uc($dm_NAME) } @{$self->dmlist});
+
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
 
@@ -212,7 +213,7 @@ sub _manageProxyDialog {
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
     my $logoImage = $factory->createImage($headLeft, $appIcon);
-    my $labelAppDescription = $factory->createLabel($headRight,$newTitle); 
+    my $labelAppDescription = $factory->createLabel($headRight,$newTitle);
     $logoImage->setWeight($yui::YD_HORIZ,0);
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
@@ -232,7 +233,7 @@ sub _manageProxyDialog {
     my $rbbox = $factory->createVBox($rb_group);
     foreach my $d (@{$self->dmlist()})
     {
-        my $rowentry = $factory->createHBox($factory->createLeft($rbbox)); 
+        my $rowentry = $factory->createHBox($factory->createLeft($rbbox));
         my $rb = $factory->createRadioButton($rowentry, $d->{NAME});
         $rb->setWeight($yui::YD_HORIZ, 1);
         my $desc = $factory->createLabel($rowentry, $self->loc->N($d->{DESCRIPTION}));
@@ -258,7 +259,7 @@ sub _manageProxyDialog {
     while(1) {
         my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
