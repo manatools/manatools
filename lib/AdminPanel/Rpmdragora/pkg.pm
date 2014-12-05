@@ -259,15 +259,20 @@ sub warn_about_media {
     if (@update_medias > 0) {
         if (!$options{skip_updating_mu} && !$is_update_media_already_asked) {
             $is_update_media_already_asked = 1;
-            $::rpmdragora_options{'no-confirmation'} or interactive_msg($loc->N("Confirmation"),
-$loc->N("I need to contact the mirror to get latest update packages.
+            if (!$::rpmdragora_options{'no-confirmation'}) {
+                my $choice = interactive_msg($loc->N("Confirmation"),
+                                $loc->N("I need to contact the mirror to get latest update packages.
 Please check that your network is currently running.
 
-Is it ok to continue?"), yesno => 1
+Is it ok to continue?"
+                                ), yesno => 1, dont_ask_again => 1,
 # TODO                   widget =>  gtknew('CheckButton', text => $loc->N("Do not ask me next time"),
 #                                      active_ref => \$::rpmdragora_options{'no-confirmation'}
 #                                  )
-                                                                        ) or return(-1);
+               );
+               $::rpmdragora_options{'no-confirmation'} = $choice->{dont_ask_again};
+               return(-1) if !$choice->{value};
+            }
             writeconf();
             urpm::media::select_media($urpm, map { $_->{name} } @update_medias);
             update_sources($urpm, noclean => 1, medialist => [ map { $_->{name} } @update_medias ]);

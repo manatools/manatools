@@ -363,6 +363,7 @@ sub interactive_msg {
 
     if ($info->{checkbox}) {
         my $value = $retVal;
+        $retVal = undef;
         $retVal->{value} = $value;
         $retVal->{dont_ask_again} = $info->{checkbox}->isChecked();
     }
