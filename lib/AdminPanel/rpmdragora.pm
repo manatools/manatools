@@ -259,51 +259,116 @@ sub getbanner() {
 #    Gtk2::Banner->new($ugtk2::wm_icon, $::MODE eq 'update' ? $loc->N("Software Packages Update") : $loc->N("Software Management"));
 }
 
-# return value:
-# - undef if if closed (aka really canceled)
-# - 0 if if No/Cancel
-# - 1 if if Yes/Ok
+
+#=============================================================
+
+=head2 interactive_msg
+
+=head3 INPUT
+
+    $title:    dialog title
+    $contents: dialog text
+    %options:  optional HASH containing {
+        scroll => Rich Text with scroll bar used
+        yesno => dialog with "yes" and "no" buttons (deafult yes)
+        dont_ask_again => add a checkbox with "dont ask again text"
+    }
+
+=head3 OUTPUT
+
+    retval: if dont_ask_again HASH reference containig {
+        value => 1 yes (or ok) pressed, 0 no pressed
+        dont_ask_again => 1 if checked
+    }
+    or if dont_ask_again is not passed:
+        1 yes (or ok) pressed, 0 no pressed
+
+=head3 DESCRIPTION
+
+    This function shows a dialog with contents text and return the button
+    pressed (1 ok or yes), optionally returns the checkbox value if dont_ask_again is
+    passed
+
+=cut
+
+#=============================================================
 sub interactive_msg {
     my ($title, $contents, %options) = @_;
 
     my $retVal = 0;
-    yui::YUI::widgetFactory;
-    my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
-    $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
 
     my $info;
-    $info->{title} = $title;
 
     if ($options{scroll}) {
-        $info->{richtext} = 1;
         ## richtext needs <br> instead of '\n'
         $contents =~ s/\n/<br>/g;
     }
 
-    $info->{text} = $contents;
+    my $oldTitle = yui::YUI::app()->applicationTitle();
+    yui::YUI::app()->setApplicationTitle($title);
 
-    my $dlg;
+    my $factory = yui::YUI::widgetFactory;
+    my $dlg     = $factory->createPopupDialog();
+    my $minSize = $factory->createMinSize( $dlg, 75, 6);
+    my $vbox    = $factory->createVBox( $minSize );
+    my $midhbox = $factory->createHBox($vbox);
+    ## app description
+    my $toprightvbox = $factory->createVBox($midhbox);
+    $toprightvbox->setWeight($yui::YD_HORIZ, 5);
+    $factory->createSpacing($toprightvbox,$yui::YD_HORIZ, 0, 5.0);
+    $factory->createRichText($toprightvbox, $contents, !$options{scroll});
+    $factory->createSpacing($toprightvbox, $yui::YD_HORIZ, 0, 5.0);
 
+    if ($options{dont_ask_again}){
+        my $hbox  = $factory->createHBox($vbox);
+        my $align = $factory->createRight($hbox);
+        $info->{checkbox} = $factory->createCheckBox($align, $loc->N("Do not ask me next time"));
+    }
+
+    my $bottomhbox = $factory->createHBox($vbox);
     if ($options{yesno}) {
-        $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
-        $dlg->setButtonLabel($options{text}{yes} || $loc->N("Yes"), $yui::YMGAMessageBox::B_ONE);
-        $dlg->setButtonLabel($options{text}{no}  || $loc->N("No"),  $yui::YMGAMessageBox::B_TWO);
+        my $alignRight = $factory->createRight($bottomhbox);
+        my $buttonBox  = $factory->createHBox($alignRight);
+
+        $info->{B1} = $factory->createPushButton($buttonBox, $options{text}{yes} || $loc->N("Yes"));
+        $info->{B2} = $factory->createPushButton($buttonBox, $options{text}{no}  || $loc->N("No"));
     }
     else {
-        $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_ONE);
-        $dlg->setButtonLabel($loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
+        $info->{B1} = $factory->createPushButton($bottomhbox, $loc->N("Ok"));
     }
 
-    $dlg->setTitle($info->{title}) if (exists $info->{title});
-    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
-    $dlg->setText($info->{text}, $rt) if (exists $info->{text});
-    $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
+    $dlg->setDefaultButton($info->{B1});
 
-    $dlg->setMinSize(75, 6);
+    while (1) {
+        my $event = $dlg->waitForEvent();
+        my $eventType = $event->eventType();
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            $retVal = 1; ##default value
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
 
-    $retVal = $dlg->show() == $yui::YMGAMessageBox::B_ONE ? 1 : 0;
+            if ($info->{B1} && $widget == $info->{B1}) {
+                $retVal = 1;
+                last;
+            }
+            elsif ($info->{B2} && $widget == $info->{B2}) {
+                last;
+            }
+        }
+    }
 
-    $dlg = undef;
+    if ($info->{checkbox}) {
+        my $value = $retVal;
+        $retVal->{value} = $value;
+        $retVal->{dont_ask_again} = $info->{checkbox}->isChecked();
+    }
+
+    $dlg->destroy();
+    yui::YUI::app()->setApplicationTitle($oldTitle);
 
     return $retVal;
 }
