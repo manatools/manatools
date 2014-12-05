@@ -58,6 +58,8 @@ my $loc = AdminPanel::rpmdragora::locale();
 
 sub escape_text_for_TextView_markup_format {
     my ($str) = @_;
+    return '?-?-?' unless ref $str;
+
     my %rules = ('&' => '&amp;',
                  '<' => '&lt;',
                  '>' => '&gt;',
@@ -71,20 +73,22 @@ sub escape_text_for_TextView_markup_format {
 
 # from rpmtools, #37482:
 sub ensure_utf8 {
-    if (utf8::is_utf8($_[0])) {
-	utf8::valid($_[0]) and return;
+    return '?-?-?' unless ref $_[0];
 
-	utf8::encode($_[0]); #- disable utf8 flag
-	utf8::upgrade($_[0]);
+    if (utf8::is_utf8($_[0])) {
+        utf8::valid($_[0]) and return;
+        utf8::encode($_[0]); #- disable utf8 flag
+        utf8::upgrade($_[0]);
     } else {
-	utf8::decode($_[0]); #- try to set utf8 flag
-	utf8::valid($_[0]) and return;
-	warn "do not know what to with $_[0]\n";
+        utf8::decode($_[0]); #- try to set utf8 flag
+        utf8::valid($_[0]) and return;
+        warn "do not know what to with $_[0]\n";
     }
 }
 
 sub rpm_description {
     my ($description) = @_;
+    return '?-?-?' unless ref $description;
 
     ensure_utf8($description);
     my $t   = "";
@@ -166,7 +170,7 @@ sub format_changelog_changelogs {
 
 sub format_update_field {
     my ($name) = @_;
-    '<i>' . eval { escape_text_for_TextView_markup_format($name) } . '</i>';
+    '<i>' . escape_text_for_TextView_markup_format($name) . '</i>';
 }
 
 sub format_name_n_summary {

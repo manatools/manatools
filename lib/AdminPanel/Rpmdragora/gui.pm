@@ -194,7 +194,7 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
-    my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt . "\n");
+    my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt . "\n") || "";
     ensure_utf8($notice);
 
     my $hdr = format_header(join(' - ', $name, $summary)) . "\n";
@@ -203,7 +203,7 @@ sub get_main_text {
     my $update = MDK::Common::Func::if_($is_update, # is it an update?
         format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}) . "\n",
         format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})) . "\n",
-    );
+    ) || "";
     ensure_utf8($update);
 
     # TODO Too many lines
