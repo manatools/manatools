@@ -1143,6 +1143,7 @@ sub run_treeview_dialog {
             if($widget == $reset_search_button) {
                 $find_entry->setValue('');
                 reset_search();
+                $options->{rebuild_tree}->();
             }
             elsif ($widget == $find_button) {
                 yui::YUI::app()->busyCursor();
