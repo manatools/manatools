@@ -173,7 +173,8 @@ $urpm::download::PROMPT_PROXY = new rpmdragora::prompt(
 
 sub myexit {
     writeconf();
-    #ugtk2::exit(undef, @_);
+    destroy $::main_window if $::main_window;
+    exit @_;
 }
 
 my ($root) = grep { $_->[2] == 0 } list_passwd();

@@ -256,10 +256,10 @@ sub warn_about_media {
     # do not update again media after installing/removing some packages:
     $::rpmdragora_options{'no-media-update'} ||= 1;
 
-	    if (@update_medias > 0) {
-		if (!$options{skip_updating_mu} && !$is_update_media_already_asked) {
-              $is_update_media_already_asked = 1;
-		     $::rpmdragora_options{'no-confirmation'} or interactive_msg($loc->N("Confirmation"),
+    if (@update_medias > 0) {
+        if (!$options{skip_updating_mu} && !$is_update_media_already_asked) {
+            $is_update_media_already_asked = 1;
+            $::rpmdragora_options{'no-confirmation'} or interactive_msg($loc->N("Confirmation"),
 $loc->N("I need to contact the mirror to get latest update packages.
 Please check that your network is currently running.
 
@@ -267,23 +267,23 @@ Is it ok to continue?"), yesno => 1
 # TODO                   widget =>  gtknew('CheckButton', text => $loc->N("Do not ask me next time"),
 #                                      active_ref => \$::rpmdragora_options{'no-confirmation'}
 #                                  )
-                                                                        ) or myexit(-1);
-		    writeconf();
-		    urpm::media::select_media($urpm, map { $_->{name} } @update_medias);
-		    update_sources($urpm, noclean => 1, medialist => [ map { $_->{name} } @update_medias ]);
-		}
-	    } else {
-		if (MDK::Common::Func::any { $_->{update} } @{$urpm->{media}}) {
-		    interactive_msg($loc->N("Already existing update media"),
+                                                                        ) or return(-1);
+            writeconf();
+            urpm::media::select_media($urpm, map { $_->{name} } @update_medias);
+            update_sources($urpm, noclean => 1, medialist => [ map { $_->{name} } @update_medias ]);
+        }
+    } else {
+        if (MDK::Common::Func::any { $_->{update} } @{$urpm->{media}}) {
+            interactive_msg($loc->N("Already existing update media"),
 $loc->N("You already have at least one update medium configured, but
 all of them are currently disabled. You should run the Software
 Media Manager to enable at least one (check it in the \"%s\"
 column).
 
 Then, restart \"%s\".", $loc->N("Enabled"), $AdminPanel::rpmdragora::myname_update));
-		    myexit(-1);
-		}
-		my ($mirror) = choose_mirror($urpm, transient => $w->{real_window} || $::main_window,
+            return (-1);
+        }
+        my ($mirror) = choose_mirror($urpm, transient => $w->{real_window} || $::main_window,
                                        message => join("\n\n",
                                                        $loc->N("You have no configured update media. MageiaUpdate cannot operate without any update media."),
                                                        $loc->N("I need to contact the Mageia website to get the mirror list.
@@ -292,15 +292,16 @@ Please check that your network is currently running.
 Is it ok to continue?"),
                                                          ),
                                    );
-		my $m = ref($mirror) ? $mirror->{url} : '';
-		$m or interactive_msg($loc->N("How to choose manually your mirror"),
+        my $m = ref($mirror) ? $mirror->{url} : '';
+        $m or interactive_msg($loc->N("How to choose manually your mirror"),
 $loc->N("You may also choose your desired mirror manually: to do so,
 launch the Software Media Manager, and then add a `Security
 updates' medium.
 
-Then, restart %s.", $AdminPanel::rpmdragora::myname_update)), myexit(-1);
-		add_distrib_update_media($urpm, $mirror, only_updates => 1);
-	    }
+Then, restart %s.", $AdminPanel::rpmdragora::myname_update)), return (-1);
+        add_distrib_update_media($urpm, $mirror, only_updates => 1);
+    }
+    return 0;
 }
 
 
@@ -449,11 +450,10 @@ sub get_pkgs {
     my (%options) = @_;
     my $w = $::main_window;
 
+    myexit (-1) if (warn_about_media($w, %options) == -1);
+
     my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Package installation..."), $loc->N("Initializing..."), transient => $::main_window);
     my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
-    #my $_flush_guard = Gtk2::GUI_Update_Guard->new;
-
-    warn_about_media($w, %options);
 
     my $urpm = open_urpmi_db(update => $probe_only_for_updates && !is_it_a_devel_distro());
 
@@ -578,7 +578,7 @@ sub get_pkgs {
     my @updates = @requested;
     # selecting updates by default but skipped ones (MageiaUpdate only):
     foreach (@requested_strict) {
-	$all_pkgs{$_}{selected} = 1;
+        $all_pkgs{$_}{selected} = 1;
     }
 
     # urpmi only care about the first medium where it found the package,
