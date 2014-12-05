@@ -58,7 +58,7 @@ my $loc = AdminPanel::rpmdragora::locale();
 
 sub escape_text_for_TextView_markup_format {
     my ($str) = @_;
-    return '?-?-?' unless ref $str;
+    return '' if !$str;
 
     my %rules = ('&' => '&amp;',
                  '<' => '&lt;',
@@ -73,7 +73,7 @@ sub escape_text_for_TextView_markup_format {
 
 # from rpmtools, #37482:
 sub ensure_utf8 {
-    return '?-?-?' unless ref $_[0];
+    return '' if !$_[0];
 
     if (utf8::is_utf8($_[0])) {
         utf8::valid($_[0]) and return;
@@ -88,7 +88,7 @@ sub ensure_utf8 {
 
 sub rpm_description {
     my ($description) = @_;
-    return '?-?-?' unless ref $description;
+    return '' if !$description;
 
     ensure_utf8($description);
     my $t   = "";
