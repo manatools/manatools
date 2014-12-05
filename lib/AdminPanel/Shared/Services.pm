@@ -113,7 +113,7 @@ our @EXPORT = qw(
                 );
 
 
-my $loc = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone');
+my $loc = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX');
 
 #=============================================================
 
