@@ -39,6 +39,7 @@ use MDK::Common::DataStructure qw(difference2 member intersection);
 use MDK::Common::Various qw(chomp_ to_bool);
 use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::Math qw(sum);
+use MDK::Common::System qw(list_passwd);
 
 use AdminPanel::rpmdragora;
 use AdminPanel::Rpmdragora::open_db;
@@ -154,7 +155,7 @@ sub get_description {
     join("<br />",
         (eval {
             encode_entities($pkg->{description}) || encode_entities($update_descr->{description});
-            } || '<i>'. $loc->N("No description").'</i>'));
+            } || '<i>'. $loc->N("No description").'</i>'), "");
 }
 
 sub get_string_from_keywords {
@@ -1751,7 +1752,7 @@ sub run_help_callback {
 sub run_browser {
     my $url = shift;
 
-    my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
+    my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } MDK::Common::System::list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
     AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
 }
