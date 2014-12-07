@@ -1,0 +1,3258 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-12-07 11:30+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: lib/AdminPanel/Shared/TimeZone.pm:460 lib/AdminPanel/Shared/TimeZone.pm:461
+msgid "All servers"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:379
+msgid "Name field is empty please provide a name"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:384
+msgid ""
+"The name must start with a letter and contain only lower cased latin "
+"letters, numbers, '.', '-' and '_'"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:387
+#, perl-format
+msgid "Name is too long. Maximum length is %d"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:389 lib/AdminPanel/Shared/GUI.pm:115
+#: lib/AdminPanel/Shared/GUI.pm:161 lib/AdminPanel/Shared/GUI.pm:205
+#: lib/AdminPanel/Shared/GUI.pm:255 lib/AdminPanel/Module/AdminMouse.pm:189
+#: lib/AdminPanel/Module/Clock.pm:285 lib/AdminPanel/Module/Users.pm:335
+#: lib/AdminPanel/Module/Users.pm:581 lib/AdminPanel/Module/Users.pm:861
+#: lib/AdminPanel/Module/Users.pm:1995 lib/AdminPanel/Module/Users.pm:2155
+#: lib/AdminPanel/Rpmdragora/gui.pm:1276
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:225
+#: lib/AdminPanel/Rpmdragora/pkg.pm:649 lib/AdminPanel/Rpmdragora/pkg.pm:914
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:307
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:525
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:809
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:937
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1015
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1111
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1184
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1377
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1702
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2180
+#: lib/AdminPanel/rpmdragora.pm:160 lib/AdminPanel/rpmdragora.pm:337
+msgid "Ok"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:815
+#, perl-format
+msgid "You cannot remove user <%s> from their primary group"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:1158
+msgid "Locked"
+msgstr ""
+
+#: lib/AdminPanel/Shared/Users.pm:1158
+msgid "Expired"
+msgstr ""
+
+#: lib/AdminPanel/Shared/GUI.pm:256 lib/AdminPanel/Shared/GUI.pm:430
+#: lib/AdminPanel/Shared/GUI.pm:729 lib/AdminPanel/Module/AdminMouse.pm:188
+#: lib/AdminPanel/Module/Proxy.pm:339 lib/AdminPanel/Module/Clock.pm:284
+#: lib/AdminPanel/Module/DisplayManager.pm:255
+#: lib/AdminPanel/Module/Users.pm:334 lib/AdminPanel/Module/Users.pm:405
+#: lib/AdminPanel/Module/Users.pm:496 lib/AdminPanel/Module/Users.pm:580
+#: lib/AdminPanel/Module/Users.pm:860 lib/AdminPanel/Module/Users.pm:1994
+#: lib/AdminPanel/Module/Users.pm:2154 lib/AdminPanel/Module/Hosts.pm:191
+#: lib/AdminPanel/Module/Hosts.pm:275 lib/AdminPanel/Module/Hosts.pm:462
+#: lib/AdminPanel/Rpmdragora/gui.pm:1275 lib/AdminPanel/Rpmdragora/pkg.pm:216
+#: lib/AdminPanel/Rpmdragora/pkg.pm:914
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:305
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:523
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:765
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:809
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:939
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1016
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1118
+#: lib/AdminPanel/rpmdragora.pm:863
+msgid "Cancel"
+msgstr ""
+
+#: lib/AdminPanel/Shared/GUI.pm:308 lib/AdminPanel/rpmdragora.pm:333
+msgid "Yes"
+msgstr ""
+
+#: lib/AdminPanel/Shared/GUI.pm:309 lib/AdminPanel/rpmdragora.pm:334
+msgid "No"
+msgstr ""
+
+#: lib/AdminPanel/Shared/GUI.pm:429 lib/AdminPanel/Shared/GUI.pm:728
+msgid "Select"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:204 lib/AdminPanel/Module/Services.pm:456
+#: lib/AdminPanel/Module/AdminMouse.pm:219 lib/AdminPanel/Module/Clock.pm:466
+#: lib/AdminPanel/Module/LogViewer.pm:355 lib/AdminPanel/Module/Users.pm:2461
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1723
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2001
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:210 lib/AdminPanel/Module/Services.pm:461
+#: lib/AdminPanel/Module/AdminMouse.pm:211 lib/AdminPanel/Module/Clock.pm:471
+#: lib/AdminPanel/Module/LogViewer.pm:360 lib/AdminPanel/Module/Users.pm:2466
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1729
+#, perl-format
+msgid "Copyright (C) %s Mageia community"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:211 lib/AdminPanel/Module/Services.pm:462
+#: lib/AdminPanel/Module/Clock.pm:472 lib/AdminPanel/Module/LogViewer.pm:361
+#: lib/AdminPanel/Module/Users.pm:2467
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1730
+msgid "GPLv2"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:212
+msgid "mpan is the administration panel that collects all the utilities."
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:213 lib/AdminPanel/Module/Services.pm:465
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1732
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Translators</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:314 lib/AdminPanel/Module/Users.pm:2364
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1578
+msgid "File"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:315
+msgid "&Exit"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:326 lib/AdminPanel/MainDisplay.pm:327
+#: lib/AdminPanel/Module/Users.pm:2378
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1697
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2179
+msgid "Help"
+msgstr ""
+
+#: lib/AdminPanel/MainDisplay.pm:328 lib/AdminPanel/Module/Services.pm:417
+#: lib/AdminPanel/Module/AdminMouse.pm:185 lib/AdminPanel/Module/Proxy.pm:338
+#: lib/AdminPanel/Module/Clock.pm:279
+#: lib/AdminPanel/Module/DisplayManager.pm:254
+#: lib/AdminPanel/Module/LogViewer.pm:332 lib/AdminPanel/Module/Hosts.pm:461
+msgid "About"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:205
+msgid "adminService"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:234 lib/AdminPanel/Module/Proxy.pm:164
+#: lib/AdminPanel/Module/DisplayManager.pm:155
+#: lib/AdminPanel/Module/Users.pm:794 lib/AdminPanel/Module/Users.pm:2334
+msgid "root privileges required"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:307
+msgid "Start when requested"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:310
+msgid "running"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:310
+msgid "stopped"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:379
+msgid "Services"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:385
+msgid "Service"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:386 lib/AdminPanel/Module/Users.pm:1049
+msgid "Status"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:387
+msgid "On boot"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:398 lib/AdminPanel/Rpmdragora/pkg.pm:1070
+msgid "Information"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:406
+msgid "Start"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:409
+msgid "Stop"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:422 lib/AdminPanel/Module/Users.pm:2365
+#: lib/AdminPanel/Module/Users.pm:2397
+msgid "Refresh"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:423
+msgid "Close"
+msgstr ""
+
+#: lib/AdminPanel/Module/Services.pm:463
+msgid ""
+"adminService is the Mageia service and daemon management tool\n"
+"\n"
+"                                                       (from the original "
+"idea of Mandriva draxservice)."
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:47
+#: lib/AdminPanel/Module/AdminMouse.pm:209
+msgid "AdminMouse"
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:88
+msgid "Please choose your type of mouse."
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:213
+msgid ""
+"AdminMouse is the Mageia mouse management tool \n"
+"(from the original idea of Mandriva mousedrake)."
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:215
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1996
+msgid "Mageia"
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:241
+msgid "Emulate third button?"
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:248
+msgid "Mouse Port"
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:249
+msgid "Please choose which serial port your mouse is connected to."
+msgstr ""
+
+#: lib/AdminPanel/Module/AdminMouse.pm:272
+msgid "Not implemented yet: configuration is not changed"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:192
+#: lib/AdminPanel/Module/DisplayManager.pm:186
+msgid "X Restart Required"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:192
+#: lib/AdminPanel/Module/DisplayManager.pm:186
+msgid "You need to log out and back in again for changes to take effect"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:227
+msgid "Proxy should be http://..."
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:232
+msgid "Proxy should be http://... or https://..."
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:237
+msgid "URL should begin with 'ftp:' or 'http:'"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:250
+msgid "Proxies configuration"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:295
+msgid ""
+"Here you can set up your proxies configuration (eg: http://"
+"my_caching_server:8080)"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:303
+msgid "HTTP proxy"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:309
+msgid "Use HTTP proxy for HTTPS connections"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:315
+msgid "HTTPS proxy"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:321
+msgid "FTP proxy"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:327
+msgid "No proxy for (comma separated list):"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:340
+#: lib/AdminPanel/Module/DisplayManager.pm:256
+#: lib/AdminPanel/Module/Hosts.pm:192 lib/AdminPanel/Module/Hosts.pm:276
+#: lib/AdminPanel/Module/Hosts.pm:463 lib/AdminPanel/rpmdragora.pm:396
+msgid "OK"
+msgstr ""
+
+#: lib/AdminPanel/Module/Proxy.pm:362
+msgid "Graphical manager for proxies"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:141
+msgid "Date, Clock & Time Zone Settings"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:232
+msgid "Setting date and time"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:244
+msgid "Enable Network Time Protocol"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:247
+msgid "Change NTP server"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:249 lib/AdminPanel/Module/Clock.pm:264
+msgid "Current:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:251 lib/AdminPanel/Module/Clock.pm:266
+#: lib/AdminPanel/Module/Clock.pm:455 lib/AdminPanel/Module/Clock.pm:461
+msgid "not defined"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:260
+msgid "TimeZone"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:262
+msgid "Change Time Zone"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:280
+msgid "Reset"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:349
+msgid "Please enter a valid NTP server address."
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:372
+msgid "NTP server - DrakClock"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:373
+msgid "Choose your NTP server"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:397 lib/AdminPanel/Module/Clock.pm:403
+msgid "Timezone - DrakClock"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:398
+msgid "Failed to retrieve timezone list"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:404
+msgid "Which is your timezone?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:416
+msgid "GMT - DrakClock"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:417
+msgid "Is your hardware clock set to GMT?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:436
+msgid "Restore data"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:437
+msgid "Restore date and time only?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:473
+msgid ""
+"Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
+"and time"
+msgstr ""
+
+#: lib/AdminPanel/Module/Clock.pm:474 lib/AdminPanel/Module/LogViewer.pm:363
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Translators</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:98
+msgid "LightDM (The Light Display Manager)"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:99
+msgid "GDM (GNOME Display Manager)"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:100
+msgid "KDM (KDE Display Manager)"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:101
+msgid "XDM (X Display Manager)"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:196
+msgid "Display Manager"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:222
+msgid "Choosing a display manager"
+msgstr ""
+
+#: lib/AdminPanel/Module/DisplayManager.pm:278
+msgid "Graphical configurator for system Display Manager"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:141
+msgid "Log viewer"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:195
+msgid "A tool to monitor your logs"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:199
+msgid "Matching"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:203
+msgid "but not matching"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:207
+msgid "Options"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:212
+msgid "Last boot"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:225
+msgid "Since"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:230
+msgid "Until"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:257
+msgid "Select a unit"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:278
+msgid "From priority"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:298
+msgid "To priority"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:316
+msgid "search"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:319
+msgid "Log content"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:335
+msgid "Save"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:336
+msgid "Quit"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:362
+msgid "Log viewer is a systemd journal viewer"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:381
+msgid "Empty log found"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:474
+#: lib/AdminPanel/Rpmdragora/init.pm:164
+msgid "Running in user mode"
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:475
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to read system logs which you do not have rights to,\n"
+"but you may still browse all the others."
+msgstr ""
+
+#: lib/AdminPanel/Module/LogViewer.pm:498
+msgid "Save as.."
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:265
+msgid "adminUser"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:269
+msgid "User Data"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:270
+msgid "Account Info"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:271
+msgid "Password Info"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:272 lib/AdminPanel/Module/Users.pm:1362
+#: lib/AdminPanel/Module/Users.pm:2431
+msgid "Groups"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:275
+msgid "Group Data"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:276
+msgid "Group Users"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:310
+msgid "Choose group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:318
+msgid "A group with this name already exists.  What would you like to do?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:324
+msgid "Add to the existing group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:328
+msgid "Add to the 'users' group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:392 lib/AdminPanel/Rpmdragora/gui.pm:384
+#: lib/AdminPanel/Rpmdragora/gui.pm:933 lib/AdminPanel/Rpmdragora/gui.pm:937
+#: lib/AdminPanel/Rpmdragora/gui.pm:942 lib/AdminPanel/Rpmdragora/pkg.pm:924
+#: lib/AdminPanel/Rpmdragora/pkg.pm:934 lib/AdminPanel/Rpmdragora/pkg.pm:948
+#: lib/AdminPanel/rpmdragora.pm:824 lib/AdminPanel/rpmdragora.pm:1039
+msgid "Warning"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:400
+#, perl-format
+msgid "Do you really want to delete the group %s?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:406 lib/AdminPanel/Module/Users.pm:497
+#: lib/AdminPanel/Module/Users.pm:2396
+msgid "Delete"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:426
+#, perl-format
+msgid ""
+"%s is a primary group for user %s\n"
+" Remove the user first"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:433
+#, perl-format
+msgid "Removing group: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:480
+msgid "Delete files or not?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:487
+#, perl-format
+msgid ""
+"Deleting user %s\n"
+"Also perform the following actions\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:490
+#, perl-format
+msgid "Delete Home Directory: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:492
+#, perl-format
+msgid "Delete Mailbox: /var/spool/mail/%s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:520
+#, perl-format
+msgid "Removing user: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:552
+msgid "Create New Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:562 lib/AdminPanel/Module/Users.pm:1578
+msgid "Group Name:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:572
+msgid "Specify group ID manually"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:574
+msgid "GID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:607
+msgid "Group already exists, please choose another Group Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:615
+#, perl-format
+msgid " Group Gid is < %n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:616
+#, perl-format
+msgid ""
+"Creating a group with a GID less than %d is not recommended.\n"
+" Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:624
+msgid " Group ID is already used "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:625
+msgid ""
+"Creating a group with a non unique GID?\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:637
+#, perl-format
+msgid "Adding group: %s "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:693
+msgid "Full Name:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:702
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:209
+msgid "Login:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:712
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:216
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:925
+msgid "Password:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:734
+msgid "Confirm Password:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:743
+msgid "Login Shell:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:809
+msgid "Create New User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:824
+msgid "Create Home Directory"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:828
+msgid "Home Directory:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:837
+msgid "Create a private group for the user"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:842
+msgid "Specify user ID manually"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:844
+msgid "UID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:852
+msgid "Click on icon to change it"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:904
+msgid "User already exists, please choose another User Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:909 lib/AdminPanel/Module/Users.pm:1857
+msgid "Password Mismatch"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:913 lib/AdminPanel/Module/Users.pm:1863
+msgid ""
+"This password is too simple. \n"
+" Good passwords should be > 6 characters"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:920
+#, perl-format
+msgid ""
+"Home directory <%s> already exists.\n"
+"Please uncheck the home creation option, or change the directory path name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:933
+#, perl-format
+msgid "User Uid is < %d"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:934
+#, perl-format
+msgid ""
+"Creating a user with a UID less than %d is not recommended.\n"
+"Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:949
+#, perl-format
+msgid "Putting %s to 'users' group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:963
+#, perl-format
+msgid "Creating new group: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:976
+msgid "Adding user: "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:977
+#, perl-format
+msgid "Adding user: %s"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1043
+msgid "User Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1044
+msgid "User ID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1045 lib/AdminPanel/Module/Users.pm:1792
+msgid "Primary Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1046
+msgid "Full Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1047
+msgid "Login Shell"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1048
+msgid "Home Directory"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1089
+msgid "Group Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1090
+msgid "Group ID"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1091
+msgid "Group Members"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1274 lib/AdminPanel/Module/Users.pm:2227
+#: lib/AdminPanel/Module/Users.pm:2242 lib/AdminPanel/Module/Users.pm:2258
+#: lib/AdminPanel/Module/Users.pm:2427
+msgid "Users"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1505
+msgid "Home:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1604
+msgid "Enable account expiration"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1607
+msgid "Account expires (YYYY-MM-DD):"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1614
+msgid "Lock User Account"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1618
+msgid "Click on the icon to change it"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1648
+msgid "User last changed password on: "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1661
+msgid "Enable Password Expiration"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1665
+msgid "Days before change allowed:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1673
+msgid "Days before change required:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1681
+msgid "Days warning before change:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1689
+msgid "Days before account inactive:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1718
+msgid "Select the users to join this group:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1722
+msgid "User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1763
+msgid "Select groups that the user will be member of:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1767
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1137
+msgid "Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1869
+msgid "Please select at least one group for the user"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1892
+msgid ""
+"Please specify Year, Month and Day \n"
+" for Account Expiration "
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1908
+msgid "Please fill up all fields in password aging\n"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1943
+msgid "Strong"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1943
+msgid "Weak"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:1956
+msgid "Edit User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2109 lib/AdminPanel/Module/Users.pm:2212
+msgid "Cannot create tab widgets"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2125
+msgid "Edit Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2293 lib/AdminPanel/Module/Users.pm:2393
+msgid "Add User"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2294 lib/AdminPanel/Module/Users.pm:2394
+msgid "Add Group"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2295
+msgid "&Edit"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2296
+msgid "&Delete"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2297
+msgid "Install guest account"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2366
+msgid "&Quit"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2373
+msgid "Actions"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2377
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1605
+msgid "&Help"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2379
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1607
+msgid "Report Bug"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2380
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1608
+msgid "&About"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2395 lib/AdminPanel/Module/Hosts.pm:450
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1661
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2154
+msgid "Edit"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2410
+msgid "Filter system users"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2415
+msgid "Search:"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2417
+msgid "Apply filter"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2464
+msgid "AdminUser"
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2468
+msgid ""
+"AdminUser is a Mageia user management tool \n"
+"(from the original idea of Mandriva userdrake)."
+msgstr ""
+
+#: lib/AdminPanel/Module/Users.pm:2469
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                       <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Translators</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:159 lib/AdminPanel/Module/Hosts.pm:255
+#: lib/AdminPanel/Module/Hosts.pm:435 lib/AdminPanel/Module/Hosts.pm:452
+msgid "Hostname"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:164
+msgid "Pretty Hostname"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:169
+msgid "Static Hostname"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:174
+msgid "Chassis"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:179
+msgid "Icon Name"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:254 lib/AdminPanel/Module/Hosts.pm:434
+msgid "IP Address"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:256
+msgid "Host aliases"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:331
+msgid "Add the information"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:365
+msgid "Modify the information"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:412
+msgid "Manage hosts definitions"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:436
+msgid "Host Aliases"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:449
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1093
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1102
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1369
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1662
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2160
+msgid "Add"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:451
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1094
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1103
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1164
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1370
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1660
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2150
+msgid "Remove"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:495 lib/AdminPanel/Rpmdragora/pkg.pm:263
+#: lib/AdminPanel/Rpmdragora/pkg.pm:800
+msgid "Confirmation"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:495
+msgid "Are you sure to drop this host?"
+msgstr ""
+
+#: lib/AdminPanel/Module/Hosts.pm:512
+msgid "Graphical manager for hosts definitions"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:56
+#, perl-format
+msgid "Usage: %s [OPTION]..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:57
+msgid "  --auto                 assume default answers to questions"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:58
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:59
+msgid "  --media=medium1,..     limit to given media"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:60
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:61
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:62
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:63
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:64
+msgid "  --no-media-update      don't update media at startup"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:65
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:66
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:67
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:68
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:69
+msgid "  --run-as-root          force to run as root"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:70
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:71
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:72
+msgid "  --version              print this tool's version number\n"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/init.pm:165
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:40
+msgid "All"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:41
+msgid "Accessibility"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:42 lib/AdminPanel/Rpmdragora/icon.pm:43
+#: lib/AdminPanel/Rpmdragora/icon.pm:44 lib/AdminPanel/Rpmdragora/icon.pm:45
+#: lib/AdminPanel/Rpmdragora/icon.pm:46
+msgid "Archiving"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:43
+msgid "Backup"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:44
+msgid "Cd burning"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:45
+msgid "Compression"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:46 lib/AdminPanel/Rpmdragora/icon.pm:69
+#: lib/AdminPanel/Rpmdragora/icon.pm:85 lib/AdminPanel/Rpmdragora/icon.pm:105
+#: lib/AdminPanel/Rpmdragora/icon.pm:126 lib/AdminPanel/Rpmdragora/icon.pm:146
+msgid "Other"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:47 lib/AdminPanel/Rpmdragora/icon.pm:48
+#: lib/AdminPanel/Rpmdragora/icon.pm:49 lib/AdminPanel/Rpmdragora/icon.pm:50
+#: lib/AdminPanel/Rpmdragora/icon.pm:51 lib/AdminPanel/Rpmdragora/icon.pm:52
+#: lib/AdminPanel/Rpmdragora/icon.pm:53 lib/AdminPanel/Rpmdragora/icon.pm:54
+msgid "Communications"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:48
+msgid "Bluetooth"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:49
+msgid "Dial-Up"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:50
+msgid "Fax"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:51
+msgid "Mobile"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:52
+msgid "Radio"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:53
+msgid "Serial"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:54
+msgid "Telephony"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:55 lib/AdminPanel/Rpmdragora/icon.pm:61
+msgid "Databases"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:56 lib/AdminPanel/Rpmdragora/icon.pm:57
+#: lib/AdminPanel/Rpmdragora/icon.pm:58 lib/AdminPanel/Rpmdragora/icon.pm:59
+#: lib/AdminPanel/Rpmdragora/icon.pm:60 lib/AdminPanel/Rpmdragora/icon.pm:61
+#: lib/AdminPanel/Rpmdragora/icon.pm:62 lib/AdminPanel/Rpmdragora/icon.pm:63
+#: lib/AdminPanel/Rpmdragora/icon.pm:64 lib/AdminPanel/Rpmdragora/icon.pm:65
+#: lib/AdminPanel/Rpmdragora/icon.pm:66 lib/AdminPanel/Rpmdragora/icon.pm:67
+#: lib/AdminPanel/Rpmdragora/icon.pm:68 lib/AdminPanel/Rpmdragora/icon.pm:69
+#: lib/AdminPanel/Rpmdragora/icon.pm:70 lib/AdminPanel/Rpmdragora/icon.pm:71
+#: lib/AdminPanel/Rpmdragora/icon.pm:72 lib/AdminPanel/Rpmdragora/icon.pm:73
+#: lib/AdminPanel/Rpmdragora/icon.pm:74 lib/AdminPanel/Rpmdragora/icon.pm:201
+#: lib/AdminPanel/Rpmdragora/icon.pm:202 lib/AdminPanel/Rpmdragora/icon.pm:203
+msgid "Development"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:57
+msgid "Basic"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:58
+msgid "C"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:59
+msgid "C++"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:60
+msgid "C#"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:62
+msgid "Debug"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:63
+msgid "Erlang"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:64
+msgid "GNOME and GTK+"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:65
+msgid "Java"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:66
+msgid "KDE and Qt"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:67
+msgid "Kernel"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:68
+msgid "OCaml"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:70
+msgid "Perl"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:71
+msgid "PHP"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:72
+msgid "Python"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:73
+msgid "Tools"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:74 lib/AdminPanel/Rpmdragora/icon.pm:174
+msgid "X11"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:75 lib/AdminPanel/Rpmdragora/icon.pm:188
+#: lib/AdminPanel/Rpmdragora/icon.pm:203
+msgid "Documentation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:76
+msgid "Editors"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:77
+msgid "Education"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:78
+msgid "Emulators"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:79
+msgid "File tools"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:80 lib/AdminPanel/Rpmdragora/icon.pm:81
+#: lib/AdminPanel/Rpmdragora/icon.pm:82 lib/AdminPanel/Rpmdragora/icon.pm:83
+#: lib/AdminPanel/Rpmdragora/icon.pm:84 lib/AdminPanel/Rpmdragora/icon.pm:85
+#: lib/AdminPanel/Rpmdragora/icon.pm:86 lib/AdminPanel/Rpmdragora/icon.pm:87
+#: lib/AdminPanel/Rpmdragora/icon.pm:88 lib/AdminPanel/Rpmdragora/icon.pm:89
+#: lib/AdminPanel/Rpmdragora/icon.pm:90
+msgid "Games"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:81
+msgid "Adventure"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:82
+msgid "Arcade"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:83
+msgid "Boards"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:84
+msgid "Cards"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:86
+msgid "Puzzles"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:87
+msgid "Shooter"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:88
+msgid "Simulation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:89
+msgid "Sports"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:90
+msgid "Strategy"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:91
+msgid "Geography"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:92 lib/AdminPanel/Rpmdragora/icon.pm:93
+#: lib/AdminPanel/Rpmdragora/icon.pm:96 lib/AdminPanel/Rpmdragora/icon.pm:99
+#: lib/AdminPanel/Rpmdragora/icon.pm:102 lib/AdminPanel/Rpmdragora/icon.pm:105
+#: lib/AdminPanel/Rpmdragora/icon.pm:106 lib/AdminPanel/Rpmdragora/icon.pm:109
+msgid "Graphical desktop"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:95
+msgid "Enlightenment"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:98
+msgid "GNOME"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:101
+msgid "Icewm"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:104
+msgid "KDE"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:108
+msgid "WindowMaker"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:111
+msgid "Xfce"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:112 lib/AdminPanel/Rpmdragora/icon.pm:113
+#: lib/AdminPanel/Rpmdragora/icon.pm:114 lib/AdminPanel/Rpmdragora/icon.pm:115
+#: lib/AdminPanel/Rpmdragora/icon.pm:116 lib/AdminPanel/Rpmdragora/icon.pm:117
+#: lib/AdminPanel/Rpmdragora/icon.pm:118
+msgid "Graphics"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:113
+msgid "3D"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:114 lib/AdminPanel/Rpmdragora/icon.pm:151
+#: lib/AdminPanel/Rpmdragora/icon.pm:179
+msgid "Editors and Converters"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:115 lib/AdminPanel/Rpmdragora/icon.pm:134
+#: lib/AdminPanel/Rpmdragora/icon.pm:155 lib/AdminPanel/Rpmdragora/icon.pm:182
+msgid "Utilities"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:116
+msgid "Photography"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:117
+msgid "Scanning"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:118
+msgid "Viewers"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:119
+msgid "Monitoring"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:120 lib/AdminPanel/Rpmdragora/icon.pm:121
+#: lib/AdminPanel/Rpmdragora/icon.pm:122 lib/AdminPanel/Rpmdragora/icon.pm:123
+#: lib/AdminPanel/Rpmdragora/icon.pm:124 lib/AdminPanel/Rpmdragora/icon.pm:125
+#: lib/AdminPanel/Rpmdragora/icon.pm:126 lib/AdminPanel/Rpmdragora/icon.pm:127
+#: lib/AdminPanel/Rpmdragora/icon.pm:128 lib/AdminPanel/Rpmdragora/icon.pm:168
+msgid "Networking"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:121
+msgid "File transfer"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:122
+msgid "IRC"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:123
+msgid "Instant messaging"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:124 lib/AdminPanel/Rpmdragora/icon.pm:208
+msgid "Mail"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:125
+msgid "News"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:127
+msgid "Remote access"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:128
+msgid "WWW"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:129 lib/AdminPanel/Rpmdragora/icon.pm:130
+#: lib/AdminPanel/Rpmdragora/icon.pm:131 lib/AdminPanel/Rpmdragora/icon.pm:132
+#: lib/AdminPanel/Rpmdragora/icon.pm:133 lib/AdminPanel/Rpmdragora/icon.pm:134
+#: lib/AdminPanel/Rpmdragora/icon.pm:135 lib/AdminPanel/Rpmdragora/icon.pm:136
+#: lib/AdminPanel/Rpmdragora/icon.pm:137
+msgid "Office"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:130
+msgid "Dictionary"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:131
+msgid "Finance"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:132
+msgid "Management"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:133
+msgid "Organizer"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:135
+msgid "Spreadsheet"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:136
+msgid "Suite"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:137
+msgid "Word processor"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:138
+msgid "Publishing"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:139 lib/AdminPanel/Rpmdragora/icon.pm:140
+#: lib/AdminPanel/Rpmdragora/icon.pm:141 lib/AdminPanel/Rpmdragora/icon.pm:142
+#: lib/AdminPanel/Rpmdragora/icon.pm:143 lib/AdminPanel/Rpmdragora/icon.pm:144
+#: lib/AdminPanel/Rpmdragora/icon.pm:145 lib/AdminPanel/Rpmdragora/icon.pm:146
+#: lib/AdminPanel/Rpmdragora/icon.pm:147
+msgid "Sciences"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:140
+msgid "Astronomy"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:141
+msgid "Biology"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:142
+msgid "Chemistry"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:143
+msgid "Computer science"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:144
+msgid "Geosciences"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:145
+msgid "Mathematics"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:147
+msgid "Physics"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:148
+msgid "Security"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:149
+msgid "Shells"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:150 lib/AdminPanel/Rpmdragora/icon.pm:151
+#: lib/AdminPanel/Rpmdragora/icon.pm:152 lib/AdminPanel/Rpmdragora/icon.pm:153
+#: lib/AdminPanel/Rpmdragora/icon.pm:154 lib/AdminPanel/Rpmdragora/icon.pm:155
+msgid "Sound"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:152
+msgid "Midi"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:153
+msgid "Mixers"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:154 lib/AdminPanel/Rpmdragora/icon.pm:180
+msgid "Players"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:156 lib/AdminPanel/Rpmdragora/icon.pm:157
+#: lib/AdminPanel/Rpmdragora/icon.pm:158 lib/AdminPanel/Rpmdragora/icon.pm:159
+#: lib/AdminPanel/Rpmdragora/icon.pm:160 lib/AdminPanel/Rpmdragora/icon.pm:161
+#: lib/AdminPanel/Rpmdragora/icon.pm:162 lib/AdminPanel/Rpmdragora/icon.pm:163
+#: lib/AdminPanel/Rpmdragora/icon.pm:164 lib/AdminPanel/Rpmdragora/icon.pm:165
+#: lib/AdminPanel/Rpmdragora/icon.pm:166 lib/AdminPanel/Rpmdragora/icon.pm:167
+#: lib/AdminPanel/Rpmdragora/icon.pm:168 lib/AdminPanel/Rpmdragora/icon.pm:169
+#: lib/AdminPanel/Rpmdragora/icon.pm:170 lib/AdminPanel/Rpmdragora/icon.pm:171
+#: lib/AdminPanel/Rpmdragora/icon.pm:172
+msgid "System"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:157
+msgid "Base"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:158
+msgid "Boot and Init"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:159
+msgid "Cluster"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:160 lib/AdminPanel/Rpmdragora/icon.pm:186
+msgid "Configuration"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:161 lib/AdminPanel/Rpmdragora/icon.pm:162
+#: lib/AdminPanel/Rpmdragora/icon.pm:163 lib/AdminPanel/Rpmdragora/icon.pm:164
+msgid "Fonts"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:162
+msgid "True type"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:163
+msgid "Type1"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:164
+msgid "X11 bitmap"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:165
+msgid "Internationalization"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:166
+msgid "Kernel and hardware"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:167
+msgid "Libraries"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:169
+msgid "Packaging"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:170
+msgid "Printing"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:171
+msgid "Servers"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:175
+msgid "Terminals"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:176
+msgid "Text tools"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:177
+msgid "Toys"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:178 lib/AdminPanel/Rpmdragora/icon.pm:179
+#: lib/AdminPanel/Rpmdragora/icon.pm:180 lib/AdminPanel/Rpmdragora/icon.pm:181
+#: lib/AdminPanel/Rpmdragora/icon.pm:182
+msgid "Video"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:181
+msgid "Television"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:185 lib/AdminPanel/Rpmdragora/icon.pm:186
+#: lib/AdminPanel/Rpmdragora/icon.pm:187 lib/AdminPanel/Rpmdragora/icon.pm:188
+#: lib/AdminPanel/Rpmdragora/icon.pm:189 lib/AdminPanel/Rpmdragora/icon.pm:190
+#: lib/AdminPanel/Rpmdragora/icon.pm:191 lib/AdminPanel/Rpmdragora/icon.pm:192
+#: lib/AdminPanel/Rpmdragora/icon.pm:193 lib/AdminPanel/Rpmdragora/icon.pm:194
+msgid "Workstation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:187
+msgid "Console Tools"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:189
+msgid "Game station"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:190
+msgid "Internet station"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:191
+msgid "Multimedia station"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:192
+msgid "Network Computer (client)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:193
+msgid "Office Workstation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:194
+msgid "Scientific Workstation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:195 lib/AdminPanel/Rpmdragora/icon.pm:197
+#: lib/AdminPanel/Rpmdragora/icon.pm:198 lib/AdminPanel/Rpmdragora/icon.pm:199
+#: lib/AdminPanel/Rpmdragora/icon.pm:200 lib/AdminPanel/Rpmdragora/gui.pm:132
+msgid "Graphical Environment"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:197
+msgid "GNOME Workstation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:198
+msgid "IceWm Desktop"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:199
+msgid "KDE Workstation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:200
+msgid "Other Graphical Desktops"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:204 lib/AdminPanel/Rpmdragora/icon.pm:205
+#: lib/AdminPanel/Rpmdragora/icon.pm:206 lib/AdminPanel/Rpmdragora/icon.pm:207
+#: lib/AdminPanel/Rpmdragora/icon.pm:208 lib/AdminPanel/Rpmdragora/icon.pm:209
+#: lib/AdminPanel/Rpmdragora/icon.pm:210 lib/AdminPanel/Rpmdragora/icon.pm:211
+msgid "Server"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:205
+msgid "DNS/NIS"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:206
+msgid "Database"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:207
+msgid "Firewall/Router"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:209
+msgid "Mail/Groupware/News"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:210
+msgid "Network Computer server"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/icon.pm:211
+msgid "Web/FTP"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/open_db.pm:91
+#: lib/AdminPanel/Rpmdragora/gui.pm:1547
+msgid "Fatal error"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/open_db.pm:92
+#: lib/AdminPanel/Rpmdragora/gui.pm:1548 lib/AdminPanel/Rpmdragora/pkg.pm:489
+#, perl-format
+msgid "A fatal error occurred: %s."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:103
+msgid "Search results"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:103
+msgid "Search results (none)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:147
+msgid "Security advisory"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:158
+msgid "No description"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:169
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:170
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:172
+msgid "This package is not free software"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:175
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:179
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:184
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:185
+msgid "This is an unofficial update."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:189
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:198
+msgid "Notice: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:205
+msgid "Importance: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:206
+msgid "Reason for update: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:222
+msgid "Version: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:223
+msgid "Currently installed version: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:224
+msgid "Group: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:225
+msgid "Architecture: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:226
+msgid "Size: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:226
+#, perl-format
+msgid "%s KB"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:227 lib/AdminPanel/rpmdragora.pm:670
+msgid "Medium: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:249
+msgid "All dependencies installed."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:267
+msgid "URL: "
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:328
+msgid "Details:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:337
+msgid "Files:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:343 lib/AdminPanel/Rpmdragora/gui.pm:354
+#: lib/AdminPanel/Rpmdragora/gui.pm:358 lib/AdminPanel/Rpmdragora/pkg.pm:197
+msgid "(Not available)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:351
+msgid "Changelog:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:366
+msgid "New dependencies:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:386
+#, perl-format
+msgid "The package \"%s\" was found."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:387
+msgid "However this package is not in the package list."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:388
+msgid "You may want to update your urpmi database."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:390
+msgid "Matching packages:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:395
+#, perl-format
+msgid "- %s (medium: %s)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:933
+#, perl-format
+msgid "Removing package %s would break your system"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:937
+#, perl-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:942 lib/AdminPanel/Rpmdragora/pkg.pm:796
+msgid ""
+"Rpmdragora or one of its priority dependencies needs to be updated first. "
+"Rpmdragora will then restart."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1148
+msgid "More information on package..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1150
+msgid "Please choose"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1151
+msgid "The following package is needed:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1151
+msgid "One of the following packages is needed:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1214
+msgid "Informations"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1264
+msgid "Select package"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1362
+msgid "Checking dependencies of package..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1367
+msgid "Some additional packages need to be removed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1378
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1383
+msgid "Some packages cannot be removed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1384
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1392 lib/AdminPanel/Rpmdragora/gui.pm:1463
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1416
+msgid "Additional packages needed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1417
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1425
+msgid "Conflicting Packages"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1439
+#, perl-format
+msgid "%s (belongs to the skip list)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1443
+msgid "One package cannot be installed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1443
+msgid "Some packages cannot be installed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1445
+#, perl-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1446
+#, perl-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1462 lib/AdminPanel/Rpmdragora/pkg.pm:800
+msgid "Some packages need to be removed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1500
+msgid "Some packages are selected."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1500
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1510
+#, perl-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1514
+msgid "You need to select some packages first."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1519
+msgid "Too many packages are selected"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1520
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1631
+msgid "Please wait, listing packages..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1641
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:136
+#: lib/AdminPanel/Rpmdragora/formatting.pm:148
+#: lib/AdminPanel/Rpmdragora/pkg.pm:123 lib/AdminPanel/Rpmdragora/pkg.pm:172
+#: lib/AdminPanel/Rpmdragora/pkg.pm:185 lib/AdminPanel/Rpmdragora/pkg.pm:204
+#: lib/AdminPanel/Rpmdragora/pkg.pm:681
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1148
+msgid "(none)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1644
+msgid "No update"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1645
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1684
+msgid "Upgradable"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1684
+msgid "Installed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1685
+msgid "Addable"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/gui.pm:1719
+msgid "Description not available for this package\n"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:178
+msgid "Installation finished"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:199
+#: lib/AdminPanel/Rpmdragora/pkg.pm:639
+msgid "Select a package"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:209
+msgid "Remove new file"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:210
+msgid "Use new file"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:211
+msgid "Do nothing"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/rpmnew.pm:328
+msgid "Please wait, searching..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/formatting.pm:124
+msgid "None (installed)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/formatting.pm:125
+msgid "Unknown"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/formatting.pm:194
+#, perl-format
+msgid "%s of additional disk space will be used."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/formatting.pm:195
+#, perl-format
+msgid "%s of disk space will be freed."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/formatting.pm:200
+#, perl-format
+msgid "%s of packages will be retrieved."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:137
+#, perl-format
+msgid "Getting information from %s..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:141
+#, perl-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:144 lib/AdminPanel/Rpmdragora/pkg.pm:460
+#: lib/AdminPanel/Rpmdragora/pkg.pm:819 lib/AdminPanel/Rpmdragora/pkg.pm:1029
+#: lib/AdminPanel/rpmdragora.pm:433 lib/AdminPanel/rpmdragora.pm:1089
+msgid "Please wait"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:158
+#, perl-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:160
+#, perl-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:215 lib/AdminPanel/Rpmdragora/pkg.pm:220
+#, perl-format
+msgid "Downloading package `%s'..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:222
+#, perl-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:223
+#, perl-format
+msgid "        %s%% completed, speed = %s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:264
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:282
+msgid "Already existing update media"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:283
+#, perl-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:288
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:758
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1640
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1667
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2056
+msgid "Enabled"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:293
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:294 lib/AdminPanel/rpmdragora.pm:973
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:301
+msgid "How to choose manually your mirror"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:302
+#, perl-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:460
+msgid "Package installation..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:460 lib/AdminPanel/Rpmdragora/pkg.pm:819
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1029
+msgid "Initializing..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:472
+msgid "Reading updates description"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:478 lib/AdminPanel/Rpmdragora/pkg.pm:514
+msgid "Please wait, finding available packages..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:484
+msgid "Please wait, listing base packages..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:489 lib/AdminPanel/Rpmdragora/pkg.pm:953
+#: lib/AdminPanel/Rpmdragora/pkg.pm:978 lib/AdminPanel/rpmdragora.pm:668
+#: lib/AdminPanel/rpmdragora.pm:692 lib/AdminPanel/rpmdragora.pm:710
+msgid "Error"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:497
+msgid "Please wait, finding installed packages..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:622
+msgid "Upgrade information"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:638
+msgid "These packages come with upgrade information"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:711 lib/AdminPanel/Rpmdragora/pkg.pm:970
+msgid "All requested packages were installed successfully."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:715 lib/AdminPanel/Rpmdragora/pkg.pm:939
+msgid "Problem during installation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:716 lib/AdminPanel/Rpmdragora/pkg.pm:736
+#: lib/AdminPanel/Rpmdragora/pkg.pm:941
+#, perl-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:735
+msgid "Installation failed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:758
+msgid "Checking validity of requested packages..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:777
+msgid "Unable to get source packages."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:778
+#, perl-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:779
+#, perl-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:805
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:806
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:810
+msgid "Is it ok to continue?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:826 lib/AdminPanel/Rpmdragora/pkg.pm:1013
+msgid "Orphan packages"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:842 lib/AdminPanel/Rpmdragora/pkg.pm:843
+msgid "Preparing package installation..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:842
+msgid "Preparing package installation transaction..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:846 lib/AdminPanel/Rpmdragora/pkg.pm:847
+#, perl-format
+msgid "Installing package `%s' (%s/%s)..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:846 lib/AdminPanel/Rpmdragora/pkg.pm:848
+#, perl-format
+msgid "Total: %s/%s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:912
+msgid "Change medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:913
+#, perl-format
+msgid "Please insert the medium named \"%s\""
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:917
+msgid "Verifying package signatures..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:940
+#, perl-format
+msgid "%d installation transactions failed"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:954
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:957
+msgid "Inspecting configuration files..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:965
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:971
+msgid "Looking for \"README\" files..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1004
+#, perl-format
+msgid "RPM transaction %d/%d"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1005
+msgid "Unselect all"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1006
+msgid "Details"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1029 lib/AdminPanel/Rpmdragora/pkg.pm:1049
+msgid "Please wait, removing packages..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1062
+msgid "Problem during removal"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/pkg.pm:1063
+#, perl-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:71
+msgid "CD-ROM"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:72
+msgid "FTP"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:73
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:83
+msgid "Local"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:74
+msgid "HTTP"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:75
+msgid "HTTPS"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:76
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:79
+msgid "NFS"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:77
+msgid "Removable"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:78
+msgid "rsync"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:81
+msgid "Mirror list"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:123
+msgid "Choose media type"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:124
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:132
+msgid "Full set of sources"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:132
+msgid "Update sources only"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:145
+#, perl-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:153
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:168
+msgid "Please wait, adding media..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:204
+msgid "Browse..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:237
+msgid "Add a medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:248
+msgid "Adding a medium:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:253
+msgid "Type of medium:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:258
+msgid "Local files"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:258
+msgid "Medium path:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:259
+msgid "FTP server"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:259
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:260
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:261
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:722
+msgid "URL:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:260
+msgid "RSYNC server"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:261
+msgid "HTTP server"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:262
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:263
+msgid "Path or mount point:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:281
+msgid "Medium name:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:296
+msgid "Create media for a whole distribution"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:299
+msgid "Tag this medium as an update medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:342
+msgid "You need to fill up at least the two first entries."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:345
+#, perl-format
+msgid ""
+"There is already a medium called <%s>,\n"
+"do you really want to replace it?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:423
+msgid "Global options for package installation"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:433
+msgid "Verify RPMs to be installed:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:437
+msgid "never"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:437
+msgid "always"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:455
+msgid "Download program to use:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:478
+msgid "XML meta-data download policy:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:483
+msgid "Never"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:483
+msgid "On-demand"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:483
+msgid "Update-only"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:483
+msgid "Always"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:607
+msgid "Source Removal"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:609
+#, perl-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:610
+msgid "Are you sure you want to remove the following sources?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:615
+msgid "Please wait, removing medium..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:708
+msgid "Edit a medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:717
+#, perl-format
+msgid "Editing medium \"%s\":"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:729
+msgid "Downloader:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:760
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1641
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1668
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2059
+msgid "Updates"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:767
+msgid "Save changes"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:769
+msgid "Proxy..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:807
+msgid "You need to insert the medium to continue"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:808
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:876
+msgid "Configure proxies"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:887
+#, perl-format
+msgid "Proxy settings for media \"%s\""
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:888
+msgid "Global proxy settings"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:893
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:899
+msgid "Enable proxy"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:903
+msgid "Proxy hostname:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:908
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:916
+msgid "User:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1026
+msgid "Add a parallel group"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1026
+msgid "Edit a parallel group"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1050
+msgid "Add a medium limit"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1050
+msgid "Choose a medium to add to the media limit:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1067
+msgid "Add a host"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1067
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1081
+#, perl-format
+msgid "Editing parallel group \"%s\":"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1085
+msgid "Group name:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1086
+msgid "Protocol:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1088
+msgid "Media limit:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1097
+msgid "Hosts:"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1133
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1137
+msgid "Protocol"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1137
+msgid "Media limit"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1138
+msgid "Command"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1168
+msgid "Edit..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1176
+msgid "Add..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1196
+msgid "Manage keys for digital signatures of packages"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1222
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1643
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2066
+msgid "Medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1247
+msgid "Keys"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1271
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1317
+msgid "Add a key"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1318
+#, perl-format
+msgid "Choose a key to add to the medium %s"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1341
+msgid "Remove a key"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1342
+#, perl-format
+msgid ""
+"Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
+"of the key: %s)"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1561
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1966
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2143
+msgid "Configure media"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1579
+#: lib/AdminPanel/rpmdragora.pm:865
+msgid "Update"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1580
+msgid "Add a specific media mirror"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1581
+msgid "Add a custom medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1582
+msgid "&Close"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1592
+msgid "&Options"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1593
+msgid "Global options"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1594
+msgid "Manage keys"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1595
+msgid "Parallel"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1596
+msgid "Proxy"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1606
+msgid "Manual"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1642
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2063
+msgid "Type"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1678
+msgid "Up"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1679
+msgid "Down"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1731
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1994
+msgid "Rpmdragora is the Mageia package management tool."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1831
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1895
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2090
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1973
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1974
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1975
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1976
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "/_File"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1974
+msgid "/_Update"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1974
+msgid "<control>U"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1975
+msgid "/Add a specific _media mirror"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1975
+msgid "<control>M"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1976
+msgid "/_Add a custom medium"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1976
+msgid "<control>A"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "/Close"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "<control>W"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1978
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1979
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1980
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1981
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "/_Options"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1979
+msgid "/_Global options"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1979
+msgid "<control>G"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1980
+msgid "/Manage _keys"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1980
+msgid "<control>K"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1981
+msgid "/_Parallel"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1981
+msgid "<control>P"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "/P_roxy"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "<control>R"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1984
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1985
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1986
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1987
+msgid "/_Help"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1985
+msgid "/_Report Bug"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1987
+msgid "/_About..."
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1990
+msgid "Rpmdragora"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:1992
+#, perl-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr ""
+
+#: lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm:2202
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:254
+msgid "Software Packages Removal"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:255
+msgid "Software Packages Update"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:256
+msgid "Software Packages Installation"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:325
+msgid "Do not ask me next time"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:383
+msgid "Dependencies"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:669
+#, perl-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:692
+msgid "Unable to create medium."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:697
+msgid "Failure when adding medium"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:698
+#, perl-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:724
+msgid "rpmdragora"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:730
+msgid "Please wait, updating media..."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:753
+msgid "Error retrieving packages"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:754
+#, perl-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:782
+#, perl-format
+msgid "Copying file for medium `%s'..."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:785
+#, perl-format
+msgid "Examining file of medium `%s'..."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:788
+#, perl-format
+msgid "Examining remote file of medium `%s'..."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:792
+msgid " done."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:796
+msgid " failed!"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:801
+#, perl-format
+msgid "%s from medium %s"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:805
+#, perl-format
+msgid "Starting download of `%s'..."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:809
+#, perl-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:812
+#, perl-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:824
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:831
+msgid "Update media"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:845
+msgid "Media"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:864
+msgid "Select all"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:969
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:977 lib/AdminPanel/rpmdragora.pm:1013
+msgid "Mirror choice"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:989
+msgid "Error during download"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:991
+#, perl-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"%s\n"
+"\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:994
+#, perl-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"%s\n"
+"\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1001
+msgid "No mirror"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1003
+msgid "I can't find any suitable mirror."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1004
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1014
+msgid "Please choose the desired mirror."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1041
+#, perl-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1044
+#, perl-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1074
+msgid "Please wait, downloading mirror addresses."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1075
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1096
+#, perl-format
+msgid "retrieval of [%s] failed"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1132
+msgid "Help launched in background"
+msgstr ""
+
+#: lib/AdminPanel/rpmdragora.pm:1133
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr ""
