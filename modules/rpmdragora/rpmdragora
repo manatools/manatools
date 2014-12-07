@@ -752,6 +752,7 @@ sub run_treeview_dialog {
     my $NVR_string = $loc->N("/_Options") . "/" . $loc->N("Search in _full package names");
     my $regexp_search_string = $loc->N("/_Options") . "/" . $loc->N("Use _regular expressions in searches");
 
+    my $itemColl = new yui::YItemCollection;
     # build File menu
     my %fileMenu = (
             widget => $factory->createMenuButton($headbar,$loc->N("File")),
@@ -763,15 +764,30 @@ sub run_treeview_dialog {
 
     my @ordered_menu_lines = qw(update reset_sel reload quit);
     foreach (@ordered_menu_lines) {
-        $fileMenu{ widget }->addItem($fileMenu{ $_ });
+        $itemColl->push($fileMenu{ $_ });
+        $fileMenu{$_}->DISOWN();
     }
+    $fileMenu{ widget }->addItems($itemColl);
     $fileMenu{ widget }->rebuildMenuTree();
+    $itemColl->clear();
 
-    # build View menu
-    my $view_menu = $factory->createMenuButton($headbar,$loc->N("View"));
+    # build Settings (old Options) menu
+    my $settings_menu = $factory->createMenuButton($headbar,$loc->N("Settings"));
+    my %settingsMenuLabel = (
+        media_manager => $loc->N("&Media Manager"),
+        options       => $loc->N("Options"),
+    );
+    @ordered_menu_lines = qw( media_manager options );
+    foreach my $lbl (@ordered_menu_lines) {
+        my $item = new yui::YMenuItem($settingsMenuLabel{ $lbl });
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+    $settings_menu->addItems($itemColl);
+    $settings_menu->rebuildMenuTree();
+    $itemColl->clear();
 
-    # build Option menu
-    my $option_menu = $factory->createMenuButton($headbar,$loc->N("Options"));
+=for comment
     my $a_s_string = $auto_select_string;
     my $c_c_string = $clean_cache_string;
     # stripping gtk-related stuff
@@ -780,10 +796,15 @@ sub run_treeview_dialog {
     my $optMnuItemAutoSelect = new yui::YMenuItem($a_s_string);
     my $optMnuItemCleanCache = new yui::YMenuItem($c_c_string);
 
-    $option_menu->addItem($optMnuItemAutoSelect);
-    $option_menu->addItem($optMnuItemCleanCache);
+    $settings_menu->addItem($optMnuItemAutoSelect);
+    $settings_menu->addItem($optMnuItemCleanCache);
 
-    $option_menu->rebuildMenuTree();
+    $settings_menu->rebuildMenuTree();
+
+=cut
+
+    # build View menu
+    my $view_menu = $factory->createMenuButton($headbar,$loc->N("View"));
 
     # build help menu
     my %helpMenu = (
@@ -1082,6 +1103,7 @@ sub run_treeview_dialog {
             }
             else {
                 my $menuLabel = $item->label();
+print "Menu " . $menuLabel . " chosen\n";
                 if ($menuLabel eq $fileMenu{ quit }->label()) {
                     #menu File->Quit
                     last if quit();
@@ -1109,6 +1131,12 @@ sub run_treeview_dialog {
                 }
                 elsif ($menuLabel eq $fileMenu{ reload }->label()) {
                     $reload_db_and_clear_all->();
+                }
+                elsif ($menuLabel eq $settingsMenuLabel{media_manager}) {
+                    require AdminPanel::Rpmdragora::edit_urpm_sources;
+                    AdminPanel::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
+                }
+                elsif ($menuLabel eq $settingsMenuLabel{options}) {
                 }
                 elsif ($menuLabel eq $helpMenu{ about }->label()) {
                     my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
