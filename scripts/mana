@@ -62,11 +62,11 @@ my %modules = (
             exec => '/usr/bin/rpmdragora',
             descr => "rpmdragora: rpm install manager",
         },
-        update   => {
+        update  => {
             exec => '/usr/bin/dragoraUpdate',
-            descr => "dragoraUpdate rpm update manager",
+            descr => "dragoraUpdate: rpm update manager",
         },
-);	
+);
 
 my $cmdline = new yui::YCommandLine;
 
@@ -109,10 +109,12 @@ sub usage {
     print "Usage mana --help | -h        print this help\n";
     print "Usage mana <command> [args...]\n\n";
     print "valid <commands>:\n";
-# TODO better presentation
-    while ( my ($key, $value) = each(%modules) ) {
-        print "<" . $key . ">\t\t". $value->{descr} . "\n";
+
+    foreach my $key (sort keys %modules) {
+        # lenght + 2 chars "<" and ">"
+        print "<" . $key . (length $key >= 6 ? ">\t" : ">\t\t") . $modules{$key}->{descr} . "\n";
     }
+
     print "\n";
     exit(0);
 }
