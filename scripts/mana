@@ -58,6 +58,14 @@ my %modules = (
             exec => '/usr/bin/manaproxy',
             descr => "manaproxy: proxy manager",
         },
+        rpm   => {
+            exec => '/usr/bin/rpmdragora',
+            descr => "rpmdragora: rpm install manager",
+        },
+        update   => {
+            exec => '/usr/bin/dragoraUpdate',
+            descr => "dragoraUpdate rpm update manager",
+        },
 );	
 
 my $cmdline = new yui::YCommandLine;
