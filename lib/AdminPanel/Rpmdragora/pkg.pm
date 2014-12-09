@@ -241,8 +241,8 @@ my (@update_medias, $is_update_media_already_asked);
 sub warn_about_media {
     my ($w, %options) = @_;
 
-    return if $::MODE ne 'update';
-    return if $::rpmdragora_options{'no-media-update'};
+    return 0 if $::MODE ne 'update';
+    return 0 if $::rpmdragora_options{'no-media-update'};
 
     # we use our own instance of the urpmi db in order not to mess up with skip-list managment (#31092):
     # and no need to fully configure urpmi since we may have to do it again anyway because of new media:
