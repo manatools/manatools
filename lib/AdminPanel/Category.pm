@@ -132,13 +132,13 @@ sub moduleLoaded {
         return $present;
     }
 
-    foreach my $mod (@{$self->{modules}}) { 
+    foreach my $mod (@{$self->{modules}}) {
         if (exists $params{-CLASS} && ref($mod) eq $params{-CLASS}) {
-            $present = 1; 
+            $present = 1;
             last;
         }
         elsif ($mod->{name} eq $module_name) {
-            $present = 1; 
+            $present = 1;
             last;
         }
     }
@@ -159,33 +159,38 @@ sub moduleLoaded {
 =head3 DESCRIPTION
 
     Creates and adds buttons for each module_name
- 
+
 =cut
 
 #=============================================================
 sub addButtons {
     my($self, $panel, $factory) = @_;
-    my $count = 0;
     my $tmpButton;
     my $currLayout = 0;
-    $factory->createVSpacing($panel, 2);
+    my %weights = ();
+    my $curr;
+    my $count = 0;
     foreach my $mod (@{$self->{modules}}) {
         if(($count % 2) != 1) {
+            $factory->createVSpacing($panel, 0.5);
             $currLayout = $factory->createHBox($panel);
-            $factory->createHStretch($currLayout);
+            $factory->createHSpacing($currLayout, 1);
+            $currLayout->setWeight($yui::YD_VERT, 10);
         }
+
+        $tmpButton = $factory->createPushButton(
+            $currLayout,
+            $mod->name
+        );
         $count++;
-        $tmpButton = $factory->createPushButton($currLayout,
-                                                $mod->name);
+        if (($count < scalar @{$self->{modules}}) || (($count >= scalar @{$self->{modules}}) && ($count % 2) == 0)) {
+            $tmpButton->setWeight($yui::YD_HORIZ, 20);
+        }
+        $factory->createHSpacing($currLayout, 1);
         $mod->setButton($tmpButton);
         $tmpButton->setLabel($mod->name);
         $tmpButton->setIcon($mod->icon);
-        $factory->createHStretch($currLayout);
-        if(($count % 2) != 1) {
-            $factory->createVSpacing($panel, 2);     
-        }
     }
-    $factory->createVStretch($panel);
 }
 
 #=============================================================
@@ -194,11 +199,11 @@ sub addButtons {
 
 =head3 INPUT
 
-$self: this object
+    $self: this object
 
 =head3 DESCRIPTION
 
-Delete the module buttons
+    Delete the module buttons
 
 =cut
 
@@ -233,17 +238,17 @@ sub setIcon {
 }
 
 1;
-__END__ 
+__END__
 
 =pod
 
 =head1 NAME
 
-       Category - add new category to window
+    Category - add new category to window
 
 =head1 SYNOPSIS
-       
-       $category = new Category('Category Name');
+
+    $category = new Category('Category Name');
 
 
 =head1 USAGE
