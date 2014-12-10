@@ -93,6 +93,7 @@ sub progress {
     $self->{progressbar}->setValue($value);
     return if Time::HiRes::clock_gettime() - $time < 0.333;
     $time = Time::HiRes::clock_gettime();
+    $self->{mainw}->startMultipleChanges();
     $self->flush();
 }
 
@@ -106,6 +107,7 @@ sub DESTROY {
 
 sub validate_cancel {
     my ($self, $cancel_msg, $cancel_cb) = @_;
+    $self->{mainw}->startMultipleChanges();
     if (!$self->{cancel}) {
 		$self->{cancel} = $self->{factory}->createIconButton($self->{vbox},"",$cancel_msg);
         #gtkpack__(
