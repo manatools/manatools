@@ -60,27 +60,27 @@ Said that you have to:
    Other important things are icon and name attributes, please look at other modules
    code and to Moose documentation how to do it.
    
-4. Add the module to configuration file so that apanel can load it (see below).
+4. Add the module to configuration file so that mpan can load it (see below).
 
 Some share code is into AdminPanel::Shared modules, such as Locales to manage localization
 or Module back-ends for instance.
 
 - AdminPanel configuration (how to run a module)
 
-apanel can be run using a "name" parameter and eventually by forcing a configuration
+mpan can be run using a "name" parameter and eventually by forcing a configuration
 directory path where to find configuration files.
-Default name is apanel, and the name by convention is the place in witch to find
+Default name is mpan, and the name by convention is the place in witch to find
 configuration files under /etc.
-So apanel will look for: 
-/etc/apanel/settings.conf
-/etc/apanel/categories.conf
+So mpan will look for: 
+/etc/mpan/settings.conf
+/etc/mpan/categories.conf
 categories can also be searched under:
-/etc/apanel/categories.conf.d/MyModule.conf
+/etc/mpan/categories.conf.d/MyModule.conf
 
 How to run modules is defined into categories.conf or alternatively
 MyModule.conf under the related categories.conf.d.
 Last method allows to write a Module that is not under the AdminPanel 
-development tree, and easily install, load and run it using apanel.
+development tree, and easily install, load and run it using mpan.
 
 Categories are icon buttons that can contain more modules, so to have
 a old mcc view:
