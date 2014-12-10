@@ -1,4 +1,3 @@
-#!perl -T
 use 5.006;
 use strict;
 use warnings FATAL => 'all';
@@ -18,7 +17,7 @@ BEGIN {
     ok( my $facenames = $o->facenames(), 'facenames' );
     diag "facenames got: < " . scalar(@$facenames) . " elements >";
     ok( $o->addKdmIcon('username', $facenames->[0]), 'addKdmIcon' );
-    
+
     ok( my ($val, $str) = $o->valid_username('username'), 'valid_username' );
     diag "valid_username(username) got: < " . $str . " >";
     ok(($val, $str) = $o->valid_username('3D-user'), 'not_valid_username');
@@ -30,7 +29,8 @@ BEGIN {
     ok( my $face = $o->GetFaceIcon('username', 1), 'GetFaceIcon' );
     diag "GetFaceIcon after '" . $facenames->[0] . "' got: < ". $face ." >";
     ok( $o->strongPassword('S0meWh3r3'), 'strongPassword' );
-    
+
     ok( $o->removeKdmIcon('username'), 'removeKdmIcon' );
-    
+
+
 done_testing;
