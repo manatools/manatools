@@ -41,9 +41,9 @@ else {
 }
 my $mainWin = new AdminPanel::MainDisplay();
 while (1) {
-    my $launch = $mainWin->start();   
+    my $launch = $mainWin->start();
 
-    if ($launch) { 
+    if ($launch) {
         $mainWin->destroy();
         $launch->start();
     }
@@ -57,12 +57,12 @@ while (1) {
 
 sub usage {
     print "\n";
-    print "Usage mpan.pl [options...]\n\n";
+    print "Usage mpan [options...]\n\n";
     print "Options:\n";
     print "\t--help | -h        print this help\n";
 ## anaselli: --name now is used only to add a path to /etc (e.g. --name mcc2 means /etc/mcc2)
     #          and it is overriden by --conf_dir, so it should be discussed better to understand
-    #          if it is really needed any more. 
+    #          if it is really needed any more.
     #          Window title is got from settings.conf (key title)
     print "\t--name string      specify the window title of the administration panel\n";
     print "\t--conf_dir path    specify the settings.conf file directory\n";
@@ -94,7 +94,7 @@ sub getSettings {
 =pod
 
 =head1 main
-       
+
        main launcher
 
 =cut

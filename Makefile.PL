@@ -62,7 +62,7 @@ WriteMakefile(
         "Modern::Perl"        => 1.03,
         "autodie"             => 2.20,
     },
-    EXE_FILES => [ qw( scripts/mpan.pl
+    EXE_FILES => [ qw( scripts/mpan
                        scripts/mana
                        scripts/manaadduser
                        scripts/manaclock
