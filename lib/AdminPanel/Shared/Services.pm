@@ -249,12 +249,12 @@ xinetd => $loc->N_("Starts other deamons on demand."),
     if ($s) {
         $s = $loc->N($s);
     } else {
-        my $file = "$::prefix/usr/lib/systemd/system/$name.service";
+        my $file = "/usr/lib/systemd/system/$name.service";
         if (-e $file) {
                 $s = MDK::Common::File::cat_($file);
                 $s = $s =~ /^Description=(.*)/mg ? $1 : '';
         } else {
-                $file = MDK::Common::Func::find { -e $_ } map { "$::prefix$_/$name" } '/etc/rc.d/init.d', '/etc/init.d', '/etc/xinetd.d';
+                $file = MDK::Common::Func::find { -e $_ } map { "$_/$name" } '/etc/rc.d/init.d', '/etc/init.d', '/etc/xinetd.d';
                 $s = MDK::Common::File::cat_($file);
                 $s =~ s/\\\s*\n#\s*//mg;
                 $s =
@@ -292,7 +292,7 @@ sub set_service {
 
     if (MDK::Common::DataStructure::member($service, @xinetd_services)) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
+        AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif (_running_systemd() || _has_systemd()) {
         # systemctl rejects any symlinked units. You have to enabled the real file
         if (-l "/lib/systemd/system/$service.service") {
@@ -302,15 +302,15 @@ sub set_service {
             $service = $service . ".service";
         }
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/bin/systemctl", $enable ? "enable" : "disable", $service);
+        AdminPanel::Shared::RunProgram::rooted("", "/usr/bin/systemctl", $enable ? "enable" : "disable", $service);
     } else {
         my $script = "/etc/rc.d/init.d/$service";
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
+        AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
         #- FIXME: handle services with no chkconfig line and with no Default-Start levels in LSB header
-        if ($enable && MDK::Common::File::cat_("$::prefix$script") =~ /^#\s+chkconfig:\s+-/m) {
+        if ($enable && MDK::Common::File::cat_("$script") =~ /^#\s+chkconfig:\s+-/m) {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            AdminPanel::Shared::RunProgram::rooted($::prefix, "/usr/sbin/chkconfig", "--level", "35", $service, "on");
+            AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", "--level", "35", $service, "on");
         }
     }
 }
@@ -320,26 +320,26 @@ sub _run_action {
     if (_running_systemd()) {
         if ($do_not_block) {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', '--no-block', $action, "$service.service");
+            AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--no-block', $action, "$service.service");
         }
         else {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', $action, "$service.service");
+            AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', $action, "$service.service");
         }
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin:/etc/rc.d/init.d/";
-        AdminPanel::Shared::RunProgram::rooted($::prefix, "/etc/rc.d/init.d/$service", $action);
+        AdminPanel::Shared::RunProgram::rooted("", "/etc/rc.d/init.d/$service", $action);
     }
 }
 
 sub _running_systemd() {
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
+    AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
 sub _has_systemd() {
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/rpm', '-q', 'systemd');
+    AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/rpm', '-q', 'systemd');
 }
 
 #=============================================================
@@ -362,7 +362,7 @@ sub xinetd_services() {
     local $ENV{LANGUAGE} = 'C';
     my @xinetd_services;
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
         if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
             push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
         }
@@ -376,26 +376,26 @@ sub _systemd_services() {
     my %loaded;
     # Running system using systemd
     Sys::Syslog::syslog('info|local1', "Detected systemd running. Using systemctl introspection.");
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', '--all', 'list-units')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/bin/systemctl', '--full', '--all', 'list-units')) {
         if (my ($name) = m!^(\S+)\.service\s+loaded!) {
             # We only look at non-template, non-linked service files in /lib
             # We also check for any non-masked sysvinit files as these are
             # also handled by systemd
-            if ($name !~ /.*\@$/g && (-e "$::prefix/lib/systemd/system/$name.service" or -e "$::prefix/etc/rc.d/init.d/$name") && ! -l "$::prefix/lib/systemd/system/$name.service") {
-                push @services, [ $name, !!AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
+            if ($name !~ /.*\@$/g && (-e "/lib/systemd/system/$name.service" or -e "/etc/rc.d/init.d/$name") && ! -l "/lib/systemd/system/$name.service") {
+                push @services, [ $name, !!AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
                 $loaded{$name} = 1;
             }
         }
     }
     # list-units will not list disabled units that can be enabled
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/usr/bin/systemctl', '--full', 'list-unit-files')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/bin/systemctl', '--full', 'list-unit-files')) {
         if (my ($name) = m!^(\S+)\.service\s+disabled!) {
             # We only look at non-template, non-linked service files in /lib
             # We also check for any non-masked sysvinit files as these are
             # also handled by systemd
-            if (!exists $loaded{$name} && $name !~ /.*\@$/g && (-e "$::prefix/lib/systemd/system/$name.service" or -e "$::prefix/etc/rc.d/init.d/$name") && ! -l "$::prefix/lib/systemd/system/$name.service") {
+            if (!exists $loaded{$name} && $name !~ /.*\@$/g && (-e "/lib/systemd/system/$name.service" or -e "/etc/rc.d/init.d/$name") && ! -l "/lib/systemd/system/$name.service") {
                 # Limit ourselves to "standard" targets which can be enabled
-                my $wantedby = MDK::Common::File::cat_("$::prefix/lib/systemd/system/$name.service") =~ /^WantedBy=(graphical|multi-user).target$/sm ? $1 : '';
+                my $wantedby = MDK::Common::File::cat_("/lib/systemd/system/$name.service") =~ /^WantedBy=(graphical|multi-user).target$/sm ? $1 : '';
                 if ($wantedby) {
                     push @services, [ $name, 0 ];
                 }
@@ -417,7 +417,7 @@ sub _legacy_services() {
         # combine that with information from chkconfig regarding legacy sysvinit
         # scripts (which systemd will parse and include when running)
         Sys::Syslog::syslog('info|local1', "Detected systemd installed. Using fake service+chkconfig introspection.");
-        foreach (glob_("$::prefix/lib/systemd/system/*.service")) {
+        foreach (glob_("/lib/systemd/system/*.service")) {
             my ($name) = m!([^/]*).service$!;
 
             # We only look at non-template, non-symlinked service files
@@ -431,8 +431,8 @@ sub _legacy_services() {
                     # setup where -e will fail if the symlink target does
                     # exist which is typically the case when viewed outside
                     # of the chroot.
-                    if (!-l "$::prefix/lib/systemd/system/$wantedby.target.wants/$name.service") {
-                        push @services, [ $name, !!-l "$::prefix/etc/systemd/system/$wantedby.target.wants/$name.service" ];
+                    if (!-l "/lib/systemd/system/$wantedby.target.wants/$name.service") {
+                        push @services, [ $name, !!-l "/etc/systemd/system/$wantedby.target.wants/$name.service" ];
                     }
                 }
             }
@@ -448,7 +448,7 @@ sub _legacy_services() {
     if (!$::isInstall) {
         $runlevel = (split " ", `/sbin/runlevel`)[1];
     }
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout($::prefix, '/sbin/chkconfig', '--list', '--type', 'sysv')) {
+    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/sbin/chkconfig', '--list', '--type', 'sysv')) {
         if (my ($name, $l) = m!^(\S+)\s+(0:(on|off).*)!) {
             # If we expect to use systemd (i.e. installer) only show those
             # sysvinit scripts which are not masked by a native systemd unit.
@@ -507,7 +507,7 @@ sub services() {
 sub _systemd_unit_exists {
     my ($name) = @_;
     # we test with -l as symlinks are not valid when the system is chrooted:
-    -e "$::prefix/lib/systemd/system/$name.service" or -l "$::prefix/lib/systemd/system/$name.service";
+    -e "/lib/systemd/system/$name.service" or -l "/lib/systemd/system/$name.service";
 }
 
 #=============================================================
@@ -533,7 +533,7 @@ its unit or init.d service
 
 sub service_exists {
     my ($service) = @_;
-    -x "$::prefix/etc/rc.d/init.d/$service" or _systemd_unit_exists($service);
+    -x "/etc/rc.d/init.d/$service" or _systemd_unit_exists($service);
 }
 
 #=============================================================
@@ -676,10 +676,10 @@ sub is_service_running ($) {
     my $out;
     if (_running_systemd()) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        $out = AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
+        $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        $out = AdminPanel::Shared::RunProgram::rooted($::prefix, '/usr/sbin/service', $service, 'status');
+        $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/sbin/service', $service, 'status');
     }
     return $out;
 }
