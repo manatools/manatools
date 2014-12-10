@@ -53,6 +53,9 @@ To install this module, run the following commands:
 	make test
 	make install
 
+To test gui dialogs run:
+	make test TEST_GUI=1
+
 To install this module with local::lib (see perldoc local::lib for 
 details)
 	# add also -MCPAN if you want to install from cpan locally	
@@ -62,9 +65,9 @@ details)
 	make test
 	make install
 
-Since admin panel works with root privilege you can do the above
-or just install it locally and run as root but using user environment
-variable to know which ones run perl -Mlocal::lib as user and
+Since admin panel works with root privileges you can do the above
+and install it locally then run tools as root adding your user environment
+variables, to know which ones run perl -Mlocal::lib as user and
 execute the output as root.
 
 

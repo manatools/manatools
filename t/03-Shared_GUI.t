@@ -12,60 +12,55 @@ BEGIN {
 
     ok( my $gui = AdminPanel::Shared::GUI->new(), 'create');
 
-    diag "\n\nNext tests will create some gui dialogs";
-    diag "Perform tests (y/n) [n] ?";
+SKIP: {
+    #remember to skip the righ number of tests
+    skip "To enable dialog tests set TEST_GUI", 11, unless $ENV{TEST_GUI};
 
-    my $a = <>; chomp $a; $a = "n" unless $a;
+    ok( $gui->warningMsgBox({text => "Warning message! (no title, no richtext)<br> line two"}), 'wmb1');
 
-    SKIP: {
-        #remember to skip the righ number of tests
-        skip "You didn't say yes...", 11, unless ( $a eq "y" );
+    ok( $gui->warningMsgBox({text => "Warning message!<br> line two", title => "WARN", richtext => 1}), 'wmb2');
 
-        ok( $gui->warningMsgBox({text => "Warning message! (no title, no richtext)<br> line two"}), 'wmb1');
+    ok($gui->infoMsgBox({text => "Info message!<br> line two", title => "INFO", richtext => 1}), 'imb');
 
-        ok( $gui->warningMsgBox({text => "Warning message!<br> line two", title => "WARN", richtext => 1}), 'wmb2');
+    ok($gui->msgBox({text => "Normal message! (no title, no richtext)<br> line two"}), 'mb1');
 
-        ok($gui->infoMsgBox({text => "Info message!<br> line two", title => "INFO", richtext => 1}), 'imb');
+    ok($gui->msgBox({title => "Message", text => "Normal message!<br> line two", richtext=>1}), 'mb2');
 
-        ok($gui->msgBox({text => "Normal message! (no title, no richtext)<br> line two"}), 'mb1');
+    cmp_ok(my $btn = $gui->ask_OkCancel({title => "Tests", text => "All these tests seem to be passed"}), ">=", 0, 'askOkCancel');
+    diag "ask_OkCancel got: < " . ($btn == 1 ? "Ok": "Cancel"). " >";
 
-        ok($gui->msgBox({title => "Message", text => "Normal message!<br> line two", richtext=>1}), 'mb2');
+    cmp_ok($btn = $gui->ask_YesOrNo({title => "Question on tests", text => "Did these tests all pass?"}), ">=", 0, 'ask_YesOrNo');
+    diag "ask_YesOrNo got: < " . ($btn == 1 ? "Yes": "No"). " >";
 
-        cmp_ok(my $btn = $gui->ask_OkCancel({title => "Tests", text => "All these tests seem to be passed"}), ">=", 0, 'askOkCancel');
-        diag "ask_OkCancel got: < " . ($btn == 1 ? "Ok": "Cancel"). " >";
+    #TODO cancel makes this test failing
+    ok(my $item = $gui->ask_fromList({title => "Choose from list", header => "Which one do you select? [default is item 3]", default_button => 1,
+                                        list  => ['item 1', 'item 2', 'item 3', 'item 4'],
+                                        default_item => 'item 3'
+    }), 'ask_fromList');
+    diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
 
-        cmp_ok($btn = $gui->ask_YesOrNo({title => "Question on tests", text => "Did these tests all pass?"}), ">=", 0, 'ask_YesOrNo');
-        diag "ask_YesOrNo got: < " . ($btn == 1 ? "Yes": "No"). " >";
+    #TODO cancel makes this test failing
+    ok($item = $gui->ask_fromTreeList({title => "Choose from list", header => "Which one do you select? [default is leaf 2]", default_button => 1,
+                                        default_item => 'leaf 2',
+                                    list  => ['item 1/item 2/item 3', 'item 1/item 2/leaf 1', 'item 1/item 2/leaf 2', 'item 4/leaf 3', 'item 5']}),
+                                    'ask_fromTreeList');
+    diag "ask_fromTreeList got: < " . ($item ? $item : "none") . " >";
 
-        #TODO cancel makes this test failing
-        ok(my $item = $gui->ask_fromList({title => "Choose from list", header => "Which one do you select? [default is item 3]", default_button => 1,
-                                          list  => ['item 1', 'item 2', 'item 3', 'item 4'],
-                                          default_item => 'item 3'
-        }), 'ask_fromList');
-        diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
+    ok($gui->AboutDialog({ name => "Shared::GUI TABBED",
+                    version => $AdminPanel::Shared::VERSION,
+                    credits => "Copyright (C) 2014 Angelo Naselli",
+                    license => 'GPLv2',
+                    authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
+                    }), 'AboutDialog');
 
-        #TODO cancel makes this test failing
-        ok($item = $gui->ask_fromTreeList({title => "Choose from list", header => "Which one do you select? [default is leaf 2]", default_button => 1,
-                                            default_item => 'leaf 2',
-                                        list  => ['item 1/item 2/item 3', 'item 1/item 2/leaf 1', 'item 1/item 2/leaf 2', 'item 4/leaf 3', 'item 5']}),
-                                        'ask_fromTreeList');
-        diag "ask_fromTreeList got: < " . ($item ? $item : "none") . " >";
-
-        ok($gui->AboutDialog({ name => "Shared::GUI TABBED",
-                        version => $AdminPanel::Shared::VERSION,
-                        credits => "Copyright (C) 2014 Angelo Naselli",
-                        license => 'GPLv2',
-                        authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                        }), 'AboutDialog');
-
-        ok($gui->AboutDialog({ name => "Shared::GUI CLASSIC",
-                        version => $AdminPanel::Shared::VERSION,
-                        credits => "Copyright (C) 2014 Angelo Naselli",
-                        license => 'GPLv2',
-                        authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
-                        dialog_mode => 1,
-                        }), 'ClassicAboutDialog');
-    }
+    ok($gui->AboutDialog({ name => "Shared::GUI CLASSIC",
+                    version => $AdminPanel::Shared::VERSION,
+                    credits => "Copyright (C) 2014 Angelo Naselli",
+                    license => 'GPLv2',
+                    authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
+                    dialog_mode => 1,
+                    }), 'ClassicAboutDialog');
+}
 
 
 done_testing;
