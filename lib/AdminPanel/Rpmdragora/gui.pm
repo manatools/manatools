@@ -197,25 +197,23 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
-    my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt . "\n") || "";
+    my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt);
     ensure_utf8($notice);
 
-    my $hdr = format_header(join(' - ', $name, $summary)) . "\n";
+    my $hdr = "<h2>" . format_header(join(' - ', $name, $summary)) . "</h2>";
     ensure_utf8($hdr);
 
     my $update = MDK::Common::Func::if_($is_update, # is it an update?
-        format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}) . "\n",
-        format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})) . "\n",
-    ) || "";
+        format_field($loc->N("Importance: ")) . format_update_field($update_descr->{importance}),
+        format_field($loc->N("Reason for update: ")) . format_update_field(rpm_description($update_descr->{pre})),
+    );
     ensure_utf8($update);
 
-    # TODO Too many lines
-    join(
-        "\n",
-        $hdr,
-        $notice,
-        $update
-     );
+    my $main_text = $hdr;
+    $main_text   .= "<br />&nbsp;&nbsp;&nbsp;" . $notice if $notice;
+    $main_text   .= "<br />&nbsp;&nbsp;&nbsp;" . $update if $update;
+
+    return $main_text;
 }
 
 sub get_details {
@@ -361,7 +359,9 @@ sub _format_pkg_simplifiedinfo {
             @changelog = $pkg->{changelog} ? @{$pkg->{changelog}} : ( $loc->N("(Not available)") );
         }
         utf8::encode(\@changelog);
-        $changelog_link .= "\n\n". join("", @changelog);
+
+        $changelog_link .=  "<br />&nbsp;&nbsp;&nbsp;" . join("<br />&nbsp;&nbsp;&nbsp;", @changelog);
+        $changelog_link =~ s|\n||g;
         AdminPanel::rpmdragora::remove_wait_msg($wait);
     }
     push @$s, join("\n\n", $changelog_link, "\n");
@@ -369,7 +369,7 @@ sub _format_pkg_simplifiedinfo {
     my $deps_link = format_link(format_field($loc->N("New dependencies:")), $hidden_info{new_deps} );
     if ($options->{new_deps}) {
         if ($upkg->id) { # If not installed
-            $deps_link .= "\n\n". join("\n", @{get_new_deps($urpm, $upkg)});
+            $deps_link .= "<br />&nbsp;&nbsp;&nbsp;" . join("<br />&nbsp;&nbsp;&nbsp;", @{get_new_deps($urpm, $upkg)});
             #    push @$s, get_new_deps($urpm, $upkg);
         }
     }
@@ -1214,7 +1214,7 @@ sub setInfoOnWidget {
 
     $infoWidget->setValue("");
 
-    my $info_text ="<h2>" . $loc->N("Informations") . "</h2>";
+    my $info_text = "";
 
     my @data = get_info($pkgname, $options);
     for(@{$data[0]}){
