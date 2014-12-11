@@ -42,7 +42,6 @@ This module collects all the routines shared between AdminPanel and its modules.
     inArray
     disable_x_screensaver
     enable_x_screensaver
-    isRunning
     isProcessRunning
 
 =head1 SUPPORT
@@ -96,7 +95,6 @@ our @EXPORT_OK = qw(
     inArray
     disable_x_screensaver
     enable_x_screensaver
-    isRunning
     isProcessRunning
 );
 
@@ -365,9 +363,11 @@ sub enable_x_screensaver() {
 sub isProcessRunning {
     my ($name, $o_user) = @_;
     my $user = $o_user || $ENV{USER};
-    foreach (`ps -o '%P %p %c' -u $user`) {
+    my @proc = `ps -o '%P %p %c' -u $user`;
+    shift (@proc);
+    foreach (@proc) {
         my ($ppid, $pid, $n) = /^\s*(\d+)\s+(\d+)\s+(.*)/;
-        return $pid if $ppid != 1 && $pid != $$ && $n eq $name;
+        return $pid if $n eq $name && $ppid != 1 && $pid != $$;
     }
     return;
 }
