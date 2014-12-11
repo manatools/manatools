@@ -152,10 +152,12 @@ sub get_advisory_link {
 sub get_description {
     my ($pkg, $update_descr) = @_;
 
-    join("<br />",
-        (eval {
-            encode_entities($pkg->{description}) || encode_entities($update_descr->{description});
-            } || '<i>'. $loc->N("No description").'</i>'), "");
+    my $descr = ($pkg->{description} ||
+          $update_descr->{description} ||
+          '<i>'. $loc->N("No description").'</i>');
+    $descr =~ s|\n|<br />&nbsp;&nbsp;&nbsp;|g;
+
+    return "<br />&nbsp;&nbsp;&nbsp;" . $descr;
 }
 
 sub get_string_from_keywords {
@@ -270,7 +272,8 @@ sub get_url_link {
 
 sub files_format {
     my ($files) = @_;
-    return  '<tt>' . $spacing . join("\n\t", @$files) . '</tt>';
+
+    return  '<tt>' . $spacing . "<br />&nbsp;&nbsp;&nbsp;" . join("<br />&nbsp;&nbsp;&nbsp;", @$files) . '</tt>';
 }
 
 #=============================================================
