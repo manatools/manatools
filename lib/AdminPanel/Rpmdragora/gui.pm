@@ -155,9 +155,9 @@ sub get_description {
     my $descr = ($pkg->{description} ||
           $update_descr->{description} ||
           '<i>'. $loc->N("No description").'</i>');
-    $descr =~ s|\n|<br />&nbsp;&nbsp;&nbsp;|g;
+    $descr =~ s|\n|<br />|g;
 
-    return "<br />&nbsp;&nbsp;&nbsp;" . $descr;
+    return $descr . "<br />";
 }
 
 sub get_string_from_keywords {
@@ -189,8 +189,10 @@ sub get_string_from_keywords {
                     $s);
     } else {
         $s .= $loc->N("This is an official package supported by Mageia") . "\n" if member('official', @media_types);
-        return $s;
+        return $s if $s;
     }
+
+    return;
 }
 
 sub get_main_text {
@@ -200,7 +202,7 @@ sub get_main_text {
     my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt);
     ensure_utf8($notice);
 
-    my $hdr = "<h2>" . format_header(join(' - ', $name, $summary)) . "</h2>";
+    my $hdr = "<h2>" . format_header(join(' - ', $name, $summary)) . "</h2>\n";
     ensure_utf8($hdr);
 
     my $update = MDK::Common::Func::if_($is_update, # is it an update?
@@ -210,8 +212,8 @@ sub get_main_text {
     ensure_utf8($update);
 
     my $main_text = $hdr;
-    $main_text   .= "<br />&nbsp;&nbsp;&nbsp;" . $notice if $notice;
-    $main_text   .= "<br />&nbsp;&nbsp;&nbsp;" . $update if $update;
+    $main_text   .= "&nbsp;&nbsp;&nbsp;" . $notice . "<br/>" if $notice;
+    $main_text   .= "&nbsp;&nbsp;&nbsp;" . $update . "<br/>" if $update;
 
     return $main_text;
 }
@@ -1219,9 +1221,8 @@ sub setInfoOnWidget {
     my @data = get_info($pkgname, $options);
     for(@{$data[0]}){
         if(ref $_ ne "ARRAY"){
-            $info_text .= "<br />" . $_;
+            $info_text .= $_ . "<br />&nbsp;&nbsp;&nbsp;";
         }else{
-            $info_text .= "<br />";
             for my $subitem(@{$_}) {
                 $info_text .= "<br />" . "<br />&nbsp;&nbsp;&nbsp;" . $subitem;
             }
