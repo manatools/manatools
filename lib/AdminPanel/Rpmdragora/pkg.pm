@@ -319,7 +319,7 @@ my ($count, $level, $limit, $new_stage, $prev_stage, $total);
 sub init_progress_bar {
     my ($urpm) = @_;
     undef $_ foreach $count, $prev_stage, $new_stage, $limit;
-    $level = 0.05;
+    $level = 5;
     $total = @{$urpm->{depslist}};
 }
 
@@ -335,7 +335,7 @@ sub update_pbar {
     $count++;
     $new_stage = $level+($limit-$level)*$count/$total;
     $prev_stage = 0 if(!defined($prev_stage));
-    if ($prev_stage + 0.01*100 < $new_stage) {
+    if ($prev_stage + 1 < $new_stage) {
         $prev_stage = $new_stage;
         $gurpm->progress(ceil($new_stage));
     }
@@ -348,7 +348,7 @@ sub get_installed_packages {
     $urpm->{global_config}{'prohibit-remove'} = '' if(!defined($urpm->{global_config}{'prohibit-remove'}));
     my @base = ("basesystem", split /,\s*/, $urpm->{global_config}{'prohibit-remove'});
     my (%base, %basepackages, @installed_pkgs, @processed_base);
-    reset_pbar_count(0.33);
+    reset_pbar_count(33);
     while (defined(local $_ = shift @base)) {
 	exists $basepackages{$_} and next;
 	$db->traverse_tag(m|^/| ? 'path' : 'whatprovides', [ $_ ], sub {
@@ -470,10 +470,9 @@ sub get_pkgs {
     @update_medias = get_update_medias($urpm);
 
     $gurpm->label($loc->N("Reading updates description"));
-    $gurpm->progress(100);
-
 	#- parse the description file
     my $update_descr = urpm::get_updates_description($urpm, @update_medias);
+    $gurpm->progress(100);
 
     my $_unused = $loc->N("Please wait, finding available packages...");
 
@@ -482,7 +481,7 @@ sub get_pkgs {
     init_progress_bar($urpm);
 
     $gurpm->label($loc->N("Please wait, listing base packages..."));
-    $gurpm->progress(ceil($level*100));
+    $gurpm->progress(ceil($level));
 
     my $db = eval { open_rpm_db() };
     if (my $err = $@) {
@@ -495,9 +494,9 @@ sub get_pkgs {
     local $SIG{QUIT} = $sig_handler;
 
     $gurpm->label($loc->N("Please wait, finding installed packages..."));
-    $level = 0.33*100;
+    $level = 33;
     $gurpm->progress(ceil($level));
-    reset_pbar_count(0.66*100);
+    reset_pbar_count(66);
     my (@installed_pkgs, %all_pkgs);
     if (!$probe_only_for_updates) {
         @installed_pkgs = get_installed_packages($urpm, $db, \%all_pkgs, $gurpm);
@@ -512,7 +511,7 @@ sub get_pkgs {
     $urpm->{state} = {};
 
     $gurpm->label($loc->N("Please wait, finding available packages..."));
-    $level = 0.66*100;
+    $level = 66;
     $gurpm->progress(ceil($level));
 
     check_update_media_version($urpm, @update_medias);
@@ -542,16 +541,16 @@ sub get_pkgs {
         $urpm->{depslist}[$_]->set_flag_installed foreach keys %$requested; #- pretend it's installed
     }
     $urpm->{rpmdragora_state} = $state; #- Don't forget it
-    $level = 0.7*100;
+    $level = 70;
     $gurpm->progress(ceil($level));
 
     my %l;
-    reset_pbar_count(1);
+    reset_pbar_count(100);
     foreach my $pkg (@{$urpm->{depslist}}) {
         update_pbar($gurpm);
-	$pkg->flag_upgrade or next;
-	my $key = $pkg->name . $pkg->arch;
-	$l{$key} = $pkg if !$l{$key} || $l{$key}->compare_pkg($pkg);
+        $pkg->flag_upgrade or next;
+        my $key = $pkg->name . $pkg->arch;
+        $l{$key} = $pkg if !$l{$key} || $l{$key}->compare_pkg($pkg);
     }
     my @installable_pkgs = map { my $n = $_->fullname; $all_pkgs{$n} = { pkg => $_ }; $n } values %l;
     undef %l;
@@ -1040,7 +1039,7 @@ sub perform_removal {
         $progress++;
         return if $progress <= 0; # skip first "creating transaction..." message
         $gurpm->label($str); # display "removing package %s"
-        $gurpm->progress(ceil(min(0.99*100, scalar($progress/@toremove)*100)));
+        $gurpm->progress(ceil(min(99, scalar($progress/@toremove)*100)));
 	#gtkflush();
     };
 

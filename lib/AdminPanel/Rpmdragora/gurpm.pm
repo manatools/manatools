@@ -45,10 +45,14 @@ sub new {
     #my $mainw = bless(ugtk2->new($title, %options, default_width => 600, width => 600), $self);
     $self->{factory} = yui::YUI::widgetFactory;
     $self->{mainw} = $self->{factory}->createPopupDialog();
+
+    $self->{mainw}->startMultipleChanges();
+
     #$::main_window = $self->{mainw};
     $self->{vbox} = $self->{factory}->createVBox($self->{mainw});
     #OLD $mainw->{label} = gtknew('Label', text => $initializing, alignment => [ 0.5, 0 ]);
     $self->{label} = $self->{factory}->createLabel($self->{vbox}, $initializing);
+    $self->{label}->setStretchable( $yui::YD_HORIZ, 1 );
     # size label's heigh to 2 lines in order to prevent dummy vertical resizing:
     #my $context = $mainw->{label}->get_layout->get_context;
     #my $metrics = $context->get_metrics($mainw->{label}->style->font_desc, $context->get_language);
@@ -66,6 +70,7 @@ sub new {
     #$mainw->SUPER::sync;
     $self->{mainw}->pollEvent();
     $self->flush();
+
     $self;
 }
 
@@ -73,11 +78,16 @@ sub flush {
     my ($self) = @_;
     $self->{mainw}->recalcLayout();
     $self->{mainw}->doneMultipleChanges();
+
+    $self->{mainw}->waitForEvent(10);
+
     $self->{mainw}->pollEvent();
+    yui::YUI::app()->redrawScreen();
 }
 
 sub label {
     my ($self, $label) = @_;
+
     $self->{mainw}->startMultipleChanges();
     $self->{label}->setValue($label) if $label;
     #select(undef, undef, undef, 0.1);  #- hackish :-(
