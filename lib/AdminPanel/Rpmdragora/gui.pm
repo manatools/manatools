@@ -199,7 +199,7 @@ sub get_main_text {
     my ($medium, $fullname, $name, $summary, $is_update, $update_descr) = @_;
 
     my $txt = get_string_from_keywords($medium, $fullname);
-    my $notice = MDK::Common::Func::if_($txt, format_field($loc->N("Notice: ")) . $txt);
+    my $notice = format_field($loc->N("Notice: ")) . $txt if $txt;
     ensure_utf8($notice);
 
     my $hdr = "<h2>" . format_header(join(' - ', $name, $summary)) . "</h2>\n";
