@@ -163,29 +163,13 @@ sub detaillist_changeditem_callback {
     return;
 }
 
-sub detaillist_callback {
+sub _detaillist_callback {
     my ($selection, $info, $options, $show_options) = @_;
 
     $info->setValue("");
     return if( ref $selection ne "yui::YItem");
 
-    my $info_text ="<h2>" . $loc->N("Informations") . "</h2>";
-
-    my @data = get_info($options->{table_item_list}[$selection->index()], $show_options);
-    for(@{$data[0]}){
-        if(ref $_ ne "ARRAY"){
-            $info_text .= "<br />" . $_;
-        }else{
-            $info_text .= "<br />";
-            for my $subitem(@{$_}) {
-                $info_text .= "<br />" . "<br />&nbsp;&nbsp;&nbsp;" . $subitem;
-            }
-        }
-    }
-    # change \n to <br/>
-    $info_text =~ s|\n|<br/>|g;
-
-    $info->setValue($info_text);
+    AdminPanel::Rpmdragora::gui::setInfoOnWidget($options->{table_item_list}[$selection->index()], $info, $show_options);
 }
 
 sub _do_search($$$$$$) {
@@ -1094,7 +1078,7 @@ sub run_treeview_dialog {
                 my $url = yui::toYMenuEvent($event)->id ();
                 if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
                     $item = $detail_list->selectedItem();
-                    detaillist_callback($item, $info, \%$options, $info_options);
+                    _detaillist_callback($item, $info, \%$options, $info_options);
                 }
                 else {
                     # default it's really a URL
@@ -1204,7 +1188,7 @@ print "Menu " . $menuLabel . " chosen\n";
                     yui::YUI::app()->normalCursor();
                     tree_callback($tree->currentItem(),\%$options);
                 }
-                detaillist_callback($detail_list->selectedItem(), $info, \%$options);
+                _detaillist_callback($detail_list->selectedItem(), $info, \%$options);
             }
             elsif ($widget == $QuitButton) {
                 last if quit();
