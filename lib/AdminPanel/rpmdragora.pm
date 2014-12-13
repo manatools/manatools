@@ -34,9 +34,13 @@ use urpm::download ();
 use urpm::prompt;
 use urpm::media;
 
+# quick fix for mirror.pm
+use lib qw(/usr/lib/libDrakX);
+
 use MDK::Common;
 use MDK::Common::System;
 use MDK::Common::String;
+use MDK::Common::Func;
 use MDK::Common::File qw(basename cat_ output);
 use URPM;
 use URPM::Resolve;
@@ -707,7 +711,7 @@ sub update_sources_check {
     update_sources($urpm, %$options, noclean => 1, medialist => \@media);
   fatal_error:
     if (@error_msgs) {
-        interactive_msg($loc->N("Error"), translate($error_msg, join("\n", map { formatAlaTeX($_) } @error_msgs)), scroll => 1);
+        interactive_msg($loc->N("Error"), $loc->N($error_msg, join("\n", map { formatAlaTeX($_) } @error_msgs)), scroll => 1);
         return 0;
     }
     return 1;
@@ -1065,7 +1069,7 @@ sub mirrors {
             my $file = $url;
             $file =~ s!.*/!$cachedir/!;
             unlink $file;       # prevent "partial file" errors
-            before_leaving(sub { unlink $file });
+            MDK::Common::Func::before_leaving(sub { unlink $file });
 
             my ($gurpm, $id, $canceled);
             # display a message in statusbar (if availlable):
@@ -1074,7 +1078,7 @@ sub mirrors {
                   ? $loc->N("Please wait, downloading mirror addresses.")
                     : $loc->N("Please wait, downloading mirror addresses from the Mageia website."),
                 0);
-            my $_clean_guard = before_leaving {
+            my $_clean_guard = MDK::Common::Func::before_leaving {
                 undef $gurpm;
                 $id and statusbar_msg_remove($id);
             };
@@ -1113,7 +1117,7 @@ sub mirrors {
         }
 
         $mirror->{goodness} = $goodness + rand();
-        $mirror->{country} = $u2l{lc($mirror->{country})} ? translate($u2l{lc($mirror->{country})}) : $mirror->{country};
+        $mirror->{country} = $u2l{lc($mirror->{country})} ? $loc->N($u2l{lc($mirror->{country})}) : $mirror->{country};
     }
     unless (-x '/usr/bin/rsync') {
     @mirrors = grep { $_->{url} !~ /^rsync:/ } @mirrors;

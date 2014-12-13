@@ -28,6 +28,7 @@ use strict;
 use File::ShareDir ':ALL';
 use File::HomeDir qw(home);
 
+use MDK::Common::Func qw(if_ each_index);
 use MDK::Common::Math qw(max);
 use MDK::Common::File qw(cat_ output);
 use MDK::Common::DataStructure qw(member put_in_hash uniq);
