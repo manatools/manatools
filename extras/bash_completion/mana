@@ -9,7 +9,7 @@ _mana()
         COMPREPLY=( $( compgen -u "$cur" ) )
     else
         local opts=$( _parse_help "$1" )
-        [[ $opts ]] || opts="user host proxy service log" # POSIX fallback
+        [[ $opts ]] || opts="user host proxy service log dm clock pan rpm update" # POSIX fallback
         COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
     fi
 } &&
