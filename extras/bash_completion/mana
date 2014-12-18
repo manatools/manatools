@@ -1,0 +1,18 @@
+# mana(1) completion                                         -*- shell-script -*-
+
+_mana()
+{
+    local cur prev words cword
+    _init_completion || return
+
+    if [[ "$cur" == -* ]]; then
+        COMPREPLY=( $( compgen -u "$cur" ) )
+    else
+        local opts=$( _parse_help "$1" )
+        [[ $opts ]] || opts="user host proxy service log" # POSIX fallback
+        COMPREPLY=( $( compgen -W "$opts" -- "$cur" ) )
+    fi
+} &&
+complete -F _mana mana
+
+# ex: ts=4 sw=4 et filetype=sh
