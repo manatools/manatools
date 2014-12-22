@@ -134,9 +134,26 @@ sub _performDiff ($$) {
 
     my $diff = diff $file, $rpmnew, { STYLE => "Unified" };
     $diff = $loc->N("(none)") if !$diff;
-    ensure_utf8($diff);
-    $diff =~ s/\n/<br>/g;
 
+    my @lines = split ("\n", $diff);
+    ## adding color lines to diff
+    foreach my $line (@lines) {
+        if (substr ($line, 0, 1) eq "+") {
+            $line =~ s|^\+(.*)|<font color="green">+$1</font>|;
+        }
+        elsif (substr ($line, 0, 1) eq "-") {
+            $line =~ s|^\-(.*)|<font color="red">-$1</font>|;
+        }
+        elsif (substr ($line, 0, 1) eq "@") {
+            $line =~ s|(.*)|<font color="blue">$1</font>|;
+        }
+        else {
+            $line =~ s|(.*)|<font color="black">$1</font>|;
+        }
+    }
+    $diff = join("<br>", @lines);
+
+    ensure_utf8($diff);
     $diffBox->setValue($diff);
 
     return;
