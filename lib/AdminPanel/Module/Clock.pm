@@ -57,7 +57,6 @@ use diagnostics;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::TimeZone;
-use AdminPanel::Shared::Services;# qw (services);
 
 use Time::Piece;
  

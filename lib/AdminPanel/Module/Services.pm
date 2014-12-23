@@ -65,15 +65,8 @@ use MDK::Common::DataStructure qw(member);
 use yui;
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Services qw(
-                                    description
-                                    services
-                                    xinetd_services
-                                    is_service_running
-                                    restart_or_start
-                                    stopService
-                                    set_service
-                                    );
+use AdminPanel::Shared::Services;
+
 
 use File::Basename;
 
@@ -155,6 +148,20 @@ sub _SharedUGUIInitialize {
 
     $self->sh_gui(AdminPanel::Shared::GUI->new() );
 }
+
+has 'sh_services' => (
+        is => 'rw',
+        init_arg => undef,
+        lazy     => 1,
+        builder => '_SharedServicesInitialize'
+);
+
+sub _SharedServicesInitialize {
+    my $self = shift();
+
+    $self->sh_services(AdminPanel::Shared::Services->new() );
+}
+
 
 has 'loc' => (
         is => 'rw',
@@ -260,8 +267,8 @@ sub start {
 sub loadServices {
     my $self = shift;
 
-    my ($l, $on_services) = AdminPanel::Shared::Services::services();
-    my @xinetd_services = map { $_->[0] } AdminPanel::Shared::Services::xinetd_services();
+    my ($l, $on_services) = $self->sh_services->services();
+    my @xinetd_services = map { $_->[0] } $self->sh_services->xinetd_services();
 
     $self->_xinetd_services();
     $self->_xinetd_services(\@xinetd_services);
@@ -278,7 +285,7 @@ sub _refreshRunningServices {
     foreach ($self->all_services) {
 
         my $serviceName = $_;
-        push @running, $serviceName if AdminPanel::Shared::Services::is_service_running($serviceName);
+        push @running, $serviceName if $self->sh_services->is_service_running($serviceName);
     }
     $self->running_services(\@running);
 }
@@ -293,7 +300,7 @@ sub _serviceInfo {
 
     yui::YUI::ui()->blockEvents();
     ## infoPanel
-    $infoPanel->setValue(MDK::Common::String::formatAlaTeX(AdminPanel::Shared::Services::description($service)));
+    $infoPanel->setValue(MDK::Common::String::formatAlaTeX($self->sh_services->description($service)));
     yui::YUI::ui()->unblockEvents();
 }
 
@@ -307,7 +314,7 @@ sub _serviceStatusString {
         $started = $self->loc->N("Start when requested");
     }
     else {
-        $started = (AdminPanel::Shared::Services::is_service_running($serviceName)? $self->loc->N("running") : $self->loc->N("stopped"));
+        $started = ($self->sh_services->is_service_running($serviceName)? $self->loc->N("running") : $self->loc->N("stopped"));
     }
     
     return $started;
@@ -495,7 +502,7 @@ sub _servicePanel {
                     $item = $serviceTbl->changedItem();
                     if ($item) {
                         yui::YUI::app()->busyCursor();
-                        set_service($item->label(), $item->checked());
+                        $self->sh_services->set_service($item->label(), $item->checked());
                         # we can push/pop service, but this (slower) should return real situation
                         $self->_refreshRunningServices();
                         yui::YUI::app()->normalCursor();
@@ -506,7 +513,7 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     yui::YUI::app()->busyCursor();
-                    AdminPanel::Shared::Services::restart_or_start($item->label());
+                    $self->sh_services->restart_or_start($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     $self->_refreshRunningServices();
                     $self->_serviceStatus($serviceTbl, $item);
@@ -517,7 +524,7 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     yui::YUI::app()->busyCursor();
-                    AdminPanel::Shared::Services::stopService($item->label());
+                    $self->sh_services->stopService($item->label());
                     # we can push/pop service, but this (slower) should return real situation
                     $self->_refreshRunningServices();
                     $self->_serviceStatus($serviceTbl, $item);

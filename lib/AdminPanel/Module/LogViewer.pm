@@ -55,7 +55,7 @@ use open OUT => ':utf8';
 
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Services;# qw (services);
+use AdminPanel::Shared::Services;
 use AdminPanel::Shared::JournalCtl;
 
 
@@ -261,7 +261,8 @@ sub _logViewerPanel {
     my $itemCollection = new yui::YItemCollection;
 
     yui::YUI::app()->busyCursor();
-    my ($l, $active_services) = AdminPanel::Shared::Services::services();
+    my $serv = AdminPanel::Shared::Services->new();
+    my ($l, $active_services) = $serv->services();
 
     foreach (@{$active_services}) {
         my $serviceName = $_;

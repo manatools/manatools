@@ -179,6 +179,19 @@ sub _ntp_program_init {
     return "ntp";
 }
 
+has 'sh_services' => (
+        is => 'rw',
+        init_arg => undef,
+        lazy     => 1,
+        builder => '_SharedServicesInitialize'
+);
+
+sub _SharedServicesInitialize {
+    my $self = shift();
+
+    $self->sh_services(AdminPanel::Shared::Services->new() );
+}
+
 #=== globals ===
 
 has 'servername_config_suffix' => (
@@ -435,6 +448,11 @@ sub writeConfiguration {
     $Config->write( $self->clock_configuration_file );
 
     my $tz = $self->get_timezone_prefix() . "/" . $info->{ZONE};
+    # if we are going to use systemd then we have to remove the link only
+    # if it is not a link, becuase it should be managed by systemd it self
+    # eval { unlink '/etc/localtime' } unless -l '/etc/localtime';
+#     eval { unlink '/etc/localtime' };
+#     eval { symlink $tz, '/etc/localtime' };
     eval { File::copy($tz, '/etc/localtime') } ;
 
     my $adjtime_file = '/etc/adjtime';
@@ -527,7 +545,7 @@ sub isNTPRunning {
     # TODO is that valid for any ntp program? adding ntp_service_name parameter
     my $ntpd = $self->ntp_program . 'd';
 
-    return AdminPanel::Shared::Services::is_service_running($ntpd);
+    return $self->sh_services->is_service_running($ntpd);
 }
 
 #=============================================================
@@ -559,7 +577,7 @@ sub setNTPServer {
 
     AdminPanel::Shared::disable_x_screensaver();
     if ($self->isNTPRunning()) {
-        AdminPanel::Shared::Services::stopService($ntpd);
+        $self->sh_services->stopService($ntpd);
     }
 
     my $pool_match = qr/\.pool\.ntp\.org$/;
@@ -579,16 +597,16 @@ sub setNTPServer {
     }
 
     # enable but do not start the service
-    AdminPanel::Shared::Services::set_status($ntpd, 1, 1);
+    $self->sh_services->set_status($ntpd, 1, 1);
     if ($ntpd eq "chronyd") {
-        AdminPanel::Shared::Services::startService($ntpd);
+        $self->sh_services->startService($ntpd);
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         # Wait up to 30s for sync
         system('/usr/bin/chronyc', 'waitsync', '30', '0.1');
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         system('/usr/sbin/ntpdate', $server);
-        AdminPanel::Shared::Services::startService($ntpd);
+        $self->sh_services->startService($ntpd);
     }
 
     AdminPanel::Shared::enable_x_screensaver();
@@ -613,7 +631,7 @@ sub disableAndStopNTP {
     my $ntpd = $self->ntp_program . 'd';
 
     # also stop the service without dont_apply parameter
-    AdminPanel::Shared::Services::set_status($ntpd, 0);
+    $self->sh_services->set_status($ntpd, 0);
 }
 
 no Moose;

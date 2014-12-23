@@ -10,7 +10,9 @@ AdminPanel::Shared::Services - shares the API to manage services
 
 use AdminPanel::Shared::Services;
 
-my ($l, $on_services) = AdminPanel::Shared::Services::services();
+my $serv = AdminPanel::Shared::Services->new();
+
+my ($l, $on_services) = $serv->services();
 
 =head1 DESCRIPTION
 
@@ -18,26 +20,6 @@ my ($l, $on_services) = AdminPanel::Shared::Services::services();
   to be used from GUI applications or console.
 
   From the original code drakx services.
-
-=head1 EXPORT
-
-  description
-  services
-  xinetd_services
-  is_service_running
-  restart_or_start
-  stopService
-  startService
-  restart
-  set_service
-  service_exists
-  start_not_running_service
-  starts_on_boot
-  start_service_on_boot
-  do_not_start_service_on_boot
-  enable
-  disable
-  set_status
 
 =head1 SUPPORT
 
@@ -75,12 +57,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 =cut
 
 
-#-######################################################################################
-#- misc imports
-#-######################################################################################
-
-use strict;
-use diagnostics;
+use Moose;
 
 use Sys::Syslog;
 use AdminPanel::Shared::Locales;
@@ -90,30 +67,22 @@ use MDK::Common::File qw(cat_ basename);
 use MDK::Common::DataStructure qw(member);
 use AdminPanel::Shared::RunProgram qw(rooted);
 
-use base qw(Exporter);
-
-our @EXPORT = qw(
-                description
-                services
-                xinetd_services
-                is_service_running
-                restart_or_start
-                stopService
-                startService
-                restart
-                set_service
-                service_exists
-                start_not_running_service
-                starts_on_boot
-                start_service_on_boot
-                do_not_start_service_on_boot
-                enable
-                disable
-                set_status
-                );
+has 'loc' => (
+        is => 'rw',
+        init_arg => undef,
+        builder => '_localeInitialize'
+);
 
 
-my $loc = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX');
+sub _localeInitialize {
+    my $self = shift();
+
+    # TODO fix domain binding for translation
+    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX') );
+    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+}
+
+
 
 #=============================================================
 
@@ -135,119 +104,121 @@ THis function return the description for the given service
 
 #=============================================================
 sub description {
+    my ($self, $name) = @_;
+    
     my %services = (
-acpid => $loc->N_("Listen and dispatch ACPI events from the kernel"),
-alsa => $loc->N_("Launch the ALSA (Advanced Linux Sound Architecture) sound system"),
-anacron => $loc->N_("Anacron is a periodic command scheduler."),
-apmd => $loc->N_("apmd is used for monitoring battery status and logging it via syslog.
+acpid => $self->loc->N_("Listen and dispatch ACPI events from the kernel"),
+alsa => $self->loc->N_("Launch the ALSA (Advanced Linux Sound Architecture) sound system"),
+anacron => $self->loc->N_("Anacron is a periodic command scheduler."),
+apmd => $self->loc->N_("apmd is used for monitoring battery status and logging it via syslog.
 It can also be used for shutting down the machine when the battery is low."),
-atd => $loc->N_("Runs commands scheduled by the at command at the time specified when
+atd => $self->loc->N_("Runs commands scheduled by the at command at the time specified when
 at was run, and runs batch commands when the load average is low enough."),
-'avahi-deamon' => $loc->N_("Avahi is a ZeroConf daemon which implements an mDNS stack"),
-chronyd => $loc->N_("An NTP client/server"),
-cpufreq => $loc->N_("Set CPU frequency settings"),
-crond => $loc->N_("cron is a standard UNIX program that runs user-specified programs
+'avahi-deamon' => $self->loc->N_("Avahi is a ZeroConf daemon which implements an mDNS stack"),
+chronyd => $self->loc->N_("An NTP client/server"),
+cpufreq => $self->loc->N_("Set CPU frequency settings"),
+crond => $self->loc->N_("cron is a standard UNIX program that runs user-specified programs
 at periodic scheduled times. vixie cron adds a number of features to the basic
 UNIX cron, including better security and more powerful configuration options."),
-cups => $loc->N_("Common UNIX Printing System (CUPS) is an advanced printer spooling system"),
-dm => $loc->N_("Launches the graphical display manager"),
-fam => $loc->N_("FAM is a file monitoring daemon. It is used to get reports when files change.
+cups => $self->loc->N_("Common UNIX Printing System (CUPS) is an advanced printer spooling system"),
+dm => $self->loc->N_("Launches the graphical display manager"),
+fam => $self->loc->N_("FAM is a file monitoring daemon. It is used to get reports when files change.
 It is used by GNOME and KDE"),
-g15daemon => $loc->N_("G15Daemon allows users access to all extra keys by decoding them and
+g15daemon => $self->loc->N_("G15Daemon allows users access to all extra keys by decoding them and
 pushing them back into the kernel via the linux UINPUT driver. This driver must be loaded
 before g15daemon can be used for keyboard access. The G15 LCD is also supported. By default,
 with no other clients active, g15daemon will display a clock. Client applications and
 scripts can access the LCD via a simple API."),
-gpm => $loc->N_("GPM adds mouse support to text-based Linux applications such the
+gpm => $self->loc->N_("GPM adds mouse support to text-based Linux applications such the
 Midnight Commander. It also allows mouse-based console cut-and-paste operations,
 and includes support for pop-up menus on the console."),
-haldaemon => $loc->N_("HAL is a daemon that collects and maintains information about hardware"),
-harddrake => $loc->N_("HardDrake runs a hardware probe, and optionally configures
+haldaemon => $self->loc->N_("HAL is a daemon that collects and maintains information about hardware"),
+harddrake => $self->loc->N_("HardDrake runs a hardware probe, and optionally configures
 new/changed hardware."),
-httpd => $loc->N_("Apache is a World Wide Web server. It is used to serve HTML files and CGI."),
-inet => $loc->N_("The internet superserver daemon (commonly called inetd) starts a
+httpd => $self->loc->N_("Apache is a World Wide Web server. It is used to serve HTML files and CGI."),
+inet => $self->loc->N_("The internet superserver daemon (commonly called inetd) starts a
 variety of other internet services as needed. It is responsible for starting
 many services, including telnet, ftp, rsh, and rlogin. Disabling inetd disables
 all of the services it is responsible for."),
-ip6tables => $loc->N_("Automates a packet filtering firewall with ip6tables"),
-iptables => $loc->N_("Automates a packet filtering firewall with iptables"),
-irqbalance => $loc->N_("Evenly distributes IRQ load across multiple CPUs for enhanced performance"),
-keytable => $loc->N_("This package loads the selected keyboard map as set in
+ip6tables => $self->loc->N_("Automates a packet filtering firewall with ip6tables"),
+iptables => $self->loc->N_("Automates a packet filtering firewall with iptables"),
+irqbalance => $self->loc->N_("Evenly distributes IRQ load across multiple CPUs for enhanced performance"),
+keytable => $self->loc->N_("This package loads the selected keyboard map as set in
 /etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.
 You should leave this enabled for most machines."),
-kheader => $loc->N_("Automatic regeneration of kernel header in /boot for
+kheader => $self->loc->N_("Automatic regeneration of kernel header in /boot for
 /usr/include/linux/{autoconf,version}.h"),
-kudzu => $loc->N_("Automatic detection and configuration of hardware at boot."),
-'laptop-mode' => $loc->N_("Tweaks system behavior to extend battery life"),
-linuxconf => $loc->N_("Linuxconf will sometimes arrange to perform various tasks
+kudzu => $self->loc->N_("Automatic detection and configuration of hardware at boot."),
+'laptop-mode' => $self->loc->N_("Tweaks system behavior to extend battery life"),
+linuxconf => $self->loc->N_("Linuxconf will sometimes arrange to perform various tasks
 at boot-time to maintain the system configuration."),
-lpd => $loc->N_("lpd is the print daemon required for lpr to work properly. It is
+lpd => $self->loc->N_("lpd is the print daemon required for lpr to work properly. It is
 basically a server that arbitrates print jobs to printer(s)."),
-lvs => $loc->N_("Linux Virtual Server, used to build a high-performance and highly
+lvs => $self->loc->N_("Linux Virtual Server, used to build a high-performance and highly
 available server."),
-mandi => $loc->N_("Monitors the network (Interactive Firewall and wireless"),
-mdadm => $loc->N_("Software RAID monitoring and management"),
-messagebus => $loc->N_("DBUS is a daemon which broadcasts notifications of system events and other messages"),
-msec => $loc->N_("Enables MSEC security policy on system startup"),
-named => $loc->N_("named (BIND) is a Domain Name Server (DNS) that is used to resolve host names to IP addresses."),
-netconsole => $loc->N_("Initializes network console logging"),
-netfs => $loc->N_("Mounts and unmounts all Network File System (NFS), SMB (Lan
+mandi => $self->loc->N_("Monitors the network (Interactive Firewall and wireless"),
+mdadm => $self->loc->N_("Software RAID monitoring and management"),
+messagebus => $self->loc->N_("DBUS is a daemon which broadcasts notifications of system events and other messages"),
+msec => $self->loc->N_("Enables MSEC security policy on system startup"),
+named => $self->loc->N_("named (BIND) is a Domain Name Server (DNS) that is used to resolve host names to IP addresses."),
+netconsole => $self->loc->N_("Initializes network console logging"),
+netfs => $self->loc->N_("Mounts and unmounts all Network File System (NFS), SMB (Lan
 Manager/Windows), and NCP (NetWare) mount points."),
-network => $loc->N_("Activates/Deactivates all network interfaces configured to start
+network => $self->loc->N_("Activates/Deactivates all network interfaces configured to start
 at boot time."),
-'network-auth' => $loc->N_("Requires network to be up if enabled"),
-'network-up' => $loc->N_("Wait for the hotplugged network to be up"),
-nfs => $loc->N_("NFS is a popular protocol for file sharing across TCP/IP networks.
+'network-auth' => $self->loc->N_("Requires network to be up if enabled"),
+'network-up' => $self->loc->N_("Wait for the hotplugged network to be up"),
+nfs => $self->loc->N_("NFS is a popular protocol for file sharing across TCP/IP networks.
 This service provides NFS server functionality, which is configured via the
 /etc/exports file."),
-nfslock => $loc->N_("NFS is a popular protocol for file sharing across TCP/IP
+nfslock => $self->loc->N_("NFS is a popular protocol for file sharing across TCP/IP
 networks. This service provides NFS file locking functionality."),
-ntpd => $loc->N_("Synchronizes system time using the Network Time Protocol (NTP)"),
-numlock => $loc->N_("Automatically switch on numlock key locker under console
+ntpd => $self->loc->N_("Synchronizes system time using the Network Time Protocol (NTP)"),
+numlock => $self->loc->N_("Automatically switch on numlock key locker under console
 and Xorg at boot."),
-oki4daemon => $loc->N_("Support the OKI 4w and compatible winprinters."),
-partmon => $loc->N_("Checks if a partition is close to full up"),
-pcmcia => $loc->N_("PCMCIA support is usually to support things like ethernet and
+oki4daemon => $self->loc->N_("Support the OKI 4w and compatible winprinters."),
+partmon => $self->loc->N_("Checks if a partition is close to full up"),
+pcmcia => $self->loc->N_("PCMCIA support is usually to support things like ethernet and
 modems in laptops.  It will not get started unless configured so it is safe to have
 it installed on machines that do not need it."),
-portmap => $loc->N_("The portmapper manages RPC connections, which are used by
+portmap => $self->loc->N_("The portmapper manages RPC connections, which are used by
 protocols such as NFS and NIS. The portmap server must be running on machines
 which act as servers for protocols which make use of the RPC mechanism."),
-portreserve => $loc->N_("Reserves some TCP ports"),
-postfix => $loc->N_("Postfix is a Mail Transport Agent, which is the program that moves mail from one machine to another."),
-random => $loc->N_("Saves and restores system entropy pool for higher quality random
+portreserve => $self->loc->N_("Reserves some TCP ports"),
+postfix => $self->loc->N_("Postfix is a Mail Transport Agent, which is the program that moves mail from one machine to another."),
+random => $self->loc->N_("Saves and restores system entropy pool for higher quality random
 number generation."),
-rawdevices => $loc->N_("Assign raw devices to block devices (such as hard disk drive
+rawdevices => $self->loc->N_("Assign raw devices to block devices (such as hard disk drive
 partitions), for the use of applications such as Oracle or DVD players"),
-resolvconf => $loc->N_("Nameserver information manager"),
-routed => $loc->N_("The routed daemon allows for automatic IP router table updated via
+resolvconf => $self->loc->N_("Nameserver information manager"),
+routed => $self->loc->N_("The routed daemon allows for automatic IP router table updated via
 the RIP protocol. While RIP is widely used on small networks, more complex
 routing protocols are needed for complex networks."),
-rstatd => $loc->N_("The rstat protocol allows users on a network to retrieve
+rstatd => $self->loc->N_("The rstat protocol allows users on a network to retrieve
 performance metrics for any machine on that network."),
-rsyslog => $loc->N_("Syslog is the facility by which many daemons use to log messages to various system log files.  It is a good idea to always run rsyslog."),
-rusersd => $loc->N_("The rusers protocol allows users on a network to identify who is
+rsyslog => $self->loc->N_("Syslog is the facility by which many daemons use to log messages to various system log files.  It is a good idea to always run rsyslog."),
+rusersd => $self->loc->N_("The rusers protocol allows users on a network to identify who is
 logged in on other responding machines."),
-rwhod => $loc->N_("The rwho protocol lets remote users get a list of all of the users
+rwhod => $self->loc->N_("The rwho protocol lets remote users get a list of all of the users
 logged into a machine running the rwho daemon (similar to finger)."),
-saned => $loc->N_("SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."),
-shorewall => $loc->N_("Packet filtering firewall"),
-smb => $loc->N_("The SMB/CIFS protocol enables to share access to files & printers and also integrates with a Windows Server domain"),
-sound => $loc->N_("Launch the sound system on your machine"),
-'speech-dispatcherd' => $loc->N_("layer for speech analysis"),
-sshd => $loc->N_("Secure Shell is a network protocol that allows data to be exchanged over a secure channel between two computers"),
-syslog => $loc->N_("Syslog is the facility by which many daemons use to log messages
+saned => $self->loc->N_("SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."),
+shorewall => $self->loc->N_("Packet filtering firewall"),
+smb => $self->loc->N_("The SMB/CIFS protocol enables to share access to files & printers and also integrates with a Windows Server domain"),
+sound => $self->loc->N_("Launch the sound system on your machine"),
+'speech-dispatcherd' => $self->loc->N_("layer for speech analysis"),
+sshd => $self->loc->N_("Secure Shell is a network protocol that allows data to be exchanged over a secure channel between two computers"),
+syslog => $self->loc->N_("Syslog is the facility by which many daemons use to log messages
 to various system log files.  It is a good idea to always run syslog."),
-'udev-post' => $loc->N_("Moves the generated persistent udev rules to /etc/udev/rules.d"),
-usb => $loc->N_("Load the drivers for your usb devices."),
-vnStat => $loc->N_("A lightweight network traffic monitor"),
-xfs => $loc->N_("Starts the X Font Server."),
-xinetd => $loc->N_("Starts other deamons on demand."),
+'udev-post' => $self->loc->N_("Moves the generated persistent udev rules to /etc/udev/rules.d"),
+usb => $self->loc->N_("Load the drivers for your usb devices."),
+vnStat => $self->loc->N_("A lightweight network traffic monitor"),
+xfs => $self->loc->N_("Starts the X Font Server."),
+xinetd => $self->loc->N_("Starts other deamons on demand."),
     );
-    my ($name) = @_;
+
     my $s = $services{$name};
     if ($s) {
-        $s = $loc->N($s);
+        $s = $self->loc->N($s);
     } else {
         my $file = "/usr/lib/systemd/system/$name.service";
         if (-e $file) {
@@ -286,14 +257,14 @@ This function enable/disable at boot the given service
 
 #=============================================================
 sub set_service {
-    my ($service, $enable) = @_;
+    my ($self, $service, $enable) = @_;
 
-    my @xinetd_services = map { $_->[0] } xinetd_services();
+    my @xinetd_services = map { $_->[0] } $self->xinetd_services();
 
     if (MDK::Common::DataStructure::member($service, @xinetd_services)) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
-    } elsif (_running_systemd() || _has_systemd()) {
+    } elsif ($self->_running_systemd() || $self->_has_systemd()) {
         # systemctl rejects any symlinked units. You have to enabled the real file
         if (-l "/lib/systemd/system/$service.service") {
             my $name = readlink("/lib/systemd/system/$service.service");
@@ -316,8 +287,8 @@ sub set_service {
 }
 
 sub _run_action {
-    my ($service, $action, $do_not_block) = @_;
-    if (_running_systemd()) {
+    my ($self, $service, $action, $do_not_block) = @_;
+    if ($self->_running_systemd()) {
         if ($do_not_block) {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
             AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--no-block', $action, "$service.service");
@@ -333,11 +304,15 @@ sub _run_action {
 }
 
 sub _running_systemd() {
+    my $self = shift;
+
     $ENV{PATH} = "/usr/bin:/usr/sbin";
     AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
 sub _has_systemd() {
+    my $self = shift;
+
     $ENV{PATH} = "/usr/bin:/usr/sbin";
     AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/rpm', '-q', 'systemd');
 }
@@ -359,6 +334,8 @@ NOTE that xinetd *must* be enable at boot to get this info
 
 #=============================================================
 sub xinetd_services() {
+    my $self = shift;
+
     local $ENV{LANGUAGE} = 'C';
     my @xinetd_services;
     $ENV{PATH} = "/usr/bin:/usr/sbin";
@@ -371,6 +348,8 @@ sub xinetd_services() {
 }
 
 sub _systemd_services() {
+    my $self = shift;
+
     local $ENV{LANGUAGE} = 'C';
     my @services;
     my %loaded;
@@ -407,9 +386,11 @@ sub _systemd_services() {
 }
 
 sub _legacy_services() {
+    my $self = shift;
+
     local $ENV{LANGUAGE} = 'C';
     my @services;
-    my $has_systemd = _has_systemd();
+    my $has_systemd = $self->_has_systemd();
     if ($has_systemd) {
         # The system not using systemd but will be at next boot. This is
         # is typically the case in the installer. In this mode we must read
@@ -452,7 +433,7 @@ sub _legacy_services() {
         if (my ($name, $l) = m!^(\S+)\s+(0:(on|off).*)!) {
             # If we expect to use systemd (i.e. installer) only show those
             # sysvinit scripts which are not masked by a native systemd unit.
-            my $has_systemd_unit = _systemd_unit_exists($name);
+            my $has_systemd_unit = $self->_systemd_unit_exists($name);
             if (!$has_systemd || !$has_systemd_unit) {
                 if ($::isInstall) {
                     $on_off = $l =~ /\d+:on/g;
@@ -489,14 +470,16 @@ all the active ones.
 
 
 sub services() {
+    my $self = shift;
+
     my @Services;
-    if (_running_systemd()) {
-        @Services = _systemd_services();
+    if ($self->_running_systemd()) {
+        @Services = $self->_systemd_services();
     } else {
-        @Services = _legacy_services();
+        @Services = $self->_legacy_services();
     }
 
-    my @l = xinetd_services();
+    my @l = $self->xinetd_services();
     push @l, @Services;
     @l = sort { $a->[0] cmp $b->[0] } @l;
     [ map { $_->[0] } @l ], [ map { $_->[0] } grep { $_->[1] } @l ];
@@ -505,7 +488,7 @@ sub services() {
 
 
 sub _systemd_unit_exists {
-    my ($name) = @_;
+    my ($self, $name) = @_;
     # we test with -l as symlinks are not valid when the system is chrooted:
     -e "/lib/systemd/system/$name.service" or -l "/lib/systemd/system/$name.service";
 }
@@ -532,8 +515,8 @@ its unit or init.d service
 #=============================================================
 
 sub service_exists {
-    my ($service) = @_;
-    -x "/etc/rc.d/init.d/$service" or _systemd_unit_exists($service);
+    my ($self, $service) = @_;
+    -x "/etc/rc.d/init.d/$service" or $self->_systemd_unit_exists($service);
 }
 
 #=============================================================
@@ -553,11 +536,11 @@ This function restarts a given service
 #=============================================================
 
 
-sub restart ($) {
-    my ($service) = @_;
+sub restart  {
+    my ($self, $service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, "restart");
+    $self->service_exists($service) or return 1;
+    $self->_run_action($service, "restart");
 }
 
 #=============================================================
@@ -577,11 +560,11 @@ it restarts that otherwise
 
 #=============================================================
 
-sub restart_or_start ($) {
-    my ($service) = @_;
+sub restart_or_start {
+    my ($self, $service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, is_service_running($service) ? "restart" : "start");
+    $self->service_exists($service) or return 1;
+    $self->_run_action($service, $self->is_service_running($service) ? "restart" : "start");
 }
 
 
@@ -601,11 +584,11 @@ This function starts a given service
 
 #=============================================================
 
-sub startService ($) {
-    my ($service) = @_;
+sub startService {
+    my ($self, $service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, "start");
+    $self->service_exists($service) or return 1;
+    $self->_run_action($service, "start");
 }
 
 #=============================================================
@@ -624,11 +607,11 @@ This function starts a given service if not running
 
 #=============================================================
 
-sub start_not_running_service ($) {
-    my ($service) = @_;
+sub start_not_running_service {
+    my ($self, $service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    is_service_running($service) || _run_action($service, "start");
+    $self->service_exists($service) or return 1;
+    $self->is_service_running($service) || $self->_run_action($service, "start");
 }
 
 #=============================================================
@@ -646,11 +629,11 @@ This function stops a given service
 =cut
 
 #=============================================================
-sub stopService ($) {
-    my ($service) = @_;
+sub stopService {
+    my ($self, $service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 1;
-    _run_action($service, "stop");
+    $self->service_exists($service) or return 1;
+    $self->_run_action($service, "stop");
 }
 
 #=============================================================
@@ -669,12 +652,12 @@ This function returns if the given service is running
 
 #=============================================================
 
-sub is_service_running ($) {
-    my ($service) = @_;
+sub is_service_running {
+    my ($self, $service) = @_;
     # Exit silently if the service is not installed
-    service_exists($service) or return 0;
+    $self->service_exists($service) or return 0;
     my $out;
-    if (_running_systemd()) {
+    if ($self->_running_systemd()) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
     } else {
@@ -701,8 +684,8 @@ This function returns if the given service starts at boot
 
 #=============================================================
 sub starts_on_boot {
-    my ($service) = @_;
-    my (undef, $on_services) = services();
+    my ($self, $service) = @_;
+    my (undef, $on_services) = $self->services();
     MDK::Common::DataStructure::member($service, @$on_services);
 }
 
@@ -722,9 +705,9 @@ This function set the given service active at boot
 =cut
 
 #=============================================================
-sub start_service_on_boot ($) {
-    my ($service) = @_;
-    set_service($service, 1);
+sub start_service_on_boot {
+    my ($self, $service) = @_;
+    $self->set_service($service, 1);
 }
 
 #=============================================================
@@ -743,9 +726,9 @@ This function set the given service disabled at boot
 =cut
 
 #=============================================================
-sub do_not_start_service_on_boot ($) {
-    my ($service) = @_;
-    set_service($service, 0);
+sub do_not_start_service_on_boot  {
+    my ($self, $service) = @_;
+    $self->set_service($service, 0);
 }
 
 #=============================================================
@@ -766,9 +749,9 @@ and restarts it if o_dont_apply is not given
 
 #=============================================================
 sub enable {
-    my ($service, $o_dont_apply) = @_;
-    start_service_on_boot($service);
-    restart_or_start($service) unless $o_dont_apply;
+    my ($self, $service, $o_dont_apply) = @_;
+    $self->start_service_on_boot($service);
+    $self->restart_or_start($service) unless $o_dont_apply;
 }
 
 #=============================================================
@@ -789,9 +772,9 @@ and stops it if o_dont_apply is not given
 
 #=============================================================
 sub disable {
-    my ($service, $o_dont_apply) = @_;
-    do_not_start_service_on_boot($service);
-    stopService($service) unless $o_dont_apply;
+    my ($self, $service, $o_dont_apply) = @_;
+    $self->do_not_start_service_on_boot($service);
+    $self->stopService($service) unless $o_dont_apply;
 }
 
 #=============================================================
@@ -813,11 +796,11 @@ and restarts/stops it if o_dont_apply is not given
 
 #=============================================================
 sub set_status {
-    my ($service, $enable, $o_dont_apply) = @_;
+    my ($self, $service, $enable, $o_dont_apply) = @_;
     if ($enable) {
-        enable($service, $o_dont_apply);
+        $self->enable($service, $o_dont_apply);
     } else {
-        disable($service, $o_dont_apply);
+        $self->disable($service, $o_dont_apply);
     }
 }
 
