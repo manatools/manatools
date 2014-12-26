@@ -384,7 +384,16 @@ sub _servicePanel {
     
     my $dialog  = $factory->createMainDialog;
     my $vbox    = $factory->createVBox( $dialog );
-    my $frame   = $factory->createFrame ($vbox, $self->loc->N("Services"));
+
+    #Line for logo and title
+    my $hbox_iconbar  = $factory->createHBox($vbox);
+    my $head_align_left  = $factory->createLeft($hbox_iconbar);
+    $hbox_iconbar     = $factory->createHBox($head_align_left);
+    $factory->createImage($hbox_iconbar, $self->icon);
+
+    $factory->createHeading($hbox_iconbar, $self->loc->N("Manage system services by enabling or disabling them"));
+
+    my $frame   = $factory->createFrame ($vbox, "");
 
     my $frmVbox = $factory->createVBox( $frame );
     my $hbox = $factory->createHBox( $frmVbox );
