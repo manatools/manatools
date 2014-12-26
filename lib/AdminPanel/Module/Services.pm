@@ -235,13 +235,13 @@ sub BUILD {
 sub start {
     my $self = shift;
 
-    if ($EUID != 0) {
-        $self->sh_gui->warningMsgBox({
-            title => $self->name,
-            text  => $self->loc->N("root privileges required"),
-        });
-        return;
-    }
+#     if ($EUID != 0) {
+#         $self->sh_gui->warningMsgBox({
+#             title => $self->name,
+#             text  => $self->loc->N("root privileges required"),
+#         });
+#         return;
+#     }
 
     $self->_servicePanel();
 };
@@ -267,7 +267,8 @@ sub start {
 sub loadServices {
     my $self = shift;
 
-    my ($l, $on_services) = $self->sh_services->services();
+    my $refresh = 1;
+    my ($l, $on_services) = $self->sh_services->services($refresh);
     my @xinetd_services = map { $_->[0] } $self->sh_services->xinetd_services();
 
     $self->_xinetd_services();
