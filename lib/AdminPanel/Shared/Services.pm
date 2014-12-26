@@ -932,8 +932,8 @@ sub getUnitProperty {
     my ($self, $unit, $property) = @_;
 
     my $name = $unit . ".service";
-    $name =~ s|-|_2d|;
-    $name =~ s|\.|_2e|;
+    $name =~ s|-|_2d|g;
+    $name =~ s|\.|_2e|g;
     my $service = $self->dbus_systemd1_service;
     my $unit_object = $service->get_object("/org/freedesktop/systemd1/unit/" . $name);
     my $property_value = eval {$unit_object->Get("org.freedesktop.systemd1.Unit", $property)} || "";
