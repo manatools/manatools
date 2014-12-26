@@ -755,8 +755,8 @@ sub is_service_running {
     $self->service_exists($service) or return 0;
     my $out;
     if ($self->_running_systemd()) {
-        my $ser_info = $self->get_service_info($name);
-        $out = $ser_info->{active_state} eq 'active';
+        my $ser_info = $self->get_service_info($service);
+        $out = $ser_info->{active_state} eq 'active' if $ser_info->{active_state};
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/sbin/service', $service, 'status');
