@@ -375,15 +375,16 @@ sub set_service {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif ($self->_running_systemd() || $self->_has_systemd()) {
-        # systemctl rejects any symlinked units. You have to enabled the real file
-        if (-l "/usr/lib/systemd/system/$service.service") {
-            my $name = readlink("/usr/lib/systemd/system/$service.service");
-            $service = MDK::Common::File::basename($name);
-        } else {
-            $service = $service . ".service";
+        $service = $service . ".service";
+        my $dbus_object = $self->dbus_systemd1_object;
+        if ($enable) {
+            $dbus_object->EnableUnitFiles([$service], 0, 1);
         }
-        $ENV{PATH} = "/usr/bin:/usr/sbin";
-        AdminPanel::Shared::RunProgram::rooted("", "/usr/bin/systemctl", $enable ? "enable" : "disable", $service);
+        else {
+            $dbus_object->DisableUnitFiles([$service], 0);
+        }
+        # reload local cache
+        $self->_systemd_services(1);
     } else {
         my $script = "/etc/rc.d/init.d/$service";
         $ENV{PATH} = "/usr/bin:/usr/sbin";
@@ -397,15 +398,17 @@ sub set_service {
 }
 
 sub _run_action {
-    my ($self, $service, $action, $do_not_block) = @_;
+    my ($self, $service, $action) = @_;
     if ($self->_running_systemd()) {
-        if ($do_not_block) {
-            $ENV{PATH} = "/usr/bin:/usr/sbin";
-            AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--no-block', $action, "$service.service");
+        my $object     = $self->dbus_systemd1_object;
+        if ($action eq 'start') {
+            $object->StartUnit("$service.service", 'fail');
+        }
+        elsif ($action eq 'stop') {
+            $object->StopUnit("$service.service", 'fail');
         }
         else {
-            $ENV{PATH} = "/usr/bin:/usr/sbin";
-            AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', $action, "$service.service");
+            $object->RestartUnit("$service.service", 'fail');
         }
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin:/etc/rc.d/init.d/";
@@ -461,7 +464,7 @@ sub _systemd_services {
     my ($self, $reload) = @_;
 
     if ($reload) {
-        $self->_serviceInfoInitialization();
+        $self->service_info($self->_serviceInfoInitialization());
     }
 
     my @services;
@@ -580,11 +583,11 @@ sub services {
 }
 
 
-
+# if we loaded service info, then exists
 sub _systemd_unit_exists {
     my ($self, $name) = @_;
-    # we test with -l as symlinks are not valid when the system is chrooted:
-    -e "/usr/lib/systemd/system/$name.service" or -l "/usr/lib/systemd/system/$name.service";
+
+    return defined ($self->get_service_info($name));
 }
 
 #=============================================================
@@ -610,7 +613,7 @@ sub _systemd_unit_exists {
 
 sub service_exists {
     my ($self, $service) = @_;
-    -x "/etc/rc.d/init.d/$service" or $self->_systemd_unit_exists($service);
+    $self->_systemd_unit_exists($service) or -x "/etc/rc.d/init.d/$service";
 }
 
 #=============================================================
@@ -752,8 +755,8 @@ sub is_service_running {
     $self->service_exists($service) or return 0;
     my $out;
     if ($self->_running_systemd()) {
-        $ENV{PATH} = "/usr/bin:/usr/sbin";
-        $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--quiet', 'is-active', "$service.service");
+        my $ser_info = $self->get_service_info($name);
+        $out = $ser_info->{active_state} eq 'active';
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/sbin/service', $service, 'status');
