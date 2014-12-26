@@ -410,6 +410,8 @@ sub _run_action {
         else {
             $object->RestartUnit("$service.service", 'fail');
         }
+        # reload local cache
+        $self->_systemd_services(1);
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin:/etc/rc.d/init.d/";
         AdminPanel::Shared::RunProgram::rooted("", "/etc/rc.d/init.d/$service", $action);
