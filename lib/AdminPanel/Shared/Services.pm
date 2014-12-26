@@ -60,10 +60,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 use Moose;
 
 use Sys::Syslog;
-use AdminPanel::Shared::Locales;
+use Net::DBus;
+use File::Basename;
 
+use AdminPanel::Shared::Locales;
 use MDK::Common::Func qw(find);
-use MDK::Common::File qw(cat_ basename);
+use MDK::Common::File;
 use MDK::Common::DataStructure qw(member);
 use AdminPanel::Shared::RunProgram qw(rooted);
 
@@ -83,6 +85,110 @@ sub _localeInitialize {
 }
 
 
+has 'dbus_systemd1_service' => (
+    is       => 'rw',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_dbusServiceInitialize'
+);
+
+sub _dbusServiceInitialize {
+    my $self = shift();
+
+    my $bus = Net::DBus->system;
+    $self->dbus_systemd1_service($bus->get_service("org.freedesktop.systemd1"));
+}
+
+
+has 'dbus_systemd1_object' => (
+    is       => 'rw',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_dbusObjectInitialize'
+);
+
+sub _dbusObjectInitialize {
+    my $self = shift();
+
+    $self->dbus_systemd1_object($self->dbus_systemd1_service->get_object("/org/freedesktop/systemd1"));
+}
+
+
+has 'service_info' => (
+    is  => 'rw',
+    traits    => ['Hash'],
+    isa       => 'HashRef',
+    handles   => {
+        set_service_info   => 'set',
+        get_service_info   => 'get',
+        service_info_pairs => 'kv',
+    },
+    init_arg  => undef,
+    lazy     => 1,
+    builder  => '_serviceInfoInitialization'
+);
+
+sub _serviceInfoInitialization {
+    my $self = shift();
+
+    my %services = ();
+    if ($self->_running_systemd()) {
+        my $object     = $self->dbus_systemd1_object;
+        my $properties = $object->ListUnits();
+
+        foreach my $s (@{$properties}) {
+            my $name = $s->[0];
+            if (index($name, ".service") != -1) {
+                my $st = eval{$object->GetUnitFileState($name)} if $name !~ /.*\@.*$/g;
+                $name =~ s|.service||;
+                if (!$st) {
+                    if ($name !~ /.*\@$/g &&
+                        (-e "/usr/lib/systemd/system/$name.service" or -e "/etc/rc.d/init.d/$name") &&
+                        ! -l "/usr/lib/systemd/system/$name.service") {
+                            $st = 'enabled';
+                        }
+                }
+                if ($st && $st ne 'static') {
+                    $services{$name} = {
+                        'name' => $s->[0],
+                        'description' => $s->[1],
+                        'load_state' => $s->[2],
+                        'active_state' => $s->[3],
+                        'sub_state' => $s->[4],
+                        'unit_path' => $s->[6],
+                        'enabled'   => $st eq 'enabled',
+                    };
+                }
+            }
+        }
+
+        my $unit_files = $object->ListUnitFiles();
+        foreach my $s (@{$unit_files}) {
+            my $name = $s->[0];
+            my $st = $s->[1];
+            if (index($name, ".service") != -1) {
+                $name = File::Basename::basename($name, ".service");
+                if (!$services{$name} &&
+                    $name !~ /.*\@$/g &&
+                    (-e $s->[0] or -e "/etc/rc.d/init.d/$name") &&
+                    ! -l $s->[0] && $st eq "disabled") {
+                    my $wantedby = $self->_WantedBy($s->[0]);
+                    if ($wantedby) {
+                        my $descr = $self->getUnitProperty($name, 'Description');
+
+                        $services{$name} = {
+                            'name'        => $name,
+                            'description' => $descr,
+                            'enabled'     => 0,
+                        };
+                    }
+                }
+            }
+        }
+    }
+
+    return \%services;
+}
 
 #=============================================================
 
@@ -105,7 +211,7 @@ THis function return the description for the given service
 #=============================================================
 sub description {
     my ($self, $name) = @_;
-    
+
     my %services = (
 acpid => $self->loc->N_("Listen and dispatch ACPI events from the kernel"),
 alsa => $self->loc->N_("Launch the ALSA (Advanced Linux Sound Architecture) sound system"),
@@ -219,7 +325,11 @@ xinetd => $self->loc->N_("Starts other deamons on demand."),
     my $s = $services{$name};
     if ($s) {
         $s = $self->loc->N($s);
-    } else {
+    }
+    elsif ($self->get_service_info($name)) {
+        $s = $self->get_service_info($name)->{description};
+    }
+    else {
         my $file = "/usr/lib/systemd/system/$name.service";
         if (-e $file) {
                 $s = MDK::Common::File::cat_($file);
@@ -246,12 +356,12 @@ xinetd => $self->loc->N_("Starts other deamons on demand."),
 
 =head3 INPUT
 
-$service: Service name
-$enable:  enable/disable service
+    $service: Service name
+    $enable:  enable/disable service
 
 =head3 DESCRIPTION
 
-This function enable/disable at boot the given service
+    This function enable/disable at boot the given service
 
 =cut
 
@@ -266,8 +376,8 @@ sub set_service {
         AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif ($self->_running_systemd() || $self->_has_systemd()) {
         # systemctl rejects any symlinked units. You have to enabled the real file
-        if (-l "/lib/systemd/system/$service.service") {
-            my $name = readlink("/lib/systemd/system/$service.service");
+        if (-l "/usr/lib/systemd/system/$service.service") {
+            my $name = readlink("/usr/lib/systemd/system/$service.service");
             $service = MDK::Common::File::basename($name);
         } else {
             $service = $service . ".service";
@@ -303,14 +413,14 @@ sub _run_action {
     }
 }
 
-sub _running_systemd() {
+sub _running_systemd {
     my $self = shift;
 
     $ENV{PATH} = "/usr/bin:/usr/sbin";
     AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
-sub _has_systemd() {
+sub _has_systemd {
     my $self = shift;
 
     $ENV{PATH} = "/usr/bin:/usr/sbin";
@@ -323,17 +433,17 @@ sub _has_systemd() {
 
 =head3 OUTPUT
 
-xinetd_services: All the xinetd services
+    xinetd_services: All the xinetd services
 
 =head3 DESCRIPTION
 
-This functions returns all the xinetd services in the system.
-NOTE that xinetd *must* be enable at boot to get this info
+    This functions returns all the xinetd services in the system.
+    NOTE that xinetd *must* be enable at boot to get this info
 
 =cut
 
 #=============================================================
-sub xinetd_services() {
+sub xinetd_services {
     my $self = shift;
 
     local $ENV{LANGUAGE} = 'C';
@@ -347,45 +457,25 @@ sub xinetd_services() {
     @xinetd_services;
 }
 
-sub _systemd_services() {
-    my $self = shift;
+sub _systemd_services {
+    my ($self, $reload) = @_;
 
-    local $ENV{LANGUAGE} = 'C';
+    if ($reload) {
+        $self->_serviceInfoInitialization();
+    }
+
     my @services;
-    my %loaded;
-    # Running system using systemd
-    Sys::Syslog::syslog('info|local1', "Detected systemd running. Using systemctl introspection.");
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/bin/systemctl', '--full', '--all', 'list-units')) {
-        if (my ($name) = m!^(\S+)\.service\s+loaded!) {
-            # We only look at non-template, non-linked service files in /lib
-            # We also check for any non-masked sysvinit files as these are
-            # also handled by systemd
-            if ($name !~ /.*\@$/g && (-e "/lib/systemd/system/$name.service" or -e "/etc/rc.d/init.d/$name") && ! -l "/lib/systemd/system/$name.service") {
-                push @services, [ $name, !!AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/systemctl', '--quiet', 'is-enabled', "$name.service") ];
-                $loaded{$name} = 1;
-            }
-        }
-    }
-    # list-units will not list disabled units that can be enabled
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/bin/systemctl', '--full', 'list-unit-files')) {
-        if (my ($name) = m!^(\S+)\.service\s+disabled!) {
-            # We only look at non-template, non-linked service files in /lib
-            # We also check for any non-masked sysvinit files as these are
-            # also handled by systemd
-            if (!exists $loaded{$name} && $name !~ /.*\@$/g && (-e "/lib/systemd/system/$name.service" or -e "/etc/rc.d/init.d/$name") && ! -l "/lib/systemd/system/$name.service") {
-                # Limit ourselves to "standard" targets which can be enabled
-                my $wantedby = MDK::Common::File::cat_("/lib/systemd/system/$name.service") =~ /^WantedBy=(graphical|multi-user).target$/sm ? $1 : '';
-                if ($wantedby) {
-                    push @services, [ $name, 0 ];
-                }
-            }
-        }
+    for my $pair ( $self->service_info_pairs) {
+        my $name = $pair->[0];
+        my $info = $pair->[1];
+        push @services, [$name, $info->{'enabled'}];
     }
 
-    @services;
+    return @services;
+
 }
 
-sub _legacy_services() {
+sub _legacy_services {
     my $self = shift;
 
     local $ENV{LANGUAGE} = 'C';
@@ -398,7 +488,7 @@ sub _legacy_services() {
         # combine that with information from chkconfig regarding legacy sysvinit
         # scripts (which systemd will parse and include when running)
         Sys::Syslog::syslog('info|local1', "Detected systemd installed. Using fake service+chkconfig introspection.");
-        foreach (glob_("/lib/systemd/system/*.service")) {
+        foreach (glob_("/usr/lib/systemd/system/*.service")) {
             my ($name) = m!([^/]*).service$!;
 
             # We only look at non-template, non-symlinked service files
@@ -412,7 +502,7 @@ sub _legacy_services() {
                     # setup where -e will fail if the symlink target does
                     # exist which is typically the case when viewed outside
                     # of the chroot.
-                    if (!-l "/lib/systemd/system/$wantedby.target.wants/$name.service") {
+                    if (!-l "/usr/lib/systemd/system/$wantedby.target.wants/$name.service") {
                         push @services, [ $name, !!-l "/etc/systemd/system/$wantedby.target.wants/$name.service" ];
                     }
                 }
@@ -454,27 +544,31 @@ sub _legacy_services() {
 
 =head2 services
 
+=head3 INPUT
+
+    $reload: load service again
+
 =head3 OUTPUT
 
-@l:           all the system services
-@on_services: all the services that start at boot
+    @l:           all the system services
+    @on_services: all the services that start at boot
 
 =head3 DESCRIPTION
 
-This function returns two lists, all the system service and
-all the active ones.
+    This function returns two lists, all the system service and
+    all the active ones.
 
 =cut
 
 #=============================================================
 
 
-sub services() {
-    my $self = shift;
+sub services {
+    my ($self, $reload) = @_;
 
     my @Services;
     if ($self->_running_systemd()) {
-        @Services = $self->_systemd_services();
+        @Services = $self->_systemd_services($reload);
     } else {
         @Services = $self->_legacy_services();
     }
@@ -490,7 +584,7 @@ sub services() {
 sub _systemd_unit_exists {
     my ($self, $name) = @_;
     # we test with -l as symlinks are not valid when the system is chrooted:
-    -e "/lib/systemd/system/$name.service" or -l "/lib/systemd/system/$name.service";
+    -e "/usr/lib/systemd/system/$name.service" or -l "/usr/lib/systemd/system/$name.service";
 }
 
 #=============================================================
@@ -499,16 +593,16 @@ sub _systemd_unit_exists {
 
 =head3 INPUT
 
-$service: Service name
+    $service: Service name
 
 =head3 OUTPUT
 
-0/1: if the service exists
+    0/1: if the service exists
 
 =head3 DESCRIPTION
 
-This function checks if a service is installed by looking for
-its unit or init.d service
+    This function checks if a service is installed by looking for
+    its unit or init.d service
 
 =cut
 
@@ -525,11 +619,11 @@ sub service_exists {
 
 =head3 INPUT
 
-$service: Service to restart
+    $service: Service to restart
 
 =head3 DESCRIPTION
 
-This function restarts a given service
+    This function restarts a given service
 
 =cut
 
@@ -549,12 +643,12 @@ sub restart  {
 
 =head3 INPUT
 
-$service: Service to restart or start
+    $service: Service to restart or start
 
 =head3 DESCRIPTION
 
-This function starts a given service if it is not running,
-it restarts that otherwise
+    This function starts a given service if it is not running,
+    it restarts that otherwise
 
 =cut
 
@@ -574,11 +668,11 @@ sub restart_or_start {
 
 =head3 INPUT
 
-$service: Service to start
+    $service: Service to start
 
 =head3 DESCRIPTION
 
-This function starts a given service
+    This function starts a given service
 
 =cut
 
@@ -597,11 +691,11 @@ sub startService {
 
 =head3 INPUT
 
-$service: Service to start
+    $service: Service to start
 
 =head3 DESCRIPTION
 
-This function starts a given service if not running
+    This function starts a given service if not running
 
 =cut
 
@@ -620,11 +714,11 @@ sub start_not_running_service {
 
 =head3 INPUT
 
-$service: Service to stop
+    $service: Service to stop
 
 =head3 DESCRIPTION
 
-This function stops a given service
+    This function stops a given service
 
 =cut
 
@@ -642,11 +736,11 @@ sub stopService {
 
 =head3 INPUT
 
-$service: Service to check
+    $service: Service to check
 
 =head3 DESCRIPTION
 
-This function returns if the given service is running
+    This function returns if the given service is running
 
 =cut
 
@@ -673,12 +767,12 @@ sub is_service_running {
 
 =head3 INPUT
 
-$service: Service name
+    $service: Service name
 
 
 =head3 DESCRIPTION
 
-This function returns if the given service starts at boot
+    This function returns if the given service starts at boot
 
 =cut
 
@@ -695,12 +789,12 @@ sub starts_on_boot {
 
 =head3 INPUT
 
-$service: Service name
+    $service: Service name
 
 
 =head3 DESCRIPTION
 
-This function set the given service active at boot
+    This function set the given service active at boot
 
 =cut
 
@@ -716,12 +810,12 @@ sub start_service_on_boot {
 
 =head3 INPUT
 
-$service: Service name
+    $service: Service name
 
 
 =head3 DESCRIPTION
 
-This function set the given service disabled at boot
+    This function set the given service disabled at boot
 
 =cut
 
@@ -737,13 +831,13 @@ sub do_not_start_service_on_boot  {
 
 =head3 INPUT
 
-$service:         Service name
-$o_dont_apply:    do not start it now
+    $service:         Service name
+    $o_dont_apply:    do not start it now
 
 =head3 DESCRIPTION
 
-This function set the given service active at boot
-and restarts it if o_dont_apply is not given
+    This function set the given service active at boot
+    and restarts it if o_dont_apply is not given
 
 =cut
 
@@ -760,13 +854,13 @@ sub enable {
 
 =head3 INPUT
 
-$service:         Service name
-$o_dont_apply:    do not stop it now
+    $service:         Service name
+    $o_dont_apply:    do not stop it now
 
 =head3 DESCRIPTION
 
-This function set the given service disabled at boot
-and stops it if o_dont_apply is not given
+    This function set the given service disabled at boot
+    and stops it if o_dont_apply is not given
 
 =cut
 
@@ -783,14 +877,14 @@ sub disable {
 
 =head3 INPUT
 
-$service:         Service name
-$enable:          Enable/disable
-$o_dont_apply:    do not start it now
+    $service:         Service name
+    $enable:          Enable/disable
+    $o_dont_apply:    do not start it now
 
 =head3 DESCRIPTION
 
-This function set the given service to enable/disable at boot
-and restarts/stops it if o_dont_apply is not given
+    This function set the given service to enable/disable at boot
+    and restarts/stops it if o_dont_apply is not given
 
 =cut
 
@@ -802,6 +896,49 @@ sub set_status {
     } else {
         $self->disable($service, $o_dont_apply);
     }
+}
+
+# NOTE $service->get_object("/org/freedesktop/systemd1/unit/$name_2eservice");
+#    has empty WantedBy property if disabled
+sub _WantedBy {
+    my ($self, $path_service) = @_;
+
+    my $wantedby = MDK::Common::File::cat_($path_service) =~ /^WantedBy=(graphical|multi-user).target$/sm ? $1 : '';
+
+    return $wantedby;
+}
+
+#=============================================================
+
+=head2 getUnitProperty
+
+=head3 INPUT
+
+    $unit: unit name
+    $property: property name
+
+=head3 OUTPUT
+
+    $property_value: property value
+
+=head3 DESCRIPTION
+
+    This method returns the requested property value
+
+=cut
+
+#=============================================================
+sub getUnitProperty {
+    my ($self, $unit, $property) = @_;
+
+    my $name = $unit . ".service";
+    $name =~ s|-|_2d|;
+    $name =~ s|\.|_2e|;
+    my $service = $self->dbus_systemd1_service;
+    my $unit_object = $service->get_object("/org/freedesktop/systemd1/unit/" . $name);
+    my $property_value = eval {$unit_object->Get("org.freedesktop.systemd1.Unit", $property)} || "";
+
+    return $property_value;
 }
 
 1;
