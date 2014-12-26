@@ -347,7 +347,7 @@ sub _fillServiceTable {
 
     $tbl->deleteAllItems();
     my $itemCollection = new yui::YItemCollection;
-    foreach ($self->all_services) {
+    foreach (sort $self->all_services) {
         
         my $serviceName = $_;
         
