@@ -235,13 +235,13 @@ sub BUILD {
 sub start {
     my $self = shift;
 
-#     if ($EUID != 0) {
-#         $self->sh_gui->warningMsgBox({
-#             title => $self->name,
-#             text  => $self->loc->N("root privileges required"),
-#         });
-#         return;
-#     }
+    if ($EUID != 0) {
+        $self->sh_gui->warningMsgBox({
+            title => $self->name,
+            text  => $self->loc->N("root privileges required"),
+        });
+        return;
+    }
 
     $self->_servicePanel();
 };
