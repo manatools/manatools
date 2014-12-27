@@ -58,6 +58,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 use Moose;
 use English;
+use Time::HiRes qw(usleep);
 
 use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::DataStructure qw(member);
@@ -121,21 +122,6 @@ has 'on_services' => (
     },
 );
 
-
-has 'running_services' => (
-    traits  => ['Array'],
-    is      => 'rw',
-    isa     => 'ArrayRef[Str]',
-    default => sub { [] },
-    init_arg  => undef,
-    handles => {
-        all_running_services    => 'elements',
-        add_running_service     => 'push',
-        map_running_service     => 'map',
-        running_service_count   => 'count',
-        sorted_running_services => 'sort',
-    },
-);
 
 has 'sh_gui' => (
         is => 'rw',
@@ -276,19 +262,23 @@ sub loadServices {
     $self->_services(\@$l);
     $self->on_services(\@$on_services);
 
-    $self->_refreshRunningServices();
 }
 
-sub _refreshRunningServices {
-    my $self = shift;
+## _waitUnitStatus wait unit status is reached for
+##                 a while (10 secs max)
+sub _waitUnitStatus {
+    my ($self, $service, $running) = @_;
 
-    my @running;
-    foreach ($self->all_services) {
-
-        my $serviceName = $_;
-        push @running, $serviceName if $self->sh_services->is_service_running($serviceName);
+    for (my $i=0; $i < 100; $i++) {
+        $self->loadServices();
+        if ($running) {
+            last if $self->sh_services->is_service_running($service);
+        }
+        else {
+            last if !$self->sh_services->is_service_running($service);
+        }
+        usleep(100);
     }
-    $self->running_services(\@running);
 }
 
 ## _serviceInfo sets service description accordingly to 
@@ -345,6 +335,7 @@ sub _serviceStatus {
 sub _fillServiceTable {
     my ($self, $tbl) = @_;
 
+    $tbl->startMultipleChanges();
     $tbl->deleteAllItems();
     my $itemCollection = new yui::YItemCollection;
     foreach (sort $self->all_services) {
@@ -364,6 +355,7 @@ sub _fillServiceTable {
         $item->DISOWN();
     }
     $tbl->addItems($itemCollection);
+    $tbl->doneMultipleChanges();
 }
 
 ## draw service panel and manage it (main dialog)
@@ -514,7 +506,7 @@ sub _servicePanel {
                         yui::YUI::app()->busyCursor();
                         $self->sh_services->set_service($item->label(), $item->checked());
                         # we can push/pop service, but this (slower) should return real situation
-                        $self->_refreshRunningServices();
+                        $self->loadServices();
                         yui::YUI::app()->normalCursor();
                     }
                 }
@@ -523,9 +515,11 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     yui::YUI::app()->busyCursor();
-                    $self->sh_services->restart_or_start($item->label());
+                    my $serviceName = $item->label();
+                    $self->sh_services->restart_or_start($serviceName);
                     # we can push/pop service, but this (slower) should return real situation
-                    $self->_refreshRunningServices();
+                    $self->_waitUnitStatus($serviceName, 1);
+#                     $self->loadServices();
                     $self->_serviceStatus($serviceTbl, $item);
                     yui::YUI::app()->normalCursor();
                 }
@@ -534,9 +528,11 @@ sub _servicePanel {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
                     yui::YUI::app()->busyCursor();
-                    $self->sh_services->stopService($item->label());
+                    my $serviceName = $item->label();
+                    $self->sh_services->stopService($serviceName);
                     # we can push/pop service, but this (slower) should return real situation
-                    $self->_refreshRunningServices();
+                    $self->_waitUnitStatus($serviceName, 0);
+#                     $self->loadServices();
                     $self->_serviceStatus($serviceTbl, $item);
                     yui::YUI::app()->normalCursor();
                 }
