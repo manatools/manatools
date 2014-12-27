@@ -451,15 +451,20 @@ sub _has_systemd {
 sub xinetd_services {
     my $self = shift;
 
-    local $ENV{LANGUAGE} = 'C';
-    my @xinetd_services;
-    $ENV{PATH} = "/usr/bin:/usr/sbin";
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
-        if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
-            push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
+    my @xinetd_services = ();
+
+    #avoid warning if xinetd is not installed and either enabled
+    my $ser_info =  $self->get_service_info('xinetd');
+    if ($ser_info && $ser_info->{enabled} eq "1") {
+        local $ENV{LANGUAGE} = 'C';
+        $ENV{PATH} = "/usr/bin:/usr/sbin";
+        foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
+            if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
+                push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
+            }
         }
     }
-    @xinetd_services;
+    return @xinetd_services;
 }
 
 sub _systemd_services {
