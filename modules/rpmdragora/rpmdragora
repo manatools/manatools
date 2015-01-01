@@ -675,6 +675,8 @@ sub run_treeview_dialog {
     $find_entry = $factory->createInputField($hbox_top, "");
     my $find_button = $factory->createIconButton($hbox_top, "/usr/share/mcc/themes/default/logdrake-mdk.png", $loc->N("Search"));
     $find_button->setWeight(0,6);
+    $my_win->setDefaultButton($find_button);
+
     my $reset_search_button = $factory->createIconButton($hbox_top, "/usr/share/icons/gnome/22x22/actions/gtk-clear.png", $loc->N("Reset"));
     $reset_search_button->setWeight(0,7);
     $find_entry->setWeight(0,10);
