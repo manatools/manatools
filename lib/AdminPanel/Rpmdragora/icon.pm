@@ -25,7 +25,6 @@ package AdminPanel::Rpmdragora::icon;
 # $Id: icon.pm 237459 2008-02-26 14:20:47Z tv $
 
 use strict;
-use POSIX qw (isdigit);
 
 use AdminPanel::rpmdragora;
 use AdminPanel::Shared::Locales;
@@ -214,12 +213,8 @@ my %group_icons = (
 
 sub get_icon_path {
     my ($group, $parent) = @_;
-    my $path;
-    if(isdigit($parent) && $parent == 0){
-        $path = '/usr/share/icons/';
-    }else{
-        $path = '/usr/share/icons/mini/';
-    }
+
+    my $path = $parent ? '/usr/share/icons/mini/' : '/usr/share/icons/';
     my $icon_path = "";
     if(defined($group_icons{$group})){
         $icon_path = join('', $path, $group_icons{$group}, '.png');
