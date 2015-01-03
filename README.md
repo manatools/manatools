@@ -113,3 +113,6 @@ service-mdk   -> manaservice
 userdrake     -> manauser
 drakconf      -> mpan
 
+NOTE 2: 
+clear22x22 icon is got from gnome gtk-clear
+
