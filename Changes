@@ -1,4 +1,7 @@
-1.0.0-7 
+1.0.0-7 04/01/2015 23:45
+	- manaclock: /etc/localtime as link instead of a copy	
+	- rpmdragora: readconf now lets default values if keys
+	  do not have values into configuration files
 	- rpmdragora: removed deprecated POSIX::isdigit()
 	- rpmdragora: fixed button icons search and clear
 	- rpmdragora: config file saved keys are sorted first
