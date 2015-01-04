@@ -233,9 +233,8 @@ our %config = (
 sub readconf() {
     ${$config{$_}{var}} = $config{$_}{default} foreach keys %config;
     foreach my $l (MDK::Common::File::cat_($configfile)) {
-	foreach (keys %config) {
-	    ${$config{$_}{var}} = [ split ' ', $1 ] if $l =~ /^\Q$_\E(.*)/;
-	}
+        my ($key, @values) =  split ' ', $l;
+        ${$config{$key}{var}} = \@values if scalar @values;
     }
     # special cases:
     $::rpmdragora_options{'no-confirmation'} = $no_confirmation->[0] if !defined $::rpmdragora_options{'no-confirmation'};
@@ -248,7 +247,9 @@ sub writeconf() {
 
     # special case:
     $no_confirmation->[0] = $::rpmdragora_options{'no-confirmation'};
-    MDK::Common::File::output($configfile, map { "$_ " . (ref ${$config{$_}{var}} ? join(' ', @${$config{$_}{var}}) : '') . "\n" } sort keys %config);
+    my @config_content = map { "$_ " . (ref ${$config{$_}{var}} ? join(' ', @${$config{$_}{var}}) : '') . "\n" } sort keys %config;
+    MDK::Common::File::output($configfile, @config_content);
+    print "writeconf done!\n";
 }
 
 sub getbanner() {
