@@ -30,6 +30,11 @@ use AdminPanel::Shared qw(trim);
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Firewall;
 
+use List::Util qw(any);
+use List::MoreUtils qw(uniq);
+
+use MDK::Common::Func qw(if_);
+
 extends qw( AdminPanel::Module );
 
 has '+icon' => (
@@ -70,6 +75,13 @@ has 'all_servers' => (
     is => 'rw',
     init_arg => undef,
     isa => 'ArrayRef',
+);
+
+has 'net' => (
+    is => 'rw',
+    init_arg => undef,
+    isa => 'HashRef',
+    builder => '_initNet',
 );
 
 sub _localeInitialize {
@@ -201,6 +213,13 @@ sub _initAllServers {
     return \@all_servers; 
 }
 
+sub _initNet {
+    my $self = shift();
+    my $net = {};
+    network::network::read_net_conf($net);
+    return $net;
+}
+
 #=============================================================
 
 =head2 port2server
@@ -222,9 +241,14 @@ sub _initAllServers {
 sub port2server {
     my $self = shift();
     my ($port) = @_;
-    find {
-	any { $port eq $_ } split(' ', $_->{ports});
-    } $self->all_servers();
+    for my $service(@{$self->all_servers()})
+    {
+	if(any { $port eq $_ } split(' ', $service->{ports}))
+	{
+	    return $service;
+	}
+    }
+    return 0;
 }
 
 #=============================================================
@@ -294,17 +318,90 @@ sub get_conf {
 	#          cause it can't read the interfaces file
 	return ($shorewall->{disabled}, $self->from_ports($shorewall->{ports}), $shorewall->{log_net_drop});
     } else {
-	$self->sh_gui->ask_OkCancel({title => $self->loc->N("Firewall configuration"), text => $self->loc->N("drakfirewall configurator
+	$self->sh_gui->ask_OkCancel({
+	  title => $self->loc->N("Firewall configuration"), 
+	  text => $self->loc->N("drakfirewall configurator
+				 This configures a personal firewall for this Mageia machine."), 
+	  richtext => 1
+	  }) or return;
 
-This configures a personal firewall for this Mageia machine."), richtext => 1}) or return;
-
-	$self->sh_gui->ask_OkCancel({title => $self->loc->N("Firewall configuration"), text => $self->loc->N("drakfirewall configurator
-
+	$self->sh_gui->ask_OkCancel({
+	  title => $self->loc->N("Firewall configuration"), 
+	  text => $self->loc->N("drakfirewall configurator
 Make sure you have configured your Network/Internet access with
-drakconnect before going any further."), richtext => 1}) or return;
+drakconnect before going any further."), 
+	  richtext => 1
+	  }) or return;
 
 	return($disabled, $possible_servers, '');
     }
+}
+
+#=============================================================
+
+=head2 choose_allowed_services
+
+=head3 INPUT
+
+    $self: this object
+    
+    $disabled: boolean
+    
+    $servers: array of hashes representing servers
+    
+    $unlisted: array of hashes with the port not listed (???)
+    
+    $log_net_drop: network::shorewall log_net_drop attribute
+
+=head3 DESCRIPTION
+
+    This method shows the main dialog to let users choose the allowed services
+
+=cut
+
+#=============================================================
+
+sub choose_allowed_services {
+    my ($self, $disabled, $servers, $unlisted, $log_net_drop) = @_;
+
+    $_->{on} = 0 foreach @{$self->all_servers()};
+    $_->{on} = 1 foreach @$servers;
+    my @l = grep { $_->{on} || !$_->{hide} } @{$self->all_servers()};
+    
+    my $dialog_data = {
+	title => $self->loc->N("Firewall"),
+	icon => $network::shorewall::firewall_icon,
+	# if_(!$::isEmbedded, banner_title => $self->loc->N("Firewall")),
+	banner_title => $self->loc->N("Firewall"),
+	advanced_messages => $self->loc->N("You can enter miscellaneous ports. 
+Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.
+Have a look at /etc/services for information."),
+#		    callbacks => {
+# 			complete => sub {
+# 			    if (my $invalid_port = check_ports_syntax($unlisted)) {
+# 				$in->ask_warn('', $self->loc->N("Invalid port given: %s.
+# The proper format is \"port/tcp\" or \"port/udp\", 
+# where port is between 1 and 65535.
+# 
+# You can also give a range of ports (eg: 24300:24350/udp)", $invalid_port));
+# 				return 1;
+# 			    }
+# 			},
+#		   } 
+    };
+    
+    my $items = [
+	{ label => $self->loc->N("Which services would you like to allow the Internet to connect to?"), title => 1 },
+	if_($self->net()->{PROFILE} && network::network::netprofile_count() > 0, { label => $self->loc->N("Those settings will be saved for the network profile <b>%s</b>", $self->net()->{PROFILE}) }),
+	{ text => $self->loc->N("Everything (no firewall)"), val => \$disabled, type => 'bool' },
+	(map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled } } } @l),
+	{ label => $self->loc->N("Other ports"), val => \$unlisted, advanced => 1, disabled => sub { $disabled } },
+	{ text => $self->loc->N("Log firewall messages in system logs"), val => \$log_net_drop, type => 'bool', advanced => 1, disabled => sub { $disabled } },
+    ];
+    
+    $self->ask_AllowedServices($dialog_data, $items) or return;
+
+    return ($disabled, [ grep { $_->{on} } @l ], $unlisted, $log_net_drop);
 }
 
 #=============================================================
@@ -329,27 +426,29 @@ sub start {
     
     $self->all_servers($self->_initAllServers());
     
-    my ($disabled, $servers, $unlisted, $log_net_drop) = $self->get_conf(undef) or return;
     
-    $self->_manageFirewallDialog();
+    
+    my ($disabled, $servers, $unlisted, $log_net_drop) = $self->get_conf(undef) or return;
+    ($disabled, $servers, $unlisted, $log_net_drop) = $self->choose_allowed_services($disabled, $servers, $unlisted, $log_net_drop) or return;
+    
 };
 
 #=============================================================
 
-sub _manageFirewallDialog {
+sub ask_AllowedServices {
     my $self = shift;
 
-    ## TODO fix for adminpanel
-    my $appTitle = yui::YUI::app()->applicationTitle();
-    my $appIcon = yui::YUI::app()->applicationIcon();
+    my ($dlg_data,
+	$items) = @_;
+
+    my $old_title = yui::YUI::app()->applicationTitle();
+	
     ## set new title to get it in dialog
-    my $newTitle = $self->loc->N("Manage firewall rules");
-    yui::YUI::app()->setApplicationTitle($newTitle);
+    yui::YUI::app()->setApplicationTitle($dlg_data->{title});
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
     
-
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
 
@@ -357,34 +456,26 @@ sub _manageFirewallDialog {
     my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
-    my $logoImage = $factory->createImage($headLeft, $appIcon);
-    my $labelAppDescription = $factory->createLabel($headRight,$newTitle); 
+    my $logoImage = $factory->createImage($headLeft, $dlg_data->{icon});
+    my $labelAppDescription = $factory->createLabel($headRight,$dlg_data->{title}); 
     $logoImage->setWeight($yui::YD_HORIZ,0);
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
     my $hbox_content = $factory->createHBox($layout);
 
-    my $leftContent = $factory->createLeft($hbox_content);
-    $leftContent->setWeight($yui::YD_HORIZ,45);
+    my $widgetContainer = $factory->createVBox($hbox_content);
     
-    for my $v(@{$self->all_servers()})
+    foreach my $item(@{$items})
     {
-      #use Data::Dumper;
-      #print Dumper($v);
+	if(defined($item->{label}))
+	{
+	    $factory->createLabel($widgetContainer, $item->{label});
+	}
+	elsif(defined($item->{text}))
+	{
+	    $factory->createLabel($widgetContainer, $item->{text} . " - ". $item->{val} . " - " . $item->{type});
+	}
     }
-    
-    my $rightContent = $factory->createRight($hbox_content);
-    $rightContent->setWeight($yui::YD_HORIZ,10);
-    my $topContent = $factory->createTop($rightContent);
-    my $vbox_commands = $factory->createVBox($topContent);
-    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Add"));
-    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Edit"));
-    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Remove"));
-    my $hnButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Hostname"));
-    $addButton->setWeight($yui::YD_HORIZ,1);
-    $edtButton->setWeight($yui::YD_HORIZ,1);
-    $remButton->setWeight($yui::YD_HORIZ,1);
-    $hnButton->setWeight($yui::YD_HORIZ,1);
 
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
@@ -407,46 +498,19 @@ sub _manageFirewallDialog {
             my $widget = $event->widget();
             if ($widget == $cancelButton) {
                 last;
-            }
-            elsif ($widget == $addButton) {
-                $self->_addHostDialog();
-                $self->setupTable();
-            }
-            elsif ($widget == $edtButton) {
-                my $tblItem = yui::toYTableItem($self->table->selectedItem());
-                if($tblItem->cellCount() >= 3){
-                    $self->_edtHostDialog($tblItem->cell(0)->label(),$tblItem->cell(1)->label(),$tblItem->cell(2)->label());
-                }else{
-                    $self->_edtHostDialog($tblItem->cell(0)->label(),$tblItem->cell(1)->label(),"");
-                }
-                $self->setupTable();
-            }
-            elsif ($widget == $remButton) {
-                # implement deletion dialog
-                if($self->sh_gui->ask_YesOrNo({title => $self->loc->N("Confirmation"), text => $self->loc->N("Are you sure to drop this host?")}) == 1){
-                    my $tblItem = yui::toYTableItem($self->table->selectedItem());
-                    # drop the host using the ip
-                    $self->cfgHosts->_dropHost($tblItem->cell(0)->label());
-                    # write changes
-                    $self->cfgHosts->_writeHosts();
-                    $self->setupTable();
-                }
-            }elsif ($widget == $hnButton) {
-                $self->_changeHostNameDialog("Change the HostName FQDN");
-                $self->setupTable();
             }elsif ($widget == $aboutButton) {
                 $self->sh_gui->AboutDialog({
-                    name => $appTitle,
+                    name => $dlg_data->{title},
                     version => $VERSION,
-                    credits => "Copyright (c) 2013-2014 by Matteo Pasotti",
+                    credits => "Copyright (c) 2013-2015 by Matteo Pasotti",
                     license => "GPLv2",
-                    description => $self->loc->N("Graphical manager for hosts definitions"),
+                    description => $self->loc->N("Graphical manager for firewall rules"),
                     authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
                     }
                 );
             }elsif ($widget == $okButton) {
                 # write changes
-                $self->cfgHosts->_writeHosts();
+                return 
                 last;
             }
         }
@@ -455,7 +519,7 @@ sub _manageFirewallDialog {
     $self->dialog->destroy() ;
 
     #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
+    yui::YUI::app()->setApplicationTitle($old_title);
 }
 
 1;
