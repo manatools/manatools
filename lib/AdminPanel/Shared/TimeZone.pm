@@ -451,9 +451,9 @@ sub writeConfiguration {
     # if we are going to use systemd then we have to remove the link only
     # if it is not a link, becuase it should be managed by systemd it self
     # eval { unlink '/etc/localtime' } unless -l '/etc/localtime';
-#     eval { unlink '/etc/localtime' };
-#     eval { symlink $tz, '/etc/localtime' };
-    eval { File::copy($tz, '/etc/localtime') } ;
+    unlink '/etc/localtime' or Sys::Syslog::syslog('info|local1', "unlinking /etc/localtime failed");
+    Sys::Syslog::syslog('info|local1', "Setting $tz as localtime");
+    symlink $tz, '/etc/localtime' or Sys::Syslog::syslog('info|local1', "linking $tz to /etc/localtime failed");
 
     my $adjtime_file = '/etc/adjtime';
     my @adjtime = MDK::Common::File::cat_($adjtime_file);
