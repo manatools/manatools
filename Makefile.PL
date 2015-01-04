@@ -72,6 +72,7 @@ WriteMakefile(
                        scripts/manaproxy
                        scripts/manaservice
                        scripts/manauser
+                       scripts/manawall
                        modules/contribfinder.py
                        modules/rpmdragora/dragora-urpm-addmedia
                        modules/rpmdragora/dragora-urpm-sources.pl
