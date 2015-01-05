@@ -75,28 +75,28 @@ my %elems;
 
 sub _viewbox_callback {
     my ($selection, $options, $wanted_categories) = @_;
-    state $old_value = -1;
+    state $old_index = -1;
 
     # TODO add a check on selection type YItem
-    my $val = $selection->index();
-    return if $val == $old_value;
+    my $curr_index = $selection->index();
+    return if $curr_index == $old_index;
 
     yui::YUI::app()->busyCursor();
 
-    $old_value = $val;
-    $default_list_mode = $options->{rviews}->[$val];
+    $old_index = $curr_index;
+    $default_list_mode = $options->{rviews}->[$curr_index];
 
     # NOTE an undef value assignment produces a an array containing undef that is not a valid value to pass to
     #      join into writeconf()
-    @$mandrakeupdate_wanted_categories = $wanted_categories->{$options->{rviews}->[$val]} ?
-                                         @{$wanted_categories->{$options->{rviews}->[$val]}} :
+    @$mandrakeupdate_wanted_categories = $wanted_categories->{$options->{rviews}->[$curr_index]} ?
+                                         @{$wanted_categories->{$options->{rviews}->[$curr_index]}} :
                                          ();
 
-    if ($options->{tree_mode} ne $options->{rviews}->[$val]) {
-        $tree_mode->[0] = $options->{tree_mode} = $options->{rviews}->[$val];
+    if ($options->{tree_mode} ne $options->{rviews}->[$curr_index]) {
+        $tree_mode->[0] = $options->{tree_mode} = $options->{rviews}->[$curr_index];
         $tree_flat->[0] = $options->{state}{flat};
         reset_search();
-        switch_pkg_list_mode($options->{rviews}->[$val]);
+        switch_pkg_list_mode($options->{rviews}->[$curr_index]);
         $options->{rebuild_tree}->();
     }
 
@@ -105,14 +105,16 @@ sub _viewbox_callback {
 
 sub _filterbox_callback {
     my ($selection, $options, $rfilters) = @_;
-    state $oldval;
-    my $val = $selection;
-    return if $val eq $oldval; # workarounding gtk+ sending us sometimes twice events
+    state $old_index = -1;
+
+    # TODO add a check on selection type YItem
+    my $curr_index = $selection->index();
+    return if $curr_index == $old_index;
 
     yui::YUI::app()->busyCursor();
 
-    $oldval = $val;
-    $val = $$rfilters{$val};
+    $old_index = $curr_index;
+    my $val = $rfilters->[$curr_index];
     if ($filter->[0] ne $val) {
         $filter->[0] = $val;
         reset_search();
@@ -122,6 +124,8 @@ sub _filterbox_callback {
 
     yui::YUI::app()->normalCursor();
 }
+
+
 my $current_group = -1;
 sub _tree_callback {
     my ($selection, $options) = @_;
@@ -548,13 +552,12 @@ sub _run_treeview_dialog {
 
     my $is_backports = get_inactive_backport_media(fast_open_urpmi_db());
 
-    my %filters = (all => $loc->N("All"),
-                   installed => $loc->N("Installed"),
-                   non_installed => $loc->N("Not installed"),
-               );
-
-    my %rfilters = reverse %filters;
-
+    my %filters = (
+        all           => $loc->N("All"),
+        installed     => $loc->N("Installed"),
+        non_installed => $loc->N("Not installed"),
+    );
+    my @ordered_filters = (qw (all installed non_installed) );
 
     # handle migrating config file from rpmdragora <= 4.9
     if (exists $filters{$default_list_mode}) {
@@ -574,19 +577,16 @@ sub _run_treeview_dialog {
         by_source => $loc->N("All packages, by medium repository"),
     );
 
-
-    my %views = (all => $loc->N("All"),
-                 if_($is_backports, backports =>
-                                     #-PO: Backports media are newer but less-tested versions of some packages in main
-                                     #-PO: See http://wiki.mandriva.com/en/Policies/SoftwareMedia#.2Fmain.2Fbackports
-                                     $loc->N("Backports")),
-                 meta_pkgs => $loc->N("Meta packages"),
-                 gui_pkgs => $loc->N("Packages with GUI"),
-                 all_updates => $loc->N("All updates"),
-                 security => $loc->N("Security updates"),
-                 bugfix => $loc->N("Bugfixes updates"),
-                 normal => $loc->N("General updates")
-             );
+    my %views = (
+        all => $loc->N("All"),
+        if_($is_backports, backports => $loc->N("Backports")),
+        meta_pkgs => $loc->N("Meta packages"),
+        gui_pkgs => $loc->N("Packages with GUI"),
+        all_updates => $loc->N("All updates"),
+        security => $loc->N("Security updates"),
+        bugfix => $loc->N("Bugfixes updates"),
+        normal => $loc->N("General updates")
+   );
     my @ordered_views = (qw (all meta_pkgs gui_pkgs all_updates security normal) );
     push @ordered_views, 'backports' if $is_backports;
 
@@ -606,7 +606,6 @@ sub _run_treeview_dialog {
     my $view_box = $factory->createComboBox($hbox_top,"");
     my $itemColl = new yui::YItemCollection;
 
-    $DB::single = 1;
     foreach (@ordered_views) {
         my $item = yui::YItem->new("$views{$_}", 0);
         $item->setSelected(1) if defined($views{$default_list_mode}) && $_ eq $default_list_mode;
@@ -615,21 +614,25 @@ sub _run_treeview_dialog {
     }
     $view_box->addItems($itemColl);
     $view_box->setNotify(1);
-    $view_box->selectItem($view_box->findItem($views{$default_list_mode})) if(defined($views{$default_list_mode}));
 
     $options->{tree_submode} ||= $default_list_mode;
     $options->{tree_subflat} ||= $options->{state}{flat};
 
     my $filter_box = $factory->createComboBox($hbox_top,"");
-    $filter_box->addItem($filters{all});
-    $filter_box->addItem($filters{installed});
-    $filter_box->addItem($filters{non_installed});
-    $filter_box->selectItem($filter_box->findItem($filters{$filter->[0]})) if(defined($filters{$filter->[0]}));
+    $itemColl = new yui::YItemCollection;
+
+    foreach (@ordered_filters) {
+        my $item = yui::YItem->new("$filters{$_}", 0);
+        $item->setSelected(1) if defined($filters{$filter->[0]}) && $_ eq $filter->[0];
+        $itemColl->push($item);
+        $item->DISOWN();
+    }
+    $filter_box->addItems($itemColl);
     $filter_box->setNotify(1);
 
-    my @search_types = qw(normal descriptions summaries files);
+    my @search_types = ( qw(normal descriptions summaries files) );
     my $current_search_type = $search_types[0];
-    #OLD my $search_menu = Gtk2::Menu->new;
+
     my $search_menu = $factory->createComboBox($hbox_top,"");
     my $i = 0;
     my $previous;
@@ -1148,7 +1151,7 @@ print "Menu " . $menuLabel . " chosen\n";
                 _viewbox_callback($view_box->selectedItem(), \%$options, \%wanted_categories);
             }
             elsif ($widget == $filter_box) {
-                _filterbox_callback($filter_box->selectedItem()->label(), \%$options, \%rfilters);
+                _filterbox_callback($filter_box->selectedItem(), \%$options, \@ordered_filters);
             }
             elsif ($widget == $tree) {
                 _tree_callback($tree->currentItem(),\%$options);
