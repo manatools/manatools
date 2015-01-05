@@ -92,7 +92,7 @@ sub _viewbox_callback {
                                          @{$wanted_categories->{$options->{rviews}->[$val]}} :
                                          ();
 
-    if ($options->{tree_mode} ne $val) {
+    if ($options->{tree_mode} ne $options->{rviews}->[$val]) {
         $tree_mode->[0] = $options->{tree_mode} = $options->{rviews}->[$val];
         $tree_flat->[0] = $options->{state}{flat};
         reset_search();
@@ -103,7 +103,7 @@ sub _viewbox_callback {
     yui::YUI::app()->normalCursor();
 }
 
-sub filterbox_callback {
+sub _filterbox_callback {
     my ($selection, $options, $rfilters) = @_;
     state $oldval;
     my $val = $selection;
@@ -123,7 +123,7 @@ sub filterbox_callback {
     yui::YUI::app()->normalCursor();
 }
 my $current_group = -1;
-sub tree_callback {
+sub _tree_callback {
     my ($selection, $options) = @_;
     #OLD my ($model, $iter) = $tree->currentItem();
     #OLD return if !$iter;
@@ -154,7 +154,7 @@ sub tree_callback {
     return;
 }
 
-sub detaillist_changeditem_callback {
+sub _detaillist_changeditem_callback {
     my ($detail_list, $options) = @_;
     my $changedItem = $detail_list->changedItem();
     return if (!$changedItem);
@@ -358,11 +358,11 @@ sub _do_search($$$$$$) {
     my $tree_selection = $tree->currentItem();
 }
 
-sub quit {
+sub _quit {
     real_quit();
 }
 
-sub run_treeview_dialog {
+sub _run_treeview_dialog {
     my ($callback_action) = @_;
 
     my ($options, $tree, $detail_list, $detail_list_model);
@@ -1033,7 +1033,7 @@ sub run_treeview_dialog {
 
     my $info_options = {};
     # select group and show items evenctually
-    tree_callback($tree->currentItem(),\%$options);
+    _tree_callback($tree->currentItem(),\%$options);
 
     ######## main loop ####################
     while(1) {
@@ -1043,7 +1043,7 @@ sub run_treeview_dialog {
 
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
-            last if quit();
+            last if _quit();
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
             ### MENU ###
@@ -1065,7 +1065,7 @@ sub run_treeview_dialog {
 print "Menu " . $menuLabel . " chosen\n";
                 if ($menuLabel eq $fileMenu{ quit }->label()) {
                     #menu File->Quit
-                    last if quit();
+                    last if _quit();
                 }
                 elsif ($menuLabel eq $fileMenu{ update }->label()) {
                     update_sources_interactive($urpm, transient => $my_win)
@@ -1148,10 +1148,10 @@ print "Menu " . $menuLabel . " chosen\n";
                 _viewbox_callback($view_box->selectedItem(), \%$options, \%wanted_categories);
             }
             elsif ($widget == $filter_box) {
-                filterbox_callback($filter_box->selectedItem()->label(), \%$options, \%rfilters);
+                _filterbox_callback($filter_box->selectedItem()->label(), \%$options, \%rfilters);
             }
             elsif ($widget == $tree) {
-                tree_callback($tree->currentItem(),\%$options);
+                _tree_callback($tree->currentItem(),\%$options);
             }
             elsif ($widget == $detail_list){
                 $info_options = {};
@@ -1159,14 +1159,14 @@ print "Menu " . $menuLabel . " chosen\n";
 
                 if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
                     yui::YUI::app()->busyCursor();
-                    detaillist_changeditem_callback($detail_list, \%$options);
+                    _detaillist_changeditem_callback($detail_list, \%$options);
                     yui::YUI::app()->normalCursor();
-                    tree_callback($tree->currentItem(),\%$options);
+                    _tree_callback($tree->currentItem(),\%$options);
                 }
                 _detaillist_callback($detail_list->selectedItem(), $info, \%$options);
             }
             elsif ($widget == $QuitButton) {
-                last if quit();
+                last if _quit();
             }
         }
 
@@ -1207,7 +1207,7 @@ AdminPanel::Rpmdragora::rpmnew::do_merge_if_needed();
 
 init();
 
-run_treeview_dialog(\&perform_installation);
+_run_treeview_dialog(\&perform_installation);
 
 writeconf();
 
