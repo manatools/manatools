@@ -24,8 +24,6 @@ use diagnostics;
 use utf8;
 
 use lib qw(/usr/lib/libDrakX);
-# WARNING: using common
-use common;
 use network::nfs;
 use network::network;
 use network::shorewall;
