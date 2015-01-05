@@ -23,6 +23,7 @@ package AdminPanel::Module::Firewall;
 use Modern::Perl '2011';
 use autodie;
 use Moose;
+use Moose::Autobox;
 use utf8;
 
 use yui;
@@ -33,7 +34,9 @@ use AdminPanel::Shared::Firewall;
 use List::Util qw(any);
 use List::MoreUtils qw(uniq);
 
-use MDK::Common::Func qw(if_);
+use MDK::Common::Func qw(if_ partition);
+use MDK::Common::System qw(getVarsFromSh);
+use MDK::Common::Various qw(text2bool);
 
 extends qw( AdminPanel::Module );
 
@@ -77,12 +80,51 @@ has 'all_servers' => (
     isa => 'ArrayRef',
 );
 
+has 'ifw_rules' => (
+    is => 'rw',
+    init_arg => undef,
+    isa => 'ArrayRef',
+);
+
+has 'wdg_ifw' => (
+    is => 'rw',
+    init_arg => undef,
+    isa => 'ArrayRef',
+    default => sub { [] },
+);
+
+has 'wdg_servers' => (
+    is => 'rw',
+    init_arg => undef,
+    isa => 'ArrayRef',
+    default => sub { [] },
+);
+
 has 'net' => (
     is => 'rw',
     init_arg => undef,
     isa => 'HashRef',
     builder => '_initNet',
 );
+
+has 'aboutDialog' => (
+    is => 'ro',
+    init_arg => undef,
+    isa => 'HashRef',
+    builder => '_setupAboutDialog',
+);
+
+sub _setupAboutDialog {
+  my $self = shift();
+  return {
+	  name => "",
+	  version => $VERSION,
+	  credits => "Copyright (c) 2013-2015 by Matteo Pasotti",
+	  license => "GPLv2",
+	  description => "",
+	  authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
+	  };
+}
 
 sub _localeInitialize {
     my $self = shift();
@@ -102,48 +144,57 @@ sub _initAllServers {
     my $self = shift();
     my @all_servers = (
         {
+	    id => 'www',
             name => $self->loc->N("Web Server"),
             pkg => 'apache apache-mod_perl boa lighttpd thttpd',
             ports => '80/tcp 443/tcp',
         },
         {
+	    id => 'dns',
             name => $self->loc->N("Domain Name Server"),
             pkg => 'bind dnsmasq mydsn',
             ports => '53/tcp 53/udp',
         },
         {
+	    id => 'ssh',
             name => $self->loc->N("SSH server"),
             pkg => 'openssh-server',
             ports => '22/tcp',
         },
         {
+	    id => 'ftp',
             name => $self->loc->N("FTP server"),
             pkg => 'ftp-server-krb5 wu-ftpd proftpd pure-ftpd',
             ports => '20/tcp 21/tcp',
         },
         {
+	    id => 'dhcp',
             name => $self->loc->N("DHCP Server"),
             pkg => 'dhcp-server udhcpd',
             ports => '67/udp 68/udp',
             hide => 1,
         },
         {
+	    id => 'mail',
             name => $self->loc->N("Mail Server"),
             pkg => 'sendmail postfix qmail exim',
             ports => '25/tcp 465/tcp 587/tcp',
         },
         {
+	    id => 'popimap',
             name => $self->loc->N("POP and IMAP Server"),
             pkg => 'imap courier-imap-pop',
             ports => '109/tcp 110/tcp 143/tcp 993/tcp 995/tcp',
         },
         {
+	    id => 'telnet',
             name => $self->loc->N("Telnet server"),
             pkg => 'telnet-server-krb5',
             ports => '23/tcp',
             hide => 1,
         },
         {
+	    id => 'nfs',
             name => $self->loc->N("NFS Server"),
             pkg => 'nfs-utils nfs-utils-clients',
             ports => '111/tcp 111/udp 2049/tcp 2049/udp ' . network::nfs::list_nfs_ports(),
@@ -152,58 +203,68 @@ sub _initAllServers {
             restart => 'nfs-common nfs-server',
         },
         {
+	    id => 'smb',
             name => $self->loc->N("Windows Files Sharing (SMB)"),
             pkg => 'samba-server',
             ports => '137/tcp 137/udp 138/tcp 138/udp 139/tcp 139/udp 445/tcp 445/udp 1024:1100/tcp 1024:1100/udp',
             hide => 1,
         },
         {
+	    id => 'bacula',
             name => $self->loc->N("Bacula backup"),
             pkg => 'bacula-fd bacula-sd bacula-dir-common',
             ports => '9101:9103/tcp',
             hide => 1,
         },
         {
+	    id => 'syslog',
             name => $self->loc->N("Syslog network logging"),
             pkg => 'rsyslog syslog-ng',
             ports => '514/udp',
             hide => 1,
         },
         {
+	    id => 'cups',
             name => $self->loc->N("CUPS server"),
             pkg => 'cups',
             ports => '631/tcp 631/udp',
             hide => 1,
         },
         {
+	    id => 'mysql',
             name => $self->loc->N("MySQL server"),
             pkg => 'mysql',
             ports => '3306/tcp 3306/udp',
             hide => 1,
         },
         {
+	    id => 'postgresql',
             name => $self->loc->N("PostgreSQL server"),
             pkg => 'postgresql8.2 postgresql8.3',
             ports => '5432/tcp 5432/udp',
             hide => 1,
         },
         {
+	    id => 'echo',
             name => $self->loc->N("Echo request (ping)"),
             ports => '8/icmp',
             force_default_selection => 0,
         },
         {
+	    id => 'zeroconf',
             name => $self->loc->N("Network services autodiscovery (zeroconf and slp)"),
             ports => '5353/udp 427/udp',
             pkg => 'avahi cups openslp',
         },
         {
+	    id => 'bittorrent',
             name => $self->loc->N("BitTorrent"),
             ports => '6881:6999/tcp 6881:6999/udp',
             hide => 1,
             pkg => 'bittorrent deluge ktorrent transmission vuze rtorrent ctorrent',
         },
         {
+	    id => 'wmds',
             name => $self->loc->N("Windows Mobile device synchronization"),
             pkg => 'synce-hal',
             ports => '990/tcp 999/tcp 5678/tcp 5679/udp 26675/tcp',
@@ -211,6 +272,18 @@ sub _initAllServers {
         },
     );
     return \@all_servers; 
+}
+
+sub _initIFW {
+    my $self = shift();
+    my @ifw_rules = (
+	{
+	    id => 'psd',
+	    name => $self->loc->N("Port scan detection"),
+	    ifw_rule => 'psd',
+	},
+    );
+    return \@ifw_rules;
 }
 
 sub _initNet {
@@ -249,6 +322,29 @@ sub port2server {
 	}
     }
     return 0;
+}
+
+#=============================================================
+
+=head2 to_ports
+
+=head3 INPUT
+
+    $self: this object
+    
+    $unlisted: unlisted services
+
+=head3 DESCRIPTION
+
+    This method converts from server definitions to port definitions
+
+=cut
+
+#=============================================================
+
+sub to_ports {
+    my ($servers, $unlisted) = @_;
+    join(' ', (map { $_->{ports} } @$servers), if_($unlisted, $unlisted));
 }
 
 #=============================================================
@@ -339,6 +435,172 @@ drakconnect before going any further."),
 
 #=============================================================
 
+=head2 choose_watched_services
+
+=head3 INPUT
+
+    $self: this object
+    
+    $disabled: boolean
+    
+    $servers: array of hashes representing servers
+    
+    $unlisted: array of hashes with the port not listed (???)
+    
+    $log_net_drop: network::shorewall log_net_drop attribute
+
+=head3 DESCRIPTION
+
+    This method shows the main dialog to let users choose the allowed services
+
+=cut
+
+#=============================================================
+
+sub choose_watched_services {
+    my ($self, $servers, $unlisted) = @_;
+
+    my @l = (@{$self->ifw_rules()}, @$servers, map { { ports => $_ } } split(' ', $unlisted));
+    
+    my $enabled = 1;
+    $_->{ifw} = 1 foreach @l;
+
+    $self->ask_WatchedServices({
+	  title => $self->loc->N("Interactive Firewall"),
+	  icon => $network::shorewall::firewall_icon,
+	  # if_(!$::isEmbedded, banner_title => N("Interactive Firewall")),
+	  messages =>
+	    $self->loc->N("You can be warned when someone accesses to a service or tries to intrude into your computer.
+Please select which network activities should be watched."),
+	},
+        [
+	  { 
+	    text => $self->loc->N("Use Interactive Firewall"), val => \$enabled, type => 'bool' },
+	    map { 
+	      {
+		text => (exists $_->{name} ? $_->{name} : $_->{ports}),
+		val => \$_->{ifw},
+		type => 'bool', disabled => sub { !$enabled },
+	      },
+            } @l,
+        ]);
+    my ($rules, $ports) = partition { exists $_->{ifw_rule} } grep { $_->{ifw} } @l;
+    # set_ifw($in->do_pkgs, $enabled, [ map { $_->{ifw_rule} } @$rules ], to_ports($ports));
+
+    # return something to say that we are done ok
+    return ($rules, $ports);
+}
+
+#=============================================================
+
+sub ask_WatchedServices {
+    my $self = shift;
+
+    my ($dlg_data,
+	$items) = @_;
+
+    my $old_title = yui::YUI::app()->applicationTitle();
+	
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($dlg_data->{title});
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $optional = yui::YUI::optionalWidgetFactory;
+    
+    $self->dialog($factory->createMainDialog());
+    my $layout    = $factory->createVBox($self->dialog);
+
+    my $hbox_header = $factory->createHBox($layout);
+    my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));
+    my $headRight = $factory->createHBox($factory->createRight($hbox_header));
+
+    my $logoImage = $factory->createImage($headLeft, $dlg_data->{icon});
+    my $labelAppDescription = $factory->createLabel($headRight,$dlg_data->{messages}); 
+    $logoImage->setWeight($yui::YD_HORIZ,0);
+    $labelAppDescription->setWeight($yui::YD_HORIZ,3);
+
+    my $hbox_content = $factory->createHBox($layout);
+
+    my $widgetContainer = $factory->createVBox($hbox_content);
+    
+    
+    foreach my $item(@{$items})
+    {
+	if(defined($item->{label}))
+	{
+	    $factory->createLabel($factory->createLeft($factory->createHBox($widgetContainer)), $item->{label});
+	}
+	elsif(defined($item->{text}))
+	{
+	    my $ckbox = $factory->createCheckBox(
+			  $factory->createLeft($factory->createHBox($widgetContainer)), 
+			  $item->{text}, 
+			  ${$item->{val}}
+	    );
+	    $ckbox->setNotify(1);
+	    push @{$self->wdg_ifw()}, {
+	      id => $item->{id},
+	      widget => \$ckbox,
+	      value => $item->{val},
+	      };
+	    $ckbox->DISOWN();
+	}
+    }
+    
+    my $hbox_foot = $factory->createHBox($layout);
+    my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
+    my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
+
+    # main loop
+    while(1) {
+        my $event     = $self->dialog->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+	    ### Buttons and widgets ###
+            my $widget = $event->widget();
+            
+            # loop on every checkbox representing servers
+            foreach my $server(@{$self->wdg_servers()})
+            {
+	      if($widget == ${$server->{widget}})
+	      {
+		  ${$server->{value}} = !${$server->{value}};
+	      }
+            }
+            
+            if ($widget == $cancelButton) {
+                last;
+            }elsif ($widget == $aboutButton) {
+		my $abtdlg = $self->aboutDialog();
+		$abtdlg->{name} = $dlg_data->{title};
+		$abtdlg->{description} = $self->loc->N("Graphical manager for interactive firewall rules");
+                $self->sh_gui->AboutDialog($abtdlg
+                );
+            }elsif ($widget == $okButton) {
+                last;
+            }
+        }
+    }
+
+    $self->dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($old_title);
+    
+    return 1;
+}
+
+
+#=============================================================
+
 =head2 choose_allowed_services
 
 =head3 INPUT
@@ -394,44 +656,30 @@ Have a look at /etc/services for information."),
 	{ label => $self->loc->N("Which services would you like to allow the Internet to connect to?"), title => 1 },
 	if_($self->net()->{PROFILE} && network::network::netprofile_count() > 0, { label => $self->loc->N("Those settings will be saved for the network profile <b>%s</b>", $self->net()->{PROFILE}) }),
 	{ text => $self->loc->N("Everything (no firewall)"), val => \$disabled, type => 'bool' },
-	(map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled } } } @l),
+	(map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled }, id => $_->{id} } } @l),
 	{ label => $self->loc->N("Other ports"), val => \$unlisted, advanced => 1, disabled => sub { $disabled } },
 	{ text => $self->loc->N("Log firewall messages in system logs"), val => \$log_net_drop, type => 'bool', advanced => 1, disabled => sub { $disabled } },
     ];
     
-    $self->ask_AllowedServices($dialog_data, $items) or return;
+    $self->ask_AllowedServices($dialog_data, $items);
 
+    for my $server(@{$self->wdg_servers()})
+    {
+	for my $k(keys @l)
+	{
+	    if(defined($l[$k]->{id}) && defined($server->{id}))
+	    {
+		if($l[$k]->{id} eq $server->{id})
+		{
+		    $l[$k]->{on} = ${$server->{value}};
+		    last;
+		}
+	    }
+	}
+    }
+    
     return ($disabled, [ grep { $_->{on} } @l ], $unlisted, $log_net_drop);
 }
-
-#=============================================================
-
-=head2 start
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 DESCRIPTION
-
-    This method extends Module::start and is invoked to
-    start  host manager
-
-=cut
-
-#=============================================================
-
-sub start {
-    my $self = shift;
-    
-    $self->all_servers($self->_initAllServers());
-    
-    
-    
-    my ($disabled, $servers, $unlisted, $log_net_drop) = $self->get_conf(undef) or return;
-    ($disabled, $servers, $unlisted, $log_net_drop) = $self->choose_allowed_services($disabled, $servers, $unlisted, $log_net_drop) or return;
-    
-};
 
 #=============================================================
 
@@ -469,14 +717,25 @@ sub ask_AllowedServices {
     {
 	if(defined($item->{label}))
 	{
-	    $factory->createLabel($widgetContainer, $item->{label});
+	    $factory->createLabel($factory->createLeft($factory->createHBox($widgetContainer)), $item->{label});
 	}
 	elsif(defined($item->{text}))
 	{
-	    $factory->createLabel($widgetContainer, $item->{text} . " - ". $item->{val} . " - " . $item->{type});
+	    my $ckbox = $factory->createCheckBox(
+			  $factory->createLeft($factory->createHBox($widgetContainer)), 
+			  $item->{text}, 
+			  ${$item->{val}}
+	    );
+	    $ckbox->setNotify(1);
+	    push @{$self->wdg_servers()}, {
+	      id => $item->{id},
+	      widget => \$ckbox,
+	      value => $item->{val},
+	      };
+	    $ckbox->DISOWN();
 	}
     }
-
+    
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
@@ -494,32 +753,124 @@ sub ask_AllowedServices {
             last;
         }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
-### Buttons and widgets ###
+	    ### Buttons and widgets ###
             my $widget = $event->widget();
+            
+            # loop on every checkbox representing servers
+            foreach my $server(@{$self->wdg_servers()})
+            {
+	      if($widget == ${$server->{widget}})
+	      {
+		  ${$server->{value}} = !${$server->{value}};
+	      }
+            }
+            
             if ($widget == $cancelButton) {
                 last;
             }elsif ($widget == $aboutButton) {
-                $self->sh_gui->AboutDialog({
-                    name => $dlg_data->{title},
-                    version => $VERSION,
-                    credits => "Copyright (c) 2013-2015 by Matteo Pasotti",
-                    license => "GPLv2",
-                    description => $self->loc->N("Graphical manager for firewall rules"),
-                    authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
-                    }
+		my $abtdlg = $self->aboutDialog();
+		$abtdlg->{name} = $dlg_data->{title};
+		$abtdlg->{description} = $self->loc->N("Graphical manager for firewall rules");
+                $self->sh_gui->AboutDialog($abtdlg
                 );
             }elsif ($widget == $okButton) {
-                # write changes
-                return 
                 last;
             }
         }
     }
 
-    $self->dialog->destroy() ;
+    $self->dialog->destroy();
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($old_title);
+    
+    return 1;
 }
+
+#=============================================================
+
+=head2 set_ports
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method extends Module::start and is invoked to
+    start  host manager
+
+=cut
+
+#=============================================================
+
+sub set_ports {
+    my ($disabled, $ports, $log_net_drop) = @_;
+
+    if (!$disabled || -x "$::prefix/sbin/shorewall") {
+	# $do_pkgs->ensure_files_are_installed([ [ qw(shorewall shorewall) ], [ qw(shorewall-ipv6 shorewall6) ] ], $::isInstall) or return;
+	my $shorewall = network::shorewall::read(!$disabled);
+	if (!$shorewall) {
+	    print ("unable to read shorewall configuration, skipping installation");
+	    return;
+	}
+
+	$shorewall->{disabled} = $disabled;
+	$shorewall->{ports} = $ports;
+        $shorewall->{log_net_drop} = $log_net_drop;
+	print ($disabled ? "disabling shorewall" : "configuring shorewall to allow ports: $ports");
+	network::shorewall::write($shorewall, undef);
+    }
+}
+
+#=============================================================
+
+=head2 start
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    This method extends Module::start and is invoked to
+    start  host manager
+
+=cut
+
+#=============================================================
+
+sub start {
+    my $self = shift;
+    
+    my @server = ();
+    $self->wdg_servers(@server);
+    
+    # init servers definitions
+    $self->all_servers($self->_initAllServers());
+    
+    # initialize ifw_rules here
+    $self->ifw_rules($self->_initIFW());
+    
+    my ($disabled, $servers, $unlisted, $log_net_drop) = $self->get_conf(undef) or return;
+    ($disabled, $servers, $unlisted, $log_net_drop) = $self->choose_allowed_services($disabled, $servers, $unlisted, $log_net_drop) or return;
+    
+    my $system_file = '/etc/sysconfig/drakx-net';
+    my %global_settings = getVarsFromSh($system_file);
+    
+    if (!$disabled && (!defined($global_settings{IFW}) || text2bool($global_settings{IFW}))) {
+        $self->choose_watched_services($servers, $unlisted) or return;
+    }
+    
+    # preparing services when required ( look at $self->all_servers() )
+    foreach (@$servers) {
+        exists $_->{prepare} and $_->{prepare}();
+    }
+
+    my $ports = $self->to_ports($servers, $unlisted);
+
+    $self->set_ports($disabled, $ports, $log_net_drop) or return;
+    
+};
 
 1;
