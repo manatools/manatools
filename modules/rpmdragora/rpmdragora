@@ -28,7 +28,7 @@
 
 use File::ShareDir ':ALL';
 
-use MDK::Common::Func qw(any if_);
+use MDK::Common::Func qw(any if_ before_leaving);
 use utf8;
 
 use MDK::Common::DataStructure qw(uniq intersection);
@@ -117,6 +117,28 @@ sub _filterbox_callback {
     my $val = $rfilters->[$curr_index];
     if ($filter->[0] ne $val) {
         $filter->[0] = $val;
+        reset_search();
+        slow_func(sub { switch_pkg_list_mode($default_list_mode) });
+        $options->{rebuild_tree}->();
+    }
+
+    yui::YUI::app()->normalCursor();
+}
+
+sub _searchmenu_callback {
+    my ($selection, $options, $search_types, $current_search_type) = @_;
+    state $old_index = -1;
+
+    # TODO add a check on selection type YItem
+    my $curr_index = $selection->index();
+    return if $curr_index == $old_index;
+
+    yui::YUI::app()->busyCursor();
+
+    $old_index = $curr_index;
+    my $val = $search_types->[$curr_index];
+    if ($$current_search_type ne $val) {
+        $$current_search_type = $val;
         reset_search();
         slow_func(sub { switch_pkg_list_mode($default_list_mode) });
         $options->{rebuild_tree}->();
@@ -231,8 +253,8 @@ sub _do_search($$$$$$) {
         my $searchw = $factory->createPopupDialog;
         my $vbox = $factory->createVBox($searchw);
         my $lblWIP = $factory->createLabel($vbox, $loc->N("Please wait, searching..."));
-        my $searchprogress = $factory->createProgressBar($vbox, 'ProgressBar');
-        my $stop_button = $factory->createIconButton($vbox,"",$loc->N("Stop"));
+        my $searchprogress = $factory->createProgressBar($vbox, '');
+#         my $stop_button = $factory->createIconButton($vbox,"",$loc->N("Stop"));
 
         #gtkadd(
         #$searchw->{window},
@@ -250,86 +272,87 @@ sub _do_search($$$$$$) {
         #),
         #);
         #$searchw->sync;
-        $searchw->pollEvent();
         $searchw->recalcLayout();
-        $searchw->doneMultipleChanges();
+        $searchw->pollEvent();
+
         # should probably not account backports packages or find a way to search them:
-        my $total_size = keys %$pkgs;
-        my $progresscount;
+        my $total_size = scalar keys %$pkgs;
+        my $progresscount = 0;
 
-            my $update_search_pb = sub {
-                $progresscount++;
-                if (!($progresscount % 100)) {
-                    $progresscount <= $total_size and $searchprogress->setValue($progresscount/$total_size);
-                    $searchw->flush; # refresh and handle clicks
-                }
-            };
-            foreach my $medium (grep { !$_->{ignore} } @{$urpm->{media}}) {
-                $searchstop and last;
-                my $gurpm; # per medium download progress bar (if needed)
-                my $_gurpm_clean_guard = before_leaving { undef $gurpm };
-                my $xml_info_file =
-                  urpm::media::any_xml_info($urpm, $medium,
-                                            ($current_search_type eq 'files' ? 'files' : 'info'),
-                                            undef,
-                                            sub {
-                                                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
-                                                                                transient => $::main_window);
-                                                download_callback($gurpm, @_) or do {
-                                                    $searchstop = 1;
-                                                };
-                                            });
-                if (!$xml_info_file) {
-                    $urpm->{error}($loc->N("no xml-info available for medium \"%s\"", $medium->{name}));
-                    next;
-                }
-                $searchstop and last;
+        my $update_search_pb = sub {
+            $progresscount++;
+            my $val = int($progresscount * 100 / $total_size);
+            if (!($progresscount % 100)) {
+                $progresscount <= $total_size and $searchprogress->setValue($val);
+                $searchw->pollEvent() if $searchw->isTopmostDialog(); # refresh only if top most or crashing
+            }
+        };
+        foreach my $medium (grep { !$_->{ignore} } @{$urpm->{media}}) {
+            $searchstop and last;
+            my $gurpm; # per medium download progress bar (if needed)
+            my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
+            my $xml_info_file =
+                urpm::media::any_xml_info($urpm, $medium,
+                                        ($current_search_type eq 'files' ? 'files' : 'info'),
+                                        undef,
+                                        sub {
+                                            $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
+                                                                            transient => $::main_window);
+                                            download_callback($gurpm, @_) or do {
+                                                $searchstop = 1;
+                                            };
+                                        });
+            if (!$xml_info_file) {
+                $urpm->{error}($loc->N("no xml-info available for medium \"%s\"", $medium->{name}));
+                next;
+            }
+            $searchstop and last;
 
-                require urpm::xml_info;
-                require urpm::xml_info_pkg;
+            require urpm::xml_info;
+            require urpm::xml_info_pkg;
 
-                $urpm->{log}("getting information from $xml_info_file");
-                if ($current_search_type eq 'files') {
-                    # special version for speed (3x faster), hopefully fully compatible
-                    my $F = urpm::xml_info::open_lzma($xml_info_file);
-                    my $fn;
-                    local $_;
-                    while (<$F>) {
-                        if ($searchstop) {
-                            statusbar_msg($loc->N("Search aborted"), 1);
-                            goto end_search;
-                        }
-                        if (m!^<!) {
-                            ($fn) = /fn="(.*)"/;
-                            $update_search_pb->();
-                        } elsif (/$entry_rx/) {
-                            $fn or $urpm->{fatal}("fast algorithm is broken, please report a bug");
-                            push @search_results, $fn;
-                        }
-                    }
-                } else {
-                    eval {
-                        urpm::xml_info::do_something_with_nodes(
-                            'info',
-                            $xml_info_file,
-                            sub {
-                                $searchstop and die 'search aborted';
-                                my ($node) = @_;
-                                $update_search_pb->();
-                                push @search_results, $node->{fn} if $node->{description} =~ $entry_rx;
-                                #$searchstop and last;
-                                return 0 || $searchstop;
-                            },
-                        );
-                    };
-                    my $err = $@;
-                    if ($err =~ /search aborted/) {
+            $urpm->{log}("getting information from $xml_info_file");
+            if ($current_search_type eq 'files') {
+                # special version for speed (3x faster), hopefully fully compatible
+                my $F = urpm::xml_info::open_lzma($xml_info_file);
+                my $fn;
+                local $_;
+                while (<$F>) {
+                    if ($searchstop) {
                         statusbar_msg($loc->N("Search aborted"), 1);
+                        goto end_search;
                     }
+                    if (m!^<!) {
+                        ($fn) = /fn="(.*)"/;
+                        $update_search_pb->();
+                    } elsif (/$entry_rx/) {
+                        $fn or $urpm->{fatal}("fast algorithm is broken, please report a bug");
+                        push @search_results, $fn;
+                    }
+                }
+            } else {
+                eval {
+                    urpm::xml_info::do_something_with_nodes(
+                        'info',
+                        $xml_info_file,
+                        sub {
+                            $searchstop and die 'search aborted';
+                            my ($node) = @_;
+                            $update_search_pb->();
+                            push @search_results, $node->{fn} if $node->{description} =~ $entry_rx;
+                            #$searchstop and last;
+                            return 0 || $searchstop;
+                        },
+                    );
+                };
+                my $err = $@;
+                if ($err =~ /search aborted/) {
+                    statusbar_msg($loc->N("Search aborted"), 1);
                 }
             }
+        }
 
-          end_search:
+        end_search:
         @search_results = uniq(@search_results); #- there can be multiple packages with same version/release for different arch's
         @search_results = intersection(\@search_results, \@filtered_pkgs);
         $searchw->destroy;
@@ -420,33 +443,8 @@ sub _run_treeview_dialog {
     $tree = $factory->createTree($hbox_middle, "");
     $tree->setWeight(0,20);
     $tree->setNotify(1);
-    #OLD $tree->get_selection->set_mode('browse');
 
-    #OLD $tree->append_column(Gtk2::TreeViewColumn->new_with_attributes(undef, Gtk2::MDV::CellRendererPixWithLabel->new, 'pixbuf' => $grp_columns{icon}, label => $grp_columns{label}));
-    #OLD $tree->set_headers_visible(0);
-
-    #OLD $detail_list_model = Gtk2::ListStore->new("Glib::String",
-    #                                          "Gtk2::Gdk::Pixbuf",
-    #                                          "Glib::String",
-    #                                          "Glib::Boolean",
-    #                                          "Glib::String",
-    #                                          "Glib::String",
-    #                                          "Glib::String",
-    #                                          "Glib::String",
-    #                                          "Glib::Boolean");
-    #OLD $detail_list = Gtk2::TreeView->new_with_model($detail_list_model);
     my $detail_list_header = new yui::YTableHeader();
-    #$detail_list->append_column(
-    #    my $col_sel = Gtk2::TreeViewColumn->new_with_attributes(
-    #        undef,
-    #        Gtk2::CellRendererToggle->new,
-    #        active => $pkg_columns{selected},
-    #        activatable => $pkg_columns{selectable}
-    #    ));
-    #$col_sel->set_fixed_width(34); # w/o this the toggle cells are not displayed
-    #$col_sel->set_sizing('fixed');
-    #$col_sel->set_sort_column_id($pkg_columns{selected});
-
     my $display_arch_col = to_bool(arch() =~ /64/);
     my @columns = (qw(name summary version release), if_($display_arch_col, 'arch'));
 
@@ -479,44 +477,14 @@ sub _run_treeview_dialog {
     ## check column is first no title needed here, but we need to add it
     $detail_list_header->addColumn("");
     foreach my $col (@columns{@columns}) {
-        #OLD $detail_list->append_column(
-        #    $col->{widget} =
-        #      Gtk2::TreeViewColumn->new_with_attributes(
-        #          ' ' . $col->{title} . ' ',
-        #          $col->{renderer} = Gtk2::CellRendererText->new,
-        #          ($col->{markup} ? (markup => $col->{markup}) : (text => $col->{text})),
-        #      )
-        #    );
-        #$col->{widget}->set_sort_column_id($col->{markup} || $col->{text});
         $detail_list_header->addColumn($col->{title});
     }
 
-    #OLD $columns{$_}{widget}->set_sizing('autosize') foreach @columns;
-    #OLD $columns{name}{widget}->set_property('expand', '1');
-    #OLD $columns{name}{renderer}->set_property('ellipsize', 'end');
-    #OLD $columns{$_}{renderer}->set_property('xpad', '6') foreach @columns;
-    #OLD $columns{name}{widget}->set_resizable(1);
-    #OLD $detail_list_model->set_sort_column_id($pkg_columns{text}, 'ascending');
-    #OLD $detail_list_model->set_sort_func($pkg_columns{version}, \&sort_callback);
-    #OLD $detail_list->set_rules_hint(1);
-
-    #OLD $detail_list->append_column(
-    #    my $pixcolumn =
-    #      Gtk2::TreeViewColumn->new_with_attributes(
-    #          #-PO: "Status" should be kept *small* !!!
-    #          $loc->N("Status"),
-    #          my $rdr = Gtk2::CellRendererPixbuf->new,
-    #          'pixbuf' => $pkg_columns{state_icon})
-    #    );
-    #$rdr->set_fixed_size(34, 24);
-    #$pixcolumn->set_sort_column_id($pkg_columns{state});
     $detail_list_header->addColumn($loc->N("Status"));
 
-    # it should be istanciated this way
     $detail_list = $mgaFactory->createCBTable($hbox_middle,$detail_list_header,$yui::YCBTableCheckBoxOnFirstColumn);
     $detail_list->setWeight(0,50);
     $detail_list->setImmediateMode(1);
-    #OLD compute_main_window_size($w);
 
 =for comment
     my $cursor_to_restore;
@@ -630,20 +598,38 @@ sub _run_treeview_dialog {
     $filter_box->addItems($itemColl);
     $filter_box->setNotify(1);
 
+
+    my %local_search_types = (
+        normal       => $loc->N("in names"),
+        descriptions => $loc->N("in descriptions"),
+        summaries    => $loc->N("in summaries"),
+        files        => $loc->N("in file names"),
+    );
     my @search_types = ( qw(normal descriptions summaries files) );
     my $current_search_type = $search_types[0];
 
     my $search_menu = $factory->createComboBox($hbox_top,"");
-    my $i = 0;
-    my $previous;
-    foreach ($loc->N("in names"), $loc->N("in descriptions"), $loc->N("in summaries"), $loc->N("in file names")) {
-        my ($name, $val) = ($_, $i);
-        #OLD $search_menu->append(gtksignal_connect(gtkshow(
-        #    $previous = Gtk2::RadioMenuItem->new_with_label($previous, $name)),
-        #                                       activate => sub { $current_search_type = $search_types[$val] }));
-        $search_menu->addItem($name);
-        $i++;
+    $itemColl = new yui::YItemCollection;
+    foreach (@search_types) {
+        my $item = yui::YItem->new("$local_search_types{$_}", 0);
+        $item->setSelected(1) if defined($local_search_types{$current_search_type}) && $_ eq $current_search_type;
+        $itemColl->push($item);
+        $item->DISOWN();
     }
+    $search_menu->addItems($itemColl);
+    $search_menu->setNotify(1);
+
+
+#     my $i = 0;
+#     my $previous;
+#     foreach ($loc->N("in names"), $loc->N("in descriptions"), $loc->N("in summaries"), $loc->N("in file names")) {
+#         my ($name, $val) = ($_, $i);
+#         #OLD $search_menu->append(gtksignal_connect(gtkshow(
+#         #    $previous = Gtk2::RadioMenuItem->new_with_label($previous, $name)),
+#         #                                       activate => sub { $current_search_type = $search_types[$val] }));
+#         $search_menu->addItem($name);
+#         $i++;
+#     }
 
     $find_entry = $factory->createInputField($hbox_top, "");
 
@@ -1152,6 +1138,9 @@ print "Menu " . $menuLabel . " chosen\n";
             }
             elsif ($widget == $filter_box) {
                 _filterbox_callback($filter_box->selectedItem(), \%$options, \@ordered_filters);
+            }
+            elsif ($widget == $search_menu) {
+                _searchmenu_callback($search_menu->selectedItem(), \%$options, \@search_types, \$current_search_type);
             }
             elsif ($widget == $tree) {
                 _tree_callback($tree->currentItem(),\%$options);
