@@ -117,7 +117,6 @@ sub BUILD {
 
     my $factory = yui::YUI::widgetFactory;
     my $vbox;
-$DB::single = 1;
 
     if (! $self->main_dialog) {
         if ($self->parent) {
@@ -257,6 +256,9 @@ sub DEMOLISH {
     $self->main_dialog->destroy if !$self->parent;
 }
 
+# TODO cancel button cannot be easily managed in libyui polling events
+# removed atm
+#
 # sub validate_cancel {
 #     my ($self, $cancel_msg, $cancel_cb) = @_;
 #     $self->{main_dialog}->startMultipleChanges();

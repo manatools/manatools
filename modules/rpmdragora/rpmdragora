@@ -79,7 +79,7 @@ sub _viewbox_callback {
 
     # TODO add a check on selection type YItem
     my $curr_index = $selection->index();
-    return if $curr_index == $old_index;
+    return 0 if $curr_index == $old_index;
 
     yui::YUI::app()->busyCursor();
 
@@ -101,6 +101,8 @@ sub _viewbox_callback {
     }
 
     yui::YUI::app()->normalCursor();
+
+    return 1;
 }
 
 sub _filterbox_callback {
@@ -109,7 +111,7 @@ sub _filterbox_callback {
 
     # TODO add a check on selection type YItem
     my $curr_index = $selection->index();
-    return if $curr_index == $old_index;
+    return 0 if $curr_index == $old_index;
 
     yui::YUI::app()->busyCursor();
 
@@ -123,6 +125,8 @@ sub _filterbox_callback {
     }
 
     yui::YUI::app()->normalCursor();
+
+    return 1;
 }
 
 sub _searchmenu_callback {
@@ -131,7 +135,7 @@ sub _searchmenu_callback {
 
     # TODO add a check on selection type YItem
     my $curr_index = $selection->index();
-    return if $curr_index == $old_index;
+    return 0 if $curr_index == $old_index;
 
     yui::YUI::app()->busyCursor();
 
@@ -145,6 +149,8 @@ sub _searchmenu_callback {
     }
 
     yui::YUI::app()->normalCursor();
+
+    return 1;
 }
 
 
@@ -623,18 +629,6 @@ sub _run_treeview_dialog {
     }
     $search_menu->addItems($itemColl);
     $search_menu->setNotify(1);
-
-
-#     my $i = 0;
-#     my $previous;
-#     foreach ($loc->N("in names"), $loc->N("in descriptions"), $loc->N("in summaries"), $loc->N("in file names")) {
-#         my ($name, $val) = ($_, $i);
-#         #OLD $search_menu->append(gtksignal_connect(gtkshow(
-#         #    $previous = Gtk2::RadioMenuItem->new_with_label($previous, $name)),
-#         #                                       activate => sub { $current_search_type = $search_types[$val] }));
-#         $search_menu->addItem($name);
-#         $i++;
-#     }
 
     $find_entry = $factory->createInputField($hbox_top, "");
 
@@ -1120,6 +1114,7 @@ print "Menu " . $menuLabel . " chosen\n";
             # widget selected
 
             my $widget      = $event->widget();
+            my $perform_search = 0;
 
             if($widget == $reset_search_button) {
                 $find_entry->setValue('');
@@ -1127,9 +1122,7 @@ print "Menu " . $menuLabel . " chosen\n";
                 $options->{rebuild_tree}->();
             }
             elsif ($widget == $find_button) {
-                yui::YUI::app()->busyCursor();
-                _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
-                yui::YUI::app()->normalCursor();
+                $perform_search = 1;
             }
             elsif ($widget == $select_all_button) {
                 toggle_all($options, 1);
@@ -1139,13 +1132,19 @@ print "Menu " . $menuLabel . " chosen\n";
                 do_action($options, $callback_action, $info);
             }
             elsif ($widget == $view_box) {
-                _viewbox_callback($view_box->selectedItem(), \%$options, \%wanted_categories);
+                if (_viewbox_callback($view_box->selectedItem(), \%$options, \%wanted_categories)) {
+                    $perform_search = 1 if $find_entry->value();
+                }
             }
             elsif ($widget == $filter_box) {
-                _filterbox_callback($filter_box->selectedItem(), \%$options, \@ordered_filters);
+                if (_filterbox_callback($filter_box->selectedItem(), \%$options, \@ordered_filters)) {
+                    $perform_search = 1 if $find_entry->value();
+                }
             }
             elsif ($widget == $search_menu) {
-                _searchmenu_callback($search_menu->selectedItem(), \%$options, \@search_types, \$current_search_type);
+                if (_searchmenu_callback($search_menu->selectedItem(), \%$options, \@search_types, \$current_search_type)) {
+                    $perform_search = 1 if $find_entry->value();
+                }
             }
             elsif ($widget == $tree) {
                 _tree_callback($tree->currentItem(),\%$options);
@@ -1164,6 +1163,13 @@ print "Menu " . $menuLabel . " chosen\n";
             }
             elsif ($widget == $QuitButton) {
                 last if _quit();
+            }
+
+            if ($perform_search) {
+                yui::YUI::app()->busyCursor();
+                _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
+                yui::YUI::app()->normalCursor();
+                $perform_search = 0;
             }
         }
 
