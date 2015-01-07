@@ -254,6 +254,8 @@ sub _do_search($$$$$$) {
         my $vbox = $factory->createVBox($searchw);
         my $lblWIP = $factory->createLabel($vbox, $loc->N("Please wait, searching..."));
         my $searchprogress = $factory->createProgressBar($vbox, '');
+
+        my $replace_pnt = $factory->createReplacePoint($vbox);
 #         my $stop_button = $factory->createIconButton($vbox,"",$loc->N("Stop"));
 
         #gtkadd(
@@ -282,22 +284,25 @@ sub _do_search($$$$$$) {
         my $update_search_pb = sub {
             $progresscount++;
             my $val = int($progresscount * 100 / $total_size);
-            if (!($progresscount % 100)) {
-                $progresscount <= $total_size and $searchprogress->setValue($val);
-                $searchw->pollEvent() if $searchw->isTopmostDialog(); # refresh only if top most or crashing
-            }
+            $searchprogress->setValue($val);
+            $searchw->pollEvent() if $searchw->isTopmostDialog(); # refresh only if top most or crashing
         };
+        my $gurpm; # per medium download progress bar (if needed)
+        my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
         foreach my $medium (grep { !$_->{ignore} } @{$urpm->{media}}) {
             $searchstop and last;
-            my $gurpm; # per medium download progress bar (if needed)
-            my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
+
             my $xml_info_file =
                 urpm::media::any_xml_info($urpm, $medium,
                                         ($current_search_type eq 'files' ? 'files' : 'info'),
                                         undef,
                                         sub {
-                                            $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
-                                                                            transient => $::main_window);
+                                            $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(
+                                                text => $loc->N("Please wait"),
+                                                main_dialog => $searchw,
+                                                parent => $replace_pnt,
+                                            );
+                                            $gurpm->progress(0);
                                             download_callback($gurpm, @_) or do {
                                                 $searchstop = 1;
                                             };

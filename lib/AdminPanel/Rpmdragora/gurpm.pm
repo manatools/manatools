@@ -1,152 +1,294 @@
 # vim: set et ts=4 sw=4:
 package AdminPanel::Rpmdragora::gurpm;
-#*****************************************************************************
-#
-#  Copyright (c) 2002 Guillaume Cottenceau
-#  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
-#  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
-#  Copyright (c) 2005-2007 Mandriva SA
-#  Copyright (c) 2013 Matteo Pasotti <matteo.pasotti@gmail.com>
-#
-#  This program is free software; you can redistribute it and/or modify
-#  it under the terms of the GNU General Public License version 2, as
-#  published by the Free Software Foundation.
-#
-#  This program is distributed in the hope that it will be useful,
-#  but WITHOUT ANY WARRANTY; without even the implied warranty of
-#  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#  GNU General Public License for more details.
-#
-#  You should have received a copy of the GNU General Public License
-#  along with this program; if not, write to the Free Software
-#  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-#
-#*****************************************************************************
-#
-# $Id: gurpm.pm 255450 2009-04-03 16:00:16Z tv $
 
-use strict;
+#============================================================= -*-perl-*-
+
+=head1 NAME
+
+    AdminPanel::Rpmdragora::gurpm - Module that shows the urpmi
+                                    progress status
+
+=head1 SYNOPSIS
+
+    my %option = (title => "Urpmi action ivoked", text => "Please wait", );
+    my $gurpmi = AdminPanel::Rpmdragora::gurpm->new(%option);
+    $gurpmi->progress(45);
+
+    #add to an existing dialog
+    %option = (title => "Urpmi action ivoked", text => "Please wait", main_dialog => $dialog, parent => $parent_container);
+    $gurpmi = AdminPanel::Rpmdragora::gurpm->new(%option);
+    $gurpmi->progress(20);
+
+=head1 DESCRIPTION
+
+    This class is used to show the progress of an urpmi operation on
+    its progress bar. It can be istantiated as a popup dialog or used
+    to add label and progress bar into a YLayoutBox container.
+
+=head1 SUPPORT
+
+    You can find documentation for this module with the perldoc command:
+
+    perldoc AdminPanel::Rpmdragora::gurpm
+
+=head1 AUTHOR
+
+    Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+    Copyright (c) 2002 Guillaume Cottenceau
+    Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
+    Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
+    Copyright (c) 2005-2007 Mandriva SA
+    Copyright (c) 2013 Matteo Pasotti <matteo.pasotti@gmail.com>
+    Copyright (C) 2015, Angelo Naselli <anaselli@linux.it>
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2, as
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=cut
+
+
+use Moose;
+use Carp;
+use Time::HiRes;
 
 use yui;
-use Time::HiRes;
 use feature 'state';
 
-sub new {
-    my ($class, $title, $initializing, %options) = @_;
-    my $self = {
-		my $label = 0,
-		my $factory = 0,
-		my $mainw = 0,
-		my $vbox = 0,
-		my $progressbar = 0,
-		my $cancel = 0
-	};
-    bless $self, 'AdminPanel::Rpmdragora::gurpm';
-    #my $mainw = bless(ugtk2->new($title, %options, default_width => 600, width => 600), $self);
-    $self->{factory} = yui::YUI::widgetFactory;
-    $self->{mainw} = $self->{factory}->createPopupDialog();
 
-    $self->{mainw}->startMultipleChanges();
+has 'title' => (
+    is => 'rw',
+    isa => 'Str',
+);
 
-    #$::main_window = $self->{mainw};
-    $self->{vbox} = $self->{factory}->createVBox($self->{mainw});
-    #OLD $mainw->{label} = gtknew('Label', text => $initializing, alignment => [ 0.5, 0 ]);
-    $self->{label} = $self->{factory}->createLabel($self->{vbox}, $initializing);
-    $self->{label}->setStretchable( $yui::YD_HORIZ, 1 );
-    # size label's heigh to 2 lines in order to prevent dummy vertical resizing:
-    #my $context = $mainw->{label}->get_layout->get_context;
-    #my $metrics = $context->get_metrics($mainw->{label}->style->font_desc, $context->get_language);
-    #$mainw->{label}->set_size_request(-1, 2 * Gtk2::Pango->PANGO_PIXELS($metrics->get_ascent + $metrics->get_descent));
+has 'text' => (
+    is => 'rw',
+    isa => 'Str',
+);
 
-    #OLD $mainw->{progressbar} = gtknew('ProgressBar');
-    $self->{progressbar} = $self->{factory}->createProgressBar($self->{vbox}, "");
-    #gtkadd($mainw->{window}, $mainw->{vbox} = gtknew('VBox', spacing => 5, border_width => 6, children_tight => [
-    #    $mainw->{label},
-    #    $mainw->{progressbar}
-    #]));
-    #$mainw->{rwindow}->set_position('center-on-parent');
-    #$mainw->{real_window}->show_all;
-    #select(undef, undef, undef, 0.1);  #- hackish :-(
-    #$mainw->SUPER::sync;
-    $self->{mainw}->pollEvent();
+has 'main_dialog' => (
+    is => 'rw',
+    isa => 'yui::YDialog',
+);
+
+has 'parent' => (
+    is => 'rw',
+    isa => 'yui::YReplacePoint',
+);
+
+has 'label_widget' => (
+    is => 'rw',
+    isa => 'yui::YLabel',
+    init_arg  => undef,
+);
+
+has 'progressbar' => (
+    is => 'rw',
+    isa => 'yui::YProgressBar',
+    init_arg  => undef,
+);
+
+#=============================================================
+
+=head2 BUILD
+
+=head3 DESCRIPTION
+
+    The BUILD method is called after a Moose object is created,
+    in this methods Services loads all the service information.
+
+=cut
+
+#=============================================================
+sub BUILD {
+    my $self = shift;
+
+    my $factory = yui::YUI::widgetFactory;
+    my $vbox;
+$DB::single = 1;
+
+    if (! $self->main_dialog) {
+        if ($self->parent) {
+            carp "WARNING: parent parameter is skipped without main_dialog set\n" ;
+            $self->parent(undef);
+        }
+        $self->main_dialog($factory->createPopupDialog());
+        $vbox =  $factory->createVBox($self->main_dialog);
+    }
+    else {
+        die "parent parameter is mandatory with main_dialog" if !$self->parent;
+        $self->main_dialog->startMultipleChanges();
+        $self->parent->deleteChildren();
+        $vbox = $factory->createVBox($self->parent);
+        $factory->createVSpacing($vbox, 0.5);
+    }
+
+    $self->label_widget( $factory->createLabel($vbox, $self->text) );
+    $self->label_widget->setStretchable( $yui::YD_HORIZ, 1 );
+    $self->progressbar( $factory->createProgressBar($vbox, "") );
+
+    if ($self->parent) {
+        $factory->createVSpacing($vbox, 0.5);
+        $self->parent->showChild();
+        $self->main_dialog->recalcLayout();
+        $self->main_dialog->doneMultipleChanges();
+    }
+
+    $self->main_dialog->pollEvent();
     $self->flush();
-
-    $self;
 }
 
+
+#=============================================================
+
+=head2 flush
+
+=head3 DESCRIPTION
+
+    Polls a dialog event to refresh the dialog
+
+=cut
+
+#=============================================================
 sub flush {
     my ($self) = @_;
-    $self->{mainw}->recalcLayout();
-    $self->{mainw}->doneMultipleChanges();
 
-    $self->{mainw}->waitForEvent(10);
+    $self->main_dialog->startMultipleChanges();
+    $self->main_dialog->recalcLayout();
+    $self->main_dialog->doneMultipleChanges();
 
-    $self->{mainw}->pollEvent();
+    if ($self->main_dialog->isTopmostDialog()) {
+        $self->main_dialog->waitForEvent(10);
+        $self->main_dialog->pollEvent();
+    }
+    else {
+        carp "This dialog is not a top most dialog\n";
+    }
     yui::YUI::app()->redrawScreen();
 }
 
-sub label {
-    my ($self, $label) = @_;
+#=============================================================
 
-    $self->{mainw}->startMultipleChanges();
-    $self->{label}->setValue($label) if $label;
-    #select(undef, undef, undef, 0.1);  #- hackish :-(
+=head2 label
+
+=head3 INPUT
+
+    $text: text to be shown on label
+
+=head3 DESCRIPTION
+
+    Sets the label text
+
+=cut
+
+#=============================================================
+sub label {
+    my ($self, $text) = @_;
+
+    $self->main_dialog->startMultipleChanges();
+    $self->label_widget->setValue($text) if $text;
+    $self->main_dialog->doneMultipleChanges();
+
     $self->flush();
 }
 
+#=============================================================
+
+=head2 progress
+
+=head3 INPUT
+
+    $value: integer value in the range 0..100
+
+=head3 DESCRIPTION
+
+    Sets the progress bar percentage value
+
+=cut
+
+#=============================================================
 sub progress {
     my ($self, $value) = @_;
-    state $time;
-    $time = 0 if(!defined($time));
+    state $time = 0;
+
     $value = 0 if !defined($value) || $value < 0;
     $value = 100 if 100 < $value;
-    $self->{progressbar}->setValue($value);
+
+    $self->progressbar->setValue($value);
     return if Time::HiRes::clock_gettime() - $time < 0.333;
     $time = Time::HiRes::clock_gettime();
-    $self->{mainw}->startMultipleChanges();
+
     $self->flush();
 }
 
-sub DESTROY {
-    my ($self) = @_;
-    #mygtk2::may_destroy($self);
-    $self and $self->{mainw}->destroy;
-    #$self = undef;
-    $self->{cancel} = undef;  #- in case we'll do another one later
+#=============================================================
+
+=head2 DEMOLISH
+
+=head3 INPUT
+
+    $val: boolean value indicating whether or not this method
+        was called as part of the global destruction process
+        (when the Perl interpreter exits)
+
+=head3 DESCRIPTION
+
+    Moose provides a hook for object destruction with the
+    DEMOLISH method as it does for construtor with BUILD
+
+=cut
+
+#=============================================================
+sub DEMOLISH {
+    my ($self, $val) = @_;
+
+    $self->main_dialog->destroy if !$self->parent;
 }
 
-sub validate_cancel {
-    my ($self, $cancel_msg, $cancel_cb) = @_;
-    $self->{mainw}->startMultipleChanges();
-    if (!$self->{cancel}) {
-		$self->{cancel} = $self->{factory}->createIconButton($self->{vbox},"",$cancel_msg);
-        #gtkpack__(
-	    #$self->{vbox},
-	    #$self->{hbox_cancel} = gtkpack__(
-		#gtknew('HButtonBox'),
-		#$self->{cancel} = gtknew('Button', text => $cancel_msg, clicked => \&$cancel_cb),
-	    #),
-	#);
-    }
-    #$self->{cancel}->set_sensitive(1);
-    #$self->{cancel}->show;
-    $self->flush();
-}
-
-sub invalidate_cancel {
-    my ($self) = @_;
-    $self->{cancel} and $self->{cancel}->setEnabled(0);
-}
-
-sub invalidate_cancel_forever {
-    my ($self) = @_;
-    #$self->{hbox_cancel} or return;
-    #$self->{hbox_cancel}->destroy;
-    # FIXME: temporary workaround that prevents
-    # Gtk2::Label::set_text() set_text_internal() -> queue_resize() ->
-    # size_allocate() call chain to mess up when ->shrink_topwindow()
-    # has been called (#32613):
-    #$self->shrink_topwindow;
-}
+# sub validate_cancel {
+#     my ($self, $cancel_msg, $cancel_cb) = @_;
+#     $self->{main_dialog}->startMultipleChanges();
+#     if (!$self->{cancel}) {
+# 		$self->{cancel} = $self->{factory}->createIconButton($self->{vbox},"",$cancel_msg);
+#         #gtkpack__(
+# 	    #$self->{vbox},
+# 	    #$self->{hbox_cancel} = gtkpack__(
+# 		#gtknew('HButtonBox'),
+# 		#$self->{cancel} = gtknew('Button', text => $cancel_msg, clicked => \&$cancel_cb),
+# 	    #),
+# 	#);
+#     }
+#     #$self->{cancel}->set_sensitive(1);
+#     #$self->{cancel}->show;
+#     $self->flush();
+# }
+#
+# sub invalidate_cancel {
+#     my ($self) = @_;
+#     $self->{cancel} and $self->{cancel}->setEnabled(0);
+# }
+#
+# sub invalidate_cancel_forever {
+#     my ($self) = @_;
+#     #$self->{hbox_cancel} or return;
+#     #$self->{hbox_cancel}->destroy;
+#     # FIXME: temporary workaround that prevents
+#     # Gtk2::Label::set_text() set_text_internal() -> queue_resize() ->
+#     # size_allocate() call chain to mess up when ->shrink_topwindow()
+#     # has been called (#32613):
+#     #$self->shrink_topwindow;
+# }
 
 1;

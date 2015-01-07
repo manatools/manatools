@@ -1091,8 +1091,9 @@ sub mirrors {
                                            dir => $cachedir,
                                            callback => sub {
                                                $gurpm ||=
-                                                 AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
-                                                                      transient => $::main_window);
+                                                 AdminPanel::Rpmdragora::gurpm->new(
+                                                     text => $loc->N("Please wait"),
+                                                 );
                                                $canceled ||=
                                                  !AdminPanel::Rpmdragora::pkg::download_callback($gurpm, @_);
                                                $gurpm->flush();

@@ -141,9 +141,9 @@ sub extract_header {
             $bar_id = statusbar_msg($loc->N("Getting '%s' from XML meta-data...", $xml_info), 0);
             my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
             if (my $xml_info_file = eval { urpm::media::any_xml_info($urpm, $medium, $xml_info, undef, sub {
-                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"),
-                                                              '', # FIXME: add a real string after cooker
-                                                              transient => $::main_window);
+                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(
+                    text => $loc->N("Please wait"),
+                );
                 download_callback($gurpm, @_)
                 or goto header_non_available;
             }) }) {
@@ -213,7 +213,7 @@ sub download_callback {
 
     if ($mode eq 'start') {
         $gurpm->label($loc->N("Downloading package `%s'...", urpm::util::basename($file)));
-        $gurpm->validate_cancel(but($loc->N("Cancel")), sub { $canceled = 1 });
+#         $gurpm->validate_cancel(but($loc->N("Cancel")), sub { $canceled = 1 });
     } elsif ($mode eq 'progress') {
         $gurpm->label(
             join("\n",
@@ -228,7 +228,7 @@ sub download_callback {
         $gurpm->progress(ceil($percent));
     } elsif ($mode eq 'end') {
         $gurpm->progress(100);
-        $gurpm->invalidate_cancel;
+#         $gurpm->invalidate_cancel;
     }
     !$canceled;
 }
@@ -457,7 +457,9 @@ sub get_pkgs {
 
     myexit (-1) if (warn_about_media($w, %options) == -1);
 
-    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Package installation..."), $loc->N("Initializing..."), transient => $::main_window);
+    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(
+        text => $loc->N("Please wait"),
+    );
     my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
 
     my $urpm = open_urpmi_db(update => $probe_only_for_updates && !is_it_a_devel_distro());
@@ -815,7 +817,10 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     # select packages to uninstall for !update mode:
     perform_removal($urpm, { map { $_ => $pkgs->{$_} } @to_remove }) if !$probe_only_for_updates;
 
-    $gurpm = AdminPanel::Rpmdragora::gurpm->new($loc->N("Please wait"), $loc->N("Initializing..."), transient => $::main_window);
+    $gurpm = AdminPanel::Rpmdragora::gurpm->new(
+        text => $loc->N("Please wait"),
+        title => $loc->N("Initializing..."),
+    );
     # my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
     my $something_installed;
 
@@ -925,7 +930,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                              },
                              post_download => sub {
                                  $canceled and goto return_with_exit_code;
-                                 $gurpm->invalidate_cancel_forever;
+#                                  $gurpm->invalidate_cancel_forever;
                              },
                              need_restart => sub {
                                  my ($need_restart_formatted) = @_;
@@ -1025,7 +1030,9 @@ sub perform_removal {
     my ($urpm, $pkgs) = @_;
     my @toremove = map { MDK::Common::Func::if_($pkgs->{$_}{selected}, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
     return if !@toremove;
-    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(1 ? $loc->N("Please wait") : $loc->N("Please wait, removing packages..."), $loc->N("Initializing..."), transient => $::main_window);
+    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(
+        text => $loc->N("Please wait")
+    );
     my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
 
     my $may_be_orphans = 1;
