@@ -25,6 +25,7 @@ WriteMakefile(
     },
     PREREQ_PM => {
         "Moose"              => 0,
+        "Moose::Autobox"     => 0,
         "Config::Auto"       => 0,
         "Config::Hosts"      => 0,
         "Config::Tiny"       => 0,
@@ -52,6 +53,7 @@ WriteMakefile(
         "MDK::Common::Func"   => 0,
         "MDK::Common::System" => 0,
         "MDK::Common::String" => 0,
+        "MDK::Common::Various" => 0,
         "Net::DBus"           => 0,
         "URPM"                => 0,
         "Glib"                => 0,
