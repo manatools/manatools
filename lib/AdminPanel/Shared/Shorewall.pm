@@ -4,8 +4,10 @@ use lib qw(/usr/lib/libDrakX);   # helps perl_checker
 use detect_devices;
 use network::network;
 use AdminPanel::Shared::RunProgram;
-use MDK::Common::Func qw(if_ partition);
-use MDK::Common::File qw(cat_);
+use MDK::Common::Func qw(if_ partition map_each);
+use MDK::Common::File qw(cat_ substInFile output_with_perm);
+use MDK::Common::Various qw(to_bool);
+use MDK::Common::DataStructure qw(is_empty_array_ref);
 use List::Util qw(any);
 use List::MoreUtils qw(uniq);
 use log;
@@ -105,7 +107,7 @@ sub read_ {
 
     my @policy = get_config_file('policy', $ver);
     $conf{log_net_drop} = @policy ? (any { $_->[0] eq 'net' && $_->[1] eq 'all' && $_->[2] eq 'DROP' && $_->[3] } @policy) : 1;
-
+    
     return \%conf;
     
     # get_zones has been moved to AdminPanel::Module::Firewall cause it requires
@@ -129,8 +131,42 @@ sub ports_by_proto {
     \%ports_by_proto;
 }
 
-sub write {
-    my ($conf, $o_in) = @_;
+#=============================================================
+
+=head2 write_
+
+=head3 INPUT
+
+  $conf: HASH, contains the configuration to write
+  
+  $action: Str, possible values are "keep" or "drop"
+
+=head3 OUTPUT
+
+    0: requires user interaction
+    1: everything has been done
+
+=head3 DESCRIPTION
+
+This function stores the configuration for shorewall inside
+the proper files.
+
+=head3 NOTES
+
+if write_ is called without the $action parameter it can return 0 
+(i.e. user interaction requested) when the firewall configuration 
+has been manually changed.
+
+In that case the developer will have to handle this request by providing 
+two choices within the domain (keep | drop) and then recall write_ with 
+the choosen behaviour.
+
+=cut
+
+#=============================================================
+
+sub write_ {
+    my ($conf, $action) = @_;
     my $ver = $conf->{version} || '';
     my $use_pptp = any { /^ppp/ && cat_("$::prefix/etc/ppp/peers/$_") =~ /pptp/ } @{$conf->{net_zone}};
     my $ports_by_proto = ports_by_proto($conf->{ports});
@@ -139,20 +175,14 @@ sub write {
     my ($include_drakx, $other_rules) = partition { $_ eq "INCLUDE\trules.drakx\n" } grep { !/^(#|SECTION)/ } cat_("$::prefix${shorewall_root}${ver}/rules");
     #- warn if the config is already in rules.drakx and additionnal rules are configured
     if (!is_empty_array_ref($include_drakx) && !is_empty_array_ref($other_rules)) {
+	if(!defined($action) || AdminPanel::Shared::trim($action) eq "")
+        {
+	    return 0; # user interaction requested
+        }
         my %actions = (
             keep => N("Keep custom rules"),
             drop => N("Drop custom rules"),
         );
-        my $action = 'keep';
-        !$o_in || $o_in->ask_from_(
-            {
-                messages => N("Your firewall configuration has been manually edited and contains
-rules that may conflict with the configuration that has just been set up.
-What do you want to do?"),
-                title => N("Firewall"),
-                icon => 'banner-security',
-            },
-            [ { val => \$action, type => 'list', list => [ 'keep', 'drop' ], format => sub { $actions{$_[0]} } } ]) or return;
         #- reset the rules files if the user has chosen to drop modifications
         undef $include_drakx if $action eq 'drop';
     }
@@ -161,7 +191,7 @@ What do you want to do?"),
         my ($zone, $interface) = @_;
         [ $zone, $interface, 'detect', if_(detect_devices::is_bridge_interface($interface), 'bridge') ];
     };
-
+    
     set_config_file('zones', $ver,
                     if_($has_loc_zone, [ 'loc', 'ipv' . ($ver || '4') ]),
                     [ 'net', 'ipv' . ($ver || '4') ],
@@ -181,6 +211,7 @@ What do you want to do?"),
         #- make sure the rules.drakx config is read, erasing user modifications
         set_config_file('rules', $ver, [ 'INCLUDE', 'rules.drakx' ]);
     }
+    print "Trying to write to the file "."$::prefix${shorewall_root}${ver}/rules.drakx\n";
     output_with_perm("$::prefix${shorewall_root}${ver}/" . 'rules.drakx', 0600, map { join("\t", @$_) . "\n" } (
         if_($use_pptp, [ 'ACCEPT', 'fw', 'loc:10.0.0.138', 'tcp', '1723' ]),
         if_($use_pptp, [ 'ACCEPT', 'fw', 'loc:10.0.0.138', 'gre' ]),
@@ -206,6 +237,7 @@ What do you want to do?"),
     } else {
         services::enable('shorewall', $::isInstall);
     }
+    return 1;
 }
 
 sub set_redirected_ports {
