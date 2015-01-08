@@ -211,7 +211,6 @@ sub write_ {
         #- make sure the rules.drakx config is read, erasing user modifications
         set_config_file('rules', $ver, [ 'INCLUDE', 'rules.drakx' ]);
     }
-    print "Trying to write to the file "."$::prefix${shorewall_root}${ver}/rules.drakx\n";
     output_with_perm("$::prefix${shorewall_root}${ver}/" . 'rules.drakx', 0600, map { join("\t", @$_) . "\n" } (
         if_($use_pptp, [ 'ACCEPT', 'fw', 'loc:10.0.0.138', 'tcp', '1723' ]),
         if_($use_pptp, [ 'ACCEPT', 'fw', 'loc:10.0.0.138', 'gre' ]),
