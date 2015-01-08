@@ -30,13 +30,14 @@ use yui;
 use AdminPanel::Shared qw(trim);
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Firewall;
-
-use List::Util qw(any);
-use List::MoreUtils qw(uniq);
+use AdminPanel::Shared::Shorewall;
 
 use MDK::Common::Func qw(if_ partition);
 use MDK::Common::System qw(getVarsFromSh);
 use MDK::Common::Various qw(text2bool);
+
+use List::Util qw(any);
+use List::MoreUtils qw(uniq);
 
 extends qw( AdminPanel::Module );
 
@@ -343,7 +344,7 @@ sub port2server {
 #=============================================================
 
 sub to_ports {
-    my ($servers, $unlisted) = @_;
+    my ($self, $servers, $unlisted) = @_;
     join(' ', (map { $_->{ports} } @$servers), if_($unlisted, $unlisted));
 }
 
@@ -405,10 +406,12 @@ sub get_conf {
     my $self = shift();
     my ($disabled, $o_ports) = @_;
     my $possible_servers = undef;
+    my $conf = AdminPanel::Shared::Shorewall::read_();
+    my $shorewall = AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf;
     
     if ($o_ports) {
 	return ($disabled, from_ports($o_ports));
-    } elsif (my $shorewall = network::shorewall::read()) {
+    } elsif ($shorewall) {
 	# WARNING: this condition fails (the method fails)
 	#          if manawall runs as unprivileged user
 	#          cause it can't read the interfaces file
@@ -467,7 +470,7 @@ sub choose_watched_services {
 
     $self->ask_WatchedServices({
 	  title => $self->loc->N("Interactive Firewall"),
-	  icon => $network::shorewall::firewall_icon,
+	  icon => $AdminPanel::Shared::Shorewall::firewall_icon,
 	  # if_(!$::isEmbedded, banner_title => N("Interactive Firewall")),
 	  messages =>
 	    $self->loc->N("You can be warned when someone accesses to a service or tries to intrude into your computer.
@@ -632,7 +635,7 @@ sub choose_allowed_services {
     
     my $dialog_data = {
 	title => $self->loc->N("Firewall"),
-	icon => $network::shorewall::firewall_icon,
+	icon => $AdminPanel::Shared::Shorewall::firewall_icon,
 	# if_(!$::isEmbedded, banner_title => $self->loc->N("Firewall")),
 	banner_title => $self->loc->N("Firewall"),
 	advanced_messages => $self->loc->N("You can enter miscellaneous ports. 
@@ -787,6 +790,40 @@ sub ask_AllowedServices {
     return 1;
 }
 
+sub get_zones {
+    my $self = shift();
+    my $confref = shift();
+    my $conf = ${$confref};
+    my $interfacesfile = AdminPanel::Shared::Shorewall::get_config_file('interfaces', $conf->{version} || '');
+    network::network::read_net_conf($self->net());
+    #- find all interfaces but alias interfaces
+    my @all_intf = grep { !/:/ } uniq(keys(%{$self->net()->{ifcfg}}), detect_devices::get_net_interfaces());
+    my %net_zone = map { $_ => undef } @all_intf;
+    $net_zone{$_} = 1 foreach AdminPanel::Shared::Shorewall::get_net_zone_interfaces($interfacesfile, $self->net(), \@all_intf);
+    my @retvals = $self->sh_gui->ask_multiple_fromList({
+        title => $self->loc->N("Firewall configuration"),
+        header => $self->loc->N("Please select the interfaces that will be protected by the firewall.
+
+All interfaces directly connected to Internet should be selected,
+while interfaces connected to a local network may be unselected.
+
+If you intend to use Mageia Internet Connection sharing,
+unselect interfaces which will be connected to local network.
+
+Which interfaces should be protected?
+"),
+	list => [
+        map {
+            { 
+            text => network::tools::get_interface_description($self->net(), $_), 
+            val => \$net_zone{$_}, 
+            type => 'bool' 
+            };
+        } (sort keys %net_zone) ]
+        });
+    ($conf->{net_zone}, $conf->{loc_zone}) = partition { $net_zone{$_} } keys %net_zone;
+}
+
 #=============================================================
 
 =head2 set_ports
@@ -805,11 +842,13 @@ sub ask_AllowedServices {
 #=============================================================
 
 sub set_ports {
-    my ($disabled, $ports, $log_net_drop) = @_;
-
+    my ($self, $disabled, $ports, $log_net_drop) = @_;
+        
     if (!$disabled || -x "$::prefix/sbin/shorewall") {
 	# $do_pkgs->ensure_files_are_installed([ [ qw(shorewall shorewall) ], [ qw(shorewall-ipv6 shorewall6) ] ], $::isInstall) or return;
-	my $shorewall = network::shorewall::read(!$disabled);
+	my $conf = AdminPanel::Shared::Shorewall::read_(!$disabled);
+	$self->get_zones(\$conf);
+	my $shorewall = AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf;
 	if (!$shorewall) {
 	    print ("unable to read shorewall configuration, skipping installation");
 	    return;
@@ -819,7 +858,18 @@ sub set_ports {
 	$shorewall->{ports} = $ports;
         $shorewall->{log_net_drop} = $log_net_drop;
 	print ($disabled ? "disabling shorewall" : "configuring shorewall to allow ports: $ports");
-	network::shorewall::write($shorewall, undef);
+	
+	my $action = 'keep';
+	# $fake_in->ask_from_({
+        #        messages => $self->loc->N("Your firewall configuration has been manually edited and contains
+#rules that may conflict with the configuration that has just been set up.
+#What do you want to do?"),
+        #        title => $self->loc->N("Firewall"),
+        #        icon => 'banner-security',
+        #    },
+        #    [ { val => \$action, type => 'list', list => [ 'keep', 'drop' ], format => sub { } } ]);
+	
+	# AdminPanel::Shared::Shorewall::write($shorewall, $fake_in);
     }
 }
 
@@ -866,11 +916,73 @@ sub start {
     foreach (@$servers) {
         exists $_->{prepare} and $_->{prepare}();
     }
-
+    
     my $ports = $self->to_ports($servers, $unlisted);
-
+    
     $self->set_ports($disabled, $ports, $log_net_drop) or return;
     
 };
+
+sub ask_from_ {
+    my $self = shift();
+
+    my ($dlg_data,
+	$items) = @_;
+
+    my @buttons = ();
+    my @list = ();
+    my $val = undef;
+    
+    foreach my $item(@{$items})
+    {
+	push @list, {
+	  text => $item->{text},
+	  value => ${$item->{val}},
+	  };
+    }
+    
+    
+    my @retval = $self->sh_gui->ask_multiple_fromList({
+	  title => $dlg_data->{title},
+	  header => $dlg_data->{messages},
+	  list => \@list});
+    use Data::Dumper;
+    print Dumper(@retval);
+    
+    return @retval;
+}
+# sub ask_from_ {
+#     my $self = shift();
+# 
+#     my ($dlg_data,
+# 	$items) = @_;
+# 
+#     my @buttons = ();
+#     my $val = undef;
+#     
+#     foreach my $item(@{$items})
+#     {
+# 	push @buttons, {
+# 	  caption => $item->{text},
+# 	  value => \$item->{val},
+# 	  };
+#     }
+# 	
+#     if($self->sh_gui->ask_fromList({
+# 	  title => $dlg_data->{title},
+# 	  text => $dlg_data->{messages},
+# 	  richtext => 1,
+# 	  button_one => $buttons[0]->{caption},
+# 	  button_two => $buttons[1]->{caption},
+# 	}))
+#     {
+# 	$val = $buttons[0]->{caption};
+#     }
+#     else
+#     {
+# 	$val = $buttons[1]->{caption};
+#     }
+#     return 1;
+# }
 
 1;
