@@ -34,7 +34,9 @@ use AdminPanel::Shared::Shorewall;
 
 use MDK::Common::Func qw(if_ partition);
 use MDK::Common::System qw(getVarsFromSh);
-use MDK::Common::Various qw(text2bool);
+use MDK::Common::Various qw(text2bool to_bool);
+use MDK::Common::DataStructure qw(intersection);
+use MDK::Common::File qw(substInFile output_with_perm);
 
 use List::Util qw(any);
 use List::MoreUtils qw(uniq);
@@ -407,7 +409,7 @@ sub get_conf {
     my ($disabled, $o_ports) = @_;
     my $possible_servers = undef;
     my $conf = AdminPanel::Shared::Shorewall::read_();
-    my $shorewall = AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf;
+    my $shorewall = (AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf);
     
     if ($o_ports) {
 	return ($disabled, from_ports($o_ports));
@@ -434,6 +436,31 @@ drakconnect before going any further."),
 
 	return($disabled, $possible_servers, '');
     }
+}
+
+sub set_ifw {
+    # my ($do_pkgs, $enabled, $rules, $ports) = @_;
+    my $self = shift();
+    my ($enabled, $rules, $ports) = @_;
+    if ($enabled) {
+        my $ports_by_proto = AdminPanel::Shared::Shorewall::ports_by_proto($ports);
+        output_with_perm("$::prefix/etc/ifw/rules", 0644,
+            (map { ". /etc/ifw/rules.d/$_\n" } @$rules),
+            map {
+                my $proto = $_;
+                map {
+                    my $multiport = /:/ && " -m multiport";
+                    "iptables -A Ifw -m conntrack --ctstate NEW -p $proto$multiport --dport $_ -j IFWLOG --log-prefix NEW\n";
+                } @{$ports_by_proto->{$proto}};
+            } intersection([ qw(tcp udp) ], [ keys %$ports_by_proto ]),
+        );
+    }
+
+    substInFile {
+            undef $_ if m!^INCLUDE /etc/ifw/rules|^iptables -I INPUT 2 -j Ifw!;
+    } "$::prefix/etc/shorewall/start";
+    AdminPanel::Shared::Shorewall::set_in_file('start', $enabled, "INCLUDE /etc/ifw/start", "INCLUDE /etc/ifw/rules", "iptables -I INPUT 1 -j Ifw");
+    AdminPanel::Shared::Shorewall::set_in_file('stop', $enabled, "iptables -D INPUT -j Ifw", "INCLUDE /etc/ifw/stop");
 }
 
 #=============================================================
@@ -483,12 +510,31 @@ Please select which network activities should be watched."),
 	      {
 		text => (exists $_->{name} ? $_->{name} : $_->{ports}),
 		val => \$_->{ifw},
-		type => 'bool', disabled => sub { !$enabled },
+		type => 'bool', 
+		disabled => sub { !$enabled },
+		id => $_->{id},
 	      },
             } @l,
         ]);
+    
+    for my $server(@{$self->wdg_ifw()})
+    {
+	for my $k(keys @l)
+	{
+	    if(defined($l[$k]->{id}) && defined($server->{id}))
+	    {
+		if($l[$k]->{id} eq $server->{id})
+		{
+		    $l[$k]->{ifw} = ${$server->{value}};
+		    last;
+		}
+	    }
+	}
+    }
+
     my ($rules, $ports) = partition { exists $_->{ifw_rule} } grep { $_->{ifw} } @l;
-    # set_ifw($in->do_pkgs, $enabled, [ map { $_->{ifw_rule} } @$rules ], to_ports($ports));
+    
+    $self->set_ifw($enabled, [ map { $_->{ifw_rule} } @$rules ], to_ports($ports));
 
     # return something to say that we are done ok
     return ($rules, $ports);
@@ -571,7 +617,7 @@ sub ask_WatchedServices {
             my $widget = $event->widget();
             
             # loop on every checkbox representing servers
-            foreach my $server(@{$self->wdg_servers()})
+            foreach my $server(@{$self->wdg_ifw()})
             {
 	      if($widget == ${$server->{widget}})
 	      {
@@ -580,6 +626,7 @@ sub ask_WatchedServices {
             }
             
             if ($widget == $cancelButton) {
+		exit();
                 last;
             }elsif ($widget == $aboutButton) {
 		my $abtdlg = $self->aboutDialog();
@@ -745,7 +792,7 @@ sub ask_AllowedServices {
     my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
     my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
     my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
-
+    
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
@@ -769,6 +816,7 @@ sub ask_AllowedServices {
             }
             
             if ($widget == $cancelButton) {
+		exit();
                 last;
             }elsif ($widget == $aboutButton) {
 		my $abtdlg = $self->aboutDialog();
@@ -846,9 +894,9 @@ sub set_ports {
         
     if (!$disabled || -x "$::prefix/sbin/shorewall") {
 	# $do_pkgs->ensure_files_are_installed([ [ qw(shorewall shorewall) ], [ qw(shorewall-ipv6 shorewall6) ] ], $::isInstall) or return;
-	my $conf = AdminPanel::Shared::Shorewall::read_(!$disabled);
+	my $conf = AdminPanel::Shared::Shorewall::read_();
 	$self->get_zones(\$conf);
-	my $shorewall = AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf;
+	my $shorewall = (AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf);
 	if (!$shorewall) {
 	    print ("unable to read shorewall configuration, skipping installation");
 	    return;
@@ -859,17 +907,20 @@ sub set_ports {
         $shorewall->{log_net_drop} = $log_net_drop;
 	print ($disabled ? "disabling shorewall" : "configuring shorewall to allow ports: $ports");
 	
-	my $action = 'keep';
-	# $fake_in->ask_from_({
-        #        messages => $self->loc->N("Your firewall configuration has been manually edited and contains
-#rules that may conflict with the configuration that has just been set up.
-#What do you want to do?"),
-        #        title => $self->loc->N("Firewall"),
-        #        icon => 'banner-security',
-        #    },
-        #    [ { val => \$action, type => 'list', list => [ 'keep', 'drop' ], format => sub { } } ]);
-	
-	# AdminPanel::Shared::Shorewall::write($shorewall, $fake_in);
+	# NOTE: the 2nd param is undef in this case!
+	if(!AdminPanel::Shared::Shorewall::write_($shorewall))
+	{
+	    # user action request
+	    my $action = $self->sh_gui->ask_fromList({
+		title => $self->loc->N("Firewall"),
+		header => $self->loc->N("Your firewall configuration has been manually edited and contains
+rules that may conflict with the configuration that has just been set up.
+What do you want to do?"),
+		list => [ "keep", "drop"],
+		default => "keep",
+	    });
+	    AdminPanel::Shared::Shorewall::write_($shorewall,$action);
+	}
     }
 }
 
@@ -921,6 +972,21 @@ sub start {
     
     $self->set_ports($disabled, $ports, $log_net_drop) or return;
     
+    # restart mandi
+    require services;
+    services::is_service_running("mandi") and services::restart("mandi");
+
+    # restarting services if needed
+    foreach my $service (@$servers) {
+        if ($service->{restart}) {
+            services::is_service_running($_) and services::restart($_) foreach split(' ', $service->{restart});
+        }
+    }
+
+    # clearing pending ifw notifications in net_applet
+    system('killall -s SIGUSR1 net_applet');
+
+    return ($disabled, $ports);
 };
 
 sub ask_from_ {
