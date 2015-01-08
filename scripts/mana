@@ -2,7 +2,7 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
 #
-#  Copyright (c) 2014 Angelo naselli <anaselli@linux.it>
+#  Copyright (c) 2014 - 2015 Angelo naselli <anaselli@linux.it>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
@@ -65,6 +65,10 @@ my %modules = (
         update  => {
             exec => '/usr/bin/dragoraUpdate',
             descr => "dragoraUpdate: rpm update manager",
+        },
+        wall  => {
+            exec => '/usr/bin/manawall',
+            descr => "manawall: firewall manager",
         },
 );
 
