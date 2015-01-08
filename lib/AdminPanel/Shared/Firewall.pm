@@ -26,7 +26,7 @@ use utf8;
 use lib qw(/usr/lib/libDrakX);
 use network::nfs;
 use network::network;
-use network::shorewall;
+use network::tools;
 
 sub _initialize {
 	my $self = shift();
