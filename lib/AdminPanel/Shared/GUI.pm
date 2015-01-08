@@ -90,8 +90,8 @@ sub _localeInitialize {
 
 =head3 DESCRIPTION
 
-This function creates an Warning dialog and show the message
-passed as input.
+    This function creates an Warning dialog and show the message
+    passed as input.
 
 =cut
 
@@ -128,15 +128,15 @@ sub warningMsgBox {
 
 =head3 INPUT
 
-$info: HASH, information to be passed to the dialog.
-            title     =>     dialog title
-            text      =>     string to be swhon into the dialog
-            richtext =>     1 if using rich text
+    $info: HASH, information to be passed to the dialog.
+                title     =>     dialog title
+                text      =>     string to be swhon into the dialog
+                richtext =>     1 if using rich text
 
 =head3 DESCRIPTION
 
-This function creates an Info dialog and show the message
-passed as input.
+    This function creates an Info dialog and show the message
+    passed as input.
 
 =cut
 
@@ -174,14 +174,14 @@ sub infoMsgBox {
 
 =head3 INPUT
 
-$info: HASH, information to be passed to the dialog.
-            title     =>     dialog title
-            text      =>     string to be swhon into the dialog
-            richtext =>     1 if using rich text
+    $info: HASH, information to be passed to the dialog.
+                title     =>     dialog title
+                text      =>     string to be swhon into the dialog
+                richtext =>     1 if using rich text
 
 =head3 DESCRIPTION
 
-This function creates a dialog and show the message passed as input.
+    This function creates a dialog and show the message passed as input.
 
 =cut
 
@@ -218,10 +218,10 @@ sub msgBox {
 
 =head3 INPUT
 
-$info: HASH, information to be passed to the dialog.
-            title     =>     dialog title
-            text      =>     string to be swhon into the dialog
-            richtext =>     1 if using rich text
+    $info: HASH, information to be passed to the dialog.
+                title     =>     dialog title
+                text      =>     string to be swhon into the dialog
+                richtext =>     1 if using rich text
 
 =head3 OUTPUT
 
@@ -230,8 +230,8 @@ $info: HASH, information to be passed to the dialog.
 
 =head3 DESCRIPTION
 
-This function create an OK-Cancel dialog with a 'title' and a
-'text' passed as parameters.
+    This function create an OK-Cancel dialog with a 'title' and a
+    'text' passed as parameters.
 
 =cut
 
@@ -270,11 +270,11 @@ sub ask_OkCancel {
 
 =head3 INPUT
 
-$info: HASH, information to be passed to the dialog.
-            title     =>     dialog title
-            text      =>     string to be swhon into the dialog
-            richtext =>     1 if using rich text
-            default_button => (optional) 1: "Yes" (any other values "No")
+    $info: HASH, information to be passed to the dialog.
+                title     =>     dialog title
+                text      =>     string to be swhon into the dialog
+                richtext =>     1 if using rich text
+                default_button => (optional) 1: "Yes" (any other values "No")
 
 =head3 OUTPUT
 
@@ -283,8 +283,8 @@ $info: HASH, information to be passed to the dialog.
 
 =head3 DESCRIPTION
 
-This function create a Yes-No dialog with a 'title' and a
-question 'text' passed as parameters.
+    This function create a Yes-No dialog with a 'title' and a
+    question 'text' passed as parameters.
 
 =cut
 
@@ -374,12 +374,12 @@ sub arrayListToYItemCollection {
 
 =head3 INPUT
 
-$info: HASH, information to be passed to the dialog.
-            title          =>     dialog title
-            header         =>     combobox header
-            default_item   =>     selected item if any
-            list           =>     item list
-            default_button =>     (optional) 1: Select (any other values Cancel)
+    $info: HASH, information to be passed to the dialog.
+                title          =>     dialog title
+                header         =>     combobox header
+                default_item   =>     selected item if any
+                list           =>     item list
+                default_button =>     (optional) 1: Select (any other values Cancel)
 
 =head3 OUTPUT
 
@@ -388,8 +388,8 @@ $info: HASH, information to be passed to the dialog.
 
 =head3 DESCRIPTION
 
-This function create a dialog with a combobox in which to
-choose an item from a given list.
+    This function create a dialog with a combobox in which to
+    choose an item from a given list.
 
 =cut
 
@@ -669,8 +669,8 @@ sub hashTreeToYItemCollection {
 
 =head3 DESCRIPTION
 
-This function create a dialog with a combobox in which to
-choose an item from a given list.
+    This function create a dialog with a combobox in which to
+    choose an item from a given list.
 
 =cut
 
@@ -785,6 +785,143 @@ sub ask_fromTreeList {
     return $choice;
 }
 
+
+#=============================================================
+
+=head2 select_fromList
+
+=head3 INPUT
+
+    $info: HASH, information to be passed to the dialog.
+                title  => dialog title
+                info_label => optional info text
+                header => column header hash reference{
+                    text_column  => text column header
+                    check_column =>
+                }
+                list   => item list hash reference
+                          containing {
+                    text     => item text
+                    selected => 0 ur undefined means unchecked
+                }
+
+=head3 OUTPUT
+
+    selection:  list of selected items
+
+=head3 DESCRIPTION
+
+    This function create a dialog cotaining a table with a list of
+    items to be checked. The list of the checked items is returned.
+
+=cut
+
+#=============================================================
+
+sub select_fromList {
+    my ($self, $info) = @_;
+
+    die "Missing dialog information" if (!$info);
+    die "Title is mandatory"   if (! exists $info->{title});
+    die "Header is mandatory" if (! exists $info->{header});
+    die "Header text column is mandatory" if (! $info->{header}->{text_column});
+    die "List is mandatory"   if (! exists $info->{list} );
+    my $list = $info->{list};
+    die "At least one element is mandatory into list"   if (scalar(@$list) < 1);
+
+    my $selection  = [];
+
+    my $mageiaPlugin = "mga";
+    my $factory      = yui::YUI::widgetFactory;
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($info->{title});
+
+    my $dlg = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $layout = $factory->createVBox($dlg);
+
+    if ($info->{info_label}) {
+        $factory->createLabel($layout, $info->{info_label});
+    }
+
+    my $yTableHeader = new yui::YTableHeader();
+    $yTableHeader->addColumn($info->{header}->{text_column}, $yui::YAlignBegin);
+    $yTableHeader->addColumn($info->{header}->{check_column} || '', $yui::YAlignBegin);
+
+    ## service list (serviceBox)
+    my $selectionTable = $mgaFactory->createCBTable(
+        $layout,
+        $yTableHeader,
+        $yui::YCBTableCheckBoxOnLastColumn
+    );
+    $selectionTable->setImmediateMode(1);
+    $selectionTable->setWeight($yui::YD_HORIZ, 75);
+
+    $selectionTable->startMultipleChanges();
+    $selectionTable->deleteAllItems();
+    my $itemCollection = new yui::YItemCollection;
+    ## NOTE do not sort to preserve item indexes
+    foreach (@{$list}) {
+        my $text = $_->{text} || die "item text is mandatory";
+
+        my $item = new yui::YCBTableItem($text);
+        $item->check( $_->{checked} );
+        $itemCollection->push($item);
+        $item->DISOWN();
+    }
+    $selectionTable->addItems($itemCollection);
+    $selectionTable->doneMultipleChanges();
+
+    my $align = $factory->createRight($layout);
+    my $hbox = $factory->createHBox($align);
+    $factory->createVSpacing($hbox, 1.0);
+    my $okButton = $factory->createPushButton($hbox, $self->loc->N("Ok"));
+    $dlg->setDefaultButton($okButton);
+    $dlg->recalcLayout();
+
+    while (1) {
+        my $event = $dlg->waitForEvent();
+
+        my $eventType = $event->eventType();
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+
+            if ($widget == $okButton) {
+                last;
+            }
+            elsif ($widget == $selectionTable) {
+                my $wEvent = yui::toYWidgetEvent($event);
+                if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
+                    my $item = $selectionTable->changedItem();
+                    if ($item) {
+                        my $index = $item->index();
+                        $list->[$index]->{checked} = $item->checked();
+                    }
+                }
+            }
+        }
+    }
+
+    destroy $dlg;
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+
+    foreach (@{$list}) {
+        push @{$selection}, $_->{text} if $_->{checked};
+    }
+
+    return $selection;
+}
 
 no Moose;
 __PACKAGE__->meta->make_immutable;

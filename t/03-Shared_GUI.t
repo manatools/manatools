@@ -39,6 +39,22 @@ SKIP: {
     }), 'ask_fromList');
     diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
 
+    ok(my $selection = $gui->select_fromList({
+        title => "Select from list",
+        header => {
+            text_column  => "Items",
+            check_column => "selected",
+        },
+        list  => [
+         { text => 'item 1', checked => 1},
+         { text => 'item 2', },
+         { text => 'item 3', checked => 0},
+         { text => 'item 4', checked => 1},
+         { text => 'item 5',},
+        ],
+    }), 'select_fromList');
+    diag "select_fromList got: < " . join(' - ', @${selection})  . " >";
+
     #TODO cancel makes this test failing
     ok($item = $gui->ask_fromTreeList({title => "Choose from list", header => "Which one do you select? [default is leaf 2]", default_button => 1,
                                         default_item => 'leaf 2',
