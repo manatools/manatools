@@ -32,7 +32,7 @@ perldoc AdminPanel::SettingsReader
 
 =head1 COPYRIGHT and LICENSE
 
-    Copyright (C) 2012-2014, Angelo Naselli.
+    Copyright (C) 2012-2015, Angelo Naselli.
 
    This file is part of AdminPanel
 

@@ -1,7 +1,7 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
 # 
-#  Copyright (c) 2013 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2013 - 2015 Angelo Naselli <anaselli@linux.it>
 #  from drakx services
 # 
 #  This program is free software; you can redistribute it and/or modify

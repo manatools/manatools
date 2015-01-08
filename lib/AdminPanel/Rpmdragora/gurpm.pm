@@ -34,6 +34,8 @@ package AdminPanel::Rpmdragora::gurpm;
 =head1 AUTHOR
 
     Angelo Naselli <anaselli@linux.it>
+    
+    Matteo Pasotti <matteo.pasotti@gmail.com>
 
 =head1 COPYRIGHT and LICENSE
 
@@ -41,7 +43,7 @@ package AdminPanel::Rpmdragora::gurpm;
     Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
     Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
     Copyright (c) 2005-2007 Mandriva SA
-    Copyright (c) 2013 Matteo Pasotti <matteo.pasotti@gmail.com>
+    Copyright (c) 2013 - 2015 Matteo Pasotti <matteo.pasotti@gmail.com>
     Copyright (C) 2015, Angelo Naselli <anaselli@linux.it>
 
     This program is free software; you can redistribute it and/or modify
