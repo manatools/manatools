@@ -41,6 +41,7 @@ lib/AdminPanel/Module/LogViewer.pm
 lib/AdminPanel/Module/Proxy.pm
 lib/AdminPanel/Module/Services.pm
 lib/AdminPanel/Module/Users.pm
+lib/AdminPanel/Module/Firewall.pm
 lib/AdminPanel/Privileges.pm
 lib/AdminPanel/rpmdragora.pm
 lib/AdminPanel/Rpmdragora/edit_urpm_sources.pm
@@ -63,6 +64,8 @@ lib/AdminPanel/Shared/RunProgram.pm
 lib/AdminPanel/Shared/Services.pm
 lib/AdminPanel/Shared/TimeZone.pm
 lib/AdminPanel/Shared/Users.pm
+lib/AdminPanel/Shared/Firewall.pm
+lib/AdminPanel/Shared/Shorewall.pm
 Makefile.PL
 MANIFEST			This list of files
 MODULE_HACKING
@@ -83,6 +86,7 @@ scripts/manalog
 scripts/manaproxy
 scripts/manaservice
 scripts/manauser
+scripts/manawall
 scripts/mpan
 share/images/Blank16x16.png
 share/images/Check.png
