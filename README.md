@@ -111,6 +111,7 @@ logdrake-mdk  -> manalog
 drakproxy-mdk -> manaproxy
 service-mdk   -> manaservice
 userdrake     -> manauser
+drakfirewall  -> manawall
 drakconf      -> mpan
 
 NOTE 2: 
