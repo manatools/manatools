@@ -325,6 +325,66 @@ sub ask_YesOrNo {
 
 #=============================================================
 
+=head2 ask_TwoConfigurableButtons
+
+=head3 INPUT
+
+$info: HASH, information to be passed to the dialog.
+            title     =>     dialog title
+            text      =>     string to be swhon into the dialog
+            richtext =>     1 if using rich text
+            button_one  => caption for the first button
+            button_two  => caption for the second button
+            default_button => (optional) 1: "First button"
+
+=head3 OUTPUT
+
+    0: "Button One Caption" button has been pressed
+    1: "Button Two Caption" button has been pressed
+
+=head3 DESCRIPTION
+
+This function create a two-buttons dialog with a 'title', a
+question 'text' and a label for each button passed as parameters.
+
+=cut
+
+#=============================================================
+
+sub ask_TwoConfigurableButtons {
+    my ($self, $info) = @_;
+
+    return 0 if ( ! $info );
+
+    my $retVal = 0;
+    yui::YUI::widgetFactory;
+    my $factory = yui::YExternalWidgets::externalWidgetFactory("mga");
+    $factory = yui::YMGAWidgetFactory::getYMGAWidgetFactory($factory);
+    my $dlg = $factory->createDialogBox($yui::YMGAMessageBox::B_TWO);
+
+    $dlg->setTitle($info->{title}) if (exists $info->{title});
+    my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
+    $dlg->setText($info->{text}, $rt) if (exists $info->{text});
+
+    $dlg->setButtonLabel($info->{button_one}, $yui::YMGAMessageBox::B_ONE );
+    $dlg->setButtonLabel($info->{button_two}, $yui::YMGAMessageBox::B_TWO);
+    if (exists $info->{default_button} && $info->{default_button} == 1) {
+        $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
+    }
+    else {
+        $dlg->setDefaultButton($yui::YMGAMessageBox::B_TWO);
+    }
+    $dlg->setMinSize(50, 5);
+
+    $retVal = $dlg->show() == $yui::YMGAMessageBox::B_ONE ? 1 : 0;
+
+    $dlg = undef;
+
+    return $retVal;
+}
+
+#=============================================================
+
 =head2 arrayListToYItemCollection
 
 =head3 INPUT
@@ -463,6 +523,126 @@ sub ask_fromList {
     yui::YUI::app()->setApplicationTitle($appTitle);
 
     return $choice;
+}
+
+#=============================================================
+
+=head2 ask_multiple_fromList
+
+=head3 INPUT
+
+$info: HASH, information to be passed to the dialog.
+            title          =>     dialog title
+            header         =>     combobox header
+            default_item   =>     selected item if any
+            list           =>     item list
+            default_button =>     (optional) 1: Select (any other values Cancel)
+
+=head3 OUTPUT
+
+    undef:          if Cancel button has been pressed
+    selected item:  if Select button has been pressed
+
+=head3 DESCRIPTION
+
+This function create a dialog with variable checkboxes in which to
+choose the items from a given list.
+
+Warning: to use only for a reduced set of items because of no scroll available
+
+=cut
+
+#=============================================================
+
+sub ask_multiple_fromList {
+    my ($self, $info) = @_;
+
+    die "Missing dialog information" if (!$info);
+    die "Title is mandatory"   if (! exists $info->{title});
+    die "Header is mandatory" if (! exists $info->{header});
+    die "List is mandatory"   if (! exists $info->{list} );
+    die "At least one element is mandatory into list"   if (scalar(@{$info->{list}}) < 1);
+
+    my @selections = ();
+    my $factory = yui::YUI::widgetFactory;
+
+    ## push application title
+    my $appTitle = yui::YUI::app()->applicationTitle();
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($info->{title});
+
+    my $dlg = $factory->createPopupDialog($yui::YDialogNormalColor);
+    my $layout = $factory->createVBox($dlg);
+
+    my @ckbox_array = ();
+    
+    for my $item(@{$info->{list}})
+    {
+	my $ckbox = $factory->createCheckBox(
+	    $factory->createLeft($factory->createHBox($layout)), 
+	    $item->{text},
+	    ${$item->{val}}
+	);
+	$ckbox->setNotify(1);
+	push @ckbox_array, {
+	  widget => \$ckbox,
+	  text => $item,
+	  value => $ckbox->value(),
+	  };
+	$ckbox->DISOWN();
+    }
+
+    my $align = $factory->createRight($layout);
+    my $hbox = $factory->createHBox($align);
+    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("Select"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+
+    if (exists $info->{default_button} ) {
+        my $dflBtn = ($info->{default_button} == 1) ? $selectButton : $cancelButton;
+        $dlg->setDefaultButton($selectButton);
+    }
+
+    while (1) {
+        my $event = $dlg->waitForEvent();
+
+        my $eventType = $event->eventType();
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            # widget selected
+            my $widget = $event->widget();
+
+            for my $ckbox (@ckbox_array)
+            {
+		if($widget == ${$ckbox->{widget}})
+		{
+		    ${$ckbox->{value}} = !${$ckbox->{value}};
+		}
+            }
+            if ($widget == $cancelButton) {
+                last;
+            }
+            elsif ($widget == $selectButton) {
+                foreach my $ckbox (@ckbox_array)
+                {
+		    if($ckbox->{value} == 1)
+		    {
+		      push @selections, $ckbox->{text};
+		    }
+                }
+                last;
+            }
+        }
+    }
+
+    destroy $dlg;
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($appTitle);
+
+    return @selections;
 }
 
 #=============================================================
