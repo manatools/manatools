@@ -108,8 +108,15 @@ sub read_ {
 
     return \%conf;
     
+    # get_zones has been moved to AdminPanel::Module::Firewall cause it requires
+    # user interaction thus it should be logically separated by shorewall
     # get_zones(\%conf);
     # get_config_file('zones', $ver) && \%conf;
+    # consequently, to read shorewall conf
+    # you have to do something like this now (within Module::Firewall)
+    # my $conf = AdminPanel::Shared::Shorewall::read_();
+    # OPTIONAL: my $self->get_zones(\$conf)
+    # my $shorewall = AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf;
 }
 
 sub ports_by_proto {
