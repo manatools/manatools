@@ -81,7 +81,7 @@ perldoc command.
 
 # LICENSE AND COPYRIGHT #
 
-Copyright (C) 2012-2014 Angelo Naselli, Matteo Pasotti, Steven Tucker
+Copyright (C) 2012-2015 Angelo Naselli, Matteo Pasotti, Steven Tucker
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
