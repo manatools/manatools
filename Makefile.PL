@@ -54,7 +54,7 @@ WriteMakefile(
         "MDK::Common::System" => 0,
         "MDK::Common::String" => 0,
         "MDK::Common::Various" => 0,
-        "MDK::Common::DataStore" => 0,
+        "MDK::Common::DataStructure" => 0,
         "Net::DBus"           => 0,
         "URPM"                => 0,
         "Glib"                => 0,
