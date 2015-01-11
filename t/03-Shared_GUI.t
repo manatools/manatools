@@ -45,8 +45,9 @@ SKIP: {
         list  => [
             map {
                 {
+                    id => $_,
                     text=>'item 1',
-                    val=>\$_
+                    val => \$_
                 },
             } (1,0,1,0)],
     }), 'ask_multiple_fromList');
