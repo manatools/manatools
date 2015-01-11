@@ -39,14 +39,16 @@ SKIP: {
     }), 'ask_fromList');
     diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
 
-    ok(my $mul_selection = $gui->ask_multiple_fromList({
+    ok( my $mul_selection = $gui->ask_multiple_fromList({
         title => "Choose from list", 
         header => "What do you have selected?",
         list  => [
-            {text=>'item 1',val=>1},
-            {text=>'item 2',val=>0},
-            {text=>'item 3',val=>1},
-            {text=>'item 4',val=>0}],
+            map {
+                {
+                    text=>'item 1',
+                    val=>\$_
+                },
+            } (1,0,1,0)],
     }), 'ask_multiple_fromList');
     diag "ask_multiple_fromList got: < " . join(' - ', @${mul_selection}) . " >";
     
