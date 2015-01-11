@@ -541,7 +541,7 @@ $info: HASH, information to be passed to the dialog.
 =head3 OUTPUT
 
     undef:          if Cancel button has been pressed
-    selected item:  if Select button has been pressed
+    selected items: ArrayRef , if Select button has been pressed
 
 =head3 DESCRIPTION
 
@@ -563,7 +563,7 @@ sub ask_multiple_fromList {
     die "List is mandatory"   if (! exists $info->{list} );
     die "At least one element is mandatory into list"   if (scalar(@{$info->{list}}) < 1);
 
-    my @selections = ();
+    my $selections = [];
     my $factory = yui::YUI::widgetFactory;
 
     ## push application title
@@ -622,6 +622,7 @@ sub ask_multiple_fromList {
 		}
             }
             if ($widget == $cancelButton) {
+                $selections = undef;
                 last;
             }
             elsif ($widget == $selectButton) {
@@ -629,7 +630,7 @@ sub ask_multiple_fromList {
                 {
 		    if($ckbox->{value} == 1)
 		    {
-		      push @selections, $ckbox->{text};
+		      push @{$selections}, $ckbox->{text};
 		    }
                 }
                 last;
@@ -641,8 +642,8 @@ sub ask_multiple_fromList {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
-
-    return @selections;
+    
+    return $selections;
 }
 
 #=============================================================
