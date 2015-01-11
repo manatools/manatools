@@ -866,15 +866,14 @@ Which interfaces should be protected?
 "),
     list => [
         map {
-            { 
+            {
+            id => $_,
             text => network::tools::get_interface_description($self->net(), $_), 
             val => \$net_zone{$_}, 
             type => 'bool' 
             };
         } (sort keys %net_zone) ]
         });
-        
-    ($conf->{net_zone}, $conf->{loc_zone}) = partition { $net_zone{$_} } keys %net_zone;
     
     if(!defined($retvals))
     {
@@ -882,9 +881,13 @@ Which interfaces should be protected?
     }
     else
     {
+        # it was: ($conf->{net_zone}, $conf->{loc_zone}) = partition { $net_zone{$_} } keys %net_zone;
+        foreach my $net_int (@{$retvals})
+        {
+            push (@{$conf->{net_zone}}, $net_int);
+        }
         return $retvals;
     }
-    
 }
 
 #=============================================================
