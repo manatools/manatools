@@ -538,10 +538,21 @@ $info: HASH, information to be passed to the dialog.
             list           =>     item list
             default_button =>     (optional) 1: Select (any other values Cancel)
 
+=head3 LIST
+
+list is an array of hashes like this
+
+    {
+        id => unique identifier for this particular item,
+        text => "descriptive text"
+        val => reference to the boolean value
+    }
+        
+            
 =head3 OUTPUT
 
     undef:          if Cancel button has been pressed
-    selected items: ArrayRef , if Select button has been pressed
+    selected items: ArrayRef of the selected ids, if Select button has been pressed
 
 =head3 DESCRIPTION
 
@@ -578,18 +589,17 @@ sub ask_multiple_fromList {
     
     for my $item(@{$info->{list}})
     {
-	my $ckbox = $factory->createCheckBox(
-	    $factory->createLeft($factory->createHBox($layout)), 
-	    $item->{text},
-	    ${$item->{val}}
-	);
-	$ckbox->setNotify(1);
-	push @ckbox_array, {
-	  widget => \$ckbox,
-	  text => $item,
-	  value => $ckbox->value(),
-	  };
-	$ckbox->DISOWN();
+        my $ckbox = $factory->createCheckBox(
+            $factory->createLeft($factory->createHBox($layout)), 
+            $item->{text},
+            ${$item->{val}}
+        );
+        $ckbox->setNotify(1);
+        push @ckbox_array, {
+            id => $item->{id},
+            widget => \$ckbox,
+            };
+        $ckbox->DISOWN();
     }
 
     my $align = $factory->createRight($layout);
@@ -614,13 +624,6 @@ sub ask_multiple_fromList {
             # widget selected
             my $widget = $event->widget();
 
-            for my $ckbox (@ckbox_array)
-            {
-		if($widget == ${$ckbox->{widget}})
-		{
-		    ${$ckbox->{value}} = !${$ckbox->{value}};
-		}
-            }
             if ($widget == $cancelButton) {
                 $selections = undef;
                 last;
@@ -628,10 +631,12 @@ sub ask_multiple_fromList {
             elsif ($widget == $selectButton) {
                 foreach my $ckbox (@ckbox_array)
                 {
-		    if($ckbox->{value} == 1)
-		    {
-		      push @{$selections}, $ckbox->{text};
-		    }
+                    if(${$ckbox->{widget}}->value())
+                    {
+                        # yui::YUI::ui()->blockEvents();
+                        push @{$selections}, $ckbox->{id};
+                        # yui::YUI::ui()->unblockEvents();
+                    }
                 }
                 last;
             }
