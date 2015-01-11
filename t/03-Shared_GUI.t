@@ -13,7 +13,7 @@ BEGIN {
     ok( my $gui = AdminPanel::Shared::GUI->new(), 'create');
 
 SKIP: {
-    #remember to skip the righ number of tests
+    #remember to skip the right number of tests
     skip "To enable dialog tests set TEST_GUI", 11, unless $ENV{TEST_GUI};
 
     ok( $gui->warningMsgBox({text => "Warning message! (no title, no richtext)<br> line two"}), 'wmb1');
@@ -39,6 +39,17 @@ SKIP: {
     }), 'ask_fromList');
     diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
 
+    ok(my $mul_selection = $gui->ask_multiple_fromList({
+        title => "Choose from list", 
+        header => "What do you have selected?",
+        list  => [
+            {text=>'item 1',val=>1},
+            {text=>'item 2',val=>0},
+            {text=>'item 3',val=>1},
+            {text=>'item 4',val=>0}],
+    }), 'ask_multiple_fromList');
+    diag "ask_multiple_fromList got: < " . join(' - ', @${mul_selection}) . " >";
+    
     ok(my $selection = $gui->select_fromList({
         title => "Select from list",
         header => {
