@@ -45,11 +45,16 @@ SKIP: {
         list  => [
             map {
                 {
-                    id => $_,
-                    text=>'item 1',
-                    val => \$_
+                    id => $_->{id},
+                    text=>$_->{text},
+                    val => \$_->{val}
                 },
-            } (1,0,1,0)],
+            } (
+               {id => "a",val=>1,text=>"Item 1"},
+               {id => "b",val=>0, text=>"Item 2"},
+               {id => "c",val=>1,text=>"Item 3"},
+               {id => "d",val=>0,text=>"Item 4"}
+              )],
     }), 'ask_multiple_fromList');
     diag "ask_multiple_fromList got: < " . join(' - ', @${mul_selection}) . " >";
     
