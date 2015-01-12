@@ -412,7 +412,7 @@ sub get_conf {
     my $shorewall = (AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf);
     
     if ($o_ports) {
-        return ($disabled, from_ports($o_ports));
+        return ($disabled, $self->from_ports($o_ports));
     } elsif ($shorewall) {
         # WARNING: this condition fails (the method fails)
         #          if manawall runs as unprivileged user
@@ -442,11 +442,12 @@ sub set_ifw {
     # my ($do_pkgs, $enabled, $rules, $ports) = @_;
     my $self = shift();
     my ($enabled, $rules, $ports) = @_;
-    if ($enabled) {
+    if ($enabled) 
+    {
         my $ports_by_proto = AdminPanel::Shared::Shorewall::ports_by_proto($ports);
         output_with_perm("$::prefix/etc/ifw/rules", 0644,
             (map { ". /etc/ifw/rules.d/$_\n" } @$rules),
-            map {
+             map {
                 my $proto = $_;
                 map {
                     my $multiport = /:/ && " -m multiport";
@@ -505,16 +506,19 @@ Please select which network activities should be watched."),
 	},
         [
         { 
-            text => $self->loc->N("Use Interactive Firewall"), val => \$enabled, type => 'bool' },
-            map { 
+            id=>'useifw', 
+            text => $self->loc->N("Use Interactive Firewall"), 
+            val => $enabled, 
+            type => 'bool' 
+        },
+        map {
                 {
                 text => (exists $_->{name} ? $_->{name} : $_->{ports}),
-                val => \$_->{ifw},
+                val => $_->{ifw},
                 type => 'bool', 
-                disabled => sub { !$enabled },
                 id => $_->{id},
                 },
-            } @l,
+        } @l,
         ]);
     
     exit() if($retval == 0);
@@ -525,18 +529,25 @@ Please select which network activities should be watched."),
         {
             if(defined($l[$k]->{id}) && defined($server->{id}))
             {
-            if($l[$k]->{id} eq $server->{id})
-            {
-                $l[$k]->{ifw} = ${$server->{value}};
-                last;
-            }
+                if($server->{id} eq 'useifw')
+                {
+                    $enabled = $server->{value};
+                }
+                else
+                {
+                    if($l[$k]->{id} eq $server->{id})
+                    {
+                        $l[$k]->{ifw} = $server->{value};
+                        last;
+                    }
+                }
             }
         }
     }
-
-    my ($rules, $ports) = partition { exists $_->{ifw_rule} } grep { $_->{ifw} } @l;
     
-    $self->set_ifw($enabled, [ map { $_->{ifw_rule} } @$rules ], to_ports($ports));
+    my ($rules, $ports) = partition { exists $_->{ifw_rule} } grep { $_->{ifw} } @l;
+        
+    $self->set_ifw($enabled, [ map { $_->{ifw_rule} } @$rules ], $self->to_ports($ports));
 
     # return something to say that we are done ok
     return ($rules, $ports);
@@ -586,14 +597,14 @@ sub ask_WatchedServices {
             my $ckbox = $factory->createCheckBox(
                 $factory->createLeft($factory->createHBox($widgetContainer)), 
                 $item->{text}, 
-                ${$item->{val}}
+                $item->{val}
             );
             $ckbox->setNotify(1);
             push @{$self->wdg_ifw()}, {
-            id => $item->{id},
-            widget => \$ckbox,
-            value => $item->{val},
-            };
+                id => $item->{id},
+                widget => \$ckbox,
+                value => $item->{val},
+                };
             $ckbox->DISOWN();
         }
     }
@@ -625,7 +636,27 @@ sub ask_WatchedServices {
             {
                 if($widget == ${$server->{widget}})
                 {
-                    ${$server->{value}} = !${$server->{value}};
+                    if($server->{id} eq 'useifw')
+                    {
+                        if(!${$server->{widget}}->value())
+                        {
+                            yui::YUI::ui()->blockEvents();
+                            foreach my $server(@{$self->wdg_ifw()})
+                            {
+                                if($server->{id} ne 'useifw')
+                                {
+                                    ${$server->{widget}}->setValue(0);
+                                    $server->{value} = ${$server->{widget}}->value();
+                                }
+                            }
+                            yui::YUI::ui()->unblockEvents();
+                            last;
+                        }
+                    }
+                    else
+                    {
+                        $server->{value} = ${$server->{widget}}->value();
+                    }
                 }
             }
             if ($widget == $cancelButton) {
