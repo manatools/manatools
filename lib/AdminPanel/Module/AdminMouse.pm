@@ -19,6 +19,8 @@
 # 
 #*****************************************************************************
 
+# NOTE this module has not been ported and does not work
+# TODO porting it if it is really needed nowadays
 package AdminPanel::Module::AdminMouse;
 
 #leaving them atm
