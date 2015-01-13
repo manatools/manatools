@@ -81,15 +81,15 @@ perldoc command.
 
 # EMBEDDED MODULES #
 
-manaclock	date/time manager
-manadm		login manager configuration
-manahost	hosts manager
-manalog		journalct log reader
-manaproxy	proxy manager
-rpmdragora	rpm install manager
-manaservice	service manager
-dragoraUpdate	rpm update manager
-manauser	user manager
+* manaclock	date/time manager
+* manadm	login manager configuration
+* manahost	hosts manager
+* manalog	journalct log reader
+* manaproxy	proxy manager
+* rpmdragora	rpm install manager
+* manaservice	service manager
+* dragoraUpdate	rpm update manager
+* manauser	user manager
 
 
 # LICENSE AND COPYRIGHT #
@@ -117,15 +117,15 @@ http://creativecommons.org/licenses/by-nd/3.0/
 NOTE 1: 
 To avoid file name duplication we renamed icons from drakxtools,
 rpmdrake and userdrake, to fit new naming convention:
-drakedm-mdk   -> manadm
-time-mdk      -> manaclock
-drakhosts     -> manahost
-logdrake-mdk  -> manalog
-drakproxy-mdk -> manaproxy
-service-mdk   -> manaservice
-userdrake     -> manauser
-drakfirewall  -> manawall
-drakconf      -> mpan
+* drakedm-mdk   -> manadm
+* time-mdk      -> manaclock
+* drakhosts     -> manahost
+* logdrake-mdk  -> manalog
+* drakproxy-mdk -> manaproxy
+* service-mdk   -> manaservice
+* userdrake     -> manauser
+* drakfirewall  -> manawall
+* drakconf      -> mpan
 
 NOTE 2: 
 clear22x22 icon is got from gnome gtk-clear
