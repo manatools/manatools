@@ -44,7 +44,7 @@ use List::MoreUtils qw(uniq);
 extends qw( AdminPanel::Module );
 
 has '+icon' => (
-    default => "/usr/share/mcc/themes/default/firewall-mdk.png",
+    default => "/usr/share/icons/manawall.png",
 );
 
 has '+name' => (
@@ -498,7 +498,7 @@ sub choose_watched_services {
 
     my $retval = $self->ask_WatchedServices({
         title => $self->loc->N("Interactive Firewall"),
-        icon => $AdminPanel::Shared::Shorewall::firewall_icon,
+        icon => $self->icon(),
         # if_(!$::isEmbedded, banner_title => N("Interactive Firewall")),
         messages =>
             $self->loc->N("You can be warned when someone accesses to a service or tries to intrude into your computer.
@@ -716,7 +716,7 @@ sub choose_allowed_services {
     
     my $dialog_data = {
         title => $self->loc->N("Firewall"),
-        icon => $AdminPanel::Shared::Shorewall::firewall_icon,
+        icon => $self->icon(),
         # if_(!$::isEmbedded, banner_title => $self->loc->N("Firewall")),
         banner_title => $self->loc->N("Firewall"),
         advanced_messages => $self->loc->N("You can enter miscellaneous ports. 
