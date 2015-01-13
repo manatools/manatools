@@ -13,7 +13,6 @@ use List::MoreUtils qw(uniq);
 use log;
 
 my $shorewall_root = "/etc/shorewall";
-our $firewall_icon = $::isInstall ? 'banner-security' : '/usr/share/mcc/themes/default/firewall-mdk.png';
 
 sub check_iptables() {
     -f "$::prefix/etc/sysconfig/iptables" ||
