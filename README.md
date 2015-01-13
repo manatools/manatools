@@ -79,6 +79,19 @@ perldoc command.
     perldoc AdminPanel
 
 
+# EMBEDDED MODULES #
+
+manaclock	date/time manager
+manadm		login manager configuration
+manahost	hosts manager
+manalog		journalct log reader
+manaproxy	proxy manager
+rpmdragora	rpm install manager
+manaservice	service manager
+dragoraUpdate	rpm update manager
+manauser	user manager
+
+
 # LICENSE AND COPYRIGHT #
 
 Copyright (C) 2012-2015 Angelo Naselli, Matteo Pasotti, Steven Tucker
