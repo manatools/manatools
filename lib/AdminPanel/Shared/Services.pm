@@ -61,6 +61,7 @@ use Moose;
 
 use Sys::Syslog;
 use Net::DBus;
+use Net::DBus::Annotation qw(:auth);
 use File::Basename;
 
 use AdminPanel::Shared::Locales;
@@ -171,7 +172,7 @@ sub _serviceInfoInitialization {
                 if (!$services{$name} &&
                     $name !~ /.*\@$/g &&
                     (-e $s->[0] or -e "/etc/rc.d/init.d/$name") &&
-                    ! -l $s->[0] && $st eq "disabled") {
+                    ! -l $s->[0] && ($st eq "disabled" || $st eq "enabled")) {
                     my $wantedby = $self->_WantedBy($s->[0]);
                     if ($wantedby) {
                         my $descr = $self->getUnitProperty($name, 'Description');
@@ -179,7 +180,7 @@ sub _serviceInfoInitialization {
                         $services{$name} = {
                             'name'        => $name,
                             'description' => $descr,
-                            'enabled'     => 0,
+                            'enabled'     => $st eq "enabled",
                         };
                     }
                 }
@@ -378,10 +379,10 @@ sub set_service {
         $service = $service . ".service";
         my $dbus_object = $self->dbus_systemd1_object;
         if ($enable) {
-            $dbus_object->EnableUnitFiles([$service], 0, 1);
+            $dbus_object->EnableUnitFiles(dbus_auth_interactive, [$service], 0, 1);
         }
         else {
-            $dbus_object->DisableUnitFiles([$service], 0);
+            $dbus_object->DisableUnitFiles(dbus_auth_interactive, [$service], 0);
         }
         # reload local cache
         $self->_systemd_services(1);
@@ -402,13 +403,13 @@ sub _run_action {
     if ($self->_running_systemd()) {
         my $object     = $self->dbus_systemd1_object;
         if ($action eq 'start') {
-            $object->StartUnit("$service.service", 'fail');
+            $object->StartUnit(dbus_auth_interactive, "$service.service", 'fail');
         }
         elsif ($action eq 'stop') {
-            $object->StopUnit("$service.service", 'fail');
+            $object->StopUnit(dbus_auth_interactive, "$service.service", 'fail');
         }
         else {
-            $object->RestartUnit("$service.service", 'fail');
+            $object->RestartUnit(dbus_auth_interactive, "$service.service", 'fail');
         }
         # reload local cache
         $self->_systemd_services(1);

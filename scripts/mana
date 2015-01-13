@@ -37,6 +37,7 @@ my %modules = (
         service => {
             exec  => '/usr/bin/manaservice',
             descr => "manaservice: service manager",
+            user_mode => 1,
         },
         dm      => {
             exec => '/usr/bin/manadm',
@@ -85,7 +86,7 @@ my $mod =  $modules{$cmd}->{exec};
 shift(@ARGV);
 
 eval {
-    if(is_root_capability_required()) {
+    if(!$modules{$cmd}->{user_mode} && is_root_capability_required()) {
         system("/usr/bin/pkexec", $mod, @ARGV);
     } else {
         system($mod, @ARGV);
