@@ -616,7 +616,7 @@ sub ask_WatchedServices {
     my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
     my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
 
-    my $retval = 1;
+    my $retval = 0;
     
     # main loop
     while(1) {
@@ -660,7 +660,6 @@ sub ask_WatchedServices {
                 }
             }
             if ($widget == $cancelButton) {
-                $retval = 0;
                 last;
             }elsif ($widget == $aboutButton) {
                 my $abtdlg = $self->aboutDialog();
@@ -669,6 +668,7 @@ sub ask_WatchedServices {
                 $self->sh_gui->AboutDialog($abtdlg
                 );
             }elsif ($widget == $okButton) {
+                $retval = 1;
                 last;
             }
         }
@@ -827,7 +827,7 @@ sub ask_AllowedServices {
     my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
     my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
     
-    my $retval = 1;
+    my $retval = 0;
     
     # main loop
     while(1) {
@@ -847,12 +847,11 @@ sub ask_AllowedServices {
             {
                 if($widget == ${$server->{widget}})
                 {
-                ${$server->{value}} = !${$server->{value}};
+                    ${$server->{value}} = !${$server->{value}};
                 }
             }
             
             if ($widget == $cancelButton) {
-                $retval = 0;
                 last;
             }elsif ($widget == $aboutButton) {
                 my $abtdlg = $self->aboutDialog();
@@ -860,6 +859,7 @@ sub ask_AllowedServices {
                 $abtdlg->{description} = $self->loc->N("Graphical manager for firewall rules");
                 $self->sh_gui->AboutDialog($abtdlg);
             }elsif ($widget == $okButton) {
+                $retval = 1;
                 last;
             }
         }
