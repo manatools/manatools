@@ -504,37 +504,65 @@ sub _servicePanel {
                     $item = $serviceTbl->changedItem();
                     if ($item) {
                         yui::YUI::app()->busyCursor();
-                        $self->sh_services->set_service($item->label(), $item->checked());
-                        # we can push/pop service, but this (slower) should return real situation
+                        eval {
+                            $self->sh_services->set_service($item->label(), $item->checked());
+                        };
+                        my $errors = $@;
                         $self->loadServices();
                         yui::YUI::app()->normalCursor();
+
+                        if ($errors) {
+                            $self->sh_gui->warningMsgBox({
+                                title =>  $self->loc->N($item->checked() ? "Enabling %s" : "Disabling %s", $item->label()),
+                                text  => "$errors",
+                                richtext => 1,
+                            });
+                            $dialog->startMultipleChanges();
+                            $self->_fillServiceTable($serviceTbl);
+                            $dialog->recalcLayout();
+                            $dialog->doneMultipleChanges();
+                        }
                     }
                 }
             }
             elsif ($widget == $startButton) {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
-                    yui::YUI::app()->busyCursor();
                     my $serviceName = $item->label();
-                    $self->sh_services->restart_or_start($serviceName);
-                    # we can push/pop service, but this (slower) should return real situation
-                    $self->_waitUnitStatus($serviceName, 1);
-#                     $self->loadServices();
-                    $self->_serviceStatus($serviceTbl, $item);
+                    yui::YUI::app()->busyCursor();
+                    eval {
+                        $self->sh_services->restart_or_start($serviceName);
+                        $self->_waitUnitStatus($serviceName, 1);
+                    };
+                    my $errors = $@;
                     yui::YUI::app()->normalCursor();
+                    $self->_serviceStatus($serviceTbl, $item);
+
+                    $self->sh_gui->warningMsgBox({
+                        title => $self->loc->N("Starting %s", $serviceName),
+                        text  => "$errors",
+                        richtext => 1,
+                    }) if $errors;
                 }
             }
             elsif ($widget == $stopButton) {
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
-                    yui::YUI::app()->busyCursor();
                     my $serviceName = $item->label();
-                    $self->sh_services->stopService($serviceName);
-                    # we can push/pop service, but this (slower) should return real situation
-                    $self->_waitUnitStatus($serviceName, 0);
-#                     $self->loadServices();
-                    $self->_serviceStatus($serviceTbl, $item);
+                    yui::YUI::app()->busyCursor();
+                    eval {
+                        $self->sh_services->stopService($serviceName);
+                        $self->_waitUnitStatus($serviceName, 0);
+                    };
+                    my $errors = $@;
                     yui::YUI::app()->normalCursor();
+                    $self->_serviceStatus($serviceTbl, $item);
+
+                    $self->sh_gui->warningMsgBox({
+                        title => $self->loc->N("Stopping %s", $serviceName),
+                        text  => "$errors",
+                        richtext => 1,
+                    }) if $errors;
                 }
             }
             elsif ($widget == $refreshButton) {
