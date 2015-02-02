@@ -110,6 +110,13 @@ has 'net' => (
     builder => '_initNet',
 );
 
+has 'unlisted' => (
+    is => 'rw',
+    init_arg => undef,
+    isa => 'ArrayRef',
+    builder => '_initUnlisted',
+);
+
 has 'aboutDialog' => (
     is => 'ro',
     init_arg => undef,
@@ -296,6 +303,26 @@ sub _initNet {
     return $net;
 }
 
+sub _initUnlisted {
+    my $self = shift();
+    my @unlisted = ();
+    return \@unlisted;
+}
+
+#=============================================================
+
+sub check_ports_syntax {
+    my ($ports) = @_;
+    foreach (split ' ', $ports) {
+        my ($nb, $range, $nb2) = m!^(\d+)(:(\d+))?/(tcp|udp|icmp)$! or return $_;
+        foreach my $port ($nb, if_($range, $nb2)) {
+            1 <= $port && $port <= 65535 or return $_;
+        }
+        $nb < $nb2 or return $_ if $range;
+    }
+    return '';
+}
+
 #=============================================================
 
 =head2 port2server
@@ -335,8 +362,6 @@ sub port2server {
 
     $self: this object
     
-    $unlisted: unlisted services
-
 =head3 DESCRIPTION
 
     This method converts from server definitions to port definitions
@@ -346,8 +371,9 @@ sub port2server {
 #=============================================================
 
 sub to_ports {
-    my ($self, $servers, $unlisted) = @_;
-    join(' ', (map { $_->{ports} } @$servers), if_($unlisted, $unlisted));
+    my ($self, $servers) = @_;
+    my $ports = join(' ', (map { $_->{ports} } @$servers), @{$self->unlisted()});
+    return $ports;
 }
 
 #=============================================================
@@ -373,15 +399,14 @@ sub from_ports {
     my ($ports) = @_;
 
     my @l;
-    my @unlisted;
     foreach (split ' ', $ports) {
         if (my $s = $self->port2server($_)) {
             push @l, $s;
         } else {
-            push @unlisted, $_;
+            push (@{$self->unlisted()}, $_);
         }
     }
-    [ uniq(@l) ], join(' ', @unlisted);
+    [ uniq(@l) ], join(' ', @{$self->unlisted()});
 }
 
 #=============================================================
@@ -476,8 +501,6 @@ sub set_ifw {
     
     $servers: array of hashes representing servers
     
-    $unlisted: array of hashes with the port not listed (???)
-    
     $log_net_drop: network::shorewall log_net_drop attribute
 
 =head3 DESCRIPTION
@@ -489,10 +512,10 @@ sub set_ifw {
 #=============================================================
 
 sub choose_watched_services {
-    my ($self, $servers, $unlisted) = @_;
+    my ($self, $servers) = @_;
 
-    my @l = (@{$self->ifw_rules()}, @$servers, map { { ports => $_ } } split(' ', $unlisted));
-    
+    my @l = (@{$self->ifw_rules()}, @$servers, map { { ports => $_ } } @{$self->unlisted()});
+
     my $enabled = 1;
     $_->{ifw} = 1 foreach @l;
 
@@ -546,7 +569,6 @@ Please select which network activities should be watched."),
     }
     
     my ($rules, $ports) = partition { exists $_->{ifw_rule} } grep { $_->{ifw} } @l;
-        
     $self->set_ifw($enabled, [ map { $_->{ifw_rule} } @$rules ], $self->to_ports($ports));
 
     # return something to say that we are done ok
@@ -695,8 +717,6 @@ sub ask_WatchedServices {
     
     $servers: array of hashes representing servers
     
-    $unlisted: array of hashes with the port not listed (???)
-    
     $log_net_drop: network::shorewall log_net_drop attribute
 
 =head3 DESCRIPTION
@@ -708,7 +728,7 @@ sub ask_WatchedServices {
 #=============================================================
 
 sub choose_allowed_services {
-    my ($self, $disabled, $servers, $unlisted, $log_net_drop) = @_;
+    my ($self, $disabled, $servers, $log_net_drop) = @_;
 
     $_->{on} = 0 foreach @{$self->all_servers()};
     $_->{on} = 1 foreach @$servers;
@@ -719,21 +739,6 @@ sub choose_allowed_services {
         icon => $self->icon(),
         # if_(!$::isEmbedded, banner_title => $self->loc->N("Firewall")),
         banner_title => $self->loc->N("Firewall"),
-        advanced_messages => $self->loc->N("You can enter miscellaneous ports. 
-Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.
-Have a look at /etc/services for information."),
-#		    callbacks => {
-# 			complete => sub {
-# 			    if (my $invalid_port = check_ports_syntax($unlisted)) {
-# 				$in->ask_warn('', $self->loc->N("Invalid port given: %s.
-# The proper format is \"port/tcp\" or \"port/udp\", 
-# where port is between 1 and 65535.
-# 
-# You can also give a range of ports (eg: 24300:24350/udp)", $invalid_port));
-# 				return 1;
-# 			    }
-# 			},
-#		   } 
     };
     
     my $items = [
@@ -741,7 +746,7 @@ Have a look at /etc/services for information."),
         if_($self->net()->{PROFILE} && network::network::netprofile_count() > 0, { label => $self->loc->N("Those settings will be saved for the network profile <b>%s</b>", $self->net()->{PROFILE}) }),
         { text => $self->loc->N("Everything (no firewall)"), val => \$disabled, type => 'bool' },
         (map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled }, id => $_->{id} } } @l),
-        { label => $self->loc->N("Other ports"), val => \$unlisted, advanced => 1, disabled => sub { $disabled } },
+        { label => $self->loc->N("Other ports"), val => $self->unlisted(), advanced => 1, disabled => sub { $disabled } },
         { text => $self->loc->N("Log firewall messages in system logs"), val => \$log_net_drop, type => 'bool', advanced => 1, disabled => sub { $disabled } },
     ];
     
@@ -762,7 +767,7 @@ Have a look at /etc/services for information."),
         }
     }
     
-    return ($disabled, [ grep { $_->{on} } @l ], $unlisted, $log_net_drop);
+    return ($disabled, [ grep { $_->{on} } @l ], $log_net_drop);
 }
 
 #=============================================================
@@ -823,6 +828,7 @@ sub ask_AllowedServices {
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
+    my $advButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("Advanced"));
     my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
     my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
     my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
@@ -862,10 +868,122 @@ sub ask_AllowedServices {
                 $retval = 1;
                 last;
             }
+            elsif ($widget == $advButton) {
+# 				return 1;
+# 			    }
+# 			},
+#		   } 
+                $self->ask_CustomPorts();
+            }
         }
     }
 
     $self->dialog->destroy();
+
+    #restore old application title
+    yui::YUI::app()->setApplicationTitle($old_title);
+    
+    return $retval;
+}
+
+sub ask_CustomPorts {
+    my $self = shift();
+
+    my $adv_msg = $self->loc->N("You can enter miscellaneous ports. 
+Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.
+Have a look at /etc/services for information.");
+    
+    my $old_title = yui::YUI::app()->applicationTitle();
+    my $win_title = $self->loc->N("Define miscellaneus ports");
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($win_title);
+
+    my $factory  = yui::YUI::widgetFactory;
+    my $optional = yui::YUI::optionalWidgetFactory;
+    
+    my $advdlg = $factory->createPopupDialog();
+    my $layout    = $factory->createVBox($advdlg);
+
+    my $hbox_header = $factory->createHBox($layout);
+    my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));
+    my $headRight = $factory->createHBox($factory->createRight($hbox_header));
+
+    my $labelAppDescription = $factory->createLabel($headRight,$win_title); 
+    $labelAppDescription->setWeight($yui::YD_HORIZ,3);
+    
+    my $hbox_content = $factory->createHBox($layout);
+    my $vbox_inputs = $factory->createVBox($hbox_content);
+    my $labelAdvMessage = $factory->createLabel($vbox_inputs, $adv_msg);
+    my $txtPortsList = $factory->createInputField($vbox_inputs,'');
+    $txtPortsList->setValue(join(' ',@{$self->unlisted()}));
+    
+    my $hbox_foot = $factory->createHBox($layout);
+    my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
+    my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
+    
+    my $retval = 0;
+    
+    # main loop
+    while(1) {
+        my $event     = $advdlg->waitForEvent();
+        my $eventType = $event->eventType();
+        
+        #event type checking
+        if ($eventType == $yui::YEvent::CancelEvent) {
+            last;
+        }
+        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+            ### Buttons and widgets ###
+            my $widget = $event->widget();
+            if( $widget == $cancelButton )
+            {
+                $retval = 0;
+                last;
+            }
+            elsif( $widget == $okButton )
+            {
+                if(scalar(@{$self->unlisted()}) > 0)
+                {
+                    $self->unlisted([]);
+                }
+                my $invalid_ports = check_ports_syntax($txtPortsList->value());
+                if(AdminPanel::Shared::trim($invalid_ports) eq '')
+                {
+                    if($txtPortsList->value() =~m/\s+/g)
+                    {
+                        my @unlstd = split(' ', $txtPortsList->value());
+                        foreach my $p(@unlstd)
+                        {
+                            push(@{$self->unlisted()},$p);
+                        }
+                    }
+                    else
+                    {
+                        push(@{$self->unlisted()}, AdminPanel::Shared::trim($txtPortsList->value()));
+                    }
+                    $retval = 1;
+                }
+ 				else
+                {
+ 				    $self->sh_gui->warningMsgBox({
+                        title=>$self->loc->N("Invalid port given"),
+ 				        text=> $self->loc->N("Invalid port given: %s.
+The proper format is \"port/tcp\" or \"port/udp\", 
+where port is between 1 and 65535.
+ 
+You can also give a range of ports (eg: 24300:24350/udp)", $invalid_ports)
+                    });
+                    $retval = 0;
+                }
+                last;
+            }
+        }
+    }
+
+    $advdlg->destroy();
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($old_title);
@@ -1009,14 +1127,14 @@ sub start {
     # initialize ifw_rules here
     $self->ifw_rules($self->_initIFW());
     
-    my ($disabled, $servers, $unlisted, $log_net_drop) = $self->get_conf(undef) or return;
-    ($disabled, $servers, $unlisted, $log_net_drop) = $self->choose_allowed_services($disabled, $servers, $unlisted, $log_net_drop) or return;
+    my ($disabled, $servers, $log_net_drop) = $self->get_conf(undef) or return;
+    ($disabled, $servers, $log_net_drop) = $self->choose_allowed_services($disabled, $servers, $log_net_drop) or return;
     
     my $system_file = '/etc/sysconfig/drakx-net';
     my %global_settings = getVarsFromSh($system_file);
     
     if (!$disabled && (!defined($global_settings{IFW}) || text2bool($global_settings{IFW}))) {
-        $self->choose_watched_services($servers, $unlisted) or return;
+        $self->choose_watched_services($servers) or return;
     }
     
     # preparing services when required ( look at $self->all_servers() )
@@ -1024,7 +1142,7 @@ sub start {
         exists $_->{prepare} and $_->{prepare}();
     }
     
-    my $ports = $self->to_ports($servers, $unlisted);
+    my $ports = $self->to_ports($servers);
     
     $self->set_ports($disabled, $ports, $log_net_drop) or return;
     
@@ -1044,32 +1162,5 @@ sub start {
 
     return ($disabled, $ports);
 };
-
-sub ask_from_ {
-    my $self = shift();
-
-    my ($dlg_data,
-	$items) = @_;
-
-    my @buttons = ();
-    my @list = ();
-    my $val = undef;
-    
-    foreach my $item(@{$items})
-    {
-	push @list, {
-	  text => $item->{text},
-	  value => ${$item->{val}},
-	  };
-    }
-    
-    
-    my @retval = $self->sh_gui->ask_multiple_fromList({
-	  title => $dlg_data->{title},
-	  header => $dlg_data->{messages},
-	  list => \@list});
-    
-    return @retval;
-}
 
 1;
