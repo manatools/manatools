@@ -96,13 +96,7 @@ sub _refresh_packages_list {
     $dialog->startMultipleChanges();
     $packageTbl->deleteAllItems();
 
-    if (!scalar(@requested)) {
-        AdminPanel::rpmdragora::interactive_msg($loc->N("rpmdragora update"),
-                        $loc->N("The list of updates is empty. This means that either there is no available update for the packages installed on your computer, or you already installed all of them."),
-                        scroll => 1
-        );
-    }
-    else {
+    if (scalar(@requested)) {
         my $itemCollection = new yui::YItemCollection;
         my $i = 0;
         foreach (@requested) {
@@ -241,6 +235,7 @@ sub run_treeview_dialog {
         my $hbox  = $factory->createHBox( $vbox );
         my $align = $factory->createLeft($hbox);
         $hbox     = $factory->createHBox($align);
+        $hbox->setWeight(0, 1);
 
         my $helpButton  = $factory->createPushButton($hbox, $loc->N("Help"));
         my $aboutButton = $factory->createPushButton($hbox, $loc->N("About") );
@@ -252,6 +247,7 @@ sub run_treeview_dialog {
         my $updateButton = $factory->createPushButton($hbox, $loc->N("Update"));
         my $closeButton  = $factory->createPushButton($hbox, $loc->N("Quit") );
         $statusbar       = $factory->createBusyIndicator($vbox, "" );
+        $statusbar->setWeight(0, 1);
 
         my $info_options = {};
 
@@ -347,6 +343,14 @@ sub run_treeview_dialog {
                     my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
                     $initialized = 0 if !$res;
                     $num_pkgs =  _refresh_packages_list($dialog, $packageTbl);
+                    $infoBox->setValue("");
+                    if ($num_pkgs) {
+                        $item = $packageTbl->selectedItem();
+                        if ($item) {
+                            my $pkg = $data{$item->index()}{fullname};
+                            AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+                        }
+                    }
                 }
                 elsif ($widget == $helpButton) {
                 }
@@ -356,6 +360,14 @@ sub run_treeview_dialog {
     }
 
     $dialog->destroy();
+
+    if (!$num_pkgs) {
+        AdminPanel::rpmdragora::interactive_msg(
+            $loc->N("rpmdragora update"),
+            $loc->N("The list of updates is empty. This means that either there is no available update for the packages installed on your computer, or you already installed all of them."),
+            scroll => 1
+        );
+    }
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
