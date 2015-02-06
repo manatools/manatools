@@ -214,6 +214,27 @@ sub run_treeview_dialog {
     my $packageTbl = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
                      $factory->createVSpacing($vbox, 1);
     my $infoBox    = $factory->createRichText($vbox, "", 0);
+    
+    # dialog buttons
+    $factory->createVSpacing($vbox, 1.0);
+    ## Window push buttons
+    my $hbox  = $factory->createHBox( $vbox );
+    $hbox->setWeight(0, 1);
+    my $align = $factory->createLeft($hbox);
+    $hbox     = $factory->createHBox($align);
+
+    my $helpButton  = $factory->createPushButton($hbox, $loc->N("&Help"));
+    my $aboutButton = $factory->createPushButton($hbox, $loc->N("&About") );
+    $align = $factory->createRight($hbox);
+    $hbox  = $factory->createHBox($align);
+
+    ### Service Refresh button ($refreshButton)
+    my $selectButton = $factory->createPushButton($hbox, $loc->N("&Select all"));
+    my $updateButton = $factory->createPushButton($hbox, $loc->N("&Update"));
+    my $closeButton  = $factory->createPushButton($hbox, $loc->N("&Quit") );
+    $statusbar       = $factory->createBusyIndicator($vbox, "" );
+    $statusbar->setWeight(0, 1);
+   
     $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
 
     pkgs_provider('all_updates', pure_updates => 1); # default mode
@@ -228,26 +249,6 @@ sub run_treeview_dialog {
             my $pkg = $data{$item->index()}{fullname};
             AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
         }
-
-        # dialog buttons
-        $factory->createVSpacing($vbox, 1.0);
-        ## Window push buttons
-        my $hbox  = $factory->createHBox( $vbox );
-        my $align = $factory->createLeft($hbox);
-        $hbox     = $factory->createHBox($align);
-        $hbox->setWeight(0, 1);
-
-        my $helpButton  = $factory->createPushButton($hbox, $loc->N("Help"));
-        my $aboutButton = $factory->createPushButton($hbox, $loc->N("About") );
-        $align = $factory->createRight($hbox);
-        $hbox  = $factory->createHBox($align);
-
-        ### Service Refresh button ($refreshButton)
-        my $selectButton = $factory->createPushButton($hbox, $loc->N("Select all"));
-        my $updateButton = $factory->createPushButton($hbox, $loc->N("Update"));
-        my $closeButton  = $factory->createPushButton($hbox, $loc->N("Quit") );
-        $statusbar       = $factory->createBusyIndicator($vbox, "" );
-        $statusbar->setWeight(0, 1);
 
         my $info_options = {};
 
