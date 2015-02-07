@@ -69,8 +69,15 @@ sub dev_to_shorewall {
 
 sub get_net_zone_interfaces {
     my ($interfacesfile, $_net, $all_intf) = @_;
-    #- read shorewall configuration first
-    my @interfaces = map { $_->[1] } grep { $_->[0] eq 'net' } $interfacesfile;
+    if(ref($interfacesfile) eq "ARRAY")
+    {
+    	#- read shorewall configuration first
+    	my @interfaces = map { $_->[1] } grep { $_->[0] eq 'net' } $interfacesfile;
+    }
+    else
+    {
+	my @interfaces = undef;
+    }
     #- else try to find the best interface available
     @interfaces ? @interfaces : @{$all_intf || []};
 }
