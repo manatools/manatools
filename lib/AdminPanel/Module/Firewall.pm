@@ -117,6 +117,12 @@ has 'unlisted' => (
     builder => '_initUnlisted',
 );
 
+has 'log_net_drop' => (
+    is => 'rw',
+    isa => 'Bool',
+    default => sub { return 1; }
+);
+
 has 'aboutDialog' => (
     is => 'ro',
     init_arg => undef,
@@ -406,7 +412,8 @@ sub from_ports {
             push (@{$self->unlisted()}, $_);
         }
     }
-    [ uniq(@l) ], join(' ', @{$self->unlisted()});
+    my @result = [ uniq(@l) ], join(' ', @{$self->unlisted()});
+    return \@result;
 }
 
 #=============================================================
@@ -459,7 +466,7 @@ drakconnect before going any further."),
         richtext => 1
         }) or return;
 
-    return($disabled, $possible_servers, '');
+        return($disabled, $possible_servers, '');
     }
 }
 
@@ -497,12 +504,8 @@ sub set_ifw {
 
     $self: this object
     
-    $disabled: boolean
-    
     $servers: array of hashes representing servers
     
-    $log_net_drop: network::shorewall log_net_drop attribute
-
 =head3 DESCRIPTION
 
     This method shows the main dialog to let users choose the allowed services
@@ -717,8 +720,6 @@ sub ask_WatchedServices {
     
     $servers: array of hashes representing servers
     
-    $log_net_drop: network::shorewall log_net_drop attribute
-
 =head3 DESCRIPTION
 
     This method shows the main dialog to let users choose the allowed services
@@ -728,7 +729,7 @@ sub ask_WatchedServices {
 #=============================================================
 
 sub choose_allowed_services {
-    my ($self, $disabled, $servers, $log_net_drop) = @_;
+    my ($self, $disabled, $servers) = @_;
 
     $_->{on} = 0 foreach @{$self->all_servers()};
     $_->{on} = 1 foreach @$servers;
@@ -746,8 +747,6 @@ sub choose_allowed_services {
         if_($self->net()->{PROFILE} && network::network::netprofile_count() > 0, { label => $self->loc->N("Those settings will be saved for the network profile <b>%s</b>", $self->net()->{PROFILE}) }),
         { text => $self->loc->N("Everything (no firewall)"), val => \$disabled, type => 'bool' },
         (map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled }, id => $_->{id} } } @l),
-        { label => $self->loc->N("Other ports"), val => $self->unlisted(), advanced => 1, disabled => sub { $disabled } },
-        { text => $self->loc->N("Log firewall messages in system logs"), val => \$log_net_drop, type => 'bool', advanced => 1, disabled => sub { $disabled } },
     ];
     
     exit() if(!$self->ask_AllowedServices($dialog_data, $items));
@@ -767,7 +766,7 @@ sub choose_allowed_services {
         }
     }
     
-    return ($disabled, [ grep { $_->{on} } @l ], $log_net_drop);
+    return ($disabled, [ grep { $_->{on} } @l ]);
 }
 
 #=============================================================
@@ -869,10 +868,6 @@ sub ask_AllowedServices {
                 last;
             }
             elsif ($widget == $advButton) {
-# 				return 1;
-# 			    }
-# 			},
-#		   } 
                 $self->ask_CustomPorts();
             }
         }
@@ -909,15 +904,15 @@ Have a look at /etc/services for information.");
     my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
-    my $labelAppDescription = $factory->createLabel($headRight,$win_title); 
+    my $labelAppDescription = $factory->createLabel($headRight,$self->loc->N("Other ports")); 
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
     
     my $hbox_content = $factory->createHBox($layout);
     my $vbox_inputs = $factory->createVBox($hbox_content);
-    my $labelAdvMessage = $factory->createLabel($vbox_inputs, $adv_msg);
+    my $labelAdvMessage = $factory->createLabel($factory->createHBox($vbox_inputs), $adv_msg);
     my $txtPortsList = $factory->createInputField($vbox_inputs,'');
     $txtPortsList->setValue(join(' ',@{$self->unlisted()}));
-    
+    my $ckbLogFWMessages = $factory->createCheckBox($factory->createHBox($vbox_inputs), $self->loc->N("Log firewall messages in system logs"), $self->log_net_drop());
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
@@ -962,7 +957,10 @@ Have a look at /etc/services for information.");
                     }
                     else
                     {
-                        push(@{$self->unlisted()}, AdminPanel::Shared::trim($txtPortsList->value()));
+                        if(AdminPanel::Shared::trim($txtPortsList->value()) ne '')
+                        {
+                            push(@{$self->unlisted()}, AdminPanel::Shared::trim($txtPortsList->value()));
+                        }
                     }
                     $retval = 1;
                 }
@@ -1128,7 +1126,11 @@ sub start {
     $self->ifw_rules($self->_initIFW());
     
     my ($disabled, $servers, $log_net_drop) = $self->get_conf(undef) or return;
-    ($disabled, $servers, $log_net_drop) = $self->choose_allowed_services($disabled, $servers, $log_net_drop) or return;
+    
+    # $log_net_drop: network::shorewall log_net_drop attribute
+    $self->log_net_drop($log_net_drop);
+    undef($log_net_drop);
+    ($disabled, $servers) = $self->choose_allowed_services($disabled, @$servers) or return;
     
     my $system_file = '/etc/sysconfig/drakx-net';
     my %global_settings = getVarsFromSh($system_file);
@@ -1144,7 +1146,7 @@ sub start {
     
     my $ports = $self->to_ports($servers);
     
-    $self->set_ports($disabled, $ports, $log_net_drop) or return;
+    $self->set_ports($disabled, $ports, $self->log_net_drop()) or return;
     
     # restart mandi
     require services;
