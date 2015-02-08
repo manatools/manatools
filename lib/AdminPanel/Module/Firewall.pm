@@ -758,11 +758,18 @@ sub choose_allowed_services {
         {
             if(defined($l[$k]->{id}) && defined($server->{id}))
             {
-            if($l[$k]->{id} eq $server->{id})
-            {
-                $l[$k]->{on} = ${$server->{value}};
-                last;
+                if($l[$k]->{id} eq $server->{id})
+                {
+                    $l[$k]->{on} = ${$server->{value}};
+                    last;
+                }
             }
+            else
+            {
+                # fake server, the checkbox allowing the user to disable the firewall
+                # if Everything checkbox is selected, value = 1 then firewall disabled = 1
+                $disabled = ${$server->{value}};
+                last;
             }
         }
     }
@@ -801,6 +808,8 @@ sub ask_AllowedServices {
     my $hbox_content = $factory->createHBox($layout);
 
     my $widgetContainer = $factory->createVBox($hbox_content);
+
+    my $evry = undef;
     
     foreach my $item(@{$items})
     {
@@ -816,6 +825,14 @@ sub ask_AllowedServices {
                     ${$item->{val}}
             );
             $ckbox->setNotify(1);
+            if(!defined($item->{id}))
+            {
+                $evry = $ckbox;
+            }
+            if(defined($item->{disabled}))
+            {
+                $ckbox->setEnabled(!$item->{disabled}->());
+            }
             push @{$self->wdg_servers()}, {
                 id => $item->{id},
                 widget => \$ckbox,
@@ -870,6 +887,15 @@ sub ask_AllowedServices {
             }
             elsif ($widget == $advButton) {
                 $self->ask_CustomPorts();
+            }
+            elsif ($widget == $evry) {
+                foreach my $wdg_ckbox(@{$self->wdg_servers()})
+                {
+                    if(defined($wdg_ckbox->{id}))
+                    {
+                        ${$wdg_ckbox->{widget}}->setEnabled(!${$wdg_ckbox->{widget}}->isEnabled());
+                    }
+                }
             }
         }
     }
@@ -993,6 +1019,7 @@ You can also give a range of ports (eg: 24300:24350/udp)", $invalid_ports)
 sub get_zones {
     my $self = shift();
     my $confref = shift();
+    my $disabled = shift();
     my $conf = ${$confref};
     my $interfacesfile = AdminPanel::Shared::Shorewall::get_config_file('interfaces', $conf->{version} || '');
     network::network::read_net_conf($self->net());
@@ -1000,9 +1027,14 @@ sub get_zones {
     my @all_intf = grep { !/:/ } uniq(keys(%{$self->net()->{ifcfg}}), detect_devices::get_net_interfaces());
     my %net_zone = map { $_ => undef } @all_intf;
     $net_zone{$_} = 1 foreach AdminPanel::Shared::Shorewall::get_net_zone_interfaces($interfacesfile, $self->net(), \@all_intf);
-    my $retvals = $self->sh_gui->ask_multiple_fromList({
-        title => $self->loc->N("Firewall configuration"),
-        header => $self->loc->N("Please select the interfaces that will be protected by the firewall.
+
+    # if firewall/shorewall is not disabled (i.e. everything has been allowed)
+    # then ask for network interfaces to protect
+    if(!$disabled)
+    {
+        my $retvals = $self->sh_gui->ask_multiple_fromList({
+            title => $self->loc->N("Firewall configuration"),
+            header => $self->loc->N("Please select the interfaces that will be protected by the firewall.
 
 All interfaces directly connected to Internet should be selected,
 while interfaces connected to a local network may be unselected.
@@ -1012,30 +1044,37 @@ unselect interfaces which will be connected to local network.
 
 Which interfaces should be protected?
 "),
-    list => [
-        map {
-            {
-            id => $_,
-            text => network::tools::get_interface_description($self->net(), $_), 
-            val => \$net_zone{$_}, 
-            type => 'bool' 
-            };
-        } (sort keys %net_zone) ]
-        });
+        list => [
+            map {
+                {
+                id => $_,
+                text => network::tools::get_interface_description($self->net(), $_), 
+                val => \$net_zone{$_}, 
+                type => 'bool' 
+                };
+            } (sort keys %net_zone) ]
+            });
     
-    if(!defined($retvals))
-    {
-        return 0;
-    }
-    else
-    {
-        # it was: ($conf->{net_zone}, $conf->{loc_zone}) = partition { $net_zone{$_} } keys %net_zone;
-        foreach my $net_int (@{$retvals})
+        if(!defined($retvals))
         {
-            push (@{$conf->{net_zone}}, $net_int);
+            return 0;
         }
-        return $retvals;
+        else
+        {
+            # it was: ($conf->{net_zone}, $conf->{loc_zone}) = partition { $net_zone{$_} } keys %net_zone;
+            foreach my $net_int (@{$retvals})
+            {
+                push (@{$conf->{net_zone}}, $net_int);
+            }
+            return $retvals;
+        }
     }
+
+    foreach my $net_int(keys %net_zone)
+    {
+        push (@{$conf->{net_zone}}, $net_int);
+    }
+    return keys %net_zone;
 }
 
 #=============================================================
@@ -1061,7 +1100,7 @@ sub set_ports {
     if (!$disabled || -x "$::prefix/sbin/shorewall") {
         # $do_pkgs->ensure_files_are_installed([ [ qw(shorewall shorewall) ], [ qw(shorewall-ipv6 shorewall6) ] ], $::isInstall) or return;
         my $conf = AdminPanel::Shared::Shorewall::read_();
-        if(!$self->get_zones(\$conf))
+        if(!$self->get_zones(\$conf,$disabled))
         {
             # Cancel button has been pressed, aborting
             return 0;
