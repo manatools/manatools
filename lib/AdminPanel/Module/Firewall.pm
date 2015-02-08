@@ -31,6 +31,7 @@ use AdminPanel::Shared qw(trim);
 use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Firewall;
 use AdminPanel::Shared::Shorewall;
+use AdminPanel::Shared::Services;
 
 use MDK::Common::Func qw(if_ partition);
 use MDK::Common::System qw(getVarsFromSh);
@@ -1149,13 +1150,13 @@ sub start {
     $self->set_ports($disabled, $ports, $self->log_net_drop()) or return;
     
     # restart mandi
-    require services;
-    services::is_service_running("mandi") and services::restart("mandi");
+    my $services = AdminPanel::Shared::Services->new();
+    $services->is_service_running("mandi") and $services->restart("mandi");
 
     # restarting services if needed
     foreach my $service (@$servers) {
         if ($service->{restart}) {
-            services::is_service_running($_) and services::restart($_) foreach split(' ', $service->{restart});
+            $services->is_service_running($_) and $services->restart($_) foreach split(' ', $service->{restart});
         }
     }
 
