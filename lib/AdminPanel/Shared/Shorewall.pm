@@ -3,6 +3,7 @@ package AdminPanel::Shared::Shorewall; # $Id: shorewall.pm 254244 2009-03-18 22:
 use detect_devices;
 use network::network;
 use AdminPanel::Shared::RunProgram;
+use AdminPanel::Shared::Services;
 use MDK::Common::Func qw(if_ partition map_each);
 use MDK::Common::File qw(cat_ substInFile output_with_perm);
 use MDK::Common::Various qw(to_bool);
@@ -95,8 +96,8 @@ sub read_ {
     $ver = $o_ver if $o_ver;
     #- read old rules file if config is not moved to rules.drakx yet
     my @rules = get_config_file(-f "$::prefix${shorewall_root}${ver}/rules.drakx" ? 'rules.drakx' : 'rules', $ver);
-    require services;
-    my %conf = (disabled => !services::starts_on_boot("shorewall${ver}"),
+    my $services = AdminPanel::Shared::Services->new();
+    my %conf = (disabled => !$services->starts_on_boot("shorewall${ver}"),
                 version => $ver,
                 ports => join(' ', map {
                     my $e = $_;
@@ -234,12 +235,12 @@ sub write_ {
     ));
     set_config_file('masq', $ver, if_(exists $conf->{masq}, [ $conf->{masq}{net_interface}, $conf->{masq}{subnet} ]));
 
-    require services;
+    my $services = AdminPanel::Shared::Services->new();
     if ($conf->{disabled}) {
-        services::disable('shorewall', $::isInstall);
+        $services->disable('shorewall', $::isInstall);
         run_program::rooted($::prefix, '/sbin/shorewall', 'clear') unless $::isInstall;
     } else {
-        services::enable('shorewall', $::isInstall);
+        $services->enable('shorewall', $::isInstall);
     }
     return 1;
 }
@@ -258,12 +259,12 @@ sub set_redirected_ports {
 sub update_interfaces_list {
     my ($o_intf) = @_;
     if (!$o_intf || !member($o_intf, map { $_->[1] } get_config_file('interfaces'))) {
-        my $shorewall = network::shorewall::read();
-        $shorewall && !$shorewall->{disabled} and network::shorewall::write($shorewall);
+        my $shorewall = AdminPanel::Shared::Shorewall::read_();
+        $shorewall && !$shorewall->{disabled} and AdminPanel::Shared::Shorewall::write_($shorewall);
     }
     if (!$o_intf || !member($o_intf, map { $_->[1] } get_config_file('interfaces', 6))) {
-        my $shorewall6 = network::shorewall::read(undef, 6);
-        $shorewall6 && !$shorewall6->{disabled} and network::shorewall::write($shorewall6);
+        my $shorewall6 = AdminPanel::Shared::Shorewall::read_(undef, 6);
+        $shorewall6 && !$shorewall6->{disabled} and AdminPanel::Shared::Shorewall::write_($shorewall6);
     }
 }
 
