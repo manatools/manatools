@@ -1,4 +1,7 @@
 1.0.0-8
+	- manaclock use AdminPanel::Shared::TimeZone setTime to adjust 
+		time
+	- AdminPanel::Shared::TimeZone now works using dbus timedated1
 	- manaservice: do not crash if admin rights are not taken
 		(password error, ...)
 	- manawall: ported drakfirewall to AdminPanel
