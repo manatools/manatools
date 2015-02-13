@@ -333,16 +333,34 @@ sub _adminClockPanel {
                 # (2) write new NTP settigs if checked
                 # (3) use date time fields if NTP is not checked
 
-                if ($info->{time_zone}->{UTC}) {
+                my $old_conf = $self->sh_tz->readConfiguration();
+                if ($info->{time_zone}->{UTC} != $old_conf->{UTC} ||
+                    $info->{time_zone}->{ZONE} ne $old_conf->{ZONE}) {
                     # (1)
-                    $self->sh_tz->writeConfiguration($info->{time_zone});
+                    eval { $self->sh_tz->writeConfiguration($info->{time_zone}) };
+                    my $errors = $@;
+                    if ($errors) {
+                        $finished = 0;
+                        $self->sh_gui->warningMsgBox({
+                            title =>  $self->loc->N("Write configuration failed"),
+                            text  => "$errors",
+                            richtext => 1,
+                        });
+                    }
                 }
                 if ($ntpFrame->value()) {
                     # (2)
                     if ($info->{ntp_server}) {
-
-                        $self->sh_tz->setNTPServer($info->{ntp_server});
-
+                        eval { $self->sh_tz->setNTPServer($info->{ntp_server}) };
+                        my $errors = $@;
+                        if ($errors) {
+                            $finished = 0;
+                            $self->sh_gui->warningMsgBox({
+                                title =>  $self->loc->N("Set NTP failed"),
+                                text  => "$errors",
+                                richtext => 1,
+                            });
+                        }
                     }
                     else {
                         $self->sh_gui->warningMsgBox({text => $self->loc->N("Please enter a valid NTP server address.")});
@@ -350,16 +368,23 @@ sub _adminClockPanel {
                     }
                 }
                 else {
-                    $self->sh_tz->disableAndStopNTP();
-                    # (3)
-                    my $t = Time::Piece->strptime($timeField->value(), "%H:%M:%S");
-                    my $d = Time::Piece->strptime($dateField->value(), "%Y-%m-%d");
-                    my $ts = sprintf("%02d%02d%02d%02d%04d.%02d",
-                                     $d->mon, $d->mday, $t->hour,
-                                     $t->min, $d->year,$t->sec);
-                    $ENV{PATH} = "/usr/bin:/usr/sbin";
-                    system("/usr/bin/date " . $ts);
-                    -e '/usr/sbin/hwclock' and system('/usr/sbin/hwclock', '--systohc');
+                    my $t =  Time::Piece->strptime($dateField->value()."T".$timeField->value(),
+                                                    "%Y-%m-%dT%H:%M:%S"
+                    );
+                    eval {
+                        $self->sh_tz->disableAndStopNTP();
+                        # (3)
+                        $self->sh_tz->setTime($t->epoch());
+                    };
+                    my $errors = $@;
+                    if ($errors) {
+                        $finished = 0;
+                        $self->sh_gui->warningMsgBox({
+                            title =>  $self->loc->N("Set system time failed"),
+                            text  => "$errors",
+                            richtext => 1,
+                        });
+                    }
                 }
                 yui::YUI::app()->normalCursor();
 
@@ -408,15 +433,14 @@ sub _adminClockPanel {
                     if ($item) {
                         my $utc = 0;
                         if ($info->{time_zone}->{UTC} ) {
-                            $utc = lc $info->{time_zone}->{UTC};
-                            $utc = ($utc eq "false" || $utc eq "0") ? 0 : 1;
+                            $utc = $info->{time_zone}->{UTC};
                         }
                         $utc = $self->sh_gui->ask_YesOrNo({
-                                                    title  => $self->loc->N("GMT - DrakClock"),
+                                                    title  => $self->loc->N("GMT - manaclock"),
                                                     text   => $self->loc->N("Is your hardware clock set to GMT?"),
-                                            default_button => $utc,
+                                            default_button => 1,
                                                 });
-                        $info->{time_zone}->{UTC}  = $utc == 1 ? 'true' : 'false';
+                        $info->{time_zone}->{UTC}  = $utc;
                         $info->{time_zone}->{ZONE} = $item;
                         $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
                     }
@@ -467,7 +491,7 @@ sub _adminClockPanel {
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({ name    => $self->name,
                                             version => $self->VERSION,
-                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2014'),
+                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2015'),
                             license => $self->loc->N("GPLv2"),
                             description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
                             authors => $self->loc->N("<h3>Developers</h3>
