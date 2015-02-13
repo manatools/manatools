@@ -55,9 +55,8 @@ use strict;
 use Moose;
 
 use DateTime::TimeZone;
-use Config::Auto;
-use Config::Tiny;
-use File::Copy;
+use Net::DBus;
+
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Services;
 
@@ -84,24 +83,6 @@ has 'timezone_prefix' => (
     default => "/usr/share/zoneinfo",
 );
 
-#=============================================================
-
-=head2 new - optional parameters
-
-=head3 clock_configuration_file
-
-    optional parameter to set the clock system configuration file,
-    default value is /etc/sysconfig/clock
-
-=cut
-
-#=============================================================
-
-has 'clock_configuration_file' => (
-    is => 'rw',
-    isa => 'Str',
-    default => "/etc/sysconfig/clock",
-);
 
 #=============================================================
 
@@ -163,7 +144,6 @@ has 'ntp_conf_dir' => (
 =cut
 
 #=============================================================
-
 has 'ntp_program' => (
     is  => 'rw',
     isa => 'Str',
@@ -179,6 +159,28 @@ sub _ntp_program_init {
     return "ntp";
 }
 
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 installer_or_livecd
+
+    To inform the back-end that is working during installer or
+    livecd. Useful if Time zone setting and using fix_system
+    to use the real time clock (see setLocalRTC and
+    writeConfiguration).
+
+=cut
+
+#=============================================================
+has 'installer_or_livecd' => (
+    is  => 'rw',
+    isa => 'Bool',
+    default => 0,
+);
+
+#=== globals ===
+
 has 'sh_services' => (
         is => 'rw',
         init_arg => undef,
@@ -192,7 +194,35 @@ sub _SharedServicesInitialize {
     $self->sh_services(AdminPanel::Shared::Services->new() );
 }
 
-#=== globals ===
+
+has 'dbus_timedate1_service' => (
+    is       => 'rw',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_dbusTimeDateInitialize'
+);
+
+sub _dbusTimeDateInitialize {
+    my $self = shift();
+
+    my $bus = Net::DBus->system;
+    $self->dbus_timedate1_service($bus->get_service("org.freedesktop.timedate1"));
+}
+
+
+has 'dbus_timedate1_object' => (
+    is       => 'rw',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_dbusObjectInitialize'
+);
+
+sub _dbusObjectInitialize {
+    my $self = shift();
+
+    $self->dbus_timedate1_object($self->dbus_timedate1_service->get_object("/org/freedesktop/timedate1"));
+}
+
 
 has 'servername_config_suffix' => (
     is  => 'ro',
@@ -342,7 +372,6 @@ Return the timezone directory (defualt: /usr/share/zoneinfo)
 =cut
 
 #=============================================================
-
 sub get_timezone_prefix {
     my $self = shift;
 
@@ -387,6 +416,149 @@ sub getTimeZones {
 
 #=============================================================
 
+=head2 setTimeZone
+
+=head3 INPUT
+
+    $new_time_zone: New time zone to be set
+
+=head3 DESCRIPTION
+
+    This method get the new time zone to set and performs
+    the setting
+
+=cut
+
+#=============================================================
+sub setTimeZone {
+    my ($self, $new_time_zone) = @_;
+
+    die "Time zone value required" if !defined($new_time_zone);
+
+    my $object   = $self->dbus_timedate1_object;
+    $object->SetTimezone($new_time_zone, 1);
+}
+
+#=============================================================
+
+=head2 getTimeZone
+
+=head3 OUTPUT
+
+    $timezone: current time zone
+
+=head3 DESCRIPTION
+
+    This method returns the current timezone setting
+
+=cut
+
+#=============================================================
+sub getTimeZone {
+    my ($self) = @_;
+
+    my $object       = $self->dbus_timedate1_object;
+
+    return $object->Get("org.freedesktop.timedate1", 'Timezone') || "";
+}
+
+
+#=============================================================
+
+=head2 setLocalRTC
+
+=head3 INPUT
+
+    $enable: bool value enable/disable real time clock as
+             localtime
+    $fix_system: bool read or not the real time clock
+
+=head3 DESCRIPTION
+
+    This method enables/disables the real time clock as
+    localtime (e.g. disable means set the rtc to UTC).
+    NOTE from dbus:
+    Use SetLocalRTC() to control whether the RTC is in
+    local time or UTC. It is strongly recommended to maintain
+    the RTC in UTC. Some OSes (Windows) however maintain the
+    RTC in local time which might make it necessary to enable
+    this feature. However, this creates various problems as
+    daylight changes might be missed. If fix_system is passed
+    "true" the time from the RTC is read again and the system
+    clock adjusted according to the new setting.
+    If fix_system is passed "false" the system time is written
+    to the RTC taking the new setting into account.
+    Use fix_system=true in installers and livecds where the
+    RTC is probably more reliable than the system time.
+    Use fix_system=false in configuration UIs that are run during
+    normal operation and where the system clock is probably more
+    reliable than the RTC.
+
+=cut
+
+#=============================================================
+sub setLocalRTC {
+    my ($self, $enable, $fix_system) = @_;
+
+    die "Localtime enable/disable value required" if !defined($enable);
+
+    $fix_system = 0 if !defined($fix_system);
+    my $object   = $self->dbus_timedate1_object;
+    $object->SetLocalRTC($enable, $fix_system, 1) ;
+}
+
+#=============================================================
+
+=head2 getLocalRTC
+
+=head3 OUTPUT
+
+    $localRTC: 1 if RTC is localtime 0 for UTC
+
+=head3 DESCRIPTION
+
+    This method returns the RTC localtime setting
+
+=cut
+
+#=============================================================
+sub getLocalRTC {
+    my $self = shift;
+
+    my $object   = $self->dbus_timedate1_object;
+
+    return $object->Get("org.freedesktop.timedate1", 'LocalRTC') ? 1 : 0;
+}
+
+
+#=============================================================
+
+=head2 setTime
+
+=head3 INPUT
+
+    $sec_since_epoch: Time in seconds since 1/1/1970
+
+=head3 DESCRIPTION
+
+    This method set the system time and sets the RTC also
+
+=cut
+
+#=============================================================
+sub setTime {
+    my ($self, $sec_since_epoch) = @_;
+
+    die "second since epoch required" if !defined($sec_since_epoch);
+
+    my $object = $self->dbus_timedate1_object;
+    my $usec   = $sec_since_epoch* 1000000;
+
+    $object->SetTime($usec, 0, 1);
+}
+
+#=============================================================
+
 =head2 readConfiguration
 
 =head3 OUTPUT
@@ -406,11 +578,9 @@ sub getTimeZones {
 sub readConfiguration {
     my $self = shift;
 
-    my $prefs  = {};
-
-    if (-e $self->clock_configuration_file) {
-        $prefs  = Config::Auto::parse($self->clock_configuration_file);
-    }
+    my $prefs        = {};
+    $prefs->{'ZONE'} = $self->getTimeZone();
+    $prefs->{'UTC'}  = $self->getLocalRTC() ? 0 : 1;
 
     return $prefs;
 }
@@ -428,39 +598,28 @@ sub readConfiguration {
 
 =head3 DESCRIPTION
 
-This method save Time Zone configuration into file
+    This method sets the passed Time Zone configuration.
+    If installer_or_livecd attribute is set fix_system is
+    passed to setLocalRTC
 
 =cut
 
 #=============================================================
-
 sub writeConfiguration {
     my ($self, $info) = @_;
 
-    die "UTC  field required" if (!$info->{UTC});
-    die "ZONE field required" if (!$info->{ZONE});
+    die "UTC  field required" if !defined($info->{UTC});
+    die "ZONE field required" if !defined($info->{ZONE});
 
-    my $Config = Config::Tiny->new;
-    $Config->{_}->{UTC}  = $info->{UTC};
-    $Config->{_}->{ZONE} = $info->{ZONE};
-    $Config->{_}->{ARC}  = "false";
+    my $localRTC = $info->{UTC} ? 0 : 1;
+    $self->setLocalRTC(
+        $localRTC,
+        $self->installer_or_livecd
+    );
 
-    $Config->write( $self->clock_configuration_file );
-
-    my $tz = $self->get_timezone_prefix() . "/" . $info->{ZONE};
-    # if we are going to use systemd then we have to remove the link only
-    # if it is not a link, becuase it should be managed by systemd it self
-    # eval { unlink '/etc/localtime' } unless -l '/etc/localtime';
-    unlink '/etc/localtime' or Sys::Syslog::syslog('info|local1', "unlinking /etc/localtime failed");
-    Sys::Syslog::syslog('info|local1', "Setting $tz as localtime");
-    symlink $tz, '/etc/localtime' or Sys::Syslog::syslog('info|local1', "linking $tz to /etc/localtime failed");
-
-    my $adjtime_file = '/etc/adjtime';
-    my @adjtime = MDK::Common::File::cat_($adjtime_file);
-    @adjtime or @adjtime = ("0.0 0 0.0\n", "0\n");
-    my $utc = lc $info->{UTC};
-    $adjtime[2] = $utc eq 'true'  ? "UTC\n" : "LOCAL\n";
-    MDK::Common::File::output_p($adjtime_file, @adjtime);
+    $self->setTimeZone(
+        $info->{ZONE}
+    );
 }
 
 
@@ -538,7 +697,6 @@ sub ntpCurrentServer {
 =cut
 
 #=============================================================
-
 sub isNTPRunning {
     my $self = shift;
 
@@ -564,7 +722,6 @@ settings
 =cut
 
 #=============================================================
-
 sub setNTPServer {
     my ($self, $server) = @_;
 
@@ -623,7 +780,6 @@ sub setNTPServer {
 =cut
 
 #=============================================================
-
 sub disableAndStopNTP {
     my $self = shift;
 
