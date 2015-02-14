@@ -306,7 +306,7 @@ launch the Software Media Manager, and then add a `Security
 updates' medium.
 
 Then, restart %s.", $AdminPanel::rpmdragora::myname_update)), return (-1);
-        add_distrib_update_media($urpm, $mirror, only_updates => 1);
+        add_distrib_update_media($urpm, $mirror, only_updates => 0);
     }
     return 0;
 }
