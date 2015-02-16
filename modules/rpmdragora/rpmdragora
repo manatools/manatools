@@ -1091,7 +1091,7 @@ print "Menu " . $menuLabel . " chosen\n";
                     $translators =~ s/\>/\&gt\;/g;
                     my $sh_gui = AdminPanel::Shared::GUI->new();
                     $sh_gui->AboutDialog({ name => "Rpmdragora",
-                                                version => "TODO",
+                                                version => $VERSION,
                             credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
                             license => $loc->N("GPLv2"),
                             description => $loc->N("Rpmdragora is the Mageia package management tool."),
