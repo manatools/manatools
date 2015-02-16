@@ -56,7 +56,6 @@ use AdminPanel::Shared::GUI;
 use Carp;
 
 our @ISA = qw(Exporter);
-our $VERSION = '2.27';
 our @EXPORT = qw(
     $changelog_first_config
     $compute_updates

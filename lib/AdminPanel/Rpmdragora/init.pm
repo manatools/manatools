@@ -41,6 +41,7 @@ our @ISA = qw(Exporter);
 our @EXPORT = qw(init
                  warn_about_user_mode
                  $MODE
+                 $VERSION
                  $changelog_first
                  $default_list_mode
                  %rpmdragora_options
@@ -99,7 +100,7 @@ if ($collation_locale) {
   $collation_locale =~ /UTF-8/ or setlocale(LC_COLLATE, "$collation_locale.UTF-8");
 }
 
-our $version = 1;
+our $VERSION = "1.0.0";
 our %rpmdragora_options;
 
 my $i;
@@ -113,7 +114,7 @@ foreach (@ARGV) {
         $rpmdragora_options{$name} = \@values if @values;
     } else {
         if ($val eq 'version') {
-            print "$0 $version\n";
+            print "$0 $VERSION\n";
             exit(0);
        } elsif ($val =~ /^(test|expert)$/) {
            eval "\$::$1 = 1";
