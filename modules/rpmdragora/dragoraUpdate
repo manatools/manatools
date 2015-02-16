@@ -35,13 +35,9 @@ use AdminPanel::Rpmdragora::rpmnew;
 use AdminPanel::Rpmdragora::formatting;
 use AdminPanel::Rpmdragora::pkg;
 use AdminPanel::Shared::Locales;
+use AdminPanel::Shared::GUI;
 
 use yui;
-
-#use mygtk2 qw(gtknew);  #- do not import anything else, especially gtkadd() which conflicts with ugtk2 one
-#use ugtk2 qw(:all);
-# use Gtk2::SimpleList;
-
 
 
 # make Rpmdrake::gui aware MageiaUpdate do not use the same columns ids as rpmdrake:
@@ -284,27 +280,24 @@ sub run_treeview_dialog {
                     last if quit();
                 }
                 elsif ($widget == $aboutButton) {
-    #                 my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
-    #                 $translators =~ s/\</\&lt\;/g;
-    #                 $translators =~ s/\>/\&gt\;/g;
-    #                 $self->sh_gui->AboutDialog({ name => $self->name,
-    #                                              version => $self->VERSION,
-    #                          credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
-    #                          license => $loc->N("GPLv2"),
-    #                          description => $loc->N("dragoraUpdate is the Mageia update tool\n
-    #                                                        (from the original idea of Mandriva MandrivaUpdate)."),
-    #                          authors => $loc->N("<h3>Developers</h3>
-    #                                                     <ul><li>%s</li>
-    #                                                            <li>%s</li>
-    #                                                        </ul>
-    #                                                        <h3>Translators</h3>
-    #                                                        <ul><li>%s</li></ul>",
-    #                                                       "Angelo Naselli &lt;anaselli\@linux.it&gt;",
-    #                                                       "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
-    #                                                       $translators
-    #                                                      ),
-    #                             }
-    #                 );
+                    my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
+                    $translators =~ s/\</\&lt\;/g;
+                    $translators =~ s/\>/\&gt\;/g;
+                    my $sh_gui = AdminPanel::Shared::GUI->new();
+                    $sh_gui->AboutDialog({
+                        name    => "dragoraUpdate",
+                        version => $VERSION,
+                        credits => $loc->N("Copyright (C) %s Mageia community", '2013-2015'),
+                        license => $loc->N("GPLv2"),
+                        description => $loc->N("dragoraUpdate is the Mageia package management tool."),
+                        authors => $loc->N("<h3>Developers</h3>
+                                            <ul><li>%s</li></ul>
+                                            <h3>Translators</h3>
+                                            <ul><li>%s</li></ul>",
+                                            "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                            $translators
+                        ),
+                    });
                 }
                 elsif ($widget == $packageTbl) {
                     yui::YUI::app()->busyCursor();
