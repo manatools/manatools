@@ -1,21 +1,21 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2013-2015 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 
 package AdminPanel::Module::Hosts;
@@ -121,7 +121,7 @@ sub start {
 =head3 INPUT
 
     $self: this object
-    
+
     $headerString: a title for the dialog
 
 =head3 DESCRIPTION
@@ -160,22 +160,22 @@ sub _changeHostNameDialog {
     $labelHostName->setWeight($yui::YD_HORIZ, 10);
     my $textHostName = $factory->createInputField($secondHbox,"");
     $textHostName->setWeight($yui::YD_HORIZ, 30);
-    
+
     my $labelPrettyHostName  = $factory->createLabel($thirdHbox,$self->loc->N("Pretty Hostname"));
     $labelPrettyHostName->setWeight($yui::YD_HORIZ, 10);
     my $textPrettyHostName = $factory->createInputField($thirdHbox,"");
     $textPrettyHostName->setWeight($yui::YD_HORIZ, 30);
-    
+
     my $labelStaticHostName  = $factory->createLabel($fourthHbox,$self->loc->N("Static Hostname"));
     $labelStaticHostName->setWeight($yui::YD_HORIZ, 10);
     my $textStaticHostName = $factory->createInputField($fourthHbox,"");
     $textStaticHostName->setWeight($yui::YD_HORIZ, 30);
-    
+
     my $labelChassis  = $factory->createLabel($fifthHbox,$self->loc->N("Chassis"));
     $labelChassis->setWeight($yui::YD_HORIZ, 10);
     my $textChassis = $factory->createInputField($fifthHbox,"");
     $textChassis->setWeight($yui::YD_HORIZ, 30);
-    
+
     my $labelIconName  = $factory->createLabel($sixthHbox,$self->loc->N("Icon Name"));
     $labelIconName->setWeight($yui::YD_HORIZ, 10);
     my $textIconName = $factory->createInputField($sixthHbox,"");
@@ -188,8 +188,8 @@ sub _changeHostNameDialog {
     $textIconName->setValue($self->cfgHosts->_getLocalIconName());
 
     # footer
-    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),$self->loc->N("OK"));
+    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),$self->loc->N("&OK"));
 
     while(1){
         my $event     = $dlg->waitForEvent();
@@ -272,8 +272,8 @@ sub _manipulateHostDialog {
     }
 
     # footer
-    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),$self->loc->N("OK"));
+    my $cancelButton = $factory->createPushButton($factory->createLeft($hbox_footer),$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($factory->createRight($hbox_footer),$self->loc->N("&OK"));
 
     while(1){
         my $event     = $dlg->waitForEvent();
@@ -320,7 +320,7 @@ sub _manipulateHostDialog {
 
 =head3 DESCRIPTION
 
-This subroutine creates the Host dialog to add host definitions 
+This subroutine creates the Host dialog to add host definitions
 
 =cut
 
@@ -351,7 +351,7 @@ sub _addHostDialog {
 
 =head3 DESCRIPTION
 
-This subroutine creates the Host dialog to modify host definitions 
+This subroutine creates the Host dialog to modify host definitions
 
 =cut
 
@@ -385,7 +385,7 @@ retrieved by the Config::Hosts module
 #=============================================================
 sub setupTable {
     my $self = shift();
-    
+
     my @hosts = $self->cfgHosts->_getHosts();
     # clear table
     $self->table->deleteAllItems();
@@ -414,7 +414,7 @@ sub _manageHostsDialog {
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
 
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
@@ -424,7 +424,7 @@ sub _manageHostsDialog {
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
     my $logoImage = $factory->createImage($headLeft, $appIcon);
-    my $labelAppDescription = $factory->createLabel($headRight,$newTitle); 
+    my $labelAppDescription = $factory->createLabel($headRight,$newTitle);
     $logoImage->setWeight($yui::YD_HORIZ,0);
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
@@ -441,15 +441,15 @@ sub _manageHostsDialog {
     # initialize Config::Hosts
     $self->cfgHosts(AdminPanel::Shared::Hosts->new());
     $self->setupTable();
-    
+
     my $rightContent = $factory->createRight($hbox_content);
     $rightContent->setWeight($yui::YD_HORIZ,10);
     my $topContent = $factory->createTop($rightContent);
     my $vbox_commands = $factory->createVBox($topContent);
-    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Add"));
-    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Edit"));
-    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Remove"));
-    my $hnButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("Hostname"));
+    my $addButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("A&dd"));
+    my $edtButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("&Edit"));
+    my $remButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("&Remove"));
+    my $hnButton = $factory->createPushButton($factory->createHBox($vbox_commands),$self->loc->N("&Hostname"));
     $addButton->setWeight($yui::YD_HORIZ,1);
     $edtButton->setWeight($yui::YD_HORIZ,1);
     $remButton->setWeight($yui::YD_HORIZ,1);
@@ -458,15 +458,15 @@ sub _manageHostsDialog {
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("&About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&OK"));
 
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
