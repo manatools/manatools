@@ -59,12 +59,12 @@ use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::TimeZone;
 
 use Time::Piece;
- 
+
 use yui;
 
 extends qw( AdminPanel::Module );
 
-### TODO icon 
+### TODO icon
 has '+icon' => (
     default => "/usr/share/mcc/themes/default/time-mdk.png",
 );
@@ -218,7 +218,7 @@ sub _adminClockPanel {
 
     my $factory    = yui::YUI::widgetFactory;
     my $optFactory = yui::YUI::optionalWidgetFactory;
-    die "calendar widgets missing" if (!$optFactory->hasDateField() || !$optFactory->hasTimeField());  
+    die "calendar widgets missing" if (!$optFactory->hasDateField() || !$optFactory->hasTimeField());
 
     # Create Dialog
     my $dialog  = $factory->createMainDialog;
@@ -243,7 +243,7 @@ sub _adminClockPanel {
     my $ntpFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("Enable Network Time Protocol"), 0);
 
     my $hbox1 = $factory->createHBox($ntpFrame);
-    my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change NTP server"));
+    my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change &NTP server"));
     $factory->createHSpacing($hbox1, 1.0);
     $factory->createLabel($hbox1,$self->loc->N("Current:"));
     $factory->createHSpacing($hbox1, 1.0);
@@ -258,7 +258,7 @@ sub _adminClockPanel {
     $hbox = $factory->createHBox($align);
     $frame   = $factory->createFrame ($hbox, $self->loc->N("TimeZone"));
     $hbox1 = $factory->createHBox( $frame );
-    my $changeTZButton = $factory->createPushButton($hbox1, $self->loc->N("Change Time Zone"));
+    my $changeTZButton = $factory->createPushButton($hbox1, $self->loc->N("Change &Time Zone"));
     $factory->createHSpacing($hbox1, 1.0);
     $factory->createLabel($hbox1,$self->loc->N("Current:"));
     $factory->createHSpacing($hbox1, 1.0);
@@ -275,19 +275,19 @@ sub _adminClockPanel {
 
     $align = $factory->createLeft($hbox);
     $hbox = $factory->createHBox($align);
-    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
-    my $resetButton = $factory->createPushButton($hbox, $self->loc->N("Reset") );
+    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("&About") );
+    my $resetButton = $factory->createPushButton($hbox, $self->loc->N("&Reset") );
 
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($hbox, $self->loc->N("Ok"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($hbox, $self->loc->N("&Ok"));
     $factory->createHSpacing($hbox, 1.0);
 
     ## no changes by default
     $dialog->setDefaultButton($cancelButton);
 
-    # End Dialof layout 
+    # End Dialof layout
 
     ## default value
     my $info = $self->_restoreValues();
