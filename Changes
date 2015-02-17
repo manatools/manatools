@@ -1,4 +1,9 @@
 1.0.0-8
+	- Added common shortcuts for dialog push buttons such as About,
+		Quit, OK, Cancel (Translators should set the '&' in the
+		right position)
+	- two kinds of dialog exit e.g. two buttons eg. OK and Cancel
+		or one button Quit
 	- manaclock use AdminPanel::Shared::TimeZone setTime to adjust 
 		time
 	- AdminPanel::Shared::TimeZone now works using dbus timedated1
