@@ -241,7 +241,7 @@ sub rpmnew_dialog {
     $radiobuttongroup->setEnabled(0);
     my $hbox         = $factory->createHBox( $vbox );
     my $align        = $factory->createHCenter($hbox);
-    my $okButton     = $factory->createPushButton($align,  $loc->N("Ok"));
+    my $okButton     = $factory->createPushButton($align,  $loc->N("&Ok"));
                        $okButton->setDefaultButton(1);
 
     # adding packages to the list
