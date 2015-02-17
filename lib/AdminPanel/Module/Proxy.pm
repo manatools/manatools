@@ -1,21 +1,21 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2013-2015 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 
 package AdminPanel::Module::Proxy;
@@ -208,7 +208,7 @@ sub ask_for_X_restart {
     This method returns true if the each value match
     certain conditions like the leading http:// for http proxy
     or https:// for the https proxy, etc.
-    
+
     $proxy is passed by reference thus $proxy->{no_proxy} value
     is sanitized (trimmed).
 
@@ -221,7 +221,7 @@ sub validate {
     my $proxy = shift;
     my $retval = 1;
     $proxy->{no_proxy} =~ s/\s//g;
-    # using commas rather than slashes 
+    # using commas rather than slashes
     if($proxy->{http_proxy} !~ m,^($|http://),)
     {
         $self->sh_gui->warningMsgBox({title=>'Error',text=>$self->loc->N("Proxy should be http://..."),richtext=>0});
@@ -252,7 +252,7 @@ sub _manageProxyDialog {
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
     my $label_width = 25;
     my $inputfield_width = 45;
     # getVarsFromSh returns an empty hash if no vars are defined
@@ -261,7 +261,7 @@ sub _manageProxyDialog {
     my $proxy_curr_settings = { getVarsFromSh('/etc/profile.d/proxy.sh') };
     my $httpsProxyEqualToHttpProxy = 0;
     if((defined($proxy_curr_settings->{http_proxy}) && defined($proxy_curr_settings->{https_proxy}))&&
-        (($proxy_curr_settings->{http_proxy} eq $proxy_curr_settings->{https_proxy}) && 
+        (($proxy_curr_settings->{http_proxy} eq $proxy_curr_settings->{https_proxy}) &&
             ($proxy_curr_settings->{http_proxy} ne ""))){
         $httpsProxyEqualToHttpProxy = 1;
     }
@@ -286,7 +286,7 @@ sub _manageProxyDialog {
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
     my $logoImage = $factory->createImage($headLeft, $appIcon);
-    my $labelAppDescription = $factory->createLabel($headRight,$newTitle); 
+    my $labelAppDescription = $factory->createLabel($headRight,$newTitle);
     $logoImage->setWeight($yui::YD_HORIZ,0);
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
@@ -308,7 +308,7 @@ sub _manageProxyDialog {
     # flag to setup the https proxy with the same value of the http proxy
     my $ckbHttpEqHttps = $factory->createCheckBox($vbox_labels_flags, $self->loc->N("Use HTTP proxy for HTTPS connections"),$httpsProxyEqualToHttpProxy);
     $ckbHttpEqHttps->setNotify(1);
-    # add a spacing as we have 
+    # add a spacing as we have
     $factory->createLabel($factory->createHBox($vbox_inputfields)," ");
 
     # https proxy
@@ -335,15 +335,15 @@ sub _manageProxyDialog {
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("&About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&OK"));
 
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -365,7 +365,7 @@ sub _manageProxyDialog {
                 );
             }elsif ($widget == $okButton) {
                 # setup proxy attribute
-                my %_proxy = ( 
+                my %_proxy = (
                     no_proxy    => $no_proxy->value(),
                     http_proxy  => $http_proxy->value(),
                     https_proxy => $https_proxy->value(),
