@@ -82,6 +82,7 @@ use AdminPanel::Shared::GUI;
 use AdminPanel::Shared::Locales;
 use AdminPanel::Shared::Users;
 use MDK::Common::DataStructure qw(member);
+use feature 'state';
 
 extends qw( AdminPanel::Module );
 
@@ -193,7 +194,7 @@ sub _localeInitialize {
 has 'config_file' => (
     is      => 'rw',
     isa     => 'Str',
-    default => '/etc/sysconfig/adminuser',
+    default => '/etc/sysconfig/manauser',
 );
 
 
@@ -262,7 +263,7 @@ sub BUILD {
     my $self = shift;
 
     if (! $self->name) {
-        $self->name ($self->loc->N("adminUser"));
+        $self->name ($self->loc->N("manauser"));
     }
 
     %userEditLabel = (
@@ -766,6 +767,27 @@ sub _buildUserData {
     return ( \%userData );
 }
 
+# get/set icon button name
+# if $icon_name is present it sets as "&Icon icon_name", so the shortcut is always the same
+# if $icon_name is not present it returns the previous set $label
+sub _iconButtonLabel {
+    my ($self, $icon_button, $icon_name) = @_;
+
+    state $label = "";
+
+    return if !$icon_button;
+    return if ref $icon_button ne "yui::YPushButton";
+
+    if ($icon_name) {
+        #set
+        $icon_button->setLabel($self->loc->N("&Icon (%s)", $icon_name));
+        $label = $icon_name;
+    }
+
+    return $label;
+}
+
+
 #=============================================================
 
 =head2 addUserDialog
@@ -853,12 +875,13 @@ sub addUserDialog {
     my $iconFace = $self->sh_users->GetFaceIcon();
     my $icon = $factory->createPushButton($hbox, "");
     $icon->setIcon($self->sh_users->face2png($iconFace));
-    $icon->setLabel($iconFace);
+    $self->_iconButtonLabel($icon, $iconFace);
 
     $hbox            = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $self->loc->N("&Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
+
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
@@ -875,10 +898,9 @@ sub addUserDialog {
             }
             elsif ($widget == $icon) {
                 #remove shortcut from label
-                my $iconLabel = $self->_skipShortcut($icon->label());
-
-                my $nextIcon = $self->sh_users->GetFaceIcon($icon->label(), 1);
-                $icon->setLabel($nextIcon);
+                my $iconLabel =  $self->_iconButtonLabel($icon);
+                my $nextIcon = $self->sh_users->GetFaceIcon($iconLabel, 1);
+                $self->_iconButtonLabel($icon, $nextIcon);
                 $icon->setIcon($self->sh_users->face2png($nextIcon));
             }
             elsif ($widget == $uidManually) {
@@ -1426,7 +1448,7 @@ sub _storeDataFromUserEditPreviousTab {
         $userData->{acc_expm}      = $self->get_edit_tab_widget('acc_expm')->value();
         $userData->{acc_expd}      = $self->get_edit_tab_widget('acc_expd')->value();
         $userData->{lockuser}      = $self->get_edit_tab_widget('lockuser')->value();
-        $userData->{icon_face}     = $self->get_edit_tab_widget('icon_face')->label();
+        $userData->{icon_face}     = $self->_iconButtonLabel($self->get_edit_tab_widget('icon_face'));
     }
     elsif ($previus_tab eq $userEditLabel{password_info}) {
         $userData->{pwd_check_exp} = $self->get_edit_tab_widget('pwd_check_exp')->value();
@@ -1618,7 +1640,7 @@ sub _userAccountInfoTabWidget {
     $label                            = $factory->createLabel($hbox, $self->loc->N("Click on the icon to change it"));
     $userAccountWidget{icon_face}     = $factory->createPushButton($hbox, "");
     $userAccountWidget{icon_face}->setIcon($self->sh_users->face2png($userData->{icon_face}));
-    $userAccountWidget{icon_face}->setLabel($userData->{icon_face});
+    $self->_iconButtonLabel($userAccountWidget{icon_face}, $userData->{icon_face});
 
     $replace_pnt->showChild();
     $dialog->recalcLayout();
@@ -1991,8 +2013,8 @@ sub _editUserDialog {
 
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
-        my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
-        my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
+        my $cancelButton = $factory->createPushButton($align, $self->loc->N("&Cancel"));
+        my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
 
         my $userData        = $self->_getUserInfo();
         # userData here should be tested because it could be undef
@@ -2062,9 +2084,9 @@ sub _editUserDialog {
                     my $current_tab = $self->get_edit_tab_widget('edit_tab_label');
                     if ($current_tab && $current_tab eq $userEditLabel{account_info}) {
                         if ($widget == $self->get_edit_tab_widget('icon_face')) {
-                            my $iconLabel = $self->_skipShortcut($self->get_edit_tab_widget('icon_face')->label());
+                            my $iconLabel =  $self->_iconButtonLabel($self->get_edit_tab_widget('icon_face'));
                             my $nextIcon = $self->sh_users->GetFaceIcon($iconLabel, 1);
-                            $self->get_edit_tab_widget('icon_face')->setLabel($nextIcon);
+                            $self->_iconButtonLabel($self->get_edit_tab_widget('icon_face'), $nextIcon);
                             $self->get_edit_tab_widget('icon_face')->setIcon($self->sh_users->face2png($nextIcon));
                         }
                     }
@@ -2324,7 +2346,30 @@ sub _refreshActions {
     $self->dialog->doneMultipleChanges();
 }
 
+sub _showAboutDialog {
+    my $self = shift;
 
+    my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
+    $translators =~ s/\</\&lt\;/g;
+    $translators =~ s/\>/\&gt\;/g;
+    $self->sh_gui->AboutDialog({
+        name => $self->loc->N("manauser"),
+        version => $self->VERSION,
+        credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2015'),
+        license => $self->loc->N("GPLv2"),
+        description => $self->loc->N("manauser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
+        authors => $self->loc->N("<h3>Developers</h3>
+                                    <ul><li>%s</li>
+                                        <li>%s</li>
+                                    </ul>
+                                    <h3>Translators</h3>
+                                    <ul><li>%s</li></ul>",
+                                    "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                    "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                    $translators
+        ),
+    });
+}
 sub _manageUsersDialog {
     my $self = shift;
 
@@ -2424,6 +2469,15 @@ sub _manageUsersDialog {
         $hbox = $factory->createHBox($layout);
         my $align = $factory->createHCenter($hbox);
         $self->set_widget(tabs => $optional->createDumbTab($align));
+    }
+
+    $hbox = $factory->createHBox($layout);
+    my $align = $factory->createLeft($hbox);
+    my $aboutButton = $factory->createPushButton($align, $self->loc->N("&About") );
+    $align = $factory->createRight($hbox);
+    my $quitButton  = $factory->createPushButton($align, $self->loc->N("&Quit") );
+
+    if ($optional->hasDumbTab()) {
         $tabs{users} = new yui::YItem($self->loc->N("Users"));
         $tabs{users}->setSelected();
         $self->get_widget('tabs')->addItem( $tabs{users} );
@@ -2458,26 +2512,7 @@ sub _manageUsersDialog {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{about}->label())  {
-                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
-                $translators =~ s/\</\&lt\;/g;
-                $translators =~ s/\>/\&gt\;/g;
-                $self->sh_gui->AboutDialog({ name => $self->loc->N("AdminUser"),
-                                             version => $self->VERSION,
-                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
-                            license => $self->loc->N("GPLv2"),
-                            description => $self->loc->N("AdminUser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
-                             authors => $self->loc->N("<h3>Developers</h3>
-                                                       <ul><li>%s</li>
-                                                           <li>%s</li>
-                                                       </ul>
-                                                       <h3>Translators</h3>
-                                                       <ul><li>%s</li></ul>",
-                                                      "Angelo Naselli &lt;anaselli\@linux.it&gt;",
-                                                      "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
-                                                      $translators
-                                                     ),
-                            }
-                );
+                $self->_showAboutDialog();
             }
             elsif ($menuLabel eq $self->get_action_menu('add_user')->label())  {
                 $self->addUserDialog();
@@ -2506,7 +2541,13 @@ sub _manageUsersDialog {
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
 ### Buttons and widgets ###
             my $widget = $event->widget();
-            if ($widget == $self->get_widget('add_user')) {
+            if ($widget == $quitButton) {
+                last;
+            }
+            elsif ($widget == $aboutButton) {
+                $self->_showAboutDialog();
+            }
+            elsif ($widget == $self->get_widget('add_user')) {
                 $self->addUserDialog();
                 $self->_refresh();
             }
