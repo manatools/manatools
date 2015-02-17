@@ -1,21 +1,21 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
-# 
+#
 #  Copyright (c) 2013-2015 Matteo Pasotti <matteo.pasotti@gmail.com>
-# 
+#
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
 #  published by the Free Software Foundation.
-# 
+#
 #  This program is distributed in the hope that it will be useful,
 #  but WITHOUT ANY WARRANTY; without even the implied warranty of
 #  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #  GNU General Public License for more details.
-# 
+#
 #  You should have received a copy of the GNU General Public License
 #  along with this program; if not, write to the Free Software
 #  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
-# 
+#
 #*****************************************************************************
 
 package AdminPanel::Module::Firewall;
@@ -288,7 +288,7 @@ sub _initAllServers {
             hide => 1,
         },
     );
-    return \@all_servers; 
+    return \@all_servers;
 }
 
 sub _initIFW {
@@ -337,7 +337,7 @@ sub check_ports_syntax {
 =head3 INPUT
 
     $self: this object
-    
+
     $ports: port object
 
 =head3 DESCRIPTION
@@ -368,7 +368,7 @@ sub port2server {
 =head3 INPUT
 
     $self: this object
-    
+
 =head3 DESCRIPTION
 
     This method converts from server definitions to port definitions
@@ -390,7 +390,7 @@ sub to_ports {
 =head3 INPUT
 
     $self: this object
-    
+
     $ports: ports object
 
 =head3 DESCRIPTION
@@ -424,9 +424,9 @@ sub from_ports {
 =head3 INPUT
 
     $self: this object
-    
+
     $disabled: boolean
-    
+
     $o_ports: object representing ports
 
 =head3 DESCRIPTION
@@ -443,7 +443,7 @@ sub get_conf {
     my $possible_servers = undef;
     my $conf = AdminPanel::Shared::Shorewall::read_();
     my $shorewall = (AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf);
-    
+
     if ($o_ports) {
         return ($disabled, $self->from_ports($o_ports));
     } elsif ($shorewall) {
@@ -453,17 +453,17 @@ sub get_conf {
         return ($shorewall->{disabled}, $self->from_ports($shorewall->{ports}), $shorewall->{log_net_drop});
     } else {
         $self->sh_gui->ask_OkCancel({
-        title => $self->loc->N("Firewall configuration"), 
+        title => $self->loc->N("Firewall configuration"),
         text => $self->loc->N("drakfirewall configurator
-                    This configures a personal firewall for this Mageia machine."), 
+                    This configures a personal firewall for this Mageia machine."),
         richtext => 1
         }) or return;
 
         $self->sh_gui->ask_OkCancel({
-        title => $self->loc->N("Firewall configuration"), 
+        title => $self->loc->N("Firewall configuration"),
         text => $self->loc->N("drakfirewall configurator
 Make sure you have configured your Network/Internet access with
-drakconnect before going any further."), 
+drakconnect before going any further."),
         richtext => 1
         }) or return;
 
@@ -475,7 +475,7 @@ sub set_ifw {
     # my ($do_pkgs, $enabled, $rules, $ports) = @_;
     my $self = shift();
     my ($enabled, $rules, $ports) = @_;
-    if ($enabled) 
+    if ($enabled)
     {
         my $ports_by_proto = AdminPanel::Shared::Shorewall::ports_by_proto($ports);
         output_with_perm("$::prefix/etc/ifw/rules", 0644,
@@ -504,9 +504,9 @@ sub set_ifw {
 =head3 INPUT
 
     $self: this object
-    
+
     $servers: array of hashes representing servers
-    
+
 =head3 DESCRIPTION
 
     This method shows the main dialog to let users choose the allowed services
@@ -532,24 +532,24 @@ sub choose_watched_services {
 Please select which network activities should be watched."),
 	},
         [
-        { 
-            id=>'useifw', 
-            text => $self->loc->N("Use Interactive Firewall"), 
-            val => $enabled, 
-            type => 'bool' 
+        {
+            id=>'useifw',
+            text => $self->loc->N("Use Interactive Firewall"),
+            val => $enabled,
+            type => 'bool'
         },
         map {
                 {
                 text => (exists $_->{name} ? $_->{name} : $_->{ports}),
                 val => $_->{ifw},
-                type => 'bool', 
+                type => 'bool',
                 id => $_->{id},
                 },
         } @l,
         ]);
-    
+
     exit() if($retval == 0);
-    
+
     for my $server(@{$self->wdg_ifw()})
     {
         for my $k(keys @l)
@@ -571,7 +571,7 @@ Please select which network activities should be watched."),
             }
         }
     }
-    
+
     my ($rules, $ports) = partition { exists $_->{ifw_rule} } grep { $_->{ifw} } @l;
     $self->set_ifw($enabled, [ map { $_->{ifw_rule} } @$rules ], $self->to_ports($ports));
 
@@ -594,7 +594,7 @@ sub ask_WatchedServices {
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
 
@@ -603,15 +603,15 @@ sub ask_WatchedServices {
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
     my $logoImage = $factory->createImage($headLeft, $dlg_data->{icon});
-    my $labelAppDescription = $factory->createLabel($headRight,$dlg_data->{messages}); 
+    my $labelAppDescription = $factory->createLabel($headRight,$dlg_data->{messages});
     $logoImage->setWeight($yui::YD_HORIZ,0);
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
     my $hbox_content = $factory->createHBox($layout);
 
     my $widgetContainer = $factory->createVBox($hbox_content);
-    
-    
+
+
     foreach my $item(@{$items})
     {
         if(defined($item->{label}))
@@ -621,8 +621,8 @@ sub ask_WatchedServices {
         elsif(defined($item->{text}))
         {
             my $ckbox = $factory->createCheckBox(
-                $factory->createLeft($factory->createHBox($widgetContainer)), 
-                $item->{text}, 
+                $factory->createLeft($factory->createHBox($widgetContainer)),
+                $item->{text},
                 $item->{val}
             );
             $ckbox->setNotify(1);
@@ -634,21 +634,21 @@ sub ask_WatchedServices {
             $ckbox->DISOWN();
         }
     }
-    
+
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("&About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&OK"));
 
     my $retval = 0;
-    
+
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -656,7 +656,7 @@ sub ask_WatchedServices {
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             ### Buttons and widgets ###
             my $widget = $event->widget();
-            
+
             # loop on every checkbox representing servers
             foreach my $server(@{$self->wdg_ifw()})
             {
@@ -704,7 +704,7 @@ sub ask_WatchedServices {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($old_title);
-    
+
     return $retval;
 }
 
@@ -716,11 +716,11 @@ sub ask_WatchedServices {
 =head3 INPUT
 
     $self: this object
-    
+
     $disabled: boolean
-    
+
     $servers: array of hashes representing servers
-    
+
 =head3 DESCRIPTION
 
     This method shows the main dialog to let users choose the allowed services
@@ -735,21 +735,21 @@ sub choose_allowed_services {
     $_->{on} = 0 foreach @{$self->all_servers()};
     $_->{on} = 1 foreach @$servers;
     my @l = grep { $_->{on} || !$_->{hide} } @{$self->all_servers()};
-    
+
     my $dialog_data = {
         title => $self->loc->N("Firewall"),
         icon => $self->icon(),
         # if_(!$::isEmbedded, banner_title => $self->loc->N("Firewall")),
         banner_title => $self->loc->N("Firewall"),
     };
-    
+
     my $items = [
         { label => $self->loc->N("Which services would you like to allow the Internet to connect to?"), title => 1 },
         if_($self->net()->{PROFILE} && network::network::netprofile_count() > 0, { label => $self->loc->N("Those settings will be saved for the network profile <b>%s</b>", $self->net()->{PROFILE}) }),
         { text => $self->loc->N("Everything (no firewall)"), val => \$disabled, type => 'bool' },
         (map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled }, id => $_->{id} } } @l),
     ];
-    
+
     exit() if(!$self->ask_AllowedServices($dialog_data, $items));
 
     for my $server(@{$self->wdg_servers()})
@@ -773,7 +773,7 @@ sub choose_allowed_services {
             }
         }
     }
-    
+
     return ($disabled, [ grep { $_->{on} } @l ]);
 }
 
@@ -792,7 +792,7 @@ sub ask_AllowedServices {
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
 
@@ -801,7 +801,7 @@ sub ask_AllowedServices {
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
     my $logoImage = $factory->createImage($headLeft, $dlg_data->{icon});
-    my $labelAppDescription = $factory->createLabel($headRight,$dlg_data->{title}); 
+    my $labelAppDescription = $factory->createLabel($headRight,$dlg_data->{title});
     $logoImage->setWeight($yui::YD_HORIZ,0);
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
 
@@ -810,7 +810,7 @@ sub ask_AllowedServices {
     my $widgetContainer = $factory->createVBox($hbox_content);
 
     my $evry = undef;
-    
+
     foreach my $item(@{$items})
     {
         if(defined($item->{label}))
@@ -820,8 +820,8 @@ sub ask_AllowedServices {
         elsif(defined($item->{text}))
         {
             my $ckbox = $factory->createCheckBox(
-                    $factory->createLeft($factory->createHBox($widgetContainer)), 
-                    $item->{text}, 
+                    $factory->createLeft($factory->createHBox($widgetContainer)),
+                    $item->{text},
                     ${$item->{val}}
             );
             $ckbox->setNotify(1);
@@ -841,22 +841,22 @@ sub ask_AllowedServices {
             $ckbox->DISOWN();
         }
     }
-    
+
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $advButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("Advanced"));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
-    
+    my $advButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("A&dvanced"));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("&About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&OK"));
+
     my $retval = 0;
-    
+
     # main loop
     while(1) {
         my $event     = $self->dialog->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -864,7 +864,7 @@ sub ask_AllowedServices {
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             ### Buttons and widgets ###
             my $widget = $event->widget();
-            
+
             # loop on every checkbox representing servers
             foreach my $server(@{$self->wdg_servers()})
             {
@@ -873,7 +873,7 @@ sub ask_AllowedServices {
                     ${$server->{value}} = !${$server->{value}};
                 }
             }
-            
+
             if ($widget == $cancelButton) {
                 last;
             }elsif ($widget == $aboutButton) {
@@ -904,17 +904,17 @@ sub ask_AllowedServices {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($old_title);
-    
+
     return $retval;
 }
 
 sub ask_CustomPorts {
     my $self = shift();
 
-    my $adv_msg = $self->loc->N("You can enter miscellaneous ports. 
+    my $adv_msg = $self->loc->N("You can enter miscellaneous ports.
 Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.
 Have a look at /etc/services for information.");
-    
+
     my $old_title = yui::YUI::app()->applicationTitle();
     my $win_title = $self->loc->N("Define miscellaneus ports");
 
@@ -923,7 +923,7 @@ Have a look at /etc/services for information.");
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
-    
+
     my $advdlg = $factory->createPopupDialog();
     my $layout    = $factory->createVBox($advdlg);
 
@@ -931,9 +931,9 @@ Have a look at /etc/services for information.");
     my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));
     my $headRight = $factory->createHBox($factory->createRight($hbox_header));
 
-    my $labelAppDescription = $factory->createLabel($headRight,$self->loc->N("Other ports")); 
+    my $labelAppDescription = $factory->createLabel($headRight,$self->loc->N("Other ports"));
     $labelAppDescription->setWeight($yui::YD_HORIZ,3);
-    
+
     my $hbox_content = $factory->createHBox($layout);
     my $vbox_inputs = $factory->createVBox($hbox_content);
     my $labelAdvMessage = $factory->createLabel($factory->createHBox($vbox_inputs), $adv_msg);
@@ -943,16 +943,16 @@ Have a look at /etc/services for information.");
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
-    
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&OK"));
+
     my $retval = 0;
-    
+
     # main loop
     while(1) {
         my $event     = $advdlg->waitForEvent();
         my $eventType = $event->eventType();
-        
+
         #event type checking
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -996,9 +996,9 @@ Have a look at /etc/services for information.");
  				    $self->sh_gui->warningMsgBox({
                         title=>$self->loc->N("Invalid port given"),
  				        text=> $self->loc->N("Invalid port given: %s.
-The proper format is \"port/tcp\" or \"port/udp\", 
+The proper format is \"port/tcp\" or \"port/udp\",
 where port is between 1 and 65535.
- 
+
 You can also give a range of ports (eg: 24300:24350/udp)", $invalid_ports)
                     });
                     $retval = 0;
@@ -1012,7 +1012,7 @@ You can also give a range of ports (eg: 24300:24350/udp)", $invalid_ports)
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($old_title);
-    
+
     return $retval;
 }
 
@@ -1048,13 +1048,13 @@ Which interfaces should be protected?
             map {
                 {
                 id => $_,
-                text => network::tools::get_interface_description($self->net(), $_), 
-                val => \$net_zone{$_}, 
-                type => 'bool' 
+                text => network::tools::get_interface_description($self->net(), $_),
+                val => \$net_zone{$_},
+                type => 'bool'
                 };
             } (sort keys %net_zone) ]
             });
-    
+
         if(!defined($retvals))
         {
             return 0;
@@ -1096,7 +1096,7 @@ Which interfaces should be protected?
 
 sub set_ports {
     my ($self, $disabled, $ports, $log_net_drop) = @_;
-        
+
     if (!$disabled || -x "$::prefix/sbin/shorewall") {
         # $do_pkgs->ensure_files_are_installed([ [ qw(shorewall shorewall) ], [ qw(shorewall-ipv6 shorewall6) ] ], $::isInstall) or return;
         my $conf = AdminPanel::Shared::Shorewall::read_();
@@ -1114,7 +1114,7 @@ sub set_ports {
         $shorewall->{disabled} = $disabled;
         $shorewall->{ports} = $ports;
         $shorewall->{log_net_drop} = $log_net_drop;
-        
+
         print ($disabled ? "disabling shorewall" : "configuring shorewall to allow ports: $ports");
 
         # NOTE: the 2nd param is undef in this case!
@@ -1155,39 +1155,39 @@ sub set_ports {
 
 sub start {
     my $self = shift;
-    
+
     my @server = ();
     $self->wdg_servers(@server);
-    
+
     # init servers definitions
     $self->all_servers($self->_initAllServers());
-    
+
     # initialize ifw_rules here
     $self->ifw_rules($self->_initIFW());
-    
+
     my ($disabled, $servers, $log_net_drop) = $self->get_conf(undef) or return;
-    
+
     # $log_net_drop: network::shorewall log_net_drop attribute
     $self->log_net_drop($log_net_drop);
     undef($log_net_drop);
     ($disabled, $servers) = $self->choose_allowed_services($disabled, @$servers) or return;
-    
+
     my $system_file = '/etc/sysconfig/drakx-net';
     my %global_settings = getVarsFromSh($system_file);
-    
+
     if (!$disabled && (!defined($global_settings{IFW}) || text2bool($global_settings{IFW}))) {
         $self->choose_watched_services($servers) or return;
     }
-    
+
     # preparing services when required ( look at $self->all_servers() )
     foreach (@$servers) {
         exists $_->{prepare} and $_->{prepare}();
     }
-    
+
     my $ports = $self->to_ports($servers);
-    
+
     $self->set_ports($disabled, $ports, $self->log_net_drop()) or return;
-    
+
     # restart mandi
     my $services = AdminPanel::Shared::Services->new();
     $services->is_service_running("mandi") and $services->restart("mandi");
