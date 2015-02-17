@@ -251,9 +251,9 @@ sub _manageProxyDialog {
     my $hbox_foot = $factory->createHBox($layout);
     my $vbox_foot_left = $factory->createVBox($factory->createLeft($hbox_foot));
     my $vbox_foot_right = $factory->createVBox($factory->createRight($hbox_foot));
-    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("About"));
-    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("Cancel"));
-    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("OK"));
+    my $aboutButton = $factory->createPushButton($vbox_foot_left,$self->loc->N("&About"));
+    my $cancelButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($vbox_foot_right,$self->loc->N("&OK"));
 
     # main loop
     while(1) {
