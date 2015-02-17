@@ -6,7 +6,7 @@ package AdminPanel::Module::Services;
 
 =head1 NAME
 
-AdminPanel::Module::Services - This module aims to manage service 
+AdminPanel::Module::Services - This module aims to manage service
                                with GUI
 
 =head1 SYNOPSIS
@@ -17,9 +17,9 @@ AdminPanel::Module::Services - This module aims to manage service
 =head1 DESCRIPTION
 
     This module presents all the system service status and gives
-    the availability to administrator to stop, start and active at boot 
+    the availability to administrator to stop, start and active at boot
     them.
-    
+
     From the original code drakx services.
 
 =head1 SUPPORT
@@ -29,7 +29,7 @@ AdminPanel::Module::Services - This module aims to manage service
     perldoc AdminPanel::Module::Services
 
 =head1 SEE ALSO
-   
+
    AdminPanel::Module
 
 =head1 AUTHOR
@@ -193,11 +193,11 @@ our $VERSION = '1.0.0';
 #=============================================================
 sub BUILD {
     my $self = shift;
- 
+
     if (! $self->name) {
         $self->name ($self->loc->N("adminService"));
     }
-    
+
     $self->loadServices();
 }
 
@@ -244,7 +244,7 @@ sub start {
 =head3 DESCRIPTION
 
    This methonds load service info into local attributes such
-   as xinetd_services, on_services and all the available, 
+   as xinetd_services, on_services and all the available,
    services
 
 =cut
@@ -281,11 +281,11 @@ sub _waitUnitStatus {
     }
 }
 
-## _serviceInfo sets service description accordingly to 
-##              selected service status 
+## _serviceInfo sets service description accordingly to
+##              selected service status
 ## param
-##   'service'     service name 
-##   'infoPanel'   service information widget 
+##   'service'     service name
+##   'infoPanel'   service information widget
 sub _serviceInfo {
     my ($self, $service, $infoPanel) = @_;
 
@@ -298,7 +298,7 @@ sub _serviceInfo {
 
 sub _serviceStatusString {
     my ($self, $serviceName) = @_;
-    
+
     my $started;
 
     if (MDK::Common::DataStructure::member($serviceName, $self->all_xinetd_services)) {
@@ -307,20 +307,20 @@ sub _serviceStatusString {
     else {
         $started = ($self->sh_services->is_service_running($serviceName)? $self->loc->N("running") : $self->loc->N("stopped"));
     }
-    
+
     return $started;
 }
 
-## _serviceStatus sets status label accordingly to selected item 
+## _serviceStatus sets status label accordingly to selected item
 ## param
 ##   'service'  yui CB table (service table)
-##   'item'     selected item (service) 
+##   'item'     selected item (service)
 sub _serviceStatus {
     my ($self, $tbl, $item) = @_;
 
     my $started = $self->_serviceStatusString($item->label());
 
-    # TODO add icon green/red led  
+    # TODO add icon green/red led
     my $cell   = $tbl->toCBYTableItem($item)->cell(1);
     if ($cell) {
         $cell->setLabel($started);
@@ -339,16 +339,16 @@ sub _fillServiceTable {
     $tbl->deleteAllItems();
     my $itemCollection = new yui::YItemCollection;
     foreach (sort $self->all_services) {
-        
+
         my $serviceName = $_;
-        
+
         my $item = new yui::YCBTableItem($serviceName);
         my $started = $self->_serviceStatusString($serviceName);
-        
-        # TODO add icon green/red led  
+
+        # TODO add icon green/red led
         my $cell   = new yui::YTableCell($started);
         $item->addCell($cell);
-        
+
         $item->check(MDK::Common::DataStructure::member($serviceName, $self->all_on_services));
         $item->setLabel($serviceName);
         $itemCollection->push($item);
@@ -373,7 +373,7 @@ sub _servicePanel {
     my $factory      = yui::YUI::widgetFactory;
     my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
     $mgaFactory      = yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
-    
+
     my $dialog  = $factory->createMainDialog;
     my $vbox    = $factory->createVBox( $dialog );
 
@@ -397,9 +397,9 @@ sub _servicePanel {
 
     ## service list (serviceBox)
     my $serviceTbl = $mgaFactory->createCBTable($hbox, $yTableHeader, $yui::YCBTableCheckBoxOnLastColumn);
-   
+
     $self->_fillServiceTable($serviceTbl);
-    
+
     $serviceTbl->setImmediateMode(1);
     $serviceTbl->setWeight(0, 50);
 
@@ -412,10 +412,10 @@ sub _servicePanel {
 
     ### Service Start button ($startButton)
     $hbox = $factory->createHBox( $frmVbox );
-    my $startButton = $factory->createPushButton($hbox, $self->loc->N("Start"));
-    
+    my $startButton = $factory->createPushButton($hbox, $self->loc->N("&Start"));
+
     ### Service Stop button ($stopButton)
-    my $stopButton  = $factory->createPushButton($hbox, $self->loc->N("Stop"));
+    my $stopButton  = $factory->createPushButton($hbox, $self->loc->N("S&top"));
 
     # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
@@ -423,13 +423,13 @@ sub _servicePanel {
     $hbox = $factory->createHBox( $vbox );
     my $align = $factory->createLeft($hbox);
     $hbox     = $factory->createHBox($align);
-    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
+    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("&About") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
-    
+
     ### Service Refresh button ($refreshButton)
-    my $refreshButton  = $factory->createPushButton($hbox, $self->loc->N("Refresh"));
-    my $closeButton = $factory->createPushButton($hbox, $self->loc->N("Close") );
+    my $refreshButton  = $factory->createPushButton($hbox, $self->loc->N("&Refresh"));
+    my $closeButton = $factory->createPushButton($hbox, $self->loc->N("&Quit") );
 
     #first item status
     my $item = $serviceTbl->selectedItem();
@@ -457,7 +457,7 @@ sub _servicePanel {
             # widget selected
             my $widget = $event->widget();
             my $wEvent = yui::toYWidgetEvent($event);
-            
+
             if ($widget == $closeButton) {
                 last;
             }
@@ -467,7 +467,7 @@ sub _servicePanel {
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({ name => $self->name,
                                              version => $self->VERSION,
-                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2015'),
                          license => $self->loc->N("GPLv2"),
                          description => $self->loc->N("adminService is the Mageia service and daemon management tool\n
                                                        (from the original idea of Mandriva draxservice)."),
@@ -485,7 +485,7 @@ sub _servicePanel {
                 );
             }
             elsif ($widget == $serviceTbl) {
-                
+
                 # service selection changed
                 $item = $serviceTbl->selectedItem();
                 if ($item) {
@@ -577,7 +577,7 @@ sub _servicePanel {
         }
     }
     $dialog->destroy();
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
