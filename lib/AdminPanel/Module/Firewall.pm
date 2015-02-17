@@ -548,7 +548,7 @@ Please select which network activities should be watched."),
         } @l,
         ]);
 
-    exit() if($retval == 0);
+    return if($retval == 0);
 
     for my $server(@{$self->wdg_ifw()})
     {
@@ -750,7 +750,7 @@ sub choose_allowed_services {
         (map { { text => $_->{name}, val => \$_->{on}, type => 'bool', disabled => sub { $disabled }, id => $_->{id} } } @l),
     ];
 
-    exit() if(!$self->ask_AllowedServices($dialog_data, $items));
+    return if(!$self->ask_AllowedServices($dialog_data, $items));
 
     for my $server(@{$self->wdg_servers()})
     {
