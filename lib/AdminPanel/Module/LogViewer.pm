@@ -68,7 +68,7 @@ use yui;
 
 extends qw( AdminPanel::Module );
 
-### TODO icon 
+### TODO icon
 has '+icon' => (
     default => "/usr/share/mcc/themes/default/logdrake-mdk.png",
 );
@@ -108,13 +108,13 @@ Version 1.0.0
 our $VERSION = '1.0.0';
 
 
-my %prior = ('emerg'   => 0, 
-            'alert'   => 1, 
-            'crit'    => 2, 
-            'err'     => 3, 
-            'warning' => 4, 
-            'notice'  => 5, 
-            'info'    => 6, 
+my %prior = ('emerg'   => 0,
+            'alert'   => 1,
+            'crit'    => 2,
+            'err'     => 3,
+            'warning' => 4,
+            'notice'  => 5,
+            'info'    => 6,
             'debug'   => 7);
 
 
@@ -171,74 +171,74 @@ sub start {
 
 sub _logViewerPanel {
     my $self = shift;
-    
+
     if(!$self->_warn_about_user_mode()) {
         return 0;
     }
-    
+
     my $appTitle = yui::YUI::app()->applicationTitle();
-    
+
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($self->name);
     ## set icon if not already set by external launcher
     yui::YUI::app()->setApplicationIcon($self->icon);
-    
+
     my $factory    = yui::YUI::widgetFactory;
     my $optFactory = yui::YUI::optionalWidgetFactory;
-    
+
     # Create Dialog
     my $dialog  = $factory->createMainDialog;
-    
+
     # Start Dialog layout:
     my $layout    = $factory->createVBox( $dialog );
     my $align = $factory->createAlignment($layout, $yui::YAlignCenter, $yui::YAlignUnchanged);
     $factory->createLabel( $align, $self->loc->N("A tool to monitor your logs"), 1, 0 );
-    
+
     #### matching
     my $hbox = $factory->createHBox($layout);
     my $matchingInputField = $factory->createInputField($hbox, $self->loc->N("Matching"));
     $factory->createHSpacing($hbox, 1);
-    
+
     #### not matching
     my $notMatchingInputField = $factory->createInputField($hbox, $self->loc->N("but not matching"));
     $matchingInputField->setWeight($yui::YD_HORIZ, 2);
     $notMatchingInputField->setWeight($yui::YD_HORIZ, 2);
-    
+
     my $frame = $factory->createFrame($layout, $self->loc->N("Options"));
-    
+
     #### lastBoot
     my $vbox = $factory->createVBox( $frame );
     $align = $factory->createLeft($vbox);
     my $lastBoot = $factory->createCheckBox($align, $self->loc->N("Last boot"), 1);
     $factory->createVSpacing($vbox, 0.5);
     $lastBoot->setNotify(1);
-    
+
     my $row1 = $factory->createHBox($vbox);
     $factory->createVSpacing($vbox, 0.5);
     my $row2 = $factory->createHBox($vbox);
     $factory->createVSpacing($vbox, 0.5);
     my $row3 = $factory->createHBox($vbox);
 
-    #### since and until 
+    #### since and until
     my $sinceDate;
     my $sinceTime;
     my $sinceFrame = $factory->createCheckBoxFrame($row1, $self->loc->N("Since"), 1);
     $sinceFrame->setNotify(1);
-    
+
     my $untilDate;
     my $untilTime;
     my $untilFrame = $factory->createCheckBoxFrame($row2, $self->loc->N("Until"), 1);
     $untilFrame->setNotify(1);
     if ($optFactory->hasDateField()) {
         my $hbox1 = $factory->createHBox($sinceFrame);
-        
+
         $sinceDate = $optFactory->createDateField($hbox1, "");
         $factory->createHSpacing($hbox1, 1.0);
         $sinceTime = $optFactory->createTimeField($hbox1, "");
         my $day = strftime "%F", localtime;
         $sinceDate->setValue($day);
         $sinceTime->setValue("00:00:00");
-        
+
         $hbox1 = $factory->createHBox($untilFrame);
         $untilDate = $optFactory->createDateField($hbox1, "");
         $factory->createHSpacing($hbox1, 1.0);
@@ -250,10 +250,10 @@ sub _logViewerPanel {
         $sinceFrame->enable(0);
         $untilFrame->enable(0);
     }
-    
+
     #### units
     my $spacing = $factory->createHSpacing($row1, 2.0);
-    
+
     my $unitsFrame = $factory->createCheckBoxFrame($row1, $self->loc->N("Select a unit"), 1);
     $unitsFrame->setNotify(1);
     $align = $factory->createLeft($unitsFrame);
@@ -272,7 +272,7 @@ sub _logViewerPanel {
     }
     $units->addItems($itemCollection);
     yui::YUI::app()->normalCursor();
-    
+
     #### priority
     # From
     $factory->createHSpacing($row2, 2.0);
@@ -281,8 +281,8 @@ sub _logViewerPanel {
     $priorityFromFrame->setWeight($yui::YD_HORIZ, 1);
     my $priorityFrom = $factory->createComboBox  ( $priorityFromFrame, "" );
     $itemCollection->clear();
-    
-    my @pr = ('emerg', 'alert', 'crit', 'err', 
+
+    my @pr = ('emerg', 'alert', 'crit', 'err',
             'warning', 'notice', 'info', 'debug');
     foreach (@pr) {
         my $item = new yui::YItem($_);
@@ -301,7 +301,7 @@ sub _logViewerPanel {
     $priorityToFrame->setWeight($yui::YD_HORIZ, 1);
     my $priorityTo = $factory->createComboBox  ( $priorityToFrame, "" );
     $itemCollection->clear();
-    
+
     foreach (@pr) {
         my $item = new yui::YItem($_);
         if ( $_ eq 'debug' ) {
@@ -314,7 +314,7 @@ sub _logViewerPanel {
 
     #### search
     $align = $factory->createRight($row3);
-    my $searchButton = $factory->createPushButton($align, $self->loc->N("search"));
+    my $searchButton = $factory->createPushButton($align, $self->loc->N("&Find"));
 
     #### create log view object
     my $logView = $factory->createLogView($layout, $self->loc->N("Log content"), 10, 0);
@@ -327,16 +327,16 @@ sub _logViewerPanel {
     $priorityFromFrame->setValue(0);
     $priorityToFrame->setValue(0);
 
-    # buttons on the last line 
+    # buttons on the last line
     $align = $factory->createRight($layout);
     $hbox = $factory->createHBox($align);
-    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("About") );
+    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("&About") );
     $align = $factory->createRight($hbox);
     $hbox     = $factory->createHBox($align);
-    my $saveButton = $factory->createPushButton($hbox, $self->loc->N("Save"));
-    my $quitButton = $factory->createPushButton($hbox, $self->loc->N("Quit"));
+    my $saveButton = $factory->createPushButton($hbox, $self->loc->N("&Save"));
+    my $quitButton = $factory->createPushButton($hbox, $self->loc->N("&Quit"));
 
-    # End Dialof layout 
+    # End Dialof layout
 
     while(1) {
         my $event       = $dialog->waitForEvent();
@@ -396,19 +396,19 @@ sub _logViewerPanel {
                 if ($sinceFrame->value()) {
                     $log_opts{since} = $sinceDate->value() . " " . $sinceTime->value();
                 }
-                if ($untilFrame->value()) {                    
+                if ($untilFrame->value()) {
                     $log_opts{until} = $untilDate->value() . " " . $untilTime->value();
-# TODO check date until > date since                    
+# TODO check date until > date since
                 }
                 if ($priorityFromFrame->value() || $priorityToFrame->value()) {
                     my $prio = $priorityFrom->value();
                     $prio .= "..".$priorityTo->value() if ($priorityToFrame->value());
                     $log_opts{priority} = $prio;
-# TODO enabling right using checkBoxes                    
+# TODO enabling right using checkBoxes
                 }
                 my $log = $self->_search(\%log_opts);
-print " log lines: ". scalar (@{$log}) ."\n";                
-# TODO check on log line number what to do if too big? and adding a progress bar?                
+print " log lines: ". scalar (@{$log}) ."\n";
+# TODO check on log line number what to do if too big? and adding a progress bar?
                 $self->_parse_content({'matching'   => $matchingInputField->value(),
                                     'noMatching' => $notMatchingInputField->value(),
                                     'log'        => $log,
@@ -458,11 +458,11 @@ print " log lines: ". scalar (@{$log}) ."\n";
                     yui::YUI::ui()->unblockEvents();
                 }
             }
-        
+
         }
     }
     $dialog->destroy();
-    
+
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
 }
@@ -478,7 +478,7 @@ sub _warn_about_user_mode {
                             "but you may still browse all the others.");
 
     if(($EUID != 0) and (!$self->sh_gui->ask_OkCancel({title => $title, text => $msg}))) {
-        # TODO add Privileges? 
+        # TODO add Privileges?
         return 0;
     }
 
@@ -502,7 +502,7 @@ sub _save {
         print OF $logView->logText();
         close OF;
     }
-    
+
     yui::YUI::app()->normalCursor();
 }
 
@@ -512,13 +512,13 @@ sub _search {
 
     my $log = AdminPanel::Shared::JournalCtl->new(%{$log_opts});
     my $all = $log->getLog();
-    
+
     return $all;
 }
 
 ## _parse_content
 #
-#  $info : HASH cotaining 
+#  $info : HASH cotaining
 #
 #  matching:    string to match
 #  notMatching: string to skip
@@ -531,14 +531,14 @@ sub _parse_content {
 
     my $ey = "";
     my $en = "";
-    
+
     if( exists($info->{'matching'} ) ){
         $ey = $info->{'matching'};
     }
     if( exists($info->{'noMatching'} ) ){
         $en = $info->{'noMatching'};
     }
-    
+
     $ey =~ s/ OR /|/ if ($ey);
     $ey =~ s/^\*$//  if ($ey);
     $en =~ s/^\*$/.*/ if ($en);
@@ -547,13 +547,13 @@ sub _parse_content {
 
     if ($en && !$ey) {
         $test = sub { $_[0] !~ /$en/ };
-    } 
+    }
     elsif ($ey && !$en) {
         $test = sub { $_[0] =~ /$ey/ };
-    } 
+    }
     elsif ($ey && $en) {
         $test = sub { $_[0] =~ /$ey/ && $_[0] !~ /$en/ };
-    } 
+    }
     else {
         $test = sub { $_[0] };
     }
