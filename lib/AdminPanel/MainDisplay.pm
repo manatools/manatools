@@ -52,7 +52,7 @@ SEE_ALSO
 
 =head1 AUTHOR
 
-Steven Tucker 
+Steven Tucker
 
 =head1 COPYRIGHT and LICENSE
 
@@ -133,17 +133,18 @@ sub new {
         title        => 0,
         settings     => 0,
         exitButton   => 0,
+        aboutButton  => 0,
         loc          => 0,
         replacePoint => 0,
     };
     bless $self, 'AdminPanel::MainDisplay';
-    
+
 ## Default values
     $self->{name} =     "Administration panel";
     $self->{categories} = [];
     $self->{confDir}    = "/etc/mpan",
     $self->{title}      = "mpan",
-    
+
     my $cmdline = new yui::YCommandLine;
 
     ## TODO add parameter check
@@ -169,6 +170,35 @@ sub new {
     return $self;
 }
 
+
+sub _showAboutDialog {
+    my $self = shift;
+
+    my $translators = $self->{loc}->N("_: Translator(s) name(s) & email(s)\n");
+    $translators =~ s/\</\&lt\;/g;
+    $translators =~ s/\>/\&gt\;/g;
+    my $sh_gui = AdminPanel::Shared::GUI->new();
+    $sh_gui->AboutDialog({ name => $self->{name},
+        version => $AdminPanel::MainDisplay::VERSION,
+        credits => $self->{loc}->N("Copyright (C) %s Mageia community", '2013-2015'),
+        license => $self->{loc}->N("GPLv2"),
+        description => $self->{loc}->N("mpan is the administration panel that collects all the utilities."),
+        authors => $self->{loc}->N("<h3>Developers</h3>
+                                    <ul><li>%s</li>
+                                        <li>%s</li>
+                                    </ul>
+                                    <h3>Translators</h3>
+                                    <ul><li>%s</li></ul>",
+                                    "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                    "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                    $translators
+        ),
+
+    });
+}
+
+
+
 ## Begin the program event loop
 sub start {
     my ($self) = shift;
@@ -176,7 +206,7 @@ sub start {
 
     ##Default category selection
     if (!$self->{currCategory}) {
-        $self->{currCategory} = @{$self->{categories}}[0]; 
+        $self->{currCategory} = @{$self->{categories}}[0];
     }
     $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
     $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
@@ -187,7 +217,7 @@ sub start {
         ## Grab Event
         $self->{event} = $self->{mainWin}->waitForEvent();
         my $eventType  = $self->{event}->eventType();
-        
+
         ## Check for window close
         if ($eventType == $yui::YEvent::CancelEvent) {
             last;
@@ -201,38 +231,21 @@ sub start {
                 last;
             }
             elsif ($menuLabel eq $self->{menus}->{help}->{ about }->label()) {
-                my $translators = $self->{loc}->N("_: Translator(s) name(s) & email(s)\n");
-                $translators =~ s/\</\&lt\;/g;
-                $translators =~ s/\>/\&gt\;/g;
-                my $sh_gui = AdminPanel::Shared::GUI->new();
-                $sh_gui->AboutDialog({ name => $self->{name},
-                         version => $AdminPanel::MainDisplay::VERSION,
-                         credits => $self->{loc}->N("Copyright (C) %s Mageia community", '2013-2014'),
-                         license => $self->{loc}->N("GPLv2"),
-                         description => $self->{loc}->N("mpan is the administration panel that collects all the utilities."),
-                         authors => $self->{loc}->N("<h3>Developers</h3>
-                                                    <ul><li>%s</li>
-                                                           <li>%s</li>
-                                                       </ul>
-                                                       <h3>Translators</h3>
-                                                       <ul><li>%s</li></ul>",
-                                                      "Angelo Naselli &lt;anaselli\@linux.it&gt;",
-                                                      "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
-                                                      $translators
-                         ),
-
-                });
+                $self->_showAboutDialog();
             }
             elsif ($menuLabel eq $self->{menus}->{help}->{ help }->label()) {
                 # TODO Help
             }
-        }        
+        }
         elsif ($eventType == $yui::YEvent::WidgetEvent) {
             my $widget = $self->{event}->widget();
-            
+
             ## Check for Exit button push or menu
             if($widget == $self->{exitButton}) {
                 last;
+            }
+            elsif ($widget == $self->{aboutButton}) {
+                $self->_showAboutDialog();
             }
             else {
                 # category button selected?
@@ -242,7 +255,7 @@ sub start {
                     $launch = $self->_moduleSelected($widget);
                 }
             }
-        }                
+        }
     }
 
     return $launch;
@@ -307,12 +320,12 @@ sub setupGui {
 
     $self->{mainLayout} = $self->{factory}->createVBox($self->{mainWin});
     $self->{menuLayout} = $self->{factory}->createHBox($self->{mainLayout});
-   
+
     ## Menu File
     my $align = $self->{factory}->createAlignment($self->{menuLayout}, 1, 0);
     $self->{menus}->{file} = {
             widget => $self->{factory}->createMenuButton($align, $self->{loc}->N("File")),
-            quit   => new yui::YMenuItem($self->{loc}->N("&Exit")),
+            quit   => new yui::YMenuItem($self->{loc}->N("&Quit")),
     };
 
     my @ordered_menu_lines = qw(quit);
@@ -325,7 +338,7 @@ sub setupGui {
     $self->{menus}->{help} = {
             widget => $self->{factory}->createMenuButton($align, $self->{loc}->N("Help")),
             help   => new yui::YMenuItem($self->{loc}->N("Help")),
-            about  => new yui::YMenuItem($self->{loc}->N("About")),
+            about  => new yui::YMenuItem($self->{loc}->N("&About")),
     };
 
     ## Menu Help
@@ -337,9 +350,9 @@ sub setupGui {
 
     $self->{layout}     = $self->{factory}->createHBox($self->{mainLayout});
 
-    #create left Panel Frame no need to add a label for title 
+    #create left Panel Frame no need to add a label for title
     $self->{leftPaneFrame} = $self->{factory}->createFrame($self->{layout}, $self->{settings}->{category_title});
-    #create right Panel Frame no need to add a label for title (use setLabel when module changes) 
+    #create right Panel Frame no need to add a label for title (use setLabel when module changes)
     $self->{rightPaneFrame} = $self->{factory}->createFrame($self->{layout}, "");
     #create replace point for dynamically created widgets
     $self->{replacePoint} = $self->{factory}->createReplacePoint($self->{rightPaneFrame});
@@ -361,7 +374,10 @@ sub setupGui {
     $self->_loadCategories();
     $self->{factory}->createVStretch($self->{leftPane});
 
-    $self->{exitButton} = $self->{factory}->createPushButton($self->{leftPane}, "Exit");
+    $self->{aboutButton} = $self->{factory}->createPushButton($self->{leftPane}, "&About");
+    $self->{aboutButton}->setStretchable(0, 1);
+
+    $self->{exitButton}  = $self->{factory}->createPushButton($self->{leftPane}, "&Quit");
     my $quitIcon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/quit.png');
     $self->{exitButton}->setIcon($quitIcon);
     $self->{exitButton}->setStretchable(0, 1);
@@ -375,7 +391,7 @@ sub setupGui {
 
 sub _moduleSelected {
     my ($self, $selectedWidget) = @_;
-    
+
     for(@{$self->{currCategory}->{modules}}) {
         if( $_->{button} == $selectedWidget ){
             return $_;
@@ -393,10 +409,10 @@ sub _categorySelected {
     my ($self, $selectedWidget) = @_;
     for (@{$self->{categories}}) {
         if( $_->{button} == $selectedWidget ) {
-            
+
             #if current is already set then skips
             if ($self->{currCategory} == $_) {
-                ## returns 1 to skip any other checks on 
+                ## returns 1 to skip any other checks on
                 ## the selected widget
                 return 1;
             }
@@ -428,7 +444,7 @@ sub _loadSettings {
     my ($self, $force_load) = @_;
     # configuration file name
     my $fileName = "$self->{confDir}/settings.conf";
-    die "Configuration file missing" if (! -e $fileName); 
+    die "Configuration file missing" if (! -e $fileName);
     if (!$self->{settings} || $force_load) {
         $self->{settings} = new AdminPanel::SettingsReader($fileName);
     }
@@ -436,21 +452,21 @@ sub _loadSettings {
 
 #=============================================================
 #  _categoryLoaded
-# 
+#
 # INPUT
-# 
+#
 #     $self:     this object
 #     $category: category to look for
-# 
+#
 # OUTPUT
-# 
+#
 #     $present: category is present or not
-# 
+#
 # DESCRIPTION
-# 
+#
 #     This method looks for the given category and if already in
 #     returns true.
-# 
+#
 #=============================================================
 sub _categoryLoaded {
     my ($self, $category) = @_;
@@ -460,9 +476,9 @@ sub _categoryLoaded {
         return $present;
     }
 
-    foreach my $cat (@{$self->{categories}}) { 
+    foreach my $cat (@{$self->{categories}}) {
         if ($cat->{name} eq $category->{name}) {
-            $present = 1; 
+            $present = 1;
             last;
         }
     }
@@ -472,18 +488,18 @@ sub _categoryLoaded {
 
 #=============================================================
 #  _getCategory
-# 
+#
 #  INPUT
-# 
+#
 #     $self:     this object
 #     $name:     category name
-# 
+#
 #  OUTPUT
-# 
+#
 #     $category: category object if exists
-# 
+#
 #  DESCRIPTION
-# 
+#
 #     This method looks for the given category name and returns
 #     the realte object.
 #=============================================================
@@ -491,7 +507,7 @@ sub _getCategory {
     my ($self, $name) = @_;
     my $category = undef;
 
-    foreach $category (@{$self->{categories}}) { 
+    foreach $category (@{$self->{categories}}) {
         if ($category->{name} eq $name) {
             return $category;
         }
@@ -501,9 +517,9 @@ sub _getCategory {
 }
 
 # _loadCategory
-# 
+#
 # creates a new button representing a category
-# 
+#
 sub _loadCategory {
     my ($self, $category) = @_;
 
@@ -538,18 +554,18 @@ sub _loadCategory {
 sub _loadCategories {
     my ($self) = @_;
 
-    # category files 
+    # category files
     my @categoryFiles;
     my $fileName = "$self->{confDir}/categories.conf";
-    
-    
+
+
     # configuration file dir
     my $directory = "$self->{confDir}/categories.conf.d";
-    
+
     push(@categoryFiles, $fileName);
     push(@categoryFiles, <$directory/*.conf>);
     my $currCategory;
-    
+
     foreach $fileName (@categoryFiles) {
         my $inFile = new AdminPanel::ConfigReader($fileName);
         my $tmpCat;
@@ -564,7 +580,7 @@ sub _loadCategories {
             $self->_loadCategory($tmpCat);
             $hasNextCat  = $inFile->hasNextCat();
             $currCategory = $tmpCat;
-        
+
             my $hasNextMod = $inFile->hasNextMod();
             while( $hasNextMod ) {
                 $tmp = $inFile->getNextMod();
@@ -573,12 +589,12 @@ sub _loadCategories {
 
                 if (exists $tmp->{title}) {
                     if (not $currCategory->moduleLoaded($tmp->{title})) {
-                        $tmpMod = AdminPanel::Module->create(name => $tmp->{title}, 
+                        $tmpMod = AdminPanel::Module->create(name => $tmp->{title},
                                                              icon => $tmp->{icon},
                                                              launch => $tmp->{launcher}
                         );
                     }
-                } 
+                }
                 elsif (exists $tmp->{class}) {
                     if (not $currCategory->moduleLoaded(-CLASS => $tmp->{class})) {
                         $tmpMod = AdminPanel::Module->create(-CLASS => $tmp->{class});
