@@ -649,7 +649,7 @@ sub _display_READMEs_if_needed {
                        $factory->createVSpacing($vbox, 1);
     my $hbox         = $factory->createHBox( $vbox );
     my $align        = $factory->createHCenter($hbox);
-    my $okButton     = $factory->createPushButton($align,  $loc->N("Ok"));
+    my $okButton     = $factory->createPushButton($align,  $loc->N("&Ok"));
                        $okButton->setDefaultButton(1);
 
     # adding packages to the list

@@ -1277,8 +1277,8 @@ sub deps_msg {
                        $factory->createVSpacing($vbox, 1);
     my $hbox         = $factory->createHBox( $vbox );
     my $align        = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, $loc->N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  $loc->N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $loc->N("&Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $loc->N("&Ok"));
 
     # adding packages to the list
     my $itemColl = new yui::YItemCollection;

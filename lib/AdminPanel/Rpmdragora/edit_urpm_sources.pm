@@ -304,9 +304,9 @@ sub add_callback() {
     # Last line buttons
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("&Cancel"));
     $factory->createHSpacing($hbox, 3.0);
-    my $okButton   = $factory->createPushButton($hbox,  $loc->N("Ok"));
+    my $okButton   = $factory->createPushButton($hbox,  $loc->N("&Ok"));
 
     $cancelButton->setDefaultButton(1);
 
@@ -522,9 +522,9 @@ sub options_callback() {
     ### last line buttons
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("&Cancel"));
     $factory->createHSpacing($hbox, 3.0);
-    my $okButton   = $factory->createPushButton($hbox,  $loc->N("Ok"));
+    my $okButton   = $factory->createPushButton($hbox,  $loc->N("&Ok"));
 
     $cancelButton->setDefaultButton(1);
 
@@ -764,11 +764,11 @@ sub edit_callback {
 
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox,  $loc->N("&Cancel"));
     $factory->createHSpacing($hbox, 3.0);
-    my $saveButton   = $factory->createPushButton($hbox,  $loc->N("Save changes"));
+    my $saveButton   = $factory->createPushButton($hbox,  $loc->N("&OK"));
     $factory->createHSpacing($hbox, 3.0);
-    my $proxyButton  = $factory->createPushButton($hbox,  $loc->N("Proxy..."));
+    my $proxyButton  = $factory->createPushButton($hbox,  $loc->N("&Proxy..."));
 
     $cancelButton->setDefaultButton(1);
 
@@ -936,9 +936,9 @@ sub proxy_callback {
     # dialog low level buttons
     $factory->createVSpacing($vbox, 0.5);
     $hbox            = $factory->createHBox($vbox);
-    my $okButton   = $factory->createPushButton($hbox,   $loc->N("Ok"));
+    my $okButton   = $factory->createPushButton($hbox,   $loc->N("&Ok"));
     $factory->createHSpacing($hbox, 3.0);
-    my $cancelButton = $factory->createPushButton($hbox, $loc->N("Cancel"));
+    my $cancelButton = $factory->createPushButton($hbox, $loc->N("&Cancel"));
 
     $cancelButton->setDefaultButton(1);
 
@@ -1376,7 +1376,7 @@ sub keys_callback() {
     $hbox = $factory->createHBox( $vbox );
 
     ### Close button
-    my $closeButton = $factory->createPushButton($hbox, $loc->N("Ok") );
+    my $closeButton = $factory->createPushButton($hbox, $loc->N("&Quit") );
 
     ### dialog event loop
     while(1) {
@@ -1581,7 +1581,7 @@ sub mainwindow() {
             update => new yui::YMenuItem($loc->N("Update")),
          add_media => new yui::YMenuItem($loc->N("Add a specific media mirror")),
             custom => new yui::YMenuItem($loc->N("Add a custom medium")),
-            quit   => new yui::YMenuItem($loc->N("&Close")),
+            quit   => new yui::YMenuItem($loc->N("&Quit")),
     );
 
     my @ordered_menu_lines = qw(update add_media custom quit);
@@ -1701,7 +1701,7 @@ sub mainwindow() {
     $hbox     = $factory->createHBox($align);
 
     ### Close button
-    my $closeButton = $factory->createPushButton($hbox, $loc->N("Ok") );
+    my $closeButton = $factory->createPushButton($hbox, $loc->N("&Quit") );
 
     ### dialog event loop
     while(1) {
@@ -1727,7 +1727,7 @@ sub mainwindow() {
                 $translators =~ s/\>/\&gt\;/g;
                 my $sh_gui = AdminPanel::Shared::GUI->new();
                 $sh_gui->AboutDialog({ name => "Rpmdragora",
-                                             version => "TODO",
+                                             version => $VERSION,
                          credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
                          license => $loc->N("GPLv2"),
                          description => $loc->N("Rpmdragora is the Mageia package management tool."),
