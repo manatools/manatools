@@ -135,27 +135,79 @@ sub _refresh_packages_list {
     return scalar(@requested);
 }
 
+#=============================================================
+
+=head2 toggle
+
+=head3 INPUT
+
+    $packageTbl: CBYTable containing all the packages to be updated
+    @names:      list of package names to be toggled
+
+=head3 DESCRIPTION
+
+    This function toggle a package status from "to be installed" to "to be updated" and viceversa
+    based on the first package status.
+
+=cut
+
+#=============================================================
 sub toggle {
     my ($packageTbl, @names) = @_;
     my $name = $names[0];
+    # TODO working with a single package instead a list...
+    #      since it's used only in that case
     my $val = $pkgs->{$name}{selected};
     my $old_status = $val ? 'to_install' : 'to_update';
     my $done;
     my $pkg = $pkgs->{$name}{pkg};
     return if !$pkg;
     $pkg->set_flag_skip(0);
-  #  toggle_nodes($packageTbl, $packageTbl, \&set_leaf_state, node_state($p[0][0]), @{$p[0]});
 
-    toggle_nodes($packageTbl, $packageTbl, sub {
-#                      my ($leaf, $_state, $_model) = @_;
-#                      $done = 1;
-#                      $list->{data}[$data{$leaf}][$pkg_columns{selected}] = $pkgs->{$name}{selected};
-                 },
-                 $old_status, @names);
-#     # handle canceling:
-#     $list->{data}[$data{$name}][$pkg_columns{selected}] = !$list->{data}[$data{$name}][$pkg_columns{selected}] if !$done;
+    toggle_nodes($packageTbl, $packageTbl, sub {}, $old_status, @names);
 }
 
+#=============================================================
+
+=head2 toggle_all_packages
+
+=head3 INPUT
+
+    $packageTbl: CBYTable containing all the packages to be updated
+    $val:        new value wanted for the status (1 selected)
+
+=head3 DESCRIPTION
+
+    This function select or deselect all the packages according to
+    the $val passed.
+
+=cut
+
+#=============================================================
+sub toggle_all_packages {
+    my ($packageTbl, $val) = @_;
+    my $it;
+    my @l;
+    my $i=0;
+    # using iterators
+    for ($it = $packageTbl->itemsBegin(); $it != $packageTbl->itemsEnd(); ) {
+       my $item  = $packageTbl->YItemIteratorToYItem($it);
+       my $cbItem = $packageTbl->toCBYTableItem($item);
+
+       push @l, $data{$item->index()}{fullname} if $cbItem->checked() != $val;
+
+       $it = $packageTbl->nextItem($it);
+       $i++;
+       if ($i == $packageTbl->itemsCount()) {
+            last;
+       }
+    }
+
+    #revert old status
+    my $old_status = $val ? 'to_update' : 'to_install';
+
+    toggle_nodes($packageTbl, $packageTbl, sub {}, $old_status, @l);
+}
 
 sub quit() {
 #     ($mandrivaupdate_width->[0], $mandrivaupdate_height->[0]) = $::w->{real_window}->get_size;
@@ -210,7 +262,7 @@ sub run_treeview_dialog {
     my $packageTbl = $mgaFactory->createCBTable($vbox, $yTableHeader, $yui::YCBTableCheckBoxOnFirstColumn);
                      $factory->createVSpacing($vbox, 1);
     my $infoBox    = $factory->createRichText($vbox, "", 0);
-    
+
     # dialog buttons
     $factory->createVSpacing($vbox, 1.0);
     ## Window push buttons
@@ -225,12 +277,13 @@ sub run_treeview_dialog {
     $hbox  = $factory->createHBox($align);
 
     ### Service Refresh button ($refreshButton)
-    my $selectButton = $factory->createPushButton($hbox, $loc->N("&Select all"));
-    my $updateButton = $factory->createPushButton($hbox, $loc->N("&Update"));
-    my $closeButton  = $factory->createPushButton($hbox, $loc->N("&Quit") );
-    $statusbar       = $factory->createBusyIndicator($vbox, "" );
+    my $uncheckButton = $factory->createPushButton($hbox, $loc->N("U&ncheck all"));
+    my $selectButton  = $factory->createPushButton($hbox, $loc->N("&Select all"));
+    my $updateButton  = $factory->createPushButton($hbox, $loc->N("&Update"));
+    my $closeButton   = $factory->createPushButton($hbox, $loc->N("&Quit") );
+    $statusbar        = $factory->createBusyIndicator($vbox, "" );
     $statusbar->setWeight(0, 1);
-   
+
     $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
 
     pkgs_provider('all_updates', pure_updates => 1); # default mode
@@ -320,18 +373,16 @@ sub run_treeview_dialog {
                 }
                 elsif ($widget == $selectButton) {
                     yui::YUI::app()->busyCursor();
-                    my @list;
-                    foreach my $key (sort(keys %data)) {
-                        push @list, $data{$key}{fullname};
-                    }
-                    toggle_all({
-                        widgets => {detail_list => $packageTbl},
-                        table_item_list => \@list,
-                        set_state_callback => sub {1},
-                    });
+                    toggle_all_packages($packageTbl, 1);
                     $num_pkgs = _refresh_packages_list($dialog, $packageTbl);
 
                     yui::YUI::app()->normalCursor();
+                }
+                elsif ($widget == $uncheckButton) {
+                    yui::YUI::app()->busyCursor();
+                    toggle_all_packages($packageTbl, 0);
+                    $num_pkgs = _refresh_packages_list($dialog, $packageTbl);
+                    yui::YUI::app()->normalCursor()
                 }
                 elsif ($widget == $updateButton) {
                     my $res = do_action({ tree_mode => 'all_updates' }, $callback_action);
