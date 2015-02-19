@@ -1,8 +1,12 @@
 #!/usr/bin/perl
 #*****************************************************************************
 #
+#  dragoraUpdate
+#  Copyright (c) 2014-2015 Angelo Naselli <anaselli@linux.it>
+#
+#  MandrivaUpdate and MageiaUpdate
 #  Copyright (c) 2002 Guillaume Cottenceau
-#  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
+#  Copyright (c) 2002-2014 Thierry Vignaud <tvignaud@mandriva.com>
 #  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
 #  Copyright (c) 2005-2007 Mandriva SA
 #
@@ -21,7 +25,6 @@
 #
 #*****************************************************************************
 #
-# $Id: MageiaUpdate 261845 2009-10-13 12:33:58Z tv $
 
 use strict;
 use MDK::Common::Func 'any';
@@ -404,15 +407,16 @@ sub run_treeview_dialog {
         }
     }
 
-    $dialog->destroy();
-
     if (!$num_pkgs) {
         AdminPanel::rpmdragora::interactive_msg(
             $loc->N("rpmdragora update"),
             $loc->N("The list of updates is empty. This means that either there is no available update for the packages installed on your computer, or you already installed all of them."),
-            scroll => 1
+            scroll => 1,
+           # main_dialog => 1,
         );
     }
+
+    $dialog->destroy();
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
