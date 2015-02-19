@@ -276,6 +276,7 @@ sub getbanner() {
         scroll => Rich Text with scroll bar used
         yesno => dialog with "yes" and "no" buttons (deafult yes)
         dont_ask_again => add a checkbox with "dont ask again text"
+        main_dialog => create a main dialog instead of a popup one
     }
 
 =head3 OUTPUT
@@ -312,7 +313,9 @@ sub interactive_msg {
     yui::YUI::app()->setApplicationTitle($title);
 
     my $factory = yui::YUI::widgetFactory;
-    my $dlg     = $factory->createPopupDialog();
+    my $dlg     = $options{main_dialog} ?
+        $factory->createMainDialog() :
+        $factory->createPopupDialog();
     my $minSize = $factory->createMinSize( $dlg, 75, 6);
     my $vbox    = $factory->createVBox( $minSize );
     my $midhbox = $factory->createHBox($vbox);
