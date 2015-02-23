@@ -21,6 +21,7 @@ SKIP: {
                          "set yesno => 1 to have a yesno dialog otherwhise just ok button is shown",
                         "press ok to continue"),
                      scroll => 1,
+                     min_size => {lines => 18,}
         ),
         'interactive_msg',
     );
