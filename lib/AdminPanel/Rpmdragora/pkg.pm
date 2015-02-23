@@ -812,7 +812,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                          format_filesize($filesize),
                          $loc->N("Is it ok to continue?")),
                      scroll => 1,
-                     yesno => 1) or return 1;
+                     yesno => 1, min_size => {lines => 18},) or return 1;
 
     my $_umount_guard = MDK::Common::Func::before_leaving { urpm::removable::try_umounting_removables($urpm) };
 

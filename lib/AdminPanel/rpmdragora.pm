@@ -273,16 +273,17 @@ sub getbanner() {
     $title:    dialog title
     $contents: dialog text
     %options:  optional HASH containing {
-        scroll => Rich Text with scroll bar used
-        yesno => dialog with "yes" and "no" buttons (deafult yes)
+        scroll         => Rich Text with scroll bar used
+        yesno          => dialog with "yes" and "no" buttons (deafult yes)
         dont_ask_again => add a checkbox with "dont ask again text"
-        main_dialog => create a main dialog instead of a popup one
+        main_dialog    => create a main dialog instead of a popup one
+        min_size       => {columns => X, lines => Y} for minimum dialog size,
     }
 
 =head3 OUTPUT
 
     retval: if dont_ask_again HASH reference containig {
-        value => 1 yes (or ok) pressed, 0 no pressed
+        value          => 1 yes (or ok) pressed, 0 no pressed
         dont_ask_again => 1 if checked
     }
     or if dont_ask_again is not passed:
@@ -292,7 +293,9 @@ sub getbanner() {
 
     This function shows a dialog with contents text and return the button
     pressed (1 ok or yes), optionally returns the checkbox value if dont_ask_again is
-    passed
+    passed.
+    If min_size is passed a minimum dialog size is set (default is 75x6) see libyui
+    createMinSize documenatation for explanation.
 
 =cut
 
@@ -316,7 +319,9 @@ sub interactive_msg {
     my $dlg     = $options{main_dialog} ?
         $factory->createMainDialog() :
         $factory->createPopupDialog();
-    my $minSize = $factory->createMinSize( $dlg, 75, 6);
+    my $columns = $options{min_size}->{columns} || 75;
+    my $lines   = $options{min_size}->{lines} || 6;
+    my $minSize = $factory->createMinSize( $dlg, $columns, $lines);
     my $vbox    = $factory->createVBox( $minSize );
     my $midhbox = $factory->createHBox($vbox);
     ## app description
