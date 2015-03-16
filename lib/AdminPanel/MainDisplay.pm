@@ -1,32 +1,32 @@
 # vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
-#    This file is part of AdminPanel
+#    This file is part of ManaTools
 #
-#    AdminPanel is free software: you can redistribute it and/or modify
+#    ManaTools is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    AdminPanel is distributed in the hope that it will be useful,
+#    ManaTools is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 
-package AdminPanel::MainDisplay;
+package ManaTools::MainDisplay;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::MainDisplay - class for AdminPaneol main window
+ManaTools::MainDisplay - class for AdminPaneol main window
 
 =head1 SYNOPSIS
 
-       $mainDisplay = new AdminPanel::MainDisplay();
+       $mainDisplay = new ManaTools::MainDisplay();
        $mainDisplay->start();
        $mainDisplay->destroy();
 
@@ -44,7 +44,7 @@ exported
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::MainDisplay
+perldoc ManaTools::MainDisplay
 
 =head1 SEE ALSO
 
@@ -59,18 +59,18 @@ Steven Tucker
 Copyright (C) 2012, Steven Tucker
 Copyright (C) 2014, Angelo Naselli.
 
-AdminPanel is free software: you can redistribute it and/or modify
+ManaTools is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
 the Free Software Foundation, either version 2 of the License, or
 (at your option) any later version.
 
-AdminPanel is distributed in the hope that it will be useful,
+ManaTools is distributed in the hope that it will be useful,
 but WITHOUT ANY WARRANTY; without even the implied warranty of
 MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 GNU General Public License for more details.
 
 You should have received a copy of the GNU General Public License
-along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 =head1 FUNCTIONS
 
@@ -89,13 +89,13 @@ our $VERSION = '1.0.0';
 use strict;
 use warnings;
 use diagnostics;
-use AdminPanel::SettingsReader;
-use AdminPanel::ConfigReader;
-use AdminPanel::Category;
-use AdminPanel::Module;
-use AdminPanel::Shared;
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Locales;
+use ManaTools::SettingsReader;
+use ManaTools::ConfigReader;
+use ManaTools::Category;
+use ManaTools::Module;
+use ManaTools::Shared;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Locales;
 use File::ShareDir ':ALL';
 
 use yui;
@@ -137,10 +137,10 @@ sub new {
         loc          => 0,
         replacePoint => 0,
     };
-    bless $self, 'AdminPanel::MainDisplay';
+    bless $self, 'ManaTools::MainDisplay';
 
 ## Default values
-    $self->{name} =     "Administration panel";
+    $self->{name} =     "Mana-tools panel";
     $self->{categories} = [];
     $self->{confDir}    = "/etc/mpan",
     $self->{title}      = "mpan",
@@ -164,7 +164,7 @@ sub new {
     }
 
     # TODO localize
-    $self->{loc} = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone');
+    $self->{loc} = ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone');
     $self->setupGui();
 
     return $self;
@@ -177,12 +177,12 @@ sub _showAboutDialog {
     my $translators = $self->{loc}->N("_: Translator(s) name(s) & email(s)\n");
     $translators =~ s/\</\&lt\;/g;
     $translators =~ s/\>/\&gt\;/g;
-    my $sh_gui = AdminPanel::Shared::GUI->new();
+    my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->AboutDialog({ name => $self->{name},
-        version => $AdminPanel::MainDisplay::VERSION,
+        version => $ManaTools::MainDisplay::VERSION,
         credits => $self->{loc}->N("Copyright (C) %s Mageia community", '2013-2015'),
         license => $self->{loc}->N("GPLv2"),
-        description => $self->{loc}->N("mpan is the administration panel that collects all the utilities."),
+        description => $self->{loc}->N("mpan is the mana-tools panel that collects all the utilities."),
         authors => $self->{loc}->N("<h3>Developers</h3>
                                     <ul><li>%s</li>
                                         <li>%s</li>
@@ -311,7 +311,7 @@ sub setupGui {
     yui::YUI::app()->setApplicationTitle($self->{name});
     my $icon = defined($self->{settings}->{icon}) ?
                $self->{settings}->{icon} :
-               File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/mageia.png');
+               File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png');
 
     yui::YUI::app()->setApplicationIcon($icon);
 
@@ -363,7 +363,7 @@ sub setupGui {
     #logo from settings
     my $logofile = defined($self->{settings}->{logo}) ?
                $self->{settings}->{logo} :
-               File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/logo_mageia.png');
+               File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/logo_mageia.png');
 
     my $logo = $self->{factory}->createImage($self->{leftPane}, $logofile);
     $logo->setAutoScale(1);
@@ -378,7 +378,7 @@ sub setupGui {
     $self->{aboutButton}->setStretchable(0, 1);
 
     $self->{exitButton}  = $self->{factory}->createPushButton($self->{leftPane}, "&Quit");
-    my $quitIcon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/quit.png');
+    my $quitIcon = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/quit.png');
     $self->{exitButton}->setIcon($quitIcon);
     $self->{exitButton}->setStretchable(0, 1);
 }
@@ -446,7 +446,7 @@ sub _loadSettings {
     my $fileName = "$self->{confDir}/settings.conf";
     die "Configuration file missing" if (! -e $fileName);
     if (!$self->{settings} || $force_load) {
-        $self->{settings} = new AdminPanel::SettingsReader($fileName);
+        $self->{settings} = new ManaTools::SettingsReader($fileName);
     }
 }
 
@@ -567,7 +567,7 @@ sub _loadCategories {
     my $currCategory;
 
     foreach $fileName (@categoryFiles) {
-        my $inFile = new AdminPanel::ConfigReader($fileName);
+        my $inFile = new ManaTools::ConfigReader($fileName);
         my $tmpCat;
         my $tmp;
         my $hasNextCat = $inFile->hasNextCat();
@@ -575,7 +575,7 @@ sub _loadCategories {
             $tmp = $inFile->getNextCat();
             $tmpCat = $self->_getCategory($tmp->{title});
             if (!$tmpCat) {
-                $tmpCat = new AdminPanel::Category($tmp->{title}, $tmp->{icon});
+                $tmpCat = new ManaTools::Category($tmp->{title}, $tmp->{icon});
             }
             $self->_loadCategory($tmpCat);
             $hasNextCat  = $inFile->hasNextCat();
@@ -589,7 +589,7 @@ sub _loadCategories {
 
                 if (exists $tmp->{title}) {
                     if (not $currCategory->moduleLoaded($tmp->{title})) {
-                        $tmpMod = AdminPanel::Module->create(name => $tmp->{title},
+                        $tmpMod = ManaTools::Module->create(name => $tmp->{title},
                                                              icon => $tmp->{icon},
                                                              launch => $tmp->{launcher}
                         );
@@ -597,7 +597,7 @@ sub _loadCategories {
                 }
                 elsif (exists $tmp->{class}) {
                     if (not $currCategory->moduleLoaded(-CLASS => $tmp->{class})) {
-                        $tmpMod = AdminPanel::Module->create(-CLASS => $tmp->{class});
+                        $tmpMod = ManaTools::Module->create(-CLASS => $tmp->{class});
                     }
                 }
                 if ($tmpMod) {

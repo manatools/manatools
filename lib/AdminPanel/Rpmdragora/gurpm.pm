@@ -1,22 +1,22 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::gurpm;
+package ManaTools::Rpmdragora::gurpm;
 
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-    AdminPanel::Rpmdragora::gurpm - Module that shows the urpmi
+    ManaTools::Rpmdragora::gurpm - Module that shows the urpmi
                                     progress status
 
 =head1 SYNOPSIS
 
     my %option = (title => "Urpmi action ivoked", text => "Please wait", );
-    my $gurpmi = AdminPanel::Rpmdragora::gurpm->new(%option);
+    my $gurpmi = ManaTools::Rpmdragora::gurpm->new(%option);
     $gurpmi->progress(45);
 
     #add to an existing dialog
     %option = (title => "Urpmi action ivoked", text => "Please wait", main_dialog => $dialog, parent => $parent_container);
-    $gurpmi = AdminPanel::Rpmdragora::gurpm->new(%option);
+    $gurpmi = ManaTools::Rpmdragora::gurpm->new(%option);
     $gurpmi->progress(20);
 
 =head1 DESCRIPTION
@@ -29,12 +29,12 @@ package AdminPanel::Rpmdragora::gurpm;
 
     You can find documentation for this module with the perldoc command:
 
-    perldoc AdminPanel::Rpmdragora::gurpm
+    perldoc ManaTools::Rpmdragora::gurpm
 
 =head1 AUTHOR
 
     Angelo Naselli <anaselli@linux.it>
-    
+
     Matteo Pasotti <matteo.pasotti@gmail.com>
 
 =head1 COPYRIGHT and LICENSE

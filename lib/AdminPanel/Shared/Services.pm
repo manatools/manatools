@@ -1,16 +1,16 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Shared::Services;
+package ManaTools::Shared::Services;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Shared::Services - shares the API to manage services
+ManaTools::Shared::Services - shares the API to manage services
 
 =head1 SYNOPSIS
 
-use AdminPanel::Shared::Services;
+use ManaTools::Shared::Services;
 
-my $serv = AdminPanel::Shared::Services->new();
+my $serv = ManaTools::Shared::Services->new();
 
 my ($l, $on_services) = $serv->services();
 
@@ -25,11 +25,11 @@ my ($l, $on_services) = $serv->services();
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Shared::Services
+perldoc ManaTools::Shared::Services
 
 =head1 SEE ALSO
 
-AdminPanel::Shared
+ManaTools::Shared
 
 =head1 AUTHOR
 
@@ -64,11 +64,11 @@ use Net::DBus;
 use Net::DBus::Annotation qw(:auth);
 use File::Basename;
 
-use AdminPanel::Shared::Locales;
+use ManaTools::Shared::Locales;
 use MDK::Common::Func qw(find);
 use MDK::Common::File;
 use MDK::Common::DataStructure qw(member);
-use AdminPanel::Shared::RunProgram qw(rooted);
+use ManaTools::Shared::RunProgram qw(rooted);
 
 has 'loc' => (
         is => 'rw',
@@ -81,7 +81,7 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -374,7 +374,7 @@ sub set_service {
 
     if (MDK::Common::DataStructure::member($service, @xinetd_services)) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
+        ManaTools::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
     } elsif ($self->_running_systemd() || $self->_has_systemd()) {
         $service = $service . ".service";
         my $dbus_object = $self->dbus_systemd1_object;
@@ -389,11 +389,11 @@ sub set_service {
     } else {
         my $script = "/etc/rc.d/init.d/$service";
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
+        ManaTools::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
         #- FIXME: handle services with no chkconfig line and with no Default-Start levels in LSB header
         if ($enable && MDK::Common::File::cat_("$script") =~ /^#\s+chkconfig:\s+-/m) {
             $ENV{PATH} = "/usr/bin:/usr/sbin";
-            AdminPanel::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", "--level", "35", $service, "on");
+            ManaTools::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", "--level", "35", $service, "on");
         }
     }
 }
@@ -415,7 +415,7 @@ sub _run_action {
         $self->_systemd_services(1);
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin:/etc/rc.d/init.d/";
-        AdminPanel::Shared::RunProgram::rooted("", "/etc/rc.d/init.d/$service", $action);
+        ManaTools::Shared::RunProgram::rooted("", "/etc/rc.d/init.d/$service", $action);
     }
 }
 
@@ -423,14 +423,14 @@ sub _running_systemd {
     my $self = shift;
 
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
+    ManaTools::Shared::RunProgram::rooted("", '/usr/bin/mountpoint', '-q', '/sys/fs/cgroup/systemd');
 }
 
 sub _has_systemd {
     my $self = shift;
 
     $ENV{PATH} = "/usr/bin:/usr/sbin";
-    AdminPanel::Shared::RunProgram::rooted("", '/usr/bin/rpm', '-q', 'systemd');
+    ManaTools::Shared::RunProgram::rooted("", '/usr/bin/rpm', '-q', 'systemd');
 }
 
 #=============================================================
@@ -459,7 +459,7 @@ sub xinetd_services {
     if ($ser_info && $ser_info->{enabled} eq "1") {
         local $ENV{LANGUAGE} = 'C';
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
+        foreach (ManaTools::Shared::RunProgram::rooted_get_stdout("", '/usr/sbin/chkconfig', '--list', '--type', 'xinetd')) {
             if (my ($xinetd_name, $on_off) = m!^\t(\S+):\s*(on|off)!) {
                 push @xinetd_services, [ $xinetd_name, $on_off eq 'on' ];
             }
@@ -530,7 +530,7 @@ sub _legacy_services {
     if (!$::isInstall) {
         $runlevel = (split " ", `/sbin/runlevel`)[1];
     }
-    foreach (AdminPanel::Shared::RunProgram::rooted_get_stdout("", '/sbin/chkconfig', '--list', '--type', 'sysv')) {
+    foreach (ManaTools::Shared::RunProgram::rooted_get_stdout("", '/sbin/chkconfig', '--list', '--type', 'sysv')) {
         if (my ($name, $l) = m!^(\S+)\s+(0:(on|off).*)!) {
             # If we expect to use systemd (i.e. installer) only show those
             # sysvinit scripts which are not masked by a native systemd unit.
@@ -767,7 +767,7 @@ sub is_service_running {
         $out = $ser_info->{active_state} eq 'active' if $ser_info->{active_state};
     } else {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
-        $out = AdminPanel::Shared::RunProgram::rooted("", '/usr/sbin/service', $service, 'status');
+        $out = ManaTools::Shared::RunProgram::rooted("", '/usr/sbin/service', $service, 'status');
     }
     return $out;
 }

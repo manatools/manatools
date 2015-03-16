@@ -4,7 +4,7 @@ use warnings FATAL => 'all';
 use Test::More;
 
 BEGIN {
-    use_ok( 'AdminPanel::Rpmdragora::rpmnew' ) || print "AdminPanel::Rpmdragora::rpmnew failed!\n";
+    use_ok( 'ManaTools::Rpmdragora::rpmnew' ) || print "ManaTools::Rpmdragora::rpmnew failed!\n";
 }
 
 
@@ -21,7 +21,7 @@ SKIP: {
         print MYFILE "value1 = 1\n";
         close (MYFILE);
 
-    is( AdminPanel::Rpmdragora::rpmnew::rpmnew_dialog("Test rpmnew dialog", (
+    is( ManaTools::Rpmdragora::rpmnew::rpmnew_dialog("Test rpmnew dialog", (
         test_package  => ["/tmp/_rpmnew_test", "/tmp/rpmnew_test"],
         test_package2 => ["/tmp/tp2"],
     )), 0, 'rpmnew');

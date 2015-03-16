@@ -1,7 +1,7 @@
 Configure polkit
 ----------------
 
-Please copy extras/org.mageia.policykit.pkexec.adminpanel.policy to /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.adminpanel.policy
+Please copy extras/org.mageia.policykit.pkexec.manatools.policy to /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.manatools.policy
 to make apanel be usable through policykit (mcc is currently using pam, a bit more complicated compared to polkit).
 
 After that you have to make a symbolic link to apanel.pl into /usr/bin/  (i.e. /usr/bin/apanel.pl) and make your local apanel.pl script executable (chmod +x apanel.pl).
@@ -33,10 +33,10 @@ xhost local:root
 
 5. setup apanel.pl to use consolehelper backend ($USE_CHLP)
 
-Add AdminPanel to the include path (for developers)
+Add ManaTools to the include path (for developers)
 ---------------------------------------------------
 
-symlink trunk/AdminPanel to /usr/lib/perl5/<currentversion>/AdminPanel
+symlink trunk/ManaTools to /usr/lib/perl5/<currentversion>/ManaTools
 where currentversion could be for example 5.16.2
 
 Additional notes:

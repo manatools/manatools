@@ -7,8 +7,8 @@ use Test::More;
 plan tests => 2;
 
 BEGIN {
-    use_ok( 'AdminPanel::Shared' ) || print "AdminPanel::Shared failed\n";
-    use_ok( 'AdminPanel::SettingsReader' ) || print "AdminPanel::SettingsReader failed\n";
+    use_ok( 'ManaTools::Shared' ) || print "ManaTools::Shared failed\n";
+    use_ok( 'ManaTools::SettingsReader' ) || print "ManaTools::SettingsReader failed\n";
 }
 
-diag( "Testing AdminPanel::Shared $AdminPanel::Shared::VERSION, Perl $], $^X" );
+diag( "Testing ManaTools::Shared $ManaTools::Shared::VERSION, Perl $], $^X" );

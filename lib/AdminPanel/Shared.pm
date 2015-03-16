@@ -2,27 +2,27 @@
 #    Copyright 2012-2015 Angelo Naselli <anaselli@linux.it>
 #    Copyright 2013-2015 Matteo Pasotti <matteo.pasotti@gmail.com>
 #
-#    This file is part of AdminPanel
+#    This file is part of ManaTools
 #
-#    AdminPanel is free software: you can redistribute it and/or modify
+#    ManaTools is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    AdminPanel is distributed in the hope that it will be useful,
+#    ManaTools is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
-package AdminPanel::Shared;
+package ManaTools::Shared;
 
 =head1 NAME
 
-AdminPanel::Shared - AdminPanel::Shared contains all the shared routines
-                     needed by AdminPanel and modules
+ManaTools::Shared - ManaTools::Shared contains all the shared routines
+                     needed by ManaTools and modules
 
 =head1 SYNOPSIS
 
@@ -30,7 +30,7 @@ AdminPanel::Shared - AdminPanel::Shared contains all the shared routines
 
 =head1 DESCRIPTION
 
-This module collects all the routines shared between AdminPanel and its modules.
+This module collects all the routines shared between ManaTools and its modules.
 
 =head1 EXPORT
 
@@ -48,7 +48,7 @@ This module collects all the routines shared between AdminPanel and its modules.
 
 You can find documentation for this module with the perldoc command:
 
-    perldoc AdminPanel::Shared
+    perldoc ManaTools::Shared
 
 =head1 AUTHOR
 
@@ -156,14 +156,14 @@ $distname: name of the distributed package
 
 This function return the distname, useful to retrieve data
 with File::ShareDir::dist_file and must be the same as into
-Makefile.PL (e.g. adminpanel)
+Makefile.PL (e.g. manatools)
 
 =cut
 
 #=============================================================
 
 sub distName {
-    return "adminpanel";
+    return "manatools";
 }
 
 
@@ -372,5 +372,5 @@ sub isProcessRunning {
     return;
 }
 
-1; # End of AdminPanel::Shared
+1; # End of ManaTools::Shared
 

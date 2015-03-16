@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::gui;
+package ManaTools::Rpmdragora::gui;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -42,16 +42,16 @@ use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::Math qw(sum);
 use MDK::Common::System qw(list_passwd);
 
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::open_db;
-use AdminPanel::Rpmdragora::formatting;
-use AdminPanel::Rpmdragora::init;
-use AdminPanel::Rpmdragora::icon qw(get_icon_path);
-use AdminPanel::Rpmdragora::pkg;
-use AdminPanel::Shared;
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::RunProgram qw(get_stdout raw);
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::open_db;
+use ManaTools::Rpmdragora::formatting;
+use ManaTools::Rpmdragora::init;
+use ManaTools::Rpmdragora::icon qw(get_icon_path);
+use ManaTools::Rpmdragora::pkg;
+use ManaTools::Shared;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::RunProgram qw(get_stdout raw);
 use yui;
 use feature 'state';
 use Carp;
@@ -97,8 +97,8 @@ our @EXPORT = qw(
                     setInfoOnWidget
             );
 
-my $loc        = AdminPanel::rpmdragora::locale();
-my $shared_gui = AdminPanel::Shared::GUI->new() ;
+my $loc        = ManaTools::rpmdragora::locale();
+my $shared_gui = ManaTools::Shared::GUI->new() ;
 
 our ($descriptions, %filters, @filtered_pkgs, %filter_methods, $force_displaying_group, $force_rebuild, @initial_selection, $pkgs, $size_free, $size_selected, $urpm);
 our ($results_ok, $results_none) = ($loc->N("Search results"), $loc->N("Search results (none)"));
@@ -340,21 +340,21 @@ sub _format_pkg_simplifiedinfo {
     #push @$s, [ build_expander($pkg, $loc->N("Files:"), 'files', sub { files_format($pkg->{files}) }) ];
     my $files_link = format_link(format_field($loc->N("Files:")), $hidden_info{files} );
     if ($options->{files}) {
-        my $wait = AdminPanel::rpmdragora::wait_msg();
+        my $wait = ManaTools::rpmdragora::wait_msg();
         if (!$pkg->{files}) {
             extract_header($pkg, $urpm, 'files', $installed_version);
         }
         my $files = $pkg->{files} ? files_format($pkg->{files}) : $loc->N("(Not available)");
         utf8::encode($files);
         $files_link .= "\n\n" . $files;
-        AdminPanel::rpmdragora::remove_wait_msg($wait);
+        ManaTools::rpmdragora::remove_wait_msg($wait);
     }
     push @$s, join("\n", $files_link, "\n");
 
     #push @$s, [ build_expander($pkg, $loc->N("Changelog:"), 'changelog',  sub { $pkg->{changelog} }, $installed_version) ];
     my $changelog_link = format_link(format_field($loc->N("Changelog:")), $hidden_info{changelog} );
     if ($options->{changelog}) {
-        my $wait = AdminPanel::rpmdragora::wait_msg();
+        my $wait = ManaTools::rpmdragora::wait_msg();
         my @changelog = $pkg->{changelog} ? @{$pkg->{changelog}} : ( $loc->N("(Not available)") );
         if (!$pkg->{changelog} || !scalar @{$pkg->{changelog}} ) {
             # my ($pkg, $label, $type, $get_data, $o_installed_version) = @_;
@@ -365,7 +365,7 @@ sub _format_pkg_simplifiedinfo {
 
         $changelog_link .=  "<br />&nbsp;&nbsp;&nbsp;" . join("<br />&nbsp;&nbsp;&nbsp;", @changelog);
         $changelog_link =~ s|\n||g;
-        AdminPanel::rpmdragora::remove_wait_msg($wait);
+        ManaTools::rpmdragora::remove_wait_msg($wait);
     }
     push @$s, join("\n\n", $changelog_link, "\n");
 
@@ -943,7 +943,7 @@ sub fast_toggle {
         interactive_msg($loc->N("Warning"), $loc->N("The \"%s\" package is in urpmi skip list.\nDo you want to select it anyway?", $name), yesno => 1) or return '';
         $urpm_obj->set_flag_skip(0);
     }
-    if ($AdminPanel::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
+    if ($ManaTools::Rpmdragora::pkg::need_restart && !$priority_up_alread_warned) {
         $priority_up_alread_warned = 1;
         interactive_msg($loc->N("Warning"), '<b>' . $loc->N("Rpmdragora or one of its priority dependencies needs to be updated first. Rpmdragora will then restart.") . '</b>' . "\n\n");
     }
@@ -1093,7 +1093,7 @@ sub pkgs_provider {
         },
         all_updates => sub {
             # potential "updates" from media not tagged as updates:
-            if (!$options{pure_updates} && !$AdminPanel::Rpmdragora::pkg::need_restart) {
+            if (!$options{pure_updates} && !$ManaTools::Rpmdragora::pkg::need_restart) {
                 [ @{$h->{updates}},
                   difference2([ grep { is_updatable($_) } @{$h->{installable}} ], $h->{backports}) ];
             } else {
@@ -1311,14 +1311,14 @@ sub deps_msg {
             if (!$item) {
                 #URL emitted or at least a ref into RichText widget
                 my $url = yui::toYMenuEvent($event)->id ();
-                if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                if (ManaTools::Rpmdragora::gui::info_details($url, $info_options) )  {
                     $item = $pkgList->selectedItem();
                     my $pkg = $item->label();
-                    AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                    ManaTools::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
                 }
                 else {
                     # default it's really a URL
-                    AdminPanel::Rpmdragora::gui::run_browser($url);
+                    ManaTools::Rpmdragora::gui::run_browser($url);
                 }
             }
         }
@@ -1515,7 +1515,7 @@ sub do_action__real {
         $urpm->{fatal}(1, $loc->N("Error: %s appears to be mounted read-only.", $urpm::sys::mountpoint));
         return 1;
     }
-    if (!$AdminPanel::Rpmdragora::pkg::need_restart && !is_there_selected_packages()) {
+    if (!$ManaTools::Rpmdragora::pkg::need_restart && !is_there_selected_packages()) {
         interactive_msg($loc->N("You need to select some packages first."), $loc->N("You need to select some packages first."));
         return 1;
     }
@@ -1533,7 +1533,7 @@ Do you really want to install all the selected packages?"), yesno => 1)
     my $res = $callback_action->($urpm, $pkgs);
     if (!$res) {
         $force_rebuild = 1;
-        pkgs_provider($options->{tree_mode}, MDK::Common::Func::if_($AdminPanel::Rpmdragora::pkg::probe_only_for_updates, pure_updates => 1), skip_updating_mu => 1);
+        pkgs_provider($options->{tree_mode}, MDK::Common::Func::if_($ManaTools::Rpmdragora::pkg::probe_only_for_updates, pure_updates => 1), skip_updating_mu => 1);
         reset_search();
         $size_selected = 0;
         (undef, $size_free) = MDK::Common::System::df('/usr');
@@ -1583,7 +1583,7 @@ sub _build_tree {
         push @{$pkg_by_group_hash->{$grp}}, $pkg;
     }
 
-    my $tree_hash = AdminPanel::Shared::pathList2hash({
+    my $tree_hash = ManaTools::Shared::pathList2hash({
         paths => \@groups,
         separator => '|',
     });
@@ -1665,7 +1665,7 @@ or you already installed all of them."));
                 # inlining part of MDK::Common::Data::difference2():
                 my %l; @l{map { $_->[0] } @_} = ();
                 my @pkgs_times = ('rpm', '-q', '--qf', '%{name}-%{version}-%{release}.%{arch} %{installtime}\n',
-                map { chomp_($_) } AdminPanel::Shared::RunProgram::get_stdout('urpmi_rpm-find-leaves'));
+                map { chomp_($_) } ManaTools::Shared::RunProgram::get_stdout('urpmi_rpm-find-leaves'));
                 sort { $b->[1] <=> $a->[1] } grep { exists $l{$_->[0]} } map { chomp; [ split ] } run_rpm(@pkgs_times);
             },
             flat => sub { no locale; sort { uc($a->[0]) cmp uc($b->[0]) } @_ },
@@ -1736,7 +1736,7 @@ sub run_help_callback {
     my (undef, $url) = @_;
     my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
-    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
+    ManaTools::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
 }
 
 #=============================================================
@@ -1759,7 +1759,7 @@ sub run_browser {
 
     my ($user) = grep { $_->[2] eq $ENV{USERHELPER_UID} } MDK::Common::System::list_passwd();
     local $ENV{HOME} = $user->[7] if $user && $ENV{USERHELPER_UID};
-    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
+    ManaTools::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'www-browser', $url);
 }
 
 #=============================================================

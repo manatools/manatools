@@ -1,39 +1,39 @@
-AdminPanel Modules
+ManaTools Modules
 
-AdminPanel is basically an application launcher, so everything
+ManaTools is basically an application launcher, so everything
 executable file can be run really. To get benefit of UI abstarction
 though, the "modules" should be written with the use of libYUI, yast
 user interface abstraction, so that they can be run using a  Gtk, ncurses
 or Qt environment in a transparent manner.
-Modules based on libYUi can be written in C++, using the native language, 
+Modules based on libYUi can be written in C++, using the native language,
 python, ruby and perl, using libYUI bindings.
 
-AdminPanel is written in perl, so it also add a native approach,
+ManaTools is written in perl, so it also add a native approach,
 for perl modules.
 
-How to write a perl AdminPanel module 
+How to write a perl ManaTools module
 ======================================
 
-AdminPanel module are written using Moose wit an OO apporach.
-Modules are extension of the AdminPanel::Module class.
+ManaTools module are written using Moose wit an OO apporach.
+Modules are extension of the ManaTools::Module class.
 
 - Code alignemnt
 As a simple code convention, we add the followin line at the
 beginning of the file
 
-# vim: set et ts=4 sw=4: 
+# vim: set et ts=4 sw=4:
 
 So that using vim we force to get tabs to be 4 characters
 and considered as blanks, so please if you use another editor
-and you want to include your code under adminpanel tree_callback
+and you want to include your code under manatools tree
 keep this convention.
 
 - POD
 Then add POD to your file, we are trying to pass "make test"
-and POD is one of the important tests. 
+and POD is one of the important tests.
 It's not only a matter of test of course, having the manual
 and a good documentation of the modules is mandatory.
-Remember also that the code could/should be read and understood by 
+Remember also that the code could/should be read and understood by
 other people, so try to keep POD aligned.
 
 - Internal declaration
@@ -48,30 +48,30 @@ graphic user interface and another is a lower level interface. Such
 an approach allows to use shared things also into other projects
 that don't want to use YUI bindings for instance.
 
-Said that you have to:   
+Said that you have to:
 1. Define the package name usually like:
-   package AdminPanel::Module::MyModule;
+   package ManaTools::Module::MyModule;
 
 2. Use Moose and yui, the first to extend Module the latter for libYUI
    bindings.
 
-3. Extend AdminPanel::Module defining a "start" method that has to be invokated
-   by AdminPanel.
+3. Extend ManaTools::Module defining a "start" method that has to be invokated
+   by ManaTools.
    Other important things are icon and name attributes, please look at other modules
    code and to Moose documentation how to do it.
-   
+
 4. Add the module to configuration file so that mpan can load it (see below).
 
-Some share code is into AdminPanel::Shared modules, such as Locales to manage localization
+Some share code is into ManaTools::Shared modules, such as Locales to manage localization
 or Module back-ends for instance.
 
-- AdminPanel configuration (how to run a module)
+- ManaTools configuration (how to run a module)
 
 mpan can be run using a "name" parameter and eventually by forcing a configuration
 directory path where to find configuration files.
 Default name is mpan, and the name by convention is the place in witch to find
 configuration files under /etc.
-So mpan will look for: 
+So mpan will look for:
 /etc/mpan/settings.conf
 /etc/mpan/categories.conf
 categories can also be searched under:
@@ -79,7 +79,7 @@ categories can also be searched under:
 
 How to run modules is defined into categories.conf or alternatively
 MyModule.conf under the related categories.conf.d.
-Last method allows to write a Module that is not under the AdminPanel 
+Last method allows to write a Module that is not under the ManaTools
 development tree, and easily install, load and run it using mpan.
 
 Categories are icon buttons that can contain more modules, so to have
@@ -98,7 +98,7 @@ Let's see an example
     <title>Hardware</title>
     <icon>/usr/share/icons/configuration_section.png</icon>
     <module>
-        <class>AdminPanel::Module::AdminMouse</class>
+        <class>ManaTools::Module::AdminMouse</class>
     </module>
     <module>
         <title>Module name</title>
@@ -107,7 +107,7 @@ Let's see an example
     </module>
 </category>
 
-First module is a perl AdminPanel::Module extension (AdminMouse),
+First module is a perl ManaTools::Module extension (AdminMouse),
 latter is an external one, as you can see could be a script
 as well as an executable command.
 Look at settings.conf and categories.conf for details.

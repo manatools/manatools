@@ -18,7 +18,7 @@
 #
 #*****************************************************************************
 
-package AdminPanel::Module::Hosts;
+package ManaTools::Module::Hosts;
 
 use Modern::Perl '2011';
 use autodie;
@@ -28,11 +28,11 @@ use utf8;
 
 use Glib;
 use yui;
-use AdminPanel::Shared qw(trim);
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Hosts;
+use ManaTools::Shared qw(trim);
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Hosts;
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 
 has '+icon' => (
@@ -82,14 +82,14 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'drakx-net') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'drakx-net') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
 #=============================================================
@@ -293,7 +293,7 @@ sub _manipulateHostDialog {
                 my $res = undef;
                 my @hosts_toadd;
                 push @hosts_toadd, $textHostName->value();
-                if(AdminPanel::Shared::trim($textHostAlias->value()) ne ""){
+                if(ManaTools::Shared::trim($textHostAlias->value()) ne ""){
                     push @hosts_toadd, $textHostAlias->value();
                 }
                 if($boolEdit == 0){
@@ -405,7 +405,7 @@ sub setupTable {
 sub _manageHostsDialog {
     my $self = shift;
 
-    ## TODO fix for adminpanel
+    ## TODO fix for manatools
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
@@ -439,7 +439,7 @@ sub _manageHostsDialog {
     $self->table($factory->createTable($leftContent,$tableHeader));
 
     # initialize Config::Hosts
-    $self->cfgHosts(AdminPanel::Shared::Hosts->new());
+    $self->cfgHosts(ManaTools::Shared::Hosts->new());
     $self->setupTable();
 
     my $rightContent = $factory->createRight($hbox_content);

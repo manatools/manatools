@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::open_db;
+package ManaTools::Rpmdragora::open_db;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -31,7 +31,7 @@ use Sys::Syslog;
 
 use MDK::Common::File qw(cat_ mkdir_p);
 use MDK::Common::Func;
-use AdminPanel::rpmdragora;
+use ManaTools::rpmdragora;
 use URPM;
 use urpm;
 use urpm::args;
@@ -51,7 +51,7 @@ our @EXPORT = qw(fast_open_urpmi_db
                  open_urpmi_db
             );
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 
 # because rpm blocks some signals when rpm DB is opened, we don't keep open around:

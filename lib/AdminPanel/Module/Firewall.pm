@@ -18,7 +18,7 @@
 #
 #*****************************************************************************
 
-package AdminPanel::Module::Firewall;
+package ManaTools::Module::Firewall;
 
 use Modern::Perl '2011';
 use autodie;
@@ -27,11 +27,11 @@ use Moose::Autobox;
 use utf8;
 
 use yui;
-use AdminPanel::Shared qw(trim);
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Firewall;
-use AdminPanel::Shared::Shorewall;
-use AdminPanel::Shared::Services;
+use ManaTools::Shared qw(trim);
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Firewall;
+use ManaTools::Shared::Shorewall;
+use ManaTools::Shared::Services;
 
 use MDK::Common::Func qw(if_ partition);
 use MDK::Common::System qw(getVarsFromSh);
@@ -42,7 +42,7 @@ use MDK::Common::File qw(substInFile output_with_perm);
 use List::Util qw(any);
 use List::MoreUtils qw(uniq);
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 has '+icon' => (
     default => "/usr/share/icons/manawall.png",
@@ -147,14 +147,14 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'drakx-net') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'drakx-net') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
 sub _initAllServers {
@@ -441,8 +441,8 @@ sub get_conf {
     my $self = shift();
     my ($disabled, $o_ports) = @_;
     my $possible_servers = undef;
-    my $conf = AdminPanel::Shared::Shorewall::read_();
-    my $shorewall = (AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf);
+    my $conf = ManaTools::Shared::Shorewall::read_();
+    my $shorewall = (ManaTools::Shared::Shorewall::get_config_file('zones', '') && $conf);
 
     if ($o_ports) {
         return ($disabled, $self->from_ports($o_ports));
@@ -477,7 +477,7 @@ sub set_ifw {
     my ($enabled, $rules, $ports) = @_;
     if ($enabled)
     {
-        my $ports_by_proto = AdminPanel::Shared::Shorewall::ports_by_proto($ports);
+        my $ports_by_proto = ManaTools::Shared::Shorewall::ports_by_proto($ports);
         output_with_perm("$::prefix/etc/ifw/rules", 0644,
             (map { ". /etc/ifw/rules.d/$_\n" } @$rules),
              map {
@@ -493,8 +493,8 @@ sub set_ifw {
     substInFile {
             undef $_ if m!^INCLUDE /etc/ifw/rules|^iptables -I INPUT 2 -j Ifw!;
     } "$::prefix/etc/shorewall/start";
-    AdminPanel::Shared::Shorewall::set_in_file('start', $enabled, "INCLUDE /etc/ifw/start", "INCLUDE /etc/ifw/rules", "iptables -I INPUT 1 -j Ifw");
-    AdminPanel::Shared::Shorewall::set_in_file('stop', $enabled, "iptables -D INPUT -j Ifw", "INCLUDE /etc/ifw/stop");
+    ManaTools::Shared::Shorewall::set_in_file('start', $enabled, "INCLUDE /etc/ifw/start", "INCLUDE /etc/ifw/rules", "iptables -I INPUT 1 -j Ifw");
+    ManaTools::Shared::Shorewall::set_in_file('stop', $enabled, "iptables -D INPUT -j Ifw", "INCLUDE /etc/ifw/stop");
 }
 
 #=============================================================
@@ -972,7 +972,7 @@ Have a look at /etc/services for information.");
                     $self->unlisted([]);
                 }
                 my $invalid_ports = check_ports_syntax($txtPortsList->value());
-                if(AdminPanel::Shared::trim($invalid_ports) eq '')
+                if(ManaTools::Shared::trim($invalid_ports) eq '')
                 {
                     if($txtPortsList->value() =~m/\s+/g)
                     {
@@ -984,9 +984,9 @@ Have a look at /etc/services for information.");
                     }
                     else
                     {
-                        if(AdminPanel::Shared::trim($txtPortsList->value()) ne '')
+                        if(ManaTools::Shared::trim($txtPortsList->value()) ne '')
                         {
-                            push(@{$self->unlisted()}, AdminPanel::Shared::trim($txtPortsList->value()));
+                            push(@{$self->unlisted()}, ManaTools::Shared::trim($txtPortsList->value()));
                         }
                     }
                     $retval = 1;
@@ -1021,12 +1021,12 @@ sub get_zones {
     my $confref = shift();
     my $disabled = shift();
     my $conf = ${$confref};
-    my $interfacesfile = AdminPanel::Shared::Shorewall::get_config_file('interfaces', $conf->{version} || '');
+    my $interfacesfile = ManaTools::Shared::Shorewall::get_config_file('interfaces', $conf->{version} || '');
     network::network::read_net_conf($self->net());
     #- find all interfaces but alias interfaces
     my @all_intf = grep { !/:/ } uniq(keys(%{$self->net()->{ifcfg}}), detect_devices::get_net_interfaces());
     my %net_zone = map { $_ => undef } @all_intf;
-    $net_zone{$_} = 1 foreach AdminPanel::Shared::Shorewall::get_net_zone_interfaces($interfacesfile, $self->net(), \@all_intf);
+    $net_zone{$_} = 1 foreach ManaTools::Shared::Shorewall::get_net_zone_interfaces($interfacesfile, $self->net(), \@all_intf);
 
     # if firewall/shorewall is not disabled (i.e. everything has been allowed)
     # then ask for network interfaces to protect
@@ -1099,13 +1099,13 @@ sub set_ports {
 
     if (!$disabled || -x "$::prefix/sbin/shorewall") {
         # $do_pkgs->ensure_files_are_installed([ [ qw(shorewall shorewall) ], [ qw(shorewall-ipv6 shorewall6) ] ], $::isInstall) or return;
-        my $conf = AdminPanel::Shared::Shorewall::read_();
+        my $conf = ManaTools::Shared::Shorewall::read_();
         if(!$self->get_zones(\$conf,$disabled))
         {
             # Cancel button has been pressed, aborting
             return 0;
         }
-        my $shorewall = (AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf);
+        my $shorewall = (ManaTools::Shared::Shorewall::get_config_file('zones', '') && $conf);
         if (!$shorewall) {
             print ("unable to read shorewall configuration, skipping installation");
             return 0;
@@ -1118,7 +1118,7 @@ sub set_ports {
         print ($disabled ? "disabling shorewall" : "configuring shorewall to allow ports: $ports");
 
         # NOTE: the 2nd param is undef in this case!
-        if(!AdminPanel::Shared::Shorewall::write_($shorewall))
+        if(!ManaTools::Shared::Shorewall::write_($shorewall))
         {
             # user action request
             my $action = $self->sh_gui->ask_fromList({
@@ -1129,7 +1129,7 @@ sub set_ports {
             list => [ "keep", "drop"],
             default => "keep",
             });
-            AdminPanel::Shared::Shorewall::write_($shorewall,$action);
+            ManaTools::Shared::Shorewall::write_($shorewall,$action);
             return 1;
         }
     }
@@ -1189,7 +1189,7 @@ sub start {
     $self->set_ports($disabled, $ports, $self->log_net_drop()) or return;
 
     # restart mandi
-    my $services = AdminPanel::Shared::Services->new();
+    my $services = ManaTools::Shared::Services->new();
     $services->is_service_running("mandi") and $services->restart("mandi");
 
     # restarting services if needed

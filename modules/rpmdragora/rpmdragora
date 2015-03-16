@@ -38,15 +38,15 @@ use MDK::Common::System qw(arch);
 use urpm::media;
 use urpm::msg;
 
-use AdminPanel::Rpmdragora::init;
-use AdminPanel::rpmdragora;
-use AdminPanel::Shared;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Rpmdragora::open_db;
-use AdminPanel::Rpmdragora::gui;
-use AdminPanel::Rpmdragora::rpmnew;
-use AdminPanel::Rpmdragora::formatting;
-use AdminPanel::Rpmdragora::pkg;
+use ManaTools::Rpmdragora::init;
+use ManaTools::rpmdragora;
+use ManaTools::Shared;
+use ManaTools::Shared::Locales;
+use ManaTools::Rpmdragora::open_db;
+use ManaTools::Rpmdragora::gui;
+use ManaTools::Rpmdragora::rpmnew;
+use ManaTools::Rpmdragora::formatting;
+use ManaTools::Rpmdragora::pkg;
 
 use yui;
 
@@ -69,7 +69,7 @@ my @itemsToBeInstalled;
 
 our $w;
 our $statusbar;
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 my %elems;
 
@@ -202,7 +202,7 @@ sub _detaillist_callback {
     $info->setValue("");
     return if( ref $selection ne "yui::YItem");
 
-    AdminPanel::Rpmdragora::gui::setInfoOnWidget($options->{table_item_list}[$selection->index()], $info, $show_options);
+    ManaTools::Rpmdragora::gui::setInfoOnWidget($options->{table_item_list}[$selection->index()], $info, $show_options);
 }
 
 sub _do_search($$$$$$) {
@@ -303,7 +303,7 @@ sub _do_search($$$$$$) {
                                         ($current_search_type eq 'files' ? 'files' : 'info'),
                                         undef,
                                         sub {
-                                            $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(
+                                            $gurpm ||= ManaTools::Rpmdragora::gurpm->new(
                                                 text => $loc->N("Please wait"),
                                                 main_dialog => $searchw,
                                                 parent => $replace_pnt,
@@ -375,7 +375,7 @@ sub _do_search($$$$$$) {
         $elems{$results_ok} = [ map { [ $_, $results_ok ] } @search_results ];
 #         $iter = $options->{add_parent}->($tree, $results_ok);
 
-        AdminPanel::Rpmdragora::gui::add_tree_item($tree, $results_ok, 1);
+        ManaTools::Rpmdragora::gui::add_tree_item($tree, $results_ok, 1);
         $options->{add_nodes}->(map { [ $_, $results_ok . ($options->{tree_mode} eq 'by_presence'
                                  ? '|' . ($pkgs->{$_}{pkg}->flag_installed ? $loc->N("Upgradable") : $loc->N("Addable"))
                                  : ($options->{tree_mode} eq 'by_selection'
@@ -383,7 +383,7 @@ sub _do_search($$$$$$) {
                                     : ''))
                       ] } @search_results);
     } else {
-        AdminPanel::Rpmdragora::gui::add_tree_item($tree, $results_none, 1);
+        ManaTools::Rpmdragora::gui::add_tree_item($tree, $results_none, 1);
 #         $iter = $options->{add_parent}->($tree, $results_none);
         # clear package list:
         $options->{add_nodes}->();
@@ -632,12 +632,12 @@ sub _run_treeview_dialog {
 
     $find_entry = $factory->createInputField($hbox_top, "");
 
-    my $icon_file = File::ShareDir::dist_file(AdminPanel::Shared::distName(), "images/manalog.png");
+    my $icon_file = File::ShareDir::dist_file(ManaTools::Shared::distName(), "images/manalog.png");
     my $find_button = $factory->createIconButton($hbox_top, $icon_file, $loc->N("Search"));
     $find_button->setWeight(0,6);
     $my_win->setDefaultButton($find_button);
 
-    $icon_file = File::ShareDir::dist_file(AdminPanel::Shared::distName(), "images/rpmdragora/clear_22x22.png");
+    $icon_file = File::ShareDir::dist_file(ManaTools::Shared::distName(), "images/rpmdragora/clear_22x22.png");
     my $reset_search_button = $factory->createIconButton($hbox_top, $icon_file, $loc->N("Reset"));
     $reset_search_button->setWeight(0,7);
     $find_entry->setWeight(0,10);
@@ -678,8 +678,8 @@ sub _run_treeview_dialog {
     my $reload_db_and_clear_all = sub {
         slow_func(sub {
                       $force_rebuild = 1;
-                      AdminPanel::Rpmdragora::gui::pkgs_provider($options->{tree_mode}, skip_updating_mu => 1);
-                      AdminPanel::Rpmdragora::gui::reset_search();
+                      ManaTools::Rpmdragora::gui::pkgs_provider($options->{tree_mode}, skip_updating_mu => 1);
+                      ManaTools::Rpmdragora::gui::reset_search();
                       $size_selected = 0;
                       $options->{rebuild_tree}->();
                       $find_callback->();
@@ -821,8 +821,8 @@ sub _run_treeview_dialog {
               },
               undef, '<CheckItem>' ],
         [ $loc->N("/_Options") . $loc->N("/_Media Manager"), undef, sub {
-               require AdminPanel::Rpmdragora::edit_urpm_sources;
-               AdminPanel::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
+               require ManaTools::Rpmdragora::edit_urpm_sources;
+               ManaTools::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
            }, undef, '<Item>' ],
         [ $loc->N("/_Options") . $loc->N("/_Show automatically selected packages"), undef, sub {
         $dont_show_selections->[0] = !$checkbox_show_autoselect->get_active;
@@ -850,12 +850,12 @@ sub _run_treeview_dialog {
         } qw(flat by_group by_leaves by_presence by_selection by_size by_source)),
     [ $loc->N("/_Help"), undef, undef, undef, '<Branch>' ],
      [ $loc->N("/_Help") . $loc->N("/_Report Bug"), undef, sub { run_drakbug('rpmdragora') }, undef, '<Item>' ],
-    [ $loc->N("/_Help") . $loc->N("/_Help"), undef, sub { AdminPanel::rpmdragora::open_help('') }, undef, '<Item>' ],
+    [ $loc->N("/_Help") . $loc->N("/_Help"), undef, sub { ManaTools::rpmdragora::open_help('') }, undef, '<Item>' ],
      [ $loc->N("/_Help") . $loc->N("/_About..."), undef, sub {
          my $license = formatAlaTeX(translate($::license));
          $license =~ s/\n/\n\n/sg; # nicer formatting
          my $w = gtknew('AboutDialog', name => $loc->N("Rpmdragora"),
-                        version => $AdminPanel::Rpmdragora::init::version,
+                        version => $ManaTools::Rpmdragora::init::version,
                         copyright => $loc->N("Copyright (C) %s by Mandriva", '2002-2009')."\n".$loc->N("Copyright (C) %s by Mageia.Org", '2010-2013'),
                         license => $license, wrap_license => 1,
                         comments => $loc->N("Rpmdragora is the Mageia package management tool."),
@@ -1039,13 +1039,13 @@ sub _run_treeview_dialog {
             if (!$item) {
                 #URL emitted or at least a ref into RichText widget
                 my $url = yui::toYMenuEvent($event)->id ();
-                if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                if (ManaTools::Rpmdragora::gui::info_details($url, $info_options) )  {
                     $item = $detail_list->selectedItem();
                     _detaillist_callback($item, $info, \%$options, $info_options);
                 }
                 else {
                     # default it's really a URL
-                    AdminPanel::Rpmdragora::gui::run_browser($url);
+                    ManaTools::Rpmdragora::gui::run_browser($url);
                 }
             }
             else {
@@ -1080,8 +1080,8 @@ print "Menu " . $menuLabel . " chosen\n";
                     $reload_db_and_clear_all->();
                 }
                 elsif ($menuLabel eq $settingsMenuLabel{media_manager}) {
-                    require AdminPanel::Rpmdragora::edit_urpm_sources;
-                    AdminPanel::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
+                    require ManaTools::Rpmdragora::edit_urpm_sources;
+                    ManaTools::Rpmdragora::edit_urpm_sources::run() && $reload_db_and_clear_all->();
                 }
                 elsif ($menuLabel eq $settingsMenuLabel{options}) {
                 }
@@ -1089,7 +1089,7 @@ print "Menu " . $menuLabel . " chosen\n";
                     my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
                     $translators =~ s/\</\&lt\;/g;
                     $translators =~ s/\>/\&gt\;/g;
-                    my $sh_gui = AdminPanel::Shared::GUI->new();
+                    my $sh_gui = ManaTools::Shared::GUI->new();
                     $sh_gui->AboutDialog({ name => "Rpmdragora",
                                                 version => $VERSION,
                             credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
@@ -1182,7 +1182,7 @@ print "Menu " . $menuLabel . " chosen\n";
 # -=-=-=---=-=-=---=-=-=-- main -=-=-=---=-=-=---=-=-=-
 
 
-if (my $pid = AdminPanel::Shared::isProcessRunning('rpmdragora')) {
+if (my $pid = ManaTools::Shared::isProcessRunning('rpmdragora')) {
     interactive_msg($loc->N("Warning"), $loc->N("rpmdragora is already running (pid: %s)", $pid), yesno => [ $loc->N("Quit") ]);
     exit(0);
 }
@@ -1206,7 +1206,7 @@ $my_win = $factory->createMainDialog;
 
 readconf();
 
-AdminPanel::Rpmdragora::rpmnew::do_merge_if_needed();
+ManaTools::Rpmdragora::rpmnew::do_merge_if_needed();
 
 init();
 

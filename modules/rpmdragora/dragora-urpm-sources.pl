@@ -23,17 +23,17 @@
 # $Id: edit-urpm-sources.pl 244763 2008-09-04 16:12:52Z tv $
 
 
-use AdminPanel::Rpmdragora::init;
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::edit_urpm_sources qw(run);
-use AdminPanel::Privileges;
-use AdminPanel::Shared::Locales;
+use ManaTools::Rpmdragora::init;
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::edit_urpm_sources qw(run);
+use ManaTools::Privileges;
+use ManaTools::Shared::Locales;
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
-if (AdminPanel::Privileges::is_root_capability_required()) {
-    require AdminPanel::Shared::GUI;
-    my $sh_gui = AdminPanel::Shared::GUI->new();
+if (ManaTools::Privileges::is_root_capability_required()) {
+    require ManaTools::Shared::GUI;
+    my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->warningMsgBox({
         title => $loc->N("Configure media"),
         text  => $loc->N("root privileges required"),
@@ -41,8 +41,8 @@ if (AdminPanel::Privileges::is_root_capability_required()) {
     exit (-1);
 }
 
-AdminPanel::rpmdragora::readconf();
+ManaTools::rpmdragora::readconf();
 
-AdminPanel::Rpmdragora::edit_urpm_sources::run();
+ManaTools::Rpmdragora::edit_urpm_sources::run();
 
-AdminPanel::rpmdragora::myexit 0;
+ManaTools::rpmdragora::myexit 0;

@@ -24,7 +24,7 @@
 #
 # $Id: rpmdragora.pm 267936 2010-04-26 16:40:21Z jvictor $
 
-package AdminPanel::rpmdragora;
+package ManaTools::rpmdragora;
 use warnings::register;
 
 use urpm;
@@ -49,9 +49,9 @@ use POSIX qw(_exit);
 
 use feature 'state';
 
-use AdminPanel::Shared;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::GUI;
+use ManaTools::Shared;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::GUI;
 
 use Carp;
 
@@ -121,7 +121,7 @@ use Glib;
 #ugtk2::add_icon_path('/usr/share/rpmdragora/icons');
 
 # Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
-my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');;
+my $loc = ManaTools::Shared::Locales->new(domain_name => 'rpmdrake');;
 
 our $mageia_release = MDK::Common::File::cat_(
     -e '/etc/mageia-release' ? '/etc/mageia-release' : '/etc/release'
@@ -139,7 +139,7 @@ our $myname_update = $branded ? $loc->N_("Software Update") : $loc->N_("Mageia U
 sub locale() {
 
     if (!defined($loc)) {
-       $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+       $loc = ManaTools::Shared::Locales->new(domain_name => 'rpmdrake');
     }
 
     return $loc;
@@ -182,7 +182,7 @@ sub myexit {
 
 my ($root) = grep { $_->[2] == 0 } list_passwd();
 $ENV{HOME} = $> == 0 ? $root->[7] : $ENV{HOME} || '/root';
-$ENV{HOME} = $::env if $::env = $AdminPanel::Rpmdragora::init::rpmdragora_options{env}[0];
+$ENV{HOME} = $::env if $::env = $ManaTools::Rpmdragora::init::rpmdragora_options{env}[0];
 
 our $configfile = "$ENV{HOME}/.rpmdragora";
 
@@ -237,7 +237,7 @@ sub readconf() {
     }
     # special cases:
     $::rpmdragora_options{'no-confirmation'} = $no_confirmation->[0] if !defined $::rpmdragora_options{'no-confirmation'};
-    $AdminPanel::Rpmdragora::init::default_list_mode = $tree_mode->[0] if ref $tree_mode && !$AdminPanel::Rpmdragora::init::overriding_config;
+    $ManaTools::Rpmdragora::init::default_list_mode = $tree_mode->[0] if ref $tree_mode && !$ManaTools::Rpmdragora::init::overriding_config;
 }
 
 sub writeconf() {
@@ -962,7 +962,7 @@ sub update_sources_noninteractive {
 sub add_distrib_update_media {
     my ($urpm, $mirror, %options) = @_;
     #- ensure a unique medium name
-    my $medium_name = $AdminPanel::rpmdragora::mageia_release =~ /(\d+\.\d+) \((\w+)\)/ ? $2 . $1 . '-' : 'distrib';
+    my $medium_name = $ManaTools::rpmdragora::mageia_release =~ /(\d+\.\d+) \((\w+)\)/ ? $2 . $1 . '-' : 'distrib';
     my $initial_number = 1 + max map { $_->{name} =~ /\(\Q$medium_name\E(\d+)\b/ ? $1 : 0 } @{$urpm->{media}};
     add_medium_and_check(
         $urpm,
@@ -1021,7 +1021,7 @@ by Mageia Official Updates.")), %options
 
     my @mirrorlist = map {$_->{country} . "|" . $_->{url}} @mirrors;
 
-    my $sh_gui = AdminPanel::Shared::GUI->new();
+    my $sh_gui = ManaTools::Shared::GUI->new();
     my $mirror = $sh_gui->ask_fromTreeList({title => $loc->N("Mirror choice"),
         header => $loc->N("Please choose the desired mirror."),
         default_button => 1,
@@ -1091,18 +1091,18 @@ sub mirrors {
                 $id and statusbar_msg_remove($id);
             };
 
-            require AdminPanel::Rpmdragora::gurpm;
-            require AdminPanel::Rpmdragora::pkg;
+            require ManaTools::Rpmdragora::gurpm;
+            require ManaTools::Rpmdragora::pkg;
 
             my $res = urpm::download::sync_url($urpm, $url,
                                            dir => $cachedir,
                                            callback => sub {
                                                $gurpm ||=
-                                                 AdminPanel::Rpmdragora::gurpm->new(
+                                                 ManaTools::Rpmdragora::gurpm->new(
                                                      text => $loc->N("Please wait"),
                                                  );
                                                $canceled ||=
-                                                 !AdminPanel::Rpmdragora::pkg::download_callback($gurpm, @_);
+                                                 !ManaTools::Rpmdragora::pkg::download_callback($gurpm, @_);
                                                $gurpm->flush();
                                            },
                                        );
@@ -1111,8 +1111,8 @@ sub mirrors {
         });
     my @mirrors = @{ mirror::list(urpm::mirrors::parse_LDAP_namespace_structure(MDK::Common::File::cat_('/etc/product.id')), 'distrib') || [] };
 
-    require AdminPanel::Shared::TimeZone;
-    my $tzo = AdminPanel::Shared::TimeZone->new();
+    require ManaTools::Shared::TimeZone;
+    my $tzo = ManaTools::Shared::TimeZone->new();
     my $tz = $tzo->readConfiguration()->{ZONE};
     foreach my $mirror (@mirrors) {
         my $goodness = 0;
@@ -1140,16 +1140,16 @@ sub mirrors {
 
 sub open_help {
     my ($mode) = @_;
-    require AdminPanel::Shared::RunProgram;
-    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 },  'drakhelp', '--id', $mode ?  "software-management-$mode" : 'software-management');
+    require ManaTools::Shared::RunProgram;
+    ManaTools::Shared::RunProgram::raw({ detach => 1, as_user => 1 },  'drakhelp', '--id', $mode ?  "software-management-$mode" : 'software-management');
     my $_s = $loc->N("Help launched in background");
     statusbar_msg($loc->N("The help window has been started, it should appear shortly on your desktop."), 1);
 }
 
 sub run_drakbug {
     my ($id) = @_;
-    require AdminPanel::Shared::RunProgram;
-    AdminPanel::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'drakbug', '--report', $id);
+    require ManaTools::Shared::RunProgram;
+    ManaTools::Shared::RunProgram::raw({ detach => 1, as_user => 1 }, 'drakbug', '--report', $id);
 }
 
 #mygtk2::add_icon_path('/usr/share/mcc/themes/default/');

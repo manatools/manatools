@@ -8,11 +8,11 @@ install_share dist => 'share';
 
 
 WriteMakefile(
-    NAME             => 'AdminPanel',
-    DISTNAME         => 'adminpanel',
+    NAME             => 'ManaTools',
+    DISTNAME         => 'manatools',
     AUTHOR           => q{Angelo Naselli <anaselli@linux.it> - Matteo Pasotti <matteo.pasotti@gmail.com>},
-    VERSION_FROM     => 'lib/AdminPanel/MainDisplay.pm',
-    ABSTRACT         => 'AdminPanel is a generic launcher application that can run perl modules or external programs using Suse YUI abstarction.',
+    VERSION_FROM     => 'lib/ManaTools/MainDisplay.pm',
+    ABSTRACT         => 'ManaTools is a generic launcher application that can run perl modules or external programs using Suse YUI abstarction.',
     LICENSE          => 'GPL_2',
     PL_FILES         => {},
     MIN_PERL_VERSION => 5.006,
@@ -29,7 +29,7 @@ WriteMakefile(
         "Config::Auto"       => 0,
         "Config::Hosts"      => 0,
         "Config::Tiny"       => 0,
-        # AdminPanel::Shared::Locales
+        # ManaTools::Shared::Locales
         "Locale::gettext"    => 0,
         "Text::Iconv"        => 0,
         "Text::Diff"         => 0,
@@ -83,7 +83,7 @@ WriteMakefile(
                        modules/rpmdragora/rpmdragora
                        ) ],
     dist  => { COMPRESS => 'gzip -9f', SUFFIX => 'gz', },
-    clean => { FILES => 'AdminPanel-*' },
+    clean => { FILES => 'ManaTools-*' },
 );
 
 package MY;

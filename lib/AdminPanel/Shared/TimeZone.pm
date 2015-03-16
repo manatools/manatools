@@ -1,15 +1,15 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Shared::TimeZone;
+package ManaTools::Shared::TimeZone;
 
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Shared::TimeZone - module to manage TimeZone settings
+ManaTools::Shared::TimeZone - module to manage TimeZone settings
 
 =head1 SYNOPSIS
 
-    my $tz = AdminPanel::Shared::TimeZone->new();
+    my $tz = ManaTools::Shared::TimeZone->new();
 
 
 =head1 DESCRIPTION
@@ -20,7 +20,7 @@ This module allows to manage time zone settings.
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Shared::TimeZone
+perldoc ManaTools::Shared::TimeZone
 
 
 =head1 AUTHOR
@@ -57,8 +57,8 @@ use Moose;
 use DateTime::TimeZone;
 use Net::DBus;
 
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Services;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::Services;
 
 use MDK::Common::File qw(cat_ output_p substInFile);
 use MDK::Common::Func qw(find if_);
@@ -191,7 +191,7 @@ has 'sh_services' => (
 sub _SharedServicesInitialize {
     my $self = shift();
 
-    $self->sh_services(AdminPanel::Shared::Services->new() );
+    $self->sh_services(ManaTools::Shared::Services->new() );
 }
 
 
@@ -250,7 +250,7 @@ sub _localeInitialize {
     my $self = shift;
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -732,7 +732,7 @@ sub setNTPServer {
     # TODO is that valid for any ntp program? adding ntp_service_name parameter
     my $ntpd = $self->ntp_program . 'd';
 
-    AdminPanel::Shared::disable_x_screensaver();
+    ManaTools::Shared::disable_x_screensaver();
     if ($self->isNTPRunning()) {
         $self->sh_services->stopService($ntpd);
     }
@@ -766,7 +766,7 @@ sub setNTPServer {
         $self->sh_services->startService($ntpd);
     }
 
-    AdminPanel::Shared::enable_x_screensaver();
+    ManaTools::Shared::enable_x_screensaver();
 }
 
 #=============================================================

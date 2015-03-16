@@ -4,27 +4,27 @@
 #    Copyright 2013 - 2015 Matteo Pasotti
 #    Copyright 2014 - 2015 Angelo Naselli
 #
-#    This file is part of AdminPanel
+#    This file is part of manatools
 #
-#    AdminPanel is free software: you can redistribute it and/or modify
+#    ManaTools is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    AdminPanel is distributed in the hope that it will be useful,
+#    ManaTools is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 use strict;
 use warnings;
 use diagnostics;
-use AdminPanel::Privileges;
-use AdminPanel::SettingsReader;
-use AdminPanel::MainDisplay;
+use ManaTools::Privileges;
+use ManaTools::SettingsReader;
+use ManaTools::MainDisplay;
 use yui;
 
 my $cmdline = new yui::YCommandLine;
@@ -39,7 +39,7 @@ if ($cmdline->find("--dev") > 0) {
 else {
     ask_for_authentication($settings->{priv_method}) if is_root_capability_required();
 }
-my $mainWin = new AdminPanel::MainDisplay();
+my $mainWin = new ManaTools::MainDisplay();
 while (1) {
     my $launch = $mainWin->start();
 
@@ -64,7 +64,7 @@ sub usage {
     #          and it is overriden by --conf_dir, so it should be discussed better to understand
     #          if it is really needed any more.
     #          Window title is got from settings.conf (key title)
-    print "\t--name string      specify the window title of the administration panel\n";
+    print "\t--name string      specify the window title of the mana-tools panel\n";
     print "\t--conf_dir path    specify the settings.conf file directory\n";
     print "\n";
     exit(0);
@@ -88,7 +88,7 @@ sub getSettings {
     }
     # configuration file name
     my $fileName = "$confDir/settings.conf";
-    return new AdminPanel::SettingsReader($fileName);
+    return new ManaTools::SettingsReader($fileName);
 }
 
 =pod

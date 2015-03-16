@@ -1,33 +1,35 @@
 #!/usr/bin/perl
+# vim: set et ts=4 sw=4:
 # Copyright 2013 - 2015 Matteo Pasotti
+#                  2015 Angelo Naselli
 #
-# This file is part of hostmanager thus adminpanel
+# This file is part manatools
 #
-# hostmanager is free software: you can redistribute it and/or modify
+# manawall is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
 # (at your option) any later version.
 #
-# hostmanager is distributed in the hope that it will be useful,
+# manawall is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+# along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 use Modern::Perl '2011';
 use autodie;
-use AdminPanel::Module::Firewall;
+use ManaTools::Module::Firewall;
 
 use yui;
 
-my $wm_icon = "/usr/share/mcc/themes/default/firewall-mdk.png"; 
+my $wm_icon = "/usr/share/mcc/themes/default/firewall-mdk.png";
 my $wm_name = "Manage firewall rules";
 
 yui::YUI::app()->setApplicationTitle($wm_name);
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
-my $hostMan = AdminPanel::Module::Firewall->new({
+my $hostMan = ManaTools::Module::Firewall->new({
 				icon => $wm_icon,
 				name => $wm_name
 			});

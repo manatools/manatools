@@ -1,17 +1,17 @@
 ﻿# vim: set et ts=4 sw=4:
 
-package AdminPanel::Module::Users;
+package ManaTools::Module::Users;
 
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Module::Users - This module aims to manage service
+ManaTools::Module::Users - This module aims to manage service
                                with GUI
 
 =head1 SYNOPSIS
 
-    my $userManager = AdminPanel::Module::Users->new();
+    my $userManager = ManaTools::Module::Users->new();
     $userManager->start();
 
 =head1 DESCRIPTION
@@ -24,11 +24,11 @@ AdminPanel::Module::Users - This module aims to manage service
 
     You can find documentation for this module with the perldoc command:
 
-    perldoc AdminPanel::Module::Users
+    perldoc ManaTools::Module::Users
 
 =head1 SEE ALSO
 
-   AdminPanel::Module
+   ManaTools::Module
 
 =head1 AUTHOR
 
@@ -77,14 +77,14 @@ use Sys::Syslog;
 use Glib;
 use English;
 use yui;
-use AdminPanel::Shared;
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Users;
+use ManaTools::Shared;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::Users;
 use MDK::Common::DataStructure qw(member);
 use feature 'state';
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 has '+icon' => (
     default => "/usr/share/icons/userdrake.png",
@@ -146,7 +146,7 @@ has 'sh_users' => (
 sub _SharedUsersInitialize {
     my $self = shift();
 
-    $self->sh_users(AdminPanel::Shared::Users->new() );
+    $self->sh_users(ManaTools::Shared::Users->new() );
 }
 
 has 'sh_gui' => (
@@ -158,7 +158,7 @@ has 'sh_gui' => (
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
 has 'loc' => (
@@ -172,7 +172,7 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'userdrake') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'userdrake') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -714,7 +714,7 @@ sub _buildUserData {
     my $weakness = undef;
     if (yui::YUI::app()->hasImageSupport()) {
         $factory->createHSpacing($hbox, 2.0);
-        my $file = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Blank16x16.png');
+        my $file = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/Blank16x16.png');
         $weakness = $factory->createImage($hbox, $file);
     }
     else {
@@ -1954,9 +1954,9 @@ sub _checkWeaknessPassword {
 
     my $strongp = $self->sh_users->strongPassword($password);
     if (yui::YUI::app()->hasImageSupport()) {
-        my $file = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Warning_Shield_Grey16x16.png');
+        my $file = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/Warning_Shield_Grey16x16.png');
         if ($strongp) {
-            $file =  File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Checked_Shield_Green16x16.png');
+            $file =  File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/Checked_Shield_Green16x16.png');
         }
         $weakness_widget->setImage($file);
     }
@@ -2381,7 +2381,7 @@ sub _manageUsersDialog {
         return;
     }
 
-    ## TODO fix for adminpanel
+    ## TODO fix for manatools
     my $pixdir = '/usr/share/userdrake/pixmaps/';
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();

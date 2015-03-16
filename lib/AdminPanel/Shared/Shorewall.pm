@@ -1,9 +1,9 @@
-package AdminPanel::Shared::Shorewall; # $Id: shorewall.pm 254244 2009-03-18 22:54:32Z eugeni $
+package ManaTools::Shared::Shorewall; # $Id: shorewall.pm 254244 2009-03-18 22:54:32Z eugeni $
 
 use detect_devices;
 use network::network;
-use AdminPanel::Shared::RunProgram;
-use AdminPanel::Shared::Services;
+use ManaTools::Shared::RunProgram;
+use ManaTools::Shared::Services;
 use MDK::Common::Func qw(if_ partition map_each);
 use MDK::Common::File qw(cat_ substInFile output_with_perm);
 use MDK::Common::Various qw(to_bool);
@@ -96,7 +96,7 @@ sub read_ {
     $ver = $o_ver if $o_ver;
     #- read old rules file if config is not moved to rules.drakx yet
     my @rules = get_config_file(-f "$::prefix${shorewall_root}${ver}/rules.drakx" ? 'rules.drakx' : 'rules', $ver);
-    my $services = AdminPanel::Shared::Services->new();
+    my $services = ManaTools::Shared::Services->new();
     my %conf = (disabled => !$services->starts_on_boot("shorewall${ver}"),
                 version => $ver,
                 ports => join(' ', map {
@@ -113,18 +113,18 @@ sub read_ {
 
     my @policy = get_config_file('policy', $ver);
     $conf{log_net_drop} = @policy ? (any { $_->[0] eq 'net' && $_->[1] eq 'all' && $_->[2] eq 'DROP' && $_->[3] } @policy) : 1;
-    
+
     return \%conf;
-    
-    # get_zones has been moved to AdminPanel::Module::Firewall cause it requires
+
+    # get_zones has been moved to ManaTools::Module::Firewall cause it requires
     # user interaction thus it should be logically separated by shorewall
     # get_zones(\%conf);
     # get_config_file('zones', $ver) && \%conf;
     # consequently, to read shorewall conf
     # you have to do something like this now (within Module::Firewall)
-    # my $conf = AdminPanel::Shared::Shorewall::read_();
+    # my $conf = ManaTools::Shared::Shorewall::read_();
     # OPTIONAL: my $self->get_zones(\$conf)
-    # my $shorewall = AdminPanel::Shared::Shorewall::get_config_file('zones', '') && $conf;
+    # my $shorewall = ManaTools::Shared::Shorewall::get_config_file('zones', '') && $conf;
 }
 
 sub ports_by_proto {
@@ -144,7 +144,7 @@ sub ports_by_proto {
 =head3 INPUT
 
   $conf: HASH, contains the configuration to write
-  
+
   $action: Str, possible values are "keep" or "drop"
 
 =head3 OUTPUT
@@ -159,12 +159,12 @@ the proper files.
 
 =head3 NOTES
 
-if write_ is called without the $action parameter it can return 0 
-(i.e. user interaction requested) when the firewall configuration 
+if write_ is called without the $action parameter it can return 0
+(i.e. user interaction requested) when the firewall configuration
 has been manually changed.
 
-In that case the developer will have to handle this request by providing 
-two choices within the domain (keep | drop) and then recall write_ with 
+In that case the developer will have to handle this request by providing
+two choices within the domain (keep | drop) and then recall write_ with
 the choosen behaviour.
 
 =cut
@@ -181,7 +181,7 @@ sub write_ {
     my ($include_drakx, $other_rules) = partition { $_ eq "INCLUDE\trules.drakx\n" } grep { !/^(#|SECTION)/ } cat_("$::prefix${shorewall_root}${ver}/rules");
     #- warn if the config is already in rules.drakx and additionnal rules are configured
     if (!is_empty_array_ref($include_drakx) && !is_empty_array_ref($other_rules)) {
-	if(!defined($action) || AdminPanel::Shared::trim($action) eq "")
+	if(!defined($action) || ManaTools::Shared::trim($action) eq "")
         {
 	    return 0; # user interaction requested
         }
@@ -197,7 +197,7 @@ sub write_ {
         my ($zone, $interface) = @_;
         [ $zone, $interface, 'detect', if_(detect_devices::is_bridge_interface($interface), 'bridge') ];
     };
-    
+
     set_config_file('zones', $ver,
                     if_($has_loc_zone, [ 'loc', 'ipv' . ($ver || '4') ]),
                     [ 'net', 'ipv' . ($ver || '4') ],
@@ -235,7 +235,7 @@ sub write_ {
     ));
     set_config_file('masq', $ver, if_(exists $conf->{masq}, [ $conf->{masq}{net_interface}, $conf->{masq}{subnet} ]));
 
-    my $services = AdminPanel::Shared::Services->new();
+    my $services = ManaTools::Shared::Services->new();
     if ($conf->{disabled}) {
         $services->disable('shorewall', $::isInstall);
         run_program::rooted($::prefix, '/sbin/shorewall', 'clear') unless $::isInstall;
@@ -259,12 +259,12 @@ sub set_redirected_ports {
 sub update_interfaces_list {
     my ($o_intf) = @_;
     if (!$o_intf || !member($o_intf, map { $_->[1] } get_config_file('interfaces'))) {
-        my $shorewall = AdminPanel::Shared::Shorewall::read_();
-        $shorewall && !$shorewall->{disabled} and AdminPanel::Shared::Shorewall::write_($shorewall);
+        my $shorewall = ManaTools::Shared::Shorewall::read_();
+        $shorewall && !$shorewall->{disabled} and ManaTools::Shared::Shorewall::write_($shorewall);
     }
     if (!$o_intf || !member($o_intf, map { $_->[1] } get_config_file('interfaces', 6))) {
-        my $shorewall6 = AdminPanel::Shared::Shorewall::read_(undef, 6);
-        $shorewall6 && !$shorewall6->{disabled} and AdminPanel::Shared::Shorewall::write_($shorewall6);
+        my $shorewall6 = ManaTools::Shared::Shorewall::read_(undef, 6);
+        $shorewall6 && !$shorewall6->{disabled} and ManaTools::Shared::Shorewall::write_($shorewall6);
     }
 }
 

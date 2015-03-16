@@ -1,16 +1,16 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::SettingsReader;
+package ManaTools::SettingsReader;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::SettingsReader - This module allows to load an XML configuration file
+ManaTools::SettingsReader - This module allows to load an XML configuration file
 
 =head1 SYNOPSIS
 
-    use AdminPanel::SettingsReader;
+    use ManaTools::SettingsReader;
 
-    my $settings = new AdminPanel::SettingsReader($fileName);
+    my $settings = new ManaTools::SettingsReader($fileName);
 
 =head1 DESCRIPTION
 
@@ -20,7 +20,7 @@ AdminPanel::SettingsReader - This module allows to load an XML configuration fil
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::SettingsReader
+perldoc ManaTools::SettingsReader
 
 =head1 SEE ALSO
 
@@ -34,20 +34,20 @@ perldoc AdminPanel::SettingsReader
 
     Copyright (C) 2012-2015, Angelo Naselli.
 
-   This file is part of AdminPanel
+   This file is part of ManaTools
 
-   AdminPanel is free software: you can redistribute it and/or modify
+   ManaTools is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
    the Free Software Foundation, either version 2 of the License, or
    (at your option) any later version.
 
-   AdminPanel is distributed in the hope that it will be useful,
+   ManaTools is distributed in the hope that it will be useful,
    but WITHOUT ANY WARRANTY; without even the implied warranty of
    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
    GNU General Public License for more details.
 
    You should have received a copy of the GNU General Public License
-   along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+   along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 =head1 FUNCTIONS
 
@@ -74,7 +74,7 @@ use Data::Dumper;
 
 =head3 DESCRIPTION
 
-    The constructor just loads the given files and return its representation 
+    The constructor just loads the given files and return its representation
     into a hash reference.
 
 =cut
@@ -87,7 +87,7 @@ sub new {
     my $self = {
         settings => 0,
     };
-    bless $self, 'AdminPanel::SettingsReader';
+    bless $self, 'ManaTools::SettingsReader';
 
     die "File " . $fileName . " not found" if (! -e $fileName);
 

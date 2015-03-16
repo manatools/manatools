@@ -4,13 +4,13 @@ use warnings FATAL => 'all';
 use Test::More;
 
 BEGIN {
-    use_ok( 'AdminPanel::Shared::GUI' ) || print "AdminPanel::Shared::GUI failed!\n";
-    use_ok( 'AdminPanel::Shared' ) || print "AdminPanel::Shared failed!\n";
+    use_ok( 'ManaTools::Shared::GUI' ) || print "ManaTools::Shared::GUI failed!\n";
+    use_ok( 'ManaTools::Shared' ) || print "ManaTools::Shared failed!\n";
 }
 
-    is (AdminPanel::Shared::distName(), 'adminpanel', 'distname');
+    is (ManaTools::Shared::distName(), 'manatools', 'distname');
 
-    ok( my $gui = AdminPanel::Shared::GUI->new(), 'create');
+    ok( my $gui = ManaTools::Shared::GUI->new(), 'create');
 
 SKIP: {
     #remember to skip the right number of tests
@@ -40,7 +40,7 @@ SKIP: {
     diag "ask_fromList got: < " . ($item ? $item : "none") . " >";
 
     ok( my $mul_selection = $gui->ask_multiple_fromList({
-        title => "Choose from list", 
+        title => "Choose from list",
         header => "What do you have selected?",
         list  => [
             map {
@@ -57,7 +57,7 @@ SKIP: {
               )],
     }), 'ask_multiple_fromList');
     diag "ask_multiple_fromList got: < " . join(' - ', @${mul_selection}) . " >";
-    
+
     ok(my $selection = $gui->select_fromList({
         title => "Select from list",
         header => {
@@ -82,14 +82,14 @@ SKIP: {
     diag "ask_fromTreeList got: < " . ($item ? $item : "none") . " >";
 
     ok($gui->AboutDialog({ name => "Shared::GUI TABBED",
-                    version => $AdminPanel::Shared::VERSION,
+                    version => $ManaTools::Shared::VERSION,
                     credits => "Copyright (C) 2014 Angelo Naselli",
                     license => 'GPLv2',
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
                     }), 'AboutDialog');
 
     ok($gui->AboutDialog({ name => "Shared::GUI CLASSIC",
-                    version => $AdminPanel::Shared::VERSION,
+                    version => $ManaTools::Shared::VERSION,
                     credits => "Copyright (C) 2014 Angelo Naselli",
                     license => 'GPLv2',
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",

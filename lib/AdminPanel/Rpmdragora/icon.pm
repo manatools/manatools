@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::icon;
+package ManaTools::Rpmdragora::icon;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -28,10 +28,10 @@ package AdminPanel::Rpmdragora::icon;
 
 use strict;
 
-use AdminPanel::rpmdragora;
-use AdminPanel::Shared::Locales;
+use ManaTools::rpmdragora;
+use ManaTools::Shared::Locales;
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 use Exporter;
 our @ISA = qw(Exporter);

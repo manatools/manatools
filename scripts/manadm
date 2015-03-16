@@ -1,23 +1,25 @@
 #!/usr/bin/perl
+# vim: set et ts=4 sw=4:
 # Copyright 2013 - 2015 Matteo Pasotti
+#                  2015 Angelo Naselli
 #
-# This file is part of hostmanager thus adminpanel
+# This file is part of manatools
 #
-# hostmanager is free software: you can redistribute it and/or modify
+# manadm is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
 # (at your option) any later version.
 #
-# hostmanager is distributed in the hope that it will be useful,
+# manadm is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+# along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 use Modern::Perl '2011';
 use autodie;
-use AdminPanel::Module::DisplayManager;
+use ManaTools::Module::DisplayManager;
 
 use yui;
 
@@ -27,7 +29,7 @@ my $wm_name = "Display Manager";
 yui::YUI::app()->setApplicationTitle($wm_name);
 yui::YUI::app()->setApplicationIcon($wm_icon);
 
-my $dmanager = AdminPanel::Module::DisplayManager->new({
+my $dmanager = ManaTools::Module::DisplayManager->new({
 				icon => $wm_icon,
 				name => $wm_name
 			});

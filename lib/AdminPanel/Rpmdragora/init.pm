@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::init;
+package ManaTools::Rpmdragora::init;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -33,8 +33,8 @@ BEGIN { $::no_global_argv_parsing = 1 }
 require urpm::args;
 use MDK::Common::Various qw(chomp_);
 
-use AdminPanel::Privileges;
-use AdminPanel::Shared::Locales;
+use ManaTools::Privileges;
+use ManaTools::Shared::Locales;
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -51,7 +51,7 @@ our @EXPORT = qw(init
 our @ARGV_copy =  @ARGV;
 
 BEGIN {  #- we want to run this code before the Gtk->init of the use-my_gtk
-    my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+    my $loc = ManaTools::Shared::Locales->new(domain_name => 'rpmdrake');
 
     my $basename = sub { local $_ = shift; s|/*\s*$||; s|.*/||; $_ };
     any { /^--?h/ } @ARGV and do {
@@ -153,22 +153,22 @@ if ($MODE eq 'remove') {
     $default_list_mode = 'all_updates';
 }
 
-$MODE eq 'update' || $rpmdragora_options{'run-as-root'} and AdminPanel::Privileges::is_root_capability_required();
+$MODE eq 'update' || $rpmdragora_options{'run-as-root'} and ManaTools::Privileges::is_root_capability_required();
 $::noborderWhenEmbedded = 1;
 
-require AdminPanel::rpmdragora;
+require ManaTools::rpmdragora;
 
-our $changelog_first = $AdminPanel::rpmdragora::changelog_first_config->[0];
+our $changelog_first = $ManaTools::rpmdragora::changelog_first_config->[0];
 $changelog_first = 1 if $rpmdragora_options{'changelog-first'};
 
 sub warn_about_user_mode() {
-    my $loc = AdminPanel::Shared::Locales->new(domain_name => 'rpmdrake');
+    my $loc = ManaTools::Shared::Locales->new(domain_name => 'rpmdrake');
     my $title = $loc->N("Running in user mode");
     my $msg = $loc->N("You are launching this program as a normal user.\n".
                 "You will not be able to perform modifications on the system,\n".
                 "but you may still browse the existing database.");
 
-    if(($EUID != 0) and (!AdminPanel::rpmdragora::interactive_msg($title, $msg))) {
+    if(($EUID != 0) and (!ManaTools::rpmdragora::interactive_msg($title, $msg))) {
         return 0;
     }
     return 1;

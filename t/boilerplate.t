@@ -50,7 +50,7 @@ TODO: {
     "placeholder date/time"       => qr(Date/time)
   );
 
-  module_boilerplate_ok('lib/AdminPanel/Shared.pm');
+  module_boilerplate_ok('lib/ManaTools/Shared.pm');
 
 
 }

@@ -1,17 +1,17 @@
-# AdminPanel #
+# ManaTools #
 
-AdminPanel is a generic launcher application that can run 
+ManaTools is a generic launcher application that can run
 internal or external modules, such as system configuration tools.
 
-AdminPanel is also a collection of configuration tools that allows
-users to configure most of their system components in a very simple, 
-intuitive and attractive interface. It consists of some modules 
+ManaTools is also a collection of configuration tools that allows
+users to configure most of their system components in a very simple,
+intuitive and attractive interface. It consists of some modules
 that can be also run as autonomous applications.
 
-AdminPanel started as a porting of MCC (Mageia/Mandriva Control Center)
-to libYui (Suse widget abstraction library), but its aim is to give 
+ManaTools started as a porting of MCC (Mageia/Mandriva Control Center)
+to libYui (Suse widget abstraction library), but its aim is to give
 an easy and common interface to developer to add new modules based
-on libYui. Every modules as well as AdminPanel itself can be run
+on libYui. Every modules as well as ManaTools itself can be run
 using QT, Gtk or ncurses interface.
 
 # REQUIREMENTS #
@@ -56,9 +56,9 @@ To install this module, run the following commands:
 To test gui dialogs run:
 	make test TEST_GUI=1
 
-To install this module with local::lib (see perldoc local::lib for 
+To install this module with local::lib (see perldoc local::lib for
 details)
-	# add also -MCPAN if you want to install from cpan locally	
+	# add also -MCPAN if you want to install from cpan locally
 	alias perl='perl -Mlocal::lib'
 	perl Makefile.PL
 	make
@@ -76,7 +76,7 @@ execute the output as root.
 After installing, you can find documentation for this module with the
 perldoc command.
 
-    perldoc AdminPanel
+    perldoc ManaTools
 
 
 # EMBEDDED MODULES #
@@ -111,10 +111,10 @@ if not, write to the Free Software Foundation, Inc.,
 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 NOTE: some icons are under the license:
-Creative Commons Attribution-No Derivative Works 3.0 Unported 
+Creative Commons Attribution-No Derivative Works 3.0 Unported
 http://creativecommons.org/licenses/by-nd/3.0/
 
-NOTE 1: 
+NOTE 1:
 To avoid file name duplication we renamed icons from drakxtools,
 rpmdrake and userdrake, to fit new naming convention:
 * drakedm-mdk   -> manadm
@@ -127,6 +127,6 @@ rpmdrake and userdrake, to fit new naming convention:
 * drakfirewall  -> manawall
 * drakconf      -> mpan
 
-NOTE 2: 
+NOTE 2:
 clear22x22 icon is got from gnome gtk-clear
 

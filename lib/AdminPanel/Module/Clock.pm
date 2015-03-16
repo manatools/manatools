@@ -1,14 +1,14 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Module::Clock;
+package ManaTools::Module::Clock;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Module::Clock - This module aims to configure system clock and time
+ManaTools::Module::Clock - This module aims to configure system clock and time
 
 =head1 SYNOPSIS
 
-    my $clockSettings = AdminPanel::Module::Clock->new();
+    my $clockSettings = ManaTools::Module::Clock->new();
     $clockSettings->start();
 
 =head1 DESCRIPTION
@@ -19,7 +19,7 @@ Long_description
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Module::Clock
+perldoc ManaTools::Module::Clock
 
 =head1 SEE ALSO
 
@@ -54,15 +54,15 @@ use Moose;
 
 use diagnostics;
 
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::TimeZone;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::TimeZone;
 
 use Time::Piece;
 
 use yui;
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 ### TODO icon
 has '+icon' => (
@@ -79,7 +79,7 @@ sub _localeInitialize {
     my $self = shift;
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -93,7 +93,7 @@ has 'sh_gui' => (
 sub _SharedGUIInitialize {
     my $self = shift;
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
 has 'sh_tz' => (
@@ -105,7 +105,7 @@ has 'sh_tz' => (
 sub _SharedTimeZoneInitialize {
     my $self = shift;
 
-    $self->sh_tz(AdminPanel::Shared::TimeZone->new() );
+    $self->sh_tz(ManaTools::Shared::TimeZone->new() );
 }
 
 

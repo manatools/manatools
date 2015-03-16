@@ -1,14 +1,14 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Shared::Users;
+package ManaTools::Shared::Users;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Shared::Users - backend to manage users
+ManaTools::Shared::Users - backend to manage users
 
 =head1 SYNOPSIS
 
-    my $userBackEnd = AdminPanel::Shared::Users->new();
+    my $userBackEnd = ManaTools::Shared::Users->new();
     my $userInfo    = $userManager->getUserInfo('username');
 
 =head1 DESCRIPTION
@@ -20,7 +20,7 @@ This module gives a low level access to the system user management it uses libUS
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Shared::Users
+perldoc ManaTools::Shared::Users
 
 =head1 SEE ALSO
 
@@ -66,8 +66,8 @@ use USER;
 use English;
 use POSIX qw/ceil/;
 
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared;
 
 
 #=============================================================
@@ -119,7 +119,7 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'userdrake') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'userdrake') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -275,7 +275,7 @@ sub face2png {
 
 =head3 DESCRIPTION
 
-    Retrieves the list of icon name from facesdir() 
+    Retrieves the list of icon name from facesdir()
 
 =cut
 
@@ -304,7 +304,7 @@ sub facenames {
 
 =head3 DESCRIPTION
 
-    Add a $user named icon to $self->user_face_dir. It just copies 
+    Add a $user named icon to $self->user_face_dir. It just copies
     $icon to $self->user_face_dir, naming it as $user
 
 =cut
@@ -461,7 +461,7 @@ sub updateOrDelUserInGroup {
     my $groups = $self->ctx->GroupsEnumerateFull;
     foreach my $g (@$groups) {
         my $members = $g->MemberName(1, 0);
-        if (AdminPanel::Shared::inArray($name, $members)) {
+        if (ManaTools::Shared::inArray($name, $members)) {
             eval { $g->MemberName($name, 2) };
             eval { $self->ctx->GroupModify($g) };
         }
@@ -801,14 +801,14 @@ sub modifyGroup {
             my $ugid = $uEnt->Gid($self->USER_GetValue);
             my $m    = $self->ctx->EnumerateUsersByGroup($orig_groupname);
             if (MDK::Common::DataStructure::member($user, @{$members})) {
-                if (!AdminPanel::Shared::inArray($user, $m)) {
+                if (!ManaTools::Shared::inArray($user, $m)) {
                     if ($ugid != $gid) {
                         eval { $groupEnt->MemberName($user, 1) };
                     }
                 }
             }
             else {
-                if (AdminPanel::Shared::inArray($user, $m)) {
+                if (ManaTools::Shared::inArray($user, $m)) {
                     if ($ugid == $gid) {
                         return {
                             status => 0,
@@ -1302,13 +1302,13 @@ sub modifyUser {
         my $ugid = $gEnt->Gid($self->USER_GetValue);
         my $m    = $gEnt->MemberName(1,0);
         if (MDK::Common::DataStructure::member($group, @$members)) {
-            if (!AdminPanel::Shared::inArray($username, $m) && $userInfo->{gid} != $ugid) {
+            if (!ManaTools::Shared::inArray($username, $m) && $userInfo->{gid} != $ugid) {
                 eval { $gEnt->MemberName($username, 1) };
                 $self->ctx->GroupModify($gEnt);
             }
         }
         else {
-            if (AdminPanel::Shared::inArray($username, $m)) {
+            if (ManaTools::Shared::inArray($username, $m)) {
                 eval { $gEnt->MemberName($username, 2) };
                 $self->ctx->GroupModify($gEnt);
             }
@@ -1463,16 +1463,16 @@ sub GetFaceIcon {
     my $i;
     my $current_icon;
     # remove shortcut "&" from label
-    $name =~ s/&// if ($name); 
+    $name =~ s/&// if ($name);
     my $user_icon = $self->user_face_dir . $name . ".png" if ($name);
     if ($name) {
         $user_icon    = $self->face2png($name) unless(-e $user_icon);
     }
     if ($name && -e $user_icon) {
-        my $current_md5 = AdminPanel::Shared::md5sum($user_icon);
+        my $current_md5 = ManaTools::Shared::md5sum($user_icon);
         my $found = 0;
         for ($i = 0; $i < scalar(@$icons); $i++) {
-            if (AdminPanel::Shared::md5sum($self->face2png($icons->[$i])) eq $current_md5) {
+            if (ManaTools::Shared::md5sum($self->face2png($icons->[$i])) eq $current_md5) {
                 $found = 1;
                 last;
             }
@@ -1518,9 +1518,9 @@ sub GetFaceIcon {
 #=============================================================
 sub strongPassword {
     my ($self, $passwd, $threshold) = @_;
-    
+
     return 0 if !$passwd;
-    
+
     my $pwdm = $threshold ? Data::Password::Meter->new($threshold) : Data::Password::Meter->new();
 
     # Check a password

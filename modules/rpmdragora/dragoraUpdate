@@ -30,15 +30,15 @@ use strict;
 use MDK::Common::Func 'any';
 use File::ShareDir ':ALL';
 
-use AdminPanel::Rpmdragora::init;
+use ManaTools::Rpmdragora::init;
 
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::gui;
-use AdminPanel::Rpmdragora::rpmnew;
-use AdminPanel::Rpmdragora::formatting;
-use AdminPanel::Rpmdragora::pkg;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::GUI;
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::gui;
+use ManaTools::Rpmdragora::rpmnew;
+use ManaTools::Rpmdragora::formatting;
+use ManaTools::Rpmdragora::pkg;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::GUI;
 
 use yui;
 
@@ -59,7 +59,7 @@ use yui;
 our $w;
 # TODO try to see if we can Moosify all!
 our $statusbar;
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 warn_about_user_mode();
 
@@ -114,7 +114,7 @@ sub _refresh_packages_list {
             if ($importance) {
                 my $update_label = "";
                 if (yui::YUI::app()->hasImageSupport()) {
-                    $icon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), $update_icons{$importance}->{icon});
+                    $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $update_icons{$importance}->{icon});
                 }
                 else {
                     # For ncurses set a label
@@ -244,7 +244,7 @@ sub run_treeview_dialog {
     my $hbox_iconbar  = $factory->createHBox($vbox);
     my $head_align_left  = $factory->createLeft($hbox_iconbar);
     $hbox_iconbar     = $factory->createHBox($head_align_left);
-    my $wm_icon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), $update_icons{'title'}->{icon});
+    my $wm_icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $update_icons{'title'}->{icon});
     $factory->createImage($hbox_iconbar, $wm_icon);
 
     $factory->createHeading($hbox_iconbar, $update_icons{'title'}->{text});
@@ -287,7 +287,7 @@ sub run_treeview_dialog {
     $statusbar        = $factory->createBusyIndicator($vbox, "" );
     $statusbar->setWeight(0, 1);
 
-    $AdminPanel::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
+    $ManaTools::Rpmdragora::pkg::probe_only_for_updates = 1; # faster startup
 
     pkgs_provider('all_updates', pure_updates => 1); # default mode
 
@@ -299,7 +299,7 @@ sub run_treeview_dialog {
         my $item = $packageTbl->selectedItem();
         if ($item) {
             my $pkg = $data{$item->index()}{fullname};
-            AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+            ManaTools::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
         }
 
         my $info_options = {};
@@ -317,14 +317,14 @@ sub run_treeview_dialog {
                 if (!$item) {
                     #URL emitted or at least a ref into RichText widget
                     my $url = yui::toYMenuEvent($event)->id ();
-                    if (AdminPanel::Rpmdragora::gui::info_details($url, $info_options) )  {
+                    if (ManaTools::Rpmdragora::gui::info_details($url, $info_options) )  {
                         $item = $packageTbl->selectedItem();
                         my $pkg = $data{$item->index()}{fullname};
-                        AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
+                        ManaTools::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox, $info_options);
                     }
                     else {
                         # default it's really a URL
-                        AdminPanel::Rpmdragora::gui::run_browser($url);
+                        ManaTools::Rpmdragora::gui::run_browser($url);
                     }
                 }
             }
@@ -339,7 +339,7 @@ sub run_treeview_dialog {
                     my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
                     $translators =~ s/\</\&lt\;/g;
                     $translators =~ s/\>/\&gt\;/g;
-                    my $sh_gui = AdminPanel::Shared::GUI->new();
+                    my $sh_gui = ManaTools::Shared::GUI->new();
                     $sh_gui->AboutDialog({
                         name    => "dragoraUpdate",
                         version => $VERSION,
@@ -361,7 +361,7 @@ sub run_treeview_dialog {
                     if ($item) {
                         my $pkg = $data{$item->index()}{fullname};
                         $info_options = {};
-                        AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+                        ManaTools::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
                     }
                     my $wEvent = yui::toYWidgetEvent($event);
                     if ($wEvent->reason() == $yui::YEvent::ValueChanged) {
@@ -396,7 +396,7 @@ sub run_treeview_dialog {
                         $item = $packageTbl->selectedItem();
                         if ($item) {
                             my $pkg = $data{$item->index()}{fullname};
-                            AdminPanel::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
+                            ManaTools::Rpmdragora::gui::setInfoOnWidget($pkg, $infoBox);
                         }
                     }
                 }
@@ -408,7 +408,7 @@ sub run_treeview_dialog {
     }
 
     if (!$num_pkgs) {
-        AdminPanel::rpmdragora::interactive_msg(
+        ManaTools::rpmdragora::interactive_msg(
             $loc->N("rpmdragora update"),
             $loc->N("The list of updates is empty. This means that either there is no available update for the packages installed on your computer, or you already installed all of them."),
             scroll => 1,
@@ -424,13 +424,13 @@ sub run_treeview_dialog {
 }
 # -=-=-=---=-=-=---=-=-=-- main -=-=-=---=-=-=---=-=-=-
 
-AdminPanel::Rpmdragora::rpmnew::do_merge_if_needed();
+ManaTools::Rpmdragora::rpmnew::do_merge_if_needed();
 
-AdminPanel::rpmdragora::readconf();
+ManaTools::rpmdragora::readconf();
 
 init();
 run_treeview_dialog(\&perform_installation);
 
-AdminPanel::rpmdragora::writeconf();
+ManaTools::rpmdragora::writeconf();
 
 # myexit(0);

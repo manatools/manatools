@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::pkg;
+package ManaTools::Rpmdragora::pkg;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -38,13 +38,13 @@ use MDK::Common::Various qw(chomp_);
 use POSIX qw(_exit ceil);
 use URPM;
 use utf8;
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::open_db;
-use AdminPanel::Rpmdragora::gurpm;
-use AdminPanel::Rpmdragora::formatting;
-use AdminPanel::Rpmdragora::rpmnew;
-use AdminPanel::Shared::RunProgram qw(run get_stdout);
-use AdminPanel::rpmdragora;
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::open_db;
+use ManaTools::Rpmdragora::gurpm;
+use ManaTools::Rpmdragora::formatting;
+use ManaTools::Rpmdragora::rpmnew;
+use ManaTools::Shared::RunProgram qw(run get_stdout);
+use ManaTools::rpmdragora;
 use urpm;
 use urpm::lock;
 use urpm::install;
@@ -56,7 +56,7 @@ use urpm::args qw();
 use urpm::util;
 use Carp;
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -94,7 +94,7 @@ sub run_rpm {
     foreach (qw(LANG LC_CTYPE LC_NUMERIC LC_TIME LC_COLLATE LC_MONETARY LC_MESSAGES LC_PAPER LC_NAME LC_ADDRESS LC_TELEPHONE LC_MEASUREMENT LC_IDENTIFICATION LC_ALL)) {
         local $ENV{$_} = $ENV{$_} . '.UTF-8' if $ENV{$_} && $ENV{$_} !~ /UTF-8/;
     }
-    my @l = map { ensure_utf8($_); $_ } AdminPanel::Shared::RunProgram::get_stdout(@_);
+    my @l = map { ensure_utf8($_); $_ } ManaTools::Shared::RunProgram::get_stdout(@_);
     wantarray() ? @l : join('', @l);
 }
 
@@ -143,7 +143,7 @@ sub extract_header {
             $bar_id = statusbar_msg($loc->N("Getting '%s' from XML meta-data...", $xml_info), 0);
             my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
             if (my $xml_info_file = eval { urpm::media::any_xml_info($urpm, $medium, $xml_info, undef, sub {
-                $gurpm ||= AdminPanel::Rpmdragora::gurpm->new(
+                $gurpm ||= ManaTools::Rpmdragora::gurpm->new(
                     text => $loc->N("Please wait"),
                 );
                 download_callback($gurpm, @_)
@@ -287,7 +287,7 @@ all of them are currently disabled. You should run the Software
 Media Manager to enable at least one (check it in the \"%s\"
 column).
 
-Then, restart \"%s\".", $loc->N("Enabled"), $AdminPanel::rpmdragora::myname_update));
+Then, restart \"%s\".", $loc->N("Enabled"), $ManaTools::rpmdragora::myname_update));
             return (-1);
         }
         my ($mirror) = choose_mirror($urpm, transient => $w->{real_window} || $::main_window,
@@ -305,7 +305,7 @@ $loc->N("You may also choose your desired mirror manually: to do so,
 launch the Software Media Manager, and then add a `Security
 updates' medium.
 
-Then, restart %s.", $AdminPanel::rpmdragora::myname_update)), return (-1);
+Then, restart %s.", $ManaTools::rpmdragora::myname_update)), return (-1);
         add_distrib_update_media($urpm, $mirror, only_updates => 0);
     }
     return 0;
@@ -407,7 +407,7 @@ sub get_updates_list {
     );
 
     my %common_opts = (
-        callback_choices => \&AdminPanel::Rpmdragora::gui::callback_choices,
+        callback_choices => \&ManaTools::Rpmdragora::gui::callback_choices,
         priority_upgrade => $urpm->{options}{'priority-upgrade'},
     );
 
@@ -428,7 +428,7 @@ sub get_updates_list {
     if ($probe_only_for_updates && !$need_restart) {
         @$requested_strict = sort map {
             urpm_name($_);
-        } $urpm->resolve_requested($db, $state, $requested, callback_choices => \&AdminPanel::Rpmdragora::gui::callback_choices);
+        } $urpm->resolve_requested($db, $state, $requested, callback_choices => \&ManaTools::Rpmdragora::gui::callback_choices);
 
         if (my @l = grep { $state->{selected}{$_->id} }
               urpm::select::_priority_upgrade_pkgs($urpm, $urpm->{options}{'priority-upgrade'})) {
@@ -459,7 +459,7 @@ sub get_pkgs {
 
     myexit (-1) if (warn_about_media($w, %options) == -1);
 
-    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(
+    my $gurpm = ManaTools::Rpmdragora::gurpm->new(
         text => $loc->N("Please wait"),
     );
     my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };
@@ -706,7 +706,7 @@ sub perform_parallel_install {
     my @pkgs = map { MDK::Common::Func::if_($_->flag_requested, urpm_name($_)) } @{$urpm->{depslist}};
 
     my @error_msgs;
-    my $res = !AdminPanel::Shared::RunProgram::run('urpmi', '2>', \@error_msgs, '-v', '--X', '--parallel', $group, @pkgs);
+    my $res = !ManaTools::Shared::RunProgram::run('urpmi', '2>', \@error_msgs, '-v', '--X', '--parallel', $group, @pkgs);
 
     if ($res) {
         $$statusbar_msg_id = statusbar_msg(
@@ -770,7 +770,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     urpm::select::resolve_dependencies(
         $urpm, $state, $requested,
         rpmdb => $::env && "$::env/rpmdb.cz",
-        callback_choices => \&AdminPanel::Rpmdragora::gui::callback_choices,
+        callback_choices => \&ManaTools::Rpmdragora::gui::callback_choices,
     );
     statusbar_msg_remove($bar_id);
 
@@ -819,7 +819,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
     # select packages to uninstall for !update mode:
     perform_removal($urpm, { map { $_ => $pkgs->{$_} } @to_remove }) if !$probe_only_for_updates;
 
-    $gurpm = AdminPanel::Rpmdragora::gurpm->new(
+    $gurpm = ManaTools::Rpmdragora::gurpm->new(
         text => $loc->N("Please wait"),
         title => $loc->N("Initializing..."),
     );
@@ -993,7 +993,7 @@ you may now inspect some in order to take actions:"),
         #- added --previous-priority-upgrade to allow checking if yet if
         #-   priority-upgrade list has changed. and make sure we don't uselessly restart
         my @argv = ('--previous-priority-upgrade=' . $urpm->{options}{'priority-upgrade'},
-                grep { !/^--no-priority-upgrade$|--previous-priority-upgrade=/ } @AdminPanel::Rpmdragora::init::ARGV_copy);
+                grep { !/^--no-priority-upgrade$|--previous-priority-upgrade=/ } @ManaTools::Rpmdragora::init::ARGV_copy);
         # remove "--emmbedded <id>" from argv:
         my $i = 0;
         foreach (@argv) {
@@ -1032,7 +1032,7 @@ sub perform_removal {
     my ($urpm, $pkgs) = @_;
     my @toremove = map { MDK::Common::Func::if_($pkgs->{$_}{selected}, $pkgs->{$_}{urpm_name}) } keys %$pkgs;
     return if !@toremove;
-    my $gurpm = AdminPanel::Rpmdragora::gurpm->new(
+    my $gurpm = ManaTools::Rpmdragora::gurpm->new(
         text => $loc->N("Please wait")
     );
     my $_gurpm_clean_guard = MDK::Common::Func::before_leaving { undef $gurpm };

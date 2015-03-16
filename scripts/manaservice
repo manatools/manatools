@@ -1,28 +1,29 @@
 #!/usr/bin/perl
+# vim: set et ts=4 sw=4:
 # Copyright 2014 - 2015 Angelo Naselli
 #
-# This file is part of proxymanager thus adminpanel
+# This file is part of manatools
 #
-# proxymanager is free software: you can redistribute it and/or modify
+# manaservice is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
 # the Free Software Foundation, either version 2 of the License, or
 # (at your option) any later version.
 #
-# proxymanager is distributed in the hope that it will be useful,
+# manaservice is distributed in the hope that it will be useful,
 # but WITHOUT ANY WARRANTY; without even the implied warranty of
 # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 # GNU General Public License for more details.
 #
 # You should have received a copy of the GNU General Public License
-# along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+# along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 use strict;
 
-use AdminPanel::Module::Services;
-use AdminPanel::Shared::Locales;
+use ManaTools::Module::Services;
+use ManaTools::Shared::Locales;
 
-my $loc = AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone');
+my $loc = ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone');
 
-my $serviceMan = AdminPanel::Module::Services->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
+my $serviceMan = ManaTools::Module::Services->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
                                                           name => $loc->N("Services and daemons"),});
 $serviceMan->start();
 

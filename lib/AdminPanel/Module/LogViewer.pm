@@ -1,14 +1,14 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Module::LogViewer;
+package ManaTools::Module::LogViewer;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Module::LogViewer - Log viewer
+ManaTools::Module::LogViewer - Log viewer
 
 =head1 SYNOPSIS
 
-my $logViewer = AdminPanel::Module::LogViewer->new();
+my $logViewer = ManaTools::Module::LogViewer->new();
 $logViewer->start();
 
 =head1 DESCRIPTION
@@ -21,7 +21,7 @@ file.
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Module::::LogViewer
+perldoc ManaTools::Module::::LogViewer
 
 =head1 AUTHOR
 
@@ -53,10 +53,10 @@ use Moose;
 use diagnostics;
 use open OUT => ':utf8';
 
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Services;
-use AdminPanel::Shared::JournalCtl;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::Services;
+use ManaTools::Shared::JournalCtl;
 
 
 use POSIX qw/strftime floor/;
@@ -66,7 +66,7 @@ use File::HomeDir qw(home);
 
 use yui;
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 ### TODO icon
 has '+icon' => (
@@ -83,7 +83,7 @@ sub _localeInitialize {
     my $self = shift;
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -96,7 +96,7 @@ has 'sh_gui' => (
 sub _SharedUGUIInitialize {
     my $self = shift;
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
 =head1 VERSION
@@ -261,7 +261,7 @@ sub _logViewerPanel {
     my $itemCollection = new yui::YItemCollection;
 
     yui::YUI::app()->busyCursor();
-    my $serv = AdminPanel::Shared::Services->new();
+    my $serv = ManaTools::Shared::Services->new();
     my ($l, $active_services) = $serv->services();
 
     foreach (@{$active_services}) {
@@ -510,7 +510,7 @@ sub _save {
 sub _search {
     my ($self, $log_opts) = @_;
 
-    my $log = AdminPanel::Shared::JournalCtl->new(%{$log_opts});
+    my $log = ManaTools::Shared::JournalCtl->new(%{$log_opts});
     my $all = $log->getLog();
 
     return $all;

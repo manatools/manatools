@@ -1,4 +1,4 @@
-package AdminPanel::Shared::RunProgram;
+package ManaTools::Shared::RunProgram;
 
 use strict;
 use MDK::Common;
@@ -21,7 +21,7 @@ our @EXPORT_OK = qw(
 
 =head1 SYNOPSYS
 
-B<rAdminPanel::Shared::RunProgram> enables to:
+B<rManaTools::Shared::RunProgram> enables to:
 
 =over 4
 
@@ -192,9 +192,9 @@ eg:
 
 =over 4
 
-=item * C<< AdminPanel::Shared::RunProgram::raw({ root => $::prefix, sensitive_arguments => 1 }, "echo -e $user->{password} | cryptsetup luksFormat $device"); >>
+=item * C<< ManaTools::Shared::RunProgram::raw({ root => $::prefix, sensitive_arguments => 1 }, "echo -e $user->{password} | cryptsetup luksFormat $device"); >>
 
-=item * C<< AdminPanel::Shared::RunProgram::raw({ detach => 1 }, '/etc/rc.d/init.d/dm', '>', '/dev/null', '2>', '/dev/null', 'restart'); >>
+=item * C<< ManaTools::Shared::RunProgram::raw({ detach => 1 }, '/etc/rc.d/init.d/dm', '>', '/dev/null', '2>', '/dev/null', 'restart'); >>
 
 =back
 
@@ -308,15 +308,15 @@ sub raw {
         if ($stderr && $stderr eq 'STDERR') {
         } elsif ($stderr) {
             $stderr_mode =~ s/2//;
-            open STDERR, "$stderr_mode $stderr" or _die_exit("AdminPanel::Shared::RunProgram cannot output in $stderr (mode `$stderr_mode')");
+            open STDERR, "$stderr_mode $stderr" or _die_exit("ManaTools::Shared::RunProgram cannot output in $stderr (mode `$stderr_mode')");
         } elsif ($::isInstall) {
-            open STDERR, ">> /tmp/ddebug.log" or open STDOUT, ">> /dev/tty7" or _die_exit("AdminPanel::Shared::RunProgram cannot log, give me access to /tmp/ddebug.log");
+            open STDERR, ">> /tmp/ddebug.log" or open STDOUT, ">> /dev/tty7" or _die_exit("ManaTools::Shared::RunProgram cannot log, give me access to /tmp/ddebug.log");
         }
         if ($stdout && $stdout eq 'STDOUT') {
         } elsif ($stdout) {
-            open STDOUT, "$stdout_mode $stdout" or _die_exit("AdminPanel::Shared::RunProgram cannot output in $stdout (mode `$stdout_mode')");
+            open STDOUT, "$stdout_mode $stdout" or _die_exit("ManaTools::Shared::RunProgram cannot output in $stdout (mode `$stdout_mode')");
         } elsif ($::isInstall) {
-            open STDOUT, ">> /tmp/ddebug.log" or open STDOUT, ">> /dev/tty7" or _die_exit("AdminPanel::Shared::RunProgram cannot log, give me access to /tmp/ddebug.log");
+            open STDOUT, ">> /tmp/ddebug.log" or open STDOUT, ">> /dev/tty7" or _die_exit("ManaTools::Shared::RunProgram cannot log, give me access to /tmp/ddebug.log");
         }
 
         $root and chroot $root;

@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Shared::GUI;
+package ManaTools::Shared::GUI;
 #============================================================= -*-perl-*-
 
 =head1 NAME
@@ -8,7 +8,7 @@ Shared::GUI - Shared graphic routines
 
 =head1 SYNOPSIS
 
-    my $gui = AdminPanel::Shared::GUI->new();
+    my $gui = ManaTools::Shared::GUI->new();
     my $yesPressed = $gui->ask_YesOrNo($title, $text);
 
 =head1 DESCRIPTION
@@ -59,9 +59,9 @@ use Moose;
 use diagnostics;
 use yui;
 
-use AdminPanel::Shared qw(pathList2hash);
+use ManaTools::Shared qw(pathList2hash);
 
-use AdminPanel::Shared::Locales;
+use ManaTools::Shared::Locales;
 
 has 'loc' => (
         is => 'rw',
@@ -73,7 +73,7 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
@@ -548,8 +548,8 @@ list is an array of hashes like this
         text => "descriptive text"
         val => reference to the boolean value
     }
-        
-            
+
+
 =head3 OUTPUT
 
     undef:          if Cancel button has been pressed
@@ -587,11 +587,11 @@ sub ask_multiple_fromList {
     my $layout = $factory->createVBox($dlg);
 
     my @ckbox_array = ();
-    
+
     for my $item(@{$info->{list}})
     {
         my $ckbox = $factory->createCheckBox(
-            $factory->createLeft($factory->createHBox($layout)), 
+            $factory->createLeft($factory->createHBox($layout)),
             $item->{text},
             ${$item->{val}}
         );
@@ -648,7 +648,7 @@ sub ask_multiple_fromList {
 
     #restore old application title
     yui::YUI::app()->setApplicationTitle($appTitle);
-    
+
     return $selections;
 }
 
@@ -905,7 +905,7 @@ sub ask_fromTreeList {
     my $list2Convert;
     $list2Convert->{paths} = $info->{list};
     $list2Convert->{separator} = $info->{item_separator} if $info->{item_separator};
-    $treeInfo->{hash_tree}    = AdminPanel::Shared::pathList2hash($list2Convert);
+    $treeInfo->{hash_tree}    = ManaTools::Shared::pathList2hash($list2Convert);
 
     $self->hashTreeToYItemCollection($treeInfo);
     $treeWidget->addItems($treeInfo->{collection});

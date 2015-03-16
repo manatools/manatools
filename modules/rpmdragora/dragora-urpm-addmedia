@@ -44,23 +44,23 @@ and [options] are from
         exit(0);
     };
 }
-use AdminPanel::Rpmdragora::init;
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::open_db;
-use AdminPanel::Rpmdragora::formatting;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Privileges;
+use ManaTools::Rpmdragora::init;
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::open_db;
+use ManaTools::Rpmdragora::formatting;
+use ManaTools::Shared::Locales;
+use ManaTools::Privileges;
 
 use urpm::media;
 use MDK::Common::File qw(cat_);
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 
 #
-if (AdminPanel::Privileges::is_root_capability_required()) {
-    require AdminPanel::Shared::GUI;
-    my $sh_gui = AdminPanel::Shared::GUI->new();
+if (ManaTools::Privileges::is_root_capability_required()) {
+    require ManaTools::Shared::GUI;
+    my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->warningMsgBox({
         title => "gurpmi.addmedia",
         text  => $loc->N("root privileges required"),
@@ -68,13 +68,13 @@ if (AdminPanel::Privileges::is_root_capability_required()) {
     exit (-1);
 }
 
-use AdminPanel::rpmdragora;
+use ManaTools::rpmdragora;
 use Getopt::Long;
 
 ## TODO remove as soon as possible
 $::isStandalone = 1;
 
-AdminPanel::rpmdragora::readconf();
+ManaTools::rpmdragora::readconf();
 
 my $fromfile;
 if (@ARGV == 1 && $ARGV[0] =~ /\.urpmi-media$/) {
@@ -110,10 +110,10 @@ while (@ARGV) {
     } elsif ($distrib) {
 	($name, $url) = ('', $name);
     } elsif ($url !~ m,^(([^:]*):/)?/,) {
-	AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia',
-			AdminPanel::Rpmdragora::formatting::escape_text_for_TextView_markup_format(
+	ManaTools::rpmdragora::interactive_msg('gurpmi.addmedia',
+			ManaTools::Rpmdragora::formatting::escape_text_for_TextView_markup_format(
                             $loc->N("bad <url> (for local directory, the path must be absolute)") . "\n\n$url"));
-	AdminPanel::rpmdragora::myexit(-1);
+	ManaTools::rpmdragora::myexit(-1);
     }
     push @addmedia_args, [ $name, $url ];
     push @names, $name;
@@ -125,7 +125,7 @@ if ($mirrorlist && $distrib && !@addmedia_args) {
 }
 
 $fromfile and do {
-    AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia',
+    ManaTools::rpmdragora::interactive_msg('gurpmi.addmedia',
 $loc->N("%s
 
 Is it ok to continue?",
@@ -141,14 +141,14 @@ to your system from these new media.", join ", ", @names)
 That means you will be able to add new software packages
 to your system from that new medium.", $names[0])
 ),
-    yesno => 1) or AdminPanel::rpmdragora::myexit(-1);
+    yesno => 1) or ManaTools::rpmdragora::myexit(-1);
 };
 
-my $urpm = AdminPanel::Rpmdragora::open_db::fast_open_urpmi_db();
+my $urpm = ManaTools::Rpmdragora::open_db::fast_open_urpmi_db();
 my $success = 1;
 foreach (@addmedia_args) {
     #- NB: that short circuits
-    $success = $success && AdminPanel::rpmdragora::add_medium_and_check(
+    $success = $success && ManaTools::rpmdragora::add_medium_and_check(
 	$urpm,
 	{ distrib => $distrib },
 	$_->[0],
@@ -165,8 +165,8 @@ if ($success) {
         : @names > 1
 	    ? $loc->N("Successfully added media %s.", join ", ", @names)
 	    : $loc->N("Successfully added medium `%s'.", $names[0]);
-    AdminPanel::rpmdragora::interactive_msg('gurpmi.addmedia', $message) if !$silent_success;
-    AdminPanel::rpmdragora::myexit(0);
+    ManaTools::rpmdragora::interactive_msg('gurpmi.addmedia', $message) if !$silent_success;
+    ManaTools::rpmdragora::myexit(0);
 } else {
-    AdminPanel::rpmdragora::myexit(-1);
+    ManaTools::rpmdragora::myexit(-1);
 }

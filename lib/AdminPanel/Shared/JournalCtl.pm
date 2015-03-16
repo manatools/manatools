@@ -1,27 +1,27 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Shared::JournalCtl;
+package ManaTools::Shared::JournalCtl;
 
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Shared::JournalCtl - journalctl perl wrapper
+ManaTools::Shared::JournalCtl - journalctl perl wrapper
 
 =head1 SYNOPSIS
 
-    my $log = AdminPanel::Shared::JournalCtl->new();
+    my $log = ManaTools::Shared::JournalCtl->new();
     my @log_content = $log->getLog();
 
 =head1 DESCRIPTION
 
-This module wraps journalctl allowing some running options and provides the 
+This module wraps journalctl allowing some running options and provides the
 output log content.
 
 =head1 SUPPORT
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Shared::JournalCtl
+perldoc ManaTools::Shared::JournalCtl
 
 
 =head1 AUTHOR

@@ -4,7 +4,7 @@ use warnings FATAL => 'all';
 use Test::More;
 
 BEGIN {
-    use_ok( 'AdminPanel::rpmdragora' ) || print "AdminPanel::rpmdragora failed!\n";
+    use_ok( 'ManaTools::rpmdragora' ) || print "ManaTools::rpmdragora failed!\n";
 }
 
 

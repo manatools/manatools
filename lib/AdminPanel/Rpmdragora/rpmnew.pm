@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::rpmnew;
+package ManaTools::Rpmdragora::rpmnew;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -32,11 +32,11 @@ use MDK::Common::Math qw(sum);
 use MDK::Common::File qw(renamef);
 use MDK::Common::Various qw(chomp_);
 
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::init;
-use AdminPanel::Rpmdragora::pkg;
-use AdminPanel::Rpmdragora::open_db;
-use AdminPanel::Rpmdragora::formatting;
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::init;
+use ManaTools::Rpmdragora::pkg;
+use ManaTools::Rpmdragora::open_db;
+use ManaTools::Rpmdragora::formatting;
 
 use yui;
 
@@ -44,7 +44,7 @@ use Exporter;
 our @ISA = qw(Exporter);
 our @EXPORT = qw(rpmnew_dialog do_merge_if_needed);
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 # /var/lib/nfs/etab /var/lib/nfs/rmtab /var/lib/nfs/xtab /var/cache/man/whatis
 my %ignores_rpmnew = map { $_ => 1 } qw(

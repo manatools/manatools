@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::formatting;
+package ManaTools::Rpmdragora::formatting;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -30,8 +30,8 @@ use strict;
 use utf8;
 use POSIX qw(strftime);
 use MDK::Common::Various qw(internal_error);
-use AdminPanel::Shared::Locales;
-use AdminPanel::rpmdragora;
+use ManaTools::Shared::Locales;
+use ManaTools::rpmdragora;
 use urpm::msg;
 
 
@@ -56,7 +56,7 @@ our @EXPORT = qw(
                     urpm_name
             );
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 sub escape_text_for_TextView_markup_format {
     my ($str) = @_;

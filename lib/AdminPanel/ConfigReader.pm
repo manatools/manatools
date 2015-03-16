@@ -1,24 +1,24 @@
 # vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
-#    This file is part of AdminPanel
+#    This file is part of ManaTools
 #
-#    AdminPanel is free software: you can redistribute it and/or modify
+#    ManaTools is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    AdminPanel is distributed in the hope that it will be useful,
+#    ManaTools is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #Class ConfigReader
-package AdminPanel::ConfigReader;
+package ManaTools::ConfigReader;
 
 use strict;
 use warnings;
@@ -28,7 +28,7 @@ use Data::Dumper;
 
 sub new {
     my ($class, $fileName) = @_;
-    
+
     my $self = {
         data        => 0,
         catLen      => 0,
@@ -37,8 +37,8 @@ sub new {
         currMod     => 0,
         placeHolder => 0,
     };
-    bless $self, 'AdminPanel::ConfigReader';
-    
+    bless $self, 'ManaTools::ConfigReader';
+
     my $xml = new XML::Simple (KeyAttr=>[]);
     $self->{data} = $xml->XMLin($fileName);
     if (ref($self->{data}->{category}) eq "HASH") {
@@ -50,7 +50,7 @@ sub new {
     }
     $self->{catLen} = scalar(@{$self->{data}->{category}});
     $self->{currCat} = -1;
-    
+
     if(ref(@{$self->{data}->{category}}[0]->{module}) eq "ARRAY") {
         $self->{modLen} = scalar(@{@{$self->{data}->{category}}[0]->{module}});
     } else {
@@ -63,7 +63,7 @@ sub new {
 
 sub hasNextCat {
     my ($self) = @_;
-    
+
     if($self->{currCat} + 1 >= $self->{catLen}) {
         return 0;
     }
@@ -72,12 +72,12 @@ sub hasNextCat {
 
 sub getNextCat {
     my ($self) = @_;
-    
+
     $self->{currCat}++;
     if($self->{currCat} >= $self->{catLen}) {
         return 0;
     }
-    
+
     # Reset the Module Count and Mod length for new Category
     $self->{currMod} = -1;
     if(ref(@{$self->{data}->{category}}[$self->{currCat}]->{module}) eq "ARRAY") {
@@ -87,7 +87,7 @@ sub getNextCat {
     }
 
     my $tmp = @{$self->{data}->{category}}[$self->{currCat}];
-    
+
     return $tmp;
 }
 

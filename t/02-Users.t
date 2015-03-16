@@ -4,10 +4,10 @@ use warnings FATAL => 'all';
 use Test::More;
 
 BEGIN {
-    use_ok( 'AdminPanel::Shared::Users' ) || print "Users failed!\n";
+    use_ok( 'ManaTools::Shared::Users' ) || print "Users failed!\n";
 }
 
-    ok( my $o = AdminPanel::Shared::Users->new({user_face_dir => '/tmp'}), 'create');
+    ok( my $o = ManaTools::Shared::Users->new({user_face_dir => '/tmp'}), 'create');
     ok( my $facedir = $o->facedir(), 'facedir' );
     diag "facedir got: < " . $facedir . " >";
     ok( my $userfacedir = $o->userfacedir(), 'userfacedir' );

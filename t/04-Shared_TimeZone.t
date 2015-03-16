@@ -6,10 +6,10 @@ use Data::Dumper;
 use Time::Piece;
 
 BEGIN {
-    use_ok( 'AdminPanel::Shared::TimeZone' ) || print "AdminPanel::Shared::TimeZone failed!\n";
+    use_ok( 'ManaTools::Shared::TimeZone' ) || print "ManaTools::Shared::TimeZone failed!\n";
 }
 
-    ok( my $tz = AdminPanel::Shared::TimeZone->new(), 'create');
+    ok( my $tz = ManaTools::Shared::TimeZone->new(), 'create');
     is( $tz->get_timezone_prefix(), '/usr/share/zoneinfo', 'get_timezone_prefix' );
     ok (my @l = $tz->getTimeZones(), 'getTimeZones');
     ok (my $h = $tz->readConfiguration(), 'readConfiguration');

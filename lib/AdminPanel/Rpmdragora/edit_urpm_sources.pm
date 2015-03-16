@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Rpmdragora::edit_urpm_sources;
+package ManaTools::Rpmdragora::edit_urpm_sources;
 #*****************************************************************************
 #
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -35,13 +35,13 @@ use MDK::Common::File qw(cat_ output);
 use MDK::Common::DataStructure qw(member put_in_hash uniq);
 use MDK::Common::Various qw(to_bool);
 
-use AdminPanel::Shared;
-use AdminPanel::Shared::Locales;
-use AdminPanel::rpmdragora;
-use AdminPanel::Rpmdragora::init;
-use AdminPanel::Rpmdragora::open_db;
-use AdminPanel::Rpmdragora::formatting;
-use AdminPanel::Shared::GUI;
+use ManaTools::Shared;
+use ManaTools::Shared::Locales;
+use ManaTools::rpmdragora;
+use ManaTools::Rpmdragora::init;
+use ManaTools::Rpmdragora::open_db;
+use ManaTools::Rpmdragora::formatting;
+use ManaTools::Shared::GUI;
 use URPM::Signature;
 use urpm::media;
 use urpm::download;
@@ -65,7 +65,7 @@ my %col = (
     },
 );
 
-my $loc = AdminPanel::rpmdragora::locale();
+my $loc = ManaTools::rpmdragora::locale();
 
 sub get_medium_type {
     my ($medium) = @_;
@@ -142,7 +142,7 @@ sub easy_add_callback_with_mirror() {
     #- cooker and community don't have update sources
     my $want_base_distro = _want_base_distro();
     defined $want_base_distro or return 0;
-    my $distro = $AdminPanel::rpmdragora::mageia_release;
+    my $distro = $ManaTools::rpmdragora::mageia_release;
     my ($mirror) = choose_mirror($urpm, message =>
         $loc->N("This will attempt to install all official sources corresponding to your
 distribution (%s).\n
@@ -1302,7 +1302,7 @@ sub keys_callback() {
     };
 
     my $add_key = sub {
-        my $sh_gui = AdminPanel::Shared::GUI->new();
+        my $sh_gui = ManaTools::Shared::GUI->new();
         my $item = $mediaTbl->selectedItem();
         if ($item) {
             $current_medium = $item->label();
@@ -1331,7 +1331,7 @@ sub keys_callback() {
     };
 
     my $remove_key = sub {
-        my $sh_gui = AdminPanel::Shared::GUI->new();
+        my $sh_gui = ManaTools::Shared::GUI->new();
         my $keyItem   = $keyTbl->selectedItem();
         my $mediaItem = $mediaTbl->selectedItem();
         if ($keyItem && $mediaItem) {
@@ -1467,7 +1467,7 @@ sub readMedia {
         ## NOTE anaselli: next lines add check icon to cells, but they are 8x8, a dimension should
         ##      be evaluated by font size, so disabled atm
 #         my $cell = $item->cell(0); # Checked
-#         my $checkedIcon = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Check_8x8.png');
+#         my $checkedIcon = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/Check_8x8.png');
 #
 #         $cell->setIconName($checkedIcon) if (!$_->{ignore});
 #         $cell    = $item->cell(1); # Updates
@@ -1675,8 +1675,8 @@ sub mainwindow() {
 
     $hbox = $factory->createHBox( $vbox_commands );
     ## TODO icon and label for ncurses
-    my $upIcon     = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Up_16x16.png');
-    my $downIcon   = File::ShareDir::dist_file(AdminPanel::Shared::distName(), 'images/Down_16x16.png');
+    my $upIcon     = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/Up_16x16.png');
+    my $downIcon   = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/Down_16x16.png');
     my $upButton   = $factory->createPushButton($factory->createHBox($hbox), $loc->N("Up"));
     my $downButton = $factory->createPushButton($factory->createHBox($hbox), $loc->N("Down"));
     $upButton->setIcon($upIcon);
@@ -1725,7 +1725,7 @@ sub mainwindow() {
                 my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
-                my $sh_gui = AdminPanel::Shared::GUI->new();
+                my $sh_gui = ManaTools::Shared::GUI->new();
                 $sh_gui->AboutDialog({ name => "Rpmdragora",
                                              version => $VERSION,
                          credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),

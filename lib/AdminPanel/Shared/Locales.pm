@@ -1,16 +1,16 @@
 # vim: set et ts=4 sw=4:
-package AdminPanel::Shared::Locales;
+package ManaTools::Shared::Locales;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Shared::Locales - Class to manage locales
+ManaTools::Shared::Locales - Class to manage locales
 
 =head1 SYNOPSIS
 
-use AdminPanel::Shared::Locales;
+use ManaTools::Shared::Locales;
 
-my $obj = AdminPanel::Shared::Locales->new(domain_name => 'this_domain');
+my $obj = ManaTools::Shared::Locales->new(domain_name => 'this_domain');
 
 print $obj->N("test string %d", 1) . "\n";
 
@@ -23,7 +23,7 @@ This class wraps Locale::gettext to manage localization
 
 You can find documentation for this module with the perldoc command:
 
-perldoc AdminPanel::Shared::Locales
+perldoc ManaTools::Shared::Locales
 
 =head1 SEE ALSO
 
@@ -68,7 +68,7 @@ use Text::Iconv;
 
 =head3 INPUT
 
-    hash ref containing 
+    hash ref containing
         domain_name: gettext domain name (default mpan)
         dir_name:    gettext optional catalog directory (default undef)
         codeset:     gettext codeset (default UTF8)
@@ -88,16 +88,16 @@ has 'domain_name' => (
 
 has 'dir_name' => (
     is      => 'rw',
-    default => undef, 
+    default => undef,
 );
 
 has 'codeset' => (
     is      => 'rw',
-    default => 'UTF8', 
+    default => 'UTF8',
 );
 
 has 'domain' => (
-    is      => 'rw', 
+    is      => 'rw',
     init_arg  => undef,
 );
 
@@ -153,9 +153,9 @@ sub BUILD {
 =cut
 
 #=============================================================
-sub P {    
+sub P {
     my ($self, $s_singular, $s_plural, $nb, @para) = @_;
-    
+
     sprintf($self->domain->nget($s_singular, $s_plural, $nb), @para);
 }
 
@@ -167,7 +167,7 @@ sub P {
 
     $self : this object
     $s:     msg id
-    
+
 =head3 OUTPUT
 
     locale string
@@ -180,8 +180,8 @@ sub P {
 
 #=============================================================
 sub N {
-    my ($self, $s, @para) = @_; 
-    
+    my ($self, $s, @para) = @_;
+
     sprintf($self->domain->get($s), @para);
 }
 
@@ -193,7 +193,7 @@ sub N {
 
     $self : this object
     $s:     msg id
-    
+
 =head3 OUTPUT
 
     msg id
@@ -207,8 +207,8 @@ sub N {
 #=============================================================
 sub N_ {
     my $self = shift;
-    
-    $_[0]; 
+
+    $_[0];
 }
 
 
@@ -238,7 +238,7 @@ sub from_utf8 {
     my $converter = Text::Iconv->new("utf-8", undef);
     my $converted = $converter->convert($s);
 
-    return $converted; 
+    return $converted;
 }
 
 
@@ -262,13 +262,13 @@ sub from_utf8 {
 =cut
 
 #=============================================================
-sub to_utf8 { 
+sub to_utf8 {
     my ($self, $s) = @_;
 
     my $converter = Text::Iconv->new(undef, "utf-8");
     my $converted = $converter->convert($s);
 
-    return $converted; 
+    return $converted;
 }
 
 

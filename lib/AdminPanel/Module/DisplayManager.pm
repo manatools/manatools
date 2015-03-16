@@ -18,7 +18,7 @@
 #
 #*****************************************************************************
 
-package AdminPanel::Module::DisplayManager;
+package ManaTools::Module::DisplayManager;
 
 use Modern::Perl '2011';
 use autodie;
@@ -28,9 +28,9 @@ use English;
 use utf8;
 
 use yui;
-use AdminPanel::Shared qw(trim apcat);
-use AdminPanel::Shared::GUI;
-# use AdminPanel::Shared::DisplayManager;
+use ManaTools::Shared qw(trim apcat);
+use ManaTools::Shared::GUI;
+# use ManaTools::Shared::DisplayManager;
 
 # TODROP but provides network::network
 use lib qw(/usr/lib/libDrakX);
@@ -38,7 +38,7 @@ use network::network;
 use MDK::Common::System qw(getVarsFromSh addVarsInSh);
 use MDK::Common::Func qw(find);
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 
 has '+icon' => (
@@ -120,14 +120,14 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'drakdm') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'drakdm') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui( AdminPanel::Shared::GUI->new() );
+    $self->sh_gui( ManaTools::Shared::GUI->new() );
 }
 
 #=============================================================
@@ -189,7 +189,7 @@ sub ask_for_X_restart {
 sub _manageProxyDialog {
     my $self = shift;
 
-    ## TODO fix for adminpanel
+    ## TODO fix for manatools
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
@@ -280,7 +280,7 @@ sub _manageProxyDialog {
                     }
                 );
             }elsif ($widget == $okButton) {
-                my $current_choice = AdminPanel::Shared::trim($rb_group->currentButton()->label());
+                my $current_choice = ManaTools::Shared::trim($rb_group->currentButton()->label());
                 $current_choice =~s/\&//g;
                 addVarsInSh($self->conffile, { DISPLAYMANAGER => lc($current_choice) } );
                 $self->ask_for_X_restart();

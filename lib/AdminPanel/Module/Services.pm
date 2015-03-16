@@ -1,17 +1,17 @@
 # vim: set et ts=4 sw=4:
 
-package AdminPanel::Module::Services;
+package ManaTools::Module::Services;
 
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-AdminPanel::Module::Services - This module aims to manage service
+ManaTools::Module::Services - This module aims to manage service
                                with GUI
 
 =head1 SYNOPSIS
 
-    my $serviceMan = AdminPanel::Module::Services->new();
+    my $serviceMan = ManaTools::Module::Services->new();
     $serviceMan->start();
 
 =head1 DESCRIPTION
@@ -26,11 +26,11 @@ AdminPanel::Module::Services - This module aims to manage service
 
     You can find documentation for this module with the perldoc command:
 
-    perldoc AdminPanel::Module::Services
+    perldoc ManaTools::Module::Services
 
 =head1 SEE ALSO
 
-   AdminPanel::Module
+   ManaTools::Module
 
 =head1 AUTHOR
 
@@ -64,14 +64,14 @@ use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::DataStructure qw(member);
 
 use yui;
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Locales;
-use AdminPanel::Shared::Services;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::Services;
 
 
 use File::Basename;
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 has '+icon' => (
     default => "/usr/share/mcc/themes/default/service-mdk.png",
@@ -132,7 +132,7 @@ has 'sh_gui' => (
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui(AdminPanel::Shared::GUI->new() );
+    $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
 has 'sh_services' => (
@@ -145,7 +145,7 @@ has 'sh_services' => (
 sub _SharedServicesInitialize {
     my $self = shift();
 
-    $self->sh_services(AdminPanel::Shared::Services->new() );
+    $self->sh_services(ManaTools::Shared::Services->new() );
 }
 
 
@@ -159,7 +159,7 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 

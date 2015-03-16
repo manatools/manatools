@@ -1,24 +1,24 @@
 # vim: set et ts=4 sw=4:
 #    Copyright 2012 Steven Tucker
 #
-#    This file is part of AdminPanel
+#    This file is part of ManaTools
 #
-#    AdminPanel is free software: you can redistribute it and/or modify
+#    ManaTools is free software: you can redistribute it and/or modify
 #    it under the terms of the GNU General Public License as published by
 #    the Free Software Foundation, either version 2 of the License, or
 #    (at your option) any later version.
 #
-#    AdminPanel is distributed in the hope that it will be useful,
+#    ManaTools is distributed in the hope that it will be useful,
 #    but WITHOUT ANY WARRANTY; without even the implied warranty of
 #    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
 #    GNU General Public License for more details.
 #
 #    You should have received a copy of the GNU General Public License
-#    along with AdminPanel.  If not, see <http://www.gnu.org/licenses/>.
+#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 
 #Class Module
-package AdminPanel::Module;
+package ManaTools::Module;
 
 use Moose;
 
@@ -48,7 +48,7 @@ sub create {
     my $obj;
     if ( exists $params{-CLASS} ) {
         my $driver = $params{-CLASS};
-        
+
         eval {
             my $pkg = $driver;
             $pkg =~ s/::/\//g;
@@ -62,7 +62,7 @@ sub create {
         }
     }
     else {
-        $obj = new AdminPanel::Module(@_);
+        $obj = new ManaTools::Module(@_);
     }
     return $obj;
 }
@@ -153,7 +153,7 @@ sub start {
         my $err = yui::YUI::app()->runInTerminal( $self->{launch} . " --ncurses");
         if ($err == -1) {
             system($self->{launch});
-        }   
+        }
     }
 }
 

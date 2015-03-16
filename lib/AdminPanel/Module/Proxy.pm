@@ -18,7 +18,7 @@
 #
 #*****************************************************************************
 
-package AdminPanel::Module::Proxy;
+package ManaTools::Module::Proxy;
 
 use Modern::Perl '2011';
 use autodie;
@@ -28,16 +28,16 @@ use English;
 use utf8;
 
 use yui;
-use AdminPanel::Shared qw(trim);
-use AdminPanel::Shared::GUI;
-use AdminPanel::Shared::Proxy;
+use ManaTools::Shared qw(trim);
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::Proxy;
 
 # TODROP but provides network::network
 use lib qw(/usr/lib/libDrakX);
 use network::network;
 use MDK::Common::System qw(getVarsFromSh);
 
-extends qw( AdminPanel::Module );
+extends qw( ManaTools::Module );
 
 
 has '+icon' => (
@@ -89,14 +89,14 @@ sub _localeInitialize {
     my $self = shift();
 
     # TODO fix domain binding for translation
-    $self->loc(AdminPanel::Shared::Locales->new(domain_name => 'drakx-net') );
+    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'drakx-net') );
     # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
 sub _SharedUGUIInitialize {
     my $self = shift();
 
-    $self->sh_gui( AdminPanel::Shared::GUI->new() );
+    $self->sh_gui( ManaTools::Shared::GUI->new() );
 }
 
 #=============================================================
@@ -243,7 +243,7 @@ sub validate {
 sub _manageProxyDialog {
     my $self = shift;
 
-    ## TODO fix for adminpanel
+    ## TODO fix for manatools
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog

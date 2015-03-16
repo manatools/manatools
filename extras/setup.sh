@@ -1,7 +1,7 @@
 #!/bin/bash
 # vim: set et ts=4 sw=4:
 
-apanel=`rpm --eval %perl_privlib`/AdminPanel
+apanel=`rpm --eval %perl_privlib`/ManaTools
 
 function check_root_permissions
 {
@@ -13,17 +13,17 @@ function check_root_permissions
 
 function uninstall
 {
-   echo "== Uninstalling AdminPanel..."
+   echo "== Uninstalling ManaTools..."
    if [ -L $apanel ]
    then
       unlink $apanel
    fi
-   
-   if [ -f /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.adminpanel.policy ]
+
+   if [ -f /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.manatools.policy ]
    then
-      rm /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.adminpanel.policy
+      rm /usr/share/polkit-1/actions/org.mageia.policykit.pkexec.manatools.policy
    fi
-   
+
    if [ -f /usr/bin/apanel.pl ]
    then
       unlink /usr/bin/apanel.pl
@@ -45,11 +45,11 @@ function uninstall_xhost_conf {
 }
 
 function setup {
-   echo "== Installing AdminPanel..."
+   echo "== Installing ManaTools..."
    pushd .
       cd ..
-      cp extras/org.mageia.policykit.pkexec.adminpanel.policy /usr/share/polkit-1/actions/
-      ln -s $PWD/AdminPanel `rpm --eval %perl_privlib`
+      cp extras/org.mageia.policykit.pkexec.manatools.policy /usr/share/polkit-1/actions/
+      ln -s $PWD/ManaTools `rpm --eval %perl_privlib`
       ln -s $PWD/apanel.pl /usr/bin
    popd
    echo "== Done"
@@ -57,8 +57,8 @@ function setup {
 
 function usage {
 	echo "Usage:"
-	echo "--remove      uninstall AdminPanel references"
-	echo "--install     install AdminPanel references"
+	echo "--remove      uninstall ManaTools references"
+	echo "--install     install ManaTools references"
     echo "--privilege   define the authentication method to gain privileges (NOT IMPLEMENTED YET)"
 }
 
