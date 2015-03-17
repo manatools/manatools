@@ -495,9 +495,7 @@ sub _adminClockPanel {
                             license => $self->loc->N("GPLv2"),
                             description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
                             authors => $self->loc->N("<h3>Developers</h3>
-                                                    <ul><li>%s</li>
-                                                        <li>%s</li>
-                                                    </ul>
+                                                    <ul><li>%s</li></ul>
                                                     <h3>Translators</h3>
                                                     <ul><li>%s</li></ul>",
                                                     "Angelo Naselli &lt;anaselli\@linux.it&gt;",
