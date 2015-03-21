@@ -220,11 +220,11 @@ sub _initAllServers {
             restart => 'nfs-common nfs-server',
         },
         {
-            id => 'smb',
-            name => $self->loc->N("Windows Files Sharing (SMB)"),
+            id => 'smbserver',
+            name => $self->loc->N("Windows Files Sharing (CIFS Server)"),
             pkg => 'samba-server',
-            ports => '137/tcp 137/udp 138/tcp 138/udp 139/tcp 139/udp 445/tcp 445/udp 1024:1100/tcp 1024:1100/udp',
-            hide => 1,
+            ports => '137/udp 138/udp 139/tcp 445/tcp',
+            hide => 0,
         },
         {
             id => 'bacula',
