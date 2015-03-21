@@ -222,8 +222,8 @@ sub _initAllServers {
         {
             id => 'smbserver',
             name => $self->loc->N("Windows Files Sharing (CIFS Server)"),
-            pkg => 'samba-server',
-            ports => '137/udp 138/udp 139/tcp 445/tcp',
+            pkg => 'samba-server swat',
+            ports => '137/udp 138/udp 139/tcp 445/tcp 901/tcp 389/tcp',
             hide => 0,
         },
         {
