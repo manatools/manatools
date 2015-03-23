@@ -42,7 +42,7 @@ use yui;
 
 use Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT = qw(ignore_rpmnew dialog_rpmnew do_merge_if_needed);
+our @EXPORT = qw(ignore_rpmnew rpmnew_dialog do_merge_if_needed);
 
 my $loc = ManaTools::rpmdragora::locale();
 
