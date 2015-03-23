@@ -49,12 +49,17 @@ my $loc = ManaTools::rpmdragora::locale();
 # /var/lib/nfs/etab /var/lib/nfs/rmtab /var/lib/nfs/xtab /var/cache/man/whatis
 my %ignores_rpmnew = map { $_ => 1 } qw(
     /etc/adjtime
+    /etc/crypttab
     /etc/fstab
+    /etc/hosts
     /etc/group
     /etc/ld.so.conf
     /etc/localtime
     /etc/modules
+    /etc/gshadow
     /etc/passwd
+    /etc/resolv.conf
+    /etc/shadow
     /etc/security/fileshare.conf
     /etc/shells
     /etc/sudoers
