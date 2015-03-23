@@ -42,7 +42,7 @@ use yui;
 
 use Exporter;
 our @ISA = qw(Exporter);
-our @EXPORT = qw(rpmnew_dialog do_merge_if_needed);
+our @EXPORT = qw(ignore_rpmnew dialog_rpmnew do_merge_if_needed);
 
 my $loc = ManaTools::rpmdragora::locale();
 
@@ -73,6 +73,11 @@ my %ignores_rpmnew = map { $_ => 1 } qw(
     /etc/sysconfig/usb
     /etc/sysconfig/xinetd
 );
+
+sub ignore_rpmnew {
+  my ($conf_file) = @_;
+  $ignores_rpmnew{$conf_file};
+}
 
 
 #=============================================================

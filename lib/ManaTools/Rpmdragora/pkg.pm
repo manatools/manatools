@@ -965,7 +965,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  foreach my $id (@rpms_upgrade) {
                                     my $pkg = $urpm->{depslist}[$id];
                                     next if $pkg->arch eq 'src';
-                                    $pkg2rpmnew{$pkg->fullname} = [ grep { -r "$_.rpmnew" || -r "$_.rpmsave" } $pkg->conf_files ];
+                                    $pkg2rpmnew{$pkg->fullname} = [ grep { (-r "$_.rpmnew" || -r "$_.rpmsave") && !ignore_rpmnew($_) } $pkg->conf_files ];
                                  }
                                  statusbar_msg_remove($id);
                                  rpmnew_dialog($loc->N("The installation is finished; everything was installed correctly.
