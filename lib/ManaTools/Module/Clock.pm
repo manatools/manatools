@@ -332,7 +332,7 @@ sub _adminClockPanel {
                 # (1) write new TZ settings
                 # (2) write new NTP settigs if checked
                 # (3) use date time fields if NTP is not checked
-
+$DB::single = 1;
                 my $old_conf = $self->sh_tz->readConfiguration();
                 if ($info->{time_zone}->{UTC} != $old_conf->{UTC} ||
                     $info->{time_zone}->{ZONE} ne $old_conf->{ZONE}) {
@@ -351,8 +351,19 @@ sub _adminClockPanel {
                 if ($ntpFrame->value()) {
                     # (2)
                     if ($info->{ntp_server}) {
-                        eval { $self->sh_tz->setNTPServer($info->{ntp_server}) };
+                        eval { $self->sh_tz->setNTPConfiguration($info->{ntp_server}) };
                         my $errors = $@;
+                        if ($errors) {
+                            # TODO should finish and not continue for this error
+                            $finished = 0;
+                            $self->sh_gui->warningMsgBox({
+                                title =>  $self->loc->N("set NTP Configuration failed"),
+                                text  => "$errors",
+                                richtext => 1,
+                            });
+                        }
+                        eval { $self->sh_tz->enableAndStartNTP($info->{ntp_server}) };
+                        $errors = $@;
                         if ($errors) {
                             $finished = 0;
                             $self->sh_gui->warningMsgBox({
