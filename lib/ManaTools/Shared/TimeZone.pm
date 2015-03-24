@@ -53,6 +53,8 @@ use diagnostics;
 use strict;
 
 use Moose;
+use English;
+use Sys::Syslog;
 
 use DateTime::TimeZone;
 use Net::DBus;
@@ -91,7 +93,10 @@ has 'timezone_prefix' => (
 =head3 ntp_configuration_file
 
     optional parameter to set the ntp server configuration file,
-    default value is /etc/[chrony|ntp].conf
+    default value is evaluated in the following order
+    /etc/chrony.conf if found
+    /etc/ntp.conf if found and not found chrony
+    /etc/systemd/timesyncd.conf default
 
 =cut
 
@@ -106,10 +111,11 @@ has 'ntp_configuration_file' => (
 sub _ntp_configuration_file_init {
     my $self = shift;
 
-    if (-f  "/etc/chrony.conf") {
-        return "/etc/chrony.conf";
-    }
-    return "/etc/ntp.conf";
+    return "/etc/chrony.conf" if (-f  "/etc/chrony.conf");
+
+    return "/etc/ntp.conf" if (-f "/etc/ntp.conf");
+
+    return "/etc/systemd/timesyncd.conf";
 }
 
 #=============================================================
@@ -139,24 +145,29 @@ has 'ntp_conf_dir' => (
 =head3 ntp_program
 
     optional parameter to set the ntp program that runs into the
-    system, default value is [chrony|ntp]
+    system, available value are chronyd, ntpd and systemd-timesyncd.
+
+    Default value is evaluate by configuration file found in the
+    system, fallback choice is systemd-timesyncd.
 
 =cut
 
 #=============================================================
 has 'ntp_program' => (
-    is  => 'rw',
-    isa => 'Str',
+    is      => 'rw',
+    isa     => 'Str',
+    lazy    => 1,
     builder => '_ntp_program_init',
 );
 
 sub _ntp_program_init {
     my $self = shift;
 
-    if (-f  "/etc/chrony.conf") {
-        return "chrony";
-    }
-    return "ntp";
+    return "chronyd" if ($self->ntp_configuration_file() eq "/etc/chrony.conf");
+
+    return "ntpd" if ($self->ntp_configuration_file() eq "/etc/ntp.conf");
+
+    return "systemd-timesyncd" if ($self->ntp_configuration_file() eq "/etc/systemd/timesyncd.conf");
 }
 
 #=============================================================
@@ -234,7 +245,7 @@ has 'servername_config_suffix' => (
 sub _servername_config_suffix_init {
     my $self = shift;
 
-    return " iburst" if ($self->ntp_program eq "chrony");
+    return " iburst" if ($self->ntp_program eq "chronyd");
 
     return "";
 }
@@ -530,6 +541,53 @@ sub getLocalRTC {
     return $object->Get("org.freedesktop.timedate1", 'LocalRTC') ? 1 : 0;
 }
 
+#=============================================================
+
+=head2 setEmbeddedNTP
+
+=head3 INPUT
+
+    $enable: enable/disable systemd NTP service
+
+=head3 DESCRIPTION
+
+    This method enables/disables and starts/stops systemd NTP service,
+
+=cut
+
+#=============================================================
+sub setEmbeddedNTP {
+    my ($self, $enable) = @_;
+
+    my $object   = $self->dbus_timedate1_object;
+    $object->SetNTP(($enable ? 1 : 0), 1);
+}
+
+#=============================================================
+
+=head2 getEmbeddedNTP
+
+=head3 OUTPUT
+
+    $NTP: if systemd NTP is enabled
+
+=head3 DESCRIPTION
+
+    This method returns the systemd NTP service is running
+
+=cut
+
+#=============================================================
+sub getEmbeddedNTP {
+    my ($self) = @_;
+
+    my $object       = $self->dbus_timedate1_object;
+
+    return $object->Get("org.freedesktop.timedate1", 'NTP') || "";
+}
+
+
+
 
 #=============================================================
 
@@ -700,72 +758,157 @@ sub ntpCurrentServer {
 sub isNTPRunning {
     my $self = shift;
 
-    # TODO is that valid for any ntp program? adding ntp_service_name parameter
-    my $ntpd = $self->ntp_program . 'd';
+    $DB::single = 1;
 
-    return $self->sh_services->is_service_running($ntpd);
+    my $ntpd      = $self->ntp_program;
+    my $isRunning = $self->sh_services->is_service_running($ntpd);
+
+    if (!$isRunning) {
+        my @ntp_service = ("chronyd", "ntpd");
+        foreach ( @ntp_service ) {
+            $ntpd = $_;
+            $isRunning = $self->sh_services->is_service_running($ntpd);
+            last if $isRunning;
+        }
+        if ($isRunning) {
+            $self->ntp_program($ntpd);
+            if ($ntpd eq "chronyd") {
+                $self->ntp_configuration_file("/etc/chrony.conf");
+            }
+            elsif ($ntpd eq "ntpd") {
+                $self->ntp_configuration_file("/etc/ntp.conf");
+            }
+        }
+        else {
+            # fallback systemd-timesyncd
+
+            if ($self->getEmbeddedNTP()) {
+                $ntpd = "systemd-timesyncd";
+                $self->ntp_program($ntpd);
+                $self->ntp_configuration_file("/etc/systemd/timesyncd.conf");
+                $isRunning = $self->sh_services->is_service_running($ntpd);
+                # if it is not started you cannot set time with NTP true
+                if (!$isRunning) {
+                     Sys::Syslog::syslog(
+                        'info|local1',
+                        $self->loc->N("%s enabled but stopped - disabling it",
+                            $ntpd
+                        )
+                    );
+                    $self->setEmbeddedNTP(0);
+                }
+            }
+        }
+    }
+
+    return $isRunning;
 }
 
 #=============================================================
 
-=head2 setNTPServer
+=head2 setNTPConfiguration
 
 =head3 INPUT
 
-$server: server address to be configured
+    $server: server address to be configured as NTP server
 
 =head3 DESCRIPTION
 
-This method writes into NTP configuration file new server address
-settings
+    This method writes into NTP configuration file new server address
+    settings (note that root rights are required) or it rises an
+    exception
 
 =cut
 
 #=============================================================
-sub setNTPServer {
+sub setNTPConfiguration {
     my ($self, $server) = @_;
 
     my $f = $self->ntp_configuration_file;
     -f $f or return;
-    return if (!$server);
 
-    # TODO is that valid for any ntp program? adding ntp_service_name parameter
-    my $ntpd = $self->ntp_program . 'd';
-
-    ManaTools::Shared::disable_x_screensaver();
-    if ($self->isNTPRunning()) {
-        $self->sh_services->stopService($ntpd);
-    }
+    die  $self->loc->N("user does not have the rights to change configuration file, skipped")
+        if ($EUID != 0);
 
     my $pool_match = qr/\.pool\.ntp\.org$/;
     my @servers = $server =~ $pool_match  ? (map { "$_.$server" } 0 .. 2) : $server;
 
-    my $added = 0;
-    my $servername_config_suffix = $self->servername_config_suffix ? $self->servername_config_suffix : " ";
-    MDK::Common::File::substInFile {
-        if (/^#?\s*server\s+(\S*)/ && $1 ne '127.127.1.0') {
-            $_ = $added ? $_ =~ $pool_match ? undef : "#server $1\n" : join('', map { "server $_$servername_config_suffix\n" } @servers);
-            $added = 1;
+    if ($self->ntp_program eq "systemd-timesyncd") {
+        my $added = 0;
+        MDK::Common::File::substInFile {
+            if (/^#?\s*NTP=\s+(\S*)/ && $1 ne '127.127.1.0') {
+                $_ = $added ? $_ =~ $pool_match ? undef : "#NTP=$1\n" : join('NTP= ', @servers, "\n");
+                $added = 1;
+            }
+        } $f;
+        if ($self->ntp_program eq "ntpd") {
+            my $ntp_prefix = $self->ntp_conf_dir;
+                MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @servers));
         }
-    } $f;
-    if ($self->ntp_program eq "ntp") {
-        my $ntp_prefix = $self->ntp_conf_dir;
-         MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @servers));
+    }
+    else {
+        my $added = 0;
+        my $servername_config_suffix = $self->servername_config_suffix ? $self->servername_config_suffix : " ";
+        MDK::Common::File::substInFile {
+            if (/^#?\s*server\s+(\S*)/ && $1 ne '127.127.1.0') {
+                $_ = $added ? $_ =~ $pool_match ? undef : "#server $1\n" : join('', map { "server $_$servername_config_suffix\n" } @servers);
+                $added = 1;
+            }
+        } $f;
+        if ($self->ntp_program eq "ntpd") {
+            my $ntp_prefix = $self->ntp_conf_dir;
+                MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @servers));
+        }
     }
 
-    # enable but do not start the service
-    $self->sh_services->set_status($ntpd, 1, 1);
-    if ($ntpd eq "chronyd") {
-        $self->sh_services->startService($ntpd);
-        $ENV{PATH} = "/usr/bin:/usr/sbin";
-        # Wait up to 30s for sync
-        system('/usr/bin/chronyc', 'waitsync', '30', '0.1');
-    } else {
-        $ENV{PATH} = "/usr/bin:/usr/sbin";
-        system('/usr/sbin/ntpdate', $server);
-        $self->sh_services->startService($ntpd);
-    }
+}
 
+#=============================================================
+
+=head2 enableAndStartNTP
+
+=head3 INPUT
+
+    $server: server address to be configured
+
+=head3 DESCRIPTION
+
+    This method writes into NTP configuration file new server address
+    settings
+
+=cut
+
+#=============================================================
+sub enableAndStartNTP {
+    my ($self, $server) = @_;
+
+    my $ntpd = $self->ntp_program;
+
+    ManaTools::Shared::disable_x_screensaver();
+    if ($ntpd eq "systemd-timesyncd") {
+        $self->setEmbeddedNTP(1);
+    }
+    else {
+        if ($self->isNTPRunning()) {
+            $self->sh_services->stopService($ntpd);
+        }
+
+        #if systemd-timesyncd is running has to be stopped and disabled
+        $self->setEmbeddedNTP(0) if ($self->getEmbeddedNTP());
+
+        # enable but do not start the service
+        $self->sh_services->set_status($ntpd, 1, 1);
+        if ($ntpd eq "chronyd") {
+            $self->sh_services->startService($ntpd);
+            $ENV{PATH} = "/usr/bin:/usr/sbin";
+            # Wait up to 30s for sync
+            system('/usr/bin/chronyc', 'waitsync', '30', '0.1');
+        } else {
+            $ENV{PATH} = "/usr/bin:/usr/sbin";
+            system('/usr/sbin/ntpdate', $server) if $server;
+            $self->sh_services->startService($ntpd);
+        }
+    }
     ManaTools::Shared::enable_x_screensaver();
 }
 
@@ -783,11 +926,15 @@ sub setNTPServer {
 sub disableAndStopNTP {
     my $self = shift;
 
-    # TODO is that valid for any ntp program? adding ntp_service_name parameter
-    my $ntpd = $self->ntp_program . 'd';
+    my $ntpd = $self->ntp_program;
 
-    # also stop the service without dont_apply parameter
-    $self->sh_services->set_status($ntpd, 0);
+    if ($ntpd eq "systemd-timesyncd") {
+        $self->setEmbeddedNTP(0);
+    }
+    else {
+        # also stop the service without dont_apply parameter
+        $self->sh_services->set_status($ntpd, 0);
+    }
 }
 
 no Moose;
