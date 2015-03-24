@@ -1,3 +1,5 @@
+	- rpmdragora: - from rpmdrake
+		fix restarting on priority updates (mga#14266)
 	- rpmdragora: filter out critical config files from the
                 .rpm{new,save} handling logic after installing packages
                 (Martin Whitaker, mga#14266)

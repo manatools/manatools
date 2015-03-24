@@ -987,7 +987,7 @@ you may now inspect some in order to take actions:"),
                      );
 
     #- restart rpmdragora if needed, keep command line for that.
-    if ($need_restart && !$exit_code && $something_installed) {
+    if ($need_restart && !$exit_code) {
         Sys::Syslog::syslog('info|local1', "restarting rpmdragora");
         #- it seems to work correctly with exec instead of system, provided we stop timers
         #- added --previous-priority-upgrade to allow checking if yet if
