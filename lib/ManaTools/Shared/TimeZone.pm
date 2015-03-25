@@ -93,10 +93,9 @@ has 'timezone_prefix' => (
 =head3 ntp_configuration_file
 
     optional parameter to set the ntp server configuration file,
-    default value is evaluated in the following order
-    /etc/chrony.conf if found
-    /etc/ntp.conf if found and not found chrony
-    /etc/systemd/timesyncd.conf default
+    it meant to be for testing purpose, do not set or it will
+    be considered as configuration file despite of what the ntp
+    service is.
 
 =cut
 
@@ -105,17 +104,8 @@ has 'timezone_prefix' => (
 has 'ntp_configuration_file' => (
     is  => 'rw',
     isa => 'Str',
-    lazy => 1,
-    builder => '_ntp_configuration_file_init',
 );
 
-sub _ntp_configuration_file_init {
-    my $self = shift;
-
-    my $curr = $self->ntp_program;
-
-    return $self->getNTPServiceConfig($curr);
-}
 
 #=============================================================
 
@@ -856,7 +846,9 @@ Returns the current ntp server address read from configuration file
 sub ntpCurrentServer {
     my $self = shift;
 
-    MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($self->ntp_configuration_file);
+    my $configFile = $self->ntp_configuration_file || $self->getNTPServiceConfig($self->ntp_program);
+
+    MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($configFile);
 }
 
 #=============================================================
@@ -932,11 +924,12 @@ sub isNTPRunning {
 sub setNTPConfiguration {
     my ($self, $server) = @_;
 
-    my $f = $self->ntp_configuration_file;
+    $DB::single = 1;
+    my $f =  $self->ntp_configuration_file || $self->getNTPServiceConfig($self->ntp_program);;
     -f $f or return;
 
     die  $self->loc->N("user does not have the rights to change configuration file, skipped")
-        if ($EUID != 0);
+        if (!(-w $f));
 
     my $pool_match = qr/\.pool\.ntp\.org$/;
     my @servers = $server =~ $pool_match  ? (map { "$_.$server" } 0 .. 2) : $server;
