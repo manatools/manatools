@@ -172,6 +172,45 @@ sub _ntp_program_init {
 
 #=============================================================
 
+=head2 attribute
+
+=head3 ntpServiceConfig
+
+    This RO attribute is a HashRef containing managed ntp
+    service as key and related configuration file.
+
+    Allowed actions:
+        getNTPServiceConfig => retrieves config file from the
+                               given ntp service
+        ntpServiceConfigPairs => Key,Value pairs access
+
+=cut
+
+#=============================================================
+has 'ntpServiceConfig' => (
+    traits    => ['Hash'],
+    default   => sub { {
+        'chronyd'           => '/etc/chrony.conf',
+        'ntpd'              => '/etc/ntp.conf',
+        'systemd-timesyncd' => '/etc/systemd/timesyncd.conf'
+    } },
+    is        => 'ro',
+    isa       => 'HashRef',
+    handles   => {
+        getNTPServiceConfig   => 'get',
+        ntpServiceConfigPairs => 'kv',
+    },
+    init_arg  => undef,
+);
+
+# has 'dmlist' => (
+#     is      => 'rw',
+#     isa     => 'ArrayRef',
+#     builder => '_build_dmlist',
+# );
+
+#=============================================================
+
 =head2 new - optional parameters
 
 =head3 installer_or_livecd
@@ -737,11 +776,29 @@ Returns the current ntp server address read from configuration file
 =cut
 
 #=============================================================
-
 sub ntpCurrentServer {
     my $self = shift;
 
     MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($self->ntp_configuration_file);
+}
+
+#=============================================================
+
+=head2 currentNTPService
+
+=head3 DESCRIPTION
+
+    Returns the current ntp service
+
+=cut
+
+#=============================================================
+sub currentNTPService {
+    my $self = shift;
+
+    my $ntpd = $self->ntp_program;
+
+    return $ntpd;
 }
 
 #=============================================================
@@ -757,8 +814,6 @@ sub ntpCurrentServer {
 #=============================================================
 sub isNTPRunning {
     my $self = shift;
-
-    $DB::single = 1;
 
     my $ntpd      = $self->ntp_program;
     my $isRunning = $self->sh_services->is_service_running($ntpd);
