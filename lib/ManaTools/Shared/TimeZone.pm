@@ -165,7 +165,7 @@ sub _ntp_program_init {
     # looks for a running service from the configured ones,
     # if none is running chooses the first of the list
     my $list = $self->ntpServiceList();
-    return $self->loc->N("No NTP services") if !$list;
+    return "" if !$list;
 
     my $ntpd;
     my $isRunning = 0;
@@ -891,43 +891,19 @@ sub isNTPRunning {
     my $self = shift;
 
     my $ntpd      = $self->ntp_program;
-    my $isRunning = $self->sh_services->is_service_running($ntpd);
+    my $isRunning = $ntpd ? $self->sh_services->is_service_running($ntpd) : 0;
 
     if (!$isRunning) {
-        my @ntp_service = ("chronyd", "ntpd");
-        foreach ( @ntp_service ) {
-            $ntpd = $_;
-            $isRunning = $self->sh_services->is_service_running($ntpd);
-            last if $isRunning;
-        }
-        if ($isRunning) {
-            $self->ntp_program($ntpd);
-            if ($ntpd eq "chronyd") {
-                $self->ntp_configuration_file("/etc/chrony.conf");
-            }
-            elsif ($ntpd eq "ntpd") {
-                $self->ntp_configuration_file("/etc/ntp.conf");
-            }
-        }
-        else {
-            # fallback systemd-timesyncd
-
-            if ($self->getEmbeddedNTP()) {
-                $ntpd = "systemd-timesyncd";
-                $self->ntp_program($ntpd);
-                $self->ntp_configuration_file("/etc/systemd/timesyncd.conf");
-                $isRunning = $self->sh_services->is_service_running($ntpd);
-                # if it is not started you cannot set time with NTP true
-                if (!$isRunning) {
-                     Sys::Syslog::syslog(
-                        'info|local1',
-                        $self->loc->N("%s enabled but stopped - disabling it",
-                            $ntpd
-                        )
-                    );
-                    $self->setEmbeddedNTP(0);
-                }
-            }
+        # NOTE fix systemd-timesyncd problem that prevents to set time
+        if ($self->getEmbeddedNTP()) {
+            $ntpd = "systemd-timesyncd";
+            Sys::Syslog::syslog(
+                'info|local1',
+                $self->loc->N("%s enabled but stopped - disabling it",
+                    $ntpd
+                )
+            );
+            $self->setEmbeddedNTP(0);
         }
     }
 

@@ -16,10 +16,10 @@ BEGIN {
     diag Dumper($h);
     ok (my $currService = $tz->ntp_program(), 'ntp_program');
     diag "ntp_program got: < " . $currService . " >";
+    ok (my $a = ($tz->isNTPRunning() ? "running" : "not running"), 'isNTPRunning');
+    diag "Check if " . $currService . " is running got: < " . $a . " >";
     ok (my $s = $tz->ntpCurrentServer(), 'currentNTPServer');
     diag "ntpCurrentServer got: < " . ($s ? $s : "none") . " >";
-    ok (my $a = ($tz->isNTPRunning() ? "running" : "not running"), 'isNTPRunning');
-    diag "isNTPRunning got: < " . $a . " >";
     ok (my @pairs = $tz->ntpServiceConfigPairs(), 'ntpServiceConfigPairs');
     diag Dumper(@pairs);
     for my $pair (@pairs) {
