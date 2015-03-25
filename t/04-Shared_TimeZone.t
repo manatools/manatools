@@ -18,6 +18,11 @@ BEGIN {
     diag "ntpCurrentServer got: < " . ($s ? $s : "none") . " >";
     ok (my $a = ($tz->isNTPRunning() ? "running" : "not running"), 'isNTPRunning');
     diag "isNTPRunning got: < " . $a . " >";
+    ok (my @pairs = $tz->ntpServiceConfigPairs(), 'ntpServiceConfigPairs');
+    diag Dumper(@pairs);
+    for my $pair (@pairs) {
+        is ($tz->getNTPServiceConfig($pair->[0]), $pair->[1], "ntpServiceConfigPairs $pair->[0]");
+    }
 
     SKIP: {
         #remember to skip the right number of tests
