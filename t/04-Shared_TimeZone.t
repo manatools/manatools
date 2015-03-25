@@ -14,6 +14,11 @@ BEGIN {
     ok (my @l = $tz->getTimeZones(), 'getTimeZones');
     ok (my $h = $tz->readConfiguration(), 'readConfiguration');
     diag Dumper($h);
+    ok (my $services = $tz->ntpServiceList(), 'ntpServiceList');
+    diag Dumper($services);
+    ok ($tz->refreshNTPServiceList(), 'refreshNTPServiceList');
+    ok ($services = $tz->ntpServiceList(), 'ntpServiceList after refresh');
+    diag Dumper($services);
     ok (my $currService = $tz->ntp_program(), 'ntp_program');
     diag "ntp_program got: < " . $currService . " >";
     ok (my $a = ($tz->isNTPRunning() ? "running" : "not running"), 'isNTPRunning');
@@ -25,11 +30,6 @@ BEGIN {
     for my $pair (@pairs) {
         is ($tz->getNTPServiceConfig($pair->[0]), $pair->[1], "ntpServiceConfigPairs $pair->[0]");
     }
-    ok (my $services = $tz->ntpServiceList(), 'ntpServiceList');
-    diag Dumper($services);
-    ok ($tz->refreshNTPServiceList(), 'refreshNTPServiceList');
-    ok ($services = $tz->ntpServiceList(), 'ntpServiceList after refresh');
-    diag Dumper($services);
 
     SKIP: {
         #remember to skip the right number of tests
