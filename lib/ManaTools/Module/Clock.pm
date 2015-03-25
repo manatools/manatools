@@ -220,16 +220,37 @@ sub _adminClockPanel {
     my $optFactory = yui::YUI::optionalWidgetFactory;
     die "calendar widgets missing" if (!$optFactory->hasDateField() || !$optFactory->hasTimeField());
 
+    ## default value
+    my $info = $self->_restoreValues();
+
+#    MainDialog
+# +-------------------------------+
+# |  VBOX                         |
+# |  +-------------------------+  |
+# |  | +---------------------+ |  |
+# |  | |________HBOX_________| |  |
+# |  |                         |  |
+# |  | +---------------------+ |  |
+# |  | |________HBOX_________| |  |
+# |  |                         |  |
+# |  | +---------------------+ |  |
+# |  | |________HBOX_________| |  |
+# |  +-------------------------+  |
+# |                               |
+# +-------------------------------+
+
     # Create Dialog
     my $dialog  = $factory->createMainDialog;
 #     my $minSize = $factory->createMinSize($dialog, 40, 15);
 
     # Start Dialog layout:
     my $layout = $factory->createVBox($dialog);
-    my $align  = $factory->createLeft($layout);
 
-    my $frame   = $factory->createFrame($align, $self->loc->N("Setting date and time"));
-    my $hbox = $factory->createHBox($frame);
+    ### first line Setting Date and Time
+    my $hbox = $factory->createHBox($layout);
+    my $align  = $factory->createLeft($hbox);
+    my $dateTimeFrame = $factory->createFrame($align, $self->loc->N("Setting date and time"));
+    $hbox = $factory->createHBox($dateTimeFrame);
 
     my $dateField = $optFactory->createDateField($hbox, "");
     $factory->createHSpacing($hbox, 3.0);
@@ -237,73 +258,86 @@ sub _adminClockPanel {
     $factory->createHSpacing($hbox, 1.0);
     $factory->createVSpacing($hbox, 1.0);
     $factory->createVSpacing($layout, 1.0);
+    $dateField->setValue($info->{date});
+    $timeField->setValue($info->{time});
 
-    $align  = $factory->createLeft($layout);
-    $hbox = $factory->createHBox($align);
-    my $ntpFrame = $factory->createCheckBoxFrame($hbox, $self->loc->N("Enable Network Time Protocol"), 0);
+    ### second line setting NTP
+    $hbox = $factory->createHBox($layout);
+    $align  = $factory->createLeft($hbox);
+    my $ntpFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Enable Network Time Protocol"), 0);
 
     my $hbox1 = $factory->createHBox($ntpFrame);
     my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change &NTP server"));
     $factory->createHSpacing($hbox1, 1.0);
+    my $ntpService = $factory->createComboBox($hbox1, "", );
+    my $itemColl = new yui::YItemCollection;
+    my $sel_serv = $self->sh_tz->currentNTPService();
+    foreach my $serv (@{$self->sh_tz->ntpServiceList()}) {
+            my $item = new yui::YItem ($serv, 0);
+            $item->setSelected(1) if ($sel_serv && $sel_serv eq $serv);
+            $itemColl->push($item);
+            $item->DISOWN();
+    }
+    $ntpService->addItems($itemColl);
+    $ntpService->setNotify(1);
+
+
     $factory->createLabel($hbox1,$self->loc->N("Current:"));
     $factory->createHSpacing($hbox1, 1.0);
+#     my $ntpLabel = $factory->createLabel($hbox1, $self->sh_tz->currentNTPService());
+#     $factory->createHSpacing($hbox1, 1.0);
     my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+    if ($info->{ntp_server}) {
+        $ntpLabel->setValue($info->{ntp_server});
+    }
+    $ntpFrame->setValue($info->{ntp_running});
+    $dateTimeFrame->setEnabled(!$info->{ntp_running});
+    $ntpFrame->setNotify(1);
+
     $factory->createHSpacing($hbox1, 1.0);
     $ntpLabel->setWeight($yui::YD_HORIZ, 2);
     $changeNTPButton->setWeight($yui::YD_HORIZ, 1);
     $factory->createHSpacing($hbox, 1.0);
-
     $factory->createVSpacing($layout, 1.0);
-    $align  = $factory->createLeft($layout);
-    $hbox = $factory->createHBox($align);
-    $frame   = $factory->createFrame ($hbox, $self->loc->N("TimeZone"));
+
+    ### third line setting TZ
+    $hbox = $factory->createHBox($layout);
+    $align  = $factory->createLeft($hbox);
+    my $frame   = $factory->createFrame ($align, $self->loc->N("TimeZone"));
     $hbox1 = $factory->createHBox( $frame );
     my $changeTZButton = $factory->createPushButton($hbox1, $self->loc->N("Change &Time Zone"));
     $factory->createHSpacing($hbox1, 1.0);
     $factory->createLabel($hbox1,$self->loc->N("Current:"));
     $factory->createHSpacing($hbox1, 1.0);
     my $timeZoneLbl = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+
+    if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
+        $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
+    }
     $factory->createHSpacing($hbox1, 1.0);
     $timeZoneLbl->setWeight($yui::YD_HORIZ, 2);
     $changeTZButton->setWeight($yui::YD_HORIZ, 1);
-
     $factory->createHSpacing($hbox, 1.0);
 
-    # buttons on the last line
+    ### buttons on the last line
     $factory->createVSpacing($layout, 1.0);
     $hbox = $factory->createHBox($layout);
 
     $align = $factory->createLeft($hbox);
-    $hbox = $factory->createHBox($align);
-    my $aboutButton = $factory->createPushButton($hbox, $self->loc->N("&About") );
-    my $resetButton = $factory->createPushButton($hbox, $self->loc->N("&Reset") );
+    $hbox1 = $factory->createHBox($align);
+    my $aboutButton = $factory->createPushButton($hbox1, $self->loc->N("&About") );
+    my $resetButton = $factory->createPushButton($hbox1, $self->loc->N("&Reset") );
 
     $align = $factory->createRight($hbox);
-    $hbox     = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
-    my $okButton = $factory->createPushButton($hbox, $self->loc->N("&Ok"));
+    $hbox1 = $factory->createHBox($align);
+    my $cancelButton = $factory->createPushButton($hbox1, $self->loc->N("&Cancel"));
+    my $okButton = $factory->createPushButton($hbox1, $self->loc->N("&Ok"));
     $factory->createHSpacing($hbox, 1.0);
 
     ## no changes by default
     $dialog->setDefaultButton($cancelButton);
 
-    # End Dialof layout
-
-    ## default value
-    my $info = $self->_restoreValues();
-
-    $dateField->setValue($info->{date});
-    $timeField->setValue($info->{time});
-
-    if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
-        $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
-    }
-
-    if ($info->{ntp_server}) {
-        $ntpLabel->setValue($info->{ntp_server});
-    }
-    $ntpFrame->setValue($info->{ntp_running});
-
+    ### End Dialog layout ###
 
     # get only once
     my $NTPservers = $self->_get_NTPservers();
@@ -326,13 +360,19 @@ sub _adminClockPanel {
             if ($widget == $cancelButton) {
                 last;
             }
+            elsif ($widget == $ntpFrame) {
+                $dateTimeFrame->setEnabled(!$ntpFrame->value());
+            }
+            elsif ($widget == $ntpService) {
+                my $selection = $ntpService->selectedItem();
+                $self->sh_tz->ntp_program($selection->label()) if ($selection);
+            }
             elsif ($widget == $okButton) {
                 yui::YUI::app()->busyCursor();
                 my $finished = 1;
                 # (1) write new TZ settings
                 # (2) write new NTP settigs if checked
                 # (3) use date time fields if NTP is not checked
-$DB::single = 1;
                 my $old_conf = $self->sh_tz->readConfiguration();
                 if ($info->{time_zone}->{UTC} != $old_conf->{UTC} ||
                     $info->{time_zone}->{ZONE} ne $old_conf->{ZONE}) {
@@ -355,13 +395,15 @@ $DB::single = 1;
                         my $errors = $@;
                         if ($errors) {
                             # TODO should finish and not continue for this error
-                            $finished = 0;
+#                             $finished = 0;
                             $self->sh_gui->warningMsgBox({
                                 title =>  $self->loc->N("set NTP Configuration failed"),
                                 text  => "$errors",
                                 richtext => 1,
                             });
+                             $dialog->pollEvent();
                         }
+
                         eval { $self->sh_tz->enableAndStartNTP($info->{ntp_server}) };
                         $errors = $@;
                         if ($errors) {
