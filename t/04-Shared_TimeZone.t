@@ -25,6 +25,9 @@ BEGIN {
     }
     ok (my $services = $tz->ntpServiceList(), 'ntpServiceList');
     diag Dumper($services);
+    ok ($tz->refreshNTPServiceList(), 'refreshNTPServiceList');
+    ok ($services = $tz->ntpServiceList(), 'ntpServiceList after refresh');
+    diag Dumper($services);
 
     SKIP: {
         #remember to skip the right number of tests

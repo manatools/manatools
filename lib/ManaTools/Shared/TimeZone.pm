@@ -209,8 +209,9 @@ has 'ntpServiceConfig' => (
 
 =head3 ntpServiceList
 
-    This attribute is a ArrayRef containing configured ntp
-    service into the system, retrieving info from services.
+    This attribute is a ArrayRef containing the sorted list of
+    configured NTP service into the system, retrieving info from
+    services.
 
 =cut
 
@@ -232,7 +233,7 @@ sub _build_ntpServiceList {
         push @list, $pair->[0] if eval {$self->sh_services->dbus_systemd1_object->GetUnitFileState( $pair->[0] . ".service")};
     }
 
-    return \@list;
+    return [ sort(@list) ];
 }
 
 #=============================================================
@@ -432,6 +433,27 @@ sub _buildNTPServers {
     return \%ntpServersHash;
 }
 
+
+#=============================================================
+
+=head2 refreshNTPServiceList
+
+=head3 DESCRIPTION
+
+    Refresh the ntpServiceList attribute value, usefull
+    if any NTP service has been istalled after having
+    instantiated this object
+
+=cut
+
+#=============================================================
+sub refreshNTPServiceList {
+    my $self = shift;
+
+    my $list = $self->_build_ntpServiceList();
+
+    $self->ntpServiceList($list);
+}
 
 #=============================================================
 
