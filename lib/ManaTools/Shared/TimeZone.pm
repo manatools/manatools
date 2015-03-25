@@ -105,17 +105,16 @@ has 'timezone_prefix' => (
 has 'ntp_configuration_file' => (
     is  => 'rw',
     isa => 'Str',
+    lazy => 1,
     builder => '_ntp_configuration_file_init',
 );
 
 sub _ntp_configuration_file_init {
     my $self = shift;
 
-    return "/etc/chrony.conf" if (-f  "/etc/chrony.conf");
+    my $curr = $self->ntp_program;
 
-    return "/etc/ntp.conf" if (-f "/etc/ntp.conf");
-
-    return "/etc/systemd/timesyncd.conf";
+    return $self->getNTPServiceConfig($curr);
 }
 
 #=============================================================
@@ -163,11 +162,39 @@ has 'ntp_program' => (
 sub _ntp_program_init {
     my $self = shift;
 
-    return "chronyd" if ($self->ntp_configuration_file() eq "/etc/chrony.conf");
+    # looks for a running service from the configured ones,
+    # if none is running chooses the first of the list
+    my $list = $self->ntpServiceList();
+    return $self->loc->N("No NTP services") if !$list;
 
-    return "ntpd" if ($self->ntp_configuration_file() eq "/etc/ntp.conf");
+    my $ntpd;
+    my $isRunning = 0;
+    foreach $ntpd (@{$list}) {
+        $isRunning = $self->sh_services->is_service_running($ntpd);
+        last if $isRunning;
+    }
 
-    return "systemd-timesyncd" if ($self->ntp_configuration_file() eq "/etc/systemd/timesyncd.conf");
+    if (!$isRunning) {
+        # being sure systemd-timesyncd is not really running (or set to be)
+        if ($self->getEmbeddedNTP()) {
+            $ntpd = "systemd-timesyncd";
+            Sys::Syslog::syslog(
+                'info|local1',
+                $self->loc->N("%s enabled but stopped - disabling it",
+                    $ntpd
+                )
+            );
+            # enabled but stopped, disabling it
+            # NOTE this happens tipically on VM if not well configured
+            $self->setEmbeddedNTP(0);
+        }
+        else {
+            # coosing the first one of the list that is not running
+            $ntpd = $list->[0];
+        }
+    }
+
+    return $ntpd;
 }
 
 #=============================================================

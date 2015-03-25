@@ -14,6 +14,8 @@ BEGIN {
     ok (my @l = $tz->getTimeZones(), 'getTimeZones');
     ok (my $h = $tz->readConfiguration(), 'readConfiguration');
     diag Dumper($h);
+    ok (my $currService = $tz->ntp_program(), 'ntp_program');
+    diag "ntp_program got: < " . $currService . " >";
     ok (my $s = $tz->ntpCurrentServer(), 'currentNTPServer');
     diag "ntpCurrentServer got: < " . ($s ? $s : "none") . " >";
     ok (my $a = ($tz->isNTPRunning() ? "running" : "not running"), 'isNTPRunning');
