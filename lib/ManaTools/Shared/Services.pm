@@ -114,7 +114,25 @@ sub _dbusObjectInitialize {
     $self->dbus_systemd1_object($self->dbus_systemd1_service->get_object("/org/freedesktop/systemd1"));
 }
 
+has 'include_static_services' => (
+    is  => 'rw',
+    isa => 'Bool',
+    default => 0
+);
 
+#=============================================================
+
+=head2 attributes
+
+=head3 service_info
+
+    A HashRef collecting all the service information.
+    if include_static_services (default is false) is set also static
+    services are included.
+
+=cut
+
+#=============================================================
 has 'service_info' => (
     is  => 'rw',
     traits    => ['Hash'],
@@ -149,7 +167,7 @@ sub _serviceInfoInitialization {
                             $st = 'enabled';
                         }
                 }
-                if ($st && $st ne 'static') {
+                if ($st && ($self->include_static_services() || $st ne 'static')) {
                     $services{$name} = {
                         'name' => $s->[0],
                         'description' => $s->[1],
