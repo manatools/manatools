@@ -167,9 +167,11 @@ sub _ntp_program_init {
     my $list = $self->ntpServiceList();
     return "" if !$list;
 
-    my $ntpd;
+    my $ntpd = "";
     my $isRunning = 0;
-    foreach $ntpd (@{$list}) {
+
+    foreach (@{$list}) {
+        $ntpd = $_;
         $isRunning = $self->sh_services->is_service_running($ntpd);
         last if $isRunning;
     }
@@ -295,7 +297,7 @@ has 'sh_services' => (
 sub _SharedServicesInitialize {
     my $self = shift();
 
-    $self->sh_services(ManaTools::Shared::Services->new() );
+    $self->sh_services(ManaTools::Shared::Services->new(include_static_services => 1) );
 }
 
 
