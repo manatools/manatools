@@ -203,11 +203,37 @@ has 'ntpServiceConfig' => (
     init_arg  => undef,
 );
 
-# has 'dmlist' => (
-#     is      => 'rw',
-#     isa     => 'ArrayRef',
-#     builder => '_build_dmlist',
-# );
+#=============================================================
+
+=head2 attribute
+
+=head3 ntpServiceList
+
+    This attribute is a ArrayRef containing configured ntp
+    service into the system, retrieving info from services.
+
+=cut
+
+#=============================================================
+has 'ntpServiceList' => (
+    is      => 'rw',
+    isa     => 'ArrayRef',
+    lazy    => 1,
+    builder => '_build_ntpServiceList',
+    init_arg  => undef,
+);
+
+# retrieves the installed ntp service list
+sub _build_ntpServiceList {
+    my $self = shift();
+
+    my @list = ();
+    for my $pair ($self->ntpServiceConfigPairs()) {
+        push @list, $pair->[0] if eval {$self->sh_services->dbus_systemd1_object->GetUnitFileState( $pair->[0] . ".service")};
+    }
+
+    return \@list;
+}
 
 #=============================================================
 

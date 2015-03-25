@@ -23,6 +23,8 @@ BEGIN {
     for my $pair (@pairs) {
         is ($tz->getNTPServiceConfig($pair->[0]), $pair->[1], "ntpServiceConfigPairs $pair->[0]");
     }
+    ok (my $services = $tz->ntpServiceList(), 'ntpServiceList');
+    diag Dumper($services);
 
     SKIP: {
         #remember to skip the right number of tests
