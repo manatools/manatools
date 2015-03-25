@@ -1,3 +1,15 @@
+	- manaclock: partially fixed mga#15552 (systemd-timesyncd and
+		change time disabled by dbus backend)
+	- manaclock: disable manual changing date and time if NTP is
+		checked
+	- AdminPanel::Shared::Services: added include_static_services 
+		attribute to include also the static units (to manage 
+		also systemd-timesyncd)
+	- manaclock: added a combobox to choose which NTP service to
+		use, between the ones configured into the system
+	- manaclock: manage also systemd-timesyncd
+	- AdminPanel::Shared::TimeZone: added attributes to manage
+		better ntpd configuration and improved tests
 	- rpmdragora: - from rpmdrake
 		fix restarting on priority updates (mga#14266)
 	- rpmdragora: filter out critical config files from the
