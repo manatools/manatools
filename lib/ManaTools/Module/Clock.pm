@@ -279,8 +279,6 @@ sub _adminClockPanel {
         $item->DISOWN();
     }
     $ntpService->addItems($itemColl);
-    $ntpService->setNotify(1);
-
 
     $factory->createLabel($hbox1,$self->loc->N("Current:"));
     $factory->createHSpacing($hbox1, 1.0);
@@ -374,10 +372,6 @@ sub _adminClockPanel {
                     $dateTimeFrame->setEnabled(!$ntpFrame->value());
                 }
             }
-            elsif ($widget == $ntpService) {
-                my $selection = $ntpService->selectedItem();
-                $self->sh_tz->ntp_program($selection->label()) if ($selection);
-            }
             elsif ($widget == $okButton) {
                 yui::YUI::app()->busyCursor();
                 my $finished = 1;
@@ -385,38 +379,77 @@ sub _adminClockPanel {
                 # (2) write new NTP settigs if checked
                 # (3) use date time fields if NTP is not checked
                 my $old_conf = $self->sh_tz->readConfiguration();
-                if ($info->{time_zone}->{UTC} != $old_conf->{UTC} ||
-                    $info->{time_zone}->{ZONE} ne $old_conf->{ZONE}) {
-                    # (1)
-                    eval { $self->sh_tz->writeConfiguration($info->{time_zone}) };
+                if ($info->{time_zone}->{UTC} != $old_conf->{UTC}) {
+                    my $localRTC = $info->{time_zone}->{UTC} ? 0 : 1;
+                    eval { $self->sh_tz->setLocalRTC($localRTC) };
                     my $errors = $@;
                     if ($errors) {
                         $finished = 0;
                         $self->sh_gui->warningMsgBox({
-                            title =>  $self->loc->N("Write configuration failed"),
+                            title =>  $self->loc->N("Set local RTC failed"),
                             text  => "$errors",
                             richtext => 1,
                         });
                     }
+                    # NOTE refresh to clean closed dialogs it happens in user mode
+                    #      after polkit password dialog or warning dialog
+                    $dialog->pollEvent();
+                }
+                if ($info->{time_zone}->{ZONE} ne $old_conf->{ZONE}) {
+                    eval { $self->sh_tz->setTimeZone($info->{time_zone}->{ZONE}) };
+                    my $errors = $@;
+                    if ($errors) {
+                        $finished = 0;
+                        $self->sh_gui->warningMsgBox({
+                            title =>  $self->loc->N("Set time zone failed"),
+                            text  => "$errors",
+                            richtext => 1,
+                        });
+                    }
+                    # NOTE refresh to clean closed dialogs it happens in user mode
+                    #      after polkit password dialog or warning dialog
+                    $dialog->pollEvent();
                 }
                 if ($ntpFrame->value()) {
                     # (2)
-                    if ($info->{ntp_server}) {
-                        eval { $self->sh_tz->setNTPConfiguration($info->{ntp_server}) };
-                        my $errors = $@;
-                        if ($errors) {
-                            # TODO should finish and not continue for this error
-#                             $finished = 0;
-                            $self->sh_gui->warningMsgBox({
-                                title =>  $self->loc->N("set NTP Configuration failed"),
-                                text  => "$errors",
-                                richtext => 1,
-                            });
-                             $dialog->pollEvent();
-                        }
+                    my $currentServer   = $self->sh_tz->ntpCurrentServer();
+                    #- strip digits from \d+.foo.pool.ntp.org
+                    $currentServer      =~ s/^\d+\.// if $currentServer;
+                    my $isRunning       = $self->sh_tz->isNTPRunning();
+                    my $currentService  = $self->sh_tz->ntp_program();
+                    my $selectedService = $ntpService->selectedItem();
 
+                    my $sameService = ($currentService && $currentService eq $selectedService->label());
+                    my $sameConfig  = $sameService && ((!$currentServer && !$info->{ntp_server}) ||
+                        ($currentServer && $info->{ntp_server} && $currentServer eq $info->{ntp_server})
+                    );
+
+                    my $nothingToDo = ($isRunning && $sameConfig);
+                    if (!$nothingToDo) {
+                        # we stop the service anyway
+                        if ($isRunning) {
+                            eval { $self->sh_tz->disableAndStopNTP() };
+                            $dialog->pollEvent();
+                        }
+                        # (a) different service or same service - different configuration
+                        if (!$sameService) {
+                            $self->sh_tz->ntp_program($selectedService->label());
+                        }
+                        if (!$sameConfig) {
+                            eval { $self->sh_tz->setNTPConfiguration($info->{ntp_server}) };
+                            my $errors = $@;
+                            if ($errors) {
+                                $self->sh_gui->warningMsgBox({
+                                    title =>  $self->loc->N("Set NTP Configuration failed"),
+                                    text  => "$errors",
+                                    richtext => 1,
+                                });
+                            }
+                            $dialog->pollEvent();
+                        }
+                        # and finally enabling the service
                         eval { $self->sh_tz->enableAndStartNTP($info->{ntp_server}) };
-                        $errors = $@;
+                        my $errors = $@;
                         if ($errors) {
                             $finished = 0;
                             $self->sh_gui->warningMsgBox({
@@ -425,10 +458,7 @@ sub _adminClockPanel {
                                 richtext => 1,
                             });
                         }
-                    }
-                    else {
-                        $self->sh_gui->warningMsgBox({text => $self->loc->N("Please enter a valid NTP server address.")});
-                        $finished = 0;
+                        $dialog->pollEvent();
                     }
                 }
                 else {
