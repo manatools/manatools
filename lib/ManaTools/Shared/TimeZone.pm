@@ -924,7 +924,6 @@ sub isNTPRunning {
 sub setNTPConfiguration {
     my ($self, $server) = @_;
 
-    $DB::single = 1;
     my $f =  $self->ntp_configuration_file || $self->getNTPServiceConfig($self->ntp_program);;
     -f $f or return;
 
