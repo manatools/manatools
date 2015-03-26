@@ -152,8 +152,6 @@ has 'ntp_program' => (
 sub _ntp_program_init {
     my $self = shift;
 
-    $DB::single = 1;
-
     # looks for a running service from the configured ones,
     # if none is running chooses the first of the list
     my $list = $self->ntpServiceList();

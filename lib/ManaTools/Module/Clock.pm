@@ -273,10 +273,10 @@ sub _adminClockPanel {
     my $itemColl = new yui::YItemCollection;
     my $sel_serv = $self->sh_tz->currentNTPService();
     foreach my $serv (@{$self->sh_tz->ntpServiceList()}) {
-            my $item = new yui::YItem ($serv, 0);
-            $item->setSelected(1) if ($sel_serv && $sel_serv eq $serv);
-            $itemColl->push($item);
-            $item->DISOWN();
+        my $item = new yui::YItem ($serv, 0);
+        $item->setSelected(1) if ($sel_serv && $sel_serv eq $serv);
+        $itemColl->push($item);
+        $item->DISOWN();
     }
     $ntpService->addItems($itemColl);
     $ntpService->setNotify(1);
@@ -361,7 +361,18 @@ sub _adminClockPanel {
                 last;
             }
             elsif ($widget == $ntpFrame) {
-                $dateTimeFrame->setEnabled(!$ntpFrame->value());
+                if (scalar @{$self->sh_tz->ntpServiceList()} == 0) {
+                    $self->sh_gui->warningMsgBox({
+                        title => $self->loc->N("manaclock: NTP service missed"),
+                        text  => $self->loc->N("Please install a NTP service such as chrony or ntp to manage"),
+                        richtext => 1,
+                    });
+                    $ntpFrame->setValue(0);
+                    $dateTimeFrame->setEnabled(1);
+                }
+                else {
+                    $dateTimeFrame->setEnabled(!$ntpFrame->value());
+                }
             }
             elsif ($widget == $ntpService) {
                 my $selection = $ntpService->selectedItem();
