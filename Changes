@@ -1,3 +1,9 @@
+	- manaclock: actions are performed only on changes, also to avoid
+		asking password when not needed in user space
+	- manaclock: if no NTP is installed rise a warning in case of 
+		a configuration atempt, systemd-timesyncd is installed
+		by default normally so this case happens only in old 
+		systems
 	- manaclock: partially fixed mga#15552 (systemd-timesyncd and
 		change time disabled by dbus backend)
 	- manaclock: disable manual changing date and time if NTP is
