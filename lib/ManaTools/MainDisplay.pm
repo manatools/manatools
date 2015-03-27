@@ -80,11 +80,11 @@ along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 =head1 VERSION
 
-Version 0.01
+Version 1.0.1
 
 =cut
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.0.1';
 
 use strict;
 use warnings;

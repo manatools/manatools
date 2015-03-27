@@ -1,3 +1,4 @@
+Changes
 COPYING.GPLv2
 extras/bash_completion/mana
 extras/conf/categories.conf
@@ -24,9 +25,9 @@ extras/polkit/org.mageia.manalog.policy
 extras/polkit/org.mageia.manaproxy.policy
 extras/polkit/org.mageia.manaservice.policy
 extras/polkit/org.mageia.manauser.policy
+extras/polkit/org.mageia.manawall.policy
 extras/polkit/org.mageia.mpan.policy
 extras/polkit/org.mageia.rpmdragora.policy
-extras/polkit/org.mageia.manawall.policy
 extras/README
 extras/setup.sh
 ignore.txt
@@ -37,12 +38,12 @@ lib/ManaTools/Module.pm
 lib/ManaTools/Module/AdminMouse.pm
 lib/ManaTools/Module/Clock.pm
 lib/ManaTools/Module/DisplayManager.pm
+lib/ManaTools/Module/Firewall.pm
 lib/ManaTools/Module/Hosts.pm
 lib/ManaTools/Module/LogViewer.pm
 lib/ManaTools/Module/Proxy.pm
 lib/ManaTools/Module/Services.pm
 lib/ManaTools/Module/Users.pm
-lib/ManaTools/Module/Firewall.pm
 lib/ManaTools/Privileges.pm
 lib/ManaTools/rpmdragora.pm
 lib/ManaTools/Rpmdragora/edit_urpm_sources.pm
@@ -56,6 +57,7 @@ lib/ManaTools/Rpmdragora/pkg.pm
 lib/ManaTools/Rpmdragora/rpmnew.pm
 lib/ManaTools/SettingsReader.pm
 lib/ManaTools/Shared.pm
+lib/ManaTools/Shared/Firewall.pm
 lib/ManaTools/Shared/GUI.pm
 lib/ManaTools/Shared/Hosts.pm
 lib/ManaTools/Shared/JournalCtl.pm
@@ -63,10 +65,9 @@ lib/ManaTools/Shared/Locales.pm
 lib/ManaTools/Shared/Proxy.pm
 lib/ManaTools/Shared/RunProgram.pm
 lib/ManaTools/Shared/Services.pm
+lib/ManaTools/Shared/Shorewall.pm
 lib/ManaTools/Shared/TimeZone.pm
 lib/ManaTools/Shared/Users.pm
-lib/ManaTools/Shared/Firewall.pm
-lib/ManaTools/Shared/Shorewall.pm
 Makefile.PL
 MANIFEST			This list of files
 MODULE_HACKING
@@ -131,6 +132,7 @@ t/03-Shared_GUI.t
 t/04-Shared_TimeZone.t
 t/05-rpmnew.t
 t/06-rpmdragora.t
+t/07-Shared_Services.t
 t/boilerplate.t
 t/manifest.t
 t/pod-coverage.t
