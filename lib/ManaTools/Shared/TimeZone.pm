@@ -848,7 +848,12 @@ sub ntpCurrentServer {
 
     my $configFile = $self->ntp_configuration_file || $self->getNTPServiceConfig($self->ntp_program);
 
-    MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($configFile);
+    if ($self->ntp_program eq "systemd-timesyncd") {
+        return MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*NTP=\s*(\S*)\s*(\S*)/, $1) } MDK::Common::File::cat_($configFile);
+    }
+    else {
+        return MDK::Common::Func::find { $_ ne '127.127.1.0' } map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($configFile);
+    }
 }
 
 #=============================================================
@@ -936,8 +941,8 @@ sub setNTPConfiguration {
     if ($self->ntp_program eq "systemd-timesyncd") {
         my $added = 0;
         MDK::Common::File::substInFile {
-            if (/^#?\s*NTP=\s+(\S*)/ && $1 ne '127.127.1.0') {
-                $_ = $added ? $_ =~ $pool_match ? undef : "#NTP=$1\n" : join('NTP= ', @servers, "\n");
+            if (/^#?\s*NTP=\s*(\S*)/ && $1 ne '127.127.1.0') {
+                $_ = $added ? $_ =~ $pool_match ? undef : "#NTP=$1\n" : join(' ', 'NTP=', @servers, "\n");
                 $added = 1;
             }
         } $f;
