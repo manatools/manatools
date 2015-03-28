@@ -42,6 +42,8 @@ use MDK::Common::File qw(substInFile output_with_perm);
 use List::Util qw(any);
 use List::MoreUtils qw(uniq);
 
+use XML::Simple;
+
 extends qw( ManaTools::Module );
 
 has '+icon' => (
@@ -131,6 +133,12 @@ has 'aboutDialog' => (
     builder => '_setupAboutDialog',
 );
 
+has 'conf' => (
+    is => 'ro',
+    isa => 'Str',
+    default => sub { return $::prefix."/etc/manatools/manawall/spec.conf" },
+);
+
 sub _setupAboutDialog {
   my $self = shift();
   return {
@@ -159,135 +167,7 @@ sub _SharedUGUIInitialize {
 
 sub _initAllServers {
     my $self = shift();
-    my @all_servers = (
-        {
-            id => 'www',
-            name => $self->loc->N("Web Server"),
-            pkg => 'apache apache-mod_perl boa lighttpd thttpd',
-            ports => '80/tcp 443/tcp',
-        },
-        {
-            id => 'dns',
-            name => $self->loc->N("Domain Name Server"),
-            pkg => 'bind dnsmasq mydsn',
-            ports => '53/tcp 53/udp',
-        },
-        {
-            id => 'ssh',
-            name => $self->loc->N("SSH server"),
-            pkg => 'openssh-server',
-            ports => '22/tcp',
-        },
-        {
-            id => 'ftp',
-            name => $self->loc->N("FTP server"),
-            pkg => 'ftp-server-krb5 wu-ftpd proftpd pure-ftpd',
-            ports => '20/tcp 21/tcp',
-        },
-        {
-            id => 'dhcp',
-            name => $self->loc->N("DHCP Server"),
-            pkg => 'dhcp-server udhcpd',
-            ports => '67/udp 68/udp',
-            hide => 1,
-        },
-        {
-            id => 'mail',
-            name => $self->loc->N("Mail Server"),
-            pkg => 'sendmail postfix qmail exim',
-            ports => '25/tcp 465/tcp 587/tcp',
-        },
-        {
-            id => 'popimap',
-            name => $self->loc->N("POP and IMAP Server"),
-            pkg => 'imap courier-imap-pop',
-            ports => '109/tcp 110/tcp 143/tcp 993/tcp 995/tcp',
-        },
-        {
-            id => 'telnet',
-            name => $self->loc->N("Telnet server"),
-            pkg => 'telnet-server-krb5',
-            ports => '23/tcp',
-            hide => 1,
-        },
-        {
-            id => 'nfs',
-            name => $self->loc->N("NFS Server"),
-            pkg => 'nfs-utils nfs-utils-clients',
-            ports => '111/tcp 111/udp 2049/tcp 2049/udp ' . network::nfs::list_nfs_ports(),
-            hide => 1,
-            prepare => sub { network::nfs::write_nfs_ports(network::nfs::read_nfs_ports()) },
-            restart => 'nfs-common nfs-server',
-        },
-        {
-            id => 'smbserver',
-            name => $self->loc->N("Windows Files Sharing (CIFS Server)"),
-            pkg => 'samba-server swat',
-            ports => '137/udp 138/udp 139/tcp 445/tcp 901/tcp 389/tcp',
-            hide => 0,
-        },
-        {
-            id => 'bacula',
-            name => $self->loc->N("Bacula backup"),
-            pkg => 'bacula-fd bacula-sd bacula-dir-common',
-            ports => '9101:9103/tcp',
-            hide => 1,
-        },
-        {
-            id => 'syslog',
-            name => $self->loc->N("Syslog network logging"),
-            pkg => 'rsyslog syslog-ng',
-            ports => '514/udp',
-            hide => 1,
-        },
-        {
-            id => 'cups',
-            name => $self->loc->N("CUPS server"),
-            pkg => 'cups',
-            ports => '631/tcp 631/udp',
-            hide => 1,
-        },
-        {
-            id => 'mysql',
-            name => $self->loc->N("MySQL server"),
-            pkg => 'mysql',
-            ports => '3306/tcp 3306/udp',
-            hide => 1,
-        },
-        {
-            id => 'postgresql',
-            name => $self->loc->N("PostgreSQL server"),
-            pkg => 'postgresql8.2 postgresql8.3',
-            ports => '5432/tcp 5432/udp',
-            hide => 1,
-        },
-        {
-            id => 'echo',
-            name => $self->loc->N("Echo request (ping)"),
-            ports => '8/icmp',
-            force_default_selection => 0,
-        },
-        {
-            id => 'zeroconf',
-            name => $self->loc->N("Network services autodiscovery (zeroconf and slp)"),
-            ports => '5353/udp 427/udp',
-            pkg => 'avahi cups openslp',
-        },
-        {
-            id => 'bittorrent',
-            name => $self->loc->N("BitTorrent"),
-            ports => '6881:6999/tcp 6881:6999/udp',
-            hide => 1,
-            pkg => 'bittorrent deluge ktorrent transmission vuze rtorrent ctorrent',
-        },
-        {
-            id => 'wmds',
-            name => $self->loc->N("Windows Mobile device synchronization"),
-            pkg => 'synce-hal',
-            ports => '990/tcp 999/tcp 5678/tcp 5679/udp 26675/tcp',
-            hide => 1,
-        },
-    );
+    my @all_servers = @{$self->get_servers()};
     return \@all_servers;
 }
 
@@ -314,6 +194,30 @@ sub _initUnlisted {
     my $self = shift();
     my @unlisted = ();
     return \@unlisted;
+}
+
+#=============================================================
+
+sub get_servers {
+    my $self = shift();
+    my $fh = undef;
+    my @all_servers = ();
+    my $xml = XML::Simple->new();
+    my $data = $xml->XMLin($self->conf());
+    foreach my $server (keys %{$data->{server}})
+    {
+        push(@all_servers, {
+               id => $server,
+               name => $data->{server}->{$server}->{description},
+               pkg => $data->{server}->{$server}->{packages},
+               ports => $data->{server}->{$server}->{ports},
+               hide => (defined($data->{server}->{$server}->{hide}) ? 1 : 0),
+               default => (defined($data->{server}->{$server}->{default}) ? 1 : 0),
+               pos => (defined($data->{server}->{$server}->{pos}) ? $data->{server}->{$server}->{pos} : 0),
+        });
+    }
+    my @sorted = sort { ${a}->{pos} <=> ${b}->{pos} } @all_servers;
+    return \@sorted;
 }
 
 #=============================================================
