@@ -27,7 +27,7 @@ package ManaTools::Rpmdragora::init;
 # $Id: init.pm 263915 2009-12-03 17:41:04Z tv $
 
 use strict;
-use MDK::Common::Func 'any';
+use MDK::Common::Func qw(any if_);
 use English;
 BEGIN { $::no_global_argv_parsing = 1 }
 require urpm::args;
@@ -65,7 +65,7 @@ $loc->N("  --justdb               update the database, but do not modify the fil
 $loc->N("  --no-confirmation      don't ask first confirmation question in update mode"),
 $loc->N("  --no-media-update      don't update media at startup"),
 $loc->N("  --no-verify-rpm        don't verify package signatures"),
-if_($0 !~ /MageiaUpdate/, $loc->N("  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host\" machine to show needed deps")),
+if_($0 !~ /dragoraUpdate/, $loc->N("  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host\" machine to show needed deps")),
 $loc->N("  --rpm-root=path        use another root for rpm installation"),
 $loc->N("  --urpmi-root           use another root for urpmi db & rpm installation"),
 $loc->N("  --run-as-root          force to run as root"),
