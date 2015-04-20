@@ -839,19 +839,20 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
 
     my ($progress, $total, @rpms_upgrade);
     my $transaction;
-    my ($progress_nb, $transaction_progress_nb, $remaining, $done);
+    my ($progress_nb, $transaction_progress_nb, $remaining, $done) = (0, 0, 0 ,0);
     my $callback_inst = sub {
         my ($urpm, $type, $id, $subtype, $amount, $total) = @_;
         my $pkg = defined $id ? $urpm->{depslist}[$id] : undef;
         if ($subtype eq 'start') {
             if ($type eq 'trans') {
-                print(1 ? $loc->N("Preparing package installation...") : $loc->N("Preparing package installation transaction..."));
+                print($loc->N("Preparing package installation...") . "\n");
                 $gurpm->label($loc->N("Preparing package installation..."));
                 } elsif (defined $pkg) {
                     $something_installed = 1;
-                    print($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, $transaction_progress_nb, scalar(@{$transaction->{upgrade}}))."\n" . $loc->N("Total: %s/%s", $progress_nb, $install_count));
-                    $gurpm->label($loc->N("Installing package `%s' (%s/%s)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
-                                        . "\n" . $loc->N("Total: %s/%s", ++$progress_nb, $install_count));
+                    $gurpm->label($loc->N("Installing package `%s' (%d/%d)...", $pkg->name, ++$transaction_progress_nb, scalar(@{$transaction->{upgrade}}))
+                                        . "\n" . $loc->N("Total: %d/%d", ++$progress_nb, $install_count));
+                    print($loc->N("Installing package `%s' (%d/%d)...", $pkg->name, $transaction_progress_nb, scalar(@{$transaction->{upgrade}})) .
+                          "\n" . $loc->N("Total: %d/%d", $progress_nb, $install_count) . "\n");
                 }
         } elsif ($subtype eq 'progress') {
             $gurpm->progress($total ? ceil(($amount/$total)*100) : 100);
