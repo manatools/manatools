@@ -87,4 +87,63 @@ WriteMakefile(
 );
 
 package MY;
-use File::ShareDir::Install 'postamble';
+
+sub postamble {
+    my $inherited = File::ShareDir::Install::postamble(@_);
+
+    my $newTargets = << 'MAKE_FRAG';
+
+# Installation directories
+localedir = $(PREFIX)/usr/share/locale
+
+PGOAL = manatools
+
+# perl files to search translatable strings in
+PL_FILES = $(shell ls lib/ManaTools/*.pm) $(shell ls lib/ManaTools/Shared/*.pm) \
+	$(shell ls lib/ManaTools/Module/*.pm) $(shell ls lib/ManaTools/Rpmdragora/*.pm) \
+	$(shell ls scripts/*) \
+	modules/rpmdragora/dragoraUpdate \
+	modules/rpmdragora/rpmdragora \
+	modules/rpmdragora/dragora-urpm-addmedia \
+	modules/rpmdragora/dragora-urpm-sources.pl
+
+#XMLFILES?
+
+POFILES = $(shell ls po/*.po)
+MOFILES = $(POFILES:%.po=%.mo)
+LANGS = $(POFILES:%.po=%)
+
+GOALS = $(PGOAL).pot  $(MOFILES)
+
+locales: $(GOALS)
+
+install_mo: locales
+	for l in $(LANGS); do \
+		install -d $(localedir)/$$l/LC_MESSAGES; \
+		install -m 644 $$l.mo $(localedir)/$$l/LC_MESSAGES/$(PGOAL).mo; \
+	done
+
+clean_mo:
+	rm -f *~ *.[oas] *.mo TAGS POTFILES.in
+
+%.mo: %.po
+	msgfmt --check -o $@ $<
+
+$(PGOAL).pot: $(PL_FILES)
+	xgettext --from-code=UTF-8 --language=Perl -D ./ -o po/$@ \
+		--keyword=N --keyword=N_ --keyword=P \
+		$(PL_FILES)
+
+update_n_merge: $(PGOAL).pot merge
+
+merge:
+	@for n in $(POFILES); do \
+		echo "Merging $$n"; \
+		msgmerge "$$n" po/$(PGOAL).pot > "$$n"t; \
+		mv -f "$$n"t "$$n"; \
+	done
+
+MAKE_FRAG
+
+    return $inherited . $newTargets;
+}
