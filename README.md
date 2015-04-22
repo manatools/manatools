@@ -58,7 +58,8 @@ To test gui dialogs run:
 
 To install this module with local::lib (see perldoc local::lib for
 details)
-	# add also -MCPAN if you want to install from cpan locally
+Note add also -MCPAN if you want to install from cpan locally
+
 	alias perl='perl -Mlocal::lib'
 	perl Makefile.PL
 	make
@@ -73,13 +74,16 @@ execute the output as root.
 # Build and install locales #
 
 To build and install locales
+
 	make install_locales
 
 To update locales (pot and pos)
+
 	make update_n_merge
 
 If you want to test your po changes install manatools usning local::lib
 and pass --locales-dir path-to-your-locale-files to command line i.e.
+
 	manaClock --locales-dir /home/myuser/perl5/share/locale/ 
 
 
