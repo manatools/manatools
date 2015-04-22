@@ -94,7 +94,7 @@ sub postamble {
     my $newTargets = << 'MAKE_FRAG';
 
 # Installation directories
-localedir = $(PREFIX)/usr/share/locale
+localedir = $(PREFIX)/share/locale
 
 PGOAL = manatools
 
@@ -111,14 +111,14 @@ PL_FILES = $(shell ls lib/ManaTools/*.pm) $(shell ls lib/ManaTools/Shared/*.pm) 
 
 POFILES = $(shell ls po/*.po)
 MOFILES = $(POFILES:%.po=%.mo)
-LANGS = $(POFILES:%.po=%)
+LANGS = $(POFILES:po/%.po=%)
 
 GOALS = $(PGOAL).pot  $(MOFILES)
 
 locales: $(GOALS)
 
 install_locales: locales
-	for l in $(LANGS); do \
+	cd po && for l in $(LANGS); do \
 		install -d $(localedir)/$$l/LC_MESSAGES; \
 		install -m 644 $$l.mo $(localedir)/$$l/LC_MESSAGES/$(PGOAL).mo; \
 	done
