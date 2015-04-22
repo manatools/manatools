@@ -10,7 +10,7 @@ that can be also run as autonomous applications.
 
 ManaTools started as a porting of MCC (Mageia/Mandriva Control Center)
 to libYui (Suse widget abstraction library), but its aim is to give
-an easy and common interface to developer to add new modules based
+an easy and common interface to develop and add new modules based
 on libYui. Every modules as well as ManaTools itself can be run
 using QT, Gtk or ncurses interface.
 
@@ -35,7 +35,7 @@ using QT, Gtk or ncurses interface.
       https://github.com/anaselli/libyui-XXX forks (where XXX is
       gtk, qt or ncurses)
 
-* at least one of the MGA libyui widget extension plugins (according to the one above)*
+* at least one of the MGA libyui widget extension plugins (according to the one above) *
     * libyui-mga-gtk     - https://github.com/xquiet/libyui-mga-gtk
     * libyui-mga-ncurses - https://github.com/xquiet/libyui-mga-ncurses
     * libyui-mga-qt      - https://github.com/xquiet/libyui-mga-qt
