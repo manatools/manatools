@@ -57,8 +57,7 @@ To test gui dialogs run:
 	make test TEST_GUI=1
 
 To install this module with local::lib (see perldoc local::lib for
-details)
-Note add also -MCPAN if you want to install from cpan locally
+details). Note add also -MCPAN if you want to install from cpan locally.
 
 	alias perl='perl -Mlocal::lib'
 	perl Makefile.PL
