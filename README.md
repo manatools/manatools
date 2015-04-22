@@ -70,7 +70,7 @@ and install it locally then run tools as root adding your user environment
 variables, to know which ones run perl -Mlocal::lib as user and
 execute the output as root.
 
-* Build and install locales 
+# Build and install locales #
 
 To build and install locales
 	make install_locales
