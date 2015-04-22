@@ -70,6 +70,18 @@ and install it locally then run tools as root adding your user environment
 variables, to know which ones run perl -Mlocal::lib as user and
 execute the output as root.
 
+* Build and install locales 
+
+To build and install locales
+	make install_locales
+
+To update locales (pot and pos)
+	make update_n_merge
+
+If you want to test your po changes install manatools usning local::lib
+and pass --locales-dir path-to-your-locale-files to command line i.e.
+	manaClock --locales-dir /home/myuser/perl5/share/locale/ 
+
 
 # SUPPORT AND DOCUMENTATION #
 
