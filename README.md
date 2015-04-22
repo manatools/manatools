@@ -105,6 +105,7 @@ perldoc command.
 * manaservice	service manager
 * dragoraUpdate	rpm update manager
 * manauser	user manager
+* manawall	firewall manager
 
 
 # LICENSE AND COPYRIGHT #
