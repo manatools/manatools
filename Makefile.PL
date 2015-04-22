@@ -117,20 +117,23 @@ GOALS = $(PGOAL).pot  $(MOFILES)
 
 locales: $(GOALS)
 
-install_mo: locales
+install_locales: locales
 	for l in $(LANGS); do \
 		install -d $(localedir)/$$l/LC_MESSAGES; \
 		install -m 644 $$l.mo $(localedir)/$$l/LC_MESSAGES/$(PGOAL).mo; \
 	done
 
-clean_mo:
-	rm -f *~ *.[oas] *.mo TAGS POTFILES.in
+clean_locales:
+	rm -f po/*~ po/*.[oas] po/*.mo
 
 %.mo: %.po
 	msgfmt --check -o $@ $<
 
 $(PGOAL).pot: $(PL_FILES)
 	xgettext --from-code=UTF-8 --language=Perl -D ./ -o po/$@ \
+		--msgid-bugs-address="https://bugs.mageia.org/" \
+		--package-name=$(NAME) --package-version=$(VERSION) \
+		--copyright-holder="Angelo Naselli - Matteo Pasotti" \
 		--keyword=N --keyword=N_ --keyword=P \
 		$(PL_FILES)
 
