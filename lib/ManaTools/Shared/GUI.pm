@@ -70,13 +70,22 @@ has 'loc' => (
 );
 
 sub _localeInitialize {
-    my $self = shift();
+    my $self = shift;
 
-    # TODO fix domain binding for translation
-    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
-    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
+    my $cmdline    = new yui::YCommandLine;
+    my $locale_dir = undef;
+    my $pos        = $cmdline->find("--locales-dir");
+    if ($pos > 0)
+    {
+       $locale_dir = $cmdline->arg($pos+1);
+    }
+    $self->loc(
+        ManaTools::Shared::Locales->new(
+            domain_name => 'manatools',
+            dir_name    => $locale_dir,
+        )
+    );
 }
-
 
 #=============================================================
 
