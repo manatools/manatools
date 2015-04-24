@@ -161,21 +161,6 @@ sub _SharedUGUIInitialize {
     $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
-has 'loc' => (
-        is => 'rw',
-        init_arg => undef,
-        builder => '_localeInitialize'
-);
-
-
-sub _localeInitialize {
-    my $self = shift();
-
-    # TODO fix domain binding for translation
-    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'userdrake') );
-    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
-}
-
 
 #=============================================================
 
