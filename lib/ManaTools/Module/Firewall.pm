@@ -73,12 +73,6 @@ has 'sh_gui' => (
     builder => '_SharedUGUIInitialize'
 );
 
-has 'loc' => (
-    is => 'rw',
-    init_arg => undef,
-    builder => '_localeInitialize',
-    required => 1,
-);
 
 has 'all_servers' => (
     is => 'rw',
@@ -149,14 +143,6 @@ sub _setupAboutDialog {
     description => "",
     authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"
     };
-}
-
-sub _localeInitialize {
-    my $self = shift();
-
-    # TODO fix domain binding for translation
-    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'drakx-net') );
-    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
 sub _SharedUGUIInitialize {

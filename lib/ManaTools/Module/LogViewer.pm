@@ -73,20 +73,6 @@ has '+icon' => (
     default => "/usr/share/mcc/themes/default/logdrake-mdk.png",
 );
 
-has 'loc' => (
-        is => 'rw',
-        init_arg => undef,
-        builder => '_localeInitialize'
-);
-
-sub _localeInitialize {
-    my $self = shift;
-
-    # TODO fix domain binding for translation
-    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone') );
-    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
-}
-
 has 'sh_gui' => (
         is => 'rw',
         init_arg => undef,

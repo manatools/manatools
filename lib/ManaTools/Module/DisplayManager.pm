@@ -85,12 +85,6 @@ has 'sh_gui' => (
         builder => '_SharedUGUIInitialize'
 );
 
-has 'loc' => (
-        is => 'rw',
-        init_arg => undef,
-        builder => '_localeInitialize'
-);
-
 sub _build_desc_for_i18n {
     my $self = shift();
 
@@ -114,14 +108,6 @@ sub _build_dmlist {
         \%l;
     } sort(glob("/usr/share/X11/dm.d/*.conf"));
     return \@list;
-}
-
-sub _localeInitialize {
-    my $self = shift();
-
-    # TODO fix domain binding for translation
-    $self->loc(ManaTools::Shared::Locales->new(domain_name => 'drakdm') );
-    # TODO if we want to give the opportunity to test locally add dir_name => 'path'
 }
 
 sub _SharedUGUIInitialize {

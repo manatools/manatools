@@ -69,30 +69,6 @@ has '+icon' => (
     default => "/usr/share/mcc/themes/default/time-mdk.png",
 );
 
-has 'loc' => (
-        is => 'rw',
-        init_arg => undef,
-        builder => '_localeInitialize'
-);
-
-sub _localeInitialize {
-    my $self = shift;
-
-    my $cmdline    = new yui::YCommandLine;
-    my $locale_dir = undef;
-    my $pos        = $cmdline->find("--locales-dir");
-    if ($pos > 0)
-    {
-       $locale_dir = $cmdline->arg($pos+1);
-    }
-    $self->loc(
-        ManaTools::Shared::Locales->new(
-            domain_name => 'manatools',
-            dir_name    => $locale_dir,
-        )
-    );
-}
-
 has 'sh_gui' => (
         is => 'rw',
         lazy => 1,
