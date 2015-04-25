@@ -99,9 +99,8 @@ localedir = $(PREFIX)/share/locale
 PGOAL = manatools
 
 # perl files to search translatable strings in
-PL_FILES = $(shell ls lib/ManaTools/*.pm) $(shell ls lib/ManaTools/Shared/*.pm) \
-	$(shell ls lib/ManaTools/Module/*.pm) $(shell ls lib/ManaTools/Rpmdragora/*.pm) \
-	$(shell ls scripts/*) \
+PL_FILES = $(shell find lib/ManaTools/{Module,Shared,Rpmdragora} -type f -name "*.pm") \
+	$(shell find scripts/ -type f -name "*") \
 	modules/rpmdragora/dragoraUpdate \
 	modules/rpmdragora/rpmdragora \
 	modules/rpmdragora/dragora-urpm-addmedia \
@@ -109,7 +108,7 @@ PL_FILES = $(shell ls lib/ManaTools/*.pm) $(shell ls lib/ManaTools/Shared/*.pm) 
 
 #XMLFILES?
 
-POFILES = $(shell ls po/*.po)
+POFILES = $(shell find po/ -name "*.po")
 MOFILES = $(POFILES:%.po=%.mo)
 LANGS = $(POFILES:po/%.po=%)
 
