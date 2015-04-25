@@ -118,10 +118,6 @@ BEGIN { unshift @::textdomains, qw(rpmdragora urpmi rpm-summary-main rpm-summary
 
 use yui;
 use Glib;
-#ugtk2::add_icon_path('/usr/share/rpmdragora/icons');
-
-# Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
-my $loc = ManaTools::Shared::Locales->new(domain_name => 'rpmdrake');;
 
 our $mageia_release = MDK::Common::File::cat_(
     -e '/etc/mageia-release' ? '/etc/mageia-release' : '/etc/release'
@@ -131,19 +127,39 @@ our ($distro_version) = $mageia_release =~ /(\d+\.\d+)/;
 our ($branded, %distrib);
 $branded = -f '/etc/sysconfig/oem'
     and %distrib = MDK::Common::System::distrib();
-our $myname_update = $branded ? $loc->N_("Software Update") : $loc->N_("Mageia Update");
 
 @rpmdragora::prompt::ISA = 'urpm::prompt';
 
+# Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
+my $loc;
 
 sub locale() {
+    my $lc;
 
-    if (!defined($loc)) {
-       $loc = ManaTools::Shared::Locales->new(domain_name => 'rpmdrake');
+    if (defined($loc)) {
+        $lc = $loc;
     }
+    else {
+        my $cmdline    = new yui::YCommandLine;
+        my $locale_dir = undef;
+        my $pos        = $cmdline->find("--locales-dir");
+        if ($pos > 0)
+        {
+            $locale_dir = $cmdline->arg($pos+1);
+        }
+        $lc = ManaTools::Shared::Locales->new(
+                domain_name => 'manatools',
+                dir_name    => $locale_dir,
+        );
+   }
 
-    return $loc;
+   return $lc;
 }
+
+# Locale::gettext::bind_textdomain_codeset('rpmdragora', 'UTF8');
+$loc = ManaTools::rpmdragora::locale();
+our $myname_update = $branded ? $loc->N_("Software Update") : $loc->N_("Mageia Update");
+
 
 sub rpmdragora::prompt::prompt {
     my ($self) = @_;

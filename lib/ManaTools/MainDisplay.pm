@@ -162,9 +162,17 @@ sub new {
     {
         $self->{confDir} = "/etc/$self->{title}";
     }
+    my $locale_dir = undef;
+    $pos           = $cmdline->find("--locales-dir");
+    if ($pos > 0)
+    {
+       $locale_dir = $cmdline->arg($pos+1);
+    }
+    $self->{loc} = ManaTools::Shared::Locales->new(
+            domain_name => 'manatools',
+            dir_name    => $locale_dir,
+    );
 
-    # TODO localize
-    $self->{loc} = ManaTools::Shared::Locales->new(domain_name => 'libDrakX-standalone');
     $self->setupGui();
 
     return $self;
