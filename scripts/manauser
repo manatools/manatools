@@ -18,12 +18,9 @@
 # along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
 use ManaTools::Module::Users;
-use ManaTools::Shared::Locales;
 
-my $loc = ManaTools::Shared::Locales->new(domain_name => 'userdrake');
+my $userMan = ManaTools::Module::Users->new();
 
-my $userMan = ManaTools::Module::Users->new({icon => "/usr/share/icons/userdrake.png",
-                                              name => $loc->N("Mageia Users Management Tool"),});
 $userMan->start();
 
 1;
