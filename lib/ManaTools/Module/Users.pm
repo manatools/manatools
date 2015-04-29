@@ -87,7 +87,7 @@ use feature 'state';
 extends qw( ManaTools::Module );
 
 has '+icon' => (
-    default => "/usr/share/icons/userdrake.png",
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manauser.png'),
 );
 
 
@@ -248,7 +248,7 @@ sub BUILD {
     my $self = shift;
 
     if (! $self->name) {
-        $self->name ($self->loc->N("manauser"));
+        $self->name ($self->loc->N("manauser - Mageia Users Management Tool"));
     }
 
     %userEditLabel = (
@@ -1159,7 +1159,7 @@ sub _refreshUsers {
         );
 
         # TODO workaround to get first cell at least until we don't
-        # a cast from YItem
+        # have a cast from YItem
         $item->setLabel( $username );
         $itemColl->push($item);
         $item->DISOWN();
@@ -2366,8 +2366,6 @@ sub _manageUsersDialog {
         return;
     }
 
-    ## TODO fix for manatools
-    my $pixdir = '/usr/share/userdrake/pixmaps/';
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
 
@@ -2419,12 +2417,33 @@ sub _manageUsersDialog {
 
     my $hbox    = $factory->createHBox($layout);
     $hbox       = $factory->createHBox($factory->createLeft($hbox));
+
     $self->set_widget(
-        add_user    => $factory->createIconButton($hbox, $pixdir . 'user_add.png', $self->loc->N("Add User")),
-        add_group   => $factory->createIconButton($hbox, $pixdir . 'group_add.png', $self->loc->N("Add Group")),
-        edit        => $factory->createIconButton($hbox, $pixdir . 'user_conf.png', $self->loc->N("Edit")),
-        del         => $factory->createIconButton($hbox, $pixdir . 'user_del.png', $self->loc->N("Delete")),
-        refresh     => $factory->createIconButton($hbox, $pixdir . 'refresh.png', $self->loc->N("Refresh")),
+        add_user    => $factory->createIconButton(
+            $hbox,
+            File::ShareDir::dist_file(ManaTools::Shared::distName(),  'images/manauser/user_add.png'),
+            $self->loc->N("Add User")
+        ),
+        add_group   => $factory->createIconButton(
+            $hbox,
+            File::ShareDir::dist_file(ManaTools::Shared::distName(),  'images/manauser/group_add.png'),
+            $self->loc->N("Add Group")
+        ),
+        edit        => $factory->createIconButton(
+            $hbox,
+            File::ShareDir::dist_file(ManaTools::Shared::distName(),  'images/manauser/user_conf.png'),
+            $self->loc->N("Edit")
+        ),
+        del         => $factory->createIconButton(
+            $hbox,
+            File::ShareDir::dist_file(ManaTools::Shared::distName(),  'images/manauser/user_del.png'),
+            $self->loc->N("Delete")
+        ),
+        refresh     => $factory->createIconButton(
+            $hbox,
+            File::ShareDir::dist_file(ManaTools::Shared::distName(),  'images/manauser/refresh.png'),
+            $self->loc->N("Refresh")
+        ),
         action_menu => $actionMenu,
     );
 
