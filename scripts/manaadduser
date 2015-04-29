@@ -18,11 +18,23 @@
 # along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 use ManaTools::Module::Users;
 use ManaTools::Shared::Locales;
+use yui;
 
-my $loc = ManaTools::Shared::Locales->new(domain_name => 'userdrake');
+my $cmdline    = new yui::YCommandLine;
+my $locale_dir = undef;
+my $pos        = $cmdline->find("--locales-dir");
+if ($pos > 0)
+{
+    $locale_dir = $cmdline->arg($pos+1);
+}
+my $loc = ManaTools::Shared::Locales->new(
+    domain_name => 'manatools',
+    dir_name    => $locale_dir,
+);
 
-my $userMan = ManaTools::Module::Users->new({icon => "/usr/share/icons/userdrake.png",
-                                              name => $loc->N("Mageia Add Users Tool"),});
+my $userMan = ManaTools::Module::Users->new({
+    name => $loc->N("Mageia Add Users Tool"),
+});
 
 $userMan->addUserDialog(1);
 
