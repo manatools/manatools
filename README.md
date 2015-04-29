@@ -83,7 +83,7 @@ To update locales (pot and pos)
 If you want to test your po changes install manatools usning local::lib
 and pass --locales-dir path-to-your-locale-files to command line i.e.
 
-	manaClock --locales-dir /home/myuser/perl5/share/locale/ 
+	manaclock --locales-dir /home/myuser/perl5/share/locale/ 
 
 
 # SUPPORT AND DOCUMENTATION #
