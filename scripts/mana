@@ -23,72 +23,82 @@
 #*****************************************************************************
 
 use ManaTools::Privileges;
+use ManaTools::Shared::Locales;
 
 use yui;
 
-# TODO from configuration file?
-# TODO localization for descriptions
+my $cmdline    = new yui::YCommandLine;
+my $locale_dir = undef;
+my $pos        = $cmdline->find("--locales-dir");
+if ($pos > 0)
+{
+    $locale_dir = $cmdline->arg($pos+1);
+}
+my $loc = ManaTools::Shared::Locales->new(
+    domain_name => 'manatools',
+    dir_name    => $locale_dir,
+);
+
 my %modules = (
         log     => {
             exec  => '/usr/bin/manalog',
-            descr => "manalog: journalct log reader",
+            descr => $loc->N("manalog: journalct log reader"),
         },
         user    => {
             exec  => '/usr/bin/manauser',
-            descr => "manauser: user manager",
+            descr => $loc->N("manauser: user manager"),
         },
         service => {
             exec  => '/usr/bin/manaservice',
-            descr => "manaservice: service manager",
+            descr => $loc->N("manaservice: service manager"),
             user_mode => 1,
         },
         dm      => {
             exec => '/usr/bin/manadm',
-            descr => "manadm: login manager configuration",
+            descr => $loc->N("manadm: login manager configuration"),
         },
         clock   => {
             exec => '/usr/bin/manaclock',
-            descr => "manaclock: date/time manager",
+            descr => $loc->N("manaclock: date/time manager"),
         },
         host    => {
             exec => '/usr/bin/manahost',
-            descr => "manahost: hosts manager",
+            descr => $loc->N("manahost: hosts manager"),
         },
         pan     => {
             exec => '/usr/bin/mpan',
-            descr => "mpan: admin panel",
+            descr => $loc->N("mpan: admin panel"),
         },
         proxy   => {
             exec => '/usr/bin/manaproxy',
-            descr => "manaproxy: proxy manager",
+            descr => $loc->N("manaproxy: proxy manager"),
         },
         rpm   => {
             exec => '/usr/bin/rpmdragora',
-            descr => "rpmdragora: rpm install manager",
+            descr => $loc->N("rpmdragora: rpm install manager"),
         },
         update  => {
             exec => '/usr/bin/dragoraUpdate',
-            descr => "dragoraUpdate: rpm update manager",
+            descr => $loc->N("dragoraUpdate: rpm update manager"),
         },
         wall  => {
             exec => '/usr/bin/manawall',
-            descr => "manawall: firewall manager",
+            descr => $loc->N("manawall: firewall manager"),
         },
 );
-
-my $cmdline = new yui::YCommandLine;
 
 usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
 usage() if scalar(@ARGV) < 1;
 
 my $cmd = $ARGV[0];
 
-die "Command ". $cmd . " not found!\n" if !defined($modules{$cmd});
-
-my $mod =  $modules{$cmd}->{exec};
-shift(@ARGV);
-
 eval {
+
+    die $loc->N("Command <%s> not found!\n", $cmd) if !defined($modules{$cmd});
+
+    my $mod =  $modules{$cmd}->{exec};
+    shift(@ARGV);
+
     if(!$modules{$cmd}->{user_mode} && is_root_capability_required()) {
         system("/usr/bin/pkexec", $mod, @ARGV);
     } else {
@@ -96,7 +106,8 @@ eval {
     }
 };
 if ( $@ ) {
-    print "ERROR: " . $@ ."\n";
+    print "\n" . $loc->N("ERROR: ") . $@ ;
+    usage(),
 }
 
 #=============================================================
@@ -114,9 +125,9 @@ usage print the mana usage help
 
 sub usage {
     print "\n";
-    print "Usage mana --help | -h        print this help\n";
-    print "Usage mana <command> [args...]\n\n";
-    print "valid <commands>:\n";
+    print $loc->N("Usage mana --help | -h        print this help\n");
+    print $loc->N("Usage mana <command> [args...]\n\n");
+    print $loc->N("valid <commands>:\n");
 
     foreach my $key (sort keys %modules) {
         # lenght + 2 chars "<" and ">"
