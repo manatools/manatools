@@ -43,6 +43,9 @@ This module collects all the routines shared between ManaTools and its modules.
     disable_x_screensaver
     enable_x_screensaver
     isProcessRunning
+    custom_locale_dir
+    devel_mode
+    command_line
 
 =head1 SUPPORT
 
@@ -79,13 +82,13 @@ along with this file.  If not, see <http://www.gnu.org/licenses/>.
 use strict;
 use warnings;
 use diagnostics;
+use feature 'state';
 
 use Digest::MD5;
 
 use yui;
 use base qw(Exporter);
 
-# TODO move GUI dialogs to Shared::GUI
 our @EXPORT_OK = qw(
     trim
     md5sum
@@ -96,17 +99,21 @@ our @EXPORT_OK = qw(
     disable_x_screensaver
     enable_x_screensaver
     isProcessRunning
+    custom_locale_dir
+    devel_mode
+    command_line
 );
 
 
 =head1 VERSION
 
-Version 0.01
+    Version 0.02
 
 =cut
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 
+# 2015-05-03 A.Naselli added locale_dir(), devel_mode() command_line()
 
 
 #=============================================================
@@ -115,17 +122,17 @@ our $VERSION = '0.01';
 
 =head3 PARAMETERS
 
-$filename the name of the file to read
+    $filename the name of the file to read
 
 =head3 OUTPUT
 
-depending from the context it returns the content
-of the file as an array or a string
+    depending from the context it returns the content
+    of the file as an array or a string
 
 =head3 DESCRIPTION
 
-This function return the content of $filename or false/0
-if it fails
+    This function return the content of $filename or false/0
+    if it fails
 
 =cut
 
@@ -150,13 +157,13 @@ sub apcat {
 
 =head3 OUTPUT
 
-$distname: name of the distributed package
+    $distname: name of the distributed package
 
 =head3 DESCRIPTION
 
-This function return the distname, useful to retrieve data
-with File::ShareDir::dist_file and must be the same as into
-Makefile.PL (e.g. manatools)
+    This function return the distname, useful to retrieve data
+    with File::ShareDir::dist_file and must be the same as into
+    Makefile.PL (e.g. manatools)
 
 =cut
 
@@ -370,6 +377,77 @@ sub isProcessRunning {
         return $pid if $n eq $name && $ppid != 1 && $pid != $$;
     }
     return;
+}
+
+#=============================================================
+
+=head2 command_line
+
+=head3 OUTPUT
+
+    $cmdline: given command line
+
+=head3 DESCRIPTION
+
+    returns the command line meant as yui::YCommandLine object
+
+=cut
+
+#=============================================================
+sub command_line() {
+    state $cmdline = new yui::YCommandLine;
+
+    return $cmdline;
+}
+
+# TODO evaluate if using state also for $pos into
+#      custom_locale_dir and devel_mode
+
+#=============================================================
+
+=head2 custom_locale_dir
+
+=head3 OUTPUT
+
+    locale_dir: custom locale directory or undef
+
+=head3 DESCRIPTION
+
+    returns the custom locale directory if given by
+    command line using "--locales-dir path" or undef
+
+=cut
+
+#=============================================================
+sub custom_locale_dir() {
+    my $cmdline = ManaTools::Shared::command_line();
+    my $pos     = $cmdline->find("--locales-dir");
+
+    return ($pos > 0) ? $cmdline->arg($pos+1) : undef;
+}
+
+#=============================================================
+
+=head2 devel_mode
+
+=head3 OUTPUT
+
+    boolean: 1 if --devel-mode is passed to command line, 0
+               otherwhise
+
+=head3 DESCRIPTION
+
+    returns 1 if "--devel-mode" is passed to command line,
+    modules should check this value to work in developer mode
+
+=cut
+
+#=============================================================
+sub devel_mode() {
+    my $cmdline = ManaTools::Shared::command_line();
+    my $pos     = $cmdline->find("--devel-mode");
+
+    return ($pos > 0) ? 1 : 0;
 }
 
 1; # End of ManaTools::Shared
