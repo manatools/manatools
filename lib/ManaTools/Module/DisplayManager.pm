@@ -29,7 +29,7 @@ use utf8;
 use File::ShareDir ':ALL';
 
 use yui;
-use ManaTools::Shared qw(trim apcat);
+use ManaTools::Shared qw(trim apcat devel_mode);
 use ManaTools::Shared::GUI;
 # use ManaTools::Shared::DisplayManager;
 
