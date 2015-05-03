@@ -55,6 +55,7 @@ use Moose;
 use diagnostics;
 
 use ManaTools::Shared::GUI;
+use File::ShareDir ':ALL';
 use ManaTools::Shared::Locales;
 use ManaTools::Shared::TimeZone;
 
@@ -64,9 +65,8 @@ use yui;
 
 extends qw( ManaTools::Module );
 
-### TODO icon
 has '+icon' => (
-    default => "/usr/share/mcc/themes/default/time-mdk.png",
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaclock.png'),
 );
 
 has 'sh_gui' => (
