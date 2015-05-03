@@ -136,13 +136,18 @@ sub _SharedUGUIInitialize {
 sub start {
     my $self = shift;
 
-    if ($EUID != 0) {
+    if (!ManaTools::Shared::devel_mode() && $EUID != 0) {
         $self->sh_gui->warningMsgBox({
                                 title => $self->name,
                                 text  => $self->loc->N("root privileges required"),
                                 });
         return;
     }
+
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($self->name);
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon);
 
     # initialize dm descriptions for i18n
     $self->_build_desc_for_i18n();
