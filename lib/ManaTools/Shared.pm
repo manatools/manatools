@@ -46,6 +46,7 @@ This module collects all the routines shared between ManaTools and its modules.
     custom_locale_dir
     devel_mode
     command_line
+    help_requested
 
 =head1 SUPPORT
 
@@ -102,6 +103,7 @@ our @EXPORT_OK = qw(
     custom_locale_dir
     devel_mode
     command_line
+    help_requested
 );
 
 
@@ -448,6 +450,34 @@ sub devel_mode() {
     my $pos     = $cmdline->find("--devel-mode");
 
     return ($pos > 0) ? 1 : 0;
+}
+
+#=============================================================
+
+=head2 help_requested
+
+=head3 OUTPUT
+
+    boolean: 1 if "--help" or "-h" is passed to command line, 0
+               otherwhise
+
+=head3 DESCRIPTION
+
+    returns 1 if "--help" or "-h" is passed to command line,
+    modules should check this value to work accordingly
+
+=cut
+
+#=============================================================
+sub help_requested() {
+    my $cmdline = ManaTools::Shared::command_line();
+    my $pos     = $cmdline->find("--help");
+    return 1 if $pos > 0;
+
+    $pos        = $cmdline->find("--help");
+    return 1 if $pos > 0;
+
+    return 0;
 }
 
 1; # End of ManaTools::Shared
