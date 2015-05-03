@@ -17,16 +17,11 @@
 # You should have received a copy of the GNU General Public License
 # along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 use ManaTools::Module::Users;
+use ManaTools::Shared;
 use ManaTools::Shared::Locales;
-use yui;
 
-my $cmdline    = new yui::YCommandLine;
-my $locale_dir = undef;
-my $pos        = $cmdline->find("--locales-dir");
-if ($pos > 0)
-{
-    $locale_dir = $cmdline->arg($pos+1);
-}
+
+my $locale_dir = ManaTools::Shared::custom_locale_dir();
 my $loc = ManaTools::Shared::Locales->new(
     domain_name => 'manatools',
     dir_name    => $locale_dir,
