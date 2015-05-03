@@ -22,11 +22,12 @@
 #Class Module
 package ManaTools::Module;
 
+use ManaTools::Shared;
 use Moose;
 
 =head1 VERSION
 
-Version 0.01
+Version 1.0.1
 
 =cut
 
@@ -121,12 +122,7 @@ sub _localeInitialize {
     my $self = shift;
 
     my $cmdline    = new yui::YCommandLine;
-    my $locale_dir = undef;
-    my $pos        = $cmdline->find("--locales-dir");
-    if ($pos > 0)
-    {
-       $locale_dir = $cmdline->arg($pos+1);
-    }
+    my $locale_dir = ManaTools::Shared::custom_locale_dir();
     $self->loc(
         ManaTools::Shared::Locales->new(
             domain_name => 'manatools',
