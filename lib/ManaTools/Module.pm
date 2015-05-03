@@ -121,7 +121,6 @@ has 'loc' => (
 sub _localeInitialize {
     my $self = shift;
 
-    my $cmdline    = new yui::YCommandLine;
     my $locale_dir = ManaTools::Shared::custom_locale_dir();
     $self->loc(
         ManaTools::Shared::Locales->new(
