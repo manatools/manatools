@@ -19,20 +19,27 @@
 # along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 use Modern::Perl '2011';
 use autodie;
+
+use ManaTools::Shared;
+use ManaTools::Shared::Locales;
 use ManaTools::Module::DisplayManager;
 
 use yui;
 
-my $wm_icon = "/usr/share/mcc/themes/default/drakedm-mdk.png";
-my $wm_name = "Display Manager";
+my $locale_dir = ManaTools::Shared::custom_locale_dir();;
+my $loc = ManaTools::Shared::Locales->new(
+    domain_name => 'manatools',
+    dir_name    => $locale_dir,
+);
+
+my $wm_name = $loc->N("Display Manager");
 
 yui::YUI::app()->setApplicationTitle($wm_name);
-yui::YUI::app()->setApplicationIcon($wm_icon);
 
 my $dmanager = ManaTools::Module::DisplayManager->new({
-				icon => $wm_icon,
-				name => $wm_name
-			});
+    name => $wm_name,
+});
+
 $dmanager->start();
 
 1;
