@@ -34,7 +34,6 @@ my $loc = ManaTools::Shared::Locales->new(
 
 my $wm_name = $loc->N("Display Manager");
 
-yui::YUI::app()->setApplicationTitle($wm_name);
 
 my $dmanager = ManaTools::Module::DisplayManager->new({
     name => $wm_name,
