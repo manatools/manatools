@@ -23,18 +23,12 @@
 #*****************************************************************************
 
 use ManaTools::Privileges;
+use ManaTools::Shared;
 use ManaTools::Shared::Locales;
 
-use yui;
 
-my $cmdline    = new yui::YCommandLine;
-my $locale_dir = undef;
-my $pos        = $cmdline->find("--locales-dir");
-if ($pos > 0)
-{
-    $locale_dir = $cmdline->arg($pos+1);
-}
-my $loc = ManaTools::Shared::Locales->new(
+my $locale_dir = ManaTools::Shared::custom_locale_dir();
+my $loc        = ManaTools::Shared::Locales->new(
     domain_name => 'manatools',
     dir_name    => $locale_dir,
 );
@@ -87,7 +81,7 @@ my %modules = (
         },
 );
 
-usage() if($cmdline->find("--help") > 0 || $cmdline->find("-h") > 0);
+usage() if ManaTools::Shared::help_requested() ;
 usage() if scalar(@ARGV) < 1;
 
 my $cmd = $ARGV[0];
