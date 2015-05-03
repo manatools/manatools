@@ -26,6 +26,7 @@ use Moose;
 use POSIX qw(ceil);
 use English;
 use utf8;
+use File::ShareDir ':ALL';
 
 use yui;
 use ManaTools::Shared qw(trim apcat);
@@ -42,7 +43,7 @@ extends qw( ManaTools::Module );
 
 
 has '+icon' => (
-    default => "/usr/share/mcc/themes/default/drakedm-mdk.png",
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manadm.png'),
 );
 
 has '+name' => (
