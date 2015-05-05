@@ -179,7 +179,30 @@ sub create {
     return $obj;
 }
 
+#=============================================================
 
+=head2 BUILD
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    The BUILD method is called after a Moose object is created,
+    base Module class sets title and icon
+
+=cut
+
+#=============================================================
+sub BUILD {
+    my $self = shift;
+
+    ## set title
+    yui::YUI::app()->setApplicationTitle($self->name) if $self->name;
+    ## set icon
+    yui::YUI::app()->setApplicationIcon($self->icon) if $self->icon;
+}
 
 #=============================================================
 
