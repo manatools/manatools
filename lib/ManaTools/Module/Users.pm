@@ -90,6 +90,16 @@ has '+icon' => (
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manauser.png'),
 );
 
+has '+name' => (
+    lazy     => 1,
+    builder => '_nameInitializer',
+);
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("manauser - Mageia Users Management Tool"));
+}
 
 # main dialog
 has 'dialog'     => (
@@ -246,10 +256,6 @@ my %groupEditLabel;
 #=============================================================
 sub BUILD {
     my $self = shift;
-
-    if (! $self->name) {
-        $self->name ($self->loc->N("manauser - Mageia Users Management Tool"));
-    }
 
     %userEditLabel = (
         user_data     => $self->loc->N("User Data"),
@@ -2369,10 +2375,10 @@ sub _manageUsersDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
 
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($self->name);
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon($self->icon);
+#     ## set new title to get it in dialog
+#     yui::YUI::app()->setApplicationTitle($self->name);
+#     ## set icon if not already set by external launcher
+#     yui::YUI::app()->setApplicationIcon($self->icon);
 
 
     my $factory  = yui::YUI::widgetFactory;
