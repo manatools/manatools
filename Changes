@@ -1,3 +1,8 @@
+	- rpmdragora/dragoraUpdate: Fixed restart in case of priority 
+		packages and ncurses GUI
+	- icon and title left in ManaTools::Module base class
+	- Added Shared functions to manage common command line options
+		e.g. custom_locale_dir, devel_mode and help_requested
 	- added make install_mo, locales, update_n_merge, merge and
 		clean_mo targets
 	- dragoraUpdate: fixed crash if --help is passed to command line
