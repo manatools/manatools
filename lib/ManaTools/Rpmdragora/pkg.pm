@@ -1004,7 +1004,12 @@ you may now inspect some in order to take actions:"),
         alarm(0);
         # reMDK::Common::DataStructure::member not to ask again questions and the like:
         writeconf();
-        exec($0, @argv);
+
+        my $err = yui::YUI::app()->runInTerminal(join(" ", $0, @argv, " --ncurses"));
+        if ($err == -1) {
+            exec($0, @argv);
+        }
+        destroy $::main_window if $::main_window;
         exit(0);
     }
 
