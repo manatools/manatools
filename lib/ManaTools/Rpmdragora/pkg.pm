@@ -408,7 +408,7 @@ sub get_updates_list {
 
     my %common_opts = (
         callback_choices => \&ManaTools::Rpmdragora::gui::callback_choices,
-        priority_upgrade => $urpm->{options}{'priority-upgrade'},
+        priority_upgrade => $urpm->{options}{'priority-upgrade'} || '',
     );
 
     if ($urpm->{options}{'priority-upgrade'}) {
@@ -767,10 +767,14 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
         $saved_flags{$_->id} = $_->flag_requested;
         $_->id => undef;
     } grep { $_->flag_selected } @{$urpm->{depslist}} };
+
+    # NOTE: original code did not manage priority_upgrade anyway
+    #       _priority_upgrade_pkgs needs a string and split gives a warning for an undef value.
     urpm::select::resolve_dependencies(
         $urpm, $state, $requested,
         rpmdb => $::env && "$::env/rpmdb.cz",
         callback_choices => \&ManaTools::Rpmdragora::gui::callback_choices,
+        priority_upgrade => '',
     );
     statusbar_msg_remove($bar_id);
 
