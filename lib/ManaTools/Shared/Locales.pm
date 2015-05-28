@@ -221,7 +221,7 @@ sub N_ {
     $self: this object
     $s:    string to be converted
 
-=head3 OUTPUT\
+=head3 OUTPUT
 
     $converted: converted string
 
@@ -235,7 +235,7 @@ sub N_ {
 sub from_utf8 {
     my ($self, $s) = @_;
 
-    my $converter = Text::Iconv->new("utf-8", undef);
+    my $converter = Text::Iconv->new("utf-8", "");
     my $converted = $converter->convert($s);
 
     return $converted;
@@ -251,7 +251,7 @@ sub from_utf8 {
     $self: this object
     $s:    string to be converted
 
-=head3 OUTPUT\
+=head3 OUTPUT
 
     $converted: converted string
 
@@ -265,7 +265,7 @@ sub from_utf8 {
 sub to_utf8 {
     my ($self, $s) = @_;
 
-    my $converter = Text::Iconv->new(undef, "utf-8");
+    my $converter = Text::Iconv->new("", "utf-8");
     my $converted = $converter->convert($s);
 
     return $converted;
