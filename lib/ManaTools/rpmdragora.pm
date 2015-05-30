@@ -745,6 +745,8 @@ sub update_sources {
     my ($urpm, %options) = @_;
     my $cancel = 0;
 
+    # NOTE urpm::media::_update_medium__parse_if_unmodified__local needs it as string
+    $options{probe_with} = "" if !defined($options{probe_with});
 
     my $factory = yui::YUI::widgetFactory;
 
