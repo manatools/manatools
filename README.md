@@ -8,7 +8,7 @@ users to configure most of their system components in a very simple,
 intuitive and attractive interface. It consists of some modules
 that can be also run as autonomous applications.
 
-ManaTools started as a porting of MCC (Mageia/Mandriva Control Center)
+ManaTools started as a port of MCC (Mageia/Mandriva Control Center)
 to libYui (Suse widget abstraction library), but its aim is to give
 an easy and common interface to develop and add new modules based
 on libYui. Every modules as well as ManaTools itself can be run
