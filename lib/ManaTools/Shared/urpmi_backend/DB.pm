@@ -59,10 +59,11 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose;
 
-use MDK::Common::File qw(cat_ mkdir_p);
+use MDK::Common::File qw(cat_);
 use MDK::Common::Func qw(if_);
 
 use urpm;
+use urpm::args;
 use urpm::media;
 use urpm::select;
 use urpm::mirrors;
@@ -108,6 +109,103 @@ has 'rpm_root'   => (
     isa => 'Str'
 );
 
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 debug
+
+    optional parameter - urpm debug option,
+    default value is undef
+
+=cut
+
+#=============================================================
+has 'debug'   => (
+    is => 'rw',
+);
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 wait_lock
+
+    optional parameter - urpm wait_lock option,
+    default value is undef
+
+=cut
+
+#=============================================================
+has 'wait_lock'   => (
+    is => 'rw',
+);
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 verify_rpm
+
+    optional parameter - urpm verify_rpm option,
+    default value is undef
+
+=cut
+
+#=============================================================
+has 'verify_rpm'   => (
+    is => 'rw',
+);
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 auto
+
+    optional parameter - urpm auto option,
+    default value is undef
+
+=cut
+
+#=============================================================
+has 'auto'   => (
+    is => 'rw',
+);
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 set_verbosity
+
+    optional parameter - urpm set_verbosity option,
+    default value is undef
+
+=cut
+
+#=============================================================
+has 'set_verbosity'   => (
+    is => 'rw',
+);
+
+#=============================================================
+
+=head2 new - optional parameters
+
+=head3 justdb
+
+    optional parameter - urpm justdb option,
+    default value is undef
+
+=cut
+
+#=============================================================
+has 'justdb'   => (
+    is => 'rw',
+);
+
+
 # product_id contains the product id file pathname
 has 'product_id' => (
     is        => 'ro',
@@ -129,7 +227,7 @@ sub _product_id_init {
 
 =head3 OUTPUT
 
-URPM::DB: an URPM opened dataase
+    URPM::DB: an URPM opened dataase
 
 =head3 DESCRIPTION
 
@@ -167,8 +265,15 @@ sub fast_open_urpmi_db {
     urpm::set_files($urpm, $self->urpmi_root()) if $self->urpmi_root();
     my $rpm_root = $self->rpm_root() || $self->urpmi_root();
     urpm::args::set_root($urpm, $rpm_root) if $rpm_root;
+    urpm::args::set_debug($urpm) if $self->debug();
 
     $urpm->get_global_options;
+    $urpm->{options}{wait_lock} = $self->wait_lock() if $self->wait_lock();
+    $urpm->{options}{'verify-rpm'} = $self->verify_rpm() if $self->verify_rpm();
+    $urpm->{options}{auto} = $self->auto() if $self->auto();
+    urpm::args::set_verbosity() if $self->set_verbosity();
+    $urpm::args::options{justdb} = $self->justdb() if $self->justdb();
+
     urpm::media::read_config($urpm);
     $urpm;
 }
