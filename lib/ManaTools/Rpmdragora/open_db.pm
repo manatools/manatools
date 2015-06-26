@@ -39,6 +39,9 @@ use urpm::select;
 use urpm::media;
 use urpm::mirrors;
 use feature 'state';
+use Carp; # deprecating module
+
+carp __PACKAGE__. " is deprecated use Rpmdragora::DB instead\n";
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -57,6 +60,8 @@ my $loc = ManaTools::rpmdragora::locale();
 # because rpm blocks some signals when rpm DB is opened, we don't keep open around:
 sub open_rpm_db {
     my ($o_force) = @_;
+    carp "open_rpm_db is deprecated use Rpmdragora::DB instead\n";
+
     my $host;
     Sys::Syslog::syslog('info|local1', "opening the RPM database");
     if ($::rpmdragora_options{parallel} && ((undef, $host) = @{$::rpmdragora_options{parallel}})) {
@@ -86,6 +91,8 @@ sub open_rpm_db {
 
 # do not pay the urpm::media::configure() heavy cost:
 sub fast_open_urpmi_db() {
+    carp "fast_open_urpmi_db is deprecated use Rpmdragora::DB instead\n";
+
     my $urpm = urpm->new;
     my $error_happened;
     $urpm->{fatal} = sub {
@@ -126,6 +133,8 @@ sub fast_open_urpmi_db() {
 }
 
 sub is_it_a_devel_distro() {
+    carp "is_it_a_devel_distro is deprecated use Rpmdragora::DB instead\n";
+
     state $res;
     return $res if defined $res;
 
@@ -137,17 +146,26 @@ sub is_it_a_devel_distro() {
 
 sub get_backport_media {
     my ($urpm) = @_;
+
+    carp "get_backport_media is deprecated use Rpmdragora::DB instead\n";
+
     grep { $_->{name} =~ /backport/i &&
 	       $_->{name} !~ /debug|sources|testing/i } @{$urpm->{media}};
 }
 
 sub get_inactive_backport_media {
     my ($urpm) = @_;
+
+    carp "get_inactive_backport_media is deprecated use Rpmdragora::DB instead\n";
+
     map { $_->{name} } grep { $_->{ignore} } get_backport_media($urpm);
 }
 
 sub get_update_medias {
     my ($urpm) = @_;
+
+    carp "get_update_medias is deprecated use Rpmdragora::DB instead\n";
+
     if (is_it_a_devel_distro()) {
         grep { !$_->{ignore} } @{$urpm->{media}};
     } else {
@@ -157,6 +175,9 @@ sub get_update_medias {
 
 sub open_urpmi_db {
     my (%urpmi_options) = @_;
+
+    carp "open_urpmi_db is deprecated use Rpmdragora::DB instead\n";
+
     my $urpm = fast_open_urpmi_db();
     my $media = ref $::rpmdragora_options{media} ? join(',', @{$::rpmdragora_options{media}}) : '';
 
