@@ -5,8 +5,13 @@ use Test::More;
 
 BEGIN {
     use_ok( 'ManaTools::rpmdragora' ) || print "ManaTools::rpmdragora failed!\n";
+    use_ok( 'ManaTools::Rpmdragora::DB' ) || print "ManaTools::Rpmdragora::DB failed!\n";
 }
 
+ok ( my $obj = ManaTools::Rpmdragora::DB->new(), 'db_new');
+is ( ref($obj->open_rpm_db()), 'URPM::DB', 'open_rpm_db');
+is ( ref($obj->fast_open_urpmi_db()), 'urpm', 'fast_open_urpmi_db');
+is ( ref($obj->open_urpmi_db()), 'urpm', 'open_urpmi_db');
 
 SKIP: {
     #remember to skip the righ number of tests
