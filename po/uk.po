@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-01 22:55+0200\n"
-"PO-Revision-Date: 2015-07-02 08:47+0300\n"
+"PO-Revision-Date: 2015-07-02 19:56+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -95,7 +95,9 @@ msgstr "Ви&йти"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:339 modules/rpmdragora/rpmdragora:1089
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr "Юрій Чорноіван <yurchor@ukr.net>\n"
+msgstr ""
+"Тарас Бойчук <btr0001@ukr.net>\n"
+"Юрій Чорноіван <yurchor@ukr.net>\n"
 
 #: lib/ManaTools/Module/Services.pm:456 lib/ManaTools/Module/AdminMouse.pm:213
 #: lib/ManaTools/Module/Clock.pm:574 lib/ManaTools/Module/LogViewer.pm:347
@@ -197,6 +199,8 @@ msgid ""
 "AdminMouse is the Mageia mouse management tool \n"
 "(from the original idea of Mandriva mousedrake)."
 msgstr ""
+"AdminMouse — засіб керування мишею у Mageia \n(на основі початкової ідеї "
+"mousedrake з Mandriva)."
 
 #: lib/ManaTools/Module/AdminMouse.pm:217
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
@@ -217,7 +221,7 @@ msgstr "Виберіть, до якого послідовного порту п
 
 #: lib/ManaTools/Module/AdminMouse.pm:274
 msgid "Not implemented yet: configuration is not changed"
-msgstr ""
+msgstr "Ще не реалізовано, налаштування не змінено"
 
 #: lib/ManaTools/Module/Proxy.pm:150
 #: lib/ManaTools/Module/DisplayManager.pm:142
@@ -230,7 +234,7 @@ msgstr "потрібні права доступу користувача root"
 #: lib/ManaTools/Module/Proxy.pm:178
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "X Restart Required"
-msgstr ""
+msgstr "Слід перезапустити графічний сервер"
 
 #: lib/ManaTools/Module/Proxy.pm:178
 #: lib/ManaTools/Module/DisplayManager.pm:178
@@ -314,7 +318,7 @@ msgstr "Параметри дати, часу та часового поясу"
 
 #: lib/ManaTools/Module/Clock.pm:238
 msgid "Setting date and time"
-msgstr ""
+msgstr "Встановлення дати і часу"
 
 #: lib/ManaTools/Module/Clock.pm:253
 msgid "Enable Network Time Protocol"
@@ -356,39 +360,40 @@ msgstr "&Гаразд"
 
 #: lib/ManaTools/Module/Clock.pm:350
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: не вистачає служби NTP"
 
 #: lib/ManaTools/Module/Clock.pm:351
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
+"Будь ласка, встановіть службу NTP, зокрема chrony або ntp, для керування"
 
 #: lib/ManaTools/Module/Clock.pm:375
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Спроба встановлення локального RTC зазнала невдачі"
 
 #: lib/ManaTools/Module/Clock.pm:390
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Спроба встановлення часового поясу зазнала невдачі"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Спроба налаштовування NTP зазнала невдачі"
 
 #: lib/ManaTools/Module/Clock.pm:442
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Спроба встановлення NTP зазнала невдачі"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Set system time failed"
-msgstr ""
+msgstr "Спроба встановлення загальносистемного часу зазнала невдачі"
 
 #: lib/ManaTools/Module/Clock.pm:476
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "Сервер NTP — DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:477
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Виберіть ваш сервер NTP"
 
 #: lib/ManaTools/Module/Clock.pm:501 lib/ManaTools/Module/Clock.pm:507
 msgid "Timezone - DrakClock"
@@ -396,7 +401,7 @@ msgstr "Часовий пояс — DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:502
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Не вдалося отримати список часових поясів"
 
 #: lib/ManaTools/Module/Clock.pm:508
 msgid "Which is your timezone?"
@@ -404,7 +409,7 @@ msgstr "В якому часовому поясі ви перебуваєте?"
 
 #: lib/ManaTools/Module/Clock.pm:519
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "Час за Гринвічем — manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:520
 msgid "Is your hardware clock set to GMT?"
@@ -416,13 +421,15 @@ msgstr "Відновити дані"
 
 #: lib/ManaTools/Module/Clock.pm:540
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Відновити лише дату і час?"
 
 #: lib/ManaTools/Module/Clock.pm:576
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Засіб налаштовування дати, часу і часового поясу надає змогу вказати часовий "
+"пояс і скоригувати дату і час"
 
 #: lib/ManaTools/Module/Clock.pm:577
 #, perl-format
@@ -439,7 +446,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:93
 msgid "LightDM (The Light Display Manager)"
-msgstr ""
+msgstr "LightDM (невибагливий менеджер реєстрації)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:94
 msgid "GDM (GNOME Display Manager)"
@@ -499,15 +506,15 @@ msgstr "До"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "Select a unit"
-msgstr ""
+msgstr "Виберіть модуль"
 
 #: lib/ManaTools/Module/LogViewer.pm:265
 msgid "From priority"
-msgstr ""
+msgstr "З пріоритетності"
 
 #: lib/ManaTools/Module/LogViewer.pm:285
 msgid "To priority"
-msgstr ""
+msgstr "На пріоритетність"
 
 #: lib/ManaTools/Module/LogViewer.pm:303
 msgid "&Find"
@@ -523,7 +530,7 @@ msgstr "З&берегти"
 
 #: lib/ManaTools/Module/LogViewer.pm:349
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Засіб перегляду журналу призначено для перегляду журналу systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:350
 #, perl-format
@@ -535,14 +542,19 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Розробники</h3>\n                                                    <ul>"
+"<li>%s</li>\n                                                        <li>%s<"
+"/li>\n                                                    </ul>\n             "
+"                                       <h3>Перекладачі</h3>\n                 "
+"                                   <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:368
 msgid "Empty log found"
-msgstr ""
+msgstr "Виявлено порожній журнал"
 
 #: lib/ManaTools/Module/LogViewer.pm:461 lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
-msgstr ""
+msgstr "Працюємо у режимі користувача"
 
 #: lib/ManaTools/Module/LogViewer.pm:462
 msgid ""
@@ -550,6 +562,9 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"Ви запускаєте цю програму як звичайний користувач.\nВи не зможете читати "
+"журнали системи, права доступу до яких\nу вас немає, але зможете переглядати "
+"усі інші журнали."
 
 #: lib/ManaTools/Module/LogViewer.pm:485
 msgid "Save as.."
@@ -570,6 +585,9 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"Засіб налаштовування drakfirewall\n                    Ця програма допоможе "
+"вам налаштувати особистий захисний шлю на цьому комп’ютері під керуванням "
+"Mageia."
 
 #: lib/ManaTools/Module/Firewall.pm:354
 msgid ""
@@ -577,6 +595,8 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"Конфігуратор drakfirewall\nПеред тим, як робити щось далі, переконайтеся, що "
+"ви налаштували\nдоступ до мережі або інтернету за допомогою drakconnect."
 
 #: lib/ManaTools/Module/Firewall.pm:417
 msgid "Interactive Firewall"
@@ -598,7 +618,7 @@ msgstr "Використовувати діалоговий захисний ш�
 
 #: lib/ManaTools/Module/Firewall.pm:583
 msgid "Graphical manager for interactive firewall rules"
-msgstr ""
+msgstr "Графічний засіб керування інтерактивними правилами роботи брандмауера"
 
 #: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
 #: lib/ManaTools/Module/Firewall.pm:1015
@@ -624,7 +644,7 @@ msgstr "&Додатково"
 
 #: lib/ManaTools/Module/Firewall.pm:772
 msgid "Graphical manager for firewall rules"
-msgstr ""
+msgstr "Графічний засіб керування правилами роботи брандмауера"
 
 #: lib/ManaTools/Module/Firewall.pm:804
 msgid ""
@@ -638,7 +658,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:809
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Визначити різноманітні порти"
 
 #: lib/ManaTools/Module/Firewall.pm:824
 msgid "Other ports"
@@ -650,7 +670,7 @@ msgstr "Записувати повідомлення захисного шлю�
 
 #: lib/ManaTools/Module/Firewall.pm:887
 msgid "Invalid port given"
-msgstr ""
+msgstr "Вказано некоректний порт"
 
 #: lib/ManaTools/Module/Firewall.pm:888
 #, perl-format
@@ -703,7 +723,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:101
 msgid "manauser - Mageia Users Management Tool"
-msgstr ""
+msgstr "manauser — засіб керування записами користувачів у Mageia"
 
 #: lib/ManaTools/Module/Users.pm:261
 msgid "User Data"
@@ -715,7 +735,7 @@ msgstr "Дані щодо облікового запису"
 
 #: lib/ManaTools/Module/Users.pm:263
 msgid "Password Info"
-msgstr ""
+msgstr "Дані щодо пароля"
 
 #: lib/ManaTools/Module/Users.pm:264 lib/ManaTools/Module/Users.pm:1375
 #: lib/ManaTools/Module/Users.pm:2495
@@ -724,27 +744,27 @@ msgstr "Групи"
 
 #: lib/ManaTools/Module/Users.pm:267
 msgid "Group Data"
-msgstr ""
+msgstr "Дані щодо групи"
 
 #: lib/ManaTools/Module/Users.pm:268
 msgid "Group Users"
-msgstr ""
+msgstr "Згрупувати користувачів"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Choose group"
-msgstr ""
+msgstr "Виберіть групу"
 
 #: lib/ManaTools/Module/Users.pm:310
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Група з такою назвою вже існує. Що хочете зробити?"
 
 #: lib/ManaTools/Module/Users.pm:316
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Додати до наявної групи"
 
 #: lib/ManaTools/Module/Users.pm:320
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Додати до групи «users»"
 
 #: lib/ManaTools/Module/Users.pm:384 lib/ManaTools/Rpmdragora/gui.pm:390
 #: lib/ManaTools/Rpmdragora/gui.pm:939 lib/ManaTools/Rpmdragora/gui.pm:943
@@ -757,7 +777,7 @@ msgstr "Попередження"
 #: lib/ManaTools/Module/Users.pm:392
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Ви справді хочете вилучити групу %s?"
 
 #: lib/ManaTools/Module/Users.pm:398 lib/ManaTools/Module/Users.pm:489
 #: lib/ManaTools/Module/Users.pm:2446
@@ -770,37 +790,38 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s є первинною групою для користувача %s\n Спочатку вилучіть користувача"
 
 #: lib/ManaTools/Module/Users.pm:425
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Вилучаємо групу: %s"
 
 #: lib/ManaTools/Module/Users.pm:472
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Вилучити файли, чи ні?"
 
 #: lib/ManaTools/Module/Users.pm:479
 #, perl-format
 msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
-msgstr ""
+msgstr "Вилучаємо користувача %s\nТакож виконуємо такі дії:\n"
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Вилучаємо домашній каталог користувача: %s"
 
 #: lib/ManaTools/Module/Users.pm:484
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "Вилучаємо поштову скриньку: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:512
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Вилучаємо користувача: %s"
 
 #: lib/ManaTools/Module/Users.pm:544
 msgid "Create New Group"
@@ -812,7 +833,7 @@ msgstr "Назва групи:"
 
 #: lib/ManaTools/Module/Users.pm:564
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Вказати код групи вручну"
 
 #: lib/ManaTools/Module/Users.pm:566
 msgid "GID"
@@ -820,12 +841,12 @@ msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:599
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "Група вже існує, будь ласка, вкажіть іншу назву групи"
 
 #: lib/ManaTools/Module/Users.pm:607
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr "Код групи менший за %n"
 
 #: lib/ManaTools/Module/Users.pm:608
 #, perl-format
@@ -834,21 +855,23 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Створювати групи з кодом, меншим за %d не рекомендовано.\n Ви впевнені, що "
+"хочете зробити саме так?\n\n"
 
 #: lib/ManaTools/Module/Users.pm:616
 msgid " Group ID is already used "
-msgstr ""
+msgstr "Цей код групи вже використано"
 
 #: lib/ManaTools/Module/Users.pm:617
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
-msgstr ""
+msgstr "Створюємо групу з дубльованим GID?\n\n"
 
 #: lib/ManaTools/Module/Users.pm:629
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Додаємо групу: %s "
 
 #: lib/ManaTools/Module/Users.pm:685
 msgid "Full Name:"
@@ -876,15 +899,15 @@ msgstr "Оболонка:"
 #: lib/ManaTools/Module/Users.pm:774
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Піктограма (%s)"
 
 #: lib/ManaTools/Module/Users.pm:822
 msgid "Create New User"
-msgstr ""
+msgstr "Створити запис користувача"
 
 #: lib/ManaTools/Module/Users.pm:837
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Створити домашній каталог"
 
 #: lib/ManaTools/Module/Users.pm:841
 msgid "Home Directory:"
@@ -892,11 +915,11 @@ msgstr "Домашній каталог:"
 
 #: lib/ManaTools/Module/Users.pm:850
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Створити особисту групу для користувача"
 
 #: lib/ManaTools/Module/Users.pm:855
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Вказати код користувача вручну"
 
 #: lib/ManaTools/Module/Users.pm:857
 msgid "UID"
@@ -904,11 +927,11 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:865
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Клацніть на піктограмі, щоб змінити"
 
 #: lib/ManaTools/Module/Users.pm:917
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Такий користувач вже є, будь ласка, задайте інше ім'я користувача"
 
 #: lib/ManaTools/Module/Users.pm:922 lib/ManaTools/Module/Users.pm:1870
 msgid "Password Mismatch"
@@ -919,6 +942,8 @@ msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Цей пароль занадто простий. \n Хороший пароль повинен складатися з понад 6 "
+"символів"
 
 #: lib/ManaTools/Module/Users.pm:933
 #, perl-format
@@ -926,11 +951,13 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"Домашній каталог <%s> вже існує.\nБудь ласка, зніміть позначення з пункту "
+"створення домашнього каталогу або змініть шлях до каталогу."
 
 #: lib/ManaTools/Module/Users.pm:946
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "Код користувача менший за %d"
 
 #: lib/ManaTools/Module/Users.pm:947
 #, perl-format
@@ -939,25 +966,27 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Створювати користувачів з кодом, меншим за %d, не рекомендовано.\n Ви "
+"впевнені, що хочете зробити саме так?\n\n"
 
 #: lib/ManaTools/Module/Users.pm:962
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Додаємо %s до групи «users»"
 
 #: lib/ManaTools/Module/Users.pm:976
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Створюємо групу: %s"
 
 #: lib/ManaTools/Module/Users.pm:989
 msgid "Adding user: "
-msgstr ""
+msgstr "Додаємо користувача:"
 
 #: lib/ManaTools/Module/Users.pm:990
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Додаємо користувача: %s"
 
 #: lib/ManaTools/Module/Users.pm:1056
 msgid "User Name"
@@ -993,7 +1022,7 @@ msgstr "Код групи"
 
 #: lib/ManaTools/Module/Users.pm:1104
 msgid "Group Members"
-msgstr ""
+msgstr "Учасники групи"
 
 #: lib/ManaTools/Module/Users.pm:1287 lib/ManaTools/Module/Users.pm:2240
 #: lib/ManaTools/Module/Users.pm:2255 lib/ManaTools/Module/Users.pm:2271
@@ -1007,47 +1036,47 @@ msgstr "Домівка:"
 
 #: lib/ManaTools/Module/Users.pm:1617
 msgid "Enable account expiration"
-msgstr ""
+msgstr "Увімкнути обмеження облікових записів"
 
 #: lib/ManaTools/Module/Users.pm:1620
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "Термін дії облікового запису закінчується (РРРР-ММ-ДД):"
 
 #: lib/ManaTools/Module/Users.pm:1627
 msgid "Lock User Account"
-msgstr ""
+msgstr "Заблокувати обліковий запис"
 
 #: lib/ManaTools/Module/Users.pm:1631
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "Клацніть на піктограмі, щоб змінити її"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "User last changed password on: "
-msgstr ""
+msgstr "Остання зміна пароля користувачем: "
 
 #: lib/ManaTools/Module/Users.pm:1674
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Увімкнути обмеження терміну дії пароля"
 
 #: lib/ManaTools/Module/Users.pm:1678
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Дозволено днів перед зміною:"
 
 #: lib/ManaTools/Module/Users.pm:1686
 msgid "Days before change required:"
-msgstr ""
+msgstr "Необхідно днів перед зміною:"
 
 #: lib/ManaTools/Module/Users.pm:1694
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Днів попередження перед зміною:"
 
 #: lib/ManaTools/Module/Users.pm:1702
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Днів до завершення дії облікового запису:"
 
 #: lib/ManaTools/Module/Users.pm:1731
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Виберіть користувачів, яких слід включити в цю групу :"
 
 #: lib/ManaTools/Module/Users.pm:1735
 msgid "User"
@@ -1055,7 +1084,7 @@ msgstr "Користувач"
 
 #: lib/ManaTools/Module/Users.pm:1776
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Виберіть групи, учасником яких буде користувач:"
 
 #: lib/ManaTools/Module/Users.pm:1780
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
@@ -1064,17 +1093,18 @@ msgstr "Група"
 
 #: lib/ManaTools/Module/Users.pm:1882
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Будь ласка, виберіть хоч одну групу для користувача"
 
 #: lib/ManaTools/Module/Users.pm:1905
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Будь ласка, задайте рік, місяць і день \n закінчення дії облікового запису "
 
 #: lib/ManaTools/Module/Users.pm:1921
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Будь ласка, заповніть всі поля, щоб встановити термін дії пароля\n"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Strong"
@@ -1090,7 +1120,7 @@ msgstr "Змінити дані користувача"
 
 #: lib/ManaTools/Module/Users.pm:2122 lib/ManaTools/Module/Users.pm:2225
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Не вдалося створити віджети вкладок"
 
 #: lib/ManaTools/Module/Users.pm:2138
 msgid "Edit Group"
@@ -1114,17 +1144,19 @@ msgstr "&Вилучити"
 
 #: lib/ManaTools/Module/Users.pm:2310
 msgid "Install guest account"
-msgstr ""
+msgstr "Встановити гостьовий обліковий запис"
 
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2351
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser — засіб керування обліковими записами користувачів у Mageia \n(на "
+"основі початкової ідеї userdrake з Mandriva)."
 
 #: lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -1208,7 +1240,7 @@ msgstr "Статична назва вузла"
 
 #: lib/ManaTools/Module/Hosts.pm:160
 msgid "Chassis"
-msgstr ""
+msgstr "Апаратний блок"
 
 #: lib/ManaTools/Module/Hosts.pm:165
 msgid "Icon Name"
@@ -2014,26 +2046,29 @@ msgstr "Всі сервери"
 #: lib/ManaTools/Shared/TimeZone.pm:944
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"користувач не має прав доступу для зміни файла налаштувань, пропускаємо"
 
 #: lib/ManaTools/Shared/Users.pm:389
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Поле з назвою порожнє, будь ласка, введіть назву."
 
 #: lib/ManaTools/Shared/Users.pm:394
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"Ім'я користувача має починатися з малої латинської літери, слідом за якою "
+"можна використовувати малі латинські літери, цифри, символи «.», «-» та «_»"
 
 #: lib/ManaTools/Shared/Users.pm:397
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "Ім’я є надто довгим. Максимальна довжина імені — %d"
 
 #: lib/ManaTools/Shared/Users.pm:825
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "Ви не можете вилучити користувача «%s» з його первинної групи"
 
 #: lib/ManaTools/Shared/Users.pm:1168
 msgid "Locked"
@@ -2063,68 +2098,81 @@ msgstr "Користування: %s [ПАРАМЕТР]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "  --auto                 використовувати типову відповідь на запитання"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
 "  --changelog-first      display changelog before filelist in the "
 "description window"
 msgstr ""
+"  --changelog-first      виводити перелік змін у вікні опису перед списком "
+"файлів"
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "  --media=джерело1,..     обмежити вказаним джерелом"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
 msgstr ""
+"  --merge-all-rpmnew     об'єднувати всі знайдені файли  .rpmnew/.rpmsave"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=РЕЖИМ           встановити режим (встановити (типово), вилучити, "
+"поновити)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb               оновити базу даних, але не змінювати файлову систему"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
+"  --no-confirmation      не запитувати підтвердження у режимі поновлення"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      не оновлювати джерело при запуску"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "  --no-verify-rpm        не перевіряти підписи пакунків"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"  --parallel=alias,host  виконувати у паралельному режимі, використовувати "
+"групу \"alias\", комп’ютер \"host\" для показу потрібних залежностей"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
 msgstr ""
+"  --rpm-root=путь        використовувати іншу кореневу теку\n                 "
+"        для встановлення пакунка"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"  --run-as-root          використовувати іншу кореневу теку для встановлення "
+"бази даних і пакунків rpm"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root          виконати від імені root"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "  --search=pkg           виконати пошук «pkg»"
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
@@ -2148,6 +2196,8 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"Ви запускаєте цю програму як звичайний користувач.\nВи не зможете внести "
+"зміни до системи,\nале зможете переглядати вже створену базу даних."
 
 #: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:392
 #: modules/rpmdragora/rpmdragora:535 modules/rpmdragora/rpmdragora:560
@@ -2409,7 +2459,7 @@ msgstr "Графіка"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
-msgstr "Просторова"
+msgstr "Просторова графіка"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
@@ -2539,7 +2589,7 @@ msgstr "Комп’ютерні науки"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:145
 msgid "Geosciences"
-msgstr "Науки про Землі"
+msgstr "Науки про Землю"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:146
 msgid "Mathematics"
@@ -2776,7 +2826,7 @@ msgstr "Результати пошуку (немає)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:148
 msgid "Security advisory"
-msgstr ""
+msgstr "Повідомлення безпеки"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:158
 msgid "No description"
@@ -2784,11 +2834,11 @@ msgstr "Немає опису"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:172
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "<b>Не підтримується</b> Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:173
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "Він може <b>зашкодити</b> вашій системі."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "This package is not free software"
@@ -2796,15 +2846,15 @@ msgstr "Цей пакунок містить програмне забезпеч
 
 #: lib/ManaTools/Rpmdragora/gui.pm:178
 msgid "This package contains a new version that was backported."
-msgstr ""
+msgstr "У цьому пакунку міститься нова версія, яку портовано на стару систему."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:182
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "Цей пакунок є кандидатом для наступного оновлення."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:187
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "Це офіційне оновлення, яке підтримується Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:188
 msgid "This is an unofficial update."
@@ -2887,11 +2937,11 @@ msgstr "Нові залежності:"
 #: lib/ManaTools/Rpmdragora/gui.pm:392
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "Знайдено пакунок «%s»."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:393
 msgid "However this package is not in the package list."
-msgstr ""
+msgstr "Втім, цього пакунка немає у списку пакунків."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 msgid "You may want to update your urpmi database."
@@ -2899,17 +2949,17 @@ msgstr "Можливо, вам варто оновити вашу базу да�
 
 #: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "Matching packages:"
-msgstr ""
+msgstr "Знайдені пакунки:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (джерело: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:939
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "Вилучення пакунка %s порушить роботу системи"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:943
 #, perl-format
@@ -2917,24 +2967,27 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
+"Пакунок «%s» перебуває у списку urpmi для ігнорування.\nВсе одно вибрати його?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:948 lib/ManaTools/Rpmdragora/pkg.pm:803
 msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Спочатку слід оновити Rpmdragora або один із залежних від нього пакунків. "
+"Після цього Rpmdragora перезапуститься."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1154
 msgid "More information on package..."
-msgstr ""
+msgstr "Більше інформації про пакунок…"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1156
 msgid "Please choose"
-msgstr ""
+msgstr "Будь ласка, виберіть"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "The following package is needed:"
-msgstr ""
+msgstr "Потрібен такий пакунок:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "One of the following packages is needed:"
@@ -2942,7 +2995,7 @@ msgstr "Потрібен один із наступних пакунків:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1269
 msgid "Select package"
-msgstr ""
+msgstr "Виберіть пакунок"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1367
 msgid "Checking dependencies of package..."
@@ -2957,6 +3010,7 @@ msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
 msgstr ""
+"Через потребу задовольнити усі залежності наступні пакунки буде вилучені:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1388
 msgid "Some packages cannot be removed"
@@ -2966,7 +3020,7 @@ msgstr "Деякі пакунки не може бути вилучено"
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
-msgstr ""
+msgstr "Вибачте, але вилучення цих пакунків порушить роботу вашої системи:\n\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1397 lib/ManaTools/Rpmdragora/gui.pm:1468
 msgid ""
@@ -2974,6 +3028,7 @@ msgid ""
 "now:\n"
 "\n"
 msgstr ""
+"Через вимоги залежностей вибір наступних пакунків доведеться скасувати:\n\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1421
 msgid "Additional packages needed"
@@ -2985,6 +3040,7 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
+"Для забезпечення залежностей доведеться також встановити такі пакунки:\n\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1430
 msgid "Conflicting Packages"
@@ -2993,15 +3049,15 @@ msgstr "Пакунки з конфліктами"
 #: lib/ManaTools/Rpmdragora/gui.pm:1444
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s (належить до списку пропущеного)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "One package cannot be installed"
-msgstr ""
+msgstr "Один пакунок не може бути встановлено"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "Some packages cannot be installed"
-msgstr ""
+msgstr "Декілька пакунків не може бути встановлено"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1450
 #, perl-format
@@ -3009,7 +3065,7 @@ msgid ""
 "Sorry, the following package cannot be selected:\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Вибачте, наступний пакунок не може бути вибрано:\n\n%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1451
 #, perl-format
@@ -3017,15 +3073,15 @@ msgid ""
 "Sorry, the following packages cannot be selected:\n"
 "\n"
 "%s"
-msgstr ""
+msgstr "Вибачте, наступні пакунки не може бути вибрано:\n\n%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1467 lib/ManaTools/Rpmdragora/pkg.pm:807
 msgid "Some packages need to be removed"
-msgstr ""
+msgstr "Декілька пакунків доведеться вилучити"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Some packages are selected."
-msgstr ""
+msgstr "Позначено деякі з пакунків."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Do you really want to quit?"
@@ -3034,15 +3090,15 @@ msgstr "Ви справді хочете вийти?"
 #: lib/ManaTools/Rpmdragora/gui.pm:1515
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "Помилка: схоже, %s змонтовано в режимі тільки читання."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1519
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "Спочатку вам слід вибрати якісь пакунки."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1524
 msgid "Too many packages are selected"
-msgstr ""
+msgstr "Вибрано занадто багато пакунків"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1525
 msgid ""
@@ -3053,10 +3109,14 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"Попередження: схоже, що ви хочете додати занадто багато пакунків,\nчерез що "
+"вашій файловій системі не вистачить вільного місця\nпід час або після "
+"встановлення пакунків; це дуже небезпечно,\nі ви повинні це врахувати.\n\nВи "
+"дійсно хочете встановити всі вибрані пакунки?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1636
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "Зачекайте, будь ласка, створюємо список пакунків…"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1646 lib/ManaTools/Rpmdragora/rpmnew.pm:148
 #: lib/ManaTools/Rpmdragora/formatting.pm:150
@@ -3077,10 +3137,12 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"Список оновлень порожній. Це означає, що або немає\nоновлень для пакунків, "
+"які встановлено на вашому комп'ютері,\nабо вони всі вже встановлені."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1689 modules/rpmdragora/rpmdragora:380
 msgid "Upgradable"
-msgstr ""
+msgstr "Можна оновити"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1689 modules/rpmdragora/rpmdragora:536
 msgid "Installed"
@@ -3088,11 +3150,11 @@ msgstr "Встановлено"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1690 modules/rpmdragora/rpmdragora:380
 msgid "Addable"
-msgstr ""
+msgstr "Можна додати"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1724
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "Немає опису для цього пакунка\n"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
@@ -3100,15 +3162,15 @@ msgstr "Встановлення завершено"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:642
 msgid "Select a package"
-msgstr ""
+msgstr "Виберіть пакунок"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Вилучити новий файл"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr ""
+msgstr "Використати новий файл"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
@@ -3116,11 +3178,11 @@ msgstr "Нічого не робити"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:261
 msgid "Please wait, searching..."
-msgstr ""
+msgstr "Будь ласка, зачекайте, шукаємо…"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 msgid "None (installed)"
-msgstr ""
+msgstr "Немає (встановлено)"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 msgid "Unknown"
@@ -3144,12 +3206,12 @@ msgstr "Буде отримано %s пакунків."
 #: lib/ManaTools/Rpmdragora/pkg.pm:139
 #, perl-format
 msgid "Getting information from %s..."
-msgstr ""
+msgstr "Отримуємо відомості з %s…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:143
 #, perl-format
 msgid "Getting '%s' from XML meta-data..."
-msgstr ""
+msgstr "Отримуємо «%s» з XML-метаданих…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:147 lib/ManaTools/Rpmdragora/pkg.pm:463
 #: lib/ManaTools/Rpmdragora/pkg.pm:827 lib/ManaTools/Rpmdragora/pkg.pm:1046
@@ -3175,17 +3237,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:217 lib/ManaTools/Rpmdragora/pkg.pm:222
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr "Звантажуємо пакунок «%s»…"
+msgstr "Отримуємо пакунок «%s»…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "        %s%% of %s completed, ETA = %s, speed = %s"
-msgstr "        звантажено %s%% з %s, оцінка часу = %s, швидкість = %s"
+msgstr "        отримано %s%% з %s, оцінка часу = %s, швидкість = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:225
 #, perl-format
 msgid "        %s%% completed, speed = %s"
-msgstr "        Звантажено %s%%, швидкість = %s"
+msgstr "        Отримано %s%%, швидкість = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:266
 msgid ""
@@ -3194,10 +3256,15 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Доведеться з’єднатися з дзеркалом, щоб отримати останні оновлення "
+"пакунків.\n"
+"Будь ласка, перевірте, чи ваша мережа є працездатною.\n"
+"\n"
+"Продовжити?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:284
 msgid "Already existing update media"
-msgstr ""
+msgstr "Вже наявне джерело оновлення"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:285
 #, perl-format
@@ -3228,6 +3295,8 @@ msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
+"Ви не налаштували джерело оновлення. MageiaUpdate не може працювати без "
+"джерел оновлення."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:296
 msgid ""
@@ -3236,10 +3305,14 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Доведеться з’єднатися із сайтом Mageia, щоб отримати перелік дзеркал.\n"
+"Будь ласка, перевірте, чи з'єднано ваш комп’ютер з інтернетом.\n"
+"\n"
+"Продовжити?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:303
 msgid "How to choose manually your mirror"
-msgstr ""
+msgstr "Як вибрати дзеркало вручну"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:304
 #, perl-format
@@ -3250,10 +3323,15 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"Ви також можете вибрати бажане дзеркало самостійно: щоб це зробити,\n"
+"запустіть «Менеджер джерел пакунків», і додайте джерело «Оновлення\n"
+"безпеки».\n"
+"\n"
+"Потім перезапустіть %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:476
 msgid "Reading updates description"
-msgstr ""
+msgstr "Читаємо описи оновлень"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:481 lib/ManaTools/Rpmdragora/pkg.pm:517
 msgid "Please wait, finding available packages..."
@@ -3261,7 +3339,7 @@ msgstr "Будь ласка, зачекайте, шукаю доступні п�
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:487
 msgid "Please wait, listing base packages..."
-msgstr ""
+msgstr "Зачекайте, будь ласка, створюємо перелік пакунків…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:492 lib/ManaTools/Rpmdragora/pkg.pm:964
 #: lib/ManaTools/Rpmdragora/pkg.pm:989
@@ -3270,23 +3348,23 @@ msgstr "Помилка"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:500
 msgid "Please wait, finding installed packages..."
-msgstr ""
+msgstr "Будь ласка, зачекайте, шукаємо встановлені пакунки…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:625
 msgid "Upgrade information"
-msgstr ""
+msgstr "Інформація про оновлення"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:641
 msgid "These packages come with upgrade information"
-msgstr ""
+msgstr "Ці пакунки містять інформацію про оновлення"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:714 lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid "All requested packages were installed successfully."
-msgstr ""
+msgstr "Всі вибрані пакунки було успішно встановлено."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:718 lib/ManaTools/Rpmdragora/pkg.pm:950
 msgid "Problem during installation"
-msgstr ""
+msgstr "Помилка під час встановлення"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:739
 #: lib/ManaTools/Rpmdragora/pkg.pm:952
@@ -3296,6 +3374,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Під час встановлення сталася помилка:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:738
 msgid "Installation failed"
@@ -3303,16 +3384,16 @@ msgstr "Встановлення завершилося невдало"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:761
 msgid "Checking validity of requested packages..."
-msgstr ""
+msgstr "Перевіряємо цілісність пакунків…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:784
 msgid "Unable to get source packages."
-msgstr ""
+msgstr "Не вдалося отримати пакунки з кодом."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:785
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr ""
+msgstr "Вибачте, не вдалося отримати пакунки з кодом. %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:786
 #, perl-format
@@ -3322,26 +3403,30 @@ msgid ""
 "Error(s) reported:\n"
 "%s"
 msgstr ""
+"\n"
+"\n"
+"Повідомлено про помилки:\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:804
 msgid "The following package is going to be installed:"
-msgstr ""
+msgstr "Буде встановлено такий пакунок:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:810
 msgid "Remove one package?"
-msgstr ""
+msgstr "Вилучити %d пакунок?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr ""
+msgstr "Наступні пакунки доведеться вилучити, щоб інші можна було оновити:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:813
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr ""
+msgstr "Наступні пакунки будуть вилучені для того, щоб поновити інші:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "Is it ok to continue?"
-msgstr ""
+msgstr "Все гаразд? Продовжувати?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:828
 msgid "Initializing..."
@@ -3357,21 +3442,21 @@ msgstr "Наведений нижче «осиротілий» пакунок б
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:852 lib/ManaTools/Rpmdragora/pkg.pm:853
 msgid "Preparing package installation..."
-msgstr ""
+msgstr "Готуємося до встановлення пакунків…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:856 lib/ManaTools/Rpmdragora/pkg.pm:858
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Встановлюємо пакунок «%s» (%d/%d)…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:859
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "Загалом: %d з %d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:923
 msgid "Change medium"
-msgstr ""
+msgstr "Змініть носій"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:924
 #, perl-format
@@ -3389,11 +3474,11 @@ msgstr "%d запит на встановлення завершився нев�
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:965
 msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr ""
+msgstr "Невиправна помилка: на жаль, пакунка для встановлення не знайдено."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:968
 msgid "Inspecting configuration files..."
-msgstr ""
+msgstr "Вивчаємо файли налаштувань…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:976
 msgid ""
@@ -3402,15 +3487,19 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"Встановлення завершено; все встановлено правильно.\n"
+"\n"
+"Деякі файли налаштувань було створено як «.rpmnew» або «.rmpsave»,\n"
+"ви можете ретельно переглянути їх для подальших дій:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:982
 msgid "Looking for \"README\" files..."
-msgstr ""
+msgstr "Шукаємо файли «README»…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1020
 #, perl-format
 msgid "RPM transaction %d/%d"
-msgstr ""
+msgstr "Обробка RPM-файла %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1021
 msgid "Unselect all"
@@ -3422,11 +3511,11 @@ msgstr "Подробиці"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1067
 msgid "Please wait, removing packages..."
-msgstr ""
+msgstr "Зачекайте, будь ласка, поки rpm вилучає ці пакунки…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1080
 msgid "Problem during removal"
-msgstr ""
+msgstr "Проблема під час вилучення"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1081
 #, perl-format
@@ -3435,6 +3524,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Під час вилучення пакунків виникла проблема:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
@@ -3476,7 +3568,7 @@ msgstr "Список дзеркал"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr ""
+msgstr "Виберіть тип джерела"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -3490,14 +3582,20 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"Щоб підтримувати систему в безпечному і стабільному стані, потрібно як\n"
+"мінімум налаштувати джерела з офіційними оновленнями безпеки. Також\n"
+"можна додати повніший набір джерел, що даватиме доступ до додаткових "
+"програм.\n"
+"Виберіть, який набір джерел ви хочете використати — тільки з оновленнями \n"
+"безпеки чи повний."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
-msgstr ""
+msgstr "Повний набір джерел"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Update sources only"
-msgstr ""
+msgstr "Тільки джерела з оновленнями"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
 #, perl-format
@@ -3510,6 +3608,13 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Зараз буде зроблено спробу встановити всі офіційні джерела, які стосуються\n"
+"дистрибутива (%s).\n"
+"\n"
+"Доведеться з’єднатися із сайтом Mageia, щоб отримати перелік дзеркал.\n"
+"Будь ласка, перевірте, чи з'єднано комп’ютер зі інтернетом.\n"
+"\n"
+"Продовжити?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
@@ -3569,15 +3674,15 @@ msgstr "Шлях або точка монтування:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
 msgid "Medium name:"
-msgstr ""
+msgstr "Назва джерела:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "Створити джерело для всього дистрибутива"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr ""
+msgstr "Позначити це джерело як оновлення"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
@@ -3589,6 +3694,8 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
+"Запис джерела із назвою <%s> вже існує,\n"
+"хочете його замінити?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
@@ -3596,7 +3703,7 @@ msgstr "Загальні параметри для встановлення па
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr ""
+msgstr "Перевіряти пакунки, які встановлюються:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
@@ -3608,11 +3715,11 @@ msgstr "завжди"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr ""
+msgstr "Використовувати програму для отримання:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr ""
+msgstr "Правила отримання метаданих у XML:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
@@ -3624,7 +3731,7 @@ msgstr "На запит"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr ""
+msgstr "Лише оновлення"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
@@ -3632,33 +3739,33 @@ msgstr "Завжди"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr ""
+msgstr "Вилучення джерела"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr ""
+msgstr "Ви впевнені, що хочете вилучити джерело «%s»?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr ""
+msgstr "Ви впевнені, що хочете вилучити наступні джерела?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr ""
+msgstr "Зачекайте, будь ласка, вилучаю джерело…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
-msgstr ""
+msgstr "Редагувати джерело"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
 #, perl-format
 msgid "Editing medium \"%s\":"
-msgstr ""
+msgstr "Редагування джерела «%s»:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
-msgstr ""
+msgstr "Завантажувач:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
@@ -3678,26 +3785,28 @@ msgstr "Для продовження вам слід вставити носі�
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr ""
+msgstr "Щоб зберегти зміни, вам слід вставити носій у пристрій для читання."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr ""
+msgstr "Налаштувати проксі"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "Налаштування проксі для джерела «%s»"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "Загальні налаштування проксі"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
 msgstr ""
+"Якщо вам потрібен проксі, введіть його назву і порт (необов'язково) "
+"(синтаксис: <назва[:порт]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
@@ -3705,11 +3814,11 @@ msgstr "Увімкнути проксі"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
-msgstr ""
+msgstr "Назва проксі:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
+msgstr "Ви можете встановити користувача/пароль для розпізнавання проксі:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
@@ -3717,32 +3826,32 @@ msgstr "Користувач:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "Додати паралельну групу"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "Редагувати паралельну групу"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr ""
+msgstr "Додати обмеження джерела"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "Виберіть джерело, щоб додати в перелік джерел:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
-msgstr ""
+msgstr "Додати вузол"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Type in the hostname or IP address of the host to add:"
-msgstr ""
+msgstr "Введіть назву або IP-адресу вузла мережі, який слід додати:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
 msgid "Editing parallel group \"%s\":"
-msgstr ""
+msgstr "Редагування паралельної групи «%s»:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
@@ -3754,7 +3863,7 @@ msgstr "Протокол:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
-msgstr ""
+msgstr "Обмеження джерел:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
@@ -3779,7 +3888,7 @@ msgstr "Вузли:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr ""
+msgstr "Налаштувати паралельний urpmi (розподілене виконання urpmi)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
@@ -3787,7 +3896,7 @@ msgstr "Протокол"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "Обмеження джерел"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
@@ -3817,20 +3926,20 @@ msgstr "Ключі"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr ""
+msgstr "назви не знайдено, ключа немає в сховищі ключів rpm!"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
-msgstr ""
+msgstr "Додати ключ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "Виберіть ключ, щоб додавати до запису джерела %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
-msgstr ""
+msgstr "Вилучити ключ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
 #, perl-format
@@ -3838,6 +3947,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Ви справді хочете вилучити ключ <br>%s<br> із запису джерела %s?<br>(назва "
+"ключа: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -3847,6 +3958,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Неможливо оновити джерело, отримано звіт про помилку:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
@@ -3861,11 +3975,11 @@ msgstr "Оновити"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "Додати особливе дзеркало джерела"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "Додати нетипове джерело"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
@@ -3909,13 +4023,13 @@ msgstr "Нижче"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
 #: modules/rpmdragora/rpmdragora:1097
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora — програма для керування пакунками Mageia."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr ""
+msgstr "Це джерело слід оновити для використання. Зробити це зараз?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -3935,7 +4049,7 @@ msgstr "<control>U"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "/Додати особливе _дзеркало джерела"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>M"
@@ -3970,7 +4084,7 @@ msgstr "/_Параметри"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
-msgstr ""
+msgstr "/_Загальні налаштування…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>G"
@@ -3978,7 +4092,7 @@ msgstr "<control>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/Manage _keys"
-msgstr ""
+msgstr "/Керування кл_ючами…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>K"
@@ -3986,7 +4100,7 @@ msgstr "<control>K"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/_Parallel"
-msgstr ""
+msgstr "/П_аралельне виконання"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>P"
@@ -3994,7 +4108,7 @@ msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr ""
+msgstr "/П_роксі…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
@@ -4017,7 +4131,7 @@ msgstr "/_Про програму…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
-msgstr ""
+msgstr "Rpmdragora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
@@ -4031,6 +4145,9 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"Базу даних пакунків заблоковано. Будь ласка, закрийте інші програми,\n"
+"які з нею працюють. Можливо, працює інший менеджер джерел на\n"
+"іншій стільниці, або ви зараз встановлюєте пакунки)."
 
 #: scripts/manaservice:27
 msgid "Services and daemons"
@@ -4038,56 +4155,56 @@ msgstr "Сервіси та служби"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Засіб додавання користувачів Mageia"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: засіб для читання журналів journalct"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: керування записами користувачів"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: керування службами"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: налаштовування засобу входу до системи"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: керування даними дати і часу"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: керування вузлами"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: панель адміністрування"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: керування проксі-сервером"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: керування встановленням rpm"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: керування оновленням rpm"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: керування захисним шлюзом"
 
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "Команду <%s> не знайдено!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
@@ -4095,13 +4212,15 @@ msgstr "ПОМИЛКА: "
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Користування: mana --help | -h        вивести цю довідку\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Користування: mana <команда> [аргументи...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
@@ -4113,7 +4232,7 @@ msgstr "Виправлення вад"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "Тут наведено список пакунків з оновленнями"
 
 #: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:440
 #: modules/rpmdragora/rpmdragora:1194
@@ -4154,7 +4273,7 @@ msgstr "&Оновити"
 
 #: modules/rpmdragora/dragoraUpdate:348
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate — програма для керування пакунками Mageia."
 
 #: modules/rpmdragora/dragoraUpdate:349
 #, perl-format
@@ -4164,10 +4283,14 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Розробники</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Перекладачі</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:412
 msgid "rpmdragora update"
-msgstr ""
+msgstr "Оновлення rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid ""
@@ -4175,6 +4298,8 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"Список оновлень порожній. Це означає, що або немає оновлень для пакунків, "
+"які встановлено на вашому комп'ютері, або вони всі вже встановлені."
 
 #: modules/rpmdragora/rpmdragora:317
 #, perl-format
@@ -4203,11 +4328,13 @@ msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
 msgstr ""
+"Немає результатів пошуку. Можливо, потрібно змінити вигляд «%s» і фільтр у "
+"«%s»"
 
 #: modules/rpmdragora/rpmdragora:421
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "Вибрано: %s / Вільно на диску: %s"
 
 #: modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
@@ -4223,7 +4350,7 @@ msgstr "Арх."
 
 #: modules/rpmdragora/rpmdragora:485
 msgid "ToInst"
-msgstr ""
+msgstr "Буде встановлено"
 
 #: modules/rpmdragora/rpmdragora:537
 msgid "Not installed"
@@ -4239,27 +4366,27 @@ msgstr "Усі пакунки, за групами"
 
 #: modules/rpmdragora/rpmdragora:552
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "Тільки ті, що залишилися, відсортовані за датою встановлення"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "Всі пакунки, за придатністю до поновлення"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "Всі пакунки, за станом вибору"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "All packages, by size"
-msgstr ""
+msgstr "Всі пакунки, за розміром"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "Всі пакунки, за джерелом"
 
 #: modules/rpmdragora/rpmdragora:561
 msgid "Backports"
-msgstr ""
+msgstr "Зворотне портування"
 
 #: modules/rpmdragora/rpmdragora:562
 msgid "Meta packages"
@@ -4267,7 +4394,7 @@ msgstr "Метапакунки"
 
 #: modules/rpmdragora/rpmdragora:563
 msgid "Packages with GUI"
-msgstr ""
+msgstr "Пакунки з графічним інтерфейсом"
 
 #: modules/rpmdragora/rpmdragora:564
 msgid "All updates"
@@ -4279,11 +4406,11 @@ msgstr "Оновлення безпеки"
 
 #: modules/rpmdragora/rpmdragora:566
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Поновлення виявлених дефектів"
 
 #: modules/rpmdragora/rpmdragora:567
 msgid "General updates"
-msgstr ""
+msgstr "Загальні оновлення"
 
 #: modules/rpmdragora/rpmdragora:614
 msgid "in names"
@@ -4291,15 +4418,15 @@ msgstr "у назвах"
 
 #: modules/rpmdragora/rpmdragora:615
 msgid "in descriptions"
-msgstr ""
+msgstr "в описах"
 
 #: modules/rpmdragora/rpmdragora:616
 msgid "in summaries"
-msgstr ""
+msgstr "у резюме"
 
 #: modules/rpmdragora/rpmdragora:617
 msgid "in file names"
-msgstr ""
+msgstr "у назвах файлів"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Search"
@@ -4323,35 +4450,35 @@ msgstr "Вийти"
 
 #: modules/rpmdragora/rpmdragora:694
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/_Вибирати залежності автоматично"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "Очистити кеш завантаження після успішного встановлення"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/Ви_являти поновлення при завантаженні"
 
 #: modules/rpmdragora/rpmdragora:699
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Шукати у п_овних назвах пакунків"
 
 #: modules/rpmdragora/rpmdragora:700
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "_Формальні вирази у рядках пошуку"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Update media"
-msgstr ""
+msgstr "Оновити джерела"
 
 #: modules/rpmdragora/rpmdragora:707
 msgid "Reset the selection"
-msgstr ""
+msgstr "Скинути позначене"
 
 #: modules/rpmdragora/rpmdragora:708
 msgid "Reload the packages list"
-msgstr ""
+msgstr "Перезавантажити список пакунків"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "Settings"
@@ -4359,7 +4486,7 @@ msgstr "Параметри"
 
 #: modules/rpmdragora/rpmdragora:724
 msgid "&Media Manager"
-msgstr ""
+msgstr "Кер&ування джерелами"
 
 #: modules/rpmdragora/rpmdragora:754
 msgid "View"
@@ -4367,7 +4494,7 @@ msgstr "Перегляд"
 
 #: modules/rpmdragora/rpmdragora:1066
 msgid "Reset aborted (RPM DB is locked by another process)"
-msgstr ""
+msgstr "Скидання перервано (базу даних RPM заблоковано іншим процесом)"
 
 #: modules/rpmdragora/rpmdragora:1098
 #, perl-format
@@ -4380,11 +4507,17 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Розробники</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Перекладачі</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1186
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdragora вже запущено (pid: %s)"
 
 #: modules/rpmdragora/rpmdragora:1186
 msgid "Quit"
@@ -4402,6 +4535,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Все гаразд? Продовжувати?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -4409,6 +4545,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Зараз ви додасте нове джерело пакунків.\n"
+"Це означає, що ви зможете додавати нові програми\n"
+"у систему з цього нового джерела."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4417,6 +4556,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Зараз ви додасте нове джерело пакунків, %s.\n"
+"Це означає, що ви зможете додавати нові програми\n"
+"у систему з цього нового джерела."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4425,18 +4567,22 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"Зараз ви додасте нове джерело з пакунками, «%s».\n"
+"Це означає, що ви зможете додавати нові програми\n"
+"у систему з цього нового джерела."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr ""
+msgstr "Успішно додано джерело."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "Успішно додано джерело %s."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "Успішно додано джерело «%s»."
+
 
