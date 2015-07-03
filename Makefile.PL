@@ -100,6 +100,8 @@ PGOAL = manatools
 
 # perl files to search translatable strings in
 PL_FILES = $(shell find lib/ManaTools/{Module,Shared,Rpmdragora} -type f -name "*.pm") \
+	$(shell find lib/ManaTools/ -type f -name "*.pm") \
+	$(shell find lib/ManaTools/Shared/urpmi_backend -type f -name "*.pm") \
 	$(shell find scripts/ -type f -name "*") \
 	modules/rpmdragora/dragoraUpdate \
 	modules/rpmdragora/rpmdragora \
