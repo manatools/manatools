@@ -68,24 +68,6 @@ use MDK::Common::File qw(cat_);
 use URPM;
 use urpm::msg;
 
-# use Exporter;
-# our @ISA = qw(Exporter);
-# our @EXPORT = qw(
-#   get_update_medias
-#   rpm_description
-#   urpm_name
-#   find_installed_fullname
-#   is_mageia
-#   is_package_installed
-#   get_package_id
-#   ensure_utf8
-#   pkg2medium
-#   fullname_to_package_id
-#   get_package_by_package_id
-#   get_package_upgrade
-#   get_installed_fullname
-#   get_installed_fullname_pkid
-# );
 
 #=============================================================
 
