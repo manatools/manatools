@@ -302,7 +302,8 @@ sub find_installed_fullname {
 #=============================================================
 sub is_mageia {
     my $self = shift;
-    cat_('/etc/release') =~ /Mageia/;
+
+    return cat_('/etc/release') =~ /Mageia/;
 }
 
 #=============================================================
@@ -319,8 +320,9 @@ sub is_mageia {
 sub vendor {
     my $self = shift;
 
-    is_mageia() ? "mageia" : "mandriva";
+    return $self->is_mageia() ? "mageia" : "mandriva";
 }
+
 
 #=============================================================
 
@@ -365,11 +367,16 @@ sub get_package_id {
 #=============================================================
 sub pkg2medium {
     my ($self, $p, $urpm) = @_;
+
     return if ref($p) ne 'URPM::Package';
 
-    return { name => $self->loc()->N("None (installed)") } if !defined($p->id); # if installed
+    return {
+        name => $self->loc->N_("None (installed)")
+    } if !defined($p->id); # if installed
 
-    return URPM::pkg2media($urpm->{media}, $p) || { name => $self->loc()->N("Unknown"), fake => 1 };
+    return URPM::pkg2media($urpm->{media}, $p) || {
+        name => $self->loc->N("Unknown"), fake => 1
+    };
 }
 
 #=============================================================
@@ -393,7 +400,7 @@ sub fullname_to_package_id {
     chomp($pkg_string);
     if ($pkg_string =~ /^(.*)-([^-]*)-([^-]*)\.([^\.]*)$/) {
 # TODO NOTE check package kit backend it seems the urpm package_id is "name;varsion-release;arch;vendor"
-        return join(';', $1, "$2-$3", $4, vendor());
+        return join(';', $1, "$2-$3", $4, $self->vendor());
     }
 }
 
@@ -485,3 +492,4 @@ sub get_package_upgrade {
 
 
 1;
+
