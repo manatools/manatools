@@ -9,7 +9,6 @@
 # Geert Poels <Geert.Poels@skynet.be>, 2000
 # Hendrik-Jan Heins <hjh@passys.nl>, 2003-2004
 # Jeroen ten Berge <j.ten.berge@twinbit.nl>, 2002
-# Marja van Waes <marja@mageia.org, 2013,2015
 # Marja van Waes <marja@mageia.org>, 2013-2015
 # Niels Gras <niels.gras@wanadoo.nl>, 2000
 # Peter Bosch <peter.bosch@hccnet.nl>, 2002
@@ -18,15 +17,15 @@
 # remmy <remco@webconquest.com>, 2011-2013
 # Rob Teng <mandrake.tips@free.fr>, 2004-2005,2008-2009
 # Tom Laermans <tom.laermans@powersource.cx>, 2001
+# Yuri Chornoivan <yurchor@ukr.net>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-01 22:55+0200\n"
-"PO-Revision-Date: 2015-07-06 05:53+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/mageia/language/"
-"nl/)\n"
+"PO-Revision-Date: 2015-07-06 10:12+0000\n"
+"Last-Translator: Marja van Waes <marja@mageia.org>\n"
+"Language-Team: Dutch <i18n-nl@ml.mageia.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -72,11 +71,11 @@ msgstr "Informatie"
 
 #: lib/ManaTools/Module/Services.pm:401
 msgid "&Start"
-msgstr ""
+msgstr "&Starten"
 
 #: lib/ManaTools/Module/Services.pm:404
 msgid "S&top"
-msgstr ""
+msgstr "S&toppen"
 
 #: lib/ManaTools/Module/Services.pm:412 lib/ManaTools/Module/Proxy.pm:324
 #: lib/ManaTools/Module/Clock.pm:312
@@ -87,11 +86,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:278 modules/rpmdragora/rpmdragora:761
 msgid "&About"
-msgstr ""
+msgstr "&Info"
 
 #: lib/ManaTools/Module/Services.pm:417
 msgid "&Refresh"
-msgstr ""
+msgstr "&Verversen"
 
 #: lib/ManaTools/Module/Services.pm:418 lib/ManaTools/Module/LogViewer.pm:323
 #: lib/ManaTools/Module/Users.pm:2400 lib/ManaTools/Module/Users.pm:2488
@@ -100,7 +99,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1704
 #: modules/rpmdragora/dragoraUpdate:286 modules/rpmdragora/rpmdragora:709
 msgid "&Quit"
-msgstr ""
+msgstr "A&fsluiten"
 
 #: lib/ManaTools/Module/Services.pm:451 lib/ManaTools/Module/AdminMouse.pm:221
 #: lib/ManaTools/Module/Clock.pm:569 lib/ManaTools/Module/LogViewer.pm:342
@@ -132,7 +131,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
 #: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1096
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/Module/Services.pm:458
 msgid ""
@@ -153,6 +152,12 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Vertalers</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:528
 #, perl-format
@@ -208,6 +213,8 @@ msgid ""
 "AdminMouse is the Mageia mouse management tool \n"
 "(from the original idea of Mandriva mousedrake)."
 msgstr ""
+"AdminMouse is Mageia's muisbeheertool \n"
+"(naar het oorspronkelijke idee van Mandriva's mousedrake)."
 
 #: lib/ManaTools/Module/AdminMouse.pm:217
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
@@ -228,7 +235,7 @@ msgstr "Met welke seriële poort is uw muis verbonden?"
 
 #: lib/ManaTools/Module/AdminMouse.pm:274
 msgid "Not implemented yet: configuration is not changed"
-msgstr ""
+msgstr "Nog niet geïmplementeerd: de instellingen zijn niet gewijzigd"
 
 #: lib/ManaTools/Module/Proxy.pm:150
 #: lib/ManaTools/Module/DisplayManager.pm:142
@@ -241,7 +248,7 @@ msgstr ""
 #: lib/ManaTools/Module/Proxy.pm:178
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "X Restart Required"
-msgstr ""
+msgstr "X dient herstart te worden"
 
 #: lib/ManaTools/Module/Proxy.pm:178
 #: lib/ManaTools/Module/DisplayManager.pm:178
@@ -306,7 +313,7 @@ msgstr "Geen proxy voor (kommagescheiden lijst):"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:767
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 msgid "&Cancel"
-msgstr ""
+msgstr "&Annuleren"
 
 #: lib/ManaTools/Module/Proxy.pm:326
 #: lib/ManaTools/Module/DisplayManager.pm:248
@@ -315,7 +322,7 @@ msgstr ""
 #: lib/ManaTools/Module/Hosts.pm:262 lib/ManaTools/Module/Hosts.pm:449
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 msgid "&OK"
-msgstr ""
+msgstr "&OK"
 
 #: lib/ManaTools/Module/Proxy.pm:348
 msgid "Graphical manager for proxies"
@@ -335,7 +342,7 @@ msgstr "Network Time Protocol inschakelen"
 
 #: lib/ManaTools/Module/Clock.pm:256
 msgid "Change &NTP server"
-msgstr ""
+msgstr "Wijzig &NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:269 lib/ManaTools/Module/Clock.pm:294
 msgid "Current:"
@@ -352,11 +359,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:292
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Wijzig tijd&zone"
 
 #: lib/ManaTools/Module/Clock.pm:313
 msgid "&Reset"
-msgstr ""
+msgstr "&Reset"
 
 #: lib/ManaTools/Module/Clock.pm:318 lib/ManaTools/Module/Users.pm:874
 #: lib/ManaTools/Module/Users.pm:2008 lib/ManaTools/Rpmdragora/gui.pm:1281
@@ -365,7 +372,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 msgid "&Ok"
-msgstr ""
+msgstr "&OK"
 
 #: lib/ManaTools/Module/Clock.pm:350
 msgid "manaclock: NTP service missed"
@@ -520,7 +527,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:303
 msgid "&Find"
-msgstr ""
+msgstr "Vin&den"
 
 #: lib/ManaTools/Module/LogViewer.pm:306
 msgid "Log content"
@@ -528,7 +535,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "&Save"
-msgstr ""
+msgstr "O&pslaan"
 
 #: lib/ManaTools/Module/LogViewer.pm:349
 msgid "Log viewer is a systemd journal viewer"
@@ -629,7 +636,7 @@ msgstr "Alles (geen firewall)"
 
 #: lib/ManaTools/Module/Firewall.pm:738
 msgid "A&dvanced"
-msgstr ""
+msgstr "&Geavanceerd"
 
 #: lib/ManaTools/Module/Firewall.pm:772
 msgid "Graphical manager for firewall rules"
@@ -875,7 +882,7 @@ msgstr "Aanmeldshell:"
 #: lib/ManaTools/Module/Users.pm:774
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "I&coon (%s)"
 
 #: lib/ManaTools/Module/Users.pm:822
 msgid "Create New User"
@@ -1113,11 +1120,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2308 lib/ManaTools/Module/Hosts.pm:436
 msgid "&Edit"
-msgstr ""
+msgstr "&Bewerken"
 
 #: lib/ManaTools/Module/Users.pm:2309
 msgid "&Delete"
-msgstr ""
+msgstr "Ver&wijderen"
 
 #: lib/ManaTools/Module/Users.pm:2310
 msgid "Install guest account"
@@ -1162,7 +1169,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
 #: modules/rpmdragora/dragoraUpdate:277 modules/rpmdragora/rpmdragora:758
 msgid "&Help"
-msgstr ""
+msgstr "&Hulp"
 
 #: lib/ManaTools/Module/Users.pm:2412
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
@@ -1241,15 +1248,15 @@ msgstr "Host aliassen"
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
-msgstr ""
+msgstr "&Toevoegen"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
-msgstr ""
+msgstr "Ver&wijderen"
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "&Hostname"
-msgstr ""
+msgstr "H&ostnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:481 lib/ManaTools/Rpmdragora/pkg.pm:265
 #: lib/ManaTools/Rpmdragora/pkg.pm:807
@@ -3753,7 +3760,7 @@ msgstr "Herzieningen"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
-msgstr ""
+msgstr "&Proxy..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
@@ -3961,7 +3968,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "Opt&ies"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -4239,15 +4246,15 @@ msgstr "Arch"
 
 #: modules/rpmdragora/dragoraUpdate:283
 msgid "U&ncheck all"
-msgstr ""
+msgstr "Alles &uitvinken"
 
 #: modules/rpmdragora/dragoraUpdate:284
 msgid "&Select all"
-msgstr ""
+msgstr "Alles &selecteren"
 
 #: modules/rpmdragora/dragoraUpdate:285
 msgid "&Update"
-msgstr ""
+msgstr "Bijwer&ken"
 
 #: modules/rpmdragora/dragoraUpdate:348
 msgid "dragoraUpdate is the Mageia package management tool."
@@ -4458,7 +4465,7 @@ msgstr "Instellingen"
 
 #: modules/rpmdragora/rpmdragora:724
 msgid "&Media Manager"
-msgstr ""
+msgstr "&Mediabeheerder"
 
 #: modules/rpmdragora/rpmdragora:754
 msgid "View"
