@@ -23,7 +23,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-01 22:55+0200\n"
-"PO-Revision-Date: 2015-07-06 10:12+0000\n"
+"PO-Revision-Date: 2015-07-06 14:33+0000\n"
 "Last-Translator: Marja van Waes <marja@mageia.org>\n"
 "Language-Team: Dutch <i18n-nl@ml.mageia.org>\n"
 "Language: nl\n"
@@ -34,7 +34,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:184
 msgid "adminService"
-msgstr ""
+msgstr "adminService"
 
 #: lib/ManaTools/Module/Services.pm:291
 msgid "Start when requested"
@@ -140,6 +140,9 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva draxservice)."
 msgstr ""
+"adminService is Mageia's diensten- en daemons-beheertool \n"
+"\n"
+"(naar het oorspronkelijke idee van Mandriva's drakxservices)."
 
 #: lib/ManaTools/Module/Services.pm:460
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
@@ -162,17 +165,17 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:528
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "%s starten"
 
 #: lib/ManaTools/Module/Services.pm:548
 #, perl-format
 msgid "Stopping %s"
-msgstr ""
+msgstr "%s stoppen"
 
 #: lib/ManaTools/Module/AdminMouse.pm:49
 #: lib/ManaTools/Module/AdminMouse.pm:211
 msgid "AdminMouse"
-msgstr ""
+msgstr "AdminMouse"
 
 #: lib/ManaTools/Module/AdminMouse.pm:90
 msgid "Please choose your type of mouse."
@@ -243,7 +246,7 @@ msgstr "Nog niet geïmplementeerd: de instellingen zijn niet gewijzigd"
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "root-rechten vereist"
 
 #: lib/ManaTools/Module/Proxy.pm:178
 #: lib/ManaTools/Module/DisplayManager.pm:178
@@ -326,7 +329,7 @@ msgstr "&OK"
 
 #: lib/ManaTools/Module/Proxy.pm:348
 msgid "Graphical manager for proxies"
-msgstr ""
+msgstr "Grafische proxy's-beheerder"
 
 #: lib/ManaTools/Module/Clock.pm:126
 msgid "Date, Clock & Time Zone Settings"
@@ -334,7 +337,7 @@ msgstr "Datum-, klok- & tijdzone-instellingen"
 
 #: lib/ManaTools/Module/Clock.pm:238
 msgid "Setting date and time"
-msgstr ""
+msgstr "Datum en tijd instellen"
 
 #: lib/ManaTools/Module/Clock.pm:253
 msgid "Enable Network Time Protocol"
@@ -346,7 +349,7 @@ msgstr "Wijzig &NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:269 lib/ManaTools/Module/Clock.pm:294
 msgid "Current:"
-msgstr ""
+msgstr "Huidige:"
 
 #: lib/ManaTools/Module/Clock.pm:273 lib/ManaTools/Module/Clock.pm:296
 #: lib/ManaTools/Module/Clock.pm:558 lib/ManaTools/Module/Clock.pm:564
@@ -355,7 +358,7 @@ msgstr "niet gedefiniëerd"
 
 #: lib/ManaTools/Module/Clock.pm:290
 msgid "TimeZone"
-msgstr ""
+msgstr "Tijdzone"
 
 #: lib/ManaTools/Module/Clock.pm:292
 msgid "Change &Time Zone"
@@ -376,39 +379,39 @@ msgstr "&OK"
 
 #: lib/ManaTools/Module/Clock.pm:350
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: NTP-service ontbreekt"
 
 #: lib/ManaTools/Module/Clock.pm:351
 msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr ""
+msgstr "Installeer a.u.b. een NTP-service zoals chrony of ntp"
 
 #: lib/ManaTools/Module/Clock.pm:375
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Lokale realtimeklok instellen is mislukt"
 
 #: lib/ManaTools/Module/Clock.pm:390
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Tijdzone instellen is mislukt"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "NTP-configuratie instellen is mislukt"
 
 #: lib/ManaTools/Module/Clock.pm:442
 msgid "Set NTP failed"
-msgstr ""
+msgstr "NTP instellen is mislukt"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Set system time failed"
-msgstr ""
+msgstr "Systeemtijd instellen is mislukt"
 
 #: lib/ManaTools/Module/Clock.pm:476
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "NTP-server - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:477
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Kies uw NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:501 lib/ManaTools/Module/Clock.pm:507
 msgid "Timezone - DrakClock"
@@ -416,7 +419,7 @@ msgstr "Tijdzone - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:502
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Tijdzoneslijst ophalen is mislukt"
 
 #: lib/ManaTools/Module/Clock.pm:508
 msgid "Which is your timezone?"
@@ -424,7 +427,7 @@ msgstr "Wat is uw tijdzone?"
 
 #: lib/ManaTools/Module/Clock.pm:519
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:520
 msgid "Is your hardware clock set to GMT?"
@@ -432,17 +435,19 @@ msgstr "Is uw computerklok ingesteld op GMT?"
 
 #: lib/ManaTools/Module/Clock.pm:539
 msgid "Restore data"
-msgstr ""
+msgstr "Gegevens herstellen"
 
 #: lib/ManaTools/Module/Clock.pm:540
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Enkel datum en tijd herstellen?"
 
 #: lib/ManaTools/Module/Clock.pm:576
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Datum-, klok- & tijdzone-instellingen laten u de tijdzone instellen en datum "
+"en tijd aanpassen"
 
 #: lib/ManaTools/Module/Clock.pm:577
 #, perl-format
@@ -452,38 +457,43 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"<ul><li>%s</li></ul>\n"
+"<h3>Vertalers</h3>\n"
+"<ul><li>%s</li></ul>"
+
 
 #: lib/ManaTools/Module/DisplayManager.pm:93
 msgid "LightDM (The Light Display Manager)"
-msgstr ""
+msgstr "LightDM (De lichte displaybeheerder)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:94
 msgid "GDM (GNOME Display Manager)"
-msgstr "GDM (GNOME displaybeheer)"
+msgstr "GDM (GNOME-displaybeheer)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:95
 msgid "KDM (KDE Display Manager)"
-msgstr "KDM (KDE displaybeheer)"
+msgstr "KDM (KDE-displaybeheer)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:96
 msgid "XDM (X Display Manager)"
-msgstr "XDM (X Display Manager)"
+msgstr "XDM (X-displaybeheer)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:188 scripts/manadm:35
 msgid "Display Manager"
-msgstr ""
+msgstr "Displaybeheer"
 
 #: lib/ManaTools/Module/DisplayManager.pm:214
 msgid "Choosing a display manager"
-msgstr "Kiezen van displaybeheer"
+msgstr "Kiezen van displaybeheerder"
 
 #: lib/ManaTools/Module/DisplayManager.pm:270
 msgid "Graphical configurator for system Display Manager"
-msgstr ""
+msgstr "Grafische configurator van het systeem-displaybeheer"
 
 #: lib/ManaTools/Module/LogViewer.pm:127
 msgid "Log viewer"
-msgstr ""
+msgstr "Log-viewer (Logboekkijker)"
 
 #: lib/ManaTools/Module/LogViewer.pm:181
 msgid "A tool to monitor your logs"
@@ -503,27 +513,27 @@ msgstr "Opties"
 
 #: lib/ManaTools/Module/LogViewer.pm:198
 msgid "Last boot"
-msgstr ""
+msgstr "Laatste keer opstarten"
 
 #: lib/ManaTools/Module/LogViewer.pm:211
 msgid "Since"
-msgstr ""
+msgstr "Sinds"
 
 #: lib/ManaTools/Module/LogViewer.pm:216
 msgid "Until"
-msgstr ""
+msgstr "Tot"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "Select a unit"
-msgstr ""
+msgstr "Kies een eenheid"
 
 #: lib/ManaTools/Module/LogViewer.pm:265
 msgid "From priority"
-msgstr ""
+msgstr "Van voorrang"
 
 #: lib/ManaTools/Module/LogViewer.pm:285
 msgid "To priority"
-msgstr ""
+msgstr "Tot voorrang"
 
 #: lib/ManaTools/Module/LogViewer.pm:303
 msgid "&Find"
@@ -531,7 +541,7 @@ msgstr "Vin&den"
 
 #: lib/ManaTools/Module/LogViewer.pm:306
 msgid "Log content"
-msgstr ""
+msgstr "Log-inhoud"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "&Save"
@@ -539,7 +549,7 @@ msgstr "O&pslaan"
 
 #: lib/ManaTools/Module/LogViewer.pm:349
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Log-viewer is een systemd-logboek-kijker"
 
 #: lib/ManaTools/Module/LogViewer.pm:350
 #, perl-format
@@ -551,10 +561,16 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Vertalers</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:368
 msgid "Empty log found"
-msgstr ""
+msgstr "Leeg logboek gevonden"
 
 #: lib/ManaTools/Module/LogViewer.pm:461 lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -566,6 +582,9 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"U start dit programma als gewone gebruiker.\n"
+"U zult geen systeemlogboeken kunnen lezen waartoe u geen rechten heeft,\n"
+"maar u kunt wel alle andere bekijken."
 
 #: lib/ManaTools/Module/LogViewer.pm:485
 msgid "Save as.."
@@ -586,6 +605,8 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"drakfirewall-configurator\n"
+"Deze configureert een persoonlijke firewall voor deze Mageia-machine."
 
 #: lib/ManaTools/Module/Firewall.pm:354
 msgid ""
@@ -593,6 +614,9 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"drakfirewall configurator\n"
+"Zorg dat u uw netwerk/internettoegang met drakconnect ingesteld\n"
+"heeft, alvorens verder te gaan."
 
 #: lib/ManaTools/Module/Firewall.pm:417
 msgid "Interactive Firewall"
@@ -614,7 +638,7 @@ msgstr "Interactieve firewall gebruiken"
 
 #: lib/ManaTools/Module/Firewall.pm:583
 msgid "Graphical manager for interactive firewall rules"
-msgstr ""
+msgstr "Grafische beheerder voor interactive firewallregels"
 
 #: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
 #: lib/ManaTools/Module/Firewall.pm:1015
@@ -640,7 +664,7 @@ msgstr "&Geavanceerd"
 
 #: lib/ManaTools/Module/Firewall.pm:772
 msgid "Graphical manager for firewall rules"
-msgstr ""
+msgstr "Grafische beheerder voor firewallregels"
 
 #: lib/ManaTools/Module/Firewall.pm:804
 msgid ""
@@ -648,10 +672,13 @@ msgid ""
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
 msgstr ""
+"U kunt diverse poorten invoeren.\n"
+"Geldige voorbeelden zijn: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Kijk in /etc/services voor informatie."
 
 #: lib/ManaTools/Module/Firewall.pm:809
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Definieer overige poorten"
 
 #: lib/ManaTools/Module/Firewall.pm:824
 msgid "Other ports"
@@ -663,7 +690,7 @@ msgstr "Verslag van firewall meldingen vastleggen in het systeemlogboek"
 
 #: lib/ManaTools/Module/Firewall.pm:887
 msgid "Invalid port given"
-msgstr ""
+msgstr "Ongeldige poort ingevoerd"
 
 #: lib/ManaTools/Module/Firewall.pm:888
 #, perl-format
@@ -674,6 +701,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"Ongeldige poort ingevoerd: %s.\n"
+"De correcte indeling is \"port/tcp\" or \"port/udp\",\n"
+"waarin port tussen 1 and 65535 is.\n"
+"\n"
+"U kunt ook een poortenreeks invoeren (bv: 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:927
 msgid ""
@@ -704,10 +736,13 @@ msgid ""
 "up.\n"
 "    What do you want to do?"
 msgstr ""
+"Uw firewallconfiguratie werd handmatig aangepast en bevat\n"
+"regels die mogelijk botsen met de juist ingestelde configuratie.\n"
+"Wat wilt u doen?"
 
 #: lib/ManaTools/Module/Users.pm:101
 msgid "manauser - Mageia Users Management Tool"
-msgstr ""
+msgstr "manauser - Mageia-Gebruikersbeheertool"
 
 #: lib/ManaTools/Module/Users.pm:261
 msgid "User Data"
@@ -792,6 +827,8 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Gebruiker %s verwijderen\n"
+"Voer ook de volgende handelingen uit\n" 
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
@@ -822,7 +859,7 @@ msgstr "Handmatig groeps-ID opgeven"
 
 #: lib/ManaTools/Module/Users.pm:566
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:599
 msgid "Group already exists, please choose another Group Name"
@@ -831,7 +868,7 @@ msgstr "De groep bestaat al, kies een andere groepsnaam"
 #: lib/ManaTools/Module/Users.pm:607
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr "Groeps-GID is < %n"
 
 #: lib/ManaTools/Module/Users.pm:608
 #, perl-format
@@ -840,16 +877,21 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Een groep aanmaken met een GID onder de %d wordt afgeraden.\n"
+"Weet u zeker dat u dit wilt doen?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:616
 msgid " Group ID is already used "
-msgstr ""
+msgstr "Groeps-ID bestaat al"
 
 #: lib/ManaTools/Module/Users.pm:617
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Een groep aanmaken met gedeelde GID?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:629
 #, perl-format
@@ -1139,6 +1181,8 @@ msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser is een Mageia-gebruikersbeheertool \n"
+"(naar het oorspronkelijke idee van Mandriva's userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -1150,6 +1194,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Vertalers</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Users.pm:2398
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -4268,6 +4318,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"<ul><li>%s</li></ul>\n"
+"<h3>Vertalers</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:412
 msgid "rpmdragora update"
@@ -4486,11 +4540,17 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Vertalers</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1186
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rprmdragora is al actief (pid: %s)"
 
 #: modules/rpmdragora/rpmdragora:1186
 msgid "Quit"
@@ -4528,7 +4588,7 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
-"U staat op het punt een nieuw pakketmedium, `%s'toe te voegen.\n"
+"U staat op het punt een nieuw pakketmedium, %s, toe te voegen.\n"
 "Dit houdt in dat u in staat zult zijn nieuwe softwarepakketten\n"
 "van dat nieuwe medium aan uw systeem toe te voegen."
 
@@ -4539,7 +4599,7 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
-"U staat op het punt een nieuw pakketmedium, `%s'.\n"
+"U staat op het punt een nieuw pakketmedium, `%s', toe te voegen\n"
 "Dit houdt in dat u in staat zult zijn nieuwe softwarepakketten\n"
 "van dat nieuwe medium aan uw systeem toe te voegen."
 
@@ -4550,7 +4610,7 @@ msgstr "Media zijn met succes toegevoegd."
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr "Het medium `%s' is met succes toegevoegd."
+msgstr "Het medium %s is met succes toegevoegd."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
