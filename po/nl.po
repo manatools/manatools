@@ -25,10 +25,9 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-07 16:56+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Dutch (http://www.transifex.com/projects/p/mageia/language/"
-"nl/)\n"
+"PO-Revision-Date: 2015-07-07 21:14+0200\n"
+"Last-Translator: Marja van Waes <marja@mageia.org>\n"
+"Language-Team: Dutch <i18n-nl@ml.mageia.org>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -37,11 +36,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
-msgstr "Softwarepakketten-opwaardering"
+msgstr "Software vernieuwen"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr "Mageia Vernieuwen"
+msgstr "Mageia vernieuwen"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -79,11 +78,11 @@ msgstr "Softwarepakketten verwijderen"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
-msgstr "Softwarepakketten-opwaardering"
+msgstr "Softwarepakketten opwaarderen"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
-msgstr "Softwarepakketten-installatie"
+msgstr "Softwarepakketten installeren"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
@@ -99,7 +98,7 @@ msgstr "Nee"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr ""
+msgstr "Afhankelijkheden"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -138,7 +137,7 @@ msgstr "Brazilië"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Brittanië"
 
 #: lib/ManaTools/rpmdragora.pm:582 lib/ManaTools/Shared/TimeZone.pm:446
 msgid "Canada"
@@ -305,7 +304,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
@@ -484,6 +483,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Er ging iets mis bij het ophalen van de mirrors-lijst:\n"
+"%s\n"
+"\n"
+"Het netwerk, of de website, lijkt niet beschikbaar.\n"
+"Probeer het a.u.b. later opnieuw."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -494,6 +498,11 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Er ging iets mis bij het ophalen van de mirrors-lijst:\n"
+"%s\n"
+"\n"
+"Het netwerk, of de Mageia-website, lijkt niet beschikbaar.\n"
+"Probeer het a.u.b. later opnieuw."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -551,7 +560,7 @@ msgstr "Even geduld, bezig met downloaden van mirror-adressen."
 msgid "Please wait, downloading mirror addresses from the Mageia website."
 msgstr ""
 "Even geduld aub, bezig met downloaden van mirror-adressen van de Mageia "
-"webstek."
+"website."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
@@ -590,7 +599,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:346 modules/rpmdragora/rpmdragora:1095
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Copyright (C) %s Mageia-gemeenschap"
 
 #: lib/ManaTools/MainDisplay.pm:192
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
@@ -602,7 +611,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan is het mana-tools paneel dat al deze tools bevat."
 
 #: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -625,7 +634,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: lib/ManaTools/Module/Users.pm:2398 modules/rpmdragora/rpmdragora:705
 msgid "File"
-msgstr ""
+msgstr "Bestand"
 
 #: lib/ManaTools/MainDisplay.pm:336
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
@@ -671,15 +680,15 @@ msgstr "Installatie voltooid"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:642
 msgid "Select a package"
-msgstr ""
+msgstr "Selecteer een pakket"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Verwijder het nieuwe bestand"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr ""
+msgstr "Gebruik het nieuwe bestand"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
@@ -900,10 +909,12 @@ msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Rpmdragore of één van zijn voorrangsafhankelijkheden moet eerst "
+"bijgewerkt worden. Rpmdragora zal dan herstarten."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:804
 msgid "The following package is going to be installed:"
-msgstr ""
+msgstr "Het volgende pakket zal geïnstalleerd worden:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:807 lib/ManaTools/Rpmdragora/gui.pm:1467
 msgid "Some packages need to be removed"
@@ -911,7 +922,7 @@ msgstr "Enkele pakketten dienen verwijderd te worden"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:810
 msgid "Remove one package?"
-msgstr ""
+msgstr "Één pakket verwijderen?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812
 msgid "The following package has to be removed for others to be upgraded:"
@@ -939,21 +950,21 @@ msgstr "Weespakketten"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:836
 msgid "The following orphan package will be removed."
-msgstr ""
+msgstr "Het volgende weespakket zal verwijderd worden."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:852 lib/ManaTools/Rpmdragora/pkg.pm:853
 msgid "Preparing package installation..."
-msgstr ""
+msgstr "Pakketinstallatie voorbereiden..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:856 lib/ManaTools/Rpmdragora/pkg.pm:858
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Pakket `%s' (%d/%d) installeren..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:859
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "Totaal: %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:923
 msgid "Change medium"
@@ -966,7 +977,7 @@ msgstr "Gelieve het medium met de naam ‘%s’ in te voeren"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Pakketondertekeningen checken..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:951
 #, perl-format
@@ -1220,6 +1231,8 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
+"Er is reeds een medium met de naam <%s>,\n"
+"wilt u het echt vervangen?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
@@ -1345,7 +1358,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
-msgstr ""
+msgstr "Proxy inschakelen"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
@@ -1463,7 +1476,7 @@ msgstr "Medium"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
-msgstr ""
+msgstr "Sleutels"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
@@ -1488,6 +1501,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Weet u zeker dat u sleutel <br>%s<br> van medium %s?<br> wilt verwijderen?"
+"<br>(sleutelnaam: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -1510,11 +1525,11 @@ msgstr "Media configureren"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "Voeg een bepaalde mediamirror toe"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "Voeg een aangepast medium toe"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
@@ -1526,11 +1541,11 @@ msgstr "Globale opties"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
-msgstr ""
+msgstr "Sleutels beheren"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "Parallel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
@@ -1550,7 +1565,7 @@ msgstr "Handmatig"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: lib/ManaTools/Module/Users.pm:2413 modules/rpmdragora/rpmdragora:760
 msgid "Report Bug"
-msgstr ""
+msgstr "Meld een bug"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
@@ -1575,7 +1590,7 @@ msgstr "Omlaag"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
 #: modules/rpmdragora/rpmdragora:1097
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora is Mageia's pakkettenbeheertool"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
 #: lib/ManaTools/Module/Services.pm:460
@@ -1702,7 +1717,7 @@ msgstr "/In_fo…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
-msgstr ""
+msgstr "Rpmdragora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
@@ -1896,7 +1911,7 @@ msgstr "Eén van de volgende pakketten is benodigd:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1269
 msgid "Select package"
-msgstr ""
+msgstr "Pakket selecteren"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1367
 msgid "Checking dependencies of package..."
@@ -2788,6 +2803,8 @@ msgid ""
 "  --version              print this tool's version number\n"
 "                    "
 msgstr ""
+"  --version              print het versienummer van deze tool\n"
+"                    "
 
 #: lib/ManaTools/Rpmdragora/init.pm:175 lib/ManaTools/Module/LogViewer.pm:461
 msgid "Running in user mode"
@@ -2814,7 +2831,7 @@ msgstr "De zefaangepaste regels verwijderen"
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "Select"
-msgstr ""
+msgstr "Selecteer"
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -3021,7 +3038,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:294
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Netwerktoezicht (Interactieve Firewall en draadloos)"
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid "Software RAID monitoring and management"
@@ -3284,7 +3301,7 @@ msgstr "Start andere voorzieningen op aanvraag."
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:910
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s ingeschakeld maar gestopt - het uitschakelen"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Global"
@@ -3421,6 +3438,7 @@ msgstr "Alle servers"
 #: lib/ManaTools/Shared/TimeZone.pm:944
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"gebruiker heeft geen recht configuratiebestanden te wijzigen, overgeslagen"
 
 #: lib/ManaTools/Shared/Users.pm:389
 msgid "Name field is empty please provide a name"
@@ -3431,16 +3449,18 @@ msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"De naam moet met een letter beginnen en mag alleen kleine Latijnse letters "
+"bevatten, getallen, '.', '-' en '_'"
 
 #: lib/ManaTools/Shared/Users.pm:397
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "De naam is te lang. Maximumlengte is %d"
 
 #: lib/ManaTools/Shared/Users.pm:825
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "U kunt gebruiker <%s> niet van zijn primaire groep verwijderen"
 
 #: lib/ManaTools/Shared/Users.pm:1168
 msgid "Locked"
@@ -3453,15 +3473,15 @@ msgstr "Verlopen"
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:421
 msgid "Hostname"
-msgstr ""
+msgstr "Hostnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:150
 msgid "Pretty Hostname"
-msgstr ""
+msgstr "Mooie hostnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:155
 msgid "Static Hostname"
-msgstr ""
+msgstr "Statische hostnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:160
 msgid "Chassis"
@@ -3473,19 +3493,19 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
-msgstr ""
+msgstr "IP-adres"
 
 #: lib/ManaTools/Module/Hosts.pm:242
 msgid "Host aliases"
-msgstr ""
+msgstr "Hostaliassen"
 
 #: lib/ManaTools/Module/Hosts.pm:317
 msgid "Add the information"
-msgstr ""
+msgstr "Voeg de informatie toe"
 
 #: lib/ManaTools/Module/Hosts.pm:351
 msgid "Modify the information"
-msgstr ""
+msgstr "Pas de informatie aan"
 
 #: lib/ManaTools/Module/Hosts.pm:398
 msgid "Manage hosts definitions"
@@ -3513,11 +3533,11 @@ msgstr "H&ostnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:481
 msgid "Are you sure to drop this host?"
-msgstr ""
+msgstr "Weet u zeker dat u deze host wilt verwijderen?"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
-msgstr ""
+msgstr "Grafische beheerder voor hosts-definities"
 
 #: lib/ManaTools/Module/Clock.pm:126
 msgid "Date, Clock & Time Zone Settings"
@@ -4130,7 +4150,7 @@ msgstr "Persoonlijke map aanmaken"
 
 #: lib/ManaTools/Module/Users.pm:841
 msgid "Home Directory:"
-msgstr ""
+msgstr "Persoonlijke map:"
 
 #: lib/ManaTools/Module/Users.pm:850
 msgid "Create a private group for the user"
@@ -4142,11 +4162,11 @@ msgstr "Handmatig gebruikers-ID opgeven"
 
 #: lib/ManaTools/Module/Users.pm:857
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:865
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Klik op het icoontje om het te veranderen"
 
 #: lib/ManaTools/Module/Users.pm:917
 msgid "User already exists, please choose another User Name"
@@ -4170,11 +4190,13 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"Persoonlijke map <%s> bestaat al.\n"
+"Vink a.u.b. de optie deze aan te maken, uit, of verander het pad naar de map"
 
 #: lib/ManaTools/Module/Users.pm:946
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "Gebruiker's UID is < %d"
 
 #: lib/ManaTools/Module/Users.pm:947
 #, perl-format
@@ -4183,6 +4205,9 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Een gebruiker toevoegen met UID onder de %d wordt afgeraden.\n"
+"Weet u zeker dat u dit wilt doen?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:962
 #, perl-format
@@ -4196,7 +4221,7 @@ msgstr "Bezig met aanmaken nieuwe groep: %s"
 
 #: lib/ManaTools/Module/Users.pm:989
 msgid "Adding user: "
-msgstr ""
+msgstr "Gebruiker toevoegen: "
 
 #: lib/ManaTools/Module/Users.pm:990
 #, perl-format
@@ -4299,7 +4324,7 @@ msgstr "Gebruiker"
 
 #: lib/ManaTools/Module/Users.pm:1776
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Selecteer groepen waar de gebruiker bij zal horen:"
 
 #: lib/ManaTools/Module/Users.pm:1882
 msgid "Please select at least one group for the user"
@@ -4319,15 +4344,15 @@ msgstr "Vul alle velden in voor wachtwoord-verloop\n"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Strong"
-msgstr ""
+msgstr "Sterk"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Weak"
-msgstr ""
+msgstr "Zwak"
 
 #: lib/ManaTools/Module/Users.pm:1969
 msgid "Edit User"
-msgstr ""
+msgstr "Gebruiker aanpassen"
 
 #: lib/ManaTools/Module/Users.pm:2122 lib/ManaTools/Module/Users.pm:2225
 msgid "Cannot create tab widgets"
@@ -4335,7 +4360,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2138
 msgid "Edit Group"
-msgstr ""
+msgstr "Groep aanpassen"
 
 #: lib/ManaTools/Module/Users.pm:2306 lib/ManaTools/Module/Users.pm:2431
 msgid "Add User"
@@ -4355,11 +4380,11 @@ msgstr "Ver&wijderen"
 
 #: lib/ManaTools/Module/Users.pm:2310
 msgid "Install guest account"
-msgstr ""
+msgstr "Gastaccount installeren"
 
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2351
 msgid ""
@@ -4375,11 +4400,11 @@ msgstr "Ververs"
 
 #: lib/ManaTools/Module/Users.pm:2407
 msgid "Actions"
-msgstr ""
+msgstr "Acties"
 
 #: lib/ManaTools/Module/Users.pm:2465
 msgid "Filter system users"
-msgstr ""
+msgstr "Filter systeemgebruikers"
 
 #: lib/ManaTools/Module/Users.pm:2470
 msgid "Search:"
@@ -4486,7 +4511,7 @@ msgstr "Opslaan als..."
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Mageia's addusertool"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -4494,66 +4519,68 @@ msgstr ""
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: gebruikersbeheerder"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: servicebeheerder"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: loginbeheerdersconfiguratie"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manclock: datum/tijdbeheerder"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: hostsbeheerder"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: adminpaneel"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: proxybeheerder"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: rpm-installatiebeheerder"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: rpm-updatebeheerder"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: firewallbeheerder"
 
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "Commando <%s> niet gevonden!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr ""
+msgstr "FOUT:"
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Gebruik mana --help | -h        laat deze hulp zien\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Gebruik mana <commando> [args...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "geldige <commando's>:\n"
 
 #: scripts/manaservice:27
 msgid "Services and daemons"
@@ -4561,7 +4588,7 @@ msgstr "Diensten en voorzieningen"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
-msgstr ""
+msgstr "Foutreparaties"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
@@ -4606,7 +4633,7 @@ msgstr "Bijwer&ken"
 
 #: modules/rpmdragora/dragoraUpdate:348
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate is de Mageia pakketbeheertool."
 
 #: modules/rpmdragora/dragoraUpdate:349
 #, perl-format
@@ -4623,7 +4650,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:412
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid ""
@@ -4631,6 +4658,9 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"De lijst met vernieuwde pakketten is leeg. Dat betekent dat er geen updates "
+"beschikbaar zijn voor de pakketten op uw computer, of dat u ze al allemaal "
+"installeerde."
 
 #: modules/rpmdragora/rpmdragora:317
 #, perl-format
@@ -4757,7 +4787,7 @@ msgstr "in bestandsnamen"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Search"
-msgstr ""
+msgstr "Zoeken"
 
 #: modules/rpmdragora/rpmdragora:641
 msgid "Reset"
