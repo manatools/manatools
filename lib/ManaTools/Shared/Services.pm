@@ -291,7 +291,7 @@ lpd => $self->loc->N_("lpd is the print daemon required for lpr to work properly
 basically a server that arbitrates print jobs to printer(s)."),
 lvs => $self->loc->N_("Linux Virtual Server, used to build a high-performance and highly
 available server."),
-mandi => $self->loc->N_("Monitors the network (Interactive Firewall and wireless"),
+mandi => $self->loc->N_("Monitors the network (Interactive Firewall and wireless)"),
 mdadm => $self->loc->N_("Software RAID monitoring and management"),
 messagebus => $self->loc->N_("DBUS is a daemon which broadcasts notifications of system events and other messages"),
 msec => $self->loc->N_("Enables MSEC security policy on system startup"),
