@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-02 19:56+0300\n"
+"PO-Revision-Date: 2015-07-07 19:54+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -20,14 +20,12 @@ msgstr ""
 "X-Generator: Lokalize 1.5\n"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Software Update"
-msgstr "Поновлення пакунків з програмами"
+msgstr "Оновлення програм"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Mageia Update"
-msgstr "Mageia"
+msgstr "Оновлення Mageia"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -46,12 +44,11 @@ msgstr "Гаразд"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
-msgstr ""
+msgstr "Будь ласка, введіть дані для доступу до проксі\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
-#, fuzzy
 msgid "User name:"
-msgstr "Ім'я користувача"
+msgstr "Користувач:"
 
 #: lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
@@ -61,22 +58,20 @@ msgid "Password:"
 msgstr "Пароль:"
 
 #: lib/ManaTools/rpmdragora.pm:274
-#, fuzzy
 msgid "Software Packages Removal"
-msgstr "Поновлення пакунків з програмами"
+msgstr "Вилучення пакунків з програмами"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
 msgstr "Поновлення пакунків з програмами"
 
 #: lib/ManaTools/rpmdragora.pm:276
-#, fuzzy
 msgid "Software Packages Installation"
-msgstr "Поновлення пакунків з програмами"
+msgstr "Встановлення пакунків з програмами"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr ""
+msgstr "Не запитувати наступного разу"
 
 #: lib/ManaTools/rpmdragora.pm:361 lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -87,14 +82,12 @@ msgid "No"
 msgstr "Ні"
 
 #: lib/ManaTools/rpmdragora.pm:411
-#, fuzzy
 msgid "Dependencies"
-msgstr "Нові залежності:"
+msgstr "Залежності"
 
 #: lib/ManaTools/rpmdragora.pm:424
-#, fuzzy
 msgid "OK"
-msgstr "&Гаразд"
+msgstr "Гаразд"
 
 #: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
 #: lib/ManaTools/Rpmdragora/pkg.pm:147 lib/ManaTools/Rpmdragora/pkg.pm:463
@@ -129,7 +122,7 @@ msgstr "Бразилія"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Британія"
 
 #: lib/ManaTools/rpmdragora.pm:582 lib/ManaTools/Shared/TimeZone.pm:446
 msgid "Canada"
@@ -141,7 +134,7 @@ msgstr "Швейцарія"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
-msgstr ""
+msgstr "Коста-Рика"
 
 #: lib/ManaTools/rpmdragora.pm:585 lib/ManaTools/Shared/TimeZone.pm:418
 msgid "Czech Republic"
@@ -152,13 +145,12 @@ msgid "Germany"
 msgstr "Німеччина"
 
 #: lib/ManaTools/rpmdragora.pm:587
-#, fuzzy
 msgid "Danmark"
 msgstr "Данія"
 
 #: lib/ManaTools/rpmdragora.pm:588
 msgid "Ecuador"
-msgstr ""
+msgstr "Еквадор"
 
 #: lib/ManaTools/rpmdragora.pm:589 lib/ManaTools/rpmdragora.pm:593
 #: lib/ManaTools/Shared/TimeZone.pm:424
@@ -219,7 +211,7 @@ msgstr "Португалія"
 
 #: lib/ManaTools/rpmdragora.pm:604
 msgid "Russia"
-msgstr ""
+msgstr "Росія"
 
 #: lib/ManaTools/rpmdragora.pm:605 lib/ManaTools/Shared/TimeZone.pm:439
 msgid "Sweden"
@@ -262,13 +254,13 @@ msgid "Error"
 msgstr "Помилка"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Unable to add medium, errors reported:\n"
 "\n"
 "%s"
 msgstr ""
-"Неможливо оновити джерело, отримано звіт про помилку:\n"
+"Не вдалося додати джерело, отримано звіт про помилку:\n"
 "\n"
 "%s"
 
@@ -278,37 +270,34 @@ msgstr "Джерело: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr ""
+msgstr "Не вдалося створити джерело."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr ""
+msgstr "Помилка при додаванні джерела"
 
 #: lib/ManaTools/rpmdragora.pm:726
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "There was a problem adding medium:\n"
 "\n"
 "%s"
 msgstr ""
-"Під час встановлення сталася помилка:\n"
+"Під час додавання джерела сталася помилка:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
-#, fuzzy
 msgid "rpmdragora"
-msgstr "Rpmdragora"
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
-#, fuzzy
 msgid "Please wait, updating media..."
-msgstr "Зачекайте, будь ласка, додається джерело..."
+msgstr "Зачекайте, будь ласка, поновлюємо джерела…"
 
 #: lib/ManaTools/rpmdragora.pm:783
-#, fuzzy
 msgid "Error retrieving packages"
-msgstr "Знайдені пакунки:"
+msgstr "Помилка при пошуку пакунків"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -320,40 +309,44 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
+"Неможливо отримати список нових пакунків з джерела «%s».\n"
+" Це джерело або неправильно налаштовано, і у цьому випадку вам\n"
+"потрібно перестворити його в Менеджері джерел програм,\n"
+"або ж воно зараз недоступне, і вам слід спробувати ще раз\n"
+"пізніше."
 
 #: lib/ManaTools/rpmdragora.pm:812
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "немає файла xml-info для джерела «%s»"
+msgstr "Копіюємо файл для джерела «%s»…"
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr ""
+msgstr "Перевірка файла джерела «%s»…"
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr ""
+msgstr "Перевірка віддаленого файла джерела «%s»…"
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr ""
+msgstr " виконано."
 
 #: lib/ManaTools/rpmdragora.pm:826
-#, fuzzy
 msgid " failed!"
-msgstr "Спроба встановлення NTP зазнала невдачі"
+msgstr " — помилка!"
 
 #: lib/ManaTools/rpmdragora.pm:831
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s from medium %s"
-msgstr "- %s (джерело: %s)"
+msgstr "%s з джерела %s"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr ""
+msgstr "Починаємо отримувати «%s»…"
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -361,6 +354,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"Отримуємо «%s»\n"
+"залишилось часу:%s, швидкість:%s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -368,6 +363,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"Отримання «%s»\n"
+"швидкість:%s"
 
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: lib/ManaTools/Rpmdragora/pkg.pm:935 lib/ManaTools/Rpmdragora/pkg.pm:945
@@ -382,13 +379,14 @@ msgstr "Попередження"
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
+"Не знайдено активного джерела. Потрібно його увімкнути, щоб мати можливість "
+"оновлювати."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:706
 msgid "Update media"
 msgstr "Оновити джерела"
 
 #: lib/ManaTools/rpmdragora.pm:875
-#, fuzzy
 msgid "Media"
 msgstr "Джерело"
 
@@ -421,17 +419,20 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
+"Неможливо оновити джерело; його буде автоматично вимкнено.\n"
+"\n"
+"Помилки:\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
-#, fuzzy
 msgid ""
 "I need to access internet to get the mirror list.\n"
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"Доведеться з’єднатися із сайтом Mageia, щоб отримати перелік дзеркал.\n"
-"Будь ласка, перевірте, чи з'єднано ваш комп’ютер з інтернетом.\n"
+"Мені потрібно мати доступ до інтернету, щоб отримати перелік дзеркал.\n"
+"Будь ласка, перевірте, чи з’єднано ваш комп’ютер з інтернетом.\n"
 "\n"
 "Продовжити?"
 
@@ -448,13 +449,12 @@ msgstr ""
 "Продовжити?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
-#, fuzzy
 msgid "Mirror choice"
-msgstr "Список дзеркал"
+msgstr "Вибір дзеркала"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr ""
+msgstr "Помилка під час отримання"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -465,6 +465,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Сталася помилка під час завантаження списку дзеркал:\n"
+"%s\n"
+"\n"
+"Можливо, мережа або вебсайт недоступні.\n"
+"Будь ласка, спробуйте ще раз пізніше."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -475,14 +480,19 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Сталася помилка під час завантаження списку дзеркал:\n"
+"%s\n"
+"\n"
+"Можливо, мережа або веб-сайт Mageia недоступні.\n"
+"Будь ласка, спробуйте ще раз пізніше."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr ""
+msgstr "Дзеркала немає"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr ""
+msgstr "Не можу знайти придатного джерела."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -492,11 +502,15 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
+"Я не можу знайти придатного дзеркала.\n"
+"\n"
+"Може були багато причин цієї проблеми; найчастіше це\n"
+"стається через те, що архітектура вашого процесора не підтримується\n"
+"Mageia Official Updates."
 
 #: lib/ManaTools/rpmdragora.pm:1044
-#, fuzzy
 msgid "Please choose the desired mirror."
-msgstr "Будь ласка, вкажіть тип миші."
+msgstr "Виберіть, будь ласка, бажане дзеркало."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -505,6 +519,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Джерело «%s», що використовується для оновлень, не відповідає версії %s, "
+"яка використовується (%s).\n"
+"Його буде вимкнено."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -513,29 +530,33 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Джерело «%s», що використовується для оновлень, не відповідає версії "
+"Mageia, яка використовується (%s).\n"
+"Його буде вимкнено."
 
 #: lib/ManaTools/rpmdragora.pm:1104
-#, fuzzy
 msgid "Please wait, downloading mirror addresses."
-msgstr "Зачекайте, будь ласка, додається джерело..."
+msgstr "Зачекайте, будь ласка, отримуємо адреси дзеркал."
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
-msgstr ""
+msgstr "Зачекайте, будь ласка, отримуємо адреси дзеркал із сайта Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
 msgid "retrieval of [%s] failed"
-msgstr ""
+msgstr "не вдалося отримати [%s]"
 
 #: lib/ManaTools/rpmdragora.pm:1163
 msgid "Help launched in background"
-msgstr ""
+msgstr "Довідку запущено у фоновому режимі"
 
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
 msgstr ""
+"Програму показу довідки вже запущено, незабаром її вікно з'явиться на "
+"стільниці."
 
 #: lib/ManaTools/MainDisplay.pm:185
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -567,7 +588,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan — панель mana-tools, яка надає доступ до усіх програм комплекту."
 
 #: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -2984,7 +3005,6 @@ msgstr ""
 "сервера з високою продуктивністю."
 
 #: lib/ManaTools/Shared/Services.pm:294
-#, fuzzy
 msgid "Monitors the network (Interactive Firewall and wireless)"
 msgstr ""
 "Стежить за мережею (інтерактивний брандмауер та керування бездротовими "
