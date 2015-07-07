@@ -9,10 +9,12 @@
 # Geert Poels <Geert.Poels@skynet.be>, 2000
 # Hendrik-Jan Heins <hjh@passys.nl>, 2003-2004
 # Jeroen ten Berge <j.ten.berge@twinbit.nl>, 2002
+# Marja van Waes <marja@mageia.org, 2013,2015
 # Marja van Waes <marja@mageia.org>, 2013-2015
 # Niels Gras <niels.gras@wanadoo.nl>, 2000
 # Peter Bosch <peter.bosch@hccnet.nl>, 2002
 # Peter Bosch <peter@dromas.student.utwente.nl>, 2003
+# Reinout van Schouwen <reinouts@gnome.org>, 2013
 # Reinout van Schouwen <reinouts@gnome.org>, 2013
 # remmy <remco@webconquest.com>, 2011-2013
 # Rob Teng <mandrake.tips@free.fr>, 2004-2005,2008-2009
@@ -23,9 +25,10 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-06 14:33+0000\n"
-"Last-Translator: Marja van Waes <marja@mageia.org>\n"
-"Language-Team: Dutch <i18n-nl@ml.mageia.org>\n"
+"PO-Revision-Date: 2015-07-07 16:56+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Dutch (http://www.transifex.com/projects/p/mageia/language/"
+"nl/)\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -33,14 +36,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Software Update"
 msgstr "Softwarepakketten-opwaardering"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Mageia Update"
-msgstr "Mageia"
+msgstr "Mageia Vernieuwen"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -59,12 +60,11 @@ msgstr "Ok"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
-msgstr ""
+msgstr "Voer uw aanmeldgegevens in voor toegang tot de proxy\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
-#, fuzzy
 msgid "User name:"
-msgstr "Gebruikersnaam"
+msgstr "Gebruikersnaam:"
 
 #: lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
@@ -74,22 +74,20 @@ msgid "Password:"
 msgstr "Wachtwoord:"
 
 #: lib/ManaTools/rpmdragora.pm:274
-#, fuzzy
 msgid "Software Packages Removal"
-msgstr "Softwarepakketten-opwaardering"
+msgstr "Softwarepakketten verwijderen"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
 msgstr "Softwarepakketten-opwaardering"
 
 #: lib/ManaTools/rpmdragora.pm:276
-#, fuzzy
 msgid "Software Packages Installation"
-msgstr "Softwarepakketten-opwaardering"
+msgstr "Softwarepakketten-installatie"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr ""
+msgstr "Volgende keer niet meer vragen"
 
 #: lib/ManaTools/rpmdragora.pm:361 lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -100,14 +98,12 @@ msgid "No"
 msgstr "Nee"
 
 #: lib/ManaTools/rpmdragora.pm:411
-#, fuzzy
 msgid "Dependencies"
-msgstr "Nieuwe afhankelijkheden:"
+msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:424
-#, fuzzy
 msgid "OK"
-msgstr "&OK"
+msgstr "OK"
 
 #: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
 #: lib/ManaTools/Rpmdragora/pkg.pm:147 lib/ManaTools/Rpmdragora/pkg.pm:463
@@ -154,24 +150,23 @@ msgstr "Zwitserland"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: lib/ManaTools/rpmdragora.pm:585 lib/ManaTools/Shared/TimeZone.pm:418
 msgid "Czech Republic"
-msgstr "Tsjechische Republiek"
+msgstr "Tsjechië"
 
 #: lib/ManaTools/rpmdragora.pm:586 lib/ManaTools/Shared/TimeZone.pm:423
 msgid "Germany"
 msgstr "Duitsland"
 
 #: lib/ManaTools/rpmdragora.pm:587
-#, fuzzy
 msgid "Danmark"
 msgstr "Denemarken"
 
 #: lib/ManaTools/rpmdragora.pm:588
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 #: lib/ManaTools/rpmdragora.pm:589 lib/ManaTools/rpmdragora.pm:593
 #: lib/ManaTools/Shared/TimeZone.pm:424
@@ -232,7 +227,7 @@ msgstr "Portugal"
 
 #: lib/ManaTools/rpmdragora.pm:604
 msgid "Russia"
-msgstr ""
+msgstr "Rusland"
 
 #: lib/ManaTools/rpmdragora.pm:605 lib/ManaTools/Shared/TimeZone.pm:439
 msgid "Sweden"
@@ -275,13 +270,13 @@ msgid "Error"
 msgstr "Fout"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Unable to add medium, errors reported:\n"
 "\n"
 "%s"
 msgstr ""
-"Niet in staat medium bij te werken, gerapporteerde fouten:\n"
+"Niet in staat medium toe te voegen, gerapporteerde fouten:\n"
 "\n"
 "%s"
 
@@ -291,20 +286,20 @@ msgstr "Medium: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr ""
+msgstr "Niet in staat medium aan te maken"
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr ""
+msgstr "Toevoegen medium mislukt"
 
 #: lib/ManaTools/rpmdragora.pm:726
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "There was a problem adding medium:\n"
 "\n"
 "%s"
 msgstr ""
-"Er is een fout opgetreden tijdens de installatie:\n"
+"Er is een fout opgetreden bij het toevoegen van het medium:\n"
 "\n"
 "%s"
 
@@ -313,14 +308,12 @@ msgid "rpmdragora"
 msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:760
-#, fuzzy
 msgid "Please wait, updating media..."
-msgstr "Even geduld, bezig met toevoegen van media..."
+msgstr "Even geduld, bezig met verversen van media…"
 
 #: lib/ManaTools/rpmdragora.pm:783
-#, fuzzy
 msgid "Error retrieving packages"
-msgstr "Overeenkomende pakketten:"
+msgstr "Fout bij het ophalen van de pakketten"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -332,40 +325,47 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
+"Het is onmogelijk de lijst van nieuwe pakketten op te halen van het medium\n"
+"`%s'. Of dit medium is onjuist geconfigureerd, in welk geval u Software "
+"Mediabeheer \n"
+"moet gebruiken om het te verwijderen en opnieuw toevoegen zodat u het "
+"opnieuw \n"
+"kunt configureren, of het medium kan niet gecontacteerd worden en u kunt "
+"het \n"
+"op een later tijdstip opnieuw proberen."
 
 #: lib/ManaTools/rpmdragora.pm:812
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "geen xml-info aanwezig voor medium ‘%s’"
+msgstr "Kopiëren van bestand voor medium `%s'..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr ""
+msgstr "Onderzoeken bestand van medium `%s'..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr ""
+msgstr "Onderzoeken van bestand op afstand van medium `%s'..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr ""
+msgstr " klaar."
 
 #: lib/ManaTools/rpmdragora.pm:826
-#, fuzzy
 msgid " failed!"
-msgstr "NTP instellen is mislukt"
+msgstr " mislukt!"
 
 #: lib/ManaTools/rpmdragora.pm:831
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s from medium %s"
-msgstr "- %s (medium: %s)"
+msgstr "%s van medium %s"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr ""
+msgstr "Starten met ophalen van `%s'..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -373,6 +373,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"Downloaden van `%s'\n"
+"tijd over:%s, snelheid:%s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -380,6 +382,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"Downloaden van `%s'\n"
+"snelheid:%s"
 
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: lib/ManaTools/Rpmdragora/pkg.pm:935 lib/ManaTools/Rpmdragora/pkg.pm:945
@@ -394,15 +398,16 @@ msgstr "Waarschuwing"
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
+"Geen actief medium gevonden. U dient eerst enkele media te activeren om te "
+"kunnen bijwerken."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:706
 msgid "Update media"
 msgstr "Media verversen"
 
 #: lib/ManaTools/rpmdragora.pm:875
-#, fuzzy
 msgid "Media"
-msgstr "Medium"
+msgstr "Media"
 
 #: lib/ManaTools/rpmdragora.pm:893 lib/ManaTools/Rpmdragora/pkg.pm:925
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
@@ -433,17 +438,20 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
+"Niet in staat medium te verversen; deze wordt automatisch uitgeschakeld.\n"
+"\n"
+"Foutmeldingen:\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
-#, fuzzy
 msgid ""
 "I need to access internet to get the mirror list.\n"
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"Het is nodig de Mageia-website te contacteren om de\n"
-"mirrors-lijst op te halen. Controleer of uw netwerk momenteel draait.\n"
+"Toegang tot het internet is nodig om de mirrors-lijst op te halen.\n"
+"Controleer of uw netwerk momenteel draait.\n"
 "\n"
 "Wilt u verder gaan?"
 
@@ -460,13 +468,12 @@ msgstr ""
 "Wilt u verder gaan?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
-#, fuzzy
 msgid "Mirror choice"
-msgstr "Lijst van mirrors"
+msgstr "Mirror-keuzes"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr ""
+msgstr "Fout tijdens ophalen"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -490,11 +497,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr ""
+msgstr "Geen mirror"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr ""
+msgstr "Niet in staat om een geschikte mirror te vinden."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -504,11 +511,15 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
+"Niet in staat om een geschikte mirror te vinden.\n"
+"\n"
+"Er kunnen veel redenen zijn voor dit probleem; het meest voorkomend\n"
+"is het geval waarin de architectuur van uw processor niet ondersteund\n"
+"wordt door de officiële Mageia mirrors."
 
 #: lib/ManaTools/rpmdragora.pm:1044
-#, fuzzy
 msgid "Please choose the desired mirror."
-msgstr "Kies uw type muis alstublieft."
+msgstr "Kies de gewenste mirror."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -517,6 +528,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Uw medium `%s' voor vernieuwingen komt niet overeen met de versie van %s die "
+"u gebruikt (%s).\n"
+"Het zal worden gedeactiveerd."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -525,29 +539,33 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Uw medium `%s' voor vernieuwingen komt niet overeen met de versie van Mageia "
+"die u gebruikt (%s).\n"
+"Het zal worden gedeactiveerd."
 
 #: lib/ManaTools/rpmdragora.pm:1104
-#, fuzzy
 msgid "Please wait, downloading mirror addresses."
-msgstr "Even geduld, bezig met toevoegen van media..."
+msgstr "Even geduld, bezig met downloaden van mirror-adressen."
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
 msgstr ""
+"Even geduld aub, bezig met downloaden van mirror-adressen van de Mageia "
+"webstek."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
 msgid "retrieval of [%s] failed"
-msgstr ""
+msgstr "ophalen van [%s] mislukt"
 
 #: lib/ManaTools/rpmdragora.pm:1163
 msgid "Help launched in background"
-msgstr ""
+msgstr "Hulpfunctie gestart op achtergrond"
 
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
-msgstr ""
+msgstr "Even geduld, het hulpvenster zal zometeen op uw werkblad verschijnen."
 
 #: lib/ManaTools/MainDisplay.pm:185
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -557,13 +575,13 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:339 modules/rpmdragora/rpmdragora:1089
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
+"Tom Laermans <tom.laermans@powersource.cx>\n"
+"Jeroen ten Berge <j.ten.berge@twinbit.nl>\n"
 "Reinout van Schouwen <reinouts@gnome.org>\n"
-"Rob Teng <mandrake.tips@free.fr>\n"
-"Geert Poels <Geert.Poels@skynet.be>\n"
-"Peter Bosch <peter.bosch@hccnet.nl>\n"
 "Hendrik-Jan Heins <hjh@passys.nl>\n"
-"Remco Rijnders <remco@webconquest.com>\n"
-"Marja van Waes <marja@mageia.org>\n"
+"Peter Bosch <peter@dromas.student.utwente.nl>\n"
+"Rob Teng <mandrake.tips@free.fr>\n"
+"C. Verschuuren <c.verschuuren AT gmail DOT com>\n"
 
 #: lib/ManaTools/MainDisplay.pm:191
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
@@ -1017,7 +1035,7 @@ msgstr "Informatie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr "CD-ROM"
+msgstr "cd-rom"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
@@ -1141,7 +1159,7 @@ msgstr "Mediumpad:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
-msgstr "FTP-server"
+msgstr "FTP server"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
@@ -1689,7 +1707,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr "Copyright © %s door Mandriva"
+msgstr "Copyright © %s, Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
 msgid "Mageia"
@@ -2104,7 +2122,7 @@ msgstr "Compressie"
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
 msgid "Other"
-msgstr "Overig"
+msgstr "Overige"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
 #: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
@@ -3002,9 +3020,8 @@ msgstr ""
 "beschikbaarheid server te bouwen."
 
 #: lib/ManaTools/Shared/Services.pm:294
-#, fuzzy
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr "Netwerktoezicht (Interactieve Firewall en draadloos"
+msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid "Software RAID monitoring and management"
@@ -4664,7 +4681,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:537
 msgid "Not installed"
-msgstr "Niet geïnstalleerd"
+msgstr "Niet-geïnstalleerd"
 
 #: modules/rpmdragora/rpmdragora:550
 msgid "All packages, alphabetical"
@@ -4792,7 +4809,7 @@ msgstr "&Mediabeheerder"
 
 #: modules/rpmdragora/rpmdragora:754
 msgid "View"
-msgstr "Bekijken"
+msgstr "Beeld"
 
 #: modules/rpmdragora/rpmdragora:1066
 msgid "Reset aborted (RPM DB is locked by another process)"
@@ -4857,7 +4874,7 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
-"U staat op het punt een nieuw pakketmedium, %s, toe te voegen.\n"
+"U staat op het punt een nieuw pakketmedium, `%s'toe te voegen.\n"
 "Dit houdt in dat u in staat zult zijn nieuwe softwarepakketten\n"
 "van dat nieuwe medium aan uw systeem toe te voegen."
 
@@ -4868,7 +4885,7 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
-"U staat op het punt een nieuw pakketmedium, `%s', toe te voegen\n"
+"U staat op het punt een nieuw pakketmedium, `%s'.\n"
 "Dit houdt in dat u in staat zult zijn nieuwe softwarepakketten\n"
 "van dat nieuwe medium aan uw systeem toe te voegen."
 
@@ -4879,34 +4896,9 @@ msgstr "Media zijn met succes toegevoegd."
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr "Het medium %s is met succes toegevoegd."
+msgstr "Het medium `%s' is met succes toegevoegd."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "Het medium `%s' is met succes toegevoegd."
-
-#~ msgid "AdminMouse"
-#~ msgstr "AdminMouse"
-
-#~ msgid "About"
-#~ msgstr "Info"
-
-#~ msgid ""
-#~ "AdminMouse is the Mageia mouse management tool \n"
-#~ "(from the original idea of Mandriva mousedrake)."
-#~ msgstr ""
-#~ "AdminMouse is Mageia's muisbeheertool \n"
-#~ "(naar het oorspronkelijke idee van Mandriva's mousedrake)."
-
-#~ msgid "Emulate third button?"
-#~ msgstr "Derde knop nabootsen?"
-
-#~ msgid "Mouse Port"
-#~ msgstr "Muispoort"
-
-#~ msgid "Please choose which serial port your mouse is connected to."
-#~ msgstr "Met welke seriële poort is uw muis verbonden?"
-
-#~ msgid "Not implemented yet: configuration is not changed"
-#~ msgstr "Nog niet geïmplementeerd: de instellingen zijn niet gewijzigd"
