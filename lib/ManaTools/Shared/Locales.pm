@@ -83,7 +83,7 @@ use Text::Iconv;
 
 has 'domain_name' => (
     is      => 'rw',
-    default => 'mpan',
+    default => 'manatools',
 );
 
 has 'dir_name' => (
