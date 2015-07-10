@@ -25,7 +25,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-07 21:14+0200\n"
+"PO-Revision-Date: 2015-07-10 14:49+0200\n"
 "Last-Translator: Marja van Waes <marja@mageia.org>\n"
 "Language-Team: Dutch <i18n-nl@ml.mageia.org>\n"
 "Language: nl\n"
@@ -1694,7 +1694,7 @@ msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr "/P_roxy"
+msgstr "/Prox_y"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
@@ -2921,6 +2921,15 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"De G15daemon maakt gebruik van alle extra toetsen mogelijk door hun codes te "
+"decoderen en\n"
+"deze terug te sturen naar de kernel via de UINPUT-driver. Deze driver moet "
+"geladen zijn\n"
+"voordat de g15daemon gebruikt kan worden voor toetsenbordtoegang. De G15-LCD "
+"wordt ook ondersteund.\n"
+"Standaard, als er geen andere clients actief zijn, toont de g15daemon een "
+"klok. Client-\n"
+"applicaties en scripts kunnen de LCD aansturen via een simpele API."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -3485,11 +3494,11 @@ msgstr "Statische hostnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:160
 msgid "Chassis"
-msgstr ""
+msgstr "Chassis"
 
 #: lib/ManaTools/Module/Hosts.pm:165
 msgid "Icon Name"
-msgstr ""
+msgstr "Icoonnaam"
 
 #: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
@@ -4356,7 +4365,7 @@ msgstr "Gebruiker aanpassen"
 
 #: lib/ManaTools/Module/Users.pm:2122 lib/ManaTools/Module/Users.pm:2225
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Tabbladwidgets aanmaken lukt niet"
 
 #: lib/ManaTools/Module/Users.pm:2138
 msgid "Edit Group"
@@ -4507,7 +4516,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:485
 msgid "Save as.."
-msgstr "Opslaan als..."
+msgstr "Opslaan als.."
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
@@ -4515,7 +4524,7 @@ msgstr "Mageia's addusertool"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: journalct-logboeklezer"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
@@ -4707,7 +4716,7 @@ msgstr "Arch."
 
 #: modules/rpmdragora/rpmdragora:485
 msgid "ToInst"
-msgstr ""
+msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:537
 msgid "Not installed"
@@ -4803,7 +4812,7 @@ msgstr "Afsluiten"
 
 #: modules/rpmdragora/rpmdragora:694
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/_Selecteer afhankelijkheden zonder te vragen"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Clear download cache after successful install"
@@ -4811,7 +4820,7 @@ msgstr "Alle downloadbuffers wissen na successvolle installatie"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/_Updates berekenen bij het opstarten"
 
 #: modules/rpmdragora/rpmdragora:699
 msgid "Search in _full package names"
@@ -4819,15 +4828,15 @@ msgstr "Zoek in _volledige pakketnamen"
 
 #: modules/rpmdragora/rpmdragora:700
 msgid "Use _regular expressions in searches"
-msgstr "Gebruik _reguliere expressies in zoekopdrachten"
+msgstr "Gebruik reguliere e_xpressies in zoekopdrachten"
 
 #: modules/rpmdragora/rpmdragora:707
 msgid "Reset the selection"
-msgstr ""
+msgstr "Reset de selectie"
 
 #: modules/rpmdragora/rpmdragora:708
 msgid "Reload the packages list"
-msgstr ""
+msgstr "Herlaad de pakkettenlijst"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "Settings"
