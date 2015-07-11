@@ -226,8 +226,9 @@ sub run_treeview_dialog {
 
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($loc->N("Software Management"));
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon("/usr/share/mcc/themes/default/MageiaUpdate.png");
+    ## set icon
+    my $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/rpmdragora/dragoraUpdate.png');
+    yui::YUI::app()->setApplicationIcon($icon);
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;
