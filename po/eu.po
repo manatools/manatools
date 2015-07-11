@@ -9,26 +9,22 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-05 16:27+0100\n"
-"Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
-"Language-Team: Basque (http://www.transifex.com/projects/p/mageia/language/"
-"eu/)\n"
+"PO-Revision-Date: 2015-07-07 15:46+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Basque (http://www.transifex.com/p/mageia/language/eu/)\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
-"X-Generator: Poedit 1.6.9\n"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Software Update"
-msgstr "Software Paketeen Eguneraketa"
+msgstr "Software Eguneraketa"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Mageia Update"
-msgstr "Mageia"
+msgstr "Mageia Update"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -47,12 +43,11 @@ msgstr "Ados"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
-msgstr ""
+msgstr "Mesedez sartu proxy-ra sartzeko zure egiaztapen datuak\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
-#, fuzzy
 msgid "User name:"
-msgstr "Erabiltzaile Izena"
+msgstr "Erabiltzaile izena:"
 
 #: lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
@@ -62,22 +57,20 @@ msgid "Password:"
 msgstr "Pasahitza"
 
 #: lib/ManaTools/rpmdragora.pm:274
-#, fuzzy
 msgid "Software Packages Removal"
-msgstr "Software Paketeen Eguneraketa"
+msgstr "Software-paketeak kentzea"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
 msgstr "Software Paketeen Eguneraketa"
 
 #: lib/ManaTools/rpmdragora.pm:276
-#, fuzzy
 msgid "Software Packages Installation"
-msgstr "Software Paketeen Eguneraketa"
+msgstr "Software-paketeen instalazioa"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr ""
+msgstr "Ez galdetu berriz"
 
 #: lib/ManaTools/rpmdragora.pm:361 lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -88,14 +81,12 @@ msgid "No"
 msgstr "Ez"
 
 #: lib/ManaTools/rpmdragora.pm:411
-#, fuzzy
 msgid "Dependencies"
-msgstr "Menpekotasun berriak:"
+msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:424
-#, fuzzy
 msgid "OK"
-msgstr "&Ados"
+msgstr "Ados"
 
 #: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
 #: lib/ManaTools/Rpmdragora/pkg.pm:147 lib/ManaTools/Rpmdragora/pkg.pm:463
@@ -142,7 +133,7 @@ msgstr "Suitza"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: lib/ManaTools/rpmdragora.pm:585 lib/ManaTools/Shared/TimeZone.pm:418
 msgid "Czech Republic"
@@ -153,13 +144,12 @@ msgid "Germany"
 msgstr "Alemania"
 
 #: lib/ManaTools/rpmdragora.pm:587
-#, fuzzy
 msgid "Danmark"
 msgstr "Danimarka"
 
 #: lib/ManaTools/rpmdragora.pm:588
 msgid "Ecuador"
-msgstr ""
+msgstr "Ekuador"
 
 #: lib/ManaTools/rpmdragora.pm:589 lib/ManaTools/rpmdragora.pm:593
 #: lib/ManaTools/Shared/TimeZone.pm:424
@@ -220,7 +210,7 @@ msgstr "Portugal"
 
 #: lib/ManaTools/rpmdragora.pm:604
 msgid "Russia"
-msgstr ""
+msgstr "Errusia"
 
 #: lib/ManaTools/rpmdragora.pm:605 lib/ManaTools/Shared/TimeZone.pm:439
 msgid "Sweden"
@@ -263,13 +253,13 @@ msgid "Error"
 msgstr "Akatsa"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Unable to add medium, errors reported:\n"
 "\n"
 "%s"
 msgstr ""
-"Ezin da euskarria eguneratu, jakinarazitako akatsak:\n"
+"Ezin da euskarririk gehitu, akatsen berri eman da:\n"
 "\n"
 "%s"
 
@@ -279,37 +269,34 @@ msgstr "Euskarria: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr ""
+msgstr "Ezin da euskarria sortu."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr ""
+msgstr "Ezin izan da euskarria gehitu"
 
 #: lib/ManaTools/rpmdragora.pm:726
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "There was a problem adding medium:\n"
 "\n"
 "%s"
 msgstr ""
-"Arazoa sortu da instalatzean:\n"
+"Arazoa sortu da euskarria gehitzean:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
-#, fuzzy
 msgid "rpmdragora"
-msgstr "Rpmdragora"
+msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:760
-#, fuzzy
 msgid "Please wait, updating media..."
-msgstr "Itxoin mesedez, euskarria eransten..."
+msgstr "Itxaron, euskarria eguneratzen ari da..."
 
 #: lib/ManaTools/rpmdragora.pm:783
-#, fuzzy
 msgid "Error retrieving packages"
-msgstr "Bat datozen paketeak:"
+msgstr "Akatsa paketeak eskuratzerakoan"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -321,40 +308,44 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
+"Ezinezkoa da '%s' euskarritik pakete berrien zerrrenda eskuratzea.\n"
+"Eguneraketa euskarria ez dago egokiro konfiguratua, eta kasu honetan\n"
+"Software Euskarrien Kudeatzailea erabili behar zenuke hura ezabatu eta\n"
+"ondoren berriro berkonfiguratzeko, edo une honetan ezin da atzeman\n"
+"eta beranduago saiatu behar zenuke berriro."
 
 #: lib/ManaTools/rpmdragora.pm:812
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "ez dago xml-info eskuragarri \"%s\" euskarriarentzako"
+msgstr "`%s' euskarrirako fitxategia kopiatzen..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr ""
+msgstr "`%s' euskarriaren fitxategia aztertzen..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr ""
+msgstr "`%s' euskarriaren fitxategia aztertzen..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr ""
+msgstr " eginda."
 
 #: lib/ManaTools/rpmdragora.pm:826
-#, fuzzy
 msgid " failed!"
-msgstr "NTP ezartzeak huts egin du"
+msgstr " huts egin du!"
 
 #: lib/ManaTools/rpmdragora.pm:831
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s from medium %s"
-msgstr "- %s (euskarria: %s)"
+msgstr "%s, %s euskarritik"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr ""
+msgstr "`%s'(r)en deskarga abiarazten..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -362,6 +353,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"`%s'(r)en deskarga\n"
+"falta den denbora:%s, abiadura:%s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -369,6 +362,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"`%s'(r)en deskarga\n"
+"abiadura:%s"
 
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: lib/ManaTools/Rpmdragora/pkg.pm:935 lib/ManaTools/Rpmdragora/pkg.pm:945
@@ -383,15 +378,16 @@ msgstr "Abisua"
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
+"Ez da euskarri aktiborik aurkitu. Euskarriren batzu aktibatu behar dituzu "
+"haiek eguneratu ahal izateko."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:706
 msgid "Update media"
 msgstr "Eguneratu euskarriak"
 
 #: lib/ManaTools/rpmdragora.pm:875
-#, fuzzy
 msgid "Media"
-msgstr "Euskarria"
+msgstr "Baliabidea"
 
 #: lib/ManaTools/rpmdragora.pm:893 lib/ManaTools/Rpmdragora/pkg.pm:925
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
@@ -422,19 +418,22 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
+"Ezin da euskarria eguneratu; automatikoki desgaituko da.\n"
+"\n"
+"Akatsak:\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
-#, fuzzy
 msgid ""
 "I need to access internet to get the mirror list.\n"
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"Mageia-ren web gunera joan behar dut ispiluen zerrenda lortzeko.\n"
-"Egiaztatu sarea unean martxan dagoela.\n"
+"Internetera irten behar dut ispiluen zerrenda jastzeko.\n"
+"Mesedez egiaztatu zure sarea dagoeneko martxan dagoen.\n"
 "\n"
-"Jarraitu nahi duzu?"
+"Jarraituko dut?"
 
 #: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:296
 msgid ""
@@ -449,13 +448,12 @@ msgstr ""
 "Jarraitu nahi duzu?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
-#, fuzzy
 msgid "Mirror choice"
-msgstr "Ispilu zerrenda"
+msgstr "Ispilu aukeraketa"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr ""
+msgstr "Akatsa jaisterakoan"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -479,11 +477,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr ""
+msgstr "Ez dago ispilurik"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr ""
+msgstr "Ezin dut ispilu egokirik aurkitu."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -493,11 +491,15 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
+"Ezin dut ispilu egokirik aurkitu.\n"
+"\n"
+"Hainbat arrazoirengatik gerta daiteke arazo hori; ohikoena zure\n"
+"prozesatzailearen arkitektura Mageia Eguneratze Ofizialak\n"
+"ez onartzea da."
 
 #: lib/ManaTools/rpmdragora.pm:1044
-#, fuzzy
 msgid "Please choose the desired mirror."
-msgstr "Aukeratu sagu-mota."
+msgstr "Aukeratu nahi duzun ispilua."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -506,6 +508,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Zure '%s' euskarria, eguneratzeko erabilia, ez dator bat darabilzun %s "
+"bertsioarekin (%s).\n"
+"Ezgaitu egingo da."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -514,29 +519,32 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Zure '%s' euskarria, eguneratzeko erabilia, ez dator bat ibiltzen ari zaren "
+"Mageiaen bertsioarekin (%s).\n"
+"Ezgaitu egingo da."
 
 #: lib/ManaTools/rpmdragora.pm:1104
-#, fuzzy
 msgid "Please wait, downloading mirror addresses."
-msgstr "Itxoin mesedez, euskarria eransten..."
+msgstr "Itxaron mesedez, ispiluen helbideak jaisten."
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
-msgstr ""
+msgstr "Itxaron, ispiluen helbideak deskargatzen Mageia-ren web gunetik."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
 msgid "retrieval of [%s] failed"
-msgstr ""
+msgstr "[%s] berreskurapenak huts egin du"
 
 #: lib/ManaTools/rpmdragora.pm:1163
 msgid "Help launched in background"
-msgstr ""
+msgstr "Laguntza atzeko planoan abiarazten da"
 
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
 msgstr ""
+"Laguntza-leihoa ireki duzu, laster zure mahaigainean agertu beharko luke."
 
 #: lib/ManaTools/MainDisplay.pm:185
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -2978,9 +2986,8 @@ msgstr ""
 "erabilgarria eraikitzeko erabiltzen da."
 
 #: lib/ManaTools/Shared/Services.pm:294
-#, fuzzy
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr "Sarea zelatatzen du (Suhesi interaktiboa eta irrati sarea"
+msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid "Software RAID monitoring and management"
@@ -4875,29 +4882,3 @@ msgstr "%s euskarria egokiro erantsi da."
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "%s euskarria behar bezala gehitu da."
-
-#~ msgid "AdminMouse"
-#~ msgstr "AdminMouse"
-
-#~ msgid "About"
-#~ msgstr "Honi buruz"
-
-#~ msgid ""
-#~ "AdminMouse is the Mageia mouse management tool \n"
-#~ "(from the original idea of Mandriva mousedrake)."
-#~ msgstr ""
-#~ "adminMouse Mageiaren sagu kudeaketa tresna da\n"
-#~ "\n"
-#~ "(Mandrivaren mousedrake ideia originalen oinarrituta)."
-
-#~ msgid "Emulate third button?"
-#~ msgstr "Hirugarren botoia emulatu?"
-
-#~ msgid "Mouse Port"
-#~ msgstr "Sagu-ataka"
-
-#~ msgid "Please choose which serial port your mouse is connected to."
-#~ msgstr "Aukeratu sagua konektatuta dagoen serieko ataka."
-
-#~ msgid "Not implemented yet: configuration is not changed"
-#~ msgstr "Ez dago inplementatuta oraindik: konfigurazioa ez da aldatu"

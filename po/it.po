@@ -1,29 +1,30 @@
-# ManaTools Italian localization.
+# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
-# Matteo Pasotti <matteo.pasotti@gmail.com>, 2015.
+# This file is distributed under the same license as the PACKAGE package.
 #
+# Translators:
+# _pmat_ <matteo.pasotti@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: ManaTools 1.0.1\n"
+"Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-01 23:07+0100\n"
-"Last-Translator: Matteo Pasotti <matteo.pasotti@gmail.com>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"PO-Revision-Date: 2015-07-07 15:46+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Italian (http://www.transifex.com/p/mageia/language/it/)\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.6.9\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
-msgstr ""
+msgstr "Aggiornamenti Software"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr ""
+msgstr "Mageia Update"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -42,11 +43,11 @@ msgstr "Conferma"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
-msgstr ""
+msgstr "Inserisci i tuoi dati necessari per accedere al proxy\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
 msgid "User name:"
-msgstr ""
+msgstr "Nome utente:"
 
 #: lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
@@ -57,7 +58,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:274
 msgid "Software Packages Removal"
-msgstr ""
+msgstr "Rimozione pacchetti software"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
@@ -65,11 +66,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
-msgstr ""
+msgstr "Installazione dei pacchetti"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr ""
+msgstr "Non chiederlo più"
 
 #: lib/ManaTools/rpmdragora.pm:361 lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -85,7 +86,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
-msgstr ""
+msgstr "OK"
 
 #: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
 #: lib/ManaTools/Rpmdragora/pkg.pm:147 lib/ManaTools/Rpmdragora/pkg.pm:463
@@ -132,7 +133,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: lib/ManaTools/rpmdragora.pm:585 lib/ManaTools/Shared/TimeZone.pm:418
 msgid "Czech Republic"
@@ -144,11 +145,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:587
 msgid "Danmark"
-msgstr ""
+msgstr "Danimarca"
 
 #: lib/ManaTools/rpmdragora.pm:588
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 #: lib/ManaTools/rpmdragora.pm:589 lib/ManaTools/rpmdragora.pm:593
 #: lib/ManaTools/Shared/TimeZone.pm:424
@@ -209,7 +210,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:604
 msgid "Russia"
-msgstr ""
+msgstr "Russia"
 
 #: lib/ManaTools/rpmdragora.pm:605 lib/ManaTools/Shared/TimeZone.pm:439
 msgid "Sweden"
@@ -258,6 +259,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Impossibile aggiungere la fonte, problema:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Medium: "
@@ -265,11 +269,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr ""
+msgstr "Impossibile creare il supporto."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr ""
+msgstr "Errore nell'aggiunta della fonte"
 
 #: lib/ManaTools/rpmdragora.pm:726
 #, perl-format
@@ -278,6 +282,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Si è verificato un problema durante l'aggiunta della fonte:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
@@ -285,11 +292,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
-msgstr ""
+msgstr "Attendi, aggiornamento delle fonti in corso..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
-msgstr ""
+msgstr "Errore nel recuperare i pacchetti"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -301,39 +308,44 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
+"Impossibile recuperare la lista dei nuovi pacchetti dalla fonte\n"
+"`%s'. Forse essa è mal configurata \n"
+"ed in questo caso dovresti usare l'applicazione \"Gestione Fonti\" \n"
+"per riconfigurarla; o forse è momentaneamente irraggiungibile\n"
+"e devi riprovare più tardi."
 
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr ""
+msgstr "Copio i file per la fonte \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr ""
+msgstr "Esamino i file della fonte \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr ""
+msgstr "Esamino il file remoto della fonte \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr ""
+msgstr " fatto."
 
 #: lib/ManaTools/rpmdragora.pm:826
 msgid " failed!"
-msgstr ""
+msgstr " fallita!"
 
 #: lib/ManaTools/rpmdragora.pm:831
 #, perl-format
 msgid "%s from medium %s"
-msgstr ""
+msgstr "%s dalla fonte %s"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr ""
+msgstr "Inizio il recupero di \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -341,6 +353,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"Recupero di %s\n"
+"tempo rimasto: %s, velocità: %s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -348,6 +362,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"Recupero di \"%s\"\n"
+"velocità: %s"
 
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: lib/ManaTools/Rpmdragora/pkg.pm:935 lib/ManaTools/Rpmdragora/pkg.pm:945
@@ -362,6 +378,7 @@ msgstr ""
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
+"Non ci sono fonti attive. Devi attivare qualche fonte se vuoi aggiornarle."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:706
 msgid "Update media"
@@ -369,7 +386,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: lib/ManaTools/rpmdragora.pm:893 lib/ManaTools/Rpmdragora/pkg.pm:925
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
@@ -400,6 +417,10 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
+"Impossibile aggiornare la fonte, sarà automaticamente disabilitata. \n"
+"\n"
+"Errori:\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
 msgid ""
@@ -408,6 +429,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"È necessario accedere ad internet per recuperare l'elenco dei mirror.\n"
+"Verifica che la rete sia in funzione.\n"
+"\n"
+"Vuoi proseguire?"
 
 #: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:296
 msgid ""
@@ -419,11 +444,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
-msgstr ""
+msgstr "Scelta del mirror"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr ""
+msgstr "Errore durante il recupero"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -447,11 +472,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr ""
+msgstr "Nessun mirror"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr ""
+msgstr "Nessun mirror adeguato è disponibile."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -461,11 +486,15 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
+"Non trovo nessun mirror adatto.\n"
+"\n"
+"Ci possono essere molte ragioni per questo problema: la più\n"
+"frequente si verifica quando l'architettura o il processore\n"
+"non è supportato dagli Aggiornamenti Ufficiali Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1044
-#, fuzzy
 msgid "Please choose the desired mirror."
-msgstr "Scegli il tipo di mouse."
+msgstr "Scegli il mirror che preferisci."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -474,6 +503,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
+"La fonte `%s', usata per gli aggiornamenti, non corrisponde alla versione di "
+"%s che stai usando(%s).\n"
+"Verrà disabilitata."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -482,28 +514,33 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Il supporto `%s', usato per gli aggiornamenti, non corrisponde alla versione "
+"di Mageia che stai usando (%s).\n"
+"Verrà disattivato."
 
 #: lib/ManaTools/rpmdragora.pm:1104
 msgid "Please wait, downloading mirror addresses."
-msgstr ""
+msgstr "Attendi, è in corso il recupero degli indirizzi dei mirror."
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
-msgstr ""
+msgstr "Attendi, sto scaricando gli indirizzi dei mirror dal sito web Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
 msgid "retrieval of [%s] failed"
-msgstr ""
+msgstr "recupero di [%s] non riuscito"
 
 #: lib/ManaTools/rpmdragora.pm:1163
 msgid "Help launched in background"
-msgstr ""
+msgstr "Guida avviata in background"
 
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
 msgstr ""
+"È in corso l'apertura della finestra d'aiuto, dovrebbe apparire a breve sul "
+"desktop."
 
 #: lib/ManaTools/MainDisplay.pm:185
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -4523,6 +4560,3 @@ msgstr ""
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr ""
-
-#~ msgid "Mouse Port"
-#~ msgstr "Porta del mouse"

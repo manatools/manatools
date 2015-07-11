@@ -24,10 +24,9 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-04 16:31+0000\n"
+"PO-Revision-Date: 2015-07-09 08:57+0000\n"
 "Last-Translator: Michael Eklund <willard@null.net>\n"
-"Language-Team: Swedish (http://www.transifex.com/projects/p/mageia/language/"
-"sv/)\n"
+"Language-Team: Swedish (http://www.transifex.com/p/mageia/language/sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -35,14 +34,12 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Software Update"
-msgstr "Uppdatera Paket"
+msgstr "Uppdatera Program"
 
 #: lib/ManaTools/rpmdragora.pm:161
-#, fuzzy
 msgid "Mageia Update"
-msgstr "Mageia"
+msgstr "Uppdatera Mageia"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -57,16 +54,15 @@ msgstr "Mageia"
 #: lib/ManaTools/Module/Users.pm:327 lib/ManaTools/Module/Users.pm:573
 #: lib/ManaTools/Module/Users.pm:2168
 msgid "Ok"
-msgstr "Ok"
+msgstr "OK"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
-msgstr ""
+msgstr "Var vänlig ange dina uppgifter för att använda proxy\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
-#, fuzzy
 msgid "User name:"
-msgstr "Användarnamn"
+msgstr "Användarnamn:"
 
 #: lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
@@ -76,22 +72,20 @@ msgid "Password:"
 msgstr "Lösenord:"
 
 #: lib/ManaTools/rpmdragora.pm:274
-#, fuzzy
 msgid "Software Packages Removal"
-msgstr "Uppdatera Paket"
+msgstr "Ta bort mjukvarupaket"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
 msgstr "Uppdatera Paket"
 
 #: lib/ManaTools/rpmdragora.pm:276
-#, fuzzy
 msgid "Software Packages Installation"
-msgstr "Uppdatera Paket"
+msgstr "Installation av mjukvarupaket"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr ""
+msgstr "Fråga mig inte nästa gång"
 
 #: lib/ManaTools/rpmdragora.pm:361 lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -102,21 +96,19 @@ msgid "No"
 msgstr "Nej"
 
 #: lib/ManaTools/rpmdragora.pm:411
-#, fuzzy
 msgid "Dependencies"
-msgstr "Nya beroenden:"
+msgstr "Beroenden"
 
 #: lib/ManaTools/rpmdragora.pm:424
-#, fuzzy
 msgid "OK"
-msgstr "&Ok"
+msgstr "OK"
 
 #: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
 #: lib/ManaTools/Rpmdragora/pkg.pm:147 lib/ManaTools/Rpmdragora/pkg.pm:463
 #: lib/ManaTools/Rpmdragora/pkg.pm:827 lib/ManaTools/Rpmdragora/pkg.pm:1046
 #: modules/rpmdragora/rpmdragora:307
 msgid "Please wait"
-msgstr "Vänta"
+msgstr "Var god vänta"
 
 #: lib/ManaTools/rpmdragora.pm:575 lib/ManaTools/Shared/TimeZone.pm:456
 msgid "Argentina"
@@ -144,7 +136,7 @@ msgstr "Brasilien"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Storbritanien"
 
 #: lib/ManaTools/rpmdragora.pm:582 lib/ManaTools/Shared/TimeZone.pm:446
 msgid "Canada"
@@ -156,7 +148,7 @@ msgstr "Schweiz"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
-msgstr ""
+msgstr "Costa Rica"
 
 #: lib/ManaTools/rpmdragora.pm:585 lib/ManaTools/Shared/TimeZone.pm:418
 msgid "Czech Republic"
@@ -167,13 +159,12 @@ msgid "Germany"
 msgstr "Tyskland"
 
 #: lib/ManaTools/rpmdragora.pm:587
-#, fuzzy
 msgid "Danmark"
 msgstr "Danmark"
 
 #: lib/ManaTools/rpmdragora.pm:588
 msgid "Ecuador"
-msgstr ""
+msgstr "Ecuador"
 
 #: lib/ManaTools/rpmdragora.pm:589 lib/ManaTools/rpmdragora.pm:593
 #: lib/ManaTools/Shared/TimeZone.pm:424
@@ -234,7 +225,7 @@ msgstr "Portugal"
 
 #: lib/ManaTools/rpmdragora.pm:604
 msgid "Russia"
-msgstr ""
+msgstr "Ryssland"
 
 #: lib/ManaTools/rpmdragora.pm:605 lib/ManaTools/Shared/TimeZone.pm:439
 msgid "Sweden"
@@ -277,13 +268,13 @@ msgid "Error"
 msgstr "Fel"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Unable to add medium, errors reported:\n"
 "\n"
 "%s"
 msgstr ""
-"Kan inte uppdatera media, fel rapporterade:\n"
+"Kan inte lägga till media, fel rapporterade:\n"
 "\n"
 "%s"
 
@@ -293,37 +284,34 @@ msgstr "Media: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr ""
+msgstr "Kan inte skapa media."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr ""
+msgstr "Fel när media skulle läggas till"
 
 #: lib/ManaTools/rpmdragora.pm:726
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "There was a problem adding medium:\n"
 "\n"
 "%s"
 msgstr ""
-"Det uppstod ett fel under installationen:\n"
+"Det uppstod ett fel när media skulle läggas till:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
-#, fuzzy
 msgid "rpmdragora"
-msgstr "Rpmdragora"
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
-#, fuzzy
 msgid "Please wait, updating media..."
-msgstr "Var god vänta, lägger till media..."
+msgstr "Var god vänta, uppdaterar media..."
 
 #: lib/ManaTools/rpmdragora.pm:783
-#, fuzzy
 msgid "Error retrieving packages"
-msgstr "Matchande paket:"
+msgstr "Fel vid hämtning av paket"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -335,40 +323,47 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
+"Det är omöjligt att ta emot listan av nya paket från mediet\n"
+"`%s'. Antingen så är detta uppdateringsmedia fel inställt, och i sådana "
+"fall\n"
+"så borde du använda Mediahanterare för mjukvara för att ta bort det och "
+"lägga in det igen för att\n"
+"konfigurera det korrekt, antingen så är det för närvarande inte nåbart och "
+"du borde försöka\n"
+"senare."
 
 #: lib/ManaTools/rpmdragora.pm:812
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "ingen xml-info tillgänglig för media \"%s\""
+msgstr "Kopierar fil för media \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr ""
+msgstr "Undersöker fil för media \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr ""
+msgstr "Undersöker fjärrfil för media \"%s\"..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr ""
+msgstr " klar."
 
 #: lib/ManaTools/rpmdragora.pm:826
-#, fuzzy
 msgid " failed!"
-msgstr "Misslyckades att ställa in NTP"
+msgstr " misslyckades."
 
 #: lib/ManaTools/rpmdragora.pm:831
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s from medium %s"
-msgstr "- %s (media: %s)"
+msgstr "%s från media %s"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr ""
+msgstr "Startar nedladdning av `%s'..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -376,6 +371,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"Nedladdnig av \"%s\"\n"
+"återstående tid:%s, hastighet:%s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -383,6 +380,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"Nedladdnig av \"%s\"\n"
+"hastighet:%s"
 
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: lib/ManaTools/Rpmdragora/pkg.pm:935 lib/ManaTools/Rpmdragora/pkg.pm:945
@@ -397,13 +396,14 @@ msgstr "Varning"
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
+"Inget aktivt media hittades. Du måste aktivera något media för att kunna "
+"uppdatera dem."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:706
 msgid "Update media"
 msgstr "Uppdatera media"
 
 #: lib/ManaTools/rpmdragora.pm:875
-#, fuzzy
 msgid "Media"
 msgstr "Media"
 
@@ -436,17 +436,20 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
+"Kan inte uppdatera media; det kommer att inaktiveras automatiskt.\n"
+"\n"
+"Fel:\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
-#, fuzzy
 msgid ""
 "I need to access internet to get the mirror list.\n"
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"Jag behöver kontakta Mageia's webbplats för att hämta spegellistan.\n"
-"Vänligen kontrollera att ditt nätverk är igång.\n"
+"Jag behöver få tillgång till internet för att hämta spegellistan.\n"
+"Kontrollera att ditt nätverk fungerar.\n"
 "\n"
 "Är det OK att fortsätta?"
 
@@ -463,13 +466,12 @@ msgstr ""
 "Är det OK att fortsätta?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
-#, fuzzy
 msgid "Mirror choice"
-msgstr "Spegel-server"
+msgstr "Val av spegel"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr ""
+msgstr "Fel vid nerladdning"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -480,6 +482,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Det gick inte att ladda ner spegellistan:\n"
+"%s\n"
+"\n"
+"Nätverket eller hemsidan är kanske inte tillgänglig.\n"
+"Försök igen senare."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -490,14 +497,19 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Det gick inte att ladda ner spegellistan:\n"
+"%s\n"
+"\n"
+"Nätverket eller Mageias hemsida är kanske inte tillgänglig.\n"
+"Försök igen senare."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr ""
+msgstr "Ingen spegel"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr ""
+msgstr "Jag kan inte hitta en passande spegel."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -507,11 +519,16 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
+"Kan inte hitta en passande spegel.\n"
+"\n"
+"Det kan finnas många anledningar till det här problemet; den mest "
+"förekommande är\n"
+"att Mageia's officiella uppdateringar inte har stöd för din arkitekturs "
+"processor."
 
 #: lib/ManaTools/rpmdragora.pm:1044
-#, fuzzy
 msgid "Please choose the desired mirror."
-msgstr "Vänligen välj din mustyp."
+msgstr "Var god välj önskad spegel."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -520,6 +537,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Ditt media `%s', som används för uppdateringar stämmer ej överens med den "
+"versionen av %s som du kör (%s).\n"
+"Det kommer att bli inaktiverat."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -528,29 +548,31 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
+"Ditt media `%s', som används för uppdateringar, stämmer ej överens med den "
+"version av Mageia som du kör (%s).\n"
+"Det kommer att bli inaktiverat."
 
 #: lib/ManaTools/rpmdragora.pm:1104
-#, fuzzy
 msgid "Please wait, downloading mirror addresses."
-msgstr "Var god vänta, lägger till media..."
+msgstr "Var god vänta, laddar ner spegeladresser."
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
-msgstr ""
+msgstr "Var god vänta, laddar ner spegeladresser från Mageia's webbplats."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
 msgid "retrieval of [%s] failed"
-msgstr ""
+msgstr "hämtning av [%s] misslyckades"
 
 #: lib/ManaTools/rpmdragora.pm:1163
 msgid "Help launched in background"
-msgstr ""
+msgstr "Hjälp startad i bakgrunden"
 
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
-msgstr ""
+msgstr "Hjälpfönstret har startats, det bör synas på skrivbordet inom kort."
 
 #: lib/ManaTools/MainDisplay.pm:185
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -560,14 +582,14 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:339 modules/rpmdragora/rpmdragora:1089
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
-"Thomas Backlund <tmb@mageia.org>\n"
 "Thomas Backlund <tmb@mandriva.org>\n"
 "Lars Westergren <lars.westergren@home.se>\n"
-"Magnus Björklöf <bjorklof@nic.fi>\n"
+"Kenneth Krekula <kenneth.krekula@kiruna.se>\n"
+"Henrik Borg <hblinux@bredband.net>\n"
 "Mattias Newzella <newzella@linux.nu>\n"
 "Mattias Dahlberg <voz@home.se>\n"
-"Fuad Sabanovic <manijak@telia.com>\n"
-"Kenneth Krekula\n"
+"Tom Svensson <tom@firstdev.com>\n"
+"Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>\n"
 
 #: lib/ManaTools/MainDisplay.pm:191
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
@@ -588,7 +610,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan är mana-tools panel som samlar alla verktygen."
 
 #: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -1017,7 +1039,7 @@ msgstr "Information"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr "Cd-rom"
+msgstr "CD-ROM"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
@@ -2098,7 +2120,7 @@ msgstr "Komprimering"
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
 msgid "Other"
-msgstr "Annan"
+msgstr "Andra"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
 #: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
@@ -2155,7 +2177,7 @@ msgstr "Utveckling"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr "Basic"
+msgstr "Standard"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
@@ -2991,9 +3013,8 @@ msgstr ""
 "och tillgänglig server."
 
 #: lib/ManaTools/Shared/Services.pm:294
-#, fuzzy
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr "Övervakar nätverket (Interaktiv brandvägg och trådlöst"
+msgstr "Övervakar nätverket (interaktiv brandvägg och trådlös)"
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid "Software RAID monitoring and management"
@@ -4654,7 +4675,7 @@ msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:537
 msgid "Not installed"
-msgstr "Inte installerad"
+msgstr "Inte Installerad"
 
 #: modules/rpmdragora/rpmdragora:550
 msgid "All packages, alphabetical"
@@ -4878,28 +4899,3 @@ msgstr "Installation av media %s lyckades."
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "Installation av media %s lyckades."
-
-#~ msgid "AdminMouse"
-#~ msgstr "AdminPekdon"
-
-#~ msgid "About"
-#~ msgstr "Om"
-
-#~ msgid ""
-#~ "AdminMouse is the Mageia mouse management tool \n"
-#~ "(from the original idea of Mandriva mousedrake)."
-#~ msgstr ""
-#~ "adminPekdon är Mageias verktyg för pekdonshantering\n"
-#~ "(bygger på den tidigare Mandriva mousedrake)."
-
-#~ msgid "Emulate third button?"
-#~ msgstr "Emulera tredje knappen?"
-
-#~ msgid "Mouse Port"
-#~ msgstr "Musport"
-
-#~ msgid "Please choose which serial port your mouse is connected to."
-#~ msgstr "Välj vilken serieport musen är kopplad till."
-
-#~ msgid "Not implemented yet: configuration is not changed"
-#~ msgstr "Är inte implementerat än: Konfigurationen är inte ändrad"

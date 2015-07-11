@@ -3,28 +3,29 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# psyca, 2015
+# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-10 09:21+0000\n"
-"Last-Translator: psyca\n"
-"Language-Team: German (http://www.transifex.com/p/mageia/language/de/)\n"
-"Language: de\n"
+"PO-Revision-Date: 2015-07-10 16:13+0000\n"
+"Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
+"Language-Team: Romanian (http://www.transifex.com/p/mageia/language/ro/)\n"
+"Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?"
+"2:1));\n"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
-msgstr "Softwareaktualisierung"
+msgstr "Actualizare aplicații"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr "Mageia-Update"
+msgstr "Actualizări Mageia"
 
 #: lib/ManaTools/rpmdragora.pm:179 lib/ManaTools/rpmdragora.pm:365
 #: lib/ManaTools/Rpmdragora/pkg.pm:925
@@ -43,46 +44,46 @@ msgstr "Ok"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
-msgstr "Bitte geben Sie die Zugangsdaten für den Proxy-Server ein\n"
+msgstr "Introduceți acreditările pentru accesarea proxyului\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
 msgid "User name:"
-msgstr "Benutzername:"
+msgstr "Nume utilizator:"
 
 #: lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
 #: lib/ManaTools/Module/Users.pm:704
 msgid "Password:"
-msgstr "Passwort:"
+msgstr "Parolă:"
 
 #: lib/ManaTools/rpmdragora.pm:274
 msgid "Software Packages Removal"
-msgstr "Softwarepakete entfernen"
+msgstr "Înlăturare pachete"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
-msgstr ""
+msgstr "Actualizare pachete"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
-msgstr "Softwarepakete installieren"
+msgstr "Instalare pachete"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr "Das nächste mal nicht mehr Nachfragen"
+msgstr "Nu mai întreba data viitoare"
 
 #: lib/ManaTools/rpmdragora.pm:361 lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
-msgstr "Ja"
+msgstr "Da"
 
 #: lib/ManaTools/rpmdragora.pm:362 lib/ManaTools/Shared/GUI.pm:319
 msgid "No"
-msgstr "Nein"
+msgstr "Nu"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr "Abhängigkeiten"
+msgstr "Dependențe"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -93,43 +94,43 @@ msgstr "OK"
 #: lib/ManaTools/Rpmdragora/pkg.pm:827 lib/ManaTools/Rpmdragora/pkg.pm:1046
 #: modules/rpmdragora/rpmdragora:307
 msgid "Please wait"
-msgstr "Bitte warten"
+msgstr "Așteptați vă rog"
 
 #: lib/ManaTools/rpmdragora.pm:575 lib/ManaTools/Shared/TimeZone.pm:456
 msgid "Argentina"
-msgstr "Argentinien"
+msgstr "Argentina"
 
 #: lib/ManaTools/rpmdragora.pm:576 lib/ManaTools/Shared/TimeZone.pm:414
 msgid "Austria"
-msgstr "Österreich"
+msgstr "Austria"
 
 #: lib/ManaTools/rpmdragora.pm:577 lib/ManaTools/Shared/TimeZone.pm:452
 msgid "Australia"
-msgstr "Australien"
+msgstr "Australia"
 
 #: lib/ManaTools/rpmdragora.pm:578 lib/ManaTools/Shared/TimeZone.pm:415
 msgid "Belarus"
-msgstr "Weißrussland"
+msgstr "Belarus"
 
 #: lib/ManaTools/rpmdragora.pm:579 lib/ManaTools/Shared/TimeZone.pm:416
 msgid "Belgium"
-msgstr "Belgien"
+msgstr "Belgia"
 
 #: lib/ManaTools/rpmdragora.pm:580 lib/ManaTools/Shared/TimeZone.pm:457
 msgid "Brazil"
-msgstr "Brasilien"
+msgstr "Brazilia"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Britania"
 
 #: lib/ManaTools/rpmdragora.pm:582 lib/ManaTools/Shared/TimeZone.pm:446
 msgid "Canada"
-msgstr "Kanada"
+msgstr "Canada"
 
 #: lib/ManaTools/rpmdragora.pm:583 lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Switzerland"
-msgstr "Schweiz"
+msgstr "Elveția"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
@@ -137,15 +138,15 @@ msgstr "Costa Rica"
 
 #: lib/ManaTools/rpmdragora.pm:585 lib/ManaTools/Shared/TimeZone.pm:418
 msgid "Czech Republic"
-msgstr "Tschechische Republik"
+msgstr "Republica Cehă"
 
 #: lib/ManaTools/rpmdragora.pm:586 lib/ManaTools/Shared/TimeZone.pm:423
 msgid "Germany"
-msgstr "Deutschland"
+msgstr "Germania"
 
 #: lib/ManaTools/rpmdragora.pm:587
 msgid "Danmark"
-msgstr "Dänemark"
+msgstr "Danemarca"
 
 #: lib/ManaTools/rpmdragora.pm:588
 msgid "Ecuador"
@@ -154,27 +155,27 @@ msgstr "Ecuador"
 #: lib/ManaTools/rpmdragora.pm:589 lib/ManaTools/rpmdragora.pm:593
 #: lib/ManaTools/Shared/TimeZone.pm:424
 msgid "Greece"
-msgstr "Griechenland"
+msgstr "Grecia"
 
 #: lib/ManaTools/rpmdragora.pm:590 lib/ManaTools/Shared/TimeZone.pm:438
 msgid "Spain"
-msgstr "Spanien"
+msgstr "Spania"
 
 #: lib/ManaTools/rpmdragora.pm:591 lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Finland"
-msgstr "Finnland"
+msgstr "Finlanda"
 
 #: lib/ManaTools/rpmdragora.pm:592 lib/ManaTools/Shared/TimeZone.pm:422
 msgid "France"
-msgstr "Frankreich"
+msgstr "Franța"
 
 #: lib/ManaTools/rpmdragora.pm:594 lib/ManaTools/Shared/TimeZone.pm:425
 msgid "Hungary"
-msgstr "Ungarn"
+msgstr "Ungaria"
 
 #: lib/ManaTools/rpmdragora.pm:595 lib/ManaTools/Shared/TimeZone.pm:400
 msgid "Indonesia"
-msgstr "Indonesien"
+msgstr "Indonezia"
 
 #: lib/ManaTools/rpmdragora.pm:596 lib/ManaTools/Shared/TimeZone.pm:402
 msgid "Israel"
@@ -182,51 +183,51 @@ msgstr "Israel"
 
 #: lib/ManaTools/rpmdragora.pm:597 lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Italy"
-msgstr "Italien"
+msgstr "Italia"
 
 #: lib/ManaTools/rpmdragora.pm:598 lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Japan"
-msgstr "Japan"
+msgstr "Japonia"
 
 #: lib/ManaTools/rpmdragora.pm:599 lib/ManaTools/Shared/TimeZone.pm:404
 msgid "Korea"
-msgstr "Korea"
+msgstr "Coreea"
 
 #: lib/ManaTools/rpmdragora.pm:600 lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Netherlands"
-msgstr "Niederlande"
+msgstr "Olanda"
 
 #: lib/ManaTools/rpmdragora.pm:601 lib/ManaTools/Shared/TimeZone.pm:431
 msgid "Norway"
-msgstr "Norwegen"
+msgstr "Norvegia"
 
 #: lib/ManaTools/rpmdragora.pm:602 lib/ManaTools/Shared/TimeZone.pm:432
 msgid "Poland"
-msgstr "Polen"
+msgstr "Polonia"
 
 #: lib/ManaTools/rpmdragora.pm:603 lib/ManaTools/Shared/TimeZone.pm:433
 msgid "Portugal"
-msgstr "Portugal"
+msgstr "Portugalia"
 
 #: lib/ManaTools/rpmdragora.pm:604
 msgid "Russia"
-msgstr "Russland"
+msgstr "Rusia"
 
 #: lib/ManaTools/rpmdragora.pm:605 lib/ManaTools/Shared/TimeZone.pm:439
 msgid "Sweden"
-msgstr "Schweden"
+msgstr "Suedia"
 
 #: lib/ManaTools/rpmdragora.pm:606 lib/ManaTools/Shared/TimeZone.pm:407
 msgid "Singapore"
-msgstr "Singapur"
+msgstr "Singapore"
 
 #: lib/ManaTools/rpmdragora.pm:607 lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Slovakia"
-msgstr "Slowakei"
+msgstr "Slovacia"
 
 #: lib/ManaTools/rpmdragora.pm:608 lib/ManaTools/Shared/TimeZone.pm:392
 msgid "South Africa"
-msgstr "Südafrika"
+msgstr "Africa de sud"
 
 #: lib/ManaTools/rpmdragora.pm:609 lib/ManaTools/Shared/TimeZone.pm:408
 msgid "Taiwan"
@@ -234,7 +235,7 @@ msgstr "Taiwan"
 
 #: lib/ManaTools/rpmdragora.pm:610 lib/ManaTools/Shared/TimeZone.pm:409
 msgid "Thailand"
-msgstr "Thailand"
+msgstr "Tailanda"
 
 #: lib/ManaTools/rpmdragora.pm:613 lib/ManaTools/Shared/TimeZone.pm:397
 msgid "China"
@@ -244,13 +245,13 @@ msgstr "China"
 #: lib/ManaTools/rpmdragora.pm:616 lib/ManaTools/rpmdragora.pm:617
 #: lib/ManaTools/rpmdragora.pm:618 lib/ManaTools/Shared/TimeZone.pm:449
 msgid "United States"
-msgstr "Vereinigte Staaten von Amerika"
+msgstr "Statele Unite"
 
 #: lib/ManaTools/rpmdragora.pm:696 lib/ManaTools/rpmdragora.pm:720
 #: lib/ManaTools/rpmdragora.pm:738 lib/ManaTools/Rpmdragora/pkg.pm:492
 #: lib/ManaTools/Rpmdragora/pkg.pm:964 lib/ManaTools/Rpmdragora/pkg.pm:989
 msgid "Error"
-msgstr "Fehler"
+msgstr "Eroare"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
 #, perl-format
@@ -259,20 +260,21 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Konnte das Medium nicht hinzufügen, Fehlerbericht:\n"
+"Nu se poate adăuga mediul, erorile raportate:\n"
+"\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Medium: "
-msgstr "Medium:"
+msgstr "Mediu: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr "Das Medium kann nicht angelegt werden."
+msgstr "Nu se poate crea mediul."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr "Fehler beim Hinzufügen des Mediums"
+msgstr "Adăugare de mediu eșuată"
 
 #: lib/ManaTools/rpmdragora.pm:726
 #, perl-format
@@ -281,21 +283,21 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Es gab ein Problem beim Hinzufügen des Mediums:\n"
+"S-a întîlnit o problemă la adăugarea mediului:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
-msgstr "Bitte warten. Medium wird aktualisiert..."
+msgstr "Așteptați, se actualizează mediul..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
-msgstr "Fehler beim Abrufen von Paketen"
+msgstr "Eroare la preluarea pachetelor"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -307,45 +309,45 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
-"Es ist unmöglich die Liste der neuen Pakete des Mediums „%s“\n"
-"abzufragen. Entweder ist das Aktualisierungsmedium falsch eingestellt, dann "
-"sollten \n"
-"Sie den Paketquellen-Manager nutzen um das Medium zu entfernen und es\n"
-"danach erneut hinzuzufügen und konfigurieren, oder es ist zur Zeit nicht\n"
-"erreichbar und Sie sollten es später nochmals versuchen."
+"Este imposibil de preluat lista noilor pachete de pe mediul\n"
+"„%s”. Fie acest mediu de actualizare este configurat greșit, și în acest\n"
+"caz ar trebui să utilizați „Gestionarul de medii” să-l înlăturați și să-l "
+"readăugați\n"
+"ca să-l puteți reconfigura, fie este indisponibil momentan și ar trebui să\n"
+"încercați mai tîrziu."
 
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "Datei für Medium „%s“ kopieren ..."
+msgstr "Se copiază fișierul mediului „%s”..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr "Untersuche Datei des Mediums „%s“ ..."
+msgstr "Se examinează fișierul mediului „%s”..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr "Datei auf entferntem Medium „%s“ untersuchen ..."
+msgstr "Se examinează fișierul distant al mediului „%s”..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr " fertig."
+msgstr " terminat."
 
 #: lib/ManaTools/rpmdragora.pm:826
 msgid " failed!"
-msgstr " fehlgeschlagen!"
+msgstr " eșuat!"
 
 #: lib/ManaTools/rpmdragora.pm:831
 #, perl-format
 msgid "%s from medium %s"
-msgstr "%s von Medium %s"
+msgstr "%s de pe mediul %s"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr "Download von „%s“ wird gestartet..."
+msgstr "Se pornește descărcarea lui „%s”..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -353,8 +355,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
-"Herunterladen von „%s“\n"
-"Restdauer: %s, Geschwindigkeit: %s"
+"Se descarcă „%s”\n"
+"timp rămas: %s, viteză: %s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -362,8 +364,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
-"Herunterladen von „%s“\n"
-"Geschwindigkeit: %s"
+"Se descarcă „%s”\n"
+"viteză: %s"
 
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: lib/ManaTools/Rpmdragora/pkg.pm:935 lib/ManaTools/Rpmdragora/pkg.pm:945
@@ -372,22 +374,22 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:948 lib/ManaTools/Module/Users.pm:384
 #: modules/rpmdragora/rpmdragora:1186
 msgid "Warning"
-msgstr "Warnung"
+msgstr "Avertisment"
 
 #: lib/ManaTools/rpmdragora.pm:854
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
-"Kein aktives Medium gefunden. Sie müssen Medien aktivieren, um diese "
-"aktualisieren zu können."
+"Nu există medii active. Trebuie mai întîi să activați mediile pentru a le "
+"putea actualiza."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:706
 msgid "Update media"
-msgstr "Medien aktualisieren"
+msgstr "Actualizare medii"
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr "Medien"
+msgstr "Medii"
 
 #: lib/ManaTools/rpmdragora.pm:893 lib/ManaTools/Rpmdragora/pkg.pm:925
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
@@ -399,16 +401,16 @@ msgstr "Medien"
 #: lib/ManaTools/Module/Users.pm:488 lib/ManaTools/Module/Users.pm:572
 #: lib/ManaTools/Module/Users.pm:2167
 msgid "Cancel"
-msgstr "Abbrechen"
+msgstr "Anulează"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/rpmdragora:658
 msgid "Select all"
-msgstr "Alle auswählen"
+msgstr "Selectează tot"
 
 #: lib/ManaTools/rpmdragora.pm:895
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
-msgstr "Aktualisieren"
+msgstr "Actualizează"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -418,9 +420,9 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
-"Kann das Medium nicht aktualisieren, es wird automatisch deaktiviert. \n"
+"Nu se poate actualiza mediul; acesta va fi dezactivat automat.\n"
 "\n"
-"Fehler:\n"
+"Erori:\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
@@ -430,10 +432,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"Zugang zum Internet wird benötigt, um die Spiegel-Serverliste zu bekommen.\n"
-"Stellen Sie sicher, dass Ihr Netzwerk läuft.\n"
+"Trebuie accesat Internetul pentru a obține lista oglinzilor.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
 "\n"
-"Fortfahren?"
+"Se poate continua?"
 
 #: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:296
 msgid ""
@@ -442,14 +444,18 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Trebuie contactat situl Mageia pentru obținerea listei oglinzilor.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
-msgstr "Spiegel-Server Auswahl"
+msgstr "Alegere oglinzi"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr "Fehler während des Download-Vorgangs"
+msgstr "Eroare în timpul descărcării"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -460,6 +466,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"S-a întîlnit o eroare la descărcarea listei oglinzilor:\n"
+"%s\n"
+"\n"
+"Probabil rețeaua sau situl web nu sînt disponibile.\n"
+"Reîncercați mai tîrziu."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -470,14 +481,19 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"A fost o eroare la descărcarea listei oglinzilor:\n"
+"%s\n"
+"\n"
+"Rețeaua, sau situl Mageia, pot fi indisponibile.\n"
+"Vă rugăm să încercați mai tîrziu."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr "Kein Spiegel-Server"
+msgstr "Nu există oglindă"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr "Ich kann keinen passenden Spiegel-Server finden."
+msgstr "Nu s-a găsit nicio oglindă potrivită. "
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -487,14 +503,15 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
-"Kein geeigneter Spiegel-Server gefunden.\n"
+"Nu s-a găsit nicio oglindă potrivită.\n"
 "\n"
-"Es gibt zahlreiche mögliche Fehlerquellen. Der häufigste Fehler ist, dass es "
-"für Ihre Prozessorarchitektur keine offiziellen Mageia-Aktualisierungen gibt."
+"Pot fi multe cauze pentru această problemă; cel mai frecvent este\n"
+"cazul cînd arhitectura procesorului actual nu este suportată\n"
+"de actualizările oficiale."
 
 #: lib/ManaTools/rpmdragora.pm:1044
 msgid "Please choose the desired mirror."
-msgstr "Bitte wählen Sie Ihren bevorzugten Spiegel-Server."
+msgstr "Alegeți oglinda dorită."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -503,9 +520,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
-"Ihr Medium „%s“, welches für Aktualisierungen benutzt wird, stimmt nicht mit "
-"der Version von %s, welche Sie benutzen (%s), überein.\n"
-"Es wird deaktiviert."
+"Mediul „%s”, utilizat pentru actualizări, este incompatibil cu versiunea %s "
+"instalată (%s).\n"
+"Va fi dezactivat."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -514,35 +531,31 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"Ihr Medium „%s“, welches für Aktualisierungen genutzt wird, stimmt nicht mit "
-"der Version von Mageia überein, welche Sie benutzen (%s).\n"
-"Es wird deaktiviert."
+"Mediul „%s”, utilizat pentru actualizări, nu se potrivește cu versiunea de "
+"Mageia pe care o aveți (%s).\n"
+"Acesta va fi dezactivat."
 
 #: lib/ManaTools/rpmdragora.pm:1104
 msgid "Please wait, downloading mirror addresses."
-msgstr "Bitte warten. Lade die Spiegel-Server-Adressen."
+msgstr "Așteptați, se descarcă adresele oglinzilor."
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
-msgstr ""
-"Bitte warten. Die Adressen der Spiegel-Server werden von der Mageia-Webseite "
-"geladen."
+msgstr "Așteptați vă rog, se descarcă adresele oglinzilor de pe situl Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
 msgid "retrieval of [%s] failed"
-msgstr "Holen von [%s] fehlgeschlagen"
+msgstr "preluarea lui [%s] a eșuat"
 
 #: lib/ManaTools/rpmdragora.pm:1163
 msgid "Help launched in background"
-msgstr "Hilfe im Hintergrund gestartet"
+msgstr "Ajutorul a fost lansat în fundal"
 
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
-msgstr ""
-"Das Hilfe-Fenster wurde gestartet, es sollte gleich auf dem Desktop "
-"erscheinen."
+msgstr "Fereastra de ajutor a fost lansată, va apărea în scurt timp pe ecran."
 
 #: lib/ManaTools/MainDisplay.pm:185
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -552,6 +565,8 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:339 modules/rpmdragora/rpmdragora:1089
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
+"Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
+"\n"
 
 #: lib/ManaTools/MainDisplay.pm:191
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
@@ -560,7 +575,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:346 modules/rpmdragora/rpmdragora:1095
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr "Copyright (C) %s Mageia Community"
+msgstr "Drepturi de autor (C) %s comunitatea Mageia"
 
 #: lib/ManaTools/MainDisplay.pm:192
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
@@ -572,7 +587,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan este panoul mana-tools care colectează toate utilitarele."
 
 #: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -584,12 +599,18 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Dezvoltatori</h3>\n"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Traducători</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:335
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: lib/ManaTools/Module/Users.pm:2398 modules/rpmdragora/rpmdragora:705
 msgid "File"
-msgstr "Datei"
+msgstr "Fișier"
 
 #: lib/ManaTools/MainDisplay.pm:336
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
@@ -599,14 +620,14 @@ msgstr "Datei"
 #: lib/ManaTools/Module/Users.pm:2488 lib/ManaTools/Module/LogViewer.pm:323
 #: modules/rpmdragora/dragoraUpdate:286 modules/rpmdragora/rpmdragora:709
 msgid "&Quit"
-msgstr ""
+msgstr "&Terminare"
 
 #: lib/ManaTools/MainDisplay.pm:347 lib/ManaTools/MainDisplay.pm:348
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 #: lib/ManaTools/Module/Users.pm:2412
 msgid "Help"
-msgstr "Hilfe"
+msgstr "Ajutor"
 
 #: lib/ManaTools/MainDisplay.pm:349
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
@@ -618,7 +639,7 @@ msgstr "Hilfe"
 #: lib/ManaTools/Module/Users.pm:2486 lib/ManaTools/Module/LogViewer.pm:319
 #: modules/rpmdragora/dragoraUpdate:278 modules/rpmdragora/rpmdragora:761
 msgid "&About"
-msgstr ""
+msgstr "&Despre"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:148 lib/ManaTools/Rpmdragora/pkg.pm:125
 #: lib/ManaTools/Rpmdragora/pkg.pm:174 lib/ManaTools/Rpmdragora/pkg.pm:187
@@ -627,27 +648,27 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:1646
 #: lib/ManaTools/Rpmdragora/formatting.pm:150
 msgid "(none)"
-msgstr ""
+msgstr "(neant)"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
-msgstr "Installation beendet"
+msgstr "Instalare terminată"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:642
 msgid "Select a package"
-msgstr "Wählen Sie ein Paket"
+msgstr "Selectați un pachet"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Înlătură fișierul nou"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr ""
+msgstr "Utilizează fișierul nou"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
-msgstr ""
+msgstr "Nu fă nimic"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:254 lib/ManaTools/Rpmdragora/pkg.pm:652
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
@@ -656,57 +677,61 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:1281 lib/ManaTools/Module/Clock.pm:318
 #: lib/ManaTools/Module/Users.pm:874 lib/ManaTools/Module/Users.pm:2008
 msgid "&Ok"
-msgstr "&Ok"
+msgstr "&OK"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:261
 msgid "Please wait, searching..."
-msgstr "Bitte warten, suche..."
+msgstr "Așteptați, se caută..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:139
 #, perl-format
 msgid "Getting information from %s..."
-msgstr "Erhalte Informationen von %s..."
+msgstr "Se obțin informații de la %s..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:143
 #, perl-format
 msgid "Getting '%s' from XML meta-data..."
-msgstr ""
+msgstr "Se obține „%s” din metadatele XML..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:160
 #, perl-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
 msgstr ""
+"Nu există informații XML pentru mediul „%s”, numai rezultate parțiale pentru "
+"pachetul %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
 msgid ""
 "No xml info for medium \"%s\", unable to return any result for package %s"
 msgstr ""
+"Nu există informații XML pentru mediul „%s”, nu se poate întoarce niciun "
+"rezultat pentru pachetul %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:199 lib/ManaTools/Rpmdragora/gui.pm:347
 #: lib/ManaTools/Rpmdragora/gui.pm:358 lib/ManaTools/Rpmdragora/gui.pm:362
 msgid "(Not available)"
-msgstr ""
+msgstr "(Indisponibil)"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:217 lib/ManaTools/Rpmdragora/pkg.pm:222
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr ""
+msgstr "Se descarcă pachetul „%s”..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "        %s%% of %s completed, ETA = %s, speed = %s"
-msgstr ""
+msgstr "        %s%% din %s totali, TES = %s, viteză = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:225
 #, perl-format
 msgid "        %s%% completed, speed = %s"
-msgstr ""
+msgstr "        %s%% complet, viteză = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:265 lib/ManaTools/Rpmdragora/pkg.pm:807
 #: lib/ManaTools/Module/Hosts.pm:481
 msgid "Confirmation"
-msgstr ""
+msgstr "Confirmare"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:266
 msgid ""
@@ -715,10 +740,14 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Trebuie contactată oglinda pentru a obține cele mai recente actualizări.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:284
 msgid "Already existing update media"
-msgstr ""
+msgstr "Mediile de actualizare există deja"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:285
 #, perl-format
@@ -730,6 +759,11 @@ msgid ""
 "\n"
 "Then, restart \"%s\"."
 msgstr ""
+"Aveți configurate mai multe medii de actualizare, dar toate\n"
+"sînt dezactivate. Ar trebui să activați cel puțin unul, lansînd\n"
+"„Gestionarul de medii” (verificați în coloana „%s”).\n"
+"\n"
+"Apoi reporniți „%s”."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:290
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
@@ -737,17 +771,19 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2058
 msgid "Enabled"
-msgstr "Aktiviert"
+msgstr "Activat"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:295
 msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
+"Nu aveți configurat niciun mediu cu actualizări. MageiaUpdate nu poate "
+"funcționa fără un mediu cu actualizări."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:303
 msgid "How to choose manually your mirror"
-msgstr ""
+msgstr "Cum să selectați oglinda în mod manual"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:304
 #, perl-format
@@ -758,44 +794,49 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"De asemenea, puteți selecta oglinda și în mod manual:\n"
+"pentru aceasta lansați „Gestionarul de medii” și adăugați un \n"
+"mediu de tip „Actualizări de securitate”.\n"
+"\n"
+"Apoi reporniți %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:476
 msgid "Reading updates description"
-msgstr ""
+msgstr "Se citesc descrierile actualizărilor"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:481 lib/ManaTools/Rpmdragora/pkg.pm:517
 msgid "Please wait, finding available packages..."
-msgstr "Bitte warten. Suche nach verfügbare Pakete..."
+msgstr "Așteptați, se caută pachetele disponibile..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:487
 msgid "Please wait, listing base packages..."
-msgstr ""
+msgstr "Așteptați, se listează pachetele de bază..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:492 lib/ManaTools/Rpmdragora/gui.pm:1553
 #: lib/ManaTools/Rpmdragora/open_db.pm:101
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr "Fataler Fehler aufgetreten: %s."
+msgstr "A apărut o eroare fatală: %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:500
 msgid "Please wait, finding installed packages..."
-msgstr "Bitte warten. Suche nach installierte Pakete..."
+msgstr "Așteptați, se caută pachetele instalate..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:625
 msgid "Upgrade information"
-msgstr "Aktualisierungsinformationen"
+msgstr "Informații de actualizare"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:641
 msgid "These packages come with upgrade information"
-msgstr "Diese Pakete beinhalten Aktualisierungsinformationen"
+msgstr "Aceste pachete conțin informații de actualizare"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:714 lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid "All requested packages were installed successfully."
-msgstr "Alle gewählten Pakete wurden erfolgreich installiert."
+msgstr "Toate pachetele cerute au fost instalate cu succes."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:718 lib/ManaTools/Rpmdragora/pkg.pm:950
 msgid "Problem during installation"
-msgstr "Fehler während der Installation"
+msgstr "Problemă în timpul instalării"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:739
 #: lib/ManaTools/Rpmdragora/pkg.pm:952
@@ -805,26 +846,26 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Während der Installation ist ein Fehler aufgetreten: \n"
+"S-a întîlnit o problemă în timpul instalării:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:738
 msgid "Installation failed"
-msgstr "Installation fehlgeschlagen"
+msgstr "Instalarea a eșuat"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:761
 msgid "Checking validity of requested packages..."
-msgstr ""
+msgstr "Se verifică validitatea pachetelor cerute..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:784
 msgid "Unable to get source packages."
-msgstr ""
+msgstr "Nu se pot prelua pachetele sursă."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:785
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr ""
+msgstr "Nu se pot prelua pachetele sursă, regrete. %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:786
 #, perl-format
@@ -836,7 +877,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"Fehler gemeldet:\n"
+"Erori raportate:\n"
 "%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:803 lib/ManaTools/Rpmdragora/gui.pm:948
@@ -844,83 +885,88 @@ msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Rpmdragora sau una din dependențele sale prioritare trebuiesc mai întîi "
+"actualizate. Apoi, rpmdragora va reporni."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:804
 msgid "The following package is going to be installed:"
-msgstr "Die folgenden Pakete werden installiert:"
+msgstr "Pachetul următor va fi instalat:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:807 lib/ManaTools/Rpmdragora/gui.pm:1467
 msgid "Some packages need to be removed"
-msgstr "Einige Pakete müssen entfernt werden"
+msgstr "Cîteva pachete trebuiesc înlăturate"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:810
 msgid "Remove one package?"
-msgstr ""
+msgstr "Se înlătură pachetul?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr "Das folgende Paket muss entfernt werden, um andere zu aktualisieren:"
+msgstr ""
+"Pachetul următor trebuie înlăturat pentru ca celelalte să fie actualizate:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:813
 msgid "The following packages have to be removed for others to be upgraded:"
 msgstr ""
-"Die folgenden Pakete müssen entfernt werden, um andere zu aktualisieren:"
+"Pachetele următoare trebuiesc înlăturate pentru ca celelalte să fie "
+"actualizate:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "Is it ok to continue?"
-msgstr "Möchten Sie fortfahren?"
+msgstr "Se poate continua?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:828
 msgid "Initializing..."
-msgstr "Initialisierung..."
+msgstr "Inițializare..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:836 lib/ManaTools/Rpmdragora/pkg.pm:1029
 msgid "Orphan packages"
-msgstr "Verwaiste Pakete"
+msgstr "Pachete orfane"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:836
 msgid "The following orphan package will be removed."
-msgstr "Das folgende verwaiste Paket wird entfernt."
+msgstr "Următorul pachet orfan va fi înlăturat."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:852 lib/ManaTools/Rpmdragora/pkg.pm:853
 msgid "Preparing package installation..."
-msgstr "Bereite Paketinstallation vor..."
+msgstr "Se pregătește instalarea pachetelor..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:856 lib/ManaTools/Rpmdragora/pkg.pm:858
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Se instalează pachetul „%s” (%d/%d)..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:859
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "Total: %d/ %d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:923
 msgid "Change medium"
-msgstr ""
+msgstr "Schimbare de mediu"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:924
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "Inserați mediul numit „%s”  "
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Verifying package signatures..."
-msgstr "Überprüfe Paketsignaturen..."
+msgstr "Se verifică semnăturile pachetelor..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:951
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "%d operații de instalare eșuate"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:965
 msgid "Unrecoverable error: no package found for installation, sorry."
 msgstr ""
+"Eroare irecuperabilă: nu s-a găsit niciun pachet pentru instalare, regrete."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:968
 msgid "Inspecting configuration files..."
-msgstr "Konfigurations-Dateien untersuchen..."
+msgstr "Se inspectează fișierele de configurare..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:976
 msgid ""
@@ -929,31 +975,35 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"Instalarea s-a terminat; totul a fost instalat cu succes.\n"
+"\n"
+"Unele fișiere de configurare au fost create ca „.rpmnew” sau „.rpmsave”,\n"
+"le puteți inspecta acum pentru a decide acțiunile ulterioare:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:982
 msgid "Looking for \"README\" files..."
-msgstr "Suche nach „README“-Dateien..."
+msgstr "Se caută fișierele „README” ..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1020
 #, perl-format
 msgid "RPM transaction %d/%d"
-msgstr ""
+msgstr "Operația RPM %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1021
 msgid "Unselect all"
-msgstr "Alles abwählen"
+msgstr "Deselectează tot"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1022
 msgid "Details"
-msgstr "Details"
+msgstr "Detalii"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1067
 msgid "Please wait, removing packages..."
-msgstr "Bitte warten. Entferne Pakete..."
+msgstr "Așteptați, se înlătură pachetele..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1080
 msgid "Problem during removal"
-msgstr "Fehler beim Entfernen"
+msgstr "Problemă în timpul înlăturării"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1081
 #, perl-format
@@ -962,10 +1012,13 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"S-a întîlnit o problemă în timpul înlăturării pachetelor:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1088 lib/ManaTools/Module/Services.pm:393
 msgid "Information"
-msgstr ""
+msgstr "Informații"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
@@ -978,7 +1031,7 @@ msgstr "FTP"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
 msgid "Local"
-msgstr "Lokal"
+msgstr "Local"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
 msgid "HTTP"
@@ -995,7 +1048,7 @@ msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr "Entfernbar"
+msgstr "Amovibile"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
@@ -1003,11 +1056,11 @@ msgstr "rsync"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr "Liste der Spiegelserver"
+msgstr "Lista de oglinzi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr ""
+msgstr "Alegeți tipul mediului"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -1021,14 +1074,24 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"În scopul de a vă menține sistemul sigur și stabil, trebuie să vă "
+"configurați un set minim\n"
+"de surse oficiale pentru actualizările de securitate și stabilitate. Puteți "
+"alege, de asemenea,\n"
+"să configurați și un set mai complet de surse care includ depozitele "
+"oficiale Mageia,\n"
+"oferindu-vă acces la mai multe programe decît pot încăpea pe discurile "
+"Mageia.\n"
+"Vă rugăm să alegeți să configurați ori surse de actualizare,  ori setul\n"
+"complet de surse."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
-msgstr ""
+msgstr "Setul complet de surse"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Update sources only"
-msgstr ""
+msgstr "Numai sursele pentru actualizare"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
 #, perl-format
@@ -1041,44 +1104,51 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Se va încerca instalarea tuturor surselor oficiale\n"
+"corespunzătoare distribuției curente (%s).\n"
+"\n"
+"Trebuie contactat situl Mageia pentru obținerea listei oglinzilor.\n"
+"Verificați dacă rețeaua funcționează corect.\n"
+"\n"
+"Se poate continua?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr "Bitte warten. Medien werden hinzugefügt..."
+msgstr "Așteptați, se adaugă mediul..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr "Durchsuchen..."
+msgstr "Navigare..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 #: lib/ManaTools/Module/Users.pm:694
 msgid "Login:"
-msgstr ""
+msgstr "Autentificare:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
 msgid "Add a medium"
-msgstr "Medium hinzufügen"
+msgstr "Adaugă un mediu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
 msgid "Adding a medium:"
-msgstr "Füge ein Medium hinzu:"
+msgstr "Se adaugă un mediu:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
 msgid "Type of medium:"
-msgstr "Typ des Mediums:"
+msgstr "Tipul mediului:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Local files"
-msgstr "Lokale Dateien"
+msgstr "Fișiere locale"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
-msgstr "Pfad zum Medium:"
+msgstr "Calea mediului:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
-msgstr "FTP-Server"
+msgstr "Server FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
@@ -1089,31 +1159,31 @@ msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
-msgstr "RSYNC-Server"
+msgstr "Server RSYNC"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 msgid "HTTP server"
-msgstr "HTTP-Server"
+msgstr "Server HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr "Wechselmedium (CD-ROM, DVD, ...)"
+msgstr "Dispozitiv amovibil (CD-ROM, DVD, ...)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
-msgstr "Pfad oder Einhängepunkt:"
+msgstr "Calea sau punctul de montare:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
 msgid "Medium name:"
-msgstr "Name des Mediums:"
+msgstr "Numele mediului:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "Creează mediile pentru întreaga distribuție"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr "Dieses Medium als Update-Medium markieren"
+msgstr "Marchează acest mediu ca mediu de actualizare"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:307
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:525
@@ -1127,11 +1197,11 @@ msgstr "Dieses Medium als Update-Medium markieren"
 #: lib/ManaTools/Module/Firewall.pm:740 lib/ManaTools/Module/Firewall.pm:836
 #: lib/ManaTools/Module/Users.pm:873 lib/ManaTools/Module/Users.pm:2007
 msgid "&Cancel"
-msgstr "Abbre&chen"
+msgstr "&Anulează"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
-msgstr "Sie müssen mindestens die ersten beiden Felder ausfüllen."
+msgstr "Trebuie să completați cel puțin primele două intrări."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
 #, perl-format
@@ -1139,85 +1209,85 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
-"Es existiert bereits ein Medium mit dem Namen <%s>,\n"
-"möchten Sie dieses ersetzen?"
+"Există deja un mediu cu numele <%s>,\n"
+"chiar doriți să-l înlocuiți?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
-msgstr ""
+msgstr "Opțiuni globale pentru instalarea pachetelor"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr "Verifiziere zu installierende RPMs:"
+msgstr "Verifică pachetele RPM de instalat: "
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
-msgstr "niemals"
+msgstr "niciodată"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "always"
-msgstr "immer"
+msgstr "întotdeauna"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr "Programm zum herunterladen verwenden:"
+msgstr "Utilitarul de descărcare folosit:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr "Regelung zum Herunterladen der XML-Meta-Daten:"
+msgstr "Politica de descărcare a metadatelor XML:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
-msgstr "Niemals"
+msgstr "Niciodată"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
-msgstr "Auf Anfrage"
+msgstr "La cerere"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr "Nur aktualisieren"
+msgstr "Numai actualizare"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
-msgstr "Immer"
+msgstr "Întotdeauna"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr "Quelle entfernen"
+msgstr "Înlăturare surse"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr ""
+msgstr "Sigur doriți să înlăturați sursa „%s”?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr ""
+msgstr "Sigur doriți să înlăturați sursele următoare?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr "Bitte warten. Entferne Medium..."
+msgstr "Așteptați, se înlătură mediul..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
-msgstr ""
+msgstr "Editați un mediu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
 #, perl-format
 msgid "Editing medium \"%s\":"
-msgstr ""
+msgstr "Se editează mediul „%s”:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
-msgstr ""
+msgstr "Descărcător:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2061
 msgid "Updates"
-msgstr "Aktualisierungen"
+msgstr "Actualizări"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 #: lib/ManaTools/Module/Hosts.pm:178 lib/ManaTools/Module/Hosts.pm:262
@@ -1226,7 +1296,7 @@ msgstr "Aktualisierungen"
 #: lib/ManaTools/Module/Proxy.pm:326 lib/ManaTools/Module/Firewall.pm:533
 #: lib/ManaTools/Module/Firewall.pm:741 lib/ManaTools/Module/Firewall.pm:837
 msgid "&OK"
-msgstr "&Ok"
+msgstr "&OK"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
@@ -1234,88 +1304,90 @@ msgstr "&Proxy..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
-msgstr ""
+msgstr "Trebuie să inserați mediul pentru a continua"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr ""
+msgstr "Pentru a salva modificările, trebuie să inserați mediul în unitate."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr ""
+msgstr "Configurare proxyuri"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "Parametrii de proxy pentru mediul „%s”"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "Parametri de proxy globali"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
 msgstr ""
+"Dacă este nevoie de proxy, introduceți numele gazdei și opțional un port "
+"(sintaxă: <gazdăproxy[:port]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
-msgstr ""
+msgstr "Activează proxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
-msgstr ""
+msgstr "Nume proxy:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
+msgstr "Puteți specifica un utilizator/parolă pentru autentificarea la proxy:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
-msgstr ""
+msgstr "Utilizator:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "Adăugați un grup paralel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "Editați un grup paralel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr ""
+msgstr "Adăugați o limită mediului"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "Selectați un mediu pentru adăugare la limita mediilor:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
-msgstr ""
+msgstr "Adăugați o gazdă"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Type in the hostname or IP address of the host to add:"
-msgstr ""
+msgstr "Introduceți numele sau adresa IP a gazdei ce va fi adăugată:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
 msgid "Editing parallel group \"%s\":"
-msgstr ""
+msgstr "Se editează grupul paralel „%s”:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
-msgstr "Gruppenname:"
+msgstr "Nume grup:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
 msgid "Protocol:"
-msgstr "Protokoll:"
+msgstr "Protocol:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
-msgstr "Medienbeschränkung:"
+msgstr "Limita mediilor:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
@@ -1323,7 +1395,7 @@ msgstr "Medienbeschränkung:"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2162
 msgid "Add"
-msgstr "Hinzufügen"
+msgstr "Adaugă"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
@@ -1332,71 +1404,71 @@ msgstr "Hinzufügen"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2152
 msgid "Remove"
-msgstr "Entfernen"
+msgstr "Înlătură"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
 msgid "Hosts:"
-msgstr ""
+msgstr "Gazde:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr ""
+msgstr "Configurare urpmi paralel (execuție distribuită de urpmi)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 #: lib/ManaTools/Module/Users.pm:1780
 msgid "Group"
-msgstr "Gruppe"
+msgstr "Grup"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
-msgstr "Protokoll"
+msgstr "Protocol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "Limită medii"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
-msgstr ""
+msgstr "Comandă"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
-msgstr "Bearbeiten..."
+msgstr "Editare..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
 msgid "Add..."
-msgstr "Hinzufügen..."
+msgstr "Adăugare..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
-msgstr ""
+msgstr "Gestionați cheile pentru semnăturile digitale ale pachetelor"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2068
 msgid "Medium"
-msgstr ""
+msgstr "Mediu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
-msgstr "Schlüssel"
+msgstr "Cheie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr ""
+msgstr "nu s-a găsit numele, cheia nu există în portcheiul rpm!"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
-msgstr ""
+msgstr "Adaugă o cheie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "Alegeți o cheie pentru a o adăuga mediului %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
-msgstr ""
+msgstr "Înlătură o cheie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
 #, perl-format
@@ -1404,6 +1476,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Sigur doriți să înlăturați cheia <br>%s<br> de pe mediul %s?<br>(numele "
+"cheii: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -1413,37 +1487,40 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Mediul nu poate fi actualizat, erorile raportate:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2145
 #: modules/rpmdragora/dragora-urpm-sources.pl:38
 msgid "Configure media"
-msgstr ""
+msgstr "Configurare medii"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "Adaugă o oglindă de medii specifică"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "Adaugă un mediu personalizat"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr "&Optionen"
+msgstr "&Opțiuni"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
-msgstr ""
+msgstr "Opțiuni globale"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
-msgstr ""
+msgstr "Gestionați cheile"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "Paralel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
@@ -1453,42 +1530,42 @@ msgstr "Proxy"
 #: lib/ManaTools/Module/Users.pm:2411 modules/rpmdragora/dragoraUpdate:277
 #: modules/rpmdragora/rpmdragora:758
 msgid "&Help"
-msgstr "&Hilfe"
+msgstr "&Ajutor"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:759
 msgid "Manual"
-msgstr ""
+msgstr "Manual"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: lib/ManaTools/Module/Users.pm:2413 modules/rpmdragora/rpmdragora:760
 msgid "Report Bug"
-msgstr "Fehler melden"
+msgstr "Raportare eroare"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
 msgid "Type"
-msgstr "Typ"
+msgstr "Tip"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2156
 #: lib/ManaTools/Module/Users.pm:2441
 msgid "Edit"
-msgstr "Bearbeiten"
+msgstr "Editează"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
-msgstr "Hoch"
+msgstr "Sus"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
 msgid "Down"
-msgstr "Runter"
+msgstr "Jos"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
 #: modules/rpmdragora/rpmdragora:1097
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora este gestionarul de pachete Mageia."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
 #: lib/ManaTools/Module/Services.pm:460
@@ -1501,11 +1578,11 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Entwickler</h3>\n"
+"<h3>Dezvoltatori</h3>\n"
 "<ul><li>%s</li>\n"
 "<li>%s</li>\n"
 "</ul>\n"
-"<h3>Übersetzer</h3>\n"
+"<h3>Traducători</h3>\n"
 "<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
@@ -1513,6 +1590,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
 msgstr ""
+"Acest mediu trebuie actualizat pentru a fi utilizabil. Îl actualizați acum?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -1520,11 +1598,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/_File"
-msgstr "/_Datei"
+msgstr "/_Fișier"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
-msgstr "/_Aktualisieren"
+msgstr "/_Actualizare"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>U"
@@ -1532,7 +1610,7 @@ msgstr "<control>U"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "/Adaugă o oglindă de _medii specifică"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>M"
@@ -1540,7 +1618,7 @@ msgstr "<control>M"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_Add a custom medium"
-msgstr ""
+msgstr "/_Adaugă un mediu personalizat"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "<control>A"
@@ -1548,7 +1626,7 @@ msgstr "<control>A"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/Close"
-msgstr "/Schließen"
+msgstr "/Închide"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "<control>W"
@@ -1563,11 +1641,11 @@ msgstr "<control>W"
 #: modules/rpmdragora/rpmdragora:698 modules/rpmdragora/rpmdragora:699
 #: modules/rpmdragora/rpmdragora:700
 msgid "/_Options"
-msgstr "/_Optionen"
+msgstr "/_Opțiuni"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
-msgstr "/_Globale Optionen"
+msgstr "/Opțiuni _globale"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>G"
@@ -1575,7 +1653,7 @@ msgstr "<control>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/Manage _keys"
-msgstr ""
+msgstr "/Gestionați _cheile"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>K"
@@ -1583,7 +1661,7 @@ msgstr "<control>K"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/_Parallel"
-msgstr ""
+msgstr "/_Paralel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>P"
@@ -1591,7 +1669,7 @@ msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr ""
+msgstr "/P_roxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
@@ -1602,24 +1680,24 @@ msgstr "<control>R"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_Help"
-msgstr "/_Hilfe"
+msgstr "/_Ajutor"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 msgid "/_Report Bug"
-msgstr "/_Fehler melden"
+msgstr "/_Raportare eroare"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_About..."
-msgstr "/_Über..."
+msgstr "/_Despre..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
-msgstr ""
+msgstr "Rpmdragora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "Drepturi de autor (C) %s Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
 msgid "Mageia"
@@ -1632,149 +1710,152 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"Baza de date cu pachete este blocată. Închideți celelalte\n"
+"aplicații care lucrează cu baza de date. Aveți alt gestionar de\n"
+"pachete pe alt birou, sau instalați alte pachete în același\n"
+"timp?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:104
 msgid "Search results"
-msgstr "Suchergebnisse"
+msgstr "Rezultatele căutării"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:104
 msgid "Search results (none)"
-msgstr "Suchergebnisse (keine)"
+msgstr "Rezultatele căutării (nimic)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:133 lib/ManaTools/Rpmdragora/icon.pm:196
 #: lib/ManaTools/Rpmdragora/icon.pm:198 lib/ManaTools/Rpmdragora/icon.pm:199
 #: lib/ManaTools/Rpmdragora/icon.pm:200 lib/ManaTools/Rpmdragora/icon.pm:201
 msgid "Graphical Environment"
-msgstr ""
+msgstr "Mediu grafic"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:148
 msgid "Security advisory"
-msgstr ""
+msgstr "Buletin de securitate"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:158
 msgid "No description"
-msgstr "Keine Beschreibung"
+msgstr "Nicio descriere"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:172
 msgid "It is <b>not supported</b> by Mageia."
-msgstr "Es wird von Mageia <b>nicht unterstützt</b>."
+msgstr "Acest pachet <b>nu este suportat<b> de Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:173
 msgid "It may <b>break</b> your system."
-msgstr "Es könnte Ihr System <b>zerstören</b>."
+msgstr "Ar putea <b>strica</b> sistemul."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "This package is not free software"
-msgstr "Dieses Paket ist keine freie Software"
+msgstr "Acest pachet nu este un program liber"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:178
 msgid "This package contains a new version that was backported."
-msgstr "Dieses Paket enthält eine neue Version, die zurückportiert wurde."
+msgstr "Acest pachet conține o versiune nouă ce a fost retroportată."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:182
 msgid "This package is a potential candidate for an update."
-msgstr "Diese Paket ist ein möglicher Kandidat für eine Aktualisierung."
+msgstr "Acest pachet este un candidat potențial pentru o actualizare."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:187
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
-"Dies ist eine offizielle Aktualisierung, die von Mageia unterstützt wird."
+msgstr "Aceasta este o actualizare oficială și este suportată de Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:188
 msgid "This is an unofficial update."
-msgstr "Dies ist eine inoffizielle Aktualisierung."
+msgstr "Aceasta este o actualizare neoficială."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:192
 msgid "This is an official package supported by Mageia"
-msgstr "Dies ist ein offizielles Paket, das von Mageia unterstützt wird"
+msgstr "Acesta este un pachet oficial suportat de Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:203
 msgid "Notice: "
-msgstr "Hinweis:"
+msgstr "Aviz: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:210
 msgid "Importance: "
-msgstr "Wichtigkeit:"
+msgstr "Importanță: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:211
 msgid "Reason for update: "
-msgstr "Aktualisierungsgrund:"
+msgstr "Motivul actualizării: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:225
 msgid "Version: "
-msgstr "Version:"
+msgstr "Versiune: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:226
 msgid "Currently installed version: "
-msgstr "Momentan installierte Version:"
+msgstr "Versiunea curentă instalată: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Group: "
-msgstr "Gruppe:"
+msgstr "Grup:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Architecture: "
-msgstr "Architektur:"
+msgstr "Arhitectură: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Size: "
-msgstr "Größe:"
+msgstr "Mărime: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 #, perl-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s Ko"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:252
 msgid "All dependencies installed."
-msgstr ""
+msgstr "Toate dependențele instalate."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:270
 msgid "URL: "
-msgstr "URL:"
+msgstr "URL: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:332
 msgid "Details:"
-msgstr "Details:"
+msgstr "Detalii: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:341
 msgid "Files:"
-msgstr "Dateien:"
+msgstr "Fișiere: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:355
 msgid "Changelog:"
-msgstr "Changelog:"
+msgstr "Jurnal modificări: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:372
 msgid "New dependencies:"
-msgstr "Neue Abhängigkeiten:"
+msgstr "Dependențe noi: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:392
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "S-a găsit pachetul „%s”."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:393
 msgid "However this package is not in the package list."
-msgstr ""
+msgstr "Totuși, acest pachet nu este în lista de pachete."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 msgid "You may want to update your urpmi database."
-msgstr "Sie sollten Ihre urpmi-Datenbank aktualisieren."
+msgstr "Ați putea actualiza baza de date urpmi."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "Matching packages:"
-msgstr ""
+msgstr "Pachete potrivite: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (mediu: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:939
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "Înlăturarea pachetului %s ar corupe sistemul"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:943
 #, perl-format
@@ -1782,50 +1863,56 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
+"Pachetul „%s” este pe lista urpmi de pachete omise.\n"
+"Sigur doriți să-l selectați?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1154
 msgid "More information on package..."
-msgstr ""
+msgstr "Informații suplimentare despre pachet..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1156
 msgid "Please choose"
-msgstr ""
+msgstr "Alegeți vă rog"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "The following package is needed:"
-msgstr ""
+msgstr "Pachetul următor este necesar:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "One of the following packages is needed:"
-msgstr ""
+msgstr "Unul din următoarele pachete este necesar:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1269
 msgid "Select package"
-msgstr ""
+msgstr "Selectați un pachet"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1367
 msgid "Checking dependencies of package..."
-msgstr "Überprüfe die Abhängigkeiten des Paketes..."
+msgstr "Se verifică dependențele pachetelor..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1372
 msgid "Some additional packages need to be removed"
-msgstr ""
+msgstr "Cîteva pachete adiționale trebuiesc înlăturate"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1383
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
 msgstr ""
+"Datorită interdependențelor, următoarele pachete trebuiesc de asemenea "
+"înlăturate:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1388
 msgid "Some packages cannot be removed"
-msgstr "Einige Pakete können nicht entfernt werden"
+msgstr "Cîteva pachete nu pot fi înlăturate"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1389
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
 msgstr ""
+"Înlăturarea acestor pachete ar corupe sistemul, regrete:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1397 lib/ManaTools/Rpmdragora/gui.pm:1468
 msgid ""
@@ -1833,10 +1920,12 @@ msgid ""
 "now:\n"
 "\n"
 msgstr ""
+"Datorită interdependențelor, următoarele pachete trebuiesc deselectate "
+"acum:\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1421
 msgid "Additional packages needed"
-msgstr "Es werden zusätzliche Pakete benötigt"
+msgstr "Pachete adiționale necesare"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1422
 msgid ""
@@ -1844,23 +1933,25 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
+"Pentru satisfacerea dependențelor, următoarele pachete trebuiesc\n"
+"de asemenea instalate:\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1430
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "Pachete în conflict"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1444
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s (este în lista de omisiuni)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "One package cannot be installed"
-msgstr "Ein Paket konnte nicht installiert werden"
+msgstr "Un pachet nu poate fi instalat"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "Some packages cannot be installed"
-msgstr "Einige Pakete konnten nicht installiert werden"
+msgstr "Cîteva pachete nu pot fi instalate"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1450
 #, perl-format
@@ -1869,7 +1960,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Das folgende Paket kann nicht ausgewählt werden:\n"
+"Regrete, următorul pachet nu poate fi selectat:\n"
 "\n"
 "%s"
 
@@ -1880,30 +1971,30 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Die folgenden Pakete können nicht ausgewählt werden:\n"
+"Regrete, următoarele pachete nu pot fi selectate:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Some packages are selected."
-msgstr ""
+msgstr "Sînt selectate cîteva pachete."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "Sigur doriți să ieșiți?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1515
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "Eroare: %s pare montat numai în citire."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1519
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "Trebuie să selectați mai întîi niște pachete."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1524
 msgid "Too many packages are selected"
-msgstr ""
+msgstr "Sînt selectate prea multe pachete"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1525
 msgid ""
@@ -1914,19 +2005,25 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"Avertisment: se pare că încercați să adăugați atît de multe\n"
+"pachete încît sistemul ar putea rămîne fără spațiu liber,\n"
+"în timpul sau după instalarea pachetelor;\n"
+"acest lucru este periculos și trebuie să aveți grijă.\n"
+"\n"
+"Sigur doriți să instalați pachetele selectate?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1552
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
 msgid "Fatal error"
-msgstr "Fataler Fehler"
+msgstr "Eroare fatală"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1636
 msgid "Please wait, listing packages..."
-msgstr "Bitte warten. Pakete werden aufgelistet..."
+msgstr "Așteptați, se listează pachetele..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1649
 msgid "No update"
-msgstr ""
+msgstr "Nu sînt actualizări"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1650
 msgid ""
@@ -1934,119 +2031,122 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"Lista cu actualizări este goală. Asta înseamnă că ori nu există\n"
+"actualizări disponibile pentru pachetele instalate pe acest calculator,\n"
+"ori că le-ați instalat deja pe toate."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1689 modules/rpmdragora/rpmdragora:380
 msgid "Upgradable"
-msgstr ""
+msgstr "Actualizabile"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1689 modules/rpmdragora/rpmdragora:536
 msgid "Installed"
-msgstr ""
+msgstr "Instalate"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1690 modules/rpmdragora/rpmdragora:380
 msgid "Addable"
-msgstr ""
+msgstr "Noi"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1724
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "Descriere indisponibilă pentru acest pachet\n"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:374
 msgid "None (installed)"
-msgstr ""
+msgstr "Nimic (instalat)"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:378
 msgid "Unknown"
-msgstr ""
+msgstr "Necunoscut"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "Vor fi utilizați %s adiționali din spațiul de pe disc."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "Vor fi eliberați %s din spațiul de pe disc."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "%s de pachete vor fi preluați."
 
 #: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:392
 #: modules/rpmdragora/rpmdragora:535 modules/rpmdragora/rpmdragora:560
 msgid "All"
-msgstr "Alle"
+msgstr "Toate"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:42
 msgid "Accessibility"
-msgstr ""
+msgstr "Accesibilitate"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
 #: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
 #: lib/ManaTools/Rpmdragora/icon.pm:47
 msgid "Archiving"
-msgstr ""
+msgstr "Arhivare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:44
 msgid "Backup"
-msgstr "Sicherung"
+msgstr "Salvare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
-msgstr "CD brennen"
+msgstr "Inscripționare CD"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
-msgstr ""
+msgstr "Comprimare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
 msgid "Other"
-msgstr ""
+msgstr "Alt tip"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
 #: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
 #: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
 #: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Communications"
-msgstr ""
+msgstr "Telecomunicații"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:49
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
-msgstr ""
+msgstr "Dial-Up"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:52
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:53
 msgid "Radio"
-msgstr ""
+msgstr "Radio"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
-msgstr ""
+msgstr "Serial"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Telephony"
-msgstr ""
+msgstr "Telefonie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
-msgstr ""
+msgstr "Baze de date"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
 #: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
@@ -2060,7 +2160,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
 #: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Development"
-msgstr ""
+msgstr "Dezvoltare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
@@ -2080,7 +2180,7 @@ msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "Depanare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
@@ -2088,7 +2188,7 @@ msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
-msgstr "GNOME und GTK+"
+msgstr "GNOME și GTK+"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:66
 msgid "Java"
@@ -2096,15 +2196,15 @@ msgstr "Java"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:67
 msgid "KDE and Qt"
-msgstr "KDE und Qt"
+msgstr "KDE și Qt"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr "Kernel"
+msgstr "Nucleu"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
@@ -2120,32 +2220,32 @@ msgstr "Python"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:74
 msgid "Tools"
-msgstr "Werkzeuge"
+msgstr "Unelte"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
 msgid "X11"
-msgstr "X11"
+msgstr "X"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
 #: lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Documentation"
-msgstr "Dokumentation"
+msgstr "Documentație"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:77
 msgid "Editors"
-msgstr "Editoren"
+msgstr "Editoare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:78
 msgid "Education"
-msgstr "Bildung"
+msgstr "Educație"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:79
 msgid "Emulators"
-msgstr "Emulatoren"
+msgstr "Emulatoare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:80
 msgid "File tools"
-msgstr "Dateiwerkzeuge"
+msgstr "Unelte pentru fișiere"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
 #: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
@@ -2154,39 +2254,39 @@ msgstr "Dateiwerkzeuge"
 #: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Games"
-msgstr "Spiele"
+msgstr "Jocuri"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:82
 msgid "Adventure"
-msgstr "Abenteuer"
+msgstr "Aventură"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:83
 msgid "Arcade"
-msgstr "Arkade"
+msgstr "Arcade"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:84
 msgid "Boards"
-msgstr "Brettspiele"
+msgstr "Societate"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:85
 msgid "Cards"
-msgstr "Karten"
+msgstr "Cărți"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:87
 msgid "Puzzles"
-msgstr "Puzzles"
+msgstr "Enigme"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
-msgstr "Shooter"
+msgstr "Cu împușcături"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
-msgstr "Simulation"
+msgstr "Simulare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
-msgstr "Sport"
+msgstr "Sporturi"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Strategy"
@@ -2194,75 +2294,75 @@ msgstr "Strategie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:92
 msgid "Geography"
-msgstr ""
+msgstr "Geografie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
 #: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
 #: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
 msgid "Graphical desktop"
-msgstr ""
+msgstr "Birou grafic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:96
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:99
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:102
 msgid "Icewm"
-msgstr ""
+msgstr "Icewm"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:105
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:109
 msgid "WindowMaker"
-msgstr ""
+msgstr "WindowMaker"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:112
 msgid "Xfce"
-msgstr ""
+msgstr "Xfce"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:113 lib/ManaTools/Rpmdragora/icon.pm:114
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:116
 #: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Graphics"
-msgstr ""
+msgstr "Grafică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
-msgstr ""
+msgstr "3D"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Editoare și convertoare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Utilities"
-msgstr ""
+msgstr "Utilitare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
-msgstr ""
+msgstr "Fotografie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
-msgstr ""
+msgstr "Scanare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
-msgstr ""
+msgstr "Vizualizatoare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
-msgstr ""
+msgstr "Supraveghere"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
 #: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
@@ -2270,35 +2370,35 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
 #: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
 msgid "Networking"
-msgstr ""
+msgstr "Rețea"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:122
 msgid "File transfer"
-msgstr ""
+msgstr "Transfer de fișiere"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:123
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:124
 msgid "Instant messaging"
-msgstr ""
+msgstr "Mesagerie instantanee"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
 msgid "Mail"
-msgstr ""
+msgstr "Poștă electronică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:126
 msgid "News"
-msgstr ""
+msgstr "Știri"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:128
 msgid "Remote access"
-msgstr ""
+msgstr "Acces la distanță"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:129
 msgid "WWW"
-msgstr ""
+msgstr "WWW"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
 #: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
@@ -2306,39 +2406,39 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Office"
-msgstr ""
+msgstr "Birotică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
-msgstr ""
+msgstr "Dicționar"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "Finanțe"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
-msgstr ""
+msgstr "Gestionare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:134
 msgid "Organizer"
-msgstr ""
+msgstr "Organizator"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:136
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Foaie de calcul"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
-msgstr ""
+msgstr "Suită"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
-msgstr ""
+msgstr "Procesor de texte"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:139
 msgid "Publishing"
-msgstr ""
+msgstr "Publicistică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
 #: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
@@ -2346,61 +2446,61 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:146 lib/ManaTools/Rpmdragora/icon.pm:147
 #: lib/ManaTools/Rpmdragora/icon.pm:148
 msgid "Sciences"
-msgstr ""
+msgstr "Științe"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:141
 msgid "Astronomy"
-msgstr ""
+msgstr "Astronomie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:142
 msgid "Biology"
-msgstr ""
+msgstr "Biologie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:143
 msgid "Chemistry"
-msgstr ""
+msgstr "Chimie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:144
 msgid "Computer science"
-msgstr ""
+msgstr "Informatică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:145
 msgid "Geosciences"
-msgstr ""
+msgstr "Geoștiințe"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:146
 msgid "Mathematics"
-msgstr ""
+msgstr "Matematică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:148
 msgid "Physics"
-msgstr ""
+msgstr "Fizică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:69
 msgid "Security"
-msgstr ""
+msgstr "Securitate"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:150
 msgid "Shells"
-msgstr ""
+msgstr "Interpretoare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:156
 msgid "Sound"
-msgstr ""
+msgstr "Sunet"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:153
 msgid "Midi"
-msgstr ""
+msgstr "Midi"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:154
 msgid "Mixers"
-msgstr ""
+msgstr "Mixere"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
 msgid "Players"
-msgstr ""
+msgstr "Redare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:157 lib/ManaTools/Rpmdragora/icon.pm:158
 #: lib/ManaTools/Rpmdragora/icon.pm:159 lib/ManaTools/Rpmdragora/icon.pm:160
@@ -2412,86 +2512,86 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:171 lib/ManaTools/Rpmdragora/icon.pm:172
 #: lib/ManaTools/Rpmdragora/icon.pm:173
 msgid "System"
-msgstr ""
+msgstr "Sistem"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:158
 msgid "Base"
-msgstr ""
+msgstr "Bază"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
-msgstr ""
+msgstr "Demaraj și inițializare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:160
 msgid "Cluster"
-msgstr ""
+msgstr "Cluster"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
 msgid "Configuration"
-msgstr ""
+msgstr "Configurare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
 #: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
 msgid "Fonts"
-msgstr ""
+msgstr "Fonturi"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:163
 msgid "True type"
-msgstr ""
+msgstr "True Type"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:164
 msgid "Type1"
-msgstr ""
+msgstr "Type1"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:165
 msgid "X11 bitmap"
-msgstr ""
+msgstr "Bitmap X11"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:166
 msgid "Internationalization"
-msgstr ""
+msgstr "Internaționalizare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:167
 msgid "Kernel and hardware"
-msgstr ""
+msgstr "Nucleu și componente materiale"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:168
 msgid "Libraries"
-msgstr ""
+msgstr "Biblioteci"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:170
 msgid "Packaging"
-msgstr ""
+msgstr "Împachetare"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:171
 msgid "Printing"
-msgstr ""
+msgstr "Tipărire"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:172
 msgid "Servers"
-msgstr ""
+msgstr "Servere"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:176
 msgid "Terminals"
-msgstr ""
+msgstr "Terminale"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:177
 msgid "Text tools"
-msgstr ""
+msgstr "Unelte pentru text"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:178
 msgid "Toys"
-msgstr ""
+msgstr "Jucării"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
 #: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
 #: lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:182
 msgid "Television"
-msgstr ""
+msgstr "Televiziune"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
 #: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
@@ -2499,51 +2599,51 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:192 lib/ManaTools/Rpmdragora/icon.pm:193
 #: lib/ManaTools/Rpmdragora/icon.pm:194 lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Workstation"
-msgstr ""
+msgstr "Stație de lucru"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:188
 msgid "Console Tools"
-msgstr ""
+msgstr "Unelte de consolă"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:190
 msgid "Game station"
-msgstr ""
+msgstr "Stație de jocuri"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:191
 msgid "Internet station"
-msgstr ""
+msgstr "Stație de Internet"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:192
 msgid "Multimedia station"
-msgstr ""
+msgstr "Stație multimedia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:193
 msgid "Network Computer (client)"
-msgstr ""
+msgstr "Calculator în rețea (client)"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:194
 msgid "Office Workstation"
-msgstr ""
+msgstr "Stație de lucru pentru birotică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Scientific Workstation"
-msgstr ""
+msgstr "Stație de lucru științifică"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:198
 msgid "GNOME Workstation"
-msgstr ""
+msgstr "Stație de lucru GNOME"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:199
 msgid "IceWm Desktop"
-msgstr ""
+msgstr "Birou IceWm"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:200
 msgid "KDE Workstation"
-msgstr ""
+msgstr "Stație de lucru KDE"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:201
 msgid "Other Graphical Desktops"
-msgstr ""
+msgstr "Alte medii grafice"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
 #: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
@@ -2558,19 +2658,19 @@ msgstr "DNS/NIS"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:207
 msgid "Database"
-msgstr "Datenbank"
+msgstr "Bază de date"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:208
 msgid "Firewall/Router"
-msgstr ""
+msgstr "Parafoc/Ruter"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr ""
+msgstr "Poștă/Lucru colaborativ/Știri"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
-msgstr ""
+msgstr "Server în rețea"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Web/FTP"
@@ -2579,88 +2679,105 @@ msgstr "Web/FTP"
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "Utilizare: %s [OPȚIUNI]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "  --auto                acordă răspunsurile implicite la întrebări"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
 "  --changelog-first      display changelog before filelist in the "
 "description window"
 msgstr ""
+"  --changelog-first      afișează istoricul modificărilor înaintea listei de "
+"fișiere în fereastra descriptivă   "
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "  --media=medium1,..     limitează la mediile date"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
 msgstr ""
+"  --merge-all-rpmnew     propune fuzionarea tuturor fișierelor .rpmnew/."
+"rpmsave găsite"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=MODE            definește modul (instalare (implicit), înlăturare, "
+"actualizare)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb             se actualizează doar baza de date, dar nu se modifică "
+"sistemul de fișiere"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
-msgstr ""
+msgstr "  --no-confirmation     nu se cere confirmare în modul actualizare"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      nu se actualizează mediile la lansare"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "  --no-verify-rpm         nu se verifică semnăturile pachetelor"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"  --parallel=alias,host    în modul paralel, utilizează grupul „alias”, "
+"utilizează mașina „host” pentru a vizualiza dependențele"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
 msgstr ""
+"  --rpm-root=path        utilizează o altă cale rădăcină pentru instalarea "
+"lui rpm"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"  --urpmi-root           utilizează o altă cale rădăcină pentru instalarea "
+"lui rpm și a bazei sale de date"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root         forțează executarea ca root"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "  --search=pkg          lansează căutarea pentru „pkg”"
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
 "  --test                 only verify if the installation can be achieved "
 "correctly"
 msgstr ""
+"  --test                verifică dacă instalarea poate fi îndeplinită corect"
 
 #: lib/ManaTools/Rpmdragora/init.pm:83
 msgid ""
 "  --version              print this tool's version number\n"
 "                    "
 msgstr ""
+"  --version              afișează versiunea acestui utilitar\n"
+" "
 
 #: lib/ManaTools/Rpmdragora/init.pm:175 lib/ManaTools/Module/LogViewer.pm:461
 msgid "Running in user mode"
-msgstr ""
+msgstr "Executare în mod utilizator"
 
 #: lib/ManaTools/Rpmdragora/init.pm:176
 msgid ""
@@ -2668,55 +2785,68 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"Lansați acest program cu un utilizator obișnuit.\n"
+"Nu veți putea modifica sistemul, dar veți putea\n"
+"naviga prin baza de date existentă."
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "Păstrează regulile personalizate"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Abandonează regulile personalizate"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "Select"
-msgstr ""
+msgstr "Selectează"
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "Urmărește și expediază evenimentele ACPI din nucleu"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Lansează sistemul de sunet ALSA (Advanced Linux Sound Architecture)"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "Anacron este un planificator de comenzi periodice"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"APMD este folosit pentru a supraveghea și înregistra starea bateriei via "
+"syslog.\n"
+"De asemenea, poate fi folosit pentru oprirea calculatorului dacă bateria "
+"este slabă."
 
 #: lib/ManaTools/Shared/Services.pm:250
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"Execută comenzile programate cu comanda „at” la ora indicată cînd s-a lansat "
+"„at”\n"
+"și execută comenzile în lot cînd utilizarea medie a resurselor este destul "
+"de joasă.\n"
+"De exemplu, pentru a opri calculatorul în mod automat la ora 23:59,\n"
+"tastați într-o consolă „at 23:59” apoi „halt” și <Ctrl-D>."
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi este un demon ZeroConf ce implementează o stivă mDNS"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid "An NTP client/server"
-msgstr ""
+msgstr "Un client/server NTP"
 
 #: lib/ManaTools/Shared/Services.pm:254
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "Configurează parametrii de frecvență ai procesorului"
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -2725,15 +2855,22 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"cron este un planificator de sarcini, un program UNIX standard care \n"
+"execută programe utilizator specifice la momente precise, iar calculatorul \n"
+"trebuie să fie pornit. „vixie cron” adaugă un număr de funcționalități \n"
+"suplimentare versiunii UNIX de „cron”, precum o securitate îmbunătățită \n"
+"și opțiuni de configurare mai avansate."
 
 #: lib/ManaTools/Shared/Services.pm:258
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
 msgstr ""
+"CUPS (Common UNIX Printing System) este un sistem avansat de gestiune a "
+"tipăririi"
 
 #: lib/ManaTools/Shared/Services.pm:259
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "Lansează gestionarul de ecran grafic"
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -2741,6 +2878,8 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"FAM este un demon pentru supravegheat fișiere. Vă permite să fiți alertat\n"
+"cînd fișierele sînt modificate. Este utilizat de GNOME sau KDE"
 
 #: lib/ManaTools/Shared/Services.pm:262
 msgid ""
@@ -2753,6 +2892,14 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"G15Daemon permite utilizatorilor să acceseze toate tastele suplimentare "
+"prin \n"
+"decodarea și trimiterea lor înapoi la nucleu cu ajutorul pilotului Linux "
+"UINPUT. Acest pilot trebuie \n"
+"încărcat înainte de utilizarea lui g15daemon pentru accesarea tastaturii. "
+"G15 LCD este și el suportat. \n"
+"Implicit, fără alți clienți activi, g15daemon va afișa un ceas. Aplicațiile "
+"și scripturile client pot accesa LCD printr-un API simplu."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -2761,21 +2908,30 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"GPM adaugă suport de maus la aplicațiile text în Linux ca Midnight "
+"Commander.\n"
+"De asemenea, permite operații de copiere/lipire cu mausul și suport\n"
+"pentru meniurile contextuale în consolă."
 
 #: lib/ManaTools/Shared/Services.pm:270
 msgid "HAL is a daemon that collects and maintains information about hardware"
 msgstr ""
+"HAL este un demon care colectează și reține informațiile despre componentele "
+"materiale"
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"HardDrake detectează componentele materiale și configurează eventual\n"
+"componentele noi/înlocuite."
 
 #: lib/ManaTools/Shared/Services.pm:273
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
+"Apache este un server Web. Este folosit pentru a servi fișiere HTML și CGI."
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -2786,19 +2942,24 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"Super-procesul Internet (numit în mod normal inetd) pornește o sumedenie\n"
+"de servicii, incluzînd telnet, ftp, rsh și rlogin. Dezactivarea lui telnet\n"
+"se aplică tuturor serviciilor de care telnet este responsabil."
 
 #: lib/ManaTools/Shared/Services.pm:278
 msgid "Automates a packet filtering firewall with ip6tables"
-msgstr ""
+msgstr "Automatizați cu ip6tables un parafoc cu filtrare de pachete"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automates a packet filtering firewall with iptables"
-msgstr ""
+msgstr "Automatizați cu iptables un parafoc cu filtrare de pachete"
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
 msgstr ""
+"Distribuie sarcina IRQ în mod egal peste procesoare multiple pentru o "
+"performanță îmbunătățită"
 
 #: lib/ManaTools/Shared/Services.pm:281
 msgid ""
@@ -2806,86 +2967,107 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Acest pachet încarcă dispunerea tastaturii așa cum este specificată în\n"
+"/etc/sysconfig/keyboard. Dispunerea poate fi modificată folosind kbdconfig.\n"
+"Acest serviciu trebuie lăsat activat pentru majoritatea calculatoarelor."
 
 #: lib/ManaTools/Shared/Services.pm:284
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"Regenerarea automată a antetelor de nucleu în /boot pentru\n"
+"/usr/include/linux/{autoconf, versiune}.h"
 
 #: lib/ManaTools/Shared/Services.pm:286
 msgid "Automatic detection and configuration of hardware at boot."
 msgstr ""
+"Detecția și configurarea automată a componentelor materiale la demaraj."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Tweaks system behavior to extend battery life"
-msgstr ""
+msgstr "Ajustează comportamentul sistemului pentru a extinde viața bateriei"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"Linucxonf va executa din cînd în cînd diferite sarcini la demaraj\n"
+"pentru mentenanța configurației sistemului."
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"lpd este demonul de tipărire necesar pentru lpr să funcționeze corect.\n"
+"Acesta este în principiu un server care arbitrează cererile de tipărire "
+"către imprimante."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Linux Virtual Server, este folosit pentru construirea unui server de\n"
+"înaltă performanță și disponibilitate."
 
 #: lib/ManaTools/Shared/Services.pm:294
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Supraveghează rețeaua (fără-fir și parafoc interactiv)"
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid "Software RAID monitoring and management"
-msgstr ""
+msgstr "Gestionare si supraveghere de RAID Software"
 
 #: lib/ManaTools/Shared/Services.pm:296
 msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
 msgstr ""
+"DBUS este un demon care difuzează înștiințări despre evenimentele din sistem "
+"și alte mesaje"
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Enables MSEC security policy on system startup"
-msgstr ""
+msgstr "Activează politica de securitate MSEC la pornirea sistemului"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"named (BIND) este un server de nume de domeniu (DNS) folosit la rezolvarea "
+"asocierii numelor cu adresele IP."
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "Inițializează conectarea la consolă prin rețea"
 
 #: lib/ManaTools/Shared/Services.pm:300
 msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Montează și demontează toate punctele de montare a fișierelor sistem \n"
+"de rețea (NFS), SMB (LanManager/Windows) și NCP (NetWare)."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Activează/Dezactivează toate interfețele de rețea configurate pentru a fi\n"
+"inițializate la demaraj."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "Necesită ca rețeaua să fie disponibilă dacă este activat"
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "Așteptați ca rețeaua să fie disponibilă"
 
 #: lib/ManaTools/Shared/Services.pm:306
 msgid ""
@@ -2893,30 +3075,40 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"NFS este un protocol popular pentru a partaja fișiere de-a lungul rețelelor\n"
+"TCP/IP. Acest serviciu furnizează această funcționalitate. Lista "
+"directoarelor\n"
+"partajate se află în fișierul /etc/exports."
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS este un protocol popular pentru a partaja fișiere de-a lungul rețelelor\n"
+"TCP/IP. Acest serviciu permite blocarea fișierelor NFS."
 
 #: lib/ManaTools/Shared/Services.pm:311
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
 msgstr ""
+"Sincronizați ora sistemului prin rețea utilizînd protocolul NTP (Network "
+"Time Protocol)"
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Activare automată la demaraj a tastei „Num Lock” de pe\n"
+"tastatura numerică, în consolă și X.org."
 
 #: lib/ManaTools/Shared/Services.pm:314
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Suport pentru imprimantele OKI 4w și winprinters compatibile."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "Verifică dacă o partiție este aproape plină"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
@@ -2925,6 +3117,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"PCMCIA permite utilizarea dispozitivelor PCCARD precum plăcile Ethernet și\n"
+"modemuri în calculatoarele portabile. Nu va porni decît dacă este "
+"configurat,\n"
+"deci nu este nici o problemă dacă este activat pe calculatoare fără PCMCIA."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
@@ -2933,32 +3129,42 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"Portmapper gestionează conexiunile RPC, care sînt folosite de protocoalele\n"
+"ca NFS și NIS. Serverul portmap trebuie pornit pe calculatoarele care \n"
+"funcționează ca servere pentru protocoale ce folosesc mecanismul RPC."
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid "Reserves some TCP ports"
-msgstr ""
+msgstr "Rezervă cîteva porturi TCP"
 
 #: lib/ManaTools/Shared/Services.pm:323
 msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"Postfix este un agent de transportat mesaje, programul care permite "
+"deplasarea poștei electronice de la un calculator la altul."
 
 #: lib/ManaTools/Shared/Services.pm:324
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Salvează și restaurează entropia sistemului pentru generarea numerelor\n"
+"aleatoare de mai bună calitate."
 
 #: lib/ManaTools/Shared/Services.pm:326
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Atribuie dispozitivele brute cu acces direct (RAW) la dispozitivele\n"
+"de tip bloc (precum partițiile discului dur), pentru a fi utilizate\n"
+"de aplicații precum Oracle sau cititoarele de DVD"
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid "Nameserver information manager"
-msgstr ""
+msgstr "Gestionar de informații de server de nume"
 
 #: lib/ManaTools/Shared/Services.pm:329
 msgid ""
@@ -2966,90 +3172,112 @@ msgid ""
 "the RIP protocol. While RIP is widely used on small networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"Demonul de rutare permite actualizarea automată a tabelei de rutare IP\n"
+"prin protocolul RIP. În timp de RIP este folosit pentru rețele mici,\n"
+"alte protocoale mai complexe sînt folosite pentru rețele mai complexe."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"Protocolul rstat permite utilizatorilor unei rețele să recupereze\n"
+"performanțele măsurate de la orice calculator din rețea."
 
 #: lib/ManaTools/Shared/Services.pm:334
 msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"Syslog este facilitatea pe care multe procese o folosesc pentru a scrie "
+"mesaje în numeroasele fișiere jurnal ale sistemului. Este o idee bună să "
+"porniți întotdeauna rsyslog."
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"Protocolul rusers permite utilizatorilor unei rețele să identifice\n"
+"cine este conectat la calculatoarele care răspund interogării."
 
 #: lib/ManaTools/Shared/Services.pm:337
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"Protocolul rwho permite utilizatorului să recupereze lista tuturor\n"
+"utilizatorului conectați la un calculator ce folosește procesul rwho\n"
+"(similar cu finger)."
 
 #: lib/ManaTools/Shared/Services.pm:339
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
+"SANE (Scanner Access Now Easy) permite accesarea scanerelor, camerelor "
+"video, ..."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Packet filtering firewall"
-msgstr ""
+msgstr "Parafoc cu filtrare de pachete"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
 msgstr ""
+"Protocolul SMB/CIFS vă permite să partajați accesul la fișiere și "
+"imprimante, cît și integrarea într-un domeniu Windows "
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "Lansează sistemul de sunet pe această mașină"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "layer for speech analysis"
-msgstr ""
+msgstr "nivel pentru analizarea vorbirii"
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
 msgstr ""
+"Secure Shell este un protocol de rețea ce permite schimbul de date între "
+"două calculatoare printr-un canal securizat"
 
 #: lib/ManaTools/Shared/Services.pm:345
 msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog este facilitatea pe care multe procese o folosesc pentru a scrie\n"
+"mesaje în numeroasele fișiere jurnal ale sistemului. Este o idee\n"
+"bună să porniți întotdeauna syslog."
 
 #: lib/ManaTools/Shared/Services.pm:347
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
-msgstr ""
+msgstr "Mută regulile persistente udev generate în /etc/udev/rules.d"
 
 #: lib/ManaTools/Shared/Services.pm:348
 msgid "Load the drivers for your usb devices."
-msgstr "Lädt die Treiber für Ihre USB-Geräte."
+msgstr "Încarcă piloții pentru dispozitivele USB."
 
 #: lib/ManaTools/Shared/Services.pm:349
 msgid "A lightweight network traffic monitor"
-msgstr "Eine resourcenschonende Netzwerkverkehrsüberwachung"
+msgstr "Un monitor lejer de trafic în rețea"
 
 #: lib/ManaTools/Shared/Services.pm:350
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "Pornește serverul de fonturi."
 
 #: lib/ManaTools/Shared/Services.pm:351
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "Pornește alte servicii la cerere."
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:910
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s activat dar oprit - se dezactivează"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Global"
@@ -3057,11 +3285,11 @@ msgstr "Global"
 
 #: lib/ManaTools/Shared/TimeZone.pm:384
 msgid "Africa"
-msgstr "Afrika"
+msgstr "Africa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385
 msgid "Asia"
-msgstr "Asien"
+msgstr "Asia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Europe"
@@ -3069,23 +3297,23 @@ msgstr "Europa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:387
 msgid "North America"
-msgstr "Nordamerika"
+msgstr "America de nord"
 
 #: lib/ManaTools/Shared/TimeZone.pm:388
 msgid "Oceania"
-msgstr "Ozeanien"
+msgstr "Oceania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "South America"
-msgstr "Südamerika"
+msgstr "America de sud"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393
 msgid "Tanzania"
-msgstr "Tansania"
+msgstr "Tanzania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396
 msgid "Bangladesh"
-msgstr "Bangladesch"
+msgstr "Bangladeș"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Hong Kong"
@@ -3093,7 +3321,7 @@ msgstr "Hong Kong"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "India"
-msgstr "Indien"
+msgstr "India"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401
 msgid "Iran"
@@ -3101,39 +3329,39 @@ msgstr "Iran"
 
 #: lib/ManaTools/Shared/TimeZone.pm:405
 msgid "Malaysia"
-msgstr "Malaysia"
+msgstr "Malaezia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:406
 msgid "Philippines"
-msgstr "Philippinen"
+msgstr "Filipine"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Turkey"
-msgstr "Türkei"
+msgstr "Turcia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411
 msgid "United Arab Emirates"
-msgstr "Vereinigte arabische Emirate"
+msgstr "Emiratele Arabe Unite"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417
 msgid "Bulgaria"
-msgstr "Bulgarien"
+msgstr "Bulgaria"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Denmark"
-msgstr "Dänemark"
+msgstr "Danemarca"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420
 msgid "Estonia"
-msgstr "Estland"
+msgstr "Estonia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426
 msgid "Ireland"
-msgstr "Irland"
+msgstr "Irlanda"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Lithuania"
-msgstr "Litauen"
+msgstr "Lituania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429
 msgid "Luxembourg"
@@ -3141,27 +3369,27 @@ msgstr "Luxemburg"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Romania"
-msgstr "Rumänien"
+msgstr "România"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "Russian Federation"
-msgstr "Russland"
+msgstr "Federația Rusă"
 
 #: lib/ManaTools/Shared/TimeZone.pm:437
 msgid "Slovenia"
-msgstr "Slowenien"
+msgstr "Slovenia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Ukraine"
-msgstr "Ukraine"
+msgstr "Ucraina"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442
 msgid "United Kingdom"
-msgstr "Großbritannien"
+msgstr "Regatul Unit"
 
 #: lib/ManaTools/Shared/TimeZone.pm:443
 msgid "Yugoslavia"
-msgstr "Jugoslawien"
+msgstr "Iugoslavia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:447
 msgid "Guatemala"
@@ -3169,11 +3397,11 @@ msgstr "Guatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:448
 msgid "Mexico"
-msgstr "Mexiko"
+msgstr "Mexic"
 
 #: lib/ManaTools/Shared/TimeZone.pm:453
 msgid "New Zealand"
-msgstr "Neuseeland"
+msgstr "Noua Zeelandă"
 
 #: lib/ManaTools/Shared/TimeZone.pm:458
 msgid "Chile"
@@ -3181,193 +3409,198 @@ msgstr "Chile"
 
 #: lib/ManaTools/Shared/TimeZone.pm:810 lib/ManaTools/Shared/TimeZone.pm:811
 msgid "All servers"
-msgstr "Alle Server"
+msgstr "Toate serverele"
 
 #: lib/ManaTools/Shared/TimeZone.pm:944
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"utilizatorul nu are drepturile pentru a modifica fișierul de configurație, "
+"se omite"
 
 #: lib/ManaTools/Shared/Users.pm:389
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Cîmpul numelui nu poate fi gol, indicați un nume"
 
 #: lib/ManaTools/Shared/Users.pm:394
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"Numele trebuie să înceapă cu o literă și să conțină numai litere latine "
+"mici, numere, '.' , '-' și '_'"
 
 #: lib/ManaTools/Shared/Users.pm:397
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "Numele este prea mare. Lungimea maximă este %d"
 
 #: lib/ManaTools/Shared/Users.pm:825
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "Nu se poate înlătura utilizatorul <%s> din grupul său principal"
 
 #: lib/ManaTools/Shared/Users.pm:1168
 msgid "Locked"
-msgstr "Gesperrt"
+msgstr "Blocat"
 
 #: lib/ManaTools/Shared/Users.pm:1168
 msgid "Expired"
-msgstr "Abgelaufen"
+msgstr "Expirat"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:421
 msgid "Hostname"
-msgstr ""
+msgstr "Nume de gazdă"
 
 #: lib/ManaTools/Module/Hosts.pm:150
 msgid "Pretty Hostname"
-msgstr ""
+msgstr "Nume de gazdă frumos"
 
 #: lib/ManaTools/Module/Hosts.pm:155
 msgid "Static Hostname"
-msgstr ""
+msgstr "Nume de gazdă static"
 
 #: lib/ManaTools/Module/Hosts.pm:160
 msgid "Chassis"
-msgstr ""
+msgstr "Șasiu"
 
 #: lib/ManaTools/Module/Hosts.pm:165
 msgid "Icon Name"
-msgstr ""
+msgstr "Nume pictogramă"
 
 #: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
-msgstr "IP-Adresse"
+msgstr "Adresă IP"
 
 #: lib/ManaTools/Module/Hosts.pm:242
 msgid "Host aliases"
-msgstr ""
+msgstr "Aliasuri gazdă"
 
 #: lib/ManaTools/Module/Hosts.pm:317
 msgid "Add the information"
-msgstr ""
+msgstr "Adăugați informații"
 
 #: lib/ManaTools/Module/Hosts.pm:351
 msgid "Modify the information"
-msgstr ""
+msgstr "Modificați informațiile"
 
 #: lib/ManaTools/Module/Hosts.pm:398
 msgid "Manage hosts definitions"
-msgstr ""
+msgstr "Gestionați definițiile de gazde"
 
 #: lib/ManaTools/Module/Hosts.pm:422
 msgid "Host Aliases"
-msgstr ""
+msgstr "Aliasuri gazdă"
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
-msgstr ""
+msgstr "A&daugă"
 
 #: lib/ManaTools/Module/Hosts.pm:436 lib/ManaTools/Module/Users.pm:2308
 msgid "&Edit"
-msgstr "B&earbeiten"
+msgstr "&Editează"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
-msgstr "Entfe&rnen"
+msgstr "Înlătu&ră"
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "&Hostname"
-msgstr ""
+msgstr "&Nume de gazdă"
 
 #: lib/ManaTools/Module/Hosts.pm:481
 msgid "Are you sure to drop this host?"
-msgstr ""
+msgstr "Sigur doriți să renunțați la această gazdă?"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
-msgstr ""
+msgstr "Gestionar grafic pentru definiții de gazde"
 
 #: lib/ManaTools/Module/Clock.pm:126
 msgid "Date, Clock & Time Zone Settings"
-msgstr "Datum, Zeit und Zeitzonen Einstellungen"
+msgstr "Parametri de dată, oră și fus orar"
 
 #: lib/ManaTools/Module/Clock.pm:238
 msgid "Setting date and time"
-msgstr "Datum und Zeit einstellen"
+msgstr "Configurare dată și oră"
 
 #: lib/ManaTools/Module/Clock.pm:253
 msgid "Enable Network Time Protocol"
-msgstr "Aktiviere das Netzwerk Zeitprotokoll"
+msgstr "Activează protocolul de timp în rețea (NTP)"
 
 #: lib/ManaTools/Module/Clock.pm:256
 msgid "Change &NTP server"
-msgstr ""
+msgstr "Schimbă serverul &NTP"
 
 #: lib/ManaTools/Module/Clock.pm:269 lib/ManaTools/Module/Clock.pm:294
 msgid "Current:"
-msgstr "Aktuell:"
+msgstr "Curent:"
 
 #: lib/ManaTools/Module/Clock.pm:273 lib/ManaTools/Module/Clock.pm:296
 #: lib/ManaTools/Module/Clock.pm:558 lib/ManaTools/Module/Clock.pm:564
 msgid "not defined"
-msgstr "nicht definiert"
+msgstr "nedefinit"
 
 #: lib/ManaTools/Module/Clock.pm:290
 msgid "TimeZone"
-msgstr "Zeitzone"
+msgstr "Fus orar"
 
 #: lib/ManaTools/Module/Clock.pm:292
 msgid "Change &Time Zone"
-msgstr "Zei&tzone ändern"
+msgstr "Schimbare &fus orar"
 
 #: lib/ManaTools/Module/Clock.pm:313
 msgid "&Reset"
-msgstr "Zu&rücksetzen"
+msgstr "&Reinițializează"
 
 #: lib/ManaTools/Module/Clock.pm:350
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: lipsește serviciul NTP"
 
 #: lib/ManaTools/Module/Clock.pm:351
 msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr "Bitte installiere zur Verwaltung einen NTP Dienst wie chrony oder ntp"
+msgstr ""
+"Instalați un serviciu de NTP precum chrony  sau ntp pentru a-l gestiona"
 
 #: lib/ManaTools/Module/Clock.pm:375
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Stabilirea RTC local a eșuat"
 
 #: lib/ManaTools/Module/Clock.pm:390
 msgid "Set time zone failed"
-msgstr "Einstellen der Zeitzone fehlgeschlagen"
+msgstr "Stabilirea fusului orar a eșuat"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Stabilirea configurației NTP a eșuat"
 
 #: lib/ManaTools/Module/Clock.pm:442
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Stabilirea NTP a eșuat"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Set system time failed"
-msgstr "Einstellen der Systemzeit fehlgeschlagen"
+msgstr "Stabilirea fusului orar a eșuat"
 
 #: lib/ManaTools/Module/Clock.pm:476
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "Server NTP - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:477
 msgid "Choose your NTP server"
-msgstr "Wählen Sie Ihren NTP-Server"
+msgstr "Alegeți serverul NTP"
 
 #: lib/ManaTools/Module/Clock.pm:501 lib/ManaTools/Module/Clock.pm:507
 msgid "Timezone - DrakClock"
-msgstr "Zeitzone - DrakClock"
+msgstr "Fus orar - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:502
 msgid "Failed to retrieve timezone list"
-msgstr "Die Zeitzonenliste konnte nicht abgerufen werden"
+msgstr "Preluarea listei de fusuri orare a eșuat"
 
 #: lib/ManaTools/Module/Clock.pm:508
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "Care vă este fusul orar?"
 
 #: lib/ManaTools/Module/Clock.pm:519
 msgid "GMT - manaclock"
@@ -3375,21 +3608,23 @@ msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:520
 msgid "Is your hardware clock set to GMT?"
-msgstr "Ist Ihre Hardwareuhr auf GMT eingestellt?"
+msgstr "Este ceasul intern fixat pe GMT?"
 
 #: lib/ManaTools/Module/Clock.pm:539
 msgid "Restore data"
-msgstr "Daten wiederherstellen"
+msgstr "Restaurează datele"
 
 #: lib/ManaTools/Module/Clock.pm:540
 msgid "Restore date and time only?"
-msgstr "Nur Datum und Zeit wiederherstellen?"
+msgstr "Restaurează doar fusul orar?"
 
 #: lib/ManaTools/Module/Clock.pm:576
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Configurările de Dată, Oră și Fur orar vă permit să definiți fusul orar și "
+"să ajustați data și ora"
 
 #: lib/ManaTools/Module/Clock.pm:577
 #, perl-format
@@ -3399,43 +3634,43 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Entwickler</h3>\n"
+"<h3>Dezvoltatori</h3>\n"
 "<ul><li>%s</li></ul>\n"
-"<h3>Übersetzer</h3>\n"
+"<h3>Traducători</h3>\n"
 "<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:184
 msgid "adminService"
-msgstr ""
+msgstr "adminService"
 
 #: lib/ManaTools/Module/Services.pm:291
 msgid "Start when requested"
-msgstr ""
+msgstr "Pornește la cerere"
 
 #: lib/ManaTools/Module/Services.pm:294
 msgid "running"
-msgstr "aktiv"
+msgstr "rulează"
 
 #: lib/ManaTools/Module/Services.pm:294
 msgid "stopped"
-msgstr "gestoppt"
+msgstr "oprit"
 
 #: lib/ManaTools/Module/Services.pm:372
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "Gestionați serviciile sistemului prin activarea și dezactivarea lor"
 
 #: lib/ManaTools/Module/Services.pm:380
 msgid "Service"
-msgstr ""
+msgstr "Serviciu"
 
 #: lib/ManaTools/Module/Services.pm:381 lib/ManaTools/Module/Users.pm:1062
 #: modules/rpmdragora/rpmdragora:494
 msgid "Status"
-msgstr "Status"
+msgstr "Stare"
 
 #: lib/ManaTools/Module/Services.pm:382
 msgid "On boot"
-msgstr "Beim Systemstart"
+msgstr "La demaraj"
 
 #: lib/ManaTools/Module/Services.pm:401
 msgid "&Start"
@@ -3443,11 +3678,11 @@ msgstr "&Start"
 
 #: lib/ManaTools/Module/Services.pm:404
 msgid "S&top"
-msgstr "S&topp"
+msgstr "S&top"
 
 #: lib/ManaTools/Module/Services.pm:417
 msgid "&Refresh"
-msgstr "Aktualisie&ren"
+msgstr "Împ&rospătează"
 
 #: lib/ManaTools/Module/Services.pm:458
 msgid ""
@@ -3456,32 +3691,36 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva draxservice)."
 msgstr ""
+"adminService este unealta Mageia pentru administrarea serviciilor și "
+"demonilor\n"
+"\n"
+"(de la idea originală Mandriva pentru draxservice)."
 
 #: lib/ManaTools/Module/Services.pm:528
 #, perl-format
 msgid "Starting %s"
-msgstr "Starte %s"
+msgstr "Se pornește %s"
 
 #: lib/ManaTools/Module/Services.pm:548
 #, perl-format
 msgid "Stopping %s"
-msgstr "Stoppe %s"
+msgstr "Se oprește %s"
 
 #: lib/ManaTools/Module/DisplayManager.pm:93
 msgid "LightDM (The Light Display Manager)"
-msgstr "LightDM (The Light Display Manager)"
+msgstr "LightDM (gestionarul de ecran LightDM)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:94
 msgid "GDM (GNOME Display Manager)"
-msgstr "GDM (GNOME Display Manager)"
+msgstr "GDM (gestionarul de ecran Gnome)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:95
 msgid "KDM (KDE Display Manager)"
-msgstr "KDM (KDE Display Manager)"
+msgstr "KDM (gestionarul de ecran KDE)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:96
 msgid "XDM (X Display Manager)"
-msgstr "XDM (X Display Manager)"
+msgstr "XDM (gestionarul de ecran X)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:142
 #: lib/ManaTools/Module/Proxy.pm:150 lib/ManaTools/Module/Users.pm:807
@@ -3489,88 +3728,88 @@ msgstr "XDM (X Display Manager)"
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr "Root-Rechte werden benötigt"
+msgstr "privilegii root sînt necesare"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "X Restart Required"
-msgstr "Neustart von X nötig"
+msgstr "Repornire X necesară"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "You need to log out and back in again for changes to take effect"
 msgstr ""
-"Sie müssen sich abmelden und wieder anmelden, damit die Änderungen wirksam "
-"werden"
+"Trebuie să vă deautentificați și reautentificați pentru a activa "
+"modificările."
 
 #: lib/ManaTools/Module/DisplayManager.pm:188 scripts/manadm:35
 msgid "Display Manager"
-msgstr "Displaymanager"
+msgstr "Gestionar de ecran"
 
 #: lib/ManaTools/Module/DisplayManager.pm:214
 msgid "Choosing a display manager"
-msgstr "Wählen Sie einen Display-Manager"
+msgstr "Alegerea unui gestionar de ecran"
 
 #: lib/ManaTools/Module/DisplayManager.pm:270
 msgid "Graphical configurator for system Display Manager"
-msgstr ""
+msgstr "Configurator grafic pentru gestionarul de ecran al sistemului"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
-msgstr "Proxy sollte mit http://... beginnen"
+msgstr "Sintaxa proxyului ar trebui să fie http://..."
 
 #: lib/ManaTools/Module/Proxy.pm:218
 msgid "Proxy should be http://... or https://..."
-msgstr "Proxy sollte mit http://... oder https://... beginnen"
+msgstr "Sintaxa proxyului ar trebui să fie http://... sau https://..."
 
 #: lib/ManaTools/Module/Proxy.pm:223
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr "URL sollte mit 'ftp:' oder 'http:' beginnen"
+msgstr "Adresa URL ar trebui să înceapă cu „http:” sau „ftp:”"
 
 #: lib/ManaTools/Module/Proxy.pm:236
 msgid "Proxies configuration"
-msgstr ""
+msgstr "Configurare proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:281
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
 msgstr ""
-"Hier können Sie ihre Proxy-Konfiguration einstellen (z.B. http://"
-"my_caching_server:8080)"
+"Puteți defini aici configurația serverelor proxy (ex : http://"
+"serverul_meu_proxy:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:289
 msgid "HTTP proxy"
-msgstr "HTTP-Proxy"
+msgstr "Proxy HTTP"
 
 #: lib/ManaTools/Module/Proxy.pm:295
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr "Verwende HTTP-Proxy für HTTPS-Verbindungen"
+msgstr "Utilizează un proxy HTTP pentru conexiunile HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:301
 msgid "HTTPS proxy"
-msgstr "HTTPS-Proxy"
+msgstr "Proxy HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:307
 msgid "FTP proxy"
-msgstr "FTP-Proxy"
+msgstr "Proxy FTP"
 
 #: lib/ManaTools/Module/Proxy.pm:313
 msgid "No proxy for (comma separated list):"
-msgstr "Kein Proxy für (durch Komma getrennte Liste):"
+msgstr "Fără proxy pentru (listă separată prin virgulă):"
 
 #: lib/ManaTools/Module/Proxy.pm:348
 msgid "Graphical manager for proxies"
-msgstr ""
+msgstr "Gestionar grafic pentru proxyuri"
 
 #: lib/ManaTools/Module/Firewall.pm:165
 msgid "Port scan detection"
-msgstr "Portscan-Erkennung"
+msgstr "Detectare de scanare de porturi"
 
 #: lib/ManaTools/Module/Firewall.pm:346 lib/ManaTools/Module/Firewall.pm:353
 #: lib/ManaTools/Module/Firewall.pm:926
 msgid "Firewall configuration"
-msgstr "Firewall Konfiguration"
+msgstr "Configurare parafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:347
 msgid ""
@@ -3578,6 +3817,8 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"Configuratorul drakfirewall\n"
+"Aici se configurează parafocul personal pentru această mașină Mageia."
 
 #: lib/ManaTools/Module/Firewall.pm:354
 msgid ""
@@ -3585,10 +3826,13 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"Configurator drakfirewall\n"
+"Înainte de a continua, asigurați-vă că ați configurat accesul la\n"
+"rețeaua locală și Internet, cu ajutorul lui drakconnect."
 
 #: lib/ManaTools/Module/Firewall.pm:417
 msgid "Interactive Firewall"
-msgstr "Interaktive Firewall"
+msgstr "Parafoc interactiv"
 
 #: lib/ManaTools/Module/Firewall.pm:421
 msgid ""
@@ -3596,40 +3840,43 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Puteți fi avertizat cînd cineva accesează un serviciu sau încearcă să "
+"pătrundă în calculator.\n"
+"Selectați serviciile de rețea pe care doriți să le supravegheați."
 
 #: lib/ManaTools/Module/Firewall.pm:427
 msgid "Use Interactive Firewall"
-msgstr "Interaktive-Firewall verwenden"
+msgstr "Utilizează parafocul interactiv"
 
 #: lib/ManaTools/Module/Firewall.pm:583
 msgid "Graphical manager for interactive firewall rules"
-msgstr ""
+msgstr "Gestionar grafic pentru regulile parafocului interactiv"
 
 #: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
 #: lib/ManaTools/Module/Firewall.pm:1015
 msgid "Firewall"
-msgstr "Firewall"
+msgstr "Parafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:637
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "Ce servicii doriți să fie accesibile din Internet?"
 
 #: lib/ManaTools/Module/Firewall.pm:638
 #, perl-format
 msgid "Those settings will be saved for the network profile <b>%s</b>"
-msgstr ""
+msgstr "Aceste configurări vor fi salvate pentru profilul de rețea <b>%s</b>"
 
 #: lib/ManaTools/Module/Firewall.pm:639
 msgid "Everything (no firewall)"
-msgstr "Alles (Keine Firewall)"
+msgstr "Totul (fără parafoc)"
 
 #: lib/ManaTools/Module/Firewall.pm:738
 msgid "A&dvanced"
-msgstr ""
+msgstr "A&vansat"
 
 #: lib/ManaTools/Module/Firewall.pm:772
 msgid "Graphical manager for firewall rules"
-msgstr ""
+msgstr "Gestionar grafic pentru regulile parafocului"
 
 #: lib/ManaTools/Module/Firewall.pm:804
 msgid ""
@@ -3637,25 +3884,25 @@ msgid ""
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
 msgstr ""
-"Sie können verschiedene Ports angeben.\n"
-"Gültige Beispiele sind: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
-"Weitere Informationen finden Sie in „/etc/services“."
+"Puteți introduce diverse porturi. \n"
+"Exemple valide: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Pentru informații suplimentare consultați /etc/services."
 
 #: lib/ManaTools/Module/Firewall.pm:809
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Definiți porturi diferite"
 
 #: lib/ManaTools/Module/Firewall.pm:824
 msgid "Other ports"
-msgstr ""
+msgstr "Alte porturi"
 
 #: lib/ManaTools/Module/Firewall.pm:832
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "Înregistrează mesajele parafocului în jurnalele sistemului"
 
 #: lib/ManaTools/Module/Firewall.pm:887
 msgid "Invalid port given"
-msgstr ""
+msgstr "Port invalid"
 
 #: lib/ManaTools/Module/Firewall.pm:888
 #, perl-format
@@ -3666,6 +3913,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"Port invalid: %s.\n"
+"Formatul corect este „port/tcp” sau „port/udp”, \n"
+"unde portul se află între 1 și 65535.\n"
+"\n"
+"Se poate specifica și un interval de porturi (ex: 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:927
 msgid ""
@@ -3679,6 +3931,15 @@ msgid ""
 "\n"
 "Which interfaces should be protected?\n"
 msgstr ""
+"Selectați interfețele care vor fi protejate de parafoc.\n"
+"\n"
+"Toate interfețele conectate direct la Internet ar trebui să fie selectate,\n"
+"în timp ce interfețele conectate la o rețea locală pot fi deselectate.\n"
+"\n"
+"Dacă intenționați să utilizați partajarea conexiunii la Internet,\n"
+"deselectați interfețele care vor fi conectate la rețeaua locală.\n"
+"\n"
+"Care interfețe trebuiesc protejate?\n"
 
 #: lib/ManaTools/Module/Firewall.pm:1016
 msgid ""
@@ -3687,61 +3948,64 @@ msgid ""
 "up.\n"
 "    What do you want to do?"
 msgstr ""
+"Configurația parafocului conține reguli editate manual ce pot\n"
+"intra în conflict cu cele care tocmai au fost configurate.\n"
+"Ce doriți să faceți?"
 
 #: lib/ManaTools/Module/Users.pm:101
 msgid "manauser - Mageia Users Management Tool"
-msgstr ""
+msgstr "manauser - unealta Mageia pentru gestionarea utilizatorilor"
 
 #: lib/ManaTools/Module/Users.pm:261
 msgid "User Data"
-msgstr ""
+msgstr "Datele utilizatorului"
 
 #: lib/ManaTools/Module/Users.pm:262
 msgid "Account Info"
-msgstr ""
+msgstr "Informații despre cont"
 
 #: lib/ManaTools/Module/Users.pm:263
 msgid "Password Info"
-msgstr "Passwort-Info"
+msgstr "Informații despre parolă"
 
 #: lib/ManaTools/Module/Users.pm:264 lib/ManaTools/Module/Users.pm:1375
 #: lib/ManaTools/Module/Users.pm:2495
 msgid "Groups"
-msgstr "Gruppen"
+msgstr "Grupuri"
 
 #: lib/ManaTools/Module/Users.pm:267
 msgid "Group Data"
-msgstr "Gruppendaten"
+msgstr "Datele grupului"
 
 #: lib/ManaTools/Module/Users.pm:268
 msgid "Group Users"
-msgstr ""
+msgstr "Utilizatorii grupului"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Choose group"
-msgstr "Gruppe auswählen"
+msgstr "Alegeți grupul"
 
 #: lib/ManaTools/Module/Users.pm:310
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Un grup cu acest nume există deja. Ce doriți să faceți?"
 
 #: lib/ManaTools/Module/Users.pm:316
 msgid "Add to the existing group"
-msgstr "Zur existierenden Gruppe hinzufügen"
+msgstr "Adaugă la grupul existent"
 
 #: lib/ManaTools/Module/Users.pm:320
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Adaugă la grupul „users”"
 
 #: lib/ManaTools/Module/Users.pm:392
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr "Möchten Sie wirklich die Gruppe %s löschen?"
+msgstr "Sigur doriți să ștergeți grupul %s?"
 
 #: lib/ManaTools/Module/Users.pm:398 lib/ManaTools/Module/Users.pm:489
 #: lib/ManaTools/Module/Users.pm:2446
 msgid "Delete"
-msgstr "Löschen"
+msgstr "Șterge"
 
 #: lib/ManaTools/Module/Users.pm:418
 #, perl-format
@@ -3749,15 +4013,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s este grupul principal pentru utilizatorul %s\n"
+" Ștergeți mai întîi utilizatorul"
 
 #: lib/ManaTools/Module/Users.pm:425
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Se înlătură grupul: %s"
 
 #: lib/ManaTools/Module/Users.pm:472
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Ștergeți sau nu fișierele?"
 
 #: lib/ManaTools/Module/Users.pm:479
 #, perl-format
@@ -3765,46 +4031,48 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Se șterge utilizatorul %s\n"
+" Se mai efectuează și următoarele acțiuni\n"
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Șterge directorul personal: %s"
 
 #: lib/ManaTools/Module/Users.pm:484
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "Șterge căsuța poștală: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:512
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Se înlătură utilizatorul: %s"
 
 #: lib/ManaTools/Module/Users.pm:544
 msgid "Create New Group"
-msgstr "Neue Gruppe erstellen"
+msgstr "Creează un grup nou"
 
 #: lib/ManaTools/Module/Users.pm:554 lib/ManaTools/Module/Users.pm:1591
 msgid "Group Name:"
-msgstr "Gruppenname:"
+msgstr "Nume grup: "
 
 #: lib/ManaTools/Module/Users.pm:564
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Specificați manual ID grup"
 
 #: lib/ManaTools/Module/Users.pm:566
 msgid "GID"
-msgstr "GID"
+msgstr "GID: "
 
 #: lib/ManaTools/Module/Users.pm:599
 msgid "Group already exists, please choose another Group Name"
-msgstr "Gruppe existiert bereits. Bitte einen anderen Gruppennamen wählen."
+msgstr "Grupul cu acest nume există deja, alegeți un alt nume pentru grup."
 
 #: lib/ManaTools/Module/Users.pm:607
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr " Identificatorul grupului este < %n"
 
 #: lib/ManaTools/Module/Users.pm:608
 #, perl-format
@@ -3813,58 +4081,63 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Nu se recomandă crearea unui grup cu un identificator mai mic de %d.\n"
+" Sigur doriți acest lucru?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:616
 msgid " Group ID is already used "
-msgstr "Gruppen-ID wird bereits verwendet"
+msgstr "Identificatorul de grup este deja utilizat"
 
 #: lib/ManaTools/Module/Users.pm:617
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Se creează un grup cu un GID neunic?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:629
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Se adaugă grupul: %s "
 
 #: lib/ManaTools/Module/Users.pm:685
 msgid "Full Name:"
-msgstr "Vollständiger Name:"
+msgstr "Nume complet: "
 
 #: lib/ManaTools/Module/Users.pm:726
 msgid "Confirm Password:"
-msgstr "Passwort bestätigen:"
+msgstr "Confirmare parolă: "
 
 #: lib/ManaTools/Module/Users.pm:735
 msgid "Login Shell:"
-msgstr "Login-Shell:"
+msgstr "Interpretor de comenzi: "
 
 #: lib/ManaTools/Module/Users.pm:774
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Pictogramă (%s)"
 
 #: lib/ManaTools/Module/Users.pm:822
 msgid "Create New User"
-msgstr "Neuen Benutzer erstellen"
+msgstr "Creați un utilizator nou"
 
 #: lib/ManaTools/Module/Users.pm:837
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Creează directorul personal"
 
 #: lib/ManaTools/Module/Users.pm:841
 msgid "Home Directory:"
-msgstr ""
+msgstr "Director personal: "
 
 #: lib/ManaTools/Module/Users.pm:850
 msgid "Create a private group for the user"
-msgstr "Private Gruppe für den Benutzer erstellen"
+msgstr "Creează un grup privat pentru utilizator"
 
 #: lib/ManaTools/Module/Users.pm:855
 msgid "Specify user ID manually"
-msgstr "Benutzer-ID manuell angeben"
+msgstr "Specificați manual ID-ul utilizator"
 
 #: lib/ManaTools/Module/Users.pm:857
 msgid "UID"
@@ -3872,23 +4145,23 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:865
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Faceți clic pe pictogramă pentru a o schimba"
 
 #: lib/ManaTools/Module/Users.pm:917
 msgid "User already exists, please choose another User Name"
-msgstr "Benutzer existiert bereits. Bitte einen anderen Namen wählen."
+msgstr "Acest utilizator există deja, folosiți un alt nume de utilizator"
 
 #: lib/ManaTools/Module/Users.pm:922 lib/ManaTools/Module/Users.pm:1870
 msgid "Password Mismatch"
-msgstr "Passwörter stimmen nicht überein"
+msgstr "Nepotrivire de parolă"
 
 #: lib/ManaTools/Module/Users.pm:926 lib/ManaTools/Module/Users.pm:1876
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
-"Das Passwort ist zu einfach.\n"
-"Gute Passwörter sollten länger als 6 Zeichen sein"
+"Această parolă este prea simplă. \n"
+" Parolele bune ar trebui să fie > de 6 caractere"
 
 #: lib/ManaTools/Module/Users.pm:933
 #, perl-format
@@ -3896,11 +4169,14 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"Directorul personal <%s> există deja.\n"
+"Debifați opțiunea de creare a directorului personal, sau schimbați numele "
+"căii directorului"
 
 #: lib/ManaTools/Module/Users.pm:946
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "Identificatorul utilizatorului este < %d"
 
 #: lib/ManaTools/Module/Users.pm:947
 #, perl-format
@@ -3909,266 +4185,276 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
-"Das Erstellen eines Benutzers mit einer UID kleiner als %d ist nicht "
-"empfehlenswert.\n"
-"Sind Sie sicher das Sie dies machen möchten? \n"
+"Nu se recomandă crearea unui utilizator cu un identificator mai mic de %d.\n"
+" Chiar doriți acest lucru?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:962
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Se adaugă %s în grupul „users”"
 
 #: lib/ManaTools/Module/Users.pm:976
 #, perl-format
 msgid "Creating new group: %s"
-msgstr "Erstelle neue Gruppe: %s"
+msgstr "Se creează un grup nou: %s"
 
 #: lib/ManaTools/Module/Users.pm:989
 msgid "Adding user: "
-msgstr "Benutzer hinzufügen:"
+msgstr "Se adaugă utilizatorul:"
 
 #: lib/ManaTools/Module/Users.pm:990
 #, perl-format
 msgid "Adding user: %s"
-msgstr "Benutzer hinzufügen: %s"
+msgstr "Se adaugă utilizatorul: %s"
 
 #: lib/ManaTools/Module/Users.pm:1056
 msgid "User Name"
-msgstr "Benutzername"
+msgstr "Nume utilizator"
 
 #: lib/ManaTools/Module/Users.pm:1057
 msgid "User ID"
-msgstr "Benutzer-ID"
+msgstr "ID utilizator"
 
 #: lib/ManaTools/Module/Users.pm:1058 lib/ManaTools/Module/Users.pm:1805
 msgid "Primary Group"
-msgstr ""
+msgstr "Grup principal"
 
 #: lib/ManaTools/Module/Users.pm:1059
 msgid "Full Name"
-msgstr "Vollständiger Name"
+msgstr "Nume complet"
 
 #: lib/ManaTools/Module/Users.pm:1060
 msgid "Login Shell"
-msgstr "Login-Shell"
+msgstr "Interpretor de comenzi"
 
 #: lib/ManaTools/Module/Users.pm:1061
 msgid "Home Directory"
-msgstr ""
+msgstr "Director personal"
 
 #: lib/ManaTools/Module/Users.pm:1102
 msgid "Group Name"
-msgstr "Gruppenname"
+msgstr "Numele grupului"
 
 #: lib/ManaTools/Module/Users.pm:1103
 msgid "Group ID"
-msgstr "Gruppen-ID"
+msgstr "ID Grup"
 
 #: lib/ManaTools/Module/Users.pm:1104
 msgid "Group Members"
-msgstr "Gruppenmitglieder"
+msgstr "Membrii grupului"
 
 #: lib/ManaTools/Module/Users.pm:1287 lib/ManaTools/Module/Users.pm:2240
 #: lib/ManaTools/Module/Users.pm:2255 lib/ManaTools/Module/Users.pm:2271
 #: lib/ManaTools/Module/Users.pm:2491
 msgid "Users"
-msgstr "Benutzer"
+msgstr "Utilizatori"
 
 #: lib/ManaTools/Module/Users.pm:1518
 msgid "Home:"
-msgstr ""
+msgstr "Director personal: "
 
 #: lib/ManaTools/Module/Users.pm:1617
 msgid "Enable account expiration"
-msgstr "Benutzerkonto soll ablaufen"
+msgstr "Activează expirarea contului"
 
 #: lib/ManaTools/Module/Users.pm:1620
 msgid "Account expires (YYYY-MM-DD):"
-msgstr "Konto erlischt am (JJJJ-MM-TT):"
+msgstr "Contul expiră (YYYY-MM-DD): "
 
 #: lib/ManaTools/Module/Users.pm:1627
 msgid "Lock User Account"
-msgstr "Nutzerkonto sperren"
+msgstr "Blochează contul utilizator"
 
 #: lib/ManaTools/Module/Users.pm:1631
 msgid "Click on the icon to change it"
-msgstr "Klicke auf das Symbol um es zu ändern"
+msgstr "Faceți clic pe pictogramă pentru a o schimba"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "User last changed password on: "
-msgstr "Nutzer-Passwort zuletzt geändert am:"
+msgstr "Utilizatorul a modificat parola ultima dată în: "
 
 #: lib/ManaTools/Module/Users.pm:1674
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Activează expirarea parolei"
 
 #: lib/ManaTools/Module/Users.pm:1678
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Numărul de zile înainte de a permite schimbarea: "
 
 #: lib/ManaTools/Module/Users.pm:1686
 msgid "Days before change required:"
-msgstr ""
+msgstr "Numărul de zile înaintea schimbării: "
 
 #: lib/ManaTools/Module/Users.pm:1694
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Numărul de zile de avertizare înaintea schimbării: "
 
 #: lib/ManaTools/Module/Users.pm:1702
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Numărul de zile înaintea dezactivării contului: "
 
 #: lib/ManaTools/Module/Users.pm:1731
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Selectați utilizatorii ce vor aparține acestui grup: "
 
 #: lib/ManaTools/Module/Users.pm:1735
 msgid "User"
-msgstr ""
+msgstr "Utilizator"
 
 #: lib/ManaTools/Module/Users.pm:1776
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Selectați grupurile cărora utilizatorul va aparține: "
 
 #: lib/ManaTools/Module/Users.pm:1882
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Selectați cel putin un grup pentru utilizator"
 
 #: lib/ManaTools/Module/Users.pm:1905
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Specificați anul, luna și ziua \n"
+" de expirare a contului "
 
 #: lib/ManaTools/Module/Users.pm:1921
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Completați toate cîmpurile de expirare a parolei\n"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Strong"
-msgstr "Stark"
+msgstr "Puternică"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Weak"
-msgstr "Schwach"
+msgstr "Slabă"
 
 #: lib/ManaTools/Module/Users.pm:1969
 msgid "Edit User"
-msgstr ""
+msgstr "Editare utilizator"
 
 #: lib/ManaTools/Module/Users.pm:2122 lib/ManaTools/Module/Users.pm:2225
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Nu se pot crea categoriile miniaplicațiilor"
 
 #: lib/ManaTools/Module/Users.pm:2138
 msgid "Edit Group"
-msgstr ""
+msgstr "Editare grup"
 
 #: lib/ManaTools/Module/Users.pm:2306 lib/ManaTools/Module/Users.pm:2431
 msgid "Add User"
 msgstr ""
+"Adaugă un\n"
+"utilizator"
 
 #: lib/ManaTools/Module/Users.pm:2307 lib/ManaTools/Module/Users.pm:2436
 msgid "Add Group"
 msgstr ""
+"Adaugă\n"
+"un grup"
 
 #: lib/ManaTools/Module/Users.pm:2309
 msgid "&Delete"
-msgstr ""
+msgstr "&Șterge"
 
 #: lib/ManaTools/Module/Users.pm:2310
 msgid "Install guest account"
-msgstr ""
+msgstr "Instalează contul invitat"
 
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2351
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser este unealta Mageia pentru administrarea utilizatorilor\n"
+"(de la idea originală Mandriva pentru userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2399 lib/ManaTools/Module/Users.pm:2451
 msgid "Refresh"
-msgstr "Aktualisieren"
+msgstr "Împrospătează"
 
 #: lib/ManaTools/Module/Users.pm:2407
 msgid "Actions"
-msgstr ""
+msgstr "Acțiuni"
 
 #: lib/ManaTools/Module/Users.pm:2465
 msgid "Filter system users"
-msgstr ""
+msgstr "Filtrare utilizatori sistem"
 
 #: lib/ManaTools/Module/Users.pm:2470
 msgid "Search:"
-msgstr ""
+msgstr "Căutare: "
 
 #: lib/ManaTools/Module/Users.pm:2472
 msgid "Apply filter"
-msgstr ""
+msgstr "Aplică filtru"
 
 #: lib/ManaTools/Module/LogViewer.pm:127
 msgid "Log viewer"
-msgstr ""
+msgstr "Vizualizator de fișiere jurnal"
 
 #: lib/ManaTools/Module/LogViewer.pm:181
 msgid "A tool to monitor your logs"
-msgstr "Ein Werkzeug zum Überwachen Ihrer Logdateien"
+msgstr "Utilitar pentru supravegherea jurnalelor"
 
 #: lib/ManaTools/Module/LogViewer.pm:185
 msgid "Matching"
-msgstr ""
+msgstr "Conținînd"
 
 #: lib/ManaTools/Module/LogViewer.pm:189
 msgid "but not matching"
-msgstr ""
+msgstr "dar nu conține"
 
 #: lib/ManaTools/Module/LogViewer.pm:193 modules/rpmdragora/rpmdragora:725
 msgid "Options"
-msgstr "Optionen"
+msgstr "Opțiuni"
 
 #: lib/ManaTools/Module/LogViewer.pm:198
 msgid "Last boot"
-msgstr ""
+msgstr "Ultimul demaraj"
 
 #: lib/ManaTools/Module/LogViewer.pm:211
 msgid "Since"
-msgstr "Seit"
+msgstr "De la"
 
 #: lib/ManaTools/Module/LogViewer.pm:216
 msgid "Until"
-msgstr "Bis"
+msgstr "Pînă la"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "Select a unit"
-msgstr ""
+msgstr "Selectați o unitate"
 
 #: lib/ManaTools/Module/LogViewer.pm:265
 msgid "From priority"
-msgstr ""
+msgstr "Din prioritatea"
 
 #: lib/ManaTools/Module/LogViewer.pm:285
 msgid "To priority"
-msgstr ""
+msgstr "La prioritatea"
 
 #: lib/ManaTools/Module/LogViewer.pm:303
 msgid "&Find"
-msgstr "&Finde"
+msgstr "&Căutare"
 
 #: lib/ManaTools/Module/LogViewer.pm:306
 msgid "Log content"
-msgstr ""
+msgstr "Conținut jurnal"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "&Save"
-msgstr "&Speichern"
+msgstr "&Salvează"
 
 #: lib/ManaTools/Module/LogViewer.pm:349
 msgid "Log viewer is a systemd journal viewer"
 msgstr ""
+"Vizualizatorul de fișiere jurnal este un vizualizator de fișiere jurnal "
+"systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:350
 #, perl-format
@@ -4180,10 +4466,16 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Dezvoltatori</h3>\n"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Traducători</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:368
 msgid "Empty log found"
-msgstr "Leeres Log gefunden"
+msgstr "S-a găsit un fișier jurnal gol"
 
 #: lib/ManaTools/Module/LogViewer.pm:462
 msgid ""
@@ -4191,134 +4483,139 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"Lansați acest program cu un utilizator obișnuit.\n"
+"Nu veți putea consulta jurnalele sistem la care nu aveți acces,\n"
+"dar le puteți explora pe toate celelalte."
 
 #: lib/ManaTools/Module/LogViewer.pm:485
 msgid "Save as.."
-msgstr "Speichern unter.."
+msgstr "Salvează ca..."
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Utilitarul Mageia de adăugat utilizatori"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: cititor de jurnale journalct"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: gestionar de utilizatori"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: gestionar de servicii"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: configurarea gestionarului de autentificare"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: gestionar de dată/oră"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: gestionar de gazde"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: panou de administrare"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: gestionar de proxy"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: gestionar pentru instalarea pachetelor rpm"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: gestionar pentru actualizarea pachetelor rpm"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: gestionar de parafoc"
 
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "Nu s-a găsit comanda <%s>\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr "FEHLER:"
+msgstr "EROARE:"
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Utilizare mana --help | -h        afișează acest mesaj de ajutor\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Utilizare mana <comandă> [argumente...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "<comenzi> valide:\n"
 
 #: scripts/manaservice:27
 msgid "Services and daemons"
-msgstr ""
+msgstr "Servicii și daemoni"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
-msgstr ""
+msgstr "Corectarea erorilor"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "Iată lista cu actualizări de pachete"
 
 #: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:440
 #: modules/rpmdragora/rpmdragora:1194
 msgid "Software Management"
-msgstr "Software-Verwaltung"
+msgstr "Gestionare aplicații"
 
 #: modules/rpmdragora/dragoraUpdate:258
 msgid "Name"
-msgstr "Name"
+msgstr "Denumire"
 
 #: modules/rpmdragora/dragoraUpdate:259 modules/rpmdragora/rpmdragora:468
 msgid "Summary"
-msgstr ""
+msgstr "Sumar"
 
 #: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:471
 msgid "Version"
-msgstr "Version"
+msgstr "Versiune"
 
 #: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:475
 msgid "Release"
-msgstr ""
+msgstr "Ediție"
 
 #: modules/rpmdragora/dragoraUpdate:262
 msgid "Arch"
-msgstr "Arch"
+msgstr "Arhit"
 
 #: modules/rpmdragora/dragoraUpdate:283
 msgid "U&ncheck all"
-msgstr "Alles abwähle&n"
+msgstr "D&ebifează tot"
 
 #: modules/rpmdragora/dragoraUpdate:284
 msgid "&Select all"
-msgstr "Alle au&swählen"
+msgstr "&Selectează tot"
 
 #: modules/rpmdragora/dragoraUpdate:285
 msgid "&Update"
-msgstr "Akt&ualisieren"
+msgstr "Act&ualizează"
 
 #: modules/rpmdragora/dragoraUpdate:348
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate este gestionarul de actualizări Mageia."
 
 #: modules/rpmdragora/dragoraUpdate:349
 #, perl-format
@@ -4328,10 +4625,14 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Dezvoltatori</h3>\n"
+"<ul><li>%s</li></ul>\n"
+"<h3>Traducători</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:412
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid ""
@@ -4339,27 +4640,30 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"Lista cu actualizări este goală. Asta înseamnă că ori nu există actualizări "
+"disponibile pentru pachetele instalate pe acest calculator, ori că le-ați "
+"instalat deja pe toate."
 
 #: modules/rpmdragora/rpmdragora:317
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr "keine XML-Information für das Medium „%s“ verfügbar"
+msgstr "nu sînt informații XML pentru mediul „%s”"
 
 #: modules/rpmdragora/rpmdragora:333 modules/rpmdragora/rpmdragora:361
 msgid "Search aborted"
-msgstr "Suche abgebrochen"
+msgstr "Căutare abandonată"
 
 #: modules/rpmdragora/rpmdragora:382
 msgid "Selected"
-msgstr "Ausgewählt"
+msgstr "Selectate"
 
 #: modules/rpmdragora/rpmdragora:382
 msgid "Not selected"
-msgstr "Nicht ausgewählt"
+msgstr "Neselectate"
 
 #: modules/rpmdragora/rpmdragora:390
 msgid "No search results."
-msgstr "Keine Suchergebnisse."
+msgstr "Căutare fără rezultate."
 
 #: modules/rpmdragora/rpmdragora:391
 #, perl-format
@@ -4367,161 +4671,162 @@ msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
 msgstr ""
+"Căutare fără rezultate. Poate doriți să comutați pe vizualizarea „%s” și pe "
+"filtrul „%s”"
 
 #: modules/rpmdragora/rpmdragora:421
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr "Ausgewählt: %s / Freier Speicherplatz: %s"
+msgstr "Selectate: %s / Spațiu liber pe disc: %s"
 
 #: modules/rpmdragora/rpmdragora:464
 msgid "Package"
-msgstr "Paket"
+msgstr "Pachet"
 
 #: modules/rpmdragora/rpmdragora:481
 msgid "Arch."
-msgstr ""
+msgstr "Arh."
 
 #: modules/rpmdragora/rpmdragora:485
 msgid "ToInst"
-msgstr ""
+msgstr "DeInst"
 
 #: modules/rpmdragora/rpmdragora:537
 msgid "Not installed"
-msgstr "Nicht Installiert"
+msgstr "Neinstalat"
 
 #: modules/rpmdragora/rpmdragora:550
 msgid "All packages, alphabetical"
-msgstr "Alle Pakete, alphabetisch sortiert"
+msgstr "Toate pachetele, ordine alfabetică"
 
 #: modules/rpmdragora/rpmdragora:551
 msgid "All packages, by group"
-msgstr "Alle Pakete, nach Gruppe"
+msgstr "Toate pachetele, ordonate după grup"
 
 #: modules/rpmdragora/rpmdragora:552
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "Numai ramurile, ordonate după data instalării"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "Toate pachetele, ordonate după disponibilitatea actualizărilor"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "Toate pachetele, ordonate după starea selecției"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "All packages, by size"
-msgstr "Alle Pakete, nach Größe"
+msgstr "Toate pachetele, ordonate după mărime"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "Toate pachetele, ordonate după mediul sursă"
 
 #: modules/rpmdragora/rpmdragora:561
 msgid "Backports"
-msgstr ""
+msgstr "Retroportări"
 
 #: modules/rpmdragora/rpmdragora:562
 msgid "Meta packages"
-msgstr "Meta-Pakete"
+msgstr "Meta pachete"
 
 #: modules/rpmdragora/rpmdragora:563
 msgid "Packages with GUI"
-msgstr "Pakete mit grafischer Oberfläche"
+msgstr "Pachete cu GUI"
 
 #: modules/rpmdragora/rpmdragora:564
 msgid "All updates"
-msgstr "Alle Aktualisierungen"
+msgstr "Toate actualizările"
 
 #: modules/rpmdragora/rpmdragora:565
 msgid "Security updates"
-msgstr "Sicherheitsaktualisierungen"
+msgstr "Actualizări de securitate"
 
 #: modules/rpmdragora/rpmdragora:566
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Actualizări cu corectări de erori"
 
 #: modules/rpmdragora/rpmdragora:567
 msgid "General updates"
-msgstr ""
+msgstr "Actualizări generale"
 
 #: modules/rpmdragora/rpmdragora:614
 msgid "in names"
-msgstr "in Namen"
+msgstr "în denumiri"
 
 #: modules/rpmdragora/rpmdragora:615
 msgid "in descriptions"
-msgstr "in Beschreibungen"
+msgstr "în descrieri"
 
 #: modules/rpmdragora/rpmdragora:616
 msgid "in summaries"
-msgstr "in Zusammenfassungen"
+msgstr "în rezumate"
 
 #: modules/rpmdragora/rpmdragora:617
 msgid "in file names"
-msgstr "in Dateinamen"
+msgstr "în denumirile fișierelor"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Search"
-msgstr "Suchen"
+msgstr "Caută"
 
 #: modules/rpmdragora/rpmdragora:641
 msgid "Reset"
-msgstr "Zurücksetzen"
+msgstr "Reinițializează"
 
 #: modules/rpmdragora/rpmdragora:661
 msgid "Apply"
-msgstr "Anwenden"
+msgstr "Aplică"
 
 #: modules/rpmdragora/rpmdragora:664
 msgid "Exit"
-msgstr "Verlassen"
+msgstr "Ieșire"
 
 #: modules/rpmdragora/rpmdragora:694
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/_Selectează dependențele fără confirmare"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "Curăță spațiul temporar de descărcare după o instalare reușită"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/_Procesează actualizările la pornire"
 
 #: modules/rpmdragora/rpmdragora:699
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Caută în denumirile _complete de pachete"
 
 #: modules/rpmdragora/rpmdragora:700
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Utilizează expresii _regulate în căutări"
 
 #: modules/rpmdragora/rpmdragora:707
 msgid "Reset the selection"
-msgstr "Auswahl zurücksetzen"
+msgstr "_Reinițializează selecția"
 
 #: modules/rpmdragora/rpmdragora:708
 msgid "Reload the packages list"
-msgstr "Paketliste neu laden"
+msgstr "Reîncarcă lista pachetelor"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "Settings"
-msgstr "Einstellungen"
+msgstr "Parametri"
 
 #: modules/rpmdragora/rpmdragora:724
 msgid "&Media Manager"
-msgstr ""
+msgstr "Gestionar de &medii"
 
 #: modules/rpmdragora/rpmdragora:754
 msgid "View"
-msgstr ""
+msgstr "Vizualizare"
 
 #: modules/rpmdragora/rpmdragora:1066
 msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr ""
-"Zurücksetzen abgebrochen (Die RPM_Datenbank ist von einem anderen Prozess "
-"gesperrt)"
+"Reinițializare abandonată (baza de date RPM este blocată de un alt proces)"
 
 #: modules/rpmdragora/rpmdragora:1098
 #, perl-format
@@ -4534,25 +4839,25 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Entwickler</h3>\n"
+"<h3>Dezvoltatori</h3>\n"
 "<ul><li>%s</li>\n"
 "<li>%s</li>\n"
 "</ul>\n"
-"<h3>Übersetzer</h3>\n"
+"<h3>Traducători</h3>\n"
 "<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1186
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr "rpmdrake läuft bereits (pid: %s)"
+msgstr "rpmdragora este deja în execuție (pid: %s)"
 
 #: modules/rpmdragora/rpmdragora:1186
 msgid "Quit"
-msgstr "Beenden"
+msgstr "Terminare"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
-msgstr ""
+msgstr "<url> greșit (pentru directorul local, calea trebuie să fie absolută)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4563,7 +4868,7 @@ msgid ""
 msgstr ""
 "%s\n"
 "\n"
-"Möchten Sie fortfahren?"
+"Se poate continua?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -4571,9 +4876,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
-"Sie sind dabei, eine neue Paketquelle einzurichten.\n"
-"Dies bedeutet, dass Sie neue Software-Pakete von diesem Medium\n"
-"auf Ihr System installieren können."
+"Sînteți pe cale să adăugați un nou mediu de pachete.\n"
+"Asta înseamnă că veți putea instala în sistem noi pachete\n"
+"cu programe de pe acest mediu."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4582,9 +4887,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
-"Sie sind dabei, ein neues Paket-Medium %s einzurichten.\n"
-"Dies bedeutet, dass Sie in der Lage sein werden, neue Software-Pakete von "
-"diesem Medium auf Ihr System zu installieren."
+"Sînteți pe cale să adăugați un nou mediu de pachete, %s.\n"
+"Asta înseamnă că vă veți putea instala în sistem noi pachete\n"
+"cu programe de pe acest mediu."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4593,20 +4898,20 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
-"Sie sind dabei, ein neues Paket-Medium `%s' einzurichten.\n"
-"Dies bedeutet, dass Sie in der Lage sein werden, neue Software-Pakete\n"
-"von diesem Medium auf Ihr System zu installieren."
+"Sînteți pe cale să adăugați un nou mediu de pachete, „%s”.\n"
+"Asta înseamnă că vă veți putea instala în sistem noi pachete\n"
+"cu programe de pe acest mediu."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr "Medium erfolgreich hinzugefügt."
+msgstr "Mediu adăugat cu succes."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr "Medium %s erfolgreich hinzugefügt."
+msgstr "Mediul %s a fost adăugat cu succes."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr "Medium %s erfolgreich hinzugefügt."
+msgstr "Mediul „%s” a fost adăugat cu succes."
