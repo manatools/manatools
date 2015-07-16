@@ -18,6 +18,7 @@
 #
 #*****************************************************************************
 
+# Use the right name space simplified for testing
 #package ManaTools::Module::ModuleTemplate;
 package ModuleTemplate;
 
