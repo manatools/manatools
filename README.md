@@ -93,6 +93,10 @@ perldoc command.
 
     perldoc ManaTools
 
+# CONTRIBUTING #
+
+Read MODULE_HACKING to understand how to write a Module.
+Contact authors or Mageia team (http://www.mageia.org/en/contribute/)
 
 # EMBEDDED MODULES #
 

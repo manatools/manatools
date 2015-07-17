@@ -65,6 +65,12 @@ Said that you have to:
 Some share code is into ManaTools::Shared modules, such as Locales to manage localization
 or Module back-ends for instance.
 
+A module template example is into extras/module_templete/ directory, where
+extras/module_templete/mana_mt is the example script that use and run
+the module, while the module itself is
+extras/module_templete/ManaTools/Module/ModuleTemplate.pm
+The module just show a MessageBox and exit.
+
 - ManaTools configuration (how to run a module)
 
 mpan can be run using a "name" parameter and eventually by forcing a configuration
@@ -93,12 +99,12 @@ _______________
 ---------------
 Layout can change in future though.
 
-Let's see an example
+Let's see an example of a category configuration
 <category>
     <title>Hardware</title>
     <icon>/usr/share/icons/configuration_section.png</icon>
     <module>
-        <class>ManaTools::Module::AdminMouse</class>
+        <class>ManaTools::Module::Services</class>
     </module>
     <module>
         <title>Module name</title>
@@ -107,7 +113,8 @@ Let's see an example
     </module>
 </category>
 
-First module is a perl ManaTools::Module extension (AdminMouse),
-latter is an external one, as you can see could be a script
-as well as an executable command.
+First module is a perl ManaTools::Module extension (Services),
+latter is an external one, called "module" and with a full pathname.
+
+As you can see it could be a script, as well as an executable command.
 Look at settings.conf and categories.conf for details.
