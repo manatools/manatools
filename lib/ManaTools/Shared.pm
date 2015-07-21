@@ -87,7 +87,6 @@ use feature 'state';
 
 use Digest::MD5;
 
-use yui;
 use base qw(Exporter);
 
 our @EXPORT_OK = qw(
@@ -397,6 +396,7 @@ sub isProcessRunning {
 
 #=============================================================
 sub command_line() {
+    require yui;
     state $cmdline = new yui::YCommandLine;
 
     return $cmdline;

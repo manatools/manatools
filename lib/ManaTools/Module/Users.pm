@@ -156,7 +156,7 @@ has 'sh_users' => (
 sub _SharedUsersInitialize {
     my $self = shift();
 
-    $self->sh_users(ManaTools::Shared::Users->new() );
+    $self->sh_users(ManaTools::Shared::Users->new(loc => $self->loc) );
 }
 
 has 'sh_gui' => (

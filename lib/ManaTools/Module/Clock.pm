@@ -91,7 +91,8 @@ has 'sh_tz' => (
 sub _SharedTimeZoneInitialize {
     my $self = shift;
 
-    $self->sh_tz(ManaTools::Shared::TimeZone->new() );
+    $DB::single = 1;
+    $self->sh_tz(ManaTools::Shared::TimeZone->new(loc => $self->loc) );
 }
 
 

@@ -145,7 +145,7 @@ has 'sh_services' => (
 sub _SharedServicesInitialize {
     my $self = shift();
 
-    $self->sh_services(ManaTools::Shared::Services->new() );
+    $self->sh_services(ManaTools::Shared::Services->new(loc => $self->loc) );
 }
 
 
