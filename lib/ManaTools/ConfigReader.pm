@@ -24,7 +24,6 @@ use strict;
 use warnings;
 use diagnostics;
 use XML::Simple;
-use Data::Dumper;
 
 sub new {
     my ($class, $fileName) = @_;
