@@ -447,6 +447,7 @@ sub get_installed_fullname_pkid {
     $db->traverse_tag_find('name', $pkgname, sub {
         my ($p) = @_;
         $installed_pkid = $self->get_package_id($p);
+        return $installed_pkid ? 1 : 0;
     });
     return $installed_pkid;
 }
