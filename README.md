@@ -130,6 +130,8 @@ A copy of the GNU General Public License is available in the source tree;
 if not, write to the Free Software Foundation, Inc.,
 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
+# NOTES #
+
 NOTE: some icons are under the license:
 Creative Commons Attribution-No Derivative Works 3.0 Unported
 http://creativecommons.org/licenses/by-nd/3.0/
