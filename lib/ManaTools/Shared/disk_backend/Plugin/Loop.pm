@@ -130,6 +130,7 @@ override ('probe', sub {
     for my $line (@lines) {
         chomp($line);
         my @fields = split(' ', $line);
+        (scalar(@fields) == 9) or die('unexpected losetup output...');
         my $loopfile = $self->_sanitize_string($fields[1]);
         my $bdfile = '/sys/block/'. basename($loopfile);
         my $io = $self->parent->mkio('Disk', {id => basename($loopfile), path => $bdfile});

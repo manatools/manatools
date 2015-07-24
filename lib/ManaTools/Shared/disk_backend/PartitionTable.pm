@@ -75,7 +75,9 @@ has 'disk' => (
             # the disk was not detected
             return undef;
         }
+        chomp($lines[1]);
         my @fields = split(':', $lines[1]);
+        (scalar(@fields) == 8) or die('unexpected parted output...');
         # set the partition table device file
         $self->device($fields[0]);
         # set the partition table sectors
@@ -93,7 +95,9 @@ has 'disk' => (
         my $parts = $self->partitions();
         my $i = 2;
         while (defined($lines[$i])) {
+            chomp($lines[$i]);
             @fields = split(':', $lines[$i]);
+            (scalar(@fields) == 7) or die('unexpected parted output...');
             $parts->{$fields[0]} = {
                 file => $self->device() . $fields[0],
                 begin => $fields[1] =~ s/s$//r,
