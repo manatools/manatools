@@ -60,7 +60,7 @@ extends 'ManaTools::Shared::disk_backend::Plugin';
 
 has '+dependencies' => (
     default => sub {
-        return ['Disk'];
+        return ['Disk', 'Loop'];
     }
 );
 
