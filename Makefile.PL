@@ -33,6 +33,7 @@ WriteMakefile(
         "Config::Tiny"       => 0,
         # ManaTools::Shared::Locales
         "Locale::gettext"    => 0,
+        "Module::Path"       => 0,
         "Text::Iconv"        => 0,
         "Text::Diff"         => 0,
         "Date::Simple"       => 0,
