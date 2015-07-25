@@ -1,17 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# Slovenian translation for ManaTools package.
+# Copyright (C) 2015 Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
 #
 # Translators:
 # Filip Komar <filip.komar@gmail.com>, 2015
 msgid ""
 msgstr ""
-"Project-Id-Version: Mageia\n"
+"Project-Id-Version: ManaTools\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-07-07 16:37+0000\n"
+"PO-Revision-Date: 2015-07-25 21:35+0200\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
-"Language-Team: Slovenian (http://www.transifex.com/p/mageia/language/sl/)\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>, Translation list <mageia-"
+"i18n@mageia.org>\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -83,7 +84,7 @@ msgstr "Ne"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr ""
+msgstr "Odvisnosti"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -467,6 +468,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Med prenosom seznama zrcalnih strežnikov je prišlo do napake:\n"
+"%s\n"
+"\n"
+"Omrežje ali spletna stran sta mogoče nedostopna.\n"
+"Poskusite kasneje."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -477,6 +483,11 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Med prenosom seznama zrcalnih strežnikov je prišlo do napake:\n"
+"%s\n"
+"\n"
+"Omrežje ali spletna stran Mageia sta mogoče nedostopna.\n"
+"Poskusite znova pozneje."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -578,7 +589,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan je pult, ki zbere vsa orodja mana-tools."
 
 #: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -2987,7 +2998,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:294
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Nadzoruje omrežje (interaktivni požarni zid in brezžično omrežje)"
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid "Software RAID monitoring and management"
