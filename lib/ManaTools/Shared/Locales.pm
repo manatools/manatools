@@ -60,7 +60,7 @@ use diagnostics;
 use utf8;
 use Locale::gettext;
 use Text::Iconv;
-
+use ManaTools::Shared;
 
 #=============================================================
 
@@ -88,7 +88,9 @@ has 'domain_name' => (
 
 has 'dir_name' => (
     is      => 'rw',
-    default => undef,
+    default => sub {
+        ManaTools::Shared::custom_locale_dir();
+    },
 );
 
 has 'codeset' => (
