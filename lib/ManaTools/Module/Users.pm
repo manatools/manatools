@@ -422,7 +422,7 @@ sub _deleteGroupDialog {
                 }
                 else {
                     if ($self->sh_users->deleteGroup($groupname)) {
-                        Sys::Syslog::syslog('info|local1', $self->loc->N("Removing group: %s", $groupname));
+                        $self->logger->I($self->loc->N("Removing group: %s", $groupname));
                     }
                     $self->_refresh();
                 }
@@ -509,7 +509,7 @@ sub _deleteUserDialog {
                 last;
             }
             elsif ($widget == $deleteButton) {
-                Sys::Syslog::syslog('info|local1', $self->loc->N("Removing user: %s", $username));
+                $self->logger->I($self->loc->N("Removing user: %s", $username));
                 my $option = undef;
                 $option->{clean_home} = $checkhome->isChecked() if $checkhome->isChecked();
                 $option->{clean_spool} = $checkspool->isChecked() if $checkspool->isChecked();
@@ -626,7 +626,7 @@ sub _addGroupDialog {
                     $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
                 }
                 else {
-                    Sys::Syslog::syslog('info|local1', $self->loc->N("Adding group: %s ", $groupname));
+                    $self->logger->I($self->loc->N("Adding group: %s ", $groupname));
                     my $groupParams = {
                         groupname  => $groupname,
                         is_system  => $is_system,
@@ -959,8 +959,8 @@ sub addUserDialog {
                                 $gid = $self->sh_users->groupID($username);
                             } elsif ($groupchoice == 1) {
                                 # Put it in 'users' group
-                                Sys::Syslog::syslog('info|local1', $self->loc->N("Putting %s to 'users' group",
-                                                    $username));
+                                $self->logger->I($self->loc->N("Putting %s to 'users' group",
+                                                 $username));
                                 $gid = $self->sh_users->Add2UsersGroup($username);
                             }
                             else {
@@ -973,7 +973,7 @@ sub addUserDialog {
                                 groupname => $username,
                                 is_system => $is_system,
                             });
-                            Sys::Syslog::syslog('info|local1', $self->loc->N("Creating new group: %s", $username));
+                            $self->logger->I($self->loc->N("Creating new group: %s", $username));
                         }
                     }
                 } else {
@@ -987,7 +987,7 @@ sub addUserDialog {
                 else {
                     ## OK let's create the user
                     print $self->loc->N("Adding user: ") . $username . " \n";
-                    Sys::Syslog::syslog('info|local1', $self->loc->N("Adding user: %s", $username));
+                    $self->logger->I($self->loc->N("Adding user: %s", $username));
                     my $loginshell = $userData->{ login_shell }->value();
                     my $fullname   = $userData->{ full_name }->value();
                     utf8::decode($fullname);
