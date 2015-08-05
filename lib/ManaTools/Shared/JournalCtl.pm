@@ -84,6 +84,12 @@ has 'unit' => (
     default => "",
 );
 
+has 'identifier' => (
+    is => 'rw',
+    isa => 'Str',
+    default => "",
+);
+
 #=============================================================
 
 =head2 getLog
@@ -122,6 +128,9 @@ sub getLog {
     }
     if ($self->priority ne "") {
         $params .= " --priority=" . $self->priority;
+    }
+    if ($self->identifier ne "") {
+        $params .= " --identifier=" . $self->identifier;
     }
 
     $ENV{'PATH'} = '/usr/sbin:/usr/bin';
