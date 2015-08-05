@@ -93,6 +93,74 @@ has 'loc' => (
 
 #=============================================================
 
+=head2 new
+
+=head3 INPUT
+
+    hash ref containing
+        ident:         optional string used as identifier into syslog
+
+=head3 DESCRIPTION
+
+    new is inherited from Moose, to create a Logging object
+
+=cut
+
+#=============================================================
+has 'ident' => (
+    is      => 'ro',
+    isa     => 'Str',
+    default => ''
+);
+
+#=============================================================
+
+=head2 BUILD
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    The BUILD method is called after a Moose object is created,
+    Into this method additional data are initialized.
+    This method just calls openlog if "ident" is set.
+
+=cut
+
+#=============================================================
+sub BUILD {
+    my $self = shift;
+
+    Sys::Syslog::openlog($self->ident) if $self->ident;
+}
+
+#=============================================================
+
+=head2 DEMOLISH
+
+=head3 INPUT
+
+    $val: boolean value indicating whether or not this method
+        was called as part of the global destruction process
+        (when the Perl interpreter exits)
+
+=head3 DESCRIPTION
+
+    Moose provides a hook for object destruction with the
+    DEMOLISH method as it does for construtor with BUILD
+
+=cut
+
+#=============================================================
+sub DEMOLISH {
+    my ($self, $val) = @_;
+
+    Sys::Syslog::closelog();
+}
+#=============================================================
+
 =head2 R
 
 =head3 INPUT
