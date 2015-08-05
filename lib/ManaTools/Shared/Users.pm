@@ -873,6 +873,10 @@ sub getGroupsInfo {
     my @GroupReal;
   LOOP: foreach my $g (@{$groups}) {
         my $gid = $g->Gid($self->USER_GetValue);
+        if (!defined($gid)) {
+            print "Got an unexpected undefined group!\n";
+            next LOOP;
+        }
         next LOOP if $filtergroups && $gid <= 499 || $gid == 65534;
         if ($filtergroups && $gid > 499 && $gid < $self->min_GID) {
             my $groupname = $g->GroupName($self->USER_GetValue);
@@ -1158,7 +1162,7 @@ sub computeLockExpire {
     my ( $self, $l ) = @_;
     my $ep = $l->ShadowExpire($self->USER_GetValue);
     my $tm = ceil(time()/(24*60*60));
-    $ep = -1 if int($tm) <= $ep;
+    $ep = -1 if !defined($ep) || int($tm) <= $ep;
     my $status = $self->ctx->IsLocked($l) ? $self->loc->N("Locked") : ($ep != -1 ? $self->loc->N("Expired") : '');
     return $status;
 }
