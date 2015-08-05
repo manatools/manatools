@@ -22,8 +22,10 @@
 #Class Module
 package ManaTools::Module;
 
-use ManaTools::Shared;
 use Moose;
+use ManaTools::Shared;
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::Logging;
 
 =head1 VERSION
 
@@ -93,14 +95,14 @@ has 'launch' => (
 
 has 'button' => (
     is      => 'rw',
-   init_arg => undef,
+    init_arg => undef,
 );
 
 #=============================================================
 
 =head2 loc
 
-    loc attribute defines localization object taht use "manatools"
+    loc attribute defines localization object that uses "manatools"
     domain as default. (see ManaTools::Shared::Locales for details).
     To use your own Module domain, override this attribute by using
         has '+loc' => (
@@ -121,6 +123,29 @@ has 'loc' => (
     }
 );
 
+#=============================================================
+
+=head2 logger
+
+    logger attribute defines the Logging object
+    see ManaTools::Shared::Logging for details and usage.
+
+=cut
+
+#=============================================================
+has 'logger' => (
+    is => 'ro',
+    isa => 'ManaTools::Shared::Logging',
+    init_arg => undef,
+    lazy => 1,
+    builder => '_loggerInitialize',
+);
+
+sub _loggerInitialize{
+    my $self = shift;
+
+    return ManaTools::Shared::Logging->new(ident => $self->name);
+}
 
 #=============================================================
 
