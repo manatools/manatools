@@ -113,22 +113,14 @@ has 'button' => (
 
 #=============================================================
 has 'loc' => (
-        is => 'rw',
-        init_arg => undef,
-        builder => '_localeInitialize'
+    is => 'rw',
+    isa => 'ManaTools::Shared::Locales',
+    lazy => 1,
+    default => sub {
+        return ManaTools::Shared::Locales->new();
+    }
 );
 
-sub _localeInitialize {
-    my $self = shift;
-
-    my $locale_dir = ManaTools::Shared::custom_locale_dir();
-    $self->loc(
-        ManaTools::Shared::Locales->new(
-            domain_name => 'manatools',
-            dir_name    => $locale_dir,
-        )
-    );
-}
 
 #=============================================================
 
