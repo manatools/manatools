@@ -159,6 +159,7 @@ sub DEMOLISH {
 
     Sys::Syslog::closelog();
 }
+
 #=============================================================
 
 =head2 R
@@ -319,6 +320,29 @@ sub D {
     my ($self, $s, @para) = @_;
 
     $self->S('debug', $s, @para);
+}
+
+#=============================================================
+
+=head2 setmask
+
+=head3 INPUT
+
+    $self: this object
+    $mask: new log mask
+
+=head3 DESCRIPTION
+
+    Sets the log mask for the current process to $mask and returns the old mask.
+    See Sys::Syslog::setlogmask for details.
+
+=cut
+
+#=============================================================
+sub setmask {
+    my ($self, $mask) = @_;
+
+    Sys::Syslog::setlogmask($mask);
 }
 
 
