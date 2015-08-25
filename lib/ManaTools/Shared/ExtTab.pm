@@ -12,10 +12,10 @@ use ManaTools::Shared::ExtTab;
 
 my $exttab = ManaTools::Shared::ExtTab->new(parentWidget => $widget, factory => $factory, optFactory => $optFactory, callback => { my $backenditem = $_; ... });
 
-$exttab->addItem("Label 1", $backenditem1, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; ... } );
-$exttab->addItem("Label 2", $backenditem2, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; ... } );
-$exttab->addItem("Label 3", $backenditem3, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; ... } );
-$exttab->addItem("Label 4", $backenditem4, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; ... } );
+$exttab->addItem("Label 1", $backenditem1, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addItem("Label 2", $backenditem2, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addItem("Label 3", $backenditem3, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addItem("Label 4", $backenditem4, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
 $exttab->finishedItems();
 
 ...
@@ -122,21 +122,11 @@ has 'callback' => (
 
 has 'items' => (
     is => 'ro',
-    isa => 'HashRef',
+    isa => 'ArrayRef[ManaTools::Shared::ExtTab::Item]',
     lazy => 1,
     init_arg => undef,
     default => sub {
-        return {};
-    }
-);
-
-has 'widgetBuilders' => (
-    is => 'ro',
-    isa => 'HashRef[CodeRef]',
-    lazy => 1,
-    init_arg => undef,
-    default => sub {
-        return {};
+        return [];
     }
 );
 
@@ -159,7 +149,7 @@ has 'tab' => (
 
 has 'lastItem' => (
     is => 'rw',
-    isa => 'Maybe[yui::YItem]',
+    isa => 'Maybe[ManaTools::Shared::ExtTab::Item]',
     init_arg => undef,
     default => sub {
         return undef;
@@ -218,13 +208,12 @@ sub processEvents {
     my $event = shift;
     my $items = $self->items();
     return if ($event->eventType() != $yui::YEvent::MenuEvent);
-    my $item = $event->item();
-    for my $i (keys %{$items}) {
-        if ($i == $item) {
-            $self->buildItem($i);
-            $self->callback()->($items->{$i});
-        }
-    }
+    my $yitem = $event->item();
+    my $item = $self->findItem($yitem);
+    return if !defined($item);
+    $self->buildItem($item);
+    $self->callback()->($item->backend());
+    $self->lastItem($item);
 }
 
 #=============================================================
@@ -240,11 +229,13 @@ sub processEvents {
 
 =head3 OUTPUT
 
-    the created yui::YItem
+    the created ManaTools::Shared::ExtTab::Item
 
 =head3 DESCRIPTION
 
-    adds an item to the ExtTab
+    Creates an item and adds it to the ExtTab. Internally, it creates a
+    yui::YItem and adds it to the YItemCollection. If it's the first item,
+    mark it as the lastitem.
 
 =cut
 
@@ -254,16 +245,41 @@ sub addItem {
     my $label = shift;
     my $backendItem = shift;
     my $buildWidget = shift;
-    my $item = new yui::YItem($label, 0);
-    $self->items->{$item} = $backendItem;
-    $self->widgetBuilders->{$item} = $buildWidget;
-    $item->DISOWN();
-    print STDERR "processEvent: add item: $item\n";
-    $self->itemcollection->push($item);
-    if (scalar(keys $self->items) == 1) {
+    my $items = $self->items();
+    my $item = ManaTools::Shared::ExtTab::Item->new(backend => $backendItem, builder => $buildWidget);
+    push @{$items}, $item;
+    $item->setLabel($label);
+    $item->addToCollection($self->itemcollection());
+    if (scalar(@{$items}) == 1) {
         $self->lastItem($item);
     }
     return $item;
+}
+
+#=============================================================
+
+=head2 findItem
+
+=head3 INPUT
+
+    $self: this object
+    $yitem: the YItem to be found
+
+=head3 DESCRIPTION
+
+    returns a ManaTools::Shared::ExtTab::Item that has the YItem
+
+=cut
+
+#=============================================================
+sub findItem {
+    my $self = shift;
+    my $yitem = shift;
+    # loop all the items
+    for my $i (@{$self->items()}) {
+        return $i if ($i->equals($yitem));
+    }
+    return undef;
 }
 
 #=============================================================
@@ -273,7 +289,7 @@ sub addItem {
 =head3 INPUT
 
     $self: this object
-    $item: the item to be built
+    $item: the item to be built (widgets from this tab will be recreated in the tab)
 
 =head3 DESCRIPTION
 
@@ -288,12 +304,8 @@ sub buildItem {
     # clear out replacepoint
     $self->container->deleteChildren();
     # build item's widgetbuilder
-    for my $i (keys %{$self->widgetBuilders}) {
-        if ($i == $item) {
-            my $builder = $self->widgetBuilders->{$i};
-            $builder->($self->factory, $self->optFactory, $self->container, $self->items->{$i}) if (defined $builder);
-        }
-    }
+    my $builder = $item->builder();
+    $builder->($self->factory, $self->optFactory, $self->container, $item->backend()) if (defined $builder);
     $self->container->showChild();
 }
 
@@ -315,7 +327,8 @@ sub buildItem {
 sub finishedItems {
     my $self = shift;
     $self->tab->addItems($self->itemcollection);
-    $self->buildItem($self->tab->selectedItem());
+    my $item = $self->lastItem();
+    $self->buildItem($item) if defined($item);
 }
 
 #=============================================================
@@ -323,5 +336,72 @@ sub finishedItems {
 no Moose;
 __PACKAGE__->meta->make_immutable;
 
+
+1;
+
+#=============================================================
+
+package ManaTools::Shared::ExtTab::Item;
+
+use Moose;
+use diagnostics;
+use utf8;
+
+use yui;
+
+has 'builder' => (
+    is => 'ro',
+    isa => 'Maybe[CodeRef]',
+    lazy => 1,
+    default => sub {
+        return undef;
+    }
+);
+
+has 'item' => (
+    is => 'ro',
+    isa => 'yui::YItem',
+    init_arg => undef,
+    default => sub {
+        return new yui::YItem('', 0);
+    }
+);
+
+has 'backend' => (
+    is => 'rw',
+    isa => 'Maybe[Ref]',
+    lazy => 1,
+    default => sub {
+        return undef;
+    }
+);
+
+#=============================================================
+
+sub setLabel {
+    my $self = shift;
+    my $label = shift;
+    my $yitem = $self->item();
+    $yitem->setLabel($label);
+}
+
+sub equals {
+    my $self = shift;
+    my $item = shift;
+    return ($self->item() == $item);
+}
+
+sub addToCollection {
+    my $self = shift;
+    my $collection = shift;
+    my $yitem = $self->item();
+    $yitem->DISOWN();
+    $collection->push($yitem);
+}
+
+#=============================================================
+
+no Moose;
+__PACKAGE__->meta->make_immutable;
 
 1;
