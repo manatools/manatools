@@ -1,16 +1,16 @@
 # vim: set et ts=4 sw=4:
-package ManaTools::Shared::ExtTab;
+package ManaTools::Shared::GUI::ExtTab;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-ManaTools::Shared::ExtTab - Class to manage a yui YDumbTab properly
+ManaTools::Shared::GUI::ExtTab - Class to manage a yui YDumbTab properly
 
 =head1 SYNOPSIS
 
-use ManaTools::Shared::ExtTab;
+use ManaTools::Shared::GUI::ExtTab;
 
-my $exttab = ManaTools::Shared::ExtTab->new(parentWidget => $widget, factory => $factory, optFactory => $optFactory, callback => { my $backenditem = $_; ... });
+my $exttab = ManaTools::Shared::GUI::ExtTab->new(parentWidget => $widget, factory => $factory, optFactory => $optFactory, callback => { my $backenditem = $_; ... });
 
 $exttab->addItem("Label 1", $backenditem1, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
 $exttab->addItem("Label 2", $backenditem2, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
@@ -36,7 +36,7 @@ This class wraps YDumbTab with backend items to handle
 
 You can find documentation for this module with the perldoc command:
 
-perldoc ManaTools::Shared::ExtTab
+perldoc ManaTools::Shared::GUI::ExtTab
 
 =head1 SEE ALSO
 
@@ -122,7 +122,7 @@ has 'callback' => (
 
 has 'items' => (
     is => 'ro',
-    isa => 'ArrayRef[ManaTools::Shared::ExtTab::Item]',
+    isa => 'ArrayRef[ManaTools::Shared::GUI::ExtTab::Item]',
     lazy => 1,
     init_arg => undef,
     default => sub {
@@ -149,7 +149,7 @@ has 'tab' => (
 
 has 'lastItem' => (
     is => 'rw',
-    isa => 'Maybe[ManaTools::Shared::ExtTab::Item]',
+    isa => 'Maybe[ManaTools::Shared::GUI::ExtTab::Item]',
     init_arg => undef,
     default => sub {
         return undef;
@@ -229,7 +229,7 @@ sub processEvents {
 
 =head3 OUTPUT
 
-    the created ManaTools::Shared::ExtTab::Item
+    the created ManaTools::Shared::GUI::ExtTab::Item
 
 =head3 DESCRIPTION
 
@@ -246,7 +246,7 @@ sub addItem {
     my $backendItem = shift;
     my $buildWidget = shift;
     my $items = $self->items();
-    my $item = ManaTools::Shared::ExtTab::Item->new(backend => $backendItem, builder => $buildWidget);
+    my $item = ManaTools::Shared::GUI::ExtTab::Item->new(backend => $backendItem, builder => $buildWidget);
     push @{$items}, $item;
     $item->setLabel($label);
     $item->addToCollection($self->itemcollection());
@@ -267,7 +267,7 @@ sub addItem {
 
 =head3 DESCRIPTION
 
-    returns a ManaTools::Shared::ExtTab::Item that has the YItem
+    returns a ManaTools::Shared::GUI::ExtTab::Item that has the YItem
 
 =cut
 
@@ -341,7 +341,7 @@ __PACKAGE__->meta->make_immutable;
 
 #=============================================================
 
-package ManaTools::Shared::ExtTab::Item;
+package ManaTools::Shared::GUI::ExtTab::Item;
 
 use Moose;
 use diagnostics;
