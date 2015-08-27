@@ -81,7 +81,10 @@ use yui;
 =head3 INPUT
 
     hash ref containing
-        optfactory:         optfactory needed to create a YDumbTab
+        factory:            factory needed to create a widgets
+        optFactory:         optFactory needed to create a YDumbTab
+        mainw:              main dialog/window needed to redraw selected tab
+        parentWidget:       parent widget needed to build the YDumbTab
         callback:           optional parameter to execute a callback
 
 
@@ -102,6 +105,12 @@ has 'factory' => (
 has 'optFactory' => (
     is => 'ro',
     isa => 'yui::YOptionalWidgetFactory',
+    required => 1,
+);
+
+has 'mainw' => (
+    is => 'ro',
+    isa => 'Maybe[yui::YDialog]',
     required => 1,
 );
 
@@ -301,12 +310,19 @@ sub findItem {
 sub buildItem {
     my $self = shift;
     my $item = shift;
+
+    # lock windows for multiple changes
+    $self->mainw->startMultipleChanges();
     # clear out replacepoint
     $self->container->deleteChildren();
     # build item's widgetbuilder
     my $builder = $item->builder();
     $builder->($self->factory, $self->optFactory, $self->container, $item->backend()) if (defined $builder);
     $self->container->showChild();
+    # recalulate layout
+    $self->mainw->recalcLayout();
+    # unlock windows for multiple changes
+    $self->mainw->doneMultipleChanges();
 }
 
 #=============================================================
