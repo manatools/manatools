@@ -389,12 +389,12 @@ sub call {
         $vbox = $factory->createVBox($ydialog);
         $layoutstart = $factory->createHBox($vbox);
     }
+    ## if layout returns a YWidget, we can define buttons on it
+    $self->addButtons($vbox) if defined($vbox);
 
     ## build the whole layout
     my $layout = $self->layout->($self, $layoutstart);
 
-    ## if layout returns a YWidget, we can define buttons on it
-    $self->addButtons($vbox) if defined($vbox);
 
     ## add a cancelEvent
     ManaTools::Shared::GUI::Event->new(name => 'cancelEvent', eventHandler => $self, eventType => $yui::YEvent::CancelEvent, event => sub { return 0; });
