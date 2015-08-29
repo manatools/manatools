@@ -10,21 +10,27 @@ ManaTools::Shared::GUI::ExtTab - Class to manage a yui YDumbTab properly
 
 use ManaTools::Shared::GUI::ExtTab;
 
-my $exttab = ManaTools::Shared::GUI::ExtTab->new(parentWidget => $widget, factory => $factory, optFactory => $optFactory, callback => { my $backenditem = $_; ... });
+my $exttab = ManaTools::Shared::GUI::ExtTab->new(name => "Tab1", eventHandler => $dialog, parentWidget => $widget, callback => { my $self = shift; my $yevent = shift; my $backenditem = $_; ... });
 
-$exttab->addItem("Label 1", $backenditem1, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
-$exttab->addItem("Label 2", $backenditem2, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
-$exttab->addItem("Label 3", $backenditem3, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
-$exttab->addItem("Label 4", $backenditem4, sub { my ($factory, $optFactory, $parent, $backendItem) = @_; my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addItem("Label 1", $backenditem1, sub {
+    my ($self, $parent, $backendItem) = @_;
+    my $dialog = $self->parentDialog();
+    my $factory = $dialog->factory();
+    my $vbox = $factory->createVBox($parent);
+    my $button1 = $self->addWidget($backendItem->label() .'_button1', $factory->createPushButton('Button 1', $vbox), sub {
+        my $self = shift;
+        my $yevent = shift;
+        my $backendItem = shift;
+        my $tab = $self->eventHandler();
+        ...
+    }, $backendItem);
+    my $button2 = $self->addWidget($backendItem->label() .'_button2', $factory->createPushButton('Button 2', $vbox), sub {...}, $backendItem);
+    ...
+});
+$exttab->addItem("Label 2", $backenditem2, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addItem("Label 3", $backenditem3, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addItem("Label 4", $backenditem4, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
 $exttab->finishedItems();
-
-...
-
-while {
-  ...
-  $exttab->processEvents();
-  ...
-}
 
 
 =head1 DESCRIPTION
@@ -72,6 +78,9 @@ use Moose;
 use diagnostics;
 use utf8;
 
+with 'ManaTools::Shared::GUI::EventHandlerRole';
+with 'ManaTools::Shared::GUI::EventRole';
+
 use yui;
 
 #=============================================================
@@ -81,11 +90,10 @@ use yui;
 =head3 INPUT
 
     hash ref containing
-        factory:            factory needed to create a widgets
-        optFactory:         optFactory needed to create a YDumbTab
-        mainw:              main dialog/window needed to redraw selected tab
-        parentWidget:       parent widget needed to build the YDumbTab
-        callback:           optional parameter to execute a callback
+        name:               a name for the widget to add event to the eventHandler
+        eventHandler:       the parent that does eventHandlerRole
+        parentWidget:       the parent widget
+        callback:           optional parameter to execute a callback when an item has changed
 
 
 =head3 DESCRIPTION
@@ -96,22 +104,9 @@ use yui;
 
 #=============================================================
 
-has 'factory' => (
-    is => 'ro',
-    isa => 'yui::YWidgetFactory',
-    required => 1,
-);
-
-has 'optFactory' => (
-    is => 'ro',
-    isa => 'yui::YOptionalWidgetFactory',
-    required => 1,
-);
-
-has 'mainw' => (
-    is => 'ro',
-    isa => 'Maybe[yui::YDialog]',
-    required => 1,
+has '+eventType' => (
+    required => 0,
+    default => $yui::YEvent::WidgetEvent,
 );
 
 has 'parentWidget' => (
@@ -191,19 +186,28 @@ has 'itemcollection' => (
 #=============================================================
 sub buildTab {
     my $self = shift;
-    my $tab = $self->optFactory->createDumbTab($self->parentWidget);
-    $self->{container} = $self->factory->createReplacePoint($tab);
+    my $dialog = $self->parentDialog();
+    my $factory = $dialog->factory();
+    my $optFactory = $dialog->optFactory();
+    my $parentWidget = $self->parentWidget();
+
+    # create the tab
+    my $tab = $optFactory->createDumbTab($parentWidget);
+
+    # create a replacepoint on the tab
+    $self->{container} = $factory->createReplacePoint($tab);
+
     return $tab;
 }
 
 #=============================================================
 
-=head2 processEvents
+=head2 processEvent
 
 =head3 INPUT
 
     $self: this object
-    $event: yui::YEvent from $dlg->waitForEvent();
+    $yevent: yui::YEvent
 
 =head3 DESCRIPTION
 
@@ -212,17 +216,35 @@ sub buildTab {
 =cut
 
 #=============================================================
-sub processEvents {
+sub processEvent {
     my $self = shift;
-    my $event = shift;
+    my $yevent = shift;
     my $items = $self->items();
-    return if ($event->eventType() != $yui::YEvent::MenuEvent);
-    my $yitem = $event->item();
+
+    # call subevents
+    return 0 if (!$self->processEvents($yevent));
+
+    # only MenuEvents here...
+    return 1 if ($yevent->eventType() != $yui::YEvent::MenuEvent);
+
+    # only items from *this* tab
+    my $yitem = $yevent->item();
     my $item = $self->findItem($yitem);
-    return if !defined($item);
+    return 1 if !defined($item);
+
+    # build the children
     $self->buildItem($item);
-    $self->callback()->($item->backend());
+
+    # execute callback if needed
+    my $callback = $self->callback();
+    my $result = 1;
+    $result = $callback->($self, $yevent, $item->backend()) if defined($callback);
+
+    # mark last item as this one
     $self->lastItem($item);
+
+    # return result of callback
+    return $result;
 }
 
 #=============================================================
@@ -310,19 +332,31 @@ sub findItem {
 sub buildItem {
     my $self = shift;
     my $item = shift;
+    my $container = $self->container();
+    my $dialog = $self->parentDialog();
+    my $ydialog = $dialog->dialog();
 
     # lock windows for multiple changes
-    $self->mainw->startMultipleChanges();
+    $ydialog->startMultipleChanges();
+
+    # clear out the events of the children
+    $self->clearEvents();
+
     # clear out replacepoint
-    $self->container->deleteChildren();
+    $container->deleteChildren();
+
     # build item's widgetbuilder
     my $builder = $item->builder();
-    $builder->($self->factory, $self->optFactory, $self->container, $item->backend()) if (defined $builder);
-    $self->container->showChild();
+    $builder->($self, $container, $item->backend()) if (defined $builder);
+
+    # trigger showChild on the container
+    $container->showChild();
+
     # recalulate layout
-    $self->mainw->recalcLayout();
+    $ydialog->recalcLayout();
+
     # unlock windows for multiple changes
-    $self->mainw->doneMultipleChanges();
+    $ydialog->doneMultipleChanges();
 }
 
 #=============================================================
