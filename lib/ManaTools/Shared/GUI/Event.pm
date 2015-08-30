@@ -84,7 +84,8 @@ use yui;
         eventType:          a yui::YEventType
         widget:             an optional widget
         item:               an optional item
-        event:              an optional CodeRef
+        event:              an optional CodeRef that returns 0 if event is
+                            not correctly processed
         backend:            an optional backend to be used in the event handler
 
 =head3 DESCRIPTION
