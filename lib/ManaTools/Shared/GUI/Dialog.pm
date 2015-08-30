@@ -23,6 +23,8 @@ my $dlg = ManaTools::Shared::GUI::Dialog->new(
         $ManaTools::Shared::GUI::Dialog::cancelButton,
         $ManaTools::Shared::GUI::Dialog::okButton,
     ],
+    event_timeout => 0, # optional nd rw timeout in msec during the waitForEvent()
+                        # needs a ManaTools::Shared::GUI::Event to manage the $yui::YEvent::TimeoutEvent  
     layout => sub { my $self = shift; my $layoutstart = shift; my $dlg = $self->dialog(); my $info = $self->info(); ... $self->addWidget('button1', $button, sub{...}, $backendItem1); },
     restoreValues => sub { my $self = shift; $info = {}; ...; return $info },
     result => sub { my $self = shift; ... },
@@ -138,6 +140,17 @@ has 'dialog' => (
     default => sub {
         return undef;
     },
+);
+
+subtype 'TimeoutType'
+    => as Int
+    => where {($_ >= 0)};
+
+has 'event_timeout' => (
+    is => 'rw',
+    isa => 'TimeoutType',
+    lazy => 1,
+    default => 0,
 );
 
 our $mainDialog = 1;
@@ -406,7 +419,7 @@ sub call {
 
     # main loop
     while(1) {
-        my $yevent = $ydialog->waitForEvent(1000);
+        my $yevent = $ydialog->waitForEvent($self->event_timeout);
         last if (!$self->processEvents($yevent));
     }
 

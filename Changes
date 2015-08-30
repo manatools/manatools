@@ -1,3 +1,5 @@
+	- Added event_timeout rw attribute to GUI::Dialog to allow
+		manage $yui::YEvent::TimeoutEvent
 	- Fixed ExtTab to be both EventRole and Event, which means
 		it captures WidgetEvents for itself and processes
 		the Events for it's own children as well, the ExtTab
