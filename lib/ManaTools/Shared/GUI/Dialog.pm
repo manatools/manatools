@@ -23,8 +23,7 @@ my $dlg = ManaTools::Shared::GUI::Dialog->new(
         $ManaTools::Shared::GUI::Dialog::cancelButton,
         $ManaTools::Shared::GUI::Dialog::okButton,
     ],
-    event_timeout => 0, # optional nd rw timeout in msec during the waitForEvent()
-                        # needs a ManaTools::Shared::GUI::Event to manage the $yui::YEvent::TimeoutEvent  
+    event_timeout => 0, # event timeout in msec during the waitForEvent()
     layout => sub { my $self = shift; my $layoutstart = shift; my $dlg = $self->dialog(); my $info = $self->info(); ... $self->addWidget('button1', $button, sub{...}, $backendItem1); },
     restoreValues => sub { my $self = shift; $info = {}; ...; return $info },
     result => sub { my $self = shift; ... },
@@ -93,6 +92,8 @@ use ManaTools::Shared::GUI::Event;
         icon:               an icon
         layout:             a callback that builds the layout of the dialog
         restoreValues:      an optional callback that restore the values to an $info HashRef
+        event_timeout:      an optional and rw timeout in msec during the waitForEvent()
+                            needs a ManaTools::Shared::GUI::Event to manage the $yui::YEvent::TimeoutEvent
         buttons:            an optional hashref containing 
                                 $ManaTools::Shared::GUI::Dialog::cancelButton and/or
                                 $ManaTools::Shared::GUI::Dialog::okButton
