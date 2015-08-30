@@ -74,6 +74,7 @@ use diagnostics;
 use utf8;
 
 with 'ManaTools::Shared::GUI::EventHandlerRole';
+use Moose::Util::TypeConstraints;
 
 use yui;
 use ManaTools::Shared::GUI::Event;
@@ -142,9 +143,13 @@ has 'dialog' => (
 our $mainDialog = 1;
 our $popupDialog = 2;
 
+subtype 'DialogType'
+    => as Int
+    => where {($_ > 0 && $_<=2)};
+
 has 'dialogType' => (
     is => 'ro',
-    isa => 'Int',
+    isa => 'DialogType',
     required => 1,
 );
 
