@@ -114,24 +114,42 @@ has 'module' => (
 );
 
 has 'factory' => (
-    is => 'rw',
+    is => 'ro',
     isa => 'Maybe[yui::YWidgetFactory]',
     lazy => 1,
     init_arg => undef,
     default => sub {
-        return undef;
+       return yui::YUI::widgetFactory;
     },
 );
 
 has 'optFactory' => (
-    is => 'rw',
+    is => 'ro',
     isa => 'Maybe[yui::YOptionalWidgetFactory]',
     lazy => 1,
     init_arg => undef,
     default => sub {
-        return undef;
+        return yui::YUI::optionalWidgetFactory;
     },
 );
+
+has 'mgaExternalFactory' => (
+    is => 'ro',
+    isa => 'Maybe[yui::YMGAWidgetFactory]',
+    lazy => 1,
+    init_arg => undef,
+     builder => '_MGAFactoryInitialize'
+);
+
+sub _MGAFactoryInitialize {
+    my $self = shift();
+
+    $self->factory();  # just to be sure default factory is initialized first
+
+    my $mageiaPlugin = "mga";
+    my $mgaFactory   = yui::YExternalWidgets::externalWidgetFactory($mageiaPlugin);
+    return yui::YMGAWidgetFactory::getYMGAWidgetFactory($mgaFactory);
+}
 
 has 'dialog' => (
     is => 'rw',
@@ -385,9 +403,6 @@ sub call {
     yui::YUI::app()->setApplicationTitle($self->title());
     ## set icon if not already set by external launcher
     yui::YUI::app()->setApplicationIcon($self->icon());
-
-    $self->factory(yui::YUI::widgetFactory);
-    $self->optFactory(yui::YUI::optionalWidgetFactory);
 
     ## required fields
     die "required widgets missing from YOptionalFactory" if (!$self->checkFields());
