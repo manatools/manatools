@@ -75,30 +75,6 @@ has 'events' => (
 
 #=============================================================
 
-=head2 parentDialog
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 DESCRIPTION
-
-    finds the parent Dialog
-
-=cut
-
-#=============================================================
-sub parentDialog {
-    my $self = shift;
-    my $eventHandler = $self->eventHandler();
-    while (defined($eventHandler) && !$eventHandler->isa('ManaTools::Shared::GUI::Dialog') && $eventHandler->does('ManaTools::Shared::GUI::EventRole')) {
-        $eventHandler = $eventHandler->eventHandler();
-    }
-    return $eventHandler;
-}
-
-#=============================================================
-
 =head2 addEvent
 
 =head3 INPUT
