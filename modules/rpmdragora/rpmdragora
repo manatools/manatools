@@ -636,6 +636,7 @@ sub _run_treeview_dialog {
     my $find_button = $factory->createIconButton($hbox_top, $icon_file, $loc->N("Search"));
     $find_button->setWeight(0,6);
     $my_win->setDefaultButton($find_button);
+    $find_entry->setKeyboardFocus();
 
     $icon_file = File::ShareDir::dist_file(ManaTools::Shared::distName(), "images/rpmdragora/clear_22x22.png");
     my $reset_search_button = $factory->createIconButton($hbox_top, $icon_file, $loc->N("Reset"));
