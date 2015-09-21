@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-08-15 10:20+0200\n"
+"PO-Revision-Date: 2015-09-21 07:09+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -3595,34 +3595,35 @@ msgstr "manaclock: ελλείπουσα υπηρεσία NTP"
 #: lib/ManaTools/Module/Clock.pm:351
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
+"Παρακαλώ εγκαταστήστε μια υπηρεσία NTP όπως το chrony ή το ntp προς διαχείριση"
 
 #: lib/ManaTools/Module/Clock.pm:375
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Η ρύθμιση του τοπικού ελέγχου σε πραγματικό χρόνο (RTC) απέτυχε"
 
 #: lib/ManaTools/Module/Clock.pm:390
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Η ρύθμιση της ωρολογιακής ζώνης απέτυχε"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Η ρύθμιση της διαμόρφωσης NTP απέτυχε"
 
 #: lib/ManaTools/Module/Clock.pm:442
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Η ρύθμιση του NTP απέτυχε"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Set system time failed"
-msgstr ""
+msgstr "Η ρύθμιση της ώρας συστήματος απέτυχε"
 
 #: lib/ManaTools/Module/Clock.pm:476
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "Εξυπηρετητής NTP - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:477
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Επιλέξτε τον εξυπηρετητή σας NTP"
 
 #: lib/ManaTools/Module/Clock.pm:501 lib/ManaTools/Module/Clock.pm:507
 msgid "Timezone - DrakClock"
@@ -3630,7 +3631,7 @@ msgstr "Ζώνη ώρας - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:502
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Αποτυχία λήψης της λίστας των ωρολογιακών ζωνών"
 
 #: lib/ManaTools/Module/Clock.pm:508
 msgid "Which is your timezone?"
@@ -3638,7 +3639,7 @@ msgstr "Ποια είναι η ζώνη ώρας σας;"
 
 #: lib/ManaTools/Module/Clock.pm:519
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:520
 msgid "Is your hardware clock set to GMT?"
@@ -3646,17 +3647,19 @@ msgstr "Το ρολόι του BIOS είναι ρυθμισμένο σε ώρα 
 
 #: lib/ManaTools/Module/Clock.pm:539
 msgid "Restore data"
-msgstr ""
+msgstr "Επαναφορά των δεδομένων"
 
 #: lib/ManaTools/Module/Clock.pm:540
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Επαναφορά μόνο της ημερομηνίας και της ώρας;"
 
 #: lib/ManaTools/Module/Clock.pm:576
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Οι ρυθμίσεις της ημερομηνίας, της ώρας & της ωρολογιακής ζώνης επιτρέπουν τον "
+"καθορισμό της ωρολογιακής ζώνης, της ημερομηνίας και της ώρας"
 
 #: lib/ManaTools/Module/Clock.pm:577
 #, perl-format
@@ -3666,10 +3669,14 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Προγραμματιστές</h3>\n"
+"                                                    <ul><li>%s</li></ul>\n"
+"                                                    <h3>Μεταφραστές</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:184
 msgid "adminService"
-msgstr ""
+msgstr "adminService"
 
 #: lib/ManaTools/Module/Services.pm:291
 msgid "Start when requested"
@@ -3721,20 +3728,25 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva draxservice)."
 msgstr ""
+"Το adminService είναι το εργαλείο διαχείρισης των υπηρεσιών της Mageia και "
+"των δαιμόνων\n"
+"\n"
+"                                                       (από την αρχική ιδέα "
+"του Mandriva draxservice)."
 
 #: lib/ManaTools/Module/Services.pm:528
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "Εκκίνηση του %s"
 
 #: lib/ManaTools/Module/Services.pm:548
 #, perl-format
 msgid "Stopping %s"
-msgstr ""
+msgstr "Τερματισμός του %s"
 
 #: lib/ManaTools/Module/DisplayManager.pm:93
 msgid "LightDM (The Light Display Manager)"
-msgstr ""
+msgstr "LightDM (The Light Display Manager)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:94
 msgid "GDM (GNOME Display Manager)"
@@ -3754,12 +3766,12 @@ msgstr "XDM (Διαχειριστής σύνδεσης X)"
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "Απαιτούνται προνόμια διαχειριστή"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "X Restart Required"
-msgstr ""
+msgstr "Απαιτείται επανεκκίνηση του X"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 #: lib/ManaTools/Module/Proxy.pm:178
@@ -3769,7 +3781,6 @@ msgstr ""
 "επανασυνδεθείτε."
 
 #: lib/ManaTools/Module/DisplayManager.pm:188 scripts/manadm:35
-#, fuzzy
 msgid "Display Manager"
 msgstr "Διαχειριστής σύνδεσης"
 
@@ -3779,7 +3790,7 @@ msgstr "Επιλογή ενός διαχειριστή σύνδεσης"
 
 #: lib/ManaTools/Module/DisplayManager.pm:270
 msgid "Graphical configurator for system Display Manager"
-msgstr ""
+msgstr "Εργαλείο γραφικού περιβάλλοντος διαμόρφωσης του διαχειριστή σύνδεσης"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -3827,7 +3838,7 @@ msgstr "Κανένας διαμεσολαβητής για (διαχωρισμέ
 
 #: lib/ManaTools/Module/Proxy.pm:348
 msgid "Graphical manager for proxies"
-msgstr ""
+msgstr "Εργαλείο γραφικού περιβάλλοντος διαχείρισης των διαμεσολαβητών"
 
 #: lib/ManaTools/Module/Firewall.pm:165
 msgid "Port scan detection"
@@ -3844,6 +3855,9 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"εργαλείο διαμόρφωσης του drakfirewall\n"
+"                    Για την διαμόρφωση ενός προσωπικού τείχους προστασίας για "
+"αυτό το μηχάνημα Mageia."
 
 #: lib/ManaTools/Module/Firewall.pm:354
 msgid ""
@@ -3851,6 +3865,10 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"ρυθμιστής drakfirewall\n"
+"Πριν συνεχίσετε, βεβαιωθείτε ότι έχετε ρυθμίσει την πρόσβαση στο δίκτυο/"
+"διαδίκτυο\n"
+"χρησιμοποιώντας το drakconnect."
 
 #: lib/ManaTools/Module/Firewall.pm:417
 msgid "Interactive Firewall"
@@ -3874,6 +3892,8 @@ msgstr "Χρήση του διαδραστικού τοίχους προστασ
 #: lib/ManaTools/Module/Firewall.pm:583
 msgid "Graphical manager for interactive firewall rules"
 msgstr ""
+"Εργαλείο γραφικού περιβάλλοντος για την διαχείριση των κανόνων του "
+"διαδραστικού τείχους προστασίας"
 
 #: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
 #: lib/ManaTools/Module/Firewall.pm:1015
@@ -4225,7 +4245,6 @@ msgid "User Name"
 msgstr "Όνομα χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:1057
-#, fuzzy
 msgid "User ID"
 msgstr "Αναγνωριστικό χρήστη"
 
@@ -4375,7 +4394,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2351
 msgid ""
@@ -4400,9 +4419,8 @@ msgid "Search:"
 msgstr "Αναζήτηση:"
 
 #: lib/ManaTools/Module/Users.pm:2472
-#, fuzzy
 msgid "Apply filter"
-msgstr "&Εφαρμογή φίλτρου"
+msgstr "Εφαρμογή φίλτρου"
 
 #: lib/ManaTools/Module/LogViewer.pm:127
 #, fuzzy
@@ -4414,9 +4432,8 @@ msgid "A tool to monitor your logs"
 msgstr "Ένα εργαλείο για να βλέπετε τις καταγραφές σας"
 
 #: lib/ManaTools/Module/LogViewer.pm:185
-#, fuzzy
 msgid "Matching"
-msgstr "Ταιριάζει"
+msgstr "Αντιστοιχεί"
 
 #: lib/ManaTools/Module/LogViewer.pm:189
 msgid "but not matching"
@@ -4428,16 +4445,15 @@ msgstr "Επιλογές"
 
 #: lib/ManaTools/Module/LogViewer.pm:198
 msgid "Last boot"
-msgstr ""
+msgstr "Τελευταία εκκίνηση"
 
 #: lib/ManaTools/Module/LogViewer.pm:211
 msgid "Since"
 msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:216
-#, fuzzy
 msgid "Until"
-msgstr "Μέχρι %1"
+msgstr "Μέχρι"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "Select a unit"
@@ -4637,6 +4653,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Προγραμματιστές</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Μεταφραστές</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:412
 msgid "rpmdragora update"
@@ -4921,4 +4941,5 @@ msgstr "Επιτυχής προσθήκη του μέσου %s."
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "Επιτυχής προσθήκη του μέσου «%s»."
+
 
