@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-09-21 07:09+0200\n"
+"PO-Revision-Date: 2015-09-24 07:00+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -3920,6 +3920,7 @@ msgstr "&Προηγμένες"
 #: lib/ManaTools/Module/Firewall.pm:772
 msgid "Graphical manager for firewall rules"
 msgstr ""
+"Διαχειριστής γραφικού περιβάλλοντος για τους κανόνες του τείχους προστασίας"
 
 #: lib/ManaTools/Module/Firewall.pm:804
 msgid ""
@@ -3933,7 +3934,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:809
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Καθορίζει τις διάφορες θύρες"
 
 #: lib/ManaTools/Module/Firewall.pm:824
 msgid "Other ports"
@@ -3946,10 +3947,10 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:887
 msgid "Invalid port given"
-msgstr ""
+msgstr "Μη έγκυρη θύρα"
 
 #: lib/ManaTools/Module/Firewall.pm:888
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "Invalid port given: %s.\n"
 "The proper format is \"port/tcp\" or \"port/udp\",\n"
@@ -3957,9 +3958,9 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
-"Δόθηκε άκυρη θύρα: %s.\n"
-"Η σωστή μορφή είναι «port/tcp» ή «port/udp», \n"
-"όπου port είναι αριθμός μεταξύ 1 και 65535.\n"
+"Δόθηκε η μη έγκυρη θύρα: %s.\n"
+"Η σωστή μορφή είναι «θύρα/tcp» ή «θύρα/udp»,\n"
+"όπου θύρα είναι ένας αριθμός μεταξύ 1 και 65535.\n"
 "\n"
 "Μπορείτε επίσης να δώσετε ένα εύρος θυρών (πχ: 24300:24350/udp)"
 
@@ -3987,21 +3988,20 @@ msgstr ""
 "Ποιες διεπαφές θα πρέπει να προστατευθούν;\n"
 
 #: lib/ManaTools/Module/Firewall.pm:1016
-#, fuzzy
 msgid ""
 "Your firewall configuration has been manually edited and contains\n"
 "    rules that may conflict with the configuration that has just been set "
 "up.\n"
 "    What do you want to do?"
 msgstr ""
-"Η διαμόρφωση του τοίχους προστασίας έχει επεξεργαστεί χειροκίνητα και "
-"περιέχει\n"
-"κανόνες που μπορούν να συγκρουστούν με την διαμόρφωση που μόλις ρυθμίστηκε.\n"
-"Τι θέλετε να κάνετε;"
+"Η διαμόρφωση του τείχους προστασίας έχει επεξεργαστεί χειροκίνητα\n"
+"    και περιέχει κανόνες που μπορούν να συγκρουστούν με την διαμόρφωση που "
+"μόλις ρυθμίστηκε.\n"
+"    Τι θέλετε να κάνετε;"
 
 #: lib/ManaTools/Module/Users.pm:101
 msgid "manauser - Mageia Users Management Tool"
-msgstr ""
+msgstr "manauser - Εργαλείο διαχείρισης χρηστών Mageia"
 
 #: lib/ManaTools/Module/Users.pm:261
 msgid "User Data"
@@ -4009,11 +4009,11 @@ msgstr "Δεδομένα χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:262
 msgid "Account Info"
-msgstr ""
+msgstr "Πληροφορίες λογαριασμού"
 
 #: lib/ManaTools/Module/Users.pm:263
 msgid "Password Info"
-msgstr ""
+msgstr "Πληροφορίες κωδικού πρόσβασης"
 
 #: lib/ManaTools/Module/Users.pm:264 lib/ManaTools/Module/Users.pm:1375
 #: lib/ManaTools/Module/Users.pm:2495
@@ -4022,32 +4022,32 @@ msgstr "Ομάδες"
 
 #: lib/ManaTools/Module/Users.pm:267
 msgid "Group Data"
-msgstr ""
+msgstr "Δεδομένα της ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:268
 msgid "Group Users"
-msgstr ""
+msgstr "Χρήστες της ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Choose group"
-msgstr ""
+msgstr "Επιλέξτε μια ομάδα"
 
 #: lib/ManaTools/Module/Users.pm:310
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Μια ομάδα που φέρει αυτό το όνομα υπάρχει ήδη. Τι θέλετε να κάνετε;"
 
 #: lib/ManaTools/Module/Users.pm:316
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Προσθήκη στην υπάρχουσα ομάδα"
 
 #: lib/ManaTools/Module/Users.pm:320
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Προσθήκη στην ομάδα «χρήστες»"
 
 #: lib/ManaTools/Module/Users.pm:392
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Θέλετε πραγματικά να διαγράψετε την ομάδα %s;"
 
 #: lib/ManaTools/Module/Users.pm:398 lib/ManaTools/Module/Users.pm:489
 #: lib/ManaTools/Module/Users.pm:2446
