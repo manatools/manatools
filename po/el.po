@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-09-26 07:19+0200\n"
+"PO-Revision-Date: 2015-09-26 13:10+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -4524,6 +4524,10 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"Εκτελείται αυτό το πρόγραμμα ως απλός χρήστης.\n"
+"Δεν θα είστε σε θέση να διαβάσετε τις καταγραφές του συστήματος για τις "
+"οποίες δεν έχετε τα προνόμια,\n"
+"αλλά μπορείτε να περιηγηθείτε στις υπόλοιπες."
 
 #: lib/ManaTools/Module/LogViewer.pm:485
 msgid "Save as.."
@@ -4531,56 +4535,56 @@ msgstr "Αποθήκευση ως..."
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Εργαλείο προσθήκης χρηστών Mageia"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: αναγνώστης καταγραφών journalct"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: διαχειριστής χρηστών"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: διαχειριστής υπηρεσιών"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: διαμόρφωση του διαχειριστή σύνδεσης"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: διαχειριστής ημερομηνίας και ώρας"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: διαχειριστής υπολογιστών"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: πίνακας διαχείρισης"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: διαχειριστής διαμεσολαβητή"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: διαχειριστής εγκατάστασης rpm"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: διαχειριστής ενημερώσεων rpm"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: διαχειριστής τείχους προστασίας"
 
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "Η εντολή <%s> δεν βρέθηκε!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
@@ -4588,17 +4592,19 @@ msgstr "ΣΦΑΛΜΑ: "
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Χρήση mana --help | -h        εμφάνιση αυτής της βοήθειας\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Χρήση mana <command> [ορίσματα...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "έγκυρες <commands>:\n"
 
 #: scripts/manaservice:27
 msgid "Services and daemons"
@@ -4606,14 +4612,13 @@ msgstr "Υπηρεσίες και δαίμονες"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
-msgstr ""
+msgstr "Διόρθωση σφαλμάτων"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
 msgstr "Εδώ είναι η λίστα με τις ενημερώσεις των πακέτων λογισμικού"
 
 #: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:440
-#, fuzzy
 #: modules/rpmdragora/rpmdragora:1194
 msgid "Software Management"
 msgstr "Διαχείριση λογισμικού"
@@ -4631,7 +4636,6 @@ msgid "Version"
 msgstr "Έκδοση"
 
 #: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:475
-#, fuzzy
 msgid "Release"
 msgstr "Έκδοση κυκλοφορίας"
 
@@ -4640,23 +4644,20 @@ msgid "Arch"
 msgstr "Αρχιτεκ."
 
 #: modules/rpmdragora/dragoraUpdate:283
-#, fuzzy
 msgid "U&ncheck all"
-msgstr "Αποεπιλογή όλων"
+msgstr "Α&ποεπιλογή όλων"
 
 #: modules/rpmdragora/dragoraUpdate:284
-#, fuzzy
 msgid "&Select all"
-msgstr "Επιλογή όλων"
+msgstr "&Επιλογή όλων"
 
 #: modules/rpmdragora/dragoraUpdate:285
-#, fuzzy
 msgid "&Update"
-msgstr "&Ενημέρωση"
+msgstr "Ε&νημέρωση"
 
 #: modules/rpmdragora/dragoraUpdate:348
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "Το dragoraUpdate είναι το εργαλείο διαχείρισης πακέτων της Mageia."
 
 #: modules/rpmdragora/dragoraUpdate:349
 #, perl-format
@@ -4673,7 +4674,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:412
 msgid "rpmdragora update"
-msgstr ""
+msgstr "ενημέρωση rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid ""
@@ -4681,9 +4682,12 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"Η λίστα με τις ενημερώσεις είναι κενή. Αυτό σημαίνει ότι είτε δεν υπάρχουν "
+"διαθέσιμες ενημερώσεις για τα πακέτα που είναι εγκατεστημένα στον υπολογιστή "
+"σας, είτε ότι έχετε ήδη εγκαταστήσει όλες τις ενημερώσεις."
 
 #: modules/rpmdragora/rpmdragora:317
-#, fuzzy, perl-format
+#, perl-format
 msgid "no xml-info available for medium \"%s\""
 msgstr "δεν υπάρχουν διαθέσιμες πληροφορίες xml για το μέσο «%s»"
 
@@ -4692,9 +4696,8 @@ msgid "Search aborted"
 msgstr "Η αναζήτηση ακυρώθηκε"
 
 #: modules/rpmdragora/rpmdragora:382
-#, fuzzy
 msgid "Selected"
-msgstr "Επιλεγμένα:"
+msgstr "Επιλεγμένα"
 
 #: modules/rpmdragora/rpmdragora:382
 msgid "Not selected"
@@ -4728,7 +4731,7 @@ msgstr "Αρχιτεκ."
 
 #: modules/rpmdragora/rpmdragora:485
 msgid "ToInst"
-msgstr ""
+msgstr "Προς εγκατάσταση"
 
 #: modules/rpmdragora/rpmdragora:537
 msgid "Not installed"
@@ -4811,7 +4814,6 @@ msgid "Search"
 msgstr "Αναζήτηση"
 
 #: modules/rpmdragora/rpmdragora:641
-#, fuzzy
 msgid "Reset"
 msgstr "Επαναφορά"
 
@@ -4824,18 +4826,16 @@ msgid "Exit"
 msgstr "Έξοδος"
 
 #: modules/rpmdragora/rpmdragora:694
-#, fuzzy
 msgid "/_Select dependencies without asking"
-msgstr "_Επιλογή εξαρτήσεων χωρίς να γίνεται ερώτηση"
+msgstr "/_Επιλογή εξαρτήσεων χωρίς να γίνεται ερώτηση"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Clear download cache after successful install"
 msgstr "Καθαρισμός της λανθάνουσας μνήμης μετά από μια επιτυχημένη εγκατάσταση"
 
 #: modules/rpmdragora/rpmdragora:698
-#, fuzzy
 msgid "/_Compute updates on startup"
-msgstr "_Υπολογισμός των ενημερώσεων στην εκκίνηση"
+msgstr "/_Υπολογισμός των ενημερώσεων στην εκκίνηση"
 
 #: modules/rpmdragora/rpmdragora:699
 msgid "Search in _full package names"
@@ -4847,11 +4847,11 @@ msgstr "Χρήση _κανονικών εκφράσεων στις αναζητ�
 
 #: modules/rpmdragora/rpmdragora:707
 msgid "Reset the selection"
-msgstr ""
+msgstr "Επαναφορά της επιλογής"
 
 #: modules/rpmdragora/rpmdragora:708
 msgid "Reload the packages list"
-msgstr ""
+msgstr "Επαναφόρτωση του καταλόγου των πακέτων"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "Settings"
@@ -4859,7 +4859,7 @@ msgstr "Ρυθμίσεις"
 
 #: modules/rpmdragora/rpmdragora:724
 msgid "&Media Manager"
-msgstr ""
+msgstr "&Διαχειριστής μέσων"
 
 #: modules/rpmdragora/rpmdragora:754
 msgid "View"
@@ -4882,11 +4882,18 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Προγραμματιστές</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Μεταφραστές</"
+"h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1186
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "το rpmdragora εκτελείται ήδη (pid: %s)"
 
 #: modules/rpmdragora/rpmdragora:1186
 msgid "Quit"
