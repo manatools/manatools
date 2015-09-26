@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-09-24 07:00+0200\n"
+"PO-Revision-Date: 2015-09-26 07:19+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "Language: el\n"
@@ -4060,15 +4060,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"Το %s είναι μια πρωτεύουσα ομάδα για τον χρήστη %s\n"
+" Αφαιρέστε πρώτα τον χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:425
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Αφαίρεση της ομάδας: %s"
 
 #: lib/ManaTools/Module/Users.pm:472
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Διαγραφώ ή όχι των αρχείων;"
 
 #: lib/ManaTools/Module/Users.pm:479
 #, perl-format
@@ -4076,21 +4078,23 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Διαγραφή του χρήστη %s\n"
+"Επιπλέον πραγματοποίηση των κάτωθεν ενεργειών\n"
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Διαγραφή προσωπικού καταλόγου: %s"
 
 #: lib/ManaTools/Module/Users.pm:484
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "Διαγραφή του γραμματοκιβωτίου: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:512
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Αφαίρεση του χρήστη: %s"
 
 #: lib/ManaTools/Module/Users.pm:544
 msgid "Create New Group"
@@ -4102,20 +4106,20 @@ msgstr "Όνομα ομάδας:"
 
 #: lib/ManaTools/Module/Users.pm:564
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Χειροκίνητος καθορισμός του αναγνωριστικού της ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:566
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:599
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "Η ομάδα υπάρχει ήδη, παρακαλώ επιλέξτε ένα άλλο όνομα ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:607
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr " Το Gid της ομάδας είναι < %n"
 
 #: lib/ManaTools/Module/Users.pm:608
 #, perl-format
@@ -4124,60 +4128,63 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Δεν συνιστάται η δημιουργία μιας ομάδας με GID μικρότερο από %d.\n"
+" Είστε σίγουρος-η ότι θέλετε να το πραγματοποιήσετε;\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:616
 msgid " Group ID is already used "
-msgstr ""
+msgstr " Το αναγνωριστικό της ομάδας χρησιμοποιείται ήδη "
 
 #: lib/ManaTools/Module/Users.pm:617
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Θέλετε να δημιουργήσετε μια ομάδα με μη μοναδικό GID;\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:629
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Προσθήκη ομάδας: %s "
 
 #: lib/ManaTools/Module/Users.pm:685
-#, fuzzy
 msgid "Full Name:"
-msgstr "Πλήρες όνομα"
+msgstr "Πλήρες όνομα:"
 
 #: lib/ManaTools/Module/Users.pm:726
-#, fuzzy
 msgid "Confirm Password:"
 msgstr "Επιβεβαίωση κωδικού πρόσβασης:"
 
 #: lib/ManaTools/Module/Users.pm:735
 msgid "Login Shell:"
-msgstr ""
+msgstr "Κέλυφος σύνδεσης:"
 
 #: lib/ManaTools/Module/Users.pm:774
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Εικονίδιο (%s)"
 
 #: lib/ManaTools/Module/Users.pm:822
 msgid "Create New User"
-msgstr ""
+msgstr "Δημιουργία νέου χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:837
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Δημιουργία προσωπικού καταλόγου"
 
 #: lib/ManaTools/Module/Users.pm:841
 msgid "Home Directory:"
-msgstr ""
+msgstr "Προσωπικός κατάλογος:"
 
 #: lib/ManaTools/Module/Users.pm:850
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Δημιουργία ιδιωτικής ομάδας για τον χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:855
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Χειροκίνητος καθορισμός του αναγνωριστικού του χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:857
 msgid "UID"
@@ -4185,21 +4192,23 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:865
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Κλικ στο εικονίδιο για να το αλλάξετε"
 
 #: lib/ManaTools/Module/Users.pm:917
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Ο χρήστης υπάρχει ήδη, παρακαλώ επιλέξτε ένα άλλο όνομα χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:922 lib/ManaTools/Module/Users.pm:1870
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Αναντιστοιχία κωδικού"
 
 #: lib/ManaTools/Module/Users.pm:926 lib/ManaTools/Module/Users.pm:1876
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Αυτός ο κωδικός πρόσβασης είναι πολύ απλός. \n"
+" Οι καλοί κωδικοί πρόσβασης περιέχουν πάνω από έξι χαρακτήρες"
 
 #: lib/ManaTools/Module/Users.pm:933
 #, perl-format
@@ -4207,11 +4216,14 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"Ο προσωπικός κατάλογος <%s> υπάρχει ήδη.\n"
+"Παρακαλώ αποεπιλέξτε την δημιουργία του προσωπικού καταλόγου, ή αλλάξτε το "
+"όνομα της διαδρομής του καταλόγου"
 
 #: lib/ManaTools/Module/Users.pm:946
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "Το Uid είναι < %d "
 
 #: lib/ManaTools/Module/Users.pm:947
 #, perl-format
@@ -4220,25 +4232,28 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Δεν συνιστάται η δημιουργία ενός χρήστη με UID μικρότερο από %d.\n"
+" Είστε σίγουρος-η ότι θέλετε να το πραγματοποιήσετε;\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:962
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Προσθήκη του %s στην ομάδα «χρήστες»"
 
 #: lib/ManaTools/Module/Users.pm:976
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Δημιουργία νέας ομάδας: %s"
 
 #: lib/ManaTools/Module/Users.pm:989
 msgid "Adding user: "
-msgstr ""
+msgstr "Προσθήκη του χρήστη: "
 
 #: lib/ManaTools/Module/Users.pm:990
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Προσθήκη του χρήστη: %s"
 
 #: lib/ManaTools/Module/Users.pm:1056
 msgid "User Name"
@@ -4250,25 +4265,23 @@ msgstr "Αναγνωριστικό χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:1058 lib/ManaTools/Module/Users.pm:1805
 msgid "Primary Group"
-msgstr ""
+msgstr "Πρωτεύουσα ομάδα"
 
 #: lib/ManaTools/Module/Users.pm:1059
-#, fuzzy
 msgid "Full Name"
 msgstr "Πλήρες όνομα"
 
 #: lib/ManaTools/Module/Users.pm:1060
 msgid "Login Shell"
-msgstr ""
+msgstr "Κέλυφος σύνδεσης"
 
 #: lib/ManaTools/Module/Users.pm:1061
 msgid "Home Directory"
-msgstr ""
+msgstr "Προσωπικός κατάλογος"
 
 #: lib/ManaTools/Module/Users.pm:1102
-#, fuzzy
 msgid "Group Name"
-msgstr "Όνομα ομάδας:"
+msgstr "Όνομα ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:1103
 msgid "Group ID"
@@ -4276,7 +4289,7 @@ msgstr "Αναγνωριστικό ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:1104
 msgid "Group Members"
-msgstr ""
+msgstr "Μέλη της ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:1287 lib/ManaTools/Module/Users.pm:2240
 #: lib/ManaTools/Module/Users.pm:2255 lib/ManaTools/Module/Users.pm:2271
@@ -4285,92 +4298,92 @@ msgid "Users"
 msgstr "Χρήστες"
 
 #: lib/ManaTools/Module/Users.pm:1518
-#, fuzzy
 msgid "Home:"
-msgstr "Αρχική"
+msgstr "Προσωπικός φάκελος:"
 
 #: lib/ManaTools/Module/Users.pm:1617
 msgid "Enable account expiration"
-msgstr ""
+msgstr "Ενεργοποίηση λήξης του λογαριασμού"
 
 #: lib/ManaTools/Module/Users.pm:1620
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "Ο λογαριασμός λήγει στις (ΕΕΕΕ-ΜΜ-ΗΗ):"
 
 #: lib/ManaTools/Module/Users.pm:1627
 msgid "Lock User Account"
-msgstr ""
+msgstr "Κλείδωμα του λογαριασμού του χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:1631
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "Κλικ στο εικονίδιο για να το αλλάξετε"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "User last changed password on: "
-msgstr ""
+msgstr "Τελευταία αλλαγή του κωδικού πρόσβασης χρήστη στις: "
 
 #: lib/ManaTools/Module/Users.pm:1674
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Ενεργοποίηση λήξης του κωδικού πρόσβασης"
 
 #: lib/ManaTools/Module/Users.pm:1678
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Ημέρες πριν από την έγκριση αλλαγής:"
 
 #: lib/ManaTools/Module/Users.pm:1686
 msgid "Days before change required:"
-msgstr ""
+msgstr "Ημέρες πριν από την απαίτηση αλλαγής:"
 
 #: lib/ManaTools/Module/Users.pm:1694
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Ημέρες προειδοποίησης πριν την αλλαγή:"
 
 #: lib/ManaTools/Module/Users.pm:1702
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Ημέρες πριν την απενεργοποίηση του λογαριασμού:"
 
 #: lib/ManaTools/Module/Users.pm:1731
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Επιλέξτε τους χρήστες της ομάδας:"
 
 #: lib/ManaTools/Module/Users.pm:1735
-#, fuzzy
 msgid "User"
 msgstr "Χρήστης"
 
 #: lib/ManaTools/Module/Users.pm:1776
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Επιλέξτε τις ομάδες στις οποίες ο χρήστης θα είναι μέλος:"
 
 #: lib/ManaTools/Module/Users.pm:1882
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Παρακαλώ επιλέξτε τουλάχιστον μια ομάδα για τον χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:1905
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Παρακαλώ καθορίστε το έτος, τον μήνα και την ημέρα \n"
+" για την λήξη του λογαριασμού "
 
 #: lib/ManaTools/Module/Users.pm:1921
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Παρακαλώ συμπληρώστε όλα τα πεδία για την λήξη του κωδικού πρόσβασης\n"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Strong"
-msgstr ""
+msgstr "Ισχυρός"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Weak"
-msgstr ""
+msgstr "Ασθενικός"
 
 #: lib/ManaTools/Module/Users.pm:1969
 msgid "Edit User"
-msgstr ""
+msgstr "Επεξεργασία του χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:2122 lib/ManaTools/Module/Users.pm:2225
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Αδυναμία δημιουργίας των γραφικών συστατικών καρτελών"
 
 #: lib/ManaTools/Module/Users.pm:2138
 msgid "Edit Group"
@@ -4378,7 +4391,7 @@ msgstr "Επεξεργασία ομάδας"
 
 #: lib/ManaTools/Module/Users.pm:2306 lib/ManaTools/Module/Users.pm:2431
 msgid "Add User"
-msgstr ""
+msgstr "Προσθήκη χρήστη"
 
 #: lib/ManaTools/Module/Users.pm:2307 lib/ManaTools/Module/Users.pm:2436
 msgid "Add Group"
@@ -4390,7 +4403,7 @@ msgstr "&Διαγραφή"
 
 #: lib/ManaTools/Module/Users.pm:2310
 msgid "Install guest account"
-msgstr ""
+msgstr "Εγκατάσταση λογαριασμού φιλοξενούμενου"
 
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "manauser"
@@ -4401,6 +4414,8 @@ msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"Το manauser είναι ένα εργαλείο διαχείρισης χρηστών Mageia\n"
+"(από την αρχική ιδέα του userdrake της Mandriva)."
 
 #: lib/ManaTools/Module/Users.pm:2399 lib/ManaTools/Module/Users.pm:2451
 msgid "Refresh"
@@ -4412,7 +4427,7 @@ msgstr "Ενέργειες"
 
 #: lib/ManaTools/Module/Users.pm:2465
 msgid "Filter system users"
-msgstr ""
+msgstr "Φιλτράρισμα των χρηστών του συστήματος"
 
 #: lib/ManaTools/Module/Users.pm:2470
 msgid "Search:"
@@ -4423,9 +4438,8 @@ msgid "Apply filter"
 msgstr "Εφαρμογή φίλτρου"
 
 #: lib/ManaTools/Module/LogViewer.pm:127
-#, fuzzy
 msgid "Log viewer"
-msgstr "Προβολέας καταγραφής"
+msgstr "Προβολέας καταγραφών"
 
 #: lib/ManaTools/Module/LogViewer.pm:181
 msgid "A tool to monitor your logs"
@@ -4449,7 +4463,7 @@ msgstr "Τελευταία εκκίνηση"
 
 #: lib/ManaTools/Module/LogViewer.pm:211
 msgid "Since"
-msgstr ""
+msgstr "Από"
 
 #: lib/ManaTools/Module/LogViewer.pm:216
 msgid "Until"
@@ -4457,15 +4471,15 @@ msgstr "Μέχρι"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "Select a unit"
-msgstr ""
+msgstr "Επιλέξτε μια μονάδα"
 
 #: lib/ManaTools/Module/LogViewer.pm:265
 msgid "From priority"
-msgstr ""
+msgstr "Από προτεραιότητα"
 
 #: lib/ManaTools/Module/LogViewer.pm:285
 msgid "To priority"
-msgstr ""
+msgstr "Σε προτεραιότητα"
 
 #: lib/ManaTools/Module/LogViewer.pm:303
 msgid "&Find"
@@ -4473,16 +4487,15 @@ msgstr "&Αναζήτηση"
 
 #: lib/ManaTools/Module/LogViewer.pm:306
 msgid "Log content"
-msgstr ""
+msgstr "Περιεχόμενο καταγραφής"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
-#, fuzzy
 msgid "&Save"
 msgstr "Απο&θήκευση"
 
 #: lib/ManaTools/Module/LogViewer.pm:349
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Ο προβολέας καταγραφών είναι ένας προβολέας του ημερολογίου systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:350
 #, perl-format
@@ -4503,7 +4516,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:368
 msgid "Empty log found"
-msgstr ""
+msgstr "Κενό αρχείο καταγραφών "
 
 #: lib/ManaTools/Module/LogViewer.pm:462
 msgid ""
