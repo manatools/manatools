@@ -26,6 +26,12 @@ package  ManaTools::Shared::GUI::CommandLine;
         documentation => $loc->N('we have a new option to manage here')
     );
 
+    ...
+
+    # check if new option is set
+    if ($cl->new_option) {
+        ...
+    }
 
 =head1 DESCRIPTION
 
