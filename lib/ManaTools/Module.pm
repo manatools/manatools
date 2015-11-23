@@ -26,6 +26,7 @@ use Moose;
 use ManaTools::Shared;
 use ManaTools::Shared::Locales;
 use ManaTools::Shared::Logging;
+use ManaTools::Shared::GUI::CommandLine;
 
 =head1 VERSION
 
@@ -146,6 +147,30 @@ sub _loggerInitialize{
 
     return ManaTools::Shared::Logging->new(ident => $self->name);
 }
+
+
+#=============================================================
+
+=head2 commandline
+
+    commandline attribute defines the given command line, if
+    --help is passed help message is shown and the module is not
+    loaded.
+    See ManaTools::Shared::GUI::CommandLine for details and usage.
+
+=cut
+
+#=============================================================
+has 'commandline' => (
+    is => 'ro',
+    isa => 'ManaTools::Shared::GUI::CommandLine',
+    init_arg => undef,
+    default => sub {
+        return ManaTools::Shared::GUI::CommandLine->new_with_options();
+    }
+);
+
+
 
 #=============================================================
 
