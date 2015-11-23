@@ -161,7 +161,7 @@ has 'lastItem' => (
 );
 
 has 'itemcollection' => (
-    is => 'ro',
+    is => 'rw',
     isa => 'yui::YItemCollection',
     init_arg => undef,
     default => sub {
@@ -361,6 +361,33 @@ sub buildItem {
 
 #=============================================================
 
+=head2 clearItems
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    clears the tab to prepare for re-adding new items, call finishedItems() afterwards
+
+=cut
+
+#=============================================================
+sub clearItems {
+    my $self = shift;
+    my $items = $self->items();
+
+    # remove all events before deleting all items
+    $self->clearEvents();
+
+    for (my $i = 0; $i < scalar(@{$items}); $i = $i + 1) {
+        delete $items->[$i];
+    }
+}
+
+#=============================================================
+
 =head2 finishedItems
 
 =head3 INPUT
@@ -376,9 +403,24 @@ sub buildItem {
 #=============================================================
 sub finishedItems {
     my $self = shift;
+
+    # remove all Items before adding
+    $self->tab->deleteAllItems();
+
+    # remove all children
+    $self->tab->deleteChildren();
+
+    # add items from collection
     $self->tab->addItems($self->itemcollection);
+
+    # set last item to know the active item
     my $item = $self->lastItem();
+
+    # show the current one if there is one
     $self->buildItem($item) if defined($item);
+
+    # create a new itemcollection for adding new items
+    $self->itemcollection(new yui::YItemCollection());
 }
 
 #=============================================================
