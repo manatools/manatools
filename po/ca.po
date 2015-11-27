@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-07-07 16:33+0200\n"
-"PO-Revision-Date: 2015-11-20 18:11+0000\n"
+"PO-Revision-Date: 2015-11-26 11:08+0000\n"
 "Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -817,12 +817,12 @@ msgstr "S'està comprovant la validesa dels paquets demanats..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:784
 msgid "Unable to get source packages."
-msgstr "No es poden obtenir els paquets dels fonts."
+msgstr "No es poden obtenir els paquets de les fonts."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:785
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr "No es poden obtenir els paquets dels fonts, perdoneu. %s"
+msgstr "No es poden obtenir els paquets de les fonts, perdoneu. %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:786
 #, perl-format
@@ -864,8 +864,7 @@ msgstr "Cal esborrar el següent paquet perquè se'n puguin instal·lar d'altres
 #: lib/ManaTools/Rpmdragora/pkg.pm:813
 msgid "The following packages have to be removed for others to be upgraded:"
 msgstr ""
-"Els paquets següents s'han d'eliminar per poder actualitzar-ne uns altres:\n"
-"%s"
+"Els paquets següents s'han d'eliminar per poder actualitzar-ne uns altres:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "Is it ok to continue?"
@@ -1297,7 +1296,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr ""
+msgstr "Afegeix la limitació d'un suport"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
@@ -1364,7 +1363,7 @@ msgstr "Protocol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "Límit del suport"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
@@ -1941,7 +1940,7 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
-"La llista d'actualizacions està buida. Això vol dir que no hi ha\n"
+"La llista d'actualitzacions està buida. Això vol dir que no hi ha\n"
 "cap actualització per als paquets instal·lats en el vostre \n"
 "ordinador, o bé que ja les heu instal·lades totes."
 
@@ -1974,7 +1973,7 @@ msgstr "Desconegut"
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "s'utilitzarà %s d'espai de disc addicional."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
@@ -2738,6 +2737,11 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"El cron és un programa UNIX estàndard que executa programes determinats\n"
+"per l'usuari en hores programades. El vixie cron afegeix un cert nombre de\n"
+"característiques al cron bàsic, incloent-hi la seguretat millorada i les "
+"opcions\n"
+"de configuració més potents."
 
 #: lib/ManaTools/Shared/Services.pm:258
 msgid ""
@@ -2802,7 +2806,8 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
-"El dimoni superservidor d'Internet (conegut normalment com 'inetd') inicia\n"
+"El dimoni del superservidor d'Internet (conegut normalment com a 'inetd') "
+"inicia\n"
 "altres serveis d'Internet a mesura que es van necessitant. És el "
 "responsable\n"
 "d'iniciar molts serveis, incloent-hi el telnet, el ftp, el rsh i el rlogin. "
@@ -2960,6 +2965,10 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"portmapper gestiona les connexions RPC, que s'usen per\n"
+"protocols com ara l'NFS i el NIS. El servidor portmap s'ha d'estar\n"
+"executant en ordinadors que actuen com a servidors per a protocols que\n"
+"utilitzen el mecanisme RPC."
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid "Reserves some TCP ports"
@@ -3862,7 +3871,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:726
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Confirmeu la contrasenya:"
 
 #: lib/ManaTools/Module/Users.pm:735
 msgid "Login Shell:"
@@ -4038,7 +4047,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1702
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Dies abans que s'inactivi el compte:"
 
 #: lib/ManaTools/Module/Users.pm:1731
 msgid "Select the users to join this group:"
@@ -4324,7 +4333,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:262
 msgid "Arch"
-msgstr ""
+msgstr "Arquitectura"
 
 #: modules/rpmdragora/dragoraUpdate:283
 msgid "U&ncheck all"
