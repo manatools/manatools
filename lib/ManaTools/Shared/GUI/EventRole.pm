@@ -73,7 +73,7 @@ requires 'processEvent';
 
 has 'eventHandler' => (
     is => 'ro',
-    isa => 'ManaTools::Shared::GUI::EventHandlerRole',
+    does => 'ManaTools::Shared::GUI::EventHandlerRole',
     required => 1,
 );
 
