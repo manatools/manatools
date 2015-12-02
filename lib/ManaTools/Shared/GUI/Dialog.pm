@@ -11,17 +11,17 @@ ManaTools::Shared::GUI::Dialog - Class to manage a yui YDumbTab properly
 use ManaTools::Shared::GUI::Dialog;
 
 my $dlg = ManaTools::Shared::GUI::Dialog->new(
-    dialogType => $ManaTools::Shared::GUI::Dialog::mainDialog, ## or popupDialog
+    dialogType => ManaTools::Shared::GUI::Dialog->mainDialog, ## or popupDialog
     title => "New Title",
     icon => $icon,
     optFields => [
-        $ManaTools::Shared::GUI::Dialog::TimeField,
-        $ManaTools::Shared::GUI::Dialog::DateField,
-        $ManaTools::Shared::GUI::Dialog::TabField,
+        ManaTools::Shared::GUI::Dialog->TimeField,
+        ManaTools::Shared::GUI::Dialog->DateField,
+        ManaTools::Shared::GUI::Dialog->TabField,
     ],
     buttons => [
-        $ManaTools::Shared::GUI::Dialog::cancelButton,
-        $ManaTools::Shared::GUI::Dialog::okButton,
+        ManaTools::Shared::GUI::Dialog->cancelButton,
+        ManaTools::Shared::GUI::Dialog->okButton,
     ],
     event_timeout => 0, # event timeout in msec during the waitForEvent()
     layout => sub { my $self = shift; my $layoutstart = shift; my $dlg = $self->dialog(); my $info = $self->info(); ... $self->addWidget('button1', $button, sub{...}, $backendItem1); },
@@ -71,11 +71,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
 
 use Moose;
+with 'ManaTools::Shared::GUI::EventHandlerRole';
+
 use diagnostics;
 use utf8;
 
-with 'ManaTools::Shared::GUI::EventHandlerRole';
 use Moose::Util::TypeConstraints;
+use MooseX::ClassAttribute;
 
 use yui;
 use ManaTools::Shared::GUI::Event;
@@ -87,16 +89,16 @@ use ManaTools::Shared::GUI::Event;
 
     hash ref containing
         module:             the parent ManaTools::Module
-        dialogType:         $ManaTools::Shared::GUI::Dialog::mainDialog, or popupDialog
+        dialogType:         ManaTools::Shared::GUI::Dialog->mainDialog, or popupDialog
         title:              a title
         icon:               an icon
         layout:             a callback that builds the layout of the dialog
         restoreValues:      an optional callback that restore the values to an $info HashRef
         event_timeout:      an optional and rw timeout in msec during the waitForEvent()
                             needs a ManaTools::Shared::GUI::Event to manage the $yui::YEvent::TimeoutEvent
-        buttons:            an optional hashref containing 
-                                $ManaTools::Shared::GUI::Dialog::cancelButton and/or
-                                $ManaTools::Shared::GUI::Dialog::okButton
+        buttons:            an optional hashref containing
+                                ManaTools::Shared::GUI::Dialog->cancelButton and/or
+                                ManaTools::Shared::GUI::Dialog->okButton
         result:             an optional callback for returning a result (mostly for popupDialogs)
 
 =head3 DESCRIPTION
@@ -172,9 +174,6 @@ has 'event_timeout' => (
     default => 0,
 );
 
-our $mainDialog = 1;
-our $popupDialog = 2;
-
 subtype 'DialogType'
     => as Int
     => where {($_ > 0 && $_<=2)};
@@ -183,6 +182,20 @@ has 'dialogType' => (
     is => 'ro',
     isa => 'DialogType',
     required => 1,
+);
+
+class_has 'mainDialog' => (
+    is => 'ro',
+    isa => 'DialogType',
+    init_arg => undef,
+    default => sub {return 1;},
+);
+
+class_has 'popupDialog' => (
+    is => 'ro',
+    isa => 'DialogType',
+    init_arg => undef,
+    default => sub {return 2;},
 );
 
 has 'title' => (
@@ -197,11 +210,35 @@ has 'icon' => (
     required => 1,
 );
 
-our $cancelButton = 1;
-our $okButton = 2;
-our $closeButton = 3;
-our $resetButton = 4;
-our $aboutButton = 5;
+class_has 'cancelButton' => (
+    is => 'ro',
+    init_arg => undef,
+    default => sub {return 'cancelButton';},
+);
+
+class_has 'okButton' => (
+    is => 'ro',
+    init_arg => undef,
+    default => sub {return 'okButton';},
+);
+
+class_has 'closeButton' => (
+    is => 'ro',
+    init_arg => undef,
+    default => sub {return 'closeButton';},
+);
+
+class_has 'resetButton' => (
+    is => 'ro',
+    init_arg => undef,
+    default => sub {return 'resetButton';},
+);
+
+class_has 'aboutButton' => (
+    is => 'ro',
+    init_arg => undef,
+    default => sub {return 'aboutButton';},
+);
 
 has 'buttons' => (
     is => 'ro',
@@ -212,9 +249,25 @@ has 'buttons' => (
     },
 );
 
-our $DateField = 1;
-our $TimeField = 2;
-our $TabField = 3;
+class_has 'DateField' => (
+    is => 'ro',
+    isa => 'Int',
+    init_arg => undef,
+    default => sub {return 1;},
+);
+class_has 'TimeField' => (
+    is => 'ro',
+    isa => 'Int',
+    init_arg => undef,
+    default => sub {return 2;},
+);
+class_has 'TabField' => (
+    is => 'ro',
+    isa => 'Int',
+    init_arg => undef,
+    default => sub {return 3;},
+);
+
 
 has 'optFields' => (
     is => 'ro',
@@ -286,9 +339,9 @@ sub checkFields {
     my $fields = $self->optFields();
     my $optFactory = $self->optFactory();
     for my $field (@{$fields}) {
-        return 0 if ($field == $ManaTools::Shared::GUI::Dialog::TimeField && !$optFactory->hasTimeField());
-        return 0 if ($field == $ManaTools::Shared::GUI::Dialog::DateField && !$optFactory->hasDateField());
-        return 0 if ($field == $ManaTools::Shared::GUI::Dialog::TabField && !$optFactory->hasdumbTab());
+        return 0 if ($field == ManaTools::Shared::GUI::Dialog->TimeField && !$optFactory->hasTimeField());
+        return 0 if ($field == ManaTools::Shared::GUI::Dialog->DateField && !$optFactory->hasDateField());
+        return 0 if ($field == ManaTools::Shared::GUI::Dialog->TabField && !$optFactory->hasdumbTab());
     }
     return 1;
 }
@@ -344,7 +397,7 @@ sub addButtons {
     my $buttons = $self->buttons;
     return if scalar(keys %{$buttons}) == 0;
     my $factory = $self->factory();
-    
+
     ### buttons on the last line
     $factory->createVSpacing($layout, 1.0);
     my $buttonbox = $factory->createHBox($layout);
@@ -352,15 +405,18 @@ sub addButtons {
     ## Left side
     my $align = $factory->createLeft($buttonbox);
     my $hbox = $factory->createHBox($align);
-    $self->addWidget('aboutButton', $factory->createPushButton($hbox, $self->loc->N("&About")), $self->getButton($ManaTools::Shared::GUI::Dialog::aboutButton)) if $self->getButton($ManaTools::Shared::GUI::Dialog::aboutButton);
-    $self->addWidget('resetButton', $factory->createPushButton($hbox, $self->loc->N("&Reset")), $self->getButton($ManaTools::Shared::GUI::Dialog::resetButton)) if $self->getButton($ManaTools::Shared::GUI::Dialog::resetButton);
+$DB::single = 1;
+    $self->addWidget('aboutButton',
+                     $factory->createPushButton($hbox, $self->loc->N("&About")),
+                     $self->getButton(ManaTools::Shared::GUI::Dialog->aboutButton)) if $self->getButton(ManaTools::Shared::GUI::Dialog->aboutButton);
+    $self->addWidget('resetButton', $factory->createPushButton($hbox, $self->loc->N("&Reset")), $self->getButton(ManaTools::Shared::GUI::Dialog->resetButton)) if $self->getButton(ManaTools::Shared::GUI::Dialog->resetButton);
 
     ## Right side
     $align = $factory->createRight($buttonbox);
     $hbox = $factory->createHBox($align);
-    $self->addWidget('cancelButton', $factory->createPushButton($hbox, $self->loc->N("&Cancel")), $self->getButton($ManaTools::Shared::GUI::Dialog::cancelButton)) if $self->getButton($ManaTools::Shared::GUI::Dialog::cancelButton);
-    $self->addWidget('okButton', $factory->createPushButton($hbox, $self->loc->N("&Ok")), $self->getButton($ManaTools::Shared::GUI::Dialog::okButton)) if $self->getButton($ManaTools::Shared::GUI::Dialog::okButton);
-    $self->addWidget('closeButton', $factory->createPushButton($hbox, $self->loc->N("&Close")), $self->getButton($ManaTools::Shared::GUI::Dialog::closeButton)) if $self->getButton($ManaTools::Shared::GUI::Dialog::closeButton);
+    $self->addWidget('cancelButton', $factory->createPushButton($hbox, $self->loc->N("&Cancel")), $self->getButton(ManaTools::Shared::GUI::Dialog->cancelButton)) if $self->getButton(ManaTools::Shared::GUI::Dialog->cancelButton);
+    $self->addWidget('okButton', $factory->createPushButton($hbox, $self->loc->N("&Ok")), $self->getButton(ManaTools::Shared::GUI::Dialog->okButton)) if $self->getButton(ManaTools::Shared::GUI::Dialog->okButton);
+    $self->addWidget('closeButton', $factory->createPushButton($hbox, $self->loc->N("&Close")), $self->getButton(ManaTools::Shared::GUI::Dialog->closeButton)) if $self->getButton(ManaTools::Shared::GUI::Dialog->closeButton);
     $factory->createHSpacing($hbox, 1.0);
 
     ## no changes by default
@@ -413,8 +469,8 @@ sub call {
 
     ## create the dialog
     my $factory = $self->factory();
-    $self->dialog($factory->createMainDialog()) if ($self->dialogType() == $ManaTools::Shared::GUI::Dialog::mainDialog);
-    $self->dialog($factory->createPopupDialog()) if ($self->dialogType() == $ManaTools::Shared::GUI::Dialog::popupDialog);
+    $self->dialog($factory->createMainDialog()) if ($self->dialogType() == ManaTools::Shared::GUI::Dialog->mainDialog);
+    $self->dialog($factory->createPopupDialog()) if ($self->dialogType() == ManaTools::Shared::GUI::Dialog->popupDialog);
     my $ydialog = $self->dialog();
     my $layoutstart = $ydialog;
     my $vbox = undef;

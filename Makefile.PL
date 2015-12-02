@@ -21,12 +21,13 @@ WriteMakefile(
     },
     BUILD_REQUIRES => {
         'Test::More' => 0,
-	'File::ShareDir::Install' => 0,
+        'File::ShareDir::Install' => 0,
     },
     PREREQ_PM => {
         "Moose"              => 0,
         "Moose::Autobox"     => 0,
-	"MooseX::Getopt"     => 0,
+        "MooseX::Getopt"     => 0,
+        "MooseX::ClassAttribute" => 0,
         "Config::Auto"       => 0,
         "Config::Hosts"      => 0,
         "Config::Tiny"       => 0,
