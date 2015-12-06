@@ -407,9 +407,6 @@ sub finishedItems {
     # remove all Items before adding
     $self->tab->deleteAllItems();
 
-    # remove all children
-    $self->tab->deleteChildren();
-
     # add items from collection
     $self->tab->addItems($self->itemcollection);
 
