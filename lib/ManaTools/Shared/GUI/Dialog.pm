@@ -405,7 +405,7 @@ sub addButtons {
     ## Left side
     my $align = $factory->createLeft($buttonbox);
     my $hbox = $factory->createHBox($align);
-$DB::single = 1;
+
     $self->addWidget('aboutButton',
                      $factory->createPushButton($hbox, $self->loc->N("&About")),
                      $self->getButton(ManaTools::Shared::GUI::Dialog->aboutButton)) if $self->getButton(ManaTools::Shared::GUI::Dialog->aboutButton);
