@@ -341,7 +341,7 @@ sub checkFields {
     for my $field (@{$fields}) {
         return 0 if ($field == ManaTools::Shared::GUI::Dialog->TimeField && !$optFactory->hasTimeField());
         return 0 if ($field == ManaTools::Shared::GUI::Dialog->DateField && !$optFactory->hasDateField());
-        return 0 if ($field == ManaTools::Shared::GUI::Dialog->TabField && !$optFactory->hasdumbTab());
+        return 0 if ($field == ManaTools::Shared::GUI::Dialog->TabField && !$optFactory->hasDumbTab());
     }
     return 1;
 }
