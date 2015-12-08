@@ -51,19 +51,23 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 =cut
 
 use Moose;
+extends qw( ManaTools::Module );
 
 use diagnostics;
 
-use ManaTools::Shared::GUI;
 use File::ShareDir ':ALL';
 use ManaTools::Shared::Locales;
 use ManaTools::Shared::TimeZone;
+use ManaTools::Shared::GUI;
+use ManaTools::Shared::GUI::ExtTab;
+
+use ManaTools::Shared::GUI::Dialog;
+
 
 use Time::Piece;
 
 use yui;
 
-extends qw( ManaTools::Module );
 
 has '+icon' => (
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaclock.png'),
@@ -95,14 +99,20 @@ sub _SharedTimeZoneInitialize {
     $self->sh_tz(ManaTools::Shared::TimeZone->new(loc => $self->loc) );
 }
 
+has 'NTPServers' => (
+        is => 'ro',
+        lazy => 1,
+        init_arg => undef,
+        builder => '_get_NTPservers'
+);
 
 =head1 VERSION
 
-Version 1.0.1
+Version 1.1.0
 
 =cut
 
-our $VERSION = '1.0.1';
+our $VERSION = '1.1.0';
 
 #=============================================================
 
@@ -148,7 +158,7 @@ sub start {
     my $self = shift;
 
     $self->_adminClockPanel();
-};
+}
 
 ### _get_NTPservers
 ## returns ntp servers in the format
@@ -193,175 +203,89 @@ sub _restoreValues {
     return $info;
 }
 
+
 sub _adminClockPanel {
     my $self = shift;
 
-    my $appTitle = yui::YUI::app()->applicationTitle();
+    my $dialog = ManaTools::Shared::GUI::Dialog->new(
+        module => $self,
+        dialogType => ManaTools::Shared::GUI::Dialog::mainDialog,
+        title => $self->name(),
+        icon => $self->icon(),
+        buttons => {
+            ManaTools::Shared::GUI::Dialog::aboutButton => sub {
+                my $event = shift; ## ManaTools::Shared::GUI::Event
+                my $self = $event->parentDialog()->module(); #this object
 
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($self->name);
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon($self->icon);
+                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
+                $translators =~ s/\</\&lt\;/g;
+                $translators =~ s/\>/\&gt\;/g;
+                $self->sh_gui->AboutDialog({
+                    name    => $self->name,
+                    version => $self->VERSION,
+                    credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2015'),
+                    license => $self->loc->N("GPLv2"),
+                    description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
+                    authors => $self->loc->N("<h3>Developers</h3>
+                                              <ul><li>%s</li></ul>
+                                              <h3>Translators</h3>
+                                              <ul><li>%s</li></ul>",
+                                              "Angelo Naselli &lt;anaselli\@linux.it&gt;",
+                                              $translators
+                    ),
+                });
+                return 1;
+            },
+            ManaTools::Shared::GUI::Dialog::resetButton => sub {
+                my $event = shift; ## ManaTools::Shared::GUI::Event
+                my $dialog = $event->parentDialog();
+                my $self = $dialog->module(); #this object
 
-    my $factory    = yui::YUI::widgetFactory;
-    my $optFactory = yui::YUI::optionalWidgetFactory;
-    die "calendar widgets missing" if (!$optFactory->hasDateField() || !$optFactory->hasTimeField());
+                my $datetime_only = $self->sh_gui->ask_YesOrNo({
+                    title  => $self->loc->N("Restore data"),
+                    text   => $self->loc->N("Restore date and time only?"),
+                    default_button => 1, #Yes
+                });
+                my $info = $dialog->info();
+                my $newInfo = $self->_restoreValues($datetime_only);
+                if ($datetime_only) {
+                    $info->{date} = $newInfo->{date};
+                    $info->{time} = $newInfo->{time};
+                }
+                else{
+                    $info = $newInfo;
+                }
 
-    ## default value
-    my $info = $self->_restoreValues();
+                $dialog->widget('dateField')->setValue($info->{date});
 
-#    MainDialog
-# +-------------------------------+
-# |  VBOX                         |
-# |  +-------------------------+  |
-# |  | +---------------------+ |  |
-# |  | |________HBOX_________| |  |
-# |  |                         |  |
-# |  | +---------------------+ |  |
-# |  | |________HBOX_________| |  |
-# |  |                         |  |
-# |  | +---------------------+ |  |
-# |  | |________HBOX_________| |  |
-# |  +-------------------------+  |
-# |                               |
-# +-------------------------------+
-
-    # Create Dialog
-    my $dialog  = $factory->createMainDialog;
-#     my $minSize = $factory->createMinSize($dialog, 40, 15);
-
-    # Start Dialog layout:
-    my $layout = $factory->createVBox($dialog);
-
-    ### first line Setting Date and Time
-    my $hbox = $factory->createHBox($layout);
-    my $align  = $factory->createLeft($hbox);
-    my $dateTimeFrame = $factory->createFrame($align, $self->loc->N("Setting date and time"));
-    $hbox = $factory->createHBox($dateTimeFrame);
-
-    my $dateField = $optFactory->createDateField($hbox, "");
-    $factory->createHSpacing($hbox, 3.0);
-    my $timeField = $optFactory->createTimeField($hbox, "");
-    $factory->createHSpacing($hbox, 1.0);
-    $factory->createVSpacing($hbox, 1.0);
-    $factory->createVSpacing($layout, 1.0);
-    $dateField->setValue($info->{date});
-    $timeField->setValue($info->{time});
-
-    ### second line setting NTP
-    $hbox = $factory->createHBox($layout);
-    $align  = $factory->createLeft($hbox);
-    my $ntpFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Enable Network Time Protocol"), 0);
-
-    my $hbox1 = $factory->createHBox($ntpFrame);
-    my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change &NTP server"));
-    $factory->createHSpacing($hbox1, 1.0);
-    my $ntpService = $factory->createComboBox($hbox1, "", );
-    my $itemColl = new yui::YItemCollection;
-    my $sel_serv = $self->sh_tz->currentNTPService();
-    foreach my $serv (@{$self->sh_tz->ntpServiceList()}) {
-        my $item = new yui::YItem ($serv, 0);
-        $item->setSelected(1) if ($sel_serv && $sel_serv eq $serv);
-        $itemColl->push($item);
-        $item->DISOWN();
-    }
-    $ntpService->addItems($itemColl);
-
-    $factory->createLabel($hbox1,$self->loc->N("Current:"));
-    $factory->createHSpacing($hbox1, 1.0);
-#     my $ntpLabel = $factory->createLabel($hbox1, $self->sh_tz->currentNTPService());
-#     $factory->createHSpacing($hbox1, 1.0);
-    my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
-    if ($info->{ntp_server}) {
-        $ntpLabel->setValue($info->{ntp_server});
-    }
-    $ntpFrame->setValue($info->{ntp_running});
-    $dateTimeFrame->setEnabled(!$info->{ntp_running});
-    $ntpFrame->setNotify(1);
-
-    $factory->createHSpacing($hbox1, 1.0);
-    $ntpLabel->setWeight($yui::YD_HORIZ, 2);
-    $changeNTPButton->setWeight($yui::YD_HORIZ, 1);
-    $factory->createHSpacing($hbox, 1.0);
-    $factory->createVSpacing($layout, 1.0);
-
-    ### third line setting TZ
-    $hbox = $factory->createHBox($layout);
-    $align  = $factory->createLeft($hbox);
-    my $frame   = $factory->createFrame ($align, $self->loc->N("TimeZone"));
-    $hbox1 = $factory->createHBox( $frame );
-    my $changeTZButton = $factory->createPushButton($hbox1, $self->loc->N("Change &Time Zone"));
-    $factory->createHSpacing($hbox1, 1.0);
-    $factory->createLabel($hbox1,$self->loc->N("Current:"));
-    $factory->createHSpacing($hbox1, 1.0);
-    my $timeZoneLbl = $factory->createLabel($hbox1, $self->loc->N("not defined"));
-
-    if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
-        $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
-    }
-    $factory->createHSpacing($hbox1, 1.0);
-    $timeZoneLbl->setWeight($yui::YD_HORIZ, 2);
-    $changeTZButton->setWeight($yui::YD_HORIZ, 1);
-    $factory->createHSpacing($hbox, 1.0);
-
-    ### buttons on the last line
-    $factory->createVSpacing($layout, 1.0);
-    $hbox = $factory->createHBox($layout);
-
-    $align = $factory->createLeft($hbox);
-    $hbox1 = $factory->createHBox($align);
-    my $aboutButton = $factory->createPushButton($hbox1, $self->loc->N("&About") );
-    my $resetButton = $factory->createPushButton($hbox1, $self->loc->N("&Reset") );
-
-    $align = $factory->createRight($hbox);
-    $hbox1 = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox1, $self->loc->N("&Cancel"));
-    my $okButton = $factory->createPushButton($hbox1, $self->loc->N("&Ok"));
-    $factory->createHSpacing($hbox, 1.0);
-
-    ## no changes by default
-    $dialog->setDefaultButton($cancelButton);
-
-    ### End Dialog layout ###
-
-    # get only once
-    my $NTPservers = $self->_get_NTPservers();
-
-    while(1) {
-        my $event       = $dialog->waitForEvent(1000);
-        my $eventType   = $event->eventType();
-
-        #event type checking
-        if ($eventType == $yui::YEvent::CancelEvent) {
-            last;
-        }
-        elsif ($eventType == $yui::YEvent::TimeoutEvent) {
-            my $t = Time::Piece->strptime($timeField->value(), "%H:%M:%S") + 1;
-            $timeField->setValue($t->strftime("%H:%M:%S"));
-        }
-        elsif ($eventType == $yui::YEvent::WidgetEvent) {
-            # widget selected
-            my $widget = $event->widget();
-            if ($widget == $cancelButton) {
-                last;
-            }
-            elsif ($widget == $ntpFrame) {
-                if (scalar @{$self->sh_tz->ntpServiceList()} == 0) {
-                    $self->sh_gui->warningMsgBox({
-                        title => $self->loc->N("manaclock: NTP service missed"),
-                        text  => $self->loc->N("Please install a NTP service such as chrony or ntp to manage"),
-                        richtext => 1,
-                    });
-                    $ntpFrame->setValue(0);
-                    $dateTimeFrame->setEnabled(1);
+                $dialog->widget('timeField')->setValue($info->{time});
+                if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
+                    $dialog->widget('timeZoneLbl')->setValue($info->{time_zone}->{ZONE});
                 }
                 else {
-                    $dateTimeFrame->setEnabled(!$ntpFrame->value());
+                    $dialog->widget('timeZoneLbl')->setValue($self->loc->N("not defined"));
                 }
-            }
-            elsif ($widget == $okButton) {
+                if ($info->{ntp_server}) {
+                    $dialog->widget('ntpLabel')->setValue($info->{ntp_server});
+                }
+                else {
+                    $dialog->widget('ntpLabel')->setValue($self->loc->N("not defined"));
+                }
+                $dialog->widget('ntpFrame')->setValue($info->{ntp_running});
+
+                return 1;
+            },
+            ManaTools::Shared::GUI::Dialog::cancelButton => sub {return 0;},
+            ManaTools::Shared::GUI::Dialog::okButton => sub {
+                my $event = shift; ## ManaTools::Shared::GUI::Event
+                my $dialog = $event->parentDialog();
+                my $self = $dialog->module(); #this object
+                my $ydialog = $dialog->dialog();
+
                 yui::YUI::app()->busyCursor();
+                my $info = $dialog->info();
                 my $finished = 1;
+
                 # (1) write new TZ settings
                 # (2) write new NTP settigs if checked
                 # (3) use date time fields if NTP is not checked
@@ -380,7 +304,7 @@ sub _adminClockPanel {
                     }
                     # NOTE refresh to clean closed dialogs it happens in user mode
                     #      after polkit password dialog or warning dialog
-                    $dialog->pollEvent();
+                    $ydialog->pollEvent();
                 }
                 if ($info->{time_zone}->{ZONE} ne $old_conf->{ZONE}) {
                     eval { $self->sh_tz->setTimeZone($info->{time_zone}->{ZONE}) };
@@ -395,8 +319,9 @@ sub _adminClockPanel {
                     }
                     # NOTE refresh to clean closed dialogs it happens in user mode
                     #      after polkit password dialog or warning dialog
-                    $dialog->pollEvent();
+                    $ydialog->pollEvent();
                 }
+                my $ntpFrame = $dialog->widget('ntpFrame');
                 if ($ntpFrame->value()) {
                     # (2)
                     my $currentServer   = $self->sh_tz->ntpCurrentServer();
@@ -404,6 +329,7 @@ sub _adminClockPanel {
                     $currentServer      =~ s/^\d+\.// if $currentServer;
                     my $isRunning       = $self->sh_tz->isNTPRunning();
                     my $currentService  = $self->sh_tz->ntp_program();
+                    my $ntpService      = $dialog->widget('ntpService');
                     my $selectedService = $ntpService->selectedItem();
 
                     my $sameService = ($currentService && $currentService eq $selectedService->label());
@@ -416,7 +342,7 @@ sub _adminClockPanel {
                         # we stop the service anyway
                         if ($isRunning) {
                             eval { $self->sh_tz->disableAndStopNTP() };
-                            $dialog->pollEvent();
+                            $ydialog->pollEvent();
                         }
                         # (a) different service or same service - different configuration
                         if (!$sameService) {
@@ -432,7 +358,7 @@ sub _adminClockPanel {
                                     richtext => 1,
                                 });
                             }
-                            $dialog->pollEvent();
+                            $ydialog->pollEvent();
                         }
                         # and finally enabling the service
                         eval { $self->sh_tz->enableAndStartNTP($info->{ntp_server}) };
@@ -445,10 +371,12 @@ sub _adminClockPanel {
                                 richtext => 1,
                             });
                         }
-                        $dialog->pollEvent();
+                        $ydialog->pollEvent();
                     }
                 }
                 else {
+                    my $timeField = $dialog->widget('timeField');
+                    my $dateField = $dialog->widget('dateField');
                     my $t =  Time::Piece->strptime($dateField->value()."T".$timeField->value(),
                                                     "%Y-%m-%dT%H:%M:%S"
                     );
@@ -469,129 +397,271 @@ sub _adminClockPanel {
                 }
                 yui::YUI::app()->normalCursor();
 
-                last if ($finished);
-            }
-            elsif ($widget == $changeNTPButton) {
-                # get time to calculate elapsed
-                my $t0 = localtime;
-                my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("NTP server - DrakClock"),
-                                                            header => $self->loc->N("Choose your NTP server"),
-                                                            default_button => 1,
-                                                            item_separator => '|',
-                                                            default_item => $info->{ntp_server},
-                                                            skip_path => 1,
-                                                            list  => $NTPservers});
-                if ($item) {
-                    $ntpLabel->setValue($item);
-                    $info->{ntp_server} = $item;
-                }
-                # fixing elapsed time (dialog is modal)
-                my $t1 = localtime;
-                my $elapsed = $t1->epoch - $t0->epoch;
+                return 0 if ($finished);
 
-                my $t = Time::Piece->strptime($dateField->value() . "T" . $timeField->value(),
-                                              '%Y-%m-%dT%H:%M:%S') + $elapsed;
-                $timeField->setValue($t->strftime("%H:%M:%S"));
-                $dateField->setValue($t->strftime("%F"));
-            }
-            elsif ($widget == $changeTZButton) {
-                # get time to calculate elapsed
-                my $t0 = localtime;
-                my $timezones = $self->sh_tz->getTimeZones();
-                if (!$timezones || scalar (@{$timezones}) == 0) {
-                    $self->sh_gui->warningMsgBox({title => $self->loc->N("Timezone - DrakClock"),
-                                                  text  => $self->loc->N("Failed to retrieve timezone list"),
-                    });
-                    $changeTZButton->setDisabled();
-                }
-                else {
-                    my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("Timezone - DrakClock"),
-                                                                header => $self->loc->N("Which is your timezone?"),
-                                                                default_button => 1,
-                                                                item_separator => '/',
-                                                                default_item => $info->{time_zone}->{ZONE},
-                                                                list  => $timezones});
-                    if ($item) {
-                        my $utc = 0;
-                        if ($info->{time_zone}->{UTC} ) {
-                            $utc = $info->{time_zone}->{UTC};
-                        }
-                        $utc = $self->sh_gui->ask_YesOrNo({
-                                                    title  => $self->loc->N("GMT - manaclock"),
-                                                    text   => $self->loc->N("Is your hardware clock set to GMT?"),
-                                            default_button => 1,
-                                                });
-                        $info->{time_zone}->{UTC}  = $utc;
-                        $info->{time_zone}->{ZONE} = $item;
-                        $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
+                return 1;
+
+
+            },
+        },
+        event_timeout => 1000,
+        layout => sub {
+            my $self = shift; #ManaTools::Shared::GUI::Dialog
+            my $layoutstart = shift;
+
+            $DB::single = 1;
+
+            my $ydialog = $self->dialog();
+            my $module  = $self->module();
+            my $info    = $self->info();
+            my $factory = $self->factory();
+            my $optFactory = $self->optFactory();
+
+            $layoutstart = $factory->createVBox($layoutstart);
+            my $hbox = $factory->createHBox($layoutstart);
+            my $align  = $factory->createLeft($hbox);
+
+            ### first line Setting Date and Time
+            my $dateTimeFrame = $factory->createFrame($align, $self->loc->N("Setting date and time"));
+            $self->addWidget("dateTimeFrame", $dateTimeFrame, sub {return 1;});
+            $hbox = $factory->createHBox($dateTimeFrame);
+
+            my $dateField = $optFactory->createDateField($hbox, "");
+            $self->addWidget("dateField", $dateField, sub {return 1;});
+            $factory->createHSpacing($hbox, 3.0);
+            my $timeField = $optFactory->createTimeField($hbox, "");
+            $self->addWidget("timeField", $timeField, sub {return 1;});
+            $factory->createHSpacing($hbox, 1.0);
+            $factory->createVSpacing($hbox, 1.0);
+            $factory->createVSpacing($layoutstart, 1.0);
+            $dateField->setValue($info->{date});
+            $timeField->setValue($info->{time});
+
+            ### second line setting NTP
+            $hbox = $factory->createHBox($layoutstart);
+            $align  = $factory->createLeft($hbox);
+            my $ntpFrame = $factory->createCheckBoxFrame($align, $self->loc->N("Enable Network Time Protocol"), 0);
+            $self->addWidget(
+                "ntpFrame",
+                $ntpFrame, sub {
+                    my $event = shift; #ManaTools::Shared::GUI::Event
+                    my $dialog = $event->parentDialog();
+                    my $self = $dialog->module(); #this object
+                    my $ntpFrame = $dialog->widget('ntpFrame');
+                    my $dateTimeFrame = $dialog->widget('dateTimeFrame');
+
+                    if (scalar @{$self->sh_tz->ntpServiceList()} == 0) {
+                        $self->sh_gui->warningMsgBox({
+                            title => $self->loc->N("manaclock: NTP service missed"),
+                            text  => $self->loc->N("Please install a NTP service such as chrony or ntp to manage"),
+                            richtext => 1,
+                        });
+                        $ntpFrame->setValue(0);
+                        $dateTimeFrame->setEnabled(1);
                     }
-                }
-                # fixing elapsed time (dialog is modal)
-                my $t1 = localtime;
-                my $elapsed = $t1->epoch - $t0->epoch;
+                    else {
+                        $dateTimeFrame->setEnabled(!$ntpFrame->value());
+                    }
 
-                my $t = Time::Piece->strptime($dateField->value() . "T" . $timeField->value(),
-                                              '%Y-%m-%dT%H:%M:%S') + $elapsed;
-                $timeField->setValue($t->strftime("%H:%M:%S"));
-                $dateField->setValue($t->strftime("%F"));
-            }
-            elsif ($widget == $resetButton) {
-                my $datetime_only = $self->sh_gui->ask_YesOrNo({
-                                                    title  => $self->loc->N("Restore data"),
-                                                    text   => $self->loc->N("Restore date and time only?"),
-                                            default_button => 1, #Yes
-                                                });
-                my $newInfo = $self->_restoreValues($datetime_only);
-                if ($datetime_only) {
-                    $info->{date} = $newInfo->{date};
-                    $info->{time} = $newInfo->{time};
-                }
-                else{
-                    $info = $newInfo;
-                }
+                    return 1;
+                },
+            );
 
-                $dateField->setValue($info->{date});
-                $timeField->setValue($info->{time});
-                if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
-                    $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
-                }
-                else {
-                    $timeZoneLbl->setValue($self->loc->N("not defined"));
-                }
-                if ($info->{ntp_server}) {
-                    $ntpLabel->setValue($info->{ntp_server});
-                }
-                else {
-                    $ntpLabel->setValue($self->loc->N("not defined"));
-                }
-                $ntpFrame->setValue($info->{ntp_running});
+            my $hbox1 = $factory->createHBox($ntpFrame);
+            my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change &NTP server"));
+            $self->addWidget(
+                "changeNTPButton",
+                $changeNTPButton, sub {
+                    my $event = shift; #ManaTools::Shared::GUI::Event
+                    my $dialog = $event->parentDialog();
+                    my $self = $dialog->module(); #this object
+
+                    # get time to calculate elapsed
+                    my $t0 = localtime;
+                    my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("NTP server - DrakClock"),
+                                                                header => $self->loc->N("Choose your NTP server"),
+                                                                default_button => 1,
+                                                                item_separator => '|',
+                                                                default_item => $info->{ntp_server},
+                                                                skip_path => 1,
+                                                                list  => $self->NTPServers});
+                    if ($item) {
+                        my $ntpLabel = $dialog->widget('ntpLabel');
+                        $ntpLabel->setValue($item);
+                        $info->{ntp_server} = $item;
+                    }
+                    # fixing elapsed time (dialog is modal)
+                    my $t1 = localtime;
+                    my $elapsed = $t1->epoch - $t0->epoch;
+
+                    my $timeField = $dialog->widget('timeField');
+                    my $dateField = $dialog->widget('dateField');
+
+                    my $t = Time::Piece->strptime($dateField->value() . "T" . $timeField->value(),
+                                                '%Y-%m-%dT%H:%M:%S') + $elapsed;
+                    $timeField->setValue($t->strftime("%H:%M:%S"));
+                    $dateField->setValue($t->strftime("%F"));
+
+                    return 1;
+                },
+            );
+            $factory->createHSpacing($hbox1, 1.0);
+            my $ntpService = $factory->createComboBox($hbox1, "", );
+             $self->addWidget(
+                "ntpService",
+                $ntpService, sub { return 1;}
+            );
+            my $itemColl = new yui::YItemCollection;
+            my $sel_serv = $module->sh_tz->currentNTPService();
+            foreach my $serv (@{$module->sh_tz->ntpServiceList()}) {
+                my $item = new yui::YItem ($serv, 0);
+                $item->setSelected(1) if ($sel_serv && $sel_serv eq $serv);
+                $itemColl->push($item);
+                $item->DISOWN();
             }
-            elsif($widget == $aboutButton) {
-                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
-                $translators =~ s/\</\&lt\;/g;
-                $translators =~ s/\>/\&gt\;/g;
-                $self->sh_gui->AboutDialog({ name    => $self->name,
-                                            version => $self->VERSION,
-                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2015'),
-                            license => $self->loc->N("GPLv2"),
-                            description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
-                            authors => $self->loc->N("<h3>Developers</h3>
-                                                    <ul><li>%s</li></ul>
-                                                    <h3>Translators</h3>
-                                                    <ul><li>%s</li></ul>",
-                                                    "Angelo Naselli &lt;anaselli\@linux.it&gt;",
-                                                    $translators
-                                                    ),
+            $ntpService->addItems($itemColl);
+
+            $factory->createLabel($hbox1,$self->loc->N("Current:"));
+            $factory->createHSpacing($hbox1, 1.0);
+            my $ntpLabel = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+            $self->addWidget(
+                "ntpLabel",
+                $ntpLabel, sub {
+                    return 1;
+                },
+            );
+            if ($info->{ntp_server}) {
+                $ntpLabel->setValue($info->{ntp_server});
+            }
+            $ntpFrame->setValue($info->{ntp_running});
+            $dateTimeFrame->setEnabled(!$info->{ntp_running});
+            $ntpFrame->setNotify(1);
+
+            $factory->createHSpacing($hbox1, 1.0);
+            $ntpLabel->setWeight($yui::YD_HORIZ, 2);
+            $changeNTPButton->setWeight($yui::YD_HORIZ, 1);
+            $factory->createHSpacing($hbox, 1.0);
+            $factory->createVSpacing($layoutstart, 1.0);
+
+            ### third line setting TZ
+            $hbox = $factory->createHBox($layoutstart);
+            $align  = $factory->createLeft($hbox);
+            my $frame   = $factory->createFrame ($align, $self->loc->N("TimeZone"));
+            $hbox1 = $factory->createHBox( $frame );
+            my $changeTZButton = $factory->createPushButton($hbox1, $self->loc->N("Change &Time Zone"));
+            $self->addWidget(
+                "changeTZButton",
+                $changeTZButton, sub {
+                    my $event = shift; #ManaTools::Shared::GUI::Event
+                    my $dialog = $event->parentDialog();
+                    my $self = $dialog->module(); #this object
+
+                    # get time to calculate elapsed
+                    my $changeTZButton = $dialog->widget('changeTZButton');
+                    my $t0 = localtime;
+                    my $timezones = $self->sh_tz->getTimeZones();
+                    if (!$timezones || scalar (@{$timezones}) == 0) {
+                        $self->sh_gui->warningMsgBox({title => $self->loc->N("Timezone - DrakClock"),
+                                                    text  => $self->loc->N("Failed to retrieve timezone list"),
+                        });
+                        $changeTZButton->setDisabled();
+                    }
+                    else {
+                        my $info    = $dialog->info();
+                        my $item = $self->sh_gui->ask_fromTreeList({
+                            title => $self->loc->N("Timezone - DrakClock"),
+                            header => $self->loc->N("Which is your timezone?"),
+                            default_button => 1,
+                            item_separator => '/',
+                            default_item => $info->{time_zone}->{ZONE},
+                            list  => $timezones,
+                        });
+                        if ($item) {
+                            my $utc = 0;
+                            if ($info->{time_zone}->{UTC} ) {
+                                $utc = $info->{time_zone}->{UTC};
                             }
-                );
-            }
-        }
-    }
-    $dialog->destroy();
+                            $utc = $self->sh_gui->ask_YesOrNo({
+                                title  => $self->loc->N("GMT - manaclock"),
+                                text   => $self->loc->N("Is your hardware clock set to GMT?"),
+                                default_button => 1,
+                            });
+                            $info->{time_zone}->{UTC}  = $utc;
+                            $info->{time_zone}->{ZONE} = $item;
+                            my $timeZoneLbl = $dialog->widget('timeZoneLbl');
+                            $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
+                        }
+                    }
+                    # fixing elapsed time (dialog is modal)
+                    my $t1 = localtime;
+                    my $elapsed = $t1->epoch - $t0->epoch;
 
-    #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle) if $appTitle;
+                    my $timeField = $dialog->widget('timeField');
+                    my $dateField = $dialog->widget('dateField');
+                    my $t = Time::Piece->strptime($dateField->value() . "T" . $timeField->value(),
+                                                '%Y-%m-%dT%H:%M:%S') + $elapsed;
+                    $timeField->setValue($t->strftime("%H:%M:%S"));
+                    $dateField->setValue($t->strftime("%F"));
+                    return 1;
+                },
+            );
+            $factory->createHSpacing($hbox1, 1.0);
+            $factory->createLabel($hbox1,$self->loc->N("Current:"));
+            $factory->createHSpacing($hbox1, 1.0);
+            my $timeZoneLbl = $factory->createLabel($hbox1, $self->loc->N("not defined"));
+            $self->addWidget(
+                "timeZoneLbl",
+                $timeZoneLbl, sub {
+                    return 1;
+                },
+            );
+
+            if (exists $info->{time_zone} && $info->{time_zone}->{ZONE}) {
+                $timeZoneLbl->setValue($info->{time_zone}->{ZONE});
+            }
+            $factory->createHSpacing($hbox1, 1.0);
+            $timeZoneLbl->setWeight($yui::YD_HORIZ, 2);
+            $changeTZButton->setWeight($yui::YD_HORIZ, 1);
+            $factory->createHSpacing($hbox, 1.0);
+
+            return $self->widget('layout');
+        },
+        restoreValues => sub {
+            my $self = shift;
+
+            my $module  = $self->module();
+
+
+            return $module->_restoreValues();
+        },
+    );
+
+    ## Manage timeout event
+    ManaTools::Shared::GUI::Event->new(
+        name => 'timeoutEvent',
+        eventHandler => $dialog,
+        eventType => $yui::YEvent::TimeoutEvent,
+        event => sub {
+            my $event = shift;
+            my $dialog = $event->parentDialog();
+            my $self = $dialog->module(); #this object
+
+            my $timeField = $dialog->widget('timeField');
+            my $t = Time::Piece->strptime($timeField->value(), "%H:%M:%S") + 1;
+            $timeField->setValue($t->strftime("%H:%M:%S"));
+
+            return 1;
+         },
+    );
+
+            $DB::single = 1;
+
+    return $dialog->call();
 }
 
 
+no Moose;
+__PACKAGE__->meta->make_immutable;
+
+1;
 
