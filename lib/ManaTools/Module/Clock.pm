@@ -95,7 +95,6 @@ has 'sh_tz' => (
 sub _SharedTimeZoneInitialize {
     my $self = shift;
 
-    $DB::single = 1;
     $self->sh_tz(ManaTools::Shared::TimeZone->new(loc => $self->loc) );
 }
 
@@ -409,8 +408,6 @@ sub _adminClockPanel {
             my $self = shift; #ManaTools::Shared::GUI::Dialog
             my $layoutstart = shift;
 
-            $DB::single = 1;
-
             my $ydialog = $self->dialog();
             my $module  = $self->module();
             my $info    = $self->info();
@@ -653,8 +650,6 @@ sub _adminClockPanel {
             return 1;
          },
     );
-
-            $DB::single = 1;
 
     return $dialog->call();
 }
