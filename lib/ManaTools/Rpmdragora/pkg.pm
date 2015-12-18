@@ -28,6 +28,7 @@ package ManaTools::Rpmdragora::pkg;
 
 use strict;
 use Sys::Syslog;
+use File::ShareDir ':ALL';
 
 use MDK::Common::Func;  #qw(before_leaving any);
 use MDK::Common::DataStructure; # qw (uniq difference2 member add2hash put_in_hash);
@@ -43,6 +44,7 @@ use ManaTools::Rpmdragora::open_db;
 use ManaTools::Rpmdragora::gurpm;
 use ManaTools::Rpmdragora::formatting;
 use ManaTools::Rpmdragora::rpmnew;
+use ManaTools::Shared;
 use ManaTools::Shared::RunProgram qw(run get_stdout);
 use ManaTools::rpmdragora;
 use urpm;
@@ -595,7 +597,10 @@ sub get_pkgs {
 
     my @meta_pkgs = grep { /^task-|^basesystem/ } keys %all_pkgs;
 
-    my @gui_pkgs = map { chomp; $_ } MDK::Common::File::cat_('/usr/share/rpmdrake/gui.lst');
+    my $pkg_list = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'modules/rpmdragora/gui.lst');
+
+    my @gui_pkgs = map { chomp; $_ } MDK::Common::File::cat_($pkg_list);
+    $DB::single = 1;
     # add meta packages to GUI packages list (which expect basic names not fullnames):
     push @gui_pkgs, map { (split_fullname($_))[0] } @meta_pkgs;
 
