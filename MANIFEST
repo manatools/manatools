@@ -61,6 +61,7 @@ lib/ManaTools/Rpmdragora/pkg.pm
 lib/ManaTools/Rpmdragora/rpmnew.pm
 lib/ManaTools/SettingsReader.pm
 lib/ManaTools/Shared.pm
+lib/ManaTools/Shared/CommandLine.pm
 lib/ManaTools/Shared/Firewall.pm
 lib/ManaTools/Shared/GUI.pm
 lib/ManaTools/Shared/GUI/CommandLine.pm
@@ -69,7 +70,6 @@ lib/ManaTools/Shared/GUI/Event.pm
 lib/ManaTools/Shared/GUI/EventHandlerRole.pm
 lib/ManaTools/Shared/GUI/EventRole.pm
 lib/ManaTools/Shared/GUI/ExtTab.pm
-lib/ManaTools/Shared/CommandLine.pm 
 lib/ManaTools/Shared/Hosts.pm
 lib/ManaTools/Shared/JournalCtl.pm
 lib/ManaTools/Shared/Locales.pm
@@ -194,6 +194,7 @@ share/images/Up_32x32.png
 share/images/Warning_Shield_Grey.png
 share/images/Warning_Shield_Grey16x16.png
 share/images/Warning_Shield_Grey32x32.png
+share/modules/rpmdragora/gui.lst
 t/00-load.t
 t/01-Locales.t
 t/02-JournalCtl.t
