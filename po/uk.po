@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-19 12:19+0100\n"
-"PO-Revision-Date: 2015-07-07 19:54+0300\n"
+"PO-Revision-Date: 2015-12-20 13:05+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -145,11 +145,12 @@ msgstr "Вибрати"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<каталог> необов’язковий каталог, що містить перекладені рядки (лише для "
+"розробників)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Змінити відомості"
+msgstr "Вивести ці відомості щодо користування."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -201,15 +202,15 @@ msgstr "Скинути нетипові правила"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "запустити з використанням реалізації додатків gtk для yui"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "запустити з використанням реалізації додатків ncurses для yui"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "запустити з використанням реалізації додатків qt для yui"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -241,9 +242,8 @@ msgid "&Ok"
 msgstr "&Гаразд"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Закрити"
+msgstr "&Закрити"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -1603,7 +1603,7 @@ msgstr ""
 "пояс і скоригувати дату і час"
 
 #: lib/ManaTools/Module/Clock.pm:228
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1611,9 +1611,9 @@ msgid ""
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Розробники</h3>\n"
-"                                            <ul><li>%s</li></ul>\n"
-"                                            <h3>Перекладачі</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Перекладачі</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:244
 msgid "Restore data"
