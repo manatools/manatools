@@ -23,16 +23,7 @@ use ManaTools::Module::Firewall;
 
 use yui;
 
-my $wm_icon = "/usr/share/mcc/themes/default/firewall-mdk.png";
-my $wm_name = "Manage firewall rules";
-
-yui::YUI::app()->setApplicationTitle($wm_name);
-yui::YUI::app()->setApplicationIcon($wm_icon);
-
-my $hostMan = ManaTools::Module::Firewall->new({
-				icon => $wm_icon,
-				name => $wm_name
-			});
+my $hostMan = ManaTools::Module::Firewall->new();
 $hostMan->start();
 
 1;

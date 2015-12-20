@@ -25,6 +25,7 @@ use autodie;
 use Moose;
 use Moose::Autobox;
 use utf8;
+use File::ShareDir ':ALL';
 
 use yui;
 use ManaTools::Shared qw(trim);
@@ -47,20 +48,28 @@ use XML::Simple;
 extends qw( ManaTools::Module );
 
 has '+icon' => (
-    default => "/usr/share/icons/manawall.png",
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manawall.png'),
 );
 
 has '+name' => (
-    default => "Firewall Manager",
+    lazy     => 1,
+    builder => '_nameInitializer',
 );
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("manawall - Firewall Manager"));
+}
+
 
 =head1 VERSION
 
-Version 1.0.0
+Version 1.0.1
 
 =cut
 
-our $VERSION = '1.0.0';
+our $VERSION = '1.0.1';
 
 has 'dialog' => (
     is => 'rw',
