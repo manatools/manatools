@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ManaTools\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-19 12:19+0100\n"
-"PO-Revision-Date: 2015-07-25 21:35+0200\n"
+"PO-Revision-Date: 2015-12-20 18:36+0100\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>, Translation list <mageia-"
 "i18n@mageia.org>\n"
@@ -143,12 +143,11 @@ msgstr "Izberite"
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
-msgstr ""
+msgstr "<dir> mapa s shranjenimi prevodi po izbiri (samo za razvijalce)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Spremenite podatke"
+msgstr "Izpis pomoči o rabi."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -200,15 +199,15 @@ msgstr "Razveljavi pravila po meri"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "prični z uporabo izvedbe vstavka yui gtk"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "prični z uporabo izvedbe vstavka yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "prični z uporabo izvedbe vstavka yui qt"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -240,9 +239,8 @@ msgid "&Ok"
 msgstr "&V redu"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Zapri"
+msgstr "&Zapri"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -1580,7 +1578,7 @@ msgstr ""
 "in časovnega pasu"
 
 #: lib/ManaTools/Module/Clock.pm:228
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1588,9 +1586,9 @@ msgid ""
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Razvojniki</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Prevajalci</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Prevajalci</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:244
 msgid "Restore data"
