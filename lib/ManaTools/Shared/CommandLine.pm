@@ -70,7 +70,7 @@ has 'locales_dir' => (
     isa => 'Str',
     is => 'ro',
     cmd_flag  => 'locales-dir',
-    documentation => $loc->N('<dir> optional directory contanining localization strings (developer only)',)
+    documentation => $loc->N('<dir> optional directory containing localization strings (developer only)',)
 );
 
 # Overriding help_flag from MooseX::Getopt::GLD so we can translate the usage string message
