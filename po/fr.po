@@ -3,15 +3,18 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Antoine Dumondel, 2015
 # Kévin R., 2015
+# Yves Brungard, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-19 12:19+0100\n"
-"PO-Revision-Date: 2015-07-08 15:54+0000\n"
-"Last-Translator: Kévin R.\n"
-"Language-Team: French (http://www.transifex.com/p/mageia/language/fr/)\n"
+"PO-Revision-Date: 2015-12-21 19:48+0000\n"
+"Last-Translator: Yves Brungard\n"
+"Language-Team: French (http://www.transifex.com/MageiaLinux/mageia/language/"
+"fr/)\n"
 "Language: fr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -142,11 +145,12 @@ msgstr "Sélectionner"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> répertoire optionnel contenant les chaînes traduites (pour les "
+"dévelopeurs uniquement)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Modifier les informations"
+msgstr "Imprime cette note d'utilisation."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -199,15 +203,15 @@ msgstr "Supprimer les règles personnalisées"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "commencer à utiliser le greffon en yui gtk"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "commencer à utiliser le greffon en yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "commencer à utiliser le greffon en yui qt"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -239,9 +243,8 @@ msgid "&Ok"
 msgstr "Ok"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Fermer"
+msgstr "&Fermer"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -1612,7 +1615,7 @@ msgstr ""
 "géographique."
 
 #: lib/ManaTools/Module/Clock.pm:228
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1622,7 +1625,7 @@ msgstr ""
 "<h3>Développeurs</h3>\n"
 "<ul><li>%s</li></ul>\n"
 "<h3>Traducteurs</h3>\n"
-"<ul><li>%s</li></ul>"
+"<ul>li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:244
 msgid "Restore data"
@@ -4955,14 +4958,3 @@ msgstr "Dépôt %s ajouté avec succès."
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "Dépôt '%s' ajouté avec succès."
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Translators</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
-#~ msgstr ""
-#~ "<h3>Développeurs</h3>\n"
-#~ "<ul><li>%s</li></ul>\n"
-#~ "<h3>Traducteurs</h3>\n"
-#~ "<ul><li>%s</li></ul>"
