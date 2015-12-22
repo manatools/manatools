@@ -99,6 +99,15 @@ has 'qt' => (
     documentation => $loc->N('start using yui qt plugin implementation')
 );
 
+has 'conf_dir' => (
+    traits    => [ 'Getopt' ],
+    isa => 'Str',
+    is => 'ro',
+    cmd_flag  => 'conf-dir',
+    documentation => $loc->N('<dir> optional directory containing configuration files for each module (e.g. modulename/config_files)',)
+);
+
+
 
 no Moose;
 __PACKAGE__->meta->make_immutable;
