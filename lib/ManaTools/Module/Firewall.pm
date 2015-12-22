@@ -139,8 +139,17 @@ has 'aboutDialog' => (
 has 'conf' => (
     is => 'ro',
     isa => 'Str',
-    default => sub { return $::prefix."/etc/manatools/manawall/spec.conf" },
+    builder => '_confBuilder',
 );
+
+sub _confBuilder {
+    my $self = shift();
+    my $confDir = $self->commandline()->conf_dir() || "/etc/manatools";
+    chop $confDir if substr($confDir, -1) eq '/';
+    $confDir .= "/manawall/spec.conf";
+
+    return $confDir;
+}
 
 sub _setupAboutDialog {
   my $self = shift();
