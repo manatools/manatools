@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-19 12:19+0100\n"
-"PO-Revision-Date: 2015-10-05 22:42+0000\n"
+"PO-Revision-Date: 2015-12-21 00:43+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/lt/)\n"
@@ -38,7 +38,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1096
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Autorių Teisės (C) %s Mageia bendruomenė"
 
 #: lib/ManaTools/MainDisplay.pm:192 lib/ManaTools/Module/LogViewer.pm:348
 #: lib/ManaTools/Module/Users.pm:2350 lib/ManaTools/Module/Clock.pm:226
@@ -46,7 +46,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1097
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
@@ -62,6 +62,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Kūrėjai</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Vertėjai</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:335 lib/ManaTools/Module/Users.pm:2398
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -95,7 +101,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:762
 msgid "&About"
-msgstr ""
+msgstr "&Apie"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -109,7 +115,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1186
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2182
 msgid "Ok"
-msgstr ""
+msgstr "Gerai"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -220,7 +226,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1280
 msgid "&Cancel"
-msgstr ""
+msgstr "&Atsisakyti"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:418 lib/ManaTools/Module/Users.pm:874
 #: lib/ManaTools/Module/Users.pm:2008 lib/ManaTools/Rpmdragora/rpmnew.pm:254
@@ -230,11 +236,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1281
 msgid "&Ok"
-msgstr ""
+msgstr "&Gerai"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
 msgid "&Close"
-msgstr ""
+msgstr "&Užverti"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -303,27 +309,27 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
-msgstr ""
+msgstr "Izraelis"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
 msgid "Japan"
-msgstr ""
+msgstr "Japonija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
 msgid "Korea"
-msgstr ""
+msgstr "Korėja"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "Malaizija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "Filipinai"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "Singapūras"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
@@ -331,15 +337,15 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
-msgstr ""
+msgstr "Tailandas"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "Turkija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Jungtiniai Arabų Emyratai"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
@@ -363,48 +369,48 @@ msgstr "Čekija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "Danija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Estija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
-msgstr ""
+msgstr "Suomija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "Prancūzija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
-msgstr ""
+msgstr "Vokietija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
 #: lib/ManaTools/rpmdragora.pm:593
 msgid "Greece"
-msgstr ""
+msgstr "Graikija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
-msgstr ""
+msgstr "Vengrija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Airija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "Italija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Lietuva"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Liuksemburgas"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
@@ -412,39 +418,39 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "Norvegija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "Lenkija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "Portugalija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "Rumunija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Rusijos Federacija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovakija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovėnija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "Ispanija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "Švedija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
@@ -452,15 +458,15 @@ msgstr "Šveicarija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukraina"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Jungtinė Karalystė"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Jugoslavija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
@@ -472,13 +478,13 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Meksika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "Jungtinės Valstijos"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
@@ -486,7 +492,7 @@ msgstr "Australija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Naujoji Zelandija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
@@ -498,7 +504,7 @@ msgstr "Brazilija"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Čilė"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
@@ -634,6 +640,9 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Šis paketas įkelia pasirinktą klaviatūros išdėstymą, kuris\n"
+"nurodytas /etc/sysconfig/keyboard byloje. Jis gali būti pasirinktas su\n"
+"kbdconfig priemone. Daugumoje kompiuterių šis nustatymas turi būti įjungtas."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
@@ -875,7 +884,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "Paleidžia X šriftų serverį."
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
@@ -899,7 +908,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:193 modules/rpmdragora/rpmdragora:726
 msgid "Options"
-msgstr ""
+msgstr "Parinktys"
 
 #: lib/ManaTools/Module/LogViewer.pm:198
 msgid "Last boot"
@@ -951,6 +960,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Kūrėjai</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Vertėjai</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:368
 msgid "Empty log found"
@@ -1023,7 +1038,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:943 lib/ManaTools/Rpmdragora/gui.pm:948
 #: modules/rpmdragora/rpmdragora:1187
 msgid "Warning"
-msgstr ""
+msgstr "Dėmėsio"
 
 #: lib/ManaTools/Module/Users.pm:392
 #, perl-format
@@ -1428,7 +1443,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: modules/rpmdragora/rpmdragora:761
 msgid "Report Bug"
-msgstr ""
+msgstr "Pranešti apie klaidą"
 
 #: lib/ManaTools/Module/Users.pm:2441
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
@@ -1466,6 +1481,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Kūrėjai</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Vertėjai</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:244
 msgid "Restore data"
@@ -1592,7 +1611,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
-msgstr ""
+msgstr "IP adresas"
 
 #: lib/ManaTools/Module/Hosts.pm:242
 msgid "Host aliases"
@@ -1616,7 +1635,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
-msgstr ""
+msgstr "Pri&dėti"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
@@ -1684,7 +1703,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
 #: lib/ManaTools/Module/Firewall.pm:1015
 msgid "Firewall"
-msgstr ""
+msgstr "Užkarda"
 
 #: lib/ManaTools/Module/Firewall.pm:637
 msgid "Which services would you like to allow the Internet to connect to?"
@@ -1937,7 +1956,7 @@ msgstr "Naudotojo vardas:"
 
 #: lib/ManaTools/rpmdragora.pm:274
 msgid "Software Packages Removal"
-msgstr ""
+msgstr "Programinės įrangos paketų šalinimas"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
 msgid "Software Packages Update"
@@ -1945,11 +1964,11 @@ msgstr "Programinės įrangos paketų atnaujinimas"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
-msgstr ""
+msgstr "Programinės įrangos paketų įdiegimas"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr ""
+msgstr "Daugiau manęs nebeklausti"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -2074,7 +2093,7 @@ msgstr ""
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr ""
+msgstr "Pradedamas \"%s\" atsiuntimas..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -2082,6 +2101,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
+"\"%s\" atsiuntimas\n"
+"liko laiko:%s, greitis:%s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
@@ -2089,6 +2110,8 @@ msgid ""
 "Download of `%s'\n"
 "speed:%s"
 msgstr ""
+"\"%s\" atsiuntimas\n"
+"greitis:%s"
 
 #: lib/ManaTools/rpmdragora.pm:854
 msgid ""
@@ -2136,14 +2159,19 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Tam, kad būtų gautas tinklaviečių sąrašas, reikia susisiekti su Mageia "
+"internetine sveitaine.\n"
+"Prašome patikrinti ar jūsų tinklas šiuo metu veikia.\n"
+"\n"
+"Ar galima tęsti?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
-msgstr ""
+msgstr "Tinklavietės pasirinkimas"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
-msgstr "Klaida siunčiant"
+msgstr "Klaida, atsiunčiant"
 
 #: lib/ManaTools/rpmdragora.pm:1021
 #, perl-format
@@ -2184,7 +2212,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1044
 msgid "Please choose the desired mirror."
-msgstr ""
+msgstr "Prašome pasirinkti pageidaujamą tinklavietę."
 
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
@@ -2243,7 +2271,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Šalinti naują failą"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
@@ -2251,7 +2279,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
-msgstr ""
+msgstr "Nieko nedaryti"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:261
 msgid "Please wait, searching..."
@@ -2297,7 +2325,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr ""
+msgstr "Atsiunčiamas paketas \"%s\"..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2316,6 +2344,11 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Tam, kad būtų gauti vėliausi atnaujinimų paketai, reikia susisiekti su "
+"tinklaviete.\n"
+"Prašome patikrinti ar jūsų tinklas šiuo metu veikia.\n"
+"\n"
+"Ar galima tęsti?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
@@ -2366,7 +2399,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr ""
+msgstr "Prašome palaukti, randami prieinami paketai..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
@@ -2432,6 +2465,8 @@ msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Rpmdragora ar viena iš jos prioritetinių priklausomybių privalo būti "
+"atnaujinta pirma. Tuomet, Rpmdragora bus paleista iš naujo."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:809
 msgid "The following package is going to be installed:"
@@ -2455,7 +2490,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
-msgstr ""
+msgstr "Ar galima tęsti?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
@@ -2494,7 +2529,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Patvirtinami paketų parašai..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
@@ -2507,7 +2542,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
-msgstr ""
+msgstr "Nagrinėjami konfigūracijos failai..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid ""
@@ -2516,6 +2551,11 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"Įdiegimas užbaigtas; viskas buvo įdiegta teisingai.\n"
+"\n"
+"Kai kurie konfigūracijos failai buvo sukurti kaip \".rpmnew\" ar \".rpmsave"
+"\",\n"
+"dabar galite kai kuriuos išnagrinėti, kad imtumėtes veiksmų:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -2532,7 +2572,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1027
 msgid "Details"
-msgstr ""
+msgstr "Išsamiau"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
@@ -2620,7 +2660,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
-msgstr ""
+msgstr "Duomenų bazės"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
 #: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
@@ -3771,7 +3811,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:699 modules/rpmdragora/rpmdragora:700
 #: modules/rpmdragora/rpmdragora:701
 msgid "/_Options"
-msgstr ""
+msgstr "/Parin_ktys"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
@@ -3844,7 +3884,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "Bus panaudota %s papildomos disko vietos."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
@@ -3854,7 +3894,7 @@ msgstr "Bus atlaisvinta %s disko vietos."
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "Bus gauta %s paketų."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:104
 msgid "Search results"
@@ -4096,11 +4136,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Some packages are selected."
-msgstr ""
+msgstr "Kai kurie paketai yra pažymėti."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "Ar tikrai norite baigti?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1515
 #, perl-format
@@ -4513,6 +4553,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Ar galima tęsti?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
