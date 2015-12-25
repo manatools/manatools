@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-19 12:19+0100\n"
-"PO-Revision-Date: 2015-12-20 11:49+0000\n"
+"PO-Revision-Date: 2015-12-24 21:10+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -239,7 +239,7 @@ msgstr "&Ok"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
 msgid "&Close"
-msgstr ""
+msgstr "S&chließen"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -512,6 +512,8 @@ msgstr "Alle Server"
 #: lib/ManaTools/Shared/TimeZone.pm:937
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"Benutzer hat nicht die Rechte um die Konfigurationsdatei zu ändern, "
+"überspringe"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -1183,11 +1185,11 @@ msgstr "Neuen Benutzer erstellen"
 
 #: lib/ManaTools/Module/Users.pm:837
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Persönliches Verzeichnis erstellen"
 
 #: lib/ManaTools/Module/Users.pm:841
 msgid "Home Directory:"
-msgstr ""
+msgstr "Persönliches Verzeichnis:"
 
 #: lib/ManaTools/Module/Users.pm:850
 msgid "Create a private group for the user"
@@ -1203,7 +1205,7 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:865
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Klicke auf das Symbol um es zu ändern"
 
 #: lib/ManaTools/Module/Users.pm:917
 msgid "User already exists, please choose another User Name"
@@ -1247,7 +1249,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:962
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Nehme %s in die Gruppe „users“ auf"
 
 #: lib/ManaTools/Module/Users.pm:976
 #, perl-format
@@ -1340,15 +1342,15 @@ msgstr "Passwort soll ablaufen"
 
 #: lib/ManaTools/Module/Users.pm:1678
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Tage vor nächster erlaubter Änderung:"
 
 #: lib/ManaTools/Module/Users.pm:1686
 msgid "Days before change required:"
-msgstr ""
+msgstr "Tage vor nächster erzwungener Änderung:"
 
 #: lib/ManaTools/Module/Users.pm:1694
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Anzahl Tage vor Änderung ab deren gewarnt wird:"
 
 #: lib/ManaTools/Module/Users.pm:1702
 msgid "Days before account inactive:"
@@ -1356,7 +1358,7 @@ msgstr "Tage bevor Zugang gesperrt wird:"
 
 #: lib/ManaTools/Module/Users.pm:1731
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Wählen Sie die Benutzer für diese Gruppe:"
 
 #: lib/ManaTools/Module/Users.pm:1735
 msgid "User"
@@ -1364,7 +1366,7 @@ msgstr "Benutzer"
 
 #: lib/ManaTools/Module/Users.pm:1776
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Wählen die Gruppen, denen der Benutzer angehören wird:"
 
 #: lib/ManaTools/Module/Users.pm:1780
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
@@ -1373,7 +1375,7 @@ msgstr "Gruppe"
 
 #: lib/ManaTools/Module/Users.pm:1882
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Bitte wählen Sie mindestens eine Gruppe für den Benutzer"
 
 #: lib/ManaTools/Module/Users.pm:1905
 msgid ""
@@ -1385,7 +1387,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1921
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Bitte füllen Sie alle Felder zum Ablaufen des Passworts aus\n"
 
 #: lib/ManaTools/Module/Users.pm:1956
 msgid "Strong"
@@ -1762,7 +1764,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:887
 msgid "Invalid port given"
-msgstr ""
+msgstr "Ungültiger Port eingegeben"
 
 #: lib/ManaTools/Module/Firewall.pm:888
 #, perl-format
@@ -1889,7 +1891,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:291
 msgid "Start when requested"
-msgstr ""
+msgstr "Starten wenn verlangt"
 
 #: lib/ManaTools/Module/Services.pm:294
 msgid "running"
@@ -3867,7 +3869,7 @@ msgstr "Runter"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
 #: modules/rpmdragora/rpmdragora:1098
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora ist die Paketverwaltung von Mageia."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
