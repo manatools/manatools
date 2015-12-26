@@ -47,6 +47,32 @@ use XML::Simple;
 
 extends qw( ManaTools::Module );
 
+# configName, configDir as attributes, must be before "with 'ManaTools::ConfigDirRole'"
+has 'configName' => (
+    is => 'ro',
+    isa => 'Str',
+    init_arg => undef,
+    lazy => 1,
+    default => 'manawall',
+);
+
+has 'configDir' => (
+    is => 'ro',
+    isa => 'Str',
+    lazy => 1,
+    builder => '_configDirBuilder',
+);
+
+sub _configDirBuilder {
+    my $self = shift();
+    my $confDir = $self->commandline()->conf_dir() || $self->defaultConfigDir();
+
+    return $confDir;
+}
+
+with 'ManaTools::ConfigDirRole';
+
+
 has '+icon' => (
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manawall.png'),
 );
@@ -136,19 +162,19 @@ has 'aboutDialog' => (
     builder => '_setupAboutDialog',
 );
 
+
 has 'conf' => (
     is => 'ro',
     isa => 'Str',
+    lazy => 1,
     builder => '_confBuilder',
 );
 
 sub _confBuilder {
     my $self = shift();
-    my $confDir = $self->commandline()->conf_dir() || "/etc/manatools";
-    chop $confDir if substr($confDir, -1) eq '/';
-    $confDir .= "/manawall/spec.conf";
+    my $confDir = $self->configPathName();
 
-    return $confDir;
+    return $confDir . "/spec.conf";
 }
 
 sub _setupAboutDialog {
@@ -1067,9 +1093,14 @@ sub start {
     my @server = ();
     $self->wdg_servers(@server);
 
-    # init servers definitions
-    $self->all_servers($self->_initAllServers());
-
+    eval {
+        # init servers definitions
+        $self->all_servers($self->_initAllServers());
+    };
+    if ($@) {
+        warn $@;
+        return;
+    }
     # initialize ifw_rules here
     $self->ifw_rules($self->_initIFW());
 
