@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-19 12:19+0100\n"
-"PO-Revision-Date: 2015-12-25 01:37+0000\n"
+"PO-Revision-Date: 2015-12-27 13:26+0000\n"
 "Last-Translator: ciaran\n"
 "Language-Team: Welsh (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cy/)\n"
@@ -50,7 +50,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:193
 msgid "mpan is the mana-tools panel that collects all the utilities."
-msgstr ""
+msgstr "Panel mana-tools sy'n casglu'r holl wasanaethau yw mpan."
 
 #: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
 #, perl-format
@@ -62,6 +62,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Datblygwyr</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Cyfieithwyr</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:335 lib/ManaTools/Module/Users.pm:2398
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -158,7 +164,7 @@ msgstr ""
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "Enw rhy hir. %d yw'r hyd uchaf"
 
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
@@ -323,7 +329,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "Singapôr"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
@@ -468,7 +474,7 @@ msgstr "Canada"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Gwatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
@@ -498,7 +504,7 @@ msgstr "Brasil"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
@@ -538,7 +544,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "Cleient/gweinydd NTP"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
@@ -890,19 +896,19 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:193 modules/rpmdragora/rpmdragora:726
 msgid "Options"
-msgstr ""
+msgstr "Dewisiadau"
 
 #: lib/ManaTools/Module/LogViewer.pm:198
 msgid "Last boot"
-msgstr ""
+msgstr "Cychwyn diwethaf"
 
 #: lib/ManaTools/Module/LogViewer.pm:211
 msgid "Since"
-msgstr ""
+msgstr "Ers"
 
 #: lib/ManaTools/Module/LogViewer.pm:216
 msgid "Until"
-msgstr ""
+msgstr "Hyd at"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "Select a unit"
@@ -926,7 +932,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "&Save"
-msgstr ""
+msgstr "&Cadw"
 
 #: lib/ManaTools/Module/LogViewer.pm:349
 msgid "Log viewer is a systemd journal viewer"
@@ -945,7 +951,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:368
 msgid "Empty log found"
-msgstr ""
+msgstr "Canfuwyd cofnod gwag"
 
 #: lib/ManaTools/Module/LogViewer.pm:461 lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -960,7 +966,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:485
 msgid "Save as.."
-msgstr ""
+msgstr "Cadw fel.."
 
 #: lib/ManaTools/Module/Users.pm:101
 msgid "manauser - Mageia Users Management Tool"
@@ -981,7 +987,7 @@ msgstr "Gwybodaeth gyfrinair"
 #: lib/ManaTools/Module/Users.pm:264 lib/ManaTools/Module/Users.pm:1375
 #: lib/ManaTools/Module/Users.pm:2495
 msgid "Groups"
-msgstr ""
+msgstr "Grwpiau"
 
 #: lib/ManaTools/Module/Users.pm:267
 msgid "Group Data"
@@ -993,7 +999,7 @@ msgstr "Defnyddwyr grwpiau"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Choose group"
-msgstr ""
+msgstr "Dewis grŵp"
 
 #: lib/ManaTools/Module/Users.pm:310
 msgid "A group with this name already exists.  What would you like to do?"
@@ -1014,7 +1020,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:943 lib/ManaTools/Rpmdragora/gui.pm:948
 #: modules/rpmdragora/rpmdragora:1187
 msgid "Warning"
-msgstr ""
+msgstr "Rhybudd"
 
 #: lib/ManaTools/Module/Users.pm:392
 #, perl-format
@@ -1024,7 +1030,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:398 lib/ManaTools/Module/Users.pm:489
 #: lib/ManaTools/Module/Users.pm:2446
 msgid "Delete"
-msgstr ""
+msgstr "Dileu"
 
 #: lib/ManaTools/Module/Users.pm:418
 #, perl-format
@@ -1036,11 +1042,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:425
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Tynnu grŵp: %s"
 
 #: lib/ManaTools/Module/Users.pm:472
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Dileu ffeiliau neu beidio?"
 
 #: lib/ManaTools/Module/Users.pm:479
 #, perl-format
@@ -1066,7 +1072,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:544
 msgid "Create New Group"
-msgstr ""
+msgstr "Creu grŵp newydd"
 
 #: lib/ManaTools/Module/Users.pm:554 lib/ManaTools/Module/Users.pm:1591
 msgid "Group Name:"
@@ -1078,7 +1084,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:566
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:599
 msgid "Group already exists, please choose another Group Name"
@@ -1110,7 +1116,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:629
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Ychwanegu grŵp: %s"
 
 #: lib/ManaTools/Module/Users.pm:685
 msgid "Full Name:"
@@ -1218,7 +1224,7 @@ msgstr "Rhoi '%s' yn y grŵp 'defnyddwyr'"
 #: lib/ManaTools/Module/Users.pm:976
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Creu grŵp newydd: %s"
 
 #: lib/ManaTools/Module/Users.pm:989
 msgid "Adding user: "
@@ -1683,7 +1689,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
 #: lib/ManaTools/Module/Firewall.pm:1015
 msgid "Firewall"
-msgstr ""
+msgstr "Mur gwarchod"
 
 #: lib/ManaTools/Module/Firewall.pm:637
 msgid "Which services would you like to allow the Internet to connect to?"
@@ -2302,7 +2308,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:1553
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr ""
+msgstr "Cododd gwall terfynol:%s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:141
 #, perl-format
@@ -2318,6 +2324,8 @@ msgstr ""
 #, perl-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
 msgstr ""
+"Dim gwybodaeth xml ar gyfer y cyfrwng \"%s\", dim ond canlyniad rhannol ar "
+"gyfer pecyn %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:164
 #, perl-format
@@ -2526,11 +2534,11 @@ msgstr "Newid cyfrwng"
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "Mewnbynnwch y cyfrwng  \"%s\""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Wrthi'n gwirio llofnodion pecynnau..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
@@ -3030,7 +3038,7 @@ msgstr "Bas"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
-msgstr ""
+msgstr "Cychwyn ac ymgychwyn"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:160
 msgid "Cluster"
@@ -3129,73 +3137,73 @@ msgstr "Man amlgyfrwng"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:193
 msgid "Network Computer (client)"
-msgstr ""
+msgstr "Cyfrifiadur rhwydwaith (cleient)"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:194
 msgid "Office Workstation"
-msgstr ""
+msgstr "Gweithfan swyddfa"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Scientific Workstation"
-msgstr ""
+msgstr "Gweithfan gwyddonol"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
 #: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
 #: lib/ManaTools/Rpmdragora/icon.pm:201 lib/ManaTools/Rpmdragora/gui.pm:133
 msgid "Graphical Environment"
-msgstr ""
+msgstr "Amgylchedd graffig"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:198
 msgid "GNOME Workstation"
-msgstr ""
+msgstr "Gweithfan Gnome"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:199
 msgid "IceWm Desktop"
-msgstr ""
+msgstr "Bwrdd gwaith IceWm"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:200
 msgid "KDE Workstation"
-msgstr ""
+msgstr "Gweithfan KDE"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:201
 msgid "Other Graphical Desktops"
-msgstr ""
+msgstr "Byrddau gwaith graffigol eraill"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
 #: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
 #: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
 #: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Server"
-msgstr ""
+msgstr "Gweinydd"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:206
 msgid "DNS/NIS"
-msgstr ""
+msgstr "DNS/NIS"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:207
 msgid "Database"
-msgstr ""
+msgstr "Cronfa ddata"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:208
 msgid "Firewall/Router"
-msgstr ""
+msgstr "Mur gwarchod/llwybrydd"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr ""
+msgstr "E-bost/cylchwedd/newyddion"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
-msgstr ""
+msgstr "Gweinydd cyfrifiadur hwydwaith"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Web/FTP"
-msgstr ""
+msgstr "Gwe/FTP"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "Defnydd: %s [OPTION]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
@@ -3283,33 +3291,33 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
 msgid "Local"
-msgstr ""
+msgstr "Lleol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "Datodadwy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
@@ -3317,7 +3325,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr ""
+msgstr "Rhestr drychau"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
@@ -3363,23 +3371,23 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr ""
+msgstr "Pori..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
 msgid "Add a medium"
-msgstr ""
+msgstr "Ychwanegu cyfrwng"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
 msgid "Adding a medium:"
-msgstr ""
+msgstr "Ychwanegu cyfrwng:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
 msgid "Type of medium:"
-msgstr ""
+msgstr "Math o gyfrwng:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Local files"
-msgstr ""
+msgstr "Ffeiliau lleol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
@@ -3387,14 +3395,14 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
-msgstr ""
+msgstr "Gweinydd FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:724
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
@@ -3445,35 +3453,35 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
-msgstr ""
+msgstr "byth"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "always"
-msgstr ""
+msgstr "bob amser"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr ""
+msgstr "Rhaglen lawrlwytho i'w defnyddio:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr ""
+msgstr "Polisi lawrlwytho metadata XML:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
-msgstr ""
+msgstr "Byth"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
-msgstr ""
+msgstr "Ar alw"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr ""
+msgstr "Diweddaru'n unig"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
-msgstr ""
+msgstr "Bob amser"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
@@ -3494,16 +3502,16 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
-msgstr ""
+msgstr "Golygu cyfrwng"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
 #, perl-format
 msgid "Editing medium \"%s\":"
-msgstr ""
+msgstr "Golygu'r cyfrwng \"%s\":"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
-msgstr ""
+msgstr "Lawrlwythwr:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
@@ -3620,7 +3628,7 @@ msgstr "Tynnu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
 msgid "Hosts:"
-msgstr ""
+msgstr "Gwesteion:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
@@ -3736,7 +3744,7 @@ msgstr "Â llaw"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
 msgid "Type"
-msgstr ""
+msgstr "Math"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
@@ -3880,17 +3888,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "Defnyddir %s o le ychwanegol ar y disg."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "Rhyddheir %s o le ar y disg."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "Estynnir %s o becynnau."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:104
 msgid "Search results"
@@ -3958,7 +3966,7 @@ msgstr "Fersiwn:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:226
 msgid "Currently installed version: "
-msgstr ""
+msgstr "Fersiwn cyfredol:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Group: "
@@ -4012,7 +4020,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 msgid "You may want to update your urpmi database."
-msgstr ""
+msgstr "Efallai yr hoffech ddiweddaru eich cronfa ddata urpmi."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "Matching packages:"
@@ -4041,7 +4049,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1156
 msgid "Please choose"
-msgstr ""
+msgstr "Dewiswch"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "The following package is needed:"
@@ -4175,6 +4183,9 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"Mae'r rhestr diweddariadau'n wag. Golyga hyn naill ai\n"
+"nad oes diweddariad ar gyfer y pecynnau ar eich cyfrifiadur,\n"
+"neu rydych eisoeswedi eu gosod."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1689 modules/rpmdragora/rpmdragora:380
 msgid "Upgradable"
@@ -4367,15 +4378,15 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:421
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "Dewiswyd: %s / Gwagle ar ddisg: %s"
 
 #: modules/rpmdragora/rpmdragora:464
 msgid "Package"
-msgstr ""
+msgstr "Pecyn"
 
 #: modules/rpmdragora/rpmdragora:481
 msgid "Arch."
-msgstr ""
+msgstr "Arch."
 
 #: modules/rpmdragora/rpmdragora:485
 msgid "ToInst"
@@ -4549,6 +4560,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Ydy hi'n iawn i barhau?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
