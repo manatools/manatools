@@ -454,7 +454,8 @@ sub _loadSettings {
     my $fileName = "$self->{confDir}/settings.conf";
     die "Configuration file missing" if (! -e $fileName);
     if (!$self->{settings} || $force_load) {
-        $self->{settings} = new ManaTools::SettingsReader($fileName);
+        my $settingsReader = ManaTools::SettingsReader->new({fileName => $fileName});
+        $self->{settings} = $settingsReader->settings();
     }
 }
 
