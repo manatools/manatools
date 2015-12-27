@@ -1,29 +1,88 @@
 # vim: set et ts=4 sw=4:
-#    Copyright 2012 Steven Tucker
-#
-#    This file is part of ManaTools
-#
-#    ManaTools is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
-#
-#    ManaTools is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
-
-
-#Class Category
 package ManaTools::Category;
+#============================================================= -*-perl-*-
 
-use strict;
-use warnings;
+=head1 NAME
+
+ManaTools::Category - add new category to window
+
+=head1 SYNOPSIS
+
+    my $category = new ManaTools::Category({name => 'Category Name'});
+
+=head1 DESCRIPTION
+
+    This class is used by MainDisplay internally and should not
+    be used outside, since MainDisplay::setupGui use it to
+    build GUI layout.
+
+=head1 EXPORT
+
+exported
+
+=head1 SUPPORT
+
+    You can find documentation for this module with the perldoc command:
+
+    perldoc ManaTools::Category
+
+=head1 SEE ALSO
+
+    ManaTools::MainDisplay
+
+=head1 AUTHOR
+
+    Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+    Copyright 2013-2015, Angelo Naselli.
+    Copyright 2012, Steven Tucker.
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2, as
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=head1 METHODS
+
+=cut
+
+use Moose;
 use diagnostics;
 use yui;
+
+has 'name' => (
+    is      => 'rw',
+    isa     => 'Str',
+);
+
+has 'icon' => (
+    is      => 'rw',
+    isa     => 'Str',
+);
+
+has 'button' => (
+    is       => 'rw',
+    isa      => 'Maybe[yui::YPushButton]',
+    init_arg => undef,
+);
+
+has 'modules' => (
+    is      => 'rw',
+    isa     => 'ArrayRef[ManaTools::Module]',
+    init_arg => undef,
+    default => sub {[];},
+);
+
 
 ## Can only add the config file data at constructor
 ## The Gui elements are added in setupGui inside MainDisplay
@@ -33,12 +92,10 @@ use yui;
 
 =head3 INPUT
 
-    $newName: new category name
-    $newIcon: new category icon
+    hash ref containing
+        name: new category name
+        icon: new category icon
 
-=head3 OUTPUT
-
-    $self: this object
 
 =head3 DESCRIPTION
 
@@ -48,21 +105,7 @@ use yui;
 
 #=============================================================
 
-sub new {
-    my ($class, $newName, $newIcon) = @_;
-    my $self = {
-        name    => 0,
-        button  => 0,
-        icon    => 0,
-        modules => [],
-    };
-    bless $self, 'ManaTools::Category';
 
-    $self->{name} = $newName;
-    $self->{icon} = $newIcon;
-
-    return $self;
-}
 
 ## Add a new module to the list
 #=============================================================
@@ -91,7 +134,7 @@ sub loadModule {
     my ($self, $module) = @_;
 
     if (!$self->moduleLoaded($module->{name})) {
-        push ( @{$self->{modules}}, $module );
+        push ( @{$self->modules()}, $module );
 
         return 1;
     }
@@ -128,16 +171,16 @@ sub moduleLoaded {
 
     my $present = 0;
 
-    if (!$module_name || ! $self->{modules}) {
+    if (!$module_name || (scalar @{$self->modules()} == 0) ) {
         return $present;
     }
 
-    foreach my $mod (@{$self->{modules}}) {
+    foreach my $mod (@{$self->modules()}) {
         if (exists $params{-CLASS} && ref($mod) eq $params{-CLASS}) {
             $present = 1;
             last;
         }
-        elsif ($mod->{name} eq $module_name) {
+        elsif ($mod->name() eq $module_name) {
             $present = 1;
             last;
         }
@@ -170,7 +213,7 @@ sub addButtons {
     my %weights = ();
     my $curr;
     my $count = 0;
-    foreach my $mod (@{$self->{modules}}) {
+    foreach my $mod (@{$self->modules()}) {
         if(($count % 2) != 1) {
             $factory->createVSpacing($panel, 0.5);
             $currLayout = $factory->createHBox($panel);
@@ -183,7 +226,7 @@ sub addButtons {
             $mod->name
         );
         $count++;
-        if (($count < scalar @{$self->{modules}}) || (($count >= scalar @{$self->{modules}}) && ($count % 2) == 0)) {
+        if (($count < scalar @{$self->modules()}) || (($count >= scalar @{$self->modules()}) && ($count % 2) == 0)) {
             $tmpButton->setWeight($yui::YD_HORIZ, 20);
         }
         $factory->createHSpacing($currLayout, 1);
@@ -211,7 +254,7 @@ sub addButtons {
 sub removeButtons {
     my($self) = @_;
 
-    for(@{$self->{modules}}) {
+    for(@{$self->modules()}) {
         $_->removeButton();
     }
 }
@@ -234,29 +277,10 @@ sub removeButtons {
 sub setIcon {
     my($self) = @_;
 
-    $self->{button}->setIcon($self->{icon});
+    $self->button()->setIcon($self->icon());
 }
 
+no Moose;
+
 1;
-__END__
 
-=pod
-
-=head1 NAME
-
-    Category - add new category to window
-
-=head1 SYNOPSIS
-
-    $category = new Category('Category Name');
-
-
-=head1 USAGE
-
-    This class is used by MainDisplay internally and should not
-    be used outside, since MainDisplay::setupGui use it to
-    build GUI layout.
-
-=head1 FUNCTIONS
-
-=cut
