@@ -4,13 +4,13 @@ package ManaTools::SettingsReader;
 
 =head1 NAME
 
-ManaTools::SettingsReader - This module allows to load an XML configuration file
+    ManaTools::SettingsReader - This module allows to load an XML configuration file
 
 =head1 SYNOPSIS
 
     use ManaTools::SettingsReader;
 
-    my $settings = new ManaTools::SettingsReader($fileName);
+    my $settings = new ManaTools::SettingsReader({filNema => $fileName});
 
 =head1 DESCRIPTION
 
@@ -18,9 +18,9 @@ ManaTools::SettingsReader - This module allows to load an XML configuration file
 
 =head1 SUPPORT
 
-You can find documentation for this module with the perldoc command:
+    You can find documentation for this module with the perldoc command:
 
-perldoc ManaTools::SettingsReader
+    perldoc ManaTools::SettingsReader
 
 =head1 SEE ALSO
 
@@ -54,8 +54,7 @@ perldoc ManaTools::SettingsReader
 =cut
 
 
-use strict;
-use warnings;
+use Moose;
 use diagnostics;
 use XML::Simple;
 use Data::Dumper;
@@ -66,11 +65,12 @@ use Data::Dumper;
 
 =head3 INPUT
 
-    $fileName: File to be loaded
+    hash ref containing
+        fileName: settings configuration file name
 
-=head3 OUTPUT
+=head3 OUTPUT attributes
 
-    $settings: Hash reference containing read settings
+    settings: Hash reference containing read settings
 
 =head3 DESCRIPTION
 
@@ -81,21 +81,26 @@ use Data::Dumper;
 
 #=============================================================
 
-sub new {
-    my ($class, $fileName) = @_;
+has 'fileName' => (
+    is       => 'ro',
+    isa      => 'Str',
+    required => 1,
+);
 
-    my $self = {
-        settings => 0,
-    };
-    bless $self, 'ManaTools::SettingsReader';
+has 'settings' => (
+    is       => 'ro',
+    isa      => 'HashRef',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_settingsInitialize',
+);
 
-    die "File " . $fileName . " not found" if (! -e $fileName);
+sub _settingsInitialize {
+    my $self = shift;
 
     my $xml = new XML::Simple (KeyAttr=>[]);
-    $self->{settings} = $xml->XMLin($fileName);
-
-    return $self->{settings};
+    return $xml->XMLin($self->fileName());
 }
 
-
+no Moose;
 1;
