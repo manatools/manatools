@@ -74,7 +74,7 @@ use Data::Dumper;
 
 =head3 DESCRIPTION
 
-    The constructor just loads the given files and return its representation
+    The constructor just loads the given file and return its representation
     into a hash reference.
 
 =cut
