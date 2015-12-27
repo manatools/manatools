@@ -61,12 +61,12 @@ use diagnostics;
 use yui;
 
 has 'name' => (
-    is      => 'rw',
+    is      => 'ro',
     isa     => 'Str',
 );
 
 has 'icon' => (
-    is      => 'rw',
+    is      => 'ro',
     isa     => 'Str',
 );
 
