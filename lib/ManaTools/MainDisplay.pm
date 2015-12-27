@@ -565,7 +565,7 @@ sub _loadCategory {
 }
 
 sub _loadCategories {
-    my ($self) = @_;
+    my $self = shift;
 
     # category files
     my @categoryFiles;
@@ -580,7 +580,7 @@ sub _loadCategories {
     my $currCategory;
 
     foreach $fileName (@categoryFiles) {
-        my $inFile = new ManaTools::ConfigReader($fileName);
+        my $inFile = new ManaTools::ConfigReader({fileName => $fileName});
         my $tmpCat;
         my $tmp;
         my $hasNextCat = $inFile->hasNextCat();
