@@ -1,118 +1,321 @@
 # vim: set et ts=4 sw=4:
-#    Copyright 2012 Steven Tucker
-#
-#    This file is part of ManaTools
-#
-#    ManaTools is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
-#
-#    ManaTools is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
+package ManaTools::ConfigReader;
+#============================================================= -*-perl-*-
+
+=head1 NAME
+
+    ManaTools::ConfigReader - This module allows to load an XML configuration file
+
+=head1 SYNOPSIS
+
+    use ManaTools::ConfigReader;
+
+    my $settings = new ManaTools::ConfigReader({filNema => $fileName});
+
+=head1 DESCRIPTION
+
+    This module allows to load a configuration file returning a Hash references with its content.
+
+
+=head1 SUPPORT
+
+You can find documentation for this module with the perldoc command:
+
+    perldoc ManaTools::ConfigReader
+
+=head1 SEE ALSO
+
+    XML::Simple
+    ManaTools::MainDisplay
+
+
+=head1 AUTHOR
+
+    Angelo Naselli <anaselli@linux.it>
+
+=head1 COPYRIGHT and LICENSE
+
+    Copyright 2012-2015, Angelo Naselli.
+    Copyright 2012, Steven Tucker.
+
+    This program is free software; you can redistribute it and/or modify
+    it under the terms of the GNU General Public License version 2, as
+    published by the Free Software Foundation.
+
+    This program is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with this program; if not, write to the Free Software
+    Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
+
+=head1 METHODS
+
+=cut
 
 
 #Class ConfigReader
 package ManaTools::ConfigReader;
 
-use strict;
-use warnings;
+use Moose;
 use diagnostics;
 use XML::Simple;
 
-sub new {
-    my ($class, $fileName) = @_;
+#=============================================================
 
-    my $self = {
-        data        => 0,
-        catLen      => 0,
-        currCat     => 0,
-        modLen      => 0,
-        currMod     => 0,
-        placeHolder => 0,
-    };
-    bless $self, 'ManaTools::ConfigReader';
+=head2 new
+
+=head3 INPUT
+
+    hash ref containing
+        fileName: configuration file name
+
+=head3 OUTPUT attributes
+
+    data:    Hash reference containing the configuration read
+    catLen:  number of categories found
+    modLen:  number of modules found
+    currCat: current category
+    currMod: current module
+
+=head3 DESCRIPTION
+
+    The constructor just loads the given file and provide accessors.
+
+=cut
+
+#=============================================================
+
+has 'fileName' => (
+    is       => 'ro',
+    isa      => 'Str',
+    required => 1,
+);
+
+has 'catLen' => (
+    is       => 'rw',
+    isa      => 'Int',
+    init_arg => undef,
+    lazy     => 1,
+    default   => -1,
+);
+
+has 'modLen' => (
+    is        => 'rw',
+    isa       => 'Int',
+    init_arg  => undef,
+    lazy      => 1,
+    default   => -1,
+);
+
+has 'data' => (
+    is       => 'ro',
+    isa      => 'HashRef',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_dataInitialize',
+);
+
+sub _dataInitialize {
+    my $self = shift;
 
     my $xml = new XML::Simple (KeyAttr=>[]);
-    $self->{data} = $xml->XMLin($fileName);
-    if (ref($self->{data}->{category}) eq "HASH") {
+    my $data = $xml->XMLin($self->fileName());
+        if (ref($data->{category}) eq "HASH") {
         # one element alone
         my @categories;
-        push @categories, $self->{data}->{category};
-        $self->{data}->{category} = undef;
-        push @{$self->{data}->{category}}, @categories;
+        push @categories, $data->{category};
+        $data->{category} = undef;
+        push @{$data->{category}}, @categories;
     }
-    $self->{catLen} = scalar(@{$self->{data}->{category}});
-    $self->{currCat} = -1;
 
-    if(ref(@{$self->{data}->{category}}[0]->{module}) eq "ARRAY") {
-        $self->{modLen} = scalar(@{@{$self->{data}->{category}}[0]->{module}});
+    $self->catLen( scalar(@{$data->{category}}) );
+
+    if(ref(@{$data->{category}}[0]->{module}) eq "ARRAY") {
+        $self->modLen(
+            scalar(@{@{$data->{category}}[0]->{module}})
+        );
     } else {
-        $self->{modLen} = 1;
+        $self->modLen(1);
     }
-    $self->{currMod} = -1;
 
-    return $self;
+    return $data;
 }
 
-sub hasNextCat {
-    my ($self) = @_;
+has 'currCat' => (
+    is        => 'rw',
+    isa       => 'Int',
+    init_arg  => undef,
+    default   => -1,
+);
 
-    if($self->{currCat} + 1 >= $self->{catLen}) {
+has 'currMod' => (
+    is        => 'rw',
+    isa       => 'Int',
+    init_arg  => undef,
+    default   => -1,
+);
+
+
+#=============================================================
+
+=head2 BUILD
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    The BUILD method is called after a Moose object is created,
+    Into this method new optional parameters are tested once,
+    instead of into any other methods.
+
+=cut
+
+#=============================================================
+sub BUILD {
+    my $self = shift;
+
+    die "Given fileName does not exsts" if (! -e $self->fileName);
+    # force to read the file now, to make its content available
+    $self->data();
+}
+
+#=============================================================
+
+=head2 hasNextCat
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    1: if there are any other ctegories
+
+=head3 DESCRIPTION
+
+    This method returns if there are any categories left
+
+=cut
+
+#=============================================================
+sub hasNextCat {
+    my $self = shift;
+
+    if($self->currCat() + 1 >= $self->catLen()) {
         return 0;
     }
     return 1;
 }
 
-sub getNextCat {
-    my ($self) = @_;
+#=============================================================
 
-    $self->{currCat}++;
-    if($self->{currCat} >= $self->{catLen}) {
+=head2 getNextCat
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    $cat: next category
+
+=head3 DESCRIPTION
+
+    This method returns the next category
+
+=cut
+
+#=============================================================
+sub getNextCat {
+    my $self = shift;
+
+    $self->currCat($self->currCat()+1);
+    if($self->currCat() >= $self->catLen()) {
         return 0;
     }
 
     # Reset the Module Count and Mod length for new Category
-    $self->{currMod} = -1;
-    if(ref(@{$self->{data}->{category}}[$self->{currCat}]->{module}) eq "ARRAY") {
-        $self->{modLen} = scalar(@{@{$self->{data}->{category}}[$self->{currCat}]->{module}});
+    $self->currMod(-1);
+    if(ref(@{$self->data()->{category}}[$self->currCat()]->{module}) eq "ARRAY") {
+        $self->modLen(
+            scalar(@{@{$self->data()->{category}}[$self->currCat()]->{module}})
+        );
     } else {
-        $self->{modLen} = 1;
+        $self->modLen(1);
     }
 
-    my $tmp = @{$self->{data}->{category}}[$self->{currCat}];
+    my $cat = @{$self->data()->{category}}[$self->currCat()];
 
-    return $tmp;
+    return $cat;
 }
 
-sub hasNextMod {
-    my ($self) = @_;
+#=============================================================
 
-    if($self->{currMod} + 1 >= $self->{modLen}) {
+=head2 hasNextMod
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    1: if there are any other modules
+
+=head3 DESCRIPTION
+
+    This method returns if there are any modules left
+
+=cut
+
+#=============================================================
+sub hasNextMod {
+    my $self = shift;
+
+    if($self->currMod() + 1 >= $self->modLen()) {
         return 0;
     }
     return 1;
 }
 
+#=============================================================
+
+=head2 getNextMod
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    $cat: next module
+
+=head3 DESCRIPTION
+
+    This method returns the next module
+
+=cut
+
+#=============================================================
 sub getNextMod {
-    my ($self) = @_;
+    my $self = shift;
 
     my $ret = 0;
 
-    $self->{currMod}++;
+    $self->currMod($self->currMod()+1);
 
     if($self->{modLen} == 1) {
-        $ret = @{$self->{data}->{category}}[$self->{currCat}]->{module};
+        $ret = @{$self->data()->{category}}[$self->currCat()]->{module};
     } else {
-        $ret = @{@{$self->{data}->{category} }[$self->{currCat}]->{module}}[$self->{currMod}];
+        $ret = @{@{$self->data()->{category} }[$self->currCat()]->{module}}[$self->currMod()];
     }
 
     return $ret;
 }
 
+no Moose;
 1;
