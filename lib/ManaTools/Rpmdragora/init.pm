@@ -52,7 +52,7 @@ our @ARGV_copy =  @ARGV;
 
 BEGIN {  #- we want to run this code before the Gtk->init of the use-my_gtk
     my $locale_dir = undef;
-    $DB::single = 1;
+
     if ("@ARGV" =~/--locales-dir(\s*(.+))/) {
         $locale_dir = $2 ? $2 : $1;
     }

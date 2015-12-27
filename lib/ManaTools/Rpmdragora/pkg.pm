@@ -600,7 +600,7 @@ sub get_pkgs {
     my $pkg_list = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'modules/rpmdragora/gui.lst');
 
     my @gui_pkgs = map { chomp; $_ } MDK::Common::File::cat_($pkg_list);
-    $DB::single = 1;
+
     # add meta packages to GUI packages list (which expect basic names not fullnames):
     push @gui_pkgs, map { (split_fullname($_))[0] } @meta_pkgs;
 
