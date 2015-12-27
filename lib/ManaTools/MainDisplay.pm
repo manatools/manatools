@@ -217,7 +217,7 @@ sub start {
         $self->{currCategory} = @{$self->{categories}}[0];
     }
     $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
-    $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
+    $self->{rightPaneFrame}->setLabel($self->{currCategory}->name());
     $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
     my $launch = 0;
     while(!$launch) {
@@ -290,7 +290,7 @@ sub destroy {
 
     $self->{mainWin}->destroy();
     for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
-        @{$self->{categories}}[$cat]->{button} = 0;
+        @{$self->{categories}}[$cat]->button(undef);
         @{$self->{categories}}[$cat]->removeButtons();
     }
 }
@@ -416,7 +416,7 @@ sub _moduleSelected {
 sub _categorySelected {
     my ($self, $selectedWidget) = @_;
     for (@{$self->{categories}}) {
-        if( $_->{button} == $selectedWidget ) {
+        if( $_->button() == $selectedWidget ) {
 
             #if current is already set then skips
             if ($self->{currCategory} == $_) {
@@ -434,7 +434,7 @@ sub _categorySelected {
             $self->{currCategory} = $_;
             ## Add new Module Buttons to Right Pane
             $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
-            $self->{rightPaneFrame}->setLabel($self->{currCategory}->{name});
+            $self->{rightPaneFrame}->setLabel($self->{currCategory}->name());
             $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
             $self->{replacePoint}->showChild();
             $self->{mainWin}->recalcLayout();
@@ -485,7 +485,7 @@ sub _categoryLoaded {
     }
 
     foreach my $cat (@{$self->{categories}}) {
-        if ($cat->{name} eq $category->{name}) {
+        if ($cat->name() eq $category->name()) {
             $present = 1;
             last;
         }
@@ -516,7 +516,7 @@ sub _getCategory {
     my $category = undef;
 
     foreach $category (@{$self->{categories}}) {
-        if ($category->{name} eq $name) {
+        if ($category->name() eq $name) {
             return $category;
         }
     }
@@ -534,24 +534,28 @@ sub _loadCategory {
     if (!$self->_categoryLoaded($category)) {
         push ( @{$self->{categories}}, $category );
 
-        @{$self->{categories}}[-1]->{button} = $self->{factory}->createPushButton(
-                                                                    $self->{leftPane},
-                                                                    $self->{categories}[-1]->{name}
-                                                                    );
+        @{$self->{categories}}[-1]->button(
+            $self->{factory}->createPushButton(
+                $self->{leftPane},
+                $self->{categories}[-1]->name()
+            )
+        );
         @{$self->{categories}}[-1]->setIcon();
 
-        @{$self->{categories}}[-1]->{button}->setStretchable(0, 1);
+        @{$self->{categories}}[-1]->button()->setStretchable(0, 1);
     }
     else {
         for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
-            if( @{$self->{categories}}[$cat]->{name} eq $category->{name} &&
-                !@{$self->{categories}}[$cat]->{button})  {
-                    @{$self->{categories}}[$cat]->{button} = $self->{factory}->createPushButton(
-                                                                    $self->{leftPane},
-                                                                    $self->{categories}[$cat]->{name}
-                                                                    );
+            if( @{$self->{categories}}[$cat]->name() eq $category->name() &&
+                !@{$self->{categories}}[$cat]->button())  {
+                    @{$self->{categories}}[$cat]->button(
+                        $self->{factory}->createPushButton(
+                            $self->{leftPane},
+                            $self->{categories}[$cat]->name()
+                        )
+                    );
                     @{$self->{categories}}[$cat]->setIcon();
-                    @{$self->{categories}}[$cat]->{button}->setStretchable(0, 1);
+                    @{$self->{categories}}[$cat]->button()->setStretchable(0, 1);
                     last;
 
             }
@@ -583,7 +587,10 @@ sub _loadCategories {
             $tmp = $inFile->getNextCat();
             $tmpCat = $self->_getCategory($tmp->{title});
             if (!$tmpCat) {
-                $tmpCat = new ManaTools::Category($tmp->{title}, $tmp->{icon});
+                $tmpCat = new ManaTools::Category(
+                    name => $tmp->{title},
+                    icon => $tmp->{icon}
+                );
             }
             $self->_loadCategory($tmpCat);
             $hasNextCat  = $inFile->hasNextCat();
