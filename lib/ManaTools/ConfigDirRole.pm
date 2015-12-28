@@ -99,4 +99,6 @@ sub configPathName {
     return $dir . "/" . $self->configName();
 }
 
+no Moose::Role;
+
 1;
