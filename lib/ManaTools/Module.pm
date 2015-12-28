@@ -124,30 +124,6 @@ has 'loc' => (
     }
 );
 
-#=============================================================
-
-=head2 logger
-
-    logger attribute defines the Logging object
-    see ManaTools::Shared::Logging for details and usage.
-
-=cut
-
-#=============================================================
-has 'logger' => (
-    is => 'ro',
-    isa => 'ManaTools::Shared::Logging',
-    init_arg => undef,
-    lazy => 1,
-    builder => '_loggerInitialize',
-);
-
-sub _loggerInitialize{
-    my $self = shift;
-
-    return ManaTools::Shared::Logging->new(ident => $self->name);
-}
-
 
 #=============================================================
 
