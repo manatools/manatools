@@ -85,6 +85,20 @@ use MDK::Common::DataStructure qw(member);
 use feature 'state';
 
 extends qw( ManaTools::Module );
+with 'ManaTools::LoggingRole';
+has 'configDir' => (
+    is      => 'ro',
+    isa     => 'Str',
+);
+
+with 'ManaTools::ConfigDirRole';
+
+has 'moduleName' => (
+    is        => 'ro',
+    isa       => 'Str',
+    init_arg  => undef,
+    default   => 'manauser',
+);
 
 has '+icon' => (
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manauser.png'),
@@ -192,7 +206,57 @@ has 'config_file' => (
     default => '/etc/sysconfig/manauser',
 );
 
+#=============================================================
 
+=head2 identifier
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    name: module name
+
+=head3 DESCRIPTION
+
+    Returns the module name as logging identifier.
+    This method is required by LoggingRole
+
+=cut
+
+#=============================================================
+sub identifier {
+    my $self = shift;
+
+    return $self->moduleName();
+}
+
+#=============================================================
+
+=head2 configName
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    name: module name
+
+=head3 DESCRIPTION
+
+    Returns the module name as configuration subdirectory.
+    This method is required by ConfifDirRole
+
+=cut
+
+#=============================================================
+sub configName {
+    my $self = shift;
+
+    return $self->moduleName();
+}
 
 #=============================================================
 
@@ -2517,6 +2581,7 @@ sub _manageUsersDialog {
         elsif ($eventType == $yui::YEvent::MenuEvent) {
 ### MENU ###
             my $item = $event->item();
+            $DB::single = 1;
             my $menuLabel = $item->label();
             if ($menuLabel eq $fileMenu{ quit }->label())  {
                 last;
