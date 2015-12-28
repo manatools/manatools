@@ -34,6 +34,18 @@ has 'devel' => (
     documentation => $loc->N('Developers mode'),
 );
 
+has 'name' => (
+    is            => 'ro',
+    isa           => 'Str',
+    documentation => $loc->N('Application name, used for logging identifier and x application configuration directory. Default mpan'),
+);
+
+has 'title' => (
+    is            => 'ro',
+    isa           => 'Str',
+    documentation => $loc->N('Window title. Default name value'),
+);
+
 no Moose;
 __PACKAGE__->meta->make_immutable;
 
@@ -61,19 +73,21 @@ else {
     ask_for_authentication($settings->{priv_method}) if is_root_capability_required();
 }
 
-my $mainWin = new ManaTools::MainDisplay();
+my $param = {};
+
+$param->{title}     = $cmdline->title() if $cmdline->title();
+$param->{name}      = $cmdline->name() if $cmdline->name();
+$param->{configDir} = $cmdline->conf_dir() if $cmdline->conf_dir();
+
+
+my $mainWin = new ManaTools::MainDisplay($param);
 while (1) {
     my $launch = $mainWin->start();
+    $mainWin->cleanup();
 
     if ($launch) {
-        $mainWin->destroy();
         $launch->start();
     }
-    else {
-        $mainWin->destroy();
-        last;
-    }
-    $mainWin->setupGui();
 }
 
 

@@ -196,8 +196,7 @@ sub moduleLoaded {
 =head3 INPUT
 
     $self:    this object
-    $panel:   parent panel layout in which to create buttons
-    $factory: yui factory
+    $mainDisplay:  main dialog
 
 =head3 DESCRIPTION
 
@@ -207,16 +206,18 @@ sub moduleLoaded {
 
 #=============================================================
 sub addButtons {
-    my($self, $panel, $factory) = @_;
+    my($self, $mainDisplay) = @_;
     my $tmpButton;
     my $currLayout = 0;
     my %weights = ();
     my $curr;
     my $count = 0;
+    my $factory = $mainDisplay->factory();
+
     foreach my $mod (@{$self->modules()}) {
         if(($count % 2) != 1) {
-            $factory->createVSpacing($panel, 0.5);
-            $currLayout = $factory->createHBox($panel);
+            $factory->createVSpacing($mainDisplay->rightPane(), 0.5);
+            $currLayout = $factory->createHBox($mainDisplay->rightPane());
             $factory->createHSpacing($currLayout, 1);
             $currLayout->setWeight($yui::YD_VERT, 10);
         }
@@ -233,6 +234,20 @@ sub addButtons {
         $mod->setButton($tmpButton);
         $tmpButton->setLabel($mod->name);
         $tmpButton->setIcon($mod->icon);
+        $mainDisplay->mainWin()->addWidget(
+            $mod->name(),
+            $tmpButton,  sub {
+                my $event = shift; ## ManaTools::Shared::GUI::Event
+                my $self = $event->parentDialog()->module(); #this object
+                my $mod = $self->_moduleSelected($event->widget());
+                if ($mod) {
+                    $self->selectedModule($mod);
+                    return 0;
+                }
+                return 1;
+            }
+        );
+
     }
 }
 

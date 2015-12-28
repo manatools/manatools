@@ -1,93 +1,71 @@
 # vim: set et ts=4 sw=4:
-#    Copyright 2012 Steven Tucker
-#
-#    This file is part of ManaTools
-#
-#    ManaTools is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU General Public License as published by
-#    the Free Software Foundation, either version 2 of the License, or
-#    (at your option) any later version.
-#
-#    ManaTools is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU General Public License
-#    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
-
-
 package ManaTools::MainDisplay;
 #============================================================= -*-perl-*-
 
 =head1 NAME
 
-ManaTools::MainDisplay - class for AdminPaneol main window
+ManaTools::MainDisplay - class for ManaTools main window
 
 =head1 SYNOPSIS
 
-       $mainDisplay = new ManaTools::MainDisplay();
-       $mainDisplay->start();
-       $mainDisplay->destroy();
+    $mainDisplay = new ManaTools::MainDisplay();
+    $mainDisplay->start();
+    $mainDisplay->destroy();
 
 =head1 METHODS
 
 =head1 DESCRIPTION
 
-Long_description
+    ManaTools::MainDisplay implements the main window panel adding buttons
+    reading the configuration for every categories and modules
 
-=head1 EXPORT
-
-exported
 
 =head1 SUPPORT
 
-You can find documentation for this module with the perldoc command:
+    You can find documentation for this module with the perldoc command:
 
-perldoc ManaTools::MainDisplay
-
-=head1 SEE ALSO
-
-SEE_ALSO
+    perldoc ManaTools::MainDisplay
 
 =head1 AUTHOR
 
-Steven Tucker
+    Steven Tucker
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2012, Steven Tucker
-Copyright (C) 2014, Angelo Naselli.
+    Copyright (C) 2012-2015, Angelo Naselli.
+    Copyright (C) 2012, Steven Tucker.
 
-ManaTools is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
+    ManaTools is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 2 of the License, or
+    (at your option) any later version.
 
-ManaTools is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
+    ManaTools is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License
-along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
+    You should have received a copy of the GNU General Public License
+    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
-=head1 FUNCTIONS
+=head1 METHODS
 
 =cut
-
 
 
 =head1 VERSION
 
-Version 1.0.1
+    Version 1.1.0
+    See Changes for details
 
 =cut
 
-our $VERSION = '1.0.1';
+our $VERSION = '1.1.0';
 
-use strict;
-use warnings;
+use Moose;
+extends qw( ManaTools::Module );
+
+
 use diagnostics;
 use ManaTools::SettingsReader;
 use ManaTools::ConfigReader;
@@ -95,87 +73,217 @@ use ManaTools::Category;
 use ManaTools::Module;
 use ManaTools::Shared;
 use ManaTools::Shared::GUI;
+use ManaTools::Shared::GUI::Dialog;
 use ManaTools::Shared::Locales;
 use File::ShareDir ':ALL';
 
 use yui;
+with 'ManaTools::LoggingRole';
+
+has 'configDir' => (
+    is      => 'ro',
+    isa     => 'Str',
+);
+
+with 'ManaTools::ConfigDirRole';
 
 #=============================================================
 
 =head2 new
 
+=head3 INPUT
+
+    hash ref containing
+        configDir: configuration files directory
+        name:    application name, logging identity,
+                 configuration subdirectory
+
+=head3 other attributes
+
+    title:        window title got from configuration file,
+                  default is name.
+    categories:   ArrayRef[ManaTools::Category]
+    settings:     HashRef containing settings file content
+    currCategory: Selected category
+    mainWin:      Main Dialog window
+    factory:      yui::YUI::widgetFactory
+    menus:        HashRef containing menu items
+    leftPane:     left panel layout
+    rightPane:    right panel layout
+  rightPaneFrame: right frame (needed for category title)
+    replacePoint: replace point where to set new layout on
+                  category selection
+  selectedModule: module to be returned when selected
+
 =head3 DESCRIPTION
 
-This method instanziates the MainWindo object, and setups
-the startup GUI.
+    This method instanziates the MainWindo object, and setups
+    the startup GUI.
 
 =cut
 
 #=============================================================
-sub new {
+has '+name' => (
+    is      => 'ro',
+    isa     => 'Str',
+    default => 'mpan',
+);
 
-    my $self = {
-        categories => 0,
-        event      => 0,
-        factory    => 0,
-        mainWin    => 0,
-        mainLayout => 0,
-        menuLayout => 0,
-        menus => {
-            file => 0,
-            help => 0
-        },
-        layout       => 0,
-        leftPane     => 0,
-        rightPane    => 0,
-        currCategory => 0,
-        confDir      => 0,
-        title        => 0,
-        settings     => 0,
-        exitButton   => 0,
-        aboutButton  => 0,
-        loc          => 0,
-        replacePoint => 0,
-    };
-    bless $self, 'ManaTools::MainDisplay';
+has '+icon' => (
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png'),
+);
 
-## Default values
-    $self->{name} =     "Mana-tools panel";
-    $self->{categories} = [];
-    $self->{confDir}    = "/etc/mpan",
-    $self->{title}      = "mpan",
+has 'title'  => (
+    is       => 'rw',
+    isa      => 'Str',
+    init_arg => undef,
+    lazy     => 1,
+    builder  => '_titleInitialize',
+);
 
-    my $cmdline = new yui::YCommandLine;
+sub _titleInitialize {
+    my $self = shift;
 
-    ## TODO add parameter check
-    my $pos       = $cmdline->find("--name");
-    if ($pos > 0)
-    {
-        $self->{title} = $cmdline->arg($pos+1);
-    }
-    $pos       = $cmdline->find("--conf_dir");
-    if ($pos > 0)
-    {
-        $self->{confDir} = $cmdline->arg($pos+1);
-    }
-    else
-    {
-        $self->{confDir} = "/etc/$self->{title}";
-    }
-    my $locale_dir = undef;
-    $pos           = $cmdline->find("--locales-dir");
-    if ($pos > 0)
-    {
-       $locale_dir = $cmdline->arg($pos+1);
-    }
-    $self->{loc} = ManaTools::Shared::Locales->new(
-            domain_name => 'manatools',
-            dir_name    => $locale_dir,
-    );
+    return $self->name();
+}
 
-    $self->setupGui();
+has 'settings' => (
+    is       => 'rw',
+    isa      => 'HashRef',
+    init_arg => undef,
+    default  => sub {return {};},
+);
 
-    return $self;
+has 'categories' => (
+    is => 'rw',
+    isa => 'ArrayRef[ManaTools::Category]',
+    init_arg => undef,
+    lazy => 1,
+    default => sub {[];},
+);
+
+has 'currCategory' => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Category]',
+    init_arg => undef,
+    default => undef,
+);
+
+has 'factory' => (
+    is => 'ro',
+    isa => 'Maybe[yui::YWidgetFactory]',
+    lazy => 1,
+    init_arg => undef,
+    default => sub {
+       return yui::YUI::widgetFactory;
+    },
+);
+
+has 'mainWin' => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Shared::GUI::Dialog]',
+    init_arg => undef,
+    default => undef,
+);
+
+has 'menus' => (
+    is => 'rw',
+    isa => 'HashRef',
+    init_arg => undef,
+    default => sub {
+        {
+            file => {},
+            help => {},
+        };
+    },
+);
+
+has 'leftPane' => (
+    is => 'rw',
+    isa => 'Maybe[yui::YLayoutBox]',
+    init_arg => undef,
+    default => undef,
+);
+
+has 'rightPane' => (
+    is => 'rw',
+    isa => 'Maybe[yui::YLayoutBox]',
+    init_arg => undef,
+    default => undef,
+);
+
+has 'rightPaneFrame' => (
+    is => 'rw',
+    isa => 'Maybe[yui::YFrame]',
+    init_arg => undef,
+    default => undef,
+);
+
+has 'replacePoint' => (
+    is => 'rw',
+    isa => 'Maybe[yui::YReplacePoint]',
+    init_arg => undef,
+    default => undef,
+);
+
+has 'selectedModule' => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Module]',
+    init_arg => undef,
+    default => undef,
+);
+
+
+#=============================================================
+
+=head2 configName
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    name: application name
+
+=head3 DESCRIPTION
+
+    Returns the application name as configuration subdirectory.
+    This method is required by ConfifDirRole
+
+=cut
+
+#=============================================================
+sub configName {
+    my $self = shift;
+
+    return $self->name();
+}
+
+#=============================================================
+
+=head2 identifier
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 OUTPUT
+
+    name: application name
+
+=head3 DESCRIPTION
+
+    Returns the application name as logging identifier.
+    This method is required by LoggingRole
+
+=cut
+
+#=============================================================
+sub identifier {
+    my $self = shift;
+
+    return $self->name();
 }
 
 
@@ -188,10 +296,10 @@ sub _showAboutDialog {
     my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->AboutDialog({ name => $self->{name},
         version => $ManaTools::MainDisplay::VERSION,
-        credits => $self->{loc}->N("Copyright (C) %s Mageia community", '2013-2015'),
-        license => $self->{loc}->N("GPLv2"),
-        description => $self->{loc}->N("mpan is the mana-tools panel that collects all the utilities."),
-        authors => $self->{loc}->N("<h3>Developers</h3>
+        credits => $self->loc()->N("Copyright (C) %s Mageia community", '2013-2015'),
+        license => $self->loc()->N("GPLv2"),
+        description => $self->loc()->N("mpan is the ManaTools panel that collects all the utilities."),
+        authors => $self->loc()->N("<h3>Developers</h3>
                                     <ul><li>%s</li>
                                         <li>%s</li>
                                     </ul>
@@ -208,70 +316,24 @@ sub _showAboutDialog {
 
 
 ## Begin the program event loop
+=head2 start
+
+    contains the main loop of the application
+    where we can check for events
+
+=cut
+
 sub start {
-    my ($self) = shift;
-    my $reqExit = 0;
+    my $self = shift;
 
-    ##Default category selection
-    if (!$self->{currCategory}) {
-        $self->{currCategory} = @{$self->{categories}}[0];
-    }
-    $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
-    $self->{rightPaneFrame}->setLabel($self->{currCategory}->name());
-    $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
-    my $launch = 0;
-    while(!$launch) {
+    $self->_setupGui();
 
-        ## Grab Event
-        $self->{event} = $self->{mainWin}->waitForEvent();
-        my $eventType  = $self->{event}->eventType();
-
-        ## Check for window close
-        if ($eventType == $yui::YEvent::CancelEvent) {
-            last;
-        }
-        elsif ($eventType == $yui::YEvent::MenuEvent) {
-            ### MENU ###
-            my $item = $self->{event}->item();
-            my $menuLabel = $item->label();
-            if ($menuLabel eq $self->{menus}->{file}->{ quit }->label()) {
-                ## quit menu item
-                last;
-            }
-            elsif ($menuLabel eq $self->{menus}->{help}->{ about }->label()) {
-                $self->_showAboutDialog();
-            }
-            elsif ($menuLabel eq $self->{menus}->{help}->{ help }->label()) {
-                # TODO Help
-            }
-        }
-        elsif ($eventType == $yui::YEvent::WidgetEvent) {
-            my $widget = $self->{event}->widget();
-
-            ## Check for Exit button push or menu
-            if($widget == $self->{exitButton}) {
-                last;
-            }
-            elsif ($widget == $self->{aboutButton}) {
-                $self->_showAboutDialog();
-            }
-            else {
-                # category button selected?
-                my $isCat = $self->_categorySelected($widget);
-                if (!$isCat) {
-                    # module button selected?
-                    $launch = $self->_moduleSelected($widget);
-                }
-            }
-        }
-    }
-
-    return $launch;
+    return $self->selectedModule();
 }
 
 #=============================================================
 
-=head2 destroy
+=head2 cleanup
 
 =head3 INPUT
 
@@ -279,25 +341,34 @@ sub start {
 
 =head3 DESCRIPTION
 
-    This method destroyes the main window and all the
-    relevanto bojects (category and modules buttons).
+    This method cleanup data for a further start.
 
 =cut
 
 #=============================================================
-sub destroy {
-    my ($self) = shift;
+sub cleanup {
+    my $self = shift;
 
-    $self->{mainWin}->destroy();
-    for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
-        @{$self->{categories}}[$cat]->button(undef);
-        @{$self->{categories}}[$cat]->removeButtons();
+    $self->mainWin(undef);
+    $self->menus({
+        file => {},
+        help => {},
+    });
+
+    for (my $cat=0; $cat < scalar(@{$self->categories()}); $cat++ ) {
+        my $catSel = @{$self->categories()}[$cat];
+        $catSel->button(undef);
+        $catSel->removeButtons();
     }
+    $self->leftPane(undef);
+    $self->rightPane(undef);
+    $self->rightPaneFrame(undef);
+    $self->replacePoint(undef);
 }
 
 #=============================================================
 
-=head2 setupGui
+=head2 _setupGui
 
 =head3 INPUT
 
@@ -310,85 +381,145 @@ sub destroy {
 =cut
 
 #=============================================================
-sub setupGui {
-    my ($self) = shift;
+sub _setupGui {
+    my $self = shift;
 
+    $self->selectedModule(undef);
+
+    # fill $self->settings from settings.conf
     $self->_loadSettings();
-    yui::YUILog::setLogFileName($self->{settings}->{log}) if defined($self->{settings}->{log});
-    $self->{name} = $self->{settings}->{title};
-    yui::YUI::app()->setApplicationTitle($self->{name});
-    my $icon = defined($self->{settings}->{icon}) ?
-               $self->{settings}->{icon} :
-               File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png');
+
+    $self->title($self->settings()->{title});
+    yui::YUI::app()->setApplicationTitle($self->title);
+    my $icon = defined($self->settings()->{icon}) ?
+               $self->settings()->{icon} :
+               $self->icon();
 
     yui::YUI::app()->setApplicationIcon($icon);
 
-    $self->{factory} = yui::YUI::widgetFactory;
-    $self->{mainWin} = $self->{factory}->createMainDialog;
+    my $dialog = ManaTools::Shared::GUI::Dialog->new(
+        module => $self,
+        dialogType => ManaTools::Shared::GUI::Dialog::mainDialog,
+        title => $self->title(),
+        icon => $icon,
+        buttons => {
+            ManaTools::Shared::GUI::Dialog::aboutButton => sub {
+                my $event = shift; ## ManaTools::Shared::GUI::Event
+                my $self = $event->parentDialog()->module(); #this object
 
-    $self->{mainLayout} = $self->{factory}->createVBox($self->{mainWin});
-    $self->{menuLayout} = $self->{factory}->createHBox($self->{mainLayout});
+                $self->_showAboutDialog();
+                return 1;
+            },
+            ManaTools::Shared::GUI::Dialog::closeButton => sub {return 0;},
+        },
+        layout => sub {
+            my $self = shift;
+            my $layoutstart = shift;
+            my $ydialog = $self->dialog();
+            my $module  = $self->module();
+            my $info = $self->info();
+            my $factory = $self->factory();
+            my $optFactory = $self->optFactory();
 
-    ## Menu File
-    my $align = $self->{factory}->createAlignment($self->{menuLayout}, 1, 0);
-    $self->{menus}->{file} = {
-            widget => $self->{factory}->createMenuButton($align, $self->{loc}->N("File")),
-            quit   => new yui::YMenuItem($self->{loc}->N("&Quit")),
-    };
+            my $mainLayout = $factory->createVBox($layoutstart);
+            my $menuLayout = $factory->createHBox($mainLayout);
 
-    my @ordered_menu_lines = qw(quit);
-    foreach (@ordered_menu_lines) {
-        $self->{menus}->{file}->{ widget }->addItem($self->{menus}->{file}->{ $_ });
-    }
-    $self->{menus}->{file}->{ widget }->rebuildMenuTree();
+            ## Menu File
+            my $align = $factory->createAlignment($menuLayout, 1, 0);
+            $module->menus()->{file} = {
+                    widget => $factory->createMenuButton($align, $self->loc()->N("File")),
+                    quit   => new yui::YMenuItem($self->loc()->N("&Quit")),
+            };
 
-    $align = $self->{factory}->createAlignment($self->{menuLayout}, 2, 0);
-    $self->{menus}->{help} = {
-            widget => $self->{factory}->createMenuButton($align, $self->{loc}->N("Help")),
-            help   => new yui::YMenuItem($self->{loc}->N("Help")),
-            about  => new yui::YMenuItem($self->{loc}->N("&About")),
-    };
 
-    ## Menu Help
-    @ordered_menu_lines = qw(help about);
-    foreach (@ordered_menu_lines) {
-        $self->{menus}->{help}->{ widget }->addItem($self->{menus}->{help}->{ $_ });
-    }
-    $self->{menus}->{help}->{ widget }->rebuildMenuTree();
+            my @ordered_menu_lines = qw(quit);
+            foreach (@ordered_menu_lines) {
+                $module->menus()->{file}->{widget}->addItem($module->menus()->{file}->{ $_ });
+            }
+            $module->menus()->{file}->{ widget }->rebuildMenuTree();
 
-    $self->{layout}     = $self->{factory}->createHBox($self->{mainLayout});
+            $align = $factory->createAlignment($menuLayout, 2, 0);
+            $module->menus()->{help} = {
+                    widget => $factory->createMenuButton($align, $self->loc()->N("Help")),
+                    help   => new yui::YMenuItem($self->loc()->N("Help")),
+                    about  => new yui::YMenuItem($self->loc()->N("&About")),
+            };
 
-    #create left Panel Frame no need to add a label for title
-    $self->{leftPaneFrame} = $self->{factory}->createFrame($self->{layout}, $self->{settings}->{category_title});
-    #create right Panel Frame no need to add a label for title (use setLabel when module changes)
-    $self->{rightPaneFrame} = $self->{factory}->createFrame($self->{layout}, "");
-    #create replace point for dynamically created widgets
-    $self->{replacePoint} = $self->{factory}->createReplacePoint($self->{rightPaneFrame});
+            ## Menu Help
+            @ordered_menu_lines = qw(help about);
+            foreach (@ordered_menu_lines) {
+                $module->menus()->{help}->{ widget }->addItem($module->menus()->{help}->{ $_ });
+            }
+            $module->menus()->{help}->{ widget }->rebuildMenuTree();
+            ManaTools::Shared::GUI::Event->new(
+                name => 'AboutMenuEvent',
+                eventHandler => $self,
+                eventType => $yui::YEvent::MenuEvent,
+                item      => $module->menus()->{help}->{about},
+                event => sub {
+                    my $event = shift;
+                    my $dialog = $event->parentDialog();
+                    my $self = $dialog->module(); #this object
 
-    $self->{rightPane} = $self->{factory}->createVBox($self->{replacePoint});
-    $self->{leftPane} = $self->{factory}->createVBox($self->{leftPaneFrame});
+                    $self->_showAboutDialog();
 
-    #logo from settings
-    my $logofile = defined($self->{settings}->{logo}) ?
-               $self->{settings}->{logo} :
-               File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/logo_mageia.png');
+                    return 1;
+                },
+            );
+            ManaTools::Shared::GUI::Event->new(
+                name => 'QuitMenuEvent',
+                eventHandler => $self,
+                eventType => $yui::YEvent::MenuEvent,
+                item      => $module->menus()->{file}->{quit},
+                event => sub {
+                    return 0;
+                },
+            );
 
-    my $logo = $self->{factory}->createImage($self->{leftPane}, $logofile);
-    $logo->setAutoScale(1);
+            my $layout = $factory->createHBox($mainLayout);
+            #create left Panel Frame no need to add a label for title
+            my $leftPaneFrame = $factory->createFrame($layout, $module->settings()->{category_title});
+            #create right Panel Frame no need to add a label for title (use setLabel when module changes)
+            my $rightPaneFrame = $factory->createFrame($layout, "");
+            #create replace point for dynamically created widgets
+            $module->replacePoint($factory->createReplacePoint($rightPaneFrame));
+            $module->rightPane($factory->createVBox($module->replacePoint()));
+            $module->leftPane($factory->createVBox($leftPaneFrame));
+            $module->rightPaneFrame($rightPaneFrame);
 
-#     $self->{leftPaneFrame}->setWeight(0, 1);
-    $self->{rightPaneFrame}->setWeight(0, 2);
+            #logo from settings
+            my $logofile = defined($module->settings()->{logo}) ?
+                    $module->settings()->{logo} :
+                    File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/logo_mageia.png'
+            );
 
-    $self->_loadCategories();
-    $self->{factory}->createVStretch($self->{leftPane});
+            my $logo = $factory->createImage($module->leftPane(), $logofile);
+            $logo->setAutoScale(1);
 
-    $self->{aboutButton} = $self->{factory}->createPushButton($self->{leftPane}, "&About");
-    $self->{aboutButton}->setStretchable(0, 1);
+            #$leftPaneFrame->setWeight(0, 1);
+            $rightPaneFrame->setWeight(0, 2);
 
-    $self->{exitButton}  = $self->{factory}->createPushButton($self->{leftPane}, "&Quit");
-    my $quitIcon = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/quit.png');
-    $self->{exitButton}->setIcon($quitIcon);
-    $self->{exitButton}->setStretchable(0, 1);
+            $module->_loadCategories();
+
+            $factory->createVStretch($module->leftPane());
+
+            my $closeButton = $self->widget('closeButton');
+            my $quitIcon = File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/quit.png');
+            $closeButton->setIcon($quitIcon);
+
+            if (!$module->currCategory()) {
+                $module->currCategory(@{$module->categories()}[0]);
+            }
+            $module->currCategory()->addButtons($module);
+            $module->rightPaneFrame()->setLabel($module->currCategory()->name());
+            $factory->createSpacing($module->rightPane(), 1, 1, 1.0 );
+
+            return $self->widget('layout');
+        },
+    );
+
+    $self->mainWin($dialog);
+    return $dialog->call();
 }
 
 
@@ -400,8 +531,8 @@ sub setupGui {
 sub _moduleSelected {
     my ($self, $selectedWidget) = @_;
 
-    for(@{$self->{currCategory}->{modules}}) {
-        if( $_->{button} == $selectedWidget ){
+    for(@{$self->currCategory()->modules()}) {
+        if( $_->button() == $selectedWidget ){
             return $_;
         }
     }
@@ -415,30 +546,32 @@ sub _moduleSelected {
 ## returns 1 if category button is selected
 sub _categorySelected {
     my ($self, $selectedWidget) = @_;
-    for (@{$self->{categories}}) {
+    for (@{$self->categories()}) {
         if( $_->button() == $selectedWidget ) {
 
             #if current is already set then skips
-            if ($self->{currCategory} == $_) {
+            if ($self->currCategory() == $_) {
                 ## returns 1 to skip any other checks on
                 ## the selected widget
                 return 1;
             }
             ## Menu item selected, set right pane
-            $self->{mainWin}->startMultipleChanges();
+            my $ydialog = $self->mainWin()->dialog();
+
+            $ydialog->startMultipleChanges();
             ## Remove existing modules
-            $self->{replacePoint}->deleteChildren();
-            $self->{rightPane} = $self->{factory}->createVBox($self->{replacePoint});
+            $self->replacePoint()->deleteChildren();
+            $self->rightPane($self->factory()->createVBox($self->replacePoint()));
 
             ## Change Current Category to the selected one
-            $self->{currCategory} = $_;
+            $self->currCategory($_);
             ## Add new Module Buttons to Right Pane
-            $self->{currCategory}->addButtons($self->{rightPane}, $self->{factory});
-            $self->{rightPaneFrame}->setLabel($self->{currCategory}->name());
-            $self->{factory}->createSpacing($self->{rightPane}, 1, 1, 1.0 );
-            $self->{replacePoint}->showChild();
-            $self->{mainWin}->recalcLayout();
-            $self->{mainWin}->doneMultipleChanges();
+            $self->currCategory()->addButtons($self);
+            $self->rightPaneFrame()->setLabel($self->currCategory()->name());
+            $self->factory()->createSpacing($self->rightPane(), 1, 1, 1.0 );
+            $self->replacePoint()->showChild();
+            $ydialog->recalcLayout();
+            $ydialog->doneMultipleChanges();
 
             return 1;
         }
@@ -447,15 +580,24 @@ sub _categorySelected {
     return 0;
 }
 
-## adpanel settings
+## mpan settings
 sub _loadSettings {
     my ($self, $force_load) = @_;
+
     # configuration file name
-    my $fileName = "$self->{confDir}/settings.conf";
-    die "Configuration file missing" if (! -e $fileName);
-    if (!$self->{settings} || $force_load) {
+    my $fileName = $self->configPathName() . "/settings.conf";
+
+    if (! -e $fileName) {
+        my $err = $self->loc()->N("Configuration file %s is missing", $fileName);
+        $self->logger()->E($err);
+        die $err;
+    }
+
+    $self->logger()->I($self->loc()->N("Reading configuration file %s", $fileName));
+
+    if (! scalar %{$self->settings()} || $force_load) {
         my $settingsReader = ManaTools::SettingsReader->new({fileName => $fileName});
-        $self->{settings} = $settingsReader->settings();
+        $self->settings($settingsReader->settings());
     }
 }
 
@@ -485,7 +627,7 @@ sub _categoryLoaded {
         return $present;
     }
 
-    foreach my $cat (@{$self->{categories}}) {
+    foreach my $cat (@{$self->categories()}) {
         if ($cat->name() eq $category->name()) {
             $present = 1;
             last;
@@ -516,7 +658,7 @@ sub _getCategory {
     my ($self, $name) = @_;
     my $category = undef;
 
-    foreach $category (@{$self->{categories}}) {
+    foreach $category (@{$self->categories()}) {
         if ($category->name() eq $name) {
             return $category;
         }
@@ -533,30 +675,51 @@ sub _loadCategory {
     my ($self, $category) = @_;
 
     if (!$self->_categoryLoaded($category)) {
-        push ( @{$self->{categories}}, $category );
+        push ( @{$self->categories()}, $category );
+        my $cat = @{$self->categories()}[-1];
 
-        @{$self->{categories}}[-1]->button(
-            $self->{factory}->createPushButton(
-                $self->{leftPane},
-                $self->{categories}[-1]->name()
+        $cat->button(
+            $self->factory()->createPushButton(
+                $self->leftPane(),
+                $cat->name()
             )
         );
-        @{$self->{categories}}[-1]->setIcon();
+        $cat->setIcon();
+        $cat->button()->setStretchable(0, 1);
+        $self->mainWin()->addWidget(
+            $cat->name(),
+            $cat->button(),  sub {
+                my $event = shift; ## ManaTools::Shared::GUI::Event
+                my $self = $event->parentDialog()->module(); #this object
+                $self->_categorySelected($event->widget());
 
-        @{$self->{categories}}[-1]->button()->setStretchable(0, 1);
+                return 1;
+            }
+        );
     }
     else {
-        for (my $cat=0; $cat < scalar(@{$self->{categories}}); $cat++ ) {
-            if( @{$self->{categories}}[$cat]->name() eq $category->name() &&
-                !@{$self->{categories}}[$cat]->button())  {
-                    @{$self->{categories}}[$cat]->button(
-                        $self->{factory}->createPushButton(
-                            $self->{leftPane},
-                            $self->{categories}[$cat]->name()
+        for (my $cat=0; $cat < scalar(@{$self->categories()}); $cat++ ) {
+            my $catSelected = @{$self->categories()}[$cat];
+            if( $catSelected->name() eq $category->name() &&
+                !$catSelected->button())  {
+                    $catSelected->button(
+                        $self->factory()->createPushButton(
+                            $self->leftPane(),
+                            $catSelected->name()
                         )
                     );
-                    @{$self->{categories}}[$cat]->setIcon();
-                    @{$self->{categories}}[$cat]->button()->setStretchable(0, 1);
+                    $catSelected->setIcon();
+                    $catSelected->button()->setStretchable(0, 1);
+                    $self->mainWin()->addWidget(
+                        $catSelected->name(),
+                        $catSelected->button(),  sub {
+                            my $event = shift; ## ManaTools::Shared::GUI::Event
+                            my $self = $event->parentDialog()->module(); #this object
+                            $self->_categorySelected($event->widget());
+
+                            return 1;
+                        }
+                    );
                     last;
 
             }
@@ -569,17 +732,17 @@ sub _loadCategories {
 
     # category files
     my @categoryFiles;
-    my $fileName = "$self->{confDir}/categories.conf";
-
+    my $fileName = $self->configPathName() . "/categories.conf";
 
     # configuration file dir
-    my $directory = "$self->{confDir}/categories.conf.d";
+    my $directory = $self->configPathName() . "/categories.conf.d";
 
     push(@categoryFiles, $fileName);
     push(@categoryFiles, <$directory/*.conf>);
     my $currCategory;
 
     foreach $fileName (@categoryFiles) {
+        $self->logger()->I($self->loc()->N("Parsing category file %s", $fileName));
         my $inFile = new ManaTools::ConfigReader({fileName => $fileName});
         my $tmpCat;
         my $tmp;
@@ -588,10 +751,10 @@ sub _loadCategories {
             $tmp = $inFile->getNextCat();
             $tmpCat = $self->_getCategory($tmp->{title});
             if (!$tmpCat) {
-                $tmpCat = new ManaTools::Category(
+                $tmpCat = new ManaTools::Category({
                     name => $tmp->{title},
                     icon => $tmp->{icon}
-                );
+                });
             }
             $self->_loadCategory($tmpCat);
             $hasNextCat  = $inFile->hasNextCat();
@@ -626,19 +789,6 @@ sub _loadCategories {
     }
 }
 
+no Moose;
 1;
-
-=pod
-
-=head2 start
-
-    contains the main loop of the application
-    where we can check for events
-
-=head2 setupGui
-
-    creates a popupDialog using a YUI::WidgetFactory
-    and then populate this dialog with some components
-
-=cut
 
