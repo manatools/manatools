@@ -59,8 +59,6 @@ use File::ShareDir ':ALL';
 use ManaTools::Shared::Locales;
 use ManaTools::Shared::TimeZone;
 use ManaTools::Shared::GUI;
-use ManaTools::Shared::GUI::ExtTab;
-
 use ManaTools::Shared::GUI::Dialog;
 
 
