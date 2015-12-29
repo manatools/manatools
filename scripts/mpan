@@ -88,6 +88,9 @@ while (1) {
     if ($launch) {
         $launch->start();
     }
+    else {
+        last;
+    }
 }
 
 
