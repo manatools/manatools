@@ -46,8 +46,15 @@ has '+icon' => (
 );
 
 has '+name' => (
-    default => "Proxymanager",
+    lazy     => 1,
+    builder => '_nameInitializer',
 );
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("manaproxy - Proxy configuration"));
+};
 
 =head1 VERSION
 
@@ -235,7 +242,6 @@ sub _manageProxyDialog {
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
     my $newTitle = $self->loc->N("Proxies configuration");
-    yui::YUI::app()->setApplicationTitle($newTitle);
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;

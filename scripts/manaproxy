@@ -23,16 +23,7 @@ use ManaTools::Module::Proxy;
 
 use yui;
 
-my $wm_icon = "/usr/share/mcc/themes/default/drakproxy-mdk.png";
-my $wm_name = "Proxies configuration";
-
-yui::YUI::app()->setApplicationTitle($wm_name);
-yui::YUI::app()->setApplicationIcon($wm_icon);
-
-my $proxyMan = ManaTools::Module::Proxy->new({
-				icon => $wm_icon,
-				name => $wm_name
-			});
+my $proxyMan = ManaTools::Module::Proxy->new();
 $proxyMan->start();
 
 1;
