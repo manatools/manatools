@@ -66,7 +66,7 @@ my $cmdline = mpan::CommandLine->new_with_options();
 
 my $settings = getSettings();
 
-if ($cmdline->devel() > 0) {
+if ($cmdline->devel()) {
     print $loc->N("== Development mode ON ==") . "\n";
 }
 else {
@@ -105,7 +105,8 @@ sub getSettings {
 
     # configuration file name
     my $fileName = "$confDir/settings.conf";
-    return new ManaTools::SettingsReader({fileName => $fileName});
+    my $settingsReader = ManaTools::SettingsReader->new({fileName => $fileName});
+    return $settingsReader->settings();
 }
 
 =pod
