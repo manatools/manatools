@@ -106,14 +106,8 @@ our @EXPORT_OK = qw(
 );
 
 
-=head1 VERSION
-
-    Version 0.02
-
-=cut
-
-our $VERSION = '0.02';
-
+# changelog
+# 2015-12-30 A.Naselli removed VERSION
 # 2015-05-03 A.Naselli added locale_dir(), devel_mode() command_line()
 
 
