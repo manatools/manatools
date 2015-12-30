@@ -69,10 +69,20 @@ use yui;
 
 extends qw( ManaTools::Module );
 
-### TODO icon
 has '+icon' => (
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manalog.png'),
 );
+
+has '+name' => (
+    lazy     => 1,
+    builder => '_nameInitializer',
+);
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("Log viewer"));
+}
 
 has 'sh_gui' => (
         is => 'rw',
@@ -103,31 +113,6 @@ my %prior = ('emerg'   => 0,
             'notice'  => 5,
             'info'    => 6,
             'debug'   => 7);
-
-
-#=============================================================
-
-=head2 BUILD
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 DESCRIPTION
-
-    The BUILD method is called after a Moose object is created,
-    in this methods Services loads all the service information.
-
-=cut
-
-#=============================================================
-sub BUILD {
-    my $self = shift;
-
-    if (! $self->name) {
-        $self->name ($self->loc->N("Log viewer"));
-    }
-}
 
 
 #=============================================================
@@ -164,11 +149,6 @@ sub _logViewerPanel {
     }
 
     my $appTitle = yui::YUI::app()->applicationTitle();
-
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($self->name);
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon($self->icon);
 
     my $factory    = yui::YUI::widgetFactory;
     my $optFactory = yui::YUI::optionalWidgetFactory;
@@ -459,13 +439,12 @@ print " log lines: ". scalar (@{$log}) ."\n";
 sub _warn_about_user_mode {
     my $self = shift;
 
-    my $title = $self->loc->N("Running in user mode");
+    my $title = $self->loc->N("manalog - running in user mode");
     my $msg   = $self->loc->N("You are launching this program as a normal user.\n".
                             "You will not be able to read system logs which you do not have rights to,\n".
                             "but you may still browse all the others.");
 
     if(($EUID != 0) and (!$self->sh_gui->ask_OkCancel({title => $title, text => $msg}))) {
-        # TODO add Privileges?
         return 0;
     }
 
