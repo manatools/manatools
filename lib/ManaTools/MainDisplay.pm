@@ -52,16 +52,6 @@ ManaTools::MainDisplay - class for ManaTools main window
 
 =cut
 
-
-=head1 VERSION
-
-    Version 1.1.0
-    See Changes for details
-
-=cut
-
-our $VERSION = '1.1.0';
-
 use Moose;
 extends qw( ManaTools::Module );
 
@@ -295,7 +285,7 @@ sub _showAboutDialog {
     $translators =~ s/\>/\&gt\;/g;
     my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->AboutDialog({ name => $self->{name},
-        version => $ManaTools::MainDisplay::VERSION,
+        version => $self->Version(),
         credits => $self->loc()->N("Copyright (C) %s Mageia community", '2013-2015'),
         license => $self->loc()->N("GPLv2"),
         description => $self->loc()->N("mpan is the ManaTools panel that collects all the utilities."),
