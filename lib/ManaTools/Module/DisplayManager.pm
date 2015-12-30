@@ -57,14 +57,6 @@ sub _nameInitializer {
     return ($self->loc->N("manadm - Display Manager"));
 }
 
-=head1 VERSION
-
-Version 1.0.0
-
-=cut
-
-our $VERSION = '1.0.0';
-
 has 'dialog' => (
     is => 'rw',
     init_arg => undef
@@ -265,7 +257,7 @@ sub _manageProxyDialog {
             }elsif ($widget == $aboutButton) {
                 $self->sh_gui->AboutDialog({
                     name => $appTitle,
-                    version => $VERSION,
+                    version => $self->Version(),
                     credits => "Copyright (c) 2013-2015 by Matteo Pasotti",
                     license => "GPLv2",
                     description => $self->loc->N("Graphical configurator for system Display Manager"),
