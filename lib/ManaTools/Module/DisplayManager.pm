@@ -47,8 +47,15 @@ has '+icon' => (
 );
 
 has '+name' => (
-    default => "DisplayManager",
+    lazy     => 1,
+    builder => '_nameInitializer',
 );
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("manadm - Display Manager"));
+}
 
 =head1 VERSION
 
@@ -144,11 +151,6 @@ sub start {
         return;
     }
 
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($self->name);
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon($self->icon);
-
     # initialize dm descriptions for i18n
     $self->_build_desc_for_i18n();
 
@@ -186,7 +188,6 @@ sub _manageProxyDialog {
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
     my $newTitle = $self->loc->N("Display Manager");
-    yui::YUI::app()->setApplicationTitle($newTitle);
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;

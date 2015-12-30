@@ -26,18 +26,7 @@ use ManaTools::Module::DisplayManager;
 
 use yui;
 
-my $locale_dir = ManaTools::Shared::custom_locale_dir();;
-my $loc = ManaTools::Shared::Locales->new(
-    domain_name => 'manatools',
-    dir_name    => $locale_dir,
-);
-
-my $wm_name = $loc->N("Display Manager");
-
-
-my $dmanager = ManaTools::Module::DisplayManager->new({
-    name => $wm_name,
-});
+my $dmanager = ManaTools::Module::DisplayManager->new();
 
 $dmanager->start();
 
