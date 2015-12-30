@@ -89,14 +89,6 @@ sub _nameInitializer {
 }
 
 
-=head1 VERSION
-
-Version 1.0.1
-
-=cut
-
-our $VERSION = '1.0.1';
-
 has 'dialog' => (
     is => 'rw',
     init_arg => undef
@@ -181,7 +173,7 @@ sub _setupAboutDialog {
   my $self = shift();
   return {
     name => "",
-    version => $VERSION,
+    version => $self->Version(),
     credits => "Copyright (c) 2013-2015 by Matteo Pasotti",
     license => "GPLv2",
     description => "",
