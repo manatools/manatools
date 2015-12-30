@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2015-12-19 12:19+0100\n"
+"POT-Creation-Date: 2015-12-30 23:04+0100\n"
 "PO-Revision-Date: 2015-09-26 13:10+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -17,9 +17,9 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: Lokalize 1.5\n"
 
-#: lib/ManaTools/MainDisplay.pm:185 lib/ManaTools/Module/LogViewer.pm:342
-#: lib/ManaTools/Module/Users.pm:2343 lib/ManaTools/Module/Clock.pm:219
-#: lib/ManaTools/Module/Services.pm:451
+#: lib/ManaTools/MainDisplay.pm:283 lib/ManaTools/Module/LogViewer.pm:314
+#: lib/ManaTools/Module/Users.pm:2401 lib/ManaTools/Module/Clock.pm:210
+#: lib/ManaTools/Module/Services.pm:438
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
@@ -28,30 +28,31 @@ msgstr ""
 "Νίκος Νύκταρης <niktarin@yahoo.com>\n"
 "Δημήτριος Γλενταδάκης <dglent@free.fr>\n"
 
-#: lib/ManaTools/MainDisplay.pm:191 lib/ManaTools/Module/LogViewer.pm:347
-#: lib/ManaTools/Module/Users.pm:2349 lib/ManaTools/Module/Clock.pm:225
-#: lib/ManaTools/Module/Services.pm:456
+#: lib/ManaTools/MainDisplay.pm:289 lib/ManaTools/Module/LogViewer.pm:319
+#: lib/ManaTools/Module/Users.pm:2407 lib/ManaTools/Module/Clock.pm:216
+#: lib/ManaTools/Module/Services.pm:443
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
 #: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1096
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
 msgstr "Πνευματικά δικαιώματα (C) %s η κοινότητα της Mageia"
 
-#: lib/ManaTools/MainDisplay.pm:192 lib/ManaTools/Module/LogViewer.pm:348
-#: lib/ManaTools/Module/Users.pm:2350 lib/ManaTools/Module/Clock.pm:226
-#: lib/ManaTools/Module/Services.pm:457
+#: lib/ManaTools/MainDisplay.pm:290 lib/ManaTools/Module/LogViewer.pm:320
+#: lib/ManaTools/Module/Users.pm:2408 lib/ManaTools/Module/Clock.pm:217
+#: lib/ManaTools/Module/Services.pm:444
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1097
 msgid "GPLv2"
 msgstr "GPLv2"
 
-#: lib/ManaTools/MainDisplay.pm:193
-msgid "mpan is the mana-tools panel that collects all the utilities."
+#: lib/ManaTools/MainDisplay.pm:291
+#, fuzzy
+msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr ""
 "Το mpan είναι ο πίνακας ελέγχου των εργαλείων mana όπου συγκεντρώνονται όλα "
 "τα εργαλεία."
 
-#: lib/ManaTools/MainDisplay.pm:194 lib/ManaTools/Module/Users.pm:2352
+#: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
@@ -68,15 +69,15 @@ msgstr ""
 "                                    <h3>Μεταφραστές</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 
-#: lib/ManaTools/MainDisplay.pm:335 lib/ManaTools/Module/Users.pm:2398
+#: lib/ManaTools/MainDisplay.pm:420 lib/ManaTools/Module/Users.pm:2456
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: modules/rpmdragora/rpmdragora:706
 msgid "File"
 msgstr "Αρχείο"
 
-#: lib/ManaTools/MainDisplay.pm:336 lib/ManaTools/Module/LogViewer.pm:323
-#: lib/ManaTools/Module/Users.pm:2400 lib/ManaTools/Module/Users.pm:2488
-#: lib/ManaTools/Module/Services.pm:418
+#: lib/ManaTools/MainDisplay.pm:421 lib/ManaTools/Module/LogViewer.pm:295
+#: lib/ManaTools/Module/Users.pm:2458 lib/ManaTools/Module/Users.pm:2546
+#: lib/ManaTools/Module/Services.pm:405
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1584
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1704
@@ -84,29 +85,44 @@ msgstr "Αρχείο"
 msgid "&Quit"
 msgstr "Έ&ξοδος"
 
-#: lib/ManaTools/MainDisplay.pm:347 lib/ManaTools/MainDisplay.pm:348
-#: lib/ManaTools/Module/Users.pm:2412
+#: lib/ManaTools/MainDisplay.pm:433 lib/ManaTools/MainDisplay.pm:434
+#: lib/ManaTools/Module/Users.pm:2470
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 msgid "Help"
 msgstr "Βοήθεια"
 
-#: lib/ManaTools/MainDisplay.pm:349 lib/ManaTools/Shared/GUI/Dialog.pm:410
-#: lib/ManaTools/Module/LogViewer.pm:319 lib/ManaTools/Module/Users.pm:2414
-#: lib/ManaTools/Module/Users.pm:2486 lib/ManaTools/Module/Hosts.pm:447
-#: lib/ManaTools/Module/Firewall.pm:531 lib/ManaTools/Module/Firewall.pm:739
-#: lib/ManaTools/Module/DisplayManager.pm:246
-#: lib/ManaTools/Module/Proxy.pm:324 lib/ManaTools/Module/Services.pm:412
+#: lib/ManaTools/MainDisplay.pm:435 lib/ManaTools/Shared/GUI/Dialog.pm:410
+#: lib/ManaTools/Module/LogViewer.pm:291 lib/ManaTools/Module/Users.pm:2472
+#: lib/ManaTools/Module/Users.pm:2544 lib/ManaTools/Module/Hosts.pm:446
+#: lib/ManaTools/Module/Firewall.pm:567 lib/ManaTools/Module/Firewall.pm:775
+#: lib/ManaTools/Module/DisplayManager.pm:239
+#: lib/ManaTools/Module/Proxy.pm:323 lib/ManaTools/Module/Services.pm:399
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:762
 msgid "&About"
 msgstr "&Σχετικά"
 
+#: lib/ManaTools/MainDisplay.pm:581
+#, fuzzy, perl-format
+msgid "Configuration file %s is missing"
+msgstr "Η ρύθμιση της διαμόρφωσης NTP απέτυχε"
+
+#: lib/ManaTools/MainDisplay.pm:586
+#, fuzzy, perl-format
+msgid "Reading configuration file %s"
+msgstr "Επιθεώρηση αρχείων ρυθμίσεων..."
+
+#: lib/ManaTools/MainDisplay.pm:735
+#, perl-format
+msgid "Parsing category file %s"
+msgstr ""
+
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
 #: lib/ManaTools/Shared/GUI.pm:1078 lib/ManaTools/Shared/Users.pm:393
-#: lib/ManaTools/Module/Users.pm:327 lib/ManaTools/Module/Users.pm:573
-#: lib/ManaTools/Module/Users.pm:2168 lib/ManaTools/rpmdragora.pm:179
+#: lib/ManaTools/Module/Users.pm:385 lib/ManaTools/Module/Users.pm:631
+#: lib/ManaTools/Module/Users.pm:2226 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/rpmdragora.pm:365 lib/ManaTools/Rpmdragora/pkg.pm:930
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -118,9 +134,9 @@ msgstr "Εντάξει"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
-#: lib/ManaTools/Module/Users.pm:326 lib/ManaTools/Module/Users.pm:397
-#: lib/ManaTools/Module/Users.pm:488 lib/ManaTools/Module/Users.pm:572
-#: lib/ManaTools/Module/Users.pm:2167 lib/ManaTools/rpmdragora.pm:893
+#: lib/ManaTools/Module/Users.pm:384 lib/ManaTools/Module/Users.pm:455
+#: lib/ManaTools/Module/Users.pm:546 lib/ManaTools/Module/Users.pm:630
+#: lib/ManaTools/Module/Users.pm:2225 lib/ManaTools/rpmdragora.pm:893
 #: lib/ManaTools/Rpmdragora/pkg.pm:930
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
@@ -211,17 +227,23 @@ msgstr ""
 msgid "start using yui qt plugin implementation"
 msgstr ""
 
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:107
+msgid ""
+"<dir> optional directory containing configuration files for each module (e."
+"g. modulename/config_files)"
+msgstr ""
+
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
 msgstr "&Επαναφορά"
 
-#: lib/ManaTools/Shared/GUI/Dialog.pm:417 lib/ManaTools/Module/Users.pm:873
-#: lib/ManaTools/Module/Users.pm:2007 lib/ManaTools/Module/Hosts.pm:177
-#: lib/ManaTools/Module/Hosts.pm:261 lib/ManaTools/Module/Hosts.pm:448
-#: lib/ManaTools/Module/Firewall.pm:532 lib/ManaTools/Module/Firewall.pm:740
-#: lib/ManaTools/Module/Firewall.pm:836
-#: lib/ManaTools/Module/DisplayManager.pm:247
-#: lib/ManaTools/Module/Proxy.pm:325
+#: lib/ManaTools/Shared/GUI/Dialog.pm:417 lib/ManaTools/Module/Users.pm:931
+#: lib/ManaTools/Module/Users.pm:2065 lib/ManaTools/Module/Hosts.pm:177
+#: lib/ManaTools/Module/Hosts.pm:261 lib/ManaTools/Module/Hosts.pm:447
+#: lib/ManaTools/Module/Firewall.pm:568 lib/ManaTools/Module/Firewall.pm:776
+#: lib/ManaTools/Module/Firewall.pm:872
+#: lib/ManaTools/Module/DisplayManager.pm:240
+#: lib/ManaTools/Module/Proxy.pm:324
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:307
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:525
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:767
@@ -230,8 +252,8 @@ msgstr "&Επαναφορά"
 msgid "&Cancel"
 msgstr "&Ακύρωση"
 
-#: lib/ManaTools/Shared/GUI/Dialog.pm:418 lib/ManaTools/Module/Users.pm:874
-#: lib/ManaTools/Module/Users.pm:2008 lib/ManaTools/Rpmdragora/rpmnew.pm:254
+#: lib/ManaTools/Shared/GUI/Dialog.pm:418 lib/ManaTools/Module/Users.pm:932
+#: lib/ManaTools/Module/Users.pm:2066 lib/ManaTools/Rpmdragora/rpmnew.pm:254
 #: lib/ManaTools/Rpmdragora/pkg.pm:657
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
@@ -998,67 +1020,67 @@ msgstr "Εκκινεί τον εξυπηρετητή γραμματοσειρώ�
 msgid "Starts other deamons on demand."
 msgstr "Εκκινεί άλλους δαίμονες κατά αίτηση."
 
-#: lib/ManaTools/Module/LogViewer.pm:127
+#: lib/ManaTools/Module/LogViewer.pm:84
 msgid "Log viewer"
 msgstr "Προβολέας καταγραφών"
 
-#: lib/ManaTools/Module/LogViewer.pm:181
+#: lib/ManaTools/Module/LogViewer.pm:153
 msgid "A tool to monitor your logs"
 msgstr "Ένα εργαλείο για να βλέπετε τις καταγραφές σας"
 
-#: lib/ManaTools/Module/LogViewer.pm:185
+#: lib/ManaTools/Module/LogViewer.pm:157
 msgid "Matching"
 msgstr "Αντιστοιχεί"
 
-#: lib/ManaTools/Module/LogViewer.pm:189
+#: lib/ManaTools/Module/LogViewer.pm:161
 msgid "but not matching"
 msgstr "αλλά δεν ταιριάζει"
 
-#: lib/ManaTools/Module/LogViewer.pm:193 modules/rpmdragora/rpmdragora:726
+#: lib/ManaTools/Module/LogViewer.pm:165 modules/rpmdragora/rpmdragora:726
 msgid "Options"
 msgstr "Επιλογές"
 
-#: lib/ManaTools/Module/LogViewer.pm:198
+#: lib/ManaTools/Module/LogViewer.pm:170
 msgid "Last boot"
 msgstr "Τελευταία εκκίνηση"
 
-#: lib/ManaTools/Module/LogViewer.pm:211
+#: lib/ManaTools/Module/LogViewer.pm:183
 msgid "Since"
 msgstr "Από"
 
-#: lib/ManaTools/Module/LogViewer.pm:216
+#: lib/ManaTools/Module/LogViewer.pm:188
 msgid "Until"
 msgstr "Μέχρι"
 
-#: lib/ManaTools/Module/LogViewer.pm:243
+#: lib/ManaTools/Module/LogViewer.pm:215
 msgid "Select a unit"
 msgstr "Επιλέξτε μια μονάδα"
 
-#: lib/ManaTools/Module/LogViewer.pm:265
+#: lib/ManaTools/Module/LogViewer.pm:237
 msgid "From priority"
 msgstr "Από προτεραιότητα"
 
-#: lib/ManaTools/Module/LogViewer.pm:285
+#: lib/ManaTools/Module/LogViewer.pm:257
 msgid "To priority"
 msgstr "Σε προτεραιότητα"
 
-#: lib/ManaTools/Module/LogViewer.pm:303
+#: lib/ManaTools/Module/LogViewer.pm:275
 msgid "&Find"
 msgstr "&Αναζήτηση"
 
-#: lib/ManaTools/Module/LogViewer.pm:306
+#: lib/ManaTools/Module/LogViewer.pm:278
 msgid "Log content"
 msgstr "Περιεχόμενο καταγραφής"
 
-#: lib/ManaTools/Module/LogViewer.pm:322
+#: lib/ManaTools/Module/LogViewer.pm:294
 msgid "&Save"
 msgstr "Απο&θήκευση"
 
-#: lib/ManaTools/Module/LogViewer.pm:349
+#: lib/ManaTools/Module/LogViewer.pm:321
 msgid "Log viewer is a systemd journal viewer"
 msgstr "Ο προβολέας καταγραφών είναι ένας προβολέας του ημερολογίου systemd"
 
-#: lib/ManaTools/Module/LogViewer.pm:350
+#: lib/ManaTools/Module/LogViewer.pm:322
 #, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
@@ -1075,15 +1097,16 @@ msgstr ""
 "                                                    <h3>Μεταφραστές</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 
-#: lib/ManaTools/Module/LogViewer.pm:368
+#: lib/ManaTools/Module/LogViewer.pm:340
 msgid "Empty log found"
 msgstr "Κενό αρχείο καταγραφών "
 
-#: lib/ManaTools/Module/LogViewer.pm:461 lib/ManaTools/Rpmdragora/init.pm:175
-msgid "Running in user mode"
+#: lib/ManaTools/Module/LogViewer.pm:433
+#, fuzzy
+msgid "manalog - running in user mode"
 msgstr "Εκτέλεση σε λειτουργία χρήστη"
 
-#: lib/ManaTools/Module/LogViewer.pm:462
+#: lib/ManaTools/Module/LogViewer.pm:434
 msgid ""
 "You are launching this program as a normal user.\n"
 "You will not be able to read system logs which you do not have rights to,\n"
@@ -1094,56 +1117,56 @@ msgstr ""
 "οποίες δεν έχετε τα προνόμια,\n"
 "αλλά μπορείτε να περιηγηθείτε στις υπόλοιπες."
 
-#: lib/ManaTools/Module/LogViewer.pm:485
+#: lib/ManaTools/Module/LogViewer.pm:456
 msgid "Save as.."
 msgstr "Αποθήκευση ως..."
 
-#: lib/ManaTools/Module/Users.pm:101
+#: lib/ManaTools/Module/Users.pm:109
 msgid "manauser - Mageia Users Management Tool"
 msgstr "manauser - Εργαλείο διαχείρισης χρηστών Mageia"
 
-#: lib/ManaTools/Module/Users.pm:261
+#: lib/ManaTools/Module/Users.pm:319
 msgid "User Data"
 msgstr "Δεδομένα χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:262
+#: lib/ManaTools/Module/Users.pm:320
 msgid "Account Info"
 msgstr "Πληροφορίες λογαριασμού"
 
-#: lib/ManaTools/Module/Users.pm:263
+#: lib/ManaTools/Module/Users.pm:321
 msgid "Password Info"
 msgstr "Πληροφορίες κωδικού πρόσβασης"
 
-#: lib/ManaTools/Module/Users.pm:264 lib/ManaTools/Module/Users.pm:1375
-#: lib/ManaTools/Module/Users.pm:2495
+#: lib/ManaTools/Module/Users.pm:322 lib/ManaTools/Module/Users.pm:1433
+#: lib/ManaTools/Module/Users.pm:2553
 msgid "Groups"
 msgstr "Ομάδες"
 
-#: lib/ManaTools/Module/Users.pm:267
+#: lib/ManaTools/Module/Users.pm:325
 msgid "Group Data"
 msgstr "Δεδομένα της ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:268
+#: lib/ManaTools/Module/Users.pm:326
 msgid "Group Users"
 msgstr "Χρήστες της ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:302
+#: lib/ManaTools/Module/Users.pm:360
 msgid "Choose group"
 msgstr "Επιλέξτε μια ομάδα"
 
-#: lib/ManaTools/Module/Users.pm:310
+#: lib/ManaTools/Module/Users.pm:368
 msgid "A group with this name already exists.  What would you like to do?"
 msgstr "Μια ομάδα που φέρει αυτό το όνομα υπάρχει ήδη. Τι θέλετε να κάνετε;"
 
-#: lib/ManaTools/Module/Users.pm:316
+#: lib/ManaTools/Module/Users.pm:374
 msgid "Add to the existing group"
 msgstr "Προσθήκη στην υπάρχουσα ομάδα"
 
-#: lib/ManaTools/Module/Users.pm:320
+#: lib/ManaTools/Module/Users.pm:378
 msgid "Add to the 'users' group"
 msgstr "Προσθήκη στην ομάδα «χρήστες»"
 
-#: lib/ManaTools/Module/Users.pm:384 lib/ManaTools/rpmdragora.pm:854
+#: lib/ManaTools/Module/Users.pm:442 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
 #: lib/ManaTools/Rpmdragora/pkg.pm:950 lib/ManaTools/Rpmdragora/pkg.pm:964
 #: lib/ManaTools/Rpmdragora/gui.pm:390 lib/ManaTools/Rpmdragora/gui.pm:939
@@ -1152,17 +1175,17 @@ msgstr "Προσθήκη στην ομάδα «χρήστες»"
 msgid "Warning"
 msgstr "Προειδοποίηση"
 
-#: lib/ManaTools/Module/Users.pm:392
+#: lib/ManaTools/Module/Users.pm:450
 #, perl-format
 msgid "Do you really want to delete the group %s?"
 msgstr "Θέλετε πραγματικά να διαγράψετε την ομάδα %s;"
 
-#: lib/ManaTools/Module/Users.pm:398 lib/ManaTools/Module/Users.pm:489
-#: lib/ManaTools/Module/Users.pm:2446
+#: lib/ManaTools/Module/Users.pm:456 lib/ManaTools/Module/Users.pm:547
+#: lib/ManaTools/Module/Users.pm:2504
 msgid "Delete"
 msgstr "Διαγραφή"
 
-#: lib/ManaTools/Module/Users.pm:418
+#: lib/ManaTools/Module/Users.pm:476
 #, perl-format
 msgid ""
 "%s is a primary group for user %s\n"
@@ -1171,16 +1194,16 @@ msgstr ""
 "Το %s είναι μια πρωτεύουσα ομάδα για τον χρήστη %s\n"
 " Αφαιρέστε πρώτα τον χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:425
+#: lib/ManaTools/Module/Users.pm:483
 #, perl-format
 msgid "Removing group: %s"
 msgstr "Αφαίρεση της ομάδας: %s"
 
-#: lib/ManaTools/Module/Users.pm:472
+#: lib/ManaTools/Module/Users.pm:530
 msgid "Delete files or not?"
 msgstr "Διαγραφώ ή όχι των αρχείων;"
 
-#: lib/ManaTools/Module/Users.pm:479
+#: lib/ManaTools/Module/Users.pm:537
 #, perl-format
 msgid ""
 "Deleting user %s\n"
@@ -1189,47 +1212,47 @@ msgstr ""
 "Διαγραφή του χρήστη %s\n"
 "Επιπλέον πραγματοποίηση των κάτωθεν ενεργειών\n"
 
-#: lib/ManaTools/Module/Users.pm:482
+#: lib/ManaTools/Module/Users.pm:540
 #, perl-format
 msgid "Delete Home Directory: %s"
 msgstr "Διαγραφή προσωπικού καταλόγου: %s"
 
-#: lib/ManaTools/Module/Users.pm:484
+#: lib/ManaTools/Module/Users.pm:542
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
 msgstr "Διαγραφή του γραμματοκιβωτίου: /var/spool/mail/%s"
 
-#: lib/ManaTools/Module/Users.pm:512
+#: lib/ManaTools/Module/Users.pm:570
 #, perl-format
 msgid "Removing user: %s"
 msgstr "Αφαίρεση του χρήστη: %s"
 
-#: lib/ManaTools/Module/Users.pm:544
+#: lib/ManaTools/Module/Users.pm:602
 msgid "Create New Group"
 msgstr "Δημιουργία νέας ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:554 lib/ManaTools/Module/Users.pm:1591
+#: lib/ManaTools/Module/Users.pm:612 lib/ManaTools/Module/Users.pm:1649
 msgid "Group Name:"
 msgstr "Όνομα ομάδας:"
 
-#: lib/ManaTools/Module/Users.pm:564
+#: lib/ManaTools/Module/Users.pm:622
 msgid "Specify group ID manually"
 msgstr "Χειροκίνητος καθορισμός του αναγνωριστικού της ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:566
+#: lib/ManaTools/Module/Users.pm:624
 msgid "GID"
 msgstr "GID"
 
-#: lib/ManaTools/Module/Users.pm:599
+#: lib/ManaTools/Module/Users.pm:657
 msgid "Group already exists, please choose another Group Name"
 msgstr "Η ομάδα υπάρχει ήδη, παρακαλώ επιλέξτε ένα άλλο όνομα ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:607
+#: lib/ManaTools/Module/Users.pm:665
 #, perl-format
 msgid " Group Gid is < %n"
 msgstr " Το Gid της ομάδας είναι < %n"
 
-#: lib/ManaTools/Module/Users.pm:608
+#: lib/ManaTools/Module/Users.pm:666
 #, perl-format
 msgid ""
 "Creating a group with a GID less than %d is not recommended.\n"
@@ -1240,11 +1263,11 @@ msgstr ""
 " Είστε σίγουρος-η ότι θέλετε να το πραγματοποιήσετε;\n"
 "\n"
 
-#: lib/ManaTools/Module/Users.pm:616
+#: lib/ManaTools/Module/Users.pm:674
 msgid " Group ID is already used "
 msgstr " Το αναγνωριστικό της ομάδας χρησιμοποιείται ήδη "
 
-#: lib/ManaTools/Module/Users.pm:617
+#: lib/ManaTools/Module/Users.pm:675
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
@@ -1252,84 +1275,84 @@ msgstr ""
 "Θέλετε να δημιουργήσετε μια ομάδα με μη μοναδικό GID;\n"
 "\n"
 
-#: lib/ManaTools/Module/Users.pm:629
+#: lib/ManaTools/Module/Users.pm:687
 #, perl-format
 msgid "Adding group: %s "
 msgstr "Προσθήκη ομάδας: %s "
 
-#: lib/ManaTools/Module/Users.pm:685
+#: lib/ManaTools/Module/Users.pm:743
 msgid "Full Name:"
 msgstr "Πλήρες όνομα:"
 
-#: lib/ManaTools/Module/Users.pm:694
+#: lib/ManaTools/Module/Users.pm:752
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 msgid "Login:"
 msgstr "Όνομα χρήστη:"
 
-#: lib/ManaTools/Module/Users.pm:704 lib/ManaTools/rpmdragora.pm:188
+#: lib/ManaTools/Module/Users.pm:762 lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
 msgid "Password:"
 msgstr "Κωδικός πρόσβασης:"
 
-#: lib/ManaTools/Module/Users.pm:726
+#: lib/ManaTools/Module/Users.pm:784
 msgid "Confirm Password:"
 msgstr "Επιβεβαίωση κωδικού πρόσβασης:"
 
-#: lib/ManaTools/Module/Users.pm:735
+#: lib/ManaTools/Module/Users.pm:793
 msgid "Login Shell:"
 msgstr "Κέλυφος σύνδεσης:"
 
-#: lib/ManaTools/Module/Users.pm:774
+#: lib/ManaTools/Module/Users.pm:832
 #, perl-format
 msgid "&Icon (%s)"
 msgstr "&Εικονίδιο (%s)"
 
-#: lib/ManaTools/Module/Users.pm:807 lib/ManaTools/Module/Users.pm:2370
-#: lib/ManaTools/Module/DisplayManager.pm:142
+#: lib/ManaTools/Module/Users.pm:865 lib/ManaTools/Module/Users.pm:2428
+#: lib/ManaTools/Module/DisplayManager.pm:141
 #: lib/ManaTools/Module/Proxy.pm:150
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
 msgstr "Απαιτούνται προνόμια διαχειριστή"
 
-#: lib/ManaTools/Module/Users.pm:822
+#: lib/ManaTools/Module/Users.pm:880
 msgid "Create New User"
 msgstr "Δημιουργία νέου χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:837
+#: lib/ManaTools/Module/Users.pm:895
 msgid "Create Home Directory"
 msgstr "Δημιουργία προσωπικού καταλόγου"
 
-#: lib/ManaTools/Module/Users.pm:841
+#: lib/ManaTools/Module/Users.pm:899
 msgid "Home Directory:"
 msgstr "Προσωπικός κατάλογος:"
 
-#: lib/ManaTools/Module/Users.pm:850
+#: lib/ManaTools/Module/Users.pm:908
 msgid "Create a private group for the user"
 msgstr "Δημιουργία ιδιωτικής ομάδας για τον χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:855
+#: lib/ManaTools/Module/Users.pm:913
 msgid "Specify user ID manually"
 msgstr "Χειροκίνητος καθορισμός του αναγνωριστικού του χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:857
+#: lib/ManaTools/Module/Users.pm:915
 msgid "UID"
 msgstr "UID"
 
-#: lib/ManaTools/Module/Users.pm:865
+#: lib/ManaTools/Module/Users.pm:923
 msgid "Click on icon to change it"
 msgstr "Κλικ στο εικονίδιο για να το αλλάξετε"
 
-#: lib/ManaTools/Module/Users.pm:917
+#: lib/ManaTools/Module/Users.pm:975
 msgid "User already exists, please choose another User Name"
 msgstr "Ο χρήστης υπάρχει ήδη, παρακαλώ επιλέξτε ένα άλλο όνομα χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:922 lib/ManaTools/Module/Users.pm:1870
+#: lib/ManaTools/Module/Users.pm:980 lib/ManaTools/Module/Users.pm:1928
 msgid "Password Mismatch"
 msgstr "Αναντιστοιχία κωδικού"
 
-#: lib/ManaTools/Module/Users.pm:926 lib/ManaTools/Module/Users.pm:1876
+#: lib/ManaTools/Module/Users.pm:984 lib/ManaTools/Module/Users.pm:1934
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
@@ -1337,7 +1360,7 @@ msgstr ""
 "Αυτός ο κωδικός πρόσβασης είναι πολύ απλός. \n"
 " Οι καλοί κωδικοί πρόσβασης περιέχουν πάνω από έξι χαρακτήρες"
 
-#: lib/ManaTools/Module/Users.pm:933
+#: lib/ManaTools/Module/Users.pm:991
 #, perl-format
 msgid ""
 "Home directory <%s> already exists.\n"
@@ -1347,12 +1370,12 @@ msgstr ""
 "Παρακαλώ αποεπιλέξτε την δημιουργία του προσωπικού καταλόγου, ή αλλάξτε το "
 "όνομα της διαδρομής του καταλόγου"
 
-#: lib/ManaTools/Module/Users.pm:946
+#: lib/ManaTools/Module/Users.pm:1004
 #, perl-format
 msgid "User Uid is < %d"
 msgstr "Το Uid είναι < %d "
 
-#: lib/ManaTools/Module/Users.pm:947
+#: lib/ManaTools/Module/Users.pm:1005
 #, perl-format
 msgid ""
 "Creating a user with a UID less than %d is not recommended.\n"
@@ -1363,138 +1386,138 @@ msgstr ""
 " Είστε σίγουρος-η ότι θέλετε να το πραγματοποιήσετε;\n"
 "\n"
 
-#: lib/ManaTools/Module/Users.pm:962
+#: lib/ManaTools/Module/Users.pm:1020
 #, perl-format
 msgid "Putting %s to 'users' group"
 msgstr "Προσθήκη του %s στην ομάδα «χρήστες»"
 
-#: lib/ManaTools/Module/Users.pm:976
+#: lib/ManaTools/Module/Users.pm:1034
 #, perl-format
 msgid "Creating new group: %s"
 msgstr "Δημιουργία νέας ομάδας: %s"
 
-#: lib/ManaTools/Module/Users.pm:989
+#: lib/ManaTools/Module/Users.pm:1047
 msgid "Adding user: "
 msgstr "Προσθήκη του χρήστη: "
 
-#: lib/ManaTools/Module/Users.pm:990
+#: lib/ManaTools/Module/Users.pm:1048
 #, perl-format
 msgid "Adding user: %s"
 msgstr "Προσθήκη του χρήστη: %s"
 
-#: lib/ManaTools/Module/Users.pm:1056
+#: lib/ManaTools/Module/Users.pm:1114
 msgid "User Name"
 msgstr "Όνομα χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:1057
+#: lib/ManaTools/Module/Users.pm:1115
 msgid "User ID"
 msgstr "Αναγνωριστικό χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:1058 lib/ManaTools/Module/Users.pm:1805
+#: lib/ManaTools/Module/Users.pm:1116 lib/ManaTools/Module/Users.pm:1863
 msgid "Primary Group"
 msgstr "Πρωτεύουσα ομάδα"
 
-#: lib/ManaTools/Module/Users.pm:1059
+#: lib/ManaTools/Module/Users.pm:1117
 msgid "Full Name"
 msgstr "Πλήρες όνομα"
 
-#: lib/ManaTools/Module/Users.pm:1060
+#: lib/ManaTools/Module/Users.pm:1118
 msgid "Login Shell"
 msgstr "Κέλυφος σύνδεσης"
 
-#: lib/ManaTools/Module/Users.pm:1061
+#: lib/ManaTools/Module/Users.pm:1119
 msgid "Home Directory"
 msgstr "Προσωπικός κατάλογος"
 
-#: lib/ManaTools/Module/Users.pm:1062 lib/ManaTools/Module/Services.pm:381
+#: lib/ManaTools/Module/Users.pm:1120 lib/ManaTools/Module/Services.pm:368
 #: modules/rpmdragora/rpmdragora:494
 msgid "Status"
 msgstr "Κατάσταση"
 
-#: lib/ManaTools/Module/Users.pm:1102
+#: lib/ManaTools/Module/Users.pm:1160
 msgid "Group Name"
 msgstr "Όνομα ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:1103
+#: lib/ManaTools/Module/Users.pm:1161
 msgid "Group ID"
 msgstr "Αναγνωριστικό ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:1104
+#: lib/ManaTools/Module/Users.pm:1162
 msgid "Group Members"
 msgstr "Μέλη της ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:1287 lib/ManaTools/Module/Users.pm:2240
-#: lib/ManaTools/Module/Users.pm:2255 lib/ManaTools/Module/Users.pm:2271
-#: lib/ManaTools/Module/Users.pm:2491
+#: lib/ManaTools/Module/Users.pm:1345 lib/ManaTools/Module/Users.pm:2298
+#: lib/ManaTools/Module/Users.pm:2313 lib/ManaTools/Module/Users.pm:2329
+#: lib/ManaTools/Module/Users.pm:2549
 msgid "Users"
 msgstr "Χρήστες"
 
-#: lib/ManaTools/Module/Users.pm:1518
+#: lib/ManaTools/Module/Users.pm:1576
 msgid "Home:"
 msgstr "Προσωπικός φάκελος:"
 
-#: lib/ManaTools/Module/Users.pm:1617
+#: lib/ManaTools/Module/Users.pm:1675
 msgid "Enable account expiration"
 msgstr "Ενεργοποίηση λήξης του λογαριασμού"
 
-#: lib/ManaTools/Module/Users.pm:1620
+#: lib/ManaTools/Module/Users.pm:1678
 msgid "Account expires (YYYY-MM-DD):"
 msgstr "Ο λογαριασμός λήγει στις (ΕΕΕΕ-ΜΜ-ΗΗ):"
 
-#: lib/ManaTools/Module/Users.pm:1627
+#: lib/ManaTools/Module/Users.pm:1685
 msgid "Lock User Account"
 msgstr "Κλείδωμα του λογαριασμού του χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:1631
+#: lib/ManaTools/Module/Users.pm:1689
 msgid "Click on the icon to change it"
 msgstr "Κλικ στο εικονίδιο για να το αλλάξετε"
 
-#: lib/ManaTools/Module/Users.pm:1661
+#: lib/ManaTools/Module/Users.pm:1719
 msgid "User last changed password on: "
 msgstr "Τελευταία αλλαγή του κωδικού πρόσβασης χρήστη στις: "
 
-#: lib/ManaTools/Module/Users.pm:1674
+#: lib/ManaTools/Module/Users.pm:1732
 msgid "Enable Password Expiration"
 msgstr "Ενεργοποίηση λήξης του κωδικού πρόσβασης"
 
-#: lib/ManaTools/Module/Users.pm:1678
+#: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before change allowed:"
 msgstr "Ημέρες πριν από την έγκριση αλλαγής:"
 
-#: lib/ManaTools/Module/Users.pm:1686
+#: lib/ManaTools/Module/Users.pm:1744
 msgid "Days before change required:"
 msgstr "Ημέρες πριν από την απαίτηση αλλαγής:"
 
-#: lib/ManaTools/Module/Users.pm:1694
+#: lib/ManaTools/Module/Users.pm:1752
 msgid "Days warning before change:"
 msgstr "Ημέρες προειδοποίησης πριν την αλλαγή:"
 
-#: lib/ManaTools/Module/Users.pm:1702
+#: lib/ManaTools/Module/Users.pm:1760
 msgid "Days before account inactive:"
 msgstr "Ημέρες πριν την απενεργοποίηση του λογαριασμού:"
 
-#: lib/ManaTools/Module/Users.pm:1731
+#: lib/ManaTools/Module/Users.pm:1789
 msgid "Select the users to join this group:"
 msgstr "Επιλέξτε τους χρήστες της ομάδας:"
 
-#: lib/ManaTools/Module/Users.pm:1735
+#: lib/ManaTools/Module/Users.pm:1793
 msgid "User"
 msgstr "Χρήστης"
 
-#: lib/ManaTools/Module/Users.pm:1776
+#: lib/ManaTools/Module/Users.pm:1834
 msgid "Select groups that the user will be member of:"
 msgstr "Επιλέξτε τις ομάδες στις οποίες ο χρήστης θα είναι μέλος:"
 
-#: lib/ManaTools/Module/Users.pm:1780
+#: lib/ManaTools/Module/Users.pm:1838
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Group"
 msgstr "Ομάδα"
 
-#: lib/ManaTools/Module/Users.pm:1882
+#: lib/ManaTools/Module/Users.pm:1940
 msgid "Please select at least one group for the user"
 msgstr "Παρακαλώ επιλέξτε τουλάχιστον μια ομάδα για τον χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:1905
+#: lib/ManaTools/Module/Users.pm:1963
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
@@ -1502,55 +1525,55 @@ msgstr ""
 "Παρακαλώ καθορίστε το έτος, τον μήνα και την ημέρα \n"
 " για την λήξη του λογαριασμού "
 
-#: lib/ManaTools/Module/Users.pm:1921
+#: lib/ManaTools/Module/Users.pm:1979
 msgid "Please fill up all fields in password aging\n"
 msgstr "Παρακαλώ συμπληρώστε όλα τα πεδία για την λήξη του κωδικού πρόσβασης\n"
 
-#: lib/ManaTools/Module/Users.pm:1956
+#: lib/ManaTools/Module/Users.pm:2014
 msgid "Strong"
 msgstr "Ισχυρός"
 
-#: lib/ManaTools/Module/Users.pm:1956
+#: lib/ManaTools/Module/Users.pm:2014
 msgid "Weak"
 msgstr "Ασθενικός"
 
-#: lib/ManaTools/Module/Users.pm:1969
+#: lib/ManaTools/Module/Users.pm:2027
 msgid "Edit User"
 msgstr "Επεξεργασία του χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:2122 lib/ManaTools/Module/Users.pm:2225
+#: lib/ManaTools/Module/Users.pm:2180 lib/ManaTools/Module/Users.pm:2283
 msgid "Cannot create tab widgets"
 msgstr "Αδυναμία δημιουργίας των γραφικών συστατικών καρτελών"
 
-#: lib/ManaTools/Module/Users.pm:2138
+#: lib/ManaTools/Module/Users.pm:2196
 msgid "Edit Group"
 msgstr "Επεξεργασία ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:2306 lib/ManaTools/Module/Users.pm:2431
+#: lib/ManaTools/Module/Users.pm:2364 lib/ManaTools/Module/Users.pm:2489
 msgid "Add User"
 msgstr "Προσθήκη χρήστη"
 
-#: lib/ManaTools/Module/Users.pm:2307 lib/ManaTools/Module/Users.pm:2436
+#: lib/ManaTools/Module/Users.pm:2365 lib/ManaTools/Module/Users.pm:2494
 msgid "Add Group"
 msgstr "Προσθήκη ομάδας"
 
-#: lib/ManaTools/Module/Users.pm:2308 lib/ManaTools/Module/Hosts.pm:436
+#: lib/ManaTools/Module/Users.pm:2366 lib/ManaTools/Module/Hosts.pm:435
 msgid "&Edit"
 msgstr "&Επεξεργασία"
 
-#: lib/ManaTools/Module/Users.pm:2309
+#: lib/ManaTools/Module/Users.pm:2367
 msgid "&Delete"
 msgstr "&Διαγραφή"
 
-#: lib/ManaTools/Module/Users.pm:2310
+#: lib/ManaTools/Module/Users.pm:2368
 msgid "Install guest account"
 msgstr "Εγκατάσταση λογαριασμού φιλοξενούμενου"
 
-#: lib/ManaTools/Module/Users.pm:2347
+#: lib/ManaTools/Module/Users.pm:2405
 msgid "manauser"
 msgstr "manauser"
 
-#: lib/ManaTools/Module/Users.pm:2351
+#: lib/ManaTools/Module/Users.pm:2409
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
@@ -1558,49 +1581,49 @@ msgstr ""
 "Το manauser είναι ένα εργαλείο διαχείρισης χρηστών Mageia\n"
 "(από την αρχική ιδέα του userdrake της Mandriva)."
 
-#: lib/ManaTools/Module/Users.pm:2399 lib/ManaTools/Module/Users.pm:2451
+#: lib/ManaTools/Module/Users.pm:2457 lib/ManaTools/Module/Users.pm:2509
 msgid "Refresh"
 msgstr "Ανανέωση"
 
-#: lib/ManaTools/Module/Users.pm:2407
+#: lib/ManaTools/Module/Users.pm:2465
 msgid "Actions"
 msgstr "Ενέργειες"
 
-#: lib/ManaTools/Module/Users.pm:2411
+#: lib/ManaTools/Module/Users.pm:2469
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
 #: modules/rpmdragora/dragoraUpdate:278 modules/rpmdragora/rpmdragora:759
 msgid "&Help"
 msgstr "&Βοήθεια"
 
-#: lib/ManaTools/Module/Users.pm:2413
+#: lib/ManaTools/Module/Users.pm:2471
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: modules/rpmdragora/rpmdragora:761
 msgid "Report Bug"
 msgstr "Αναφορά σφάλματος"
 
-#: lib/ManaTools/Module/Users.pm:2441
+#: lib/ManaTools/Module/Users.pm:2499
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2156
 msgid "Edit"
 msgstr "Επεξεργασία"
 
-#: lib/ManaTools/Module/Users.pm:2465
+#: lib/ManaTools/Module/Users.pm:2523
 msgid "Filter system users"
 msgstr "Φιλτράρισμα των χρηστών του συστήματος"
 
-#: lib/ManaTools/Module/Users.pm:2470
+#: lib/ManaTools/Module/Users.pm:2528
 msgid "Search:"
 msgstr "Αναζήτηση:"
 
-#: lib/ManaTools/Module/Users.pm:2472
+#: lib/ManaTools/Module/Users.pm:2530
 msgid "Apply filter"
 msgstr "Εφαρμογή φίλτρου"
 
-#: lib/ManaTools/Module/Clock.pm:136
+#: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
 msgstr "Ρυθμίσεις ημερομηνίας, ώρας & ζώνη ώρας"
 
-#: lib/ManaTools/Module/Clock.pm:227
+#: lib/ManaTools/Module/Clock.pm:218
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
@@ -1608,7 +1631,7 @@ msgstr ""
 "Οι ρυθμίσεις της ημερομηνίας, της ώρας & της ωρολογιακής ζώνης επιτρέπουν "
 "τον καθορισμό της ωρολογιακής ζώνης, της ημερομηνίας και της ώρας"
 
-#: lib/ManaTools/Module/Clock.pm:228
+#: lib/ManaTools/Module/Clock.pm:219
 #, fuzzy, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
@@ -1621,103 +1644,108 @@ msgstr ""
 "                                            <h3>Μεταφραστές</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 
-#: lib/ManaTools/Module/Clock.pm:244
+#: lib/ManaTools/Module/Clock.pm:235
 msgid "Restore data"
 msgstr "Επαναφορά των δεδομένων"
 
-#: lib/ManaTools/Module/Clock.pm:245
+#: lib/ManaTools/Module/Clock.pm:236
 msgid "Restore date and time only?"
 msgstr "Επαναφορά μόνο της ημερομηνίας και της ώρας;"
 
-#: lib/ManaTools/Module/Clock.pm:265 lib/ManaTools/Module/Clock.pm:271
-#: lib/ManaTools/Module/Clock.pm:523 lib/ManaTools/Module/Clock.pm:608
+#: lib/ManaTools/Module/Clock.pm:256 lib/ManaTools/Module/Clock.pm:262
+#: lib/ManaTools/Module/Clock.pm:514 lib/ManaTools/Module/Clock.pm:599
 msgid "not defined"
 msgstr "δεν προσδιορίστηκε"
 
-#: lib/ManaTools/Module/Clock.pm:299
+#: lib/ManaTools/Module/Clock.pm:290
 msgid "Set local RTC failed"
 msgstr "Η ρύθμιση του τοπικού ελέγχου σε πραγματικό χρόνο (RTC) απέτυχε"
 
-#: lib/ManaTools/Module/Clock.pm:314
+#: lib/ManaTools/Module/Clock.pm:305
 msgid "Set time zone failed"
 msgstr "Η ρύθμιση της ωρολογιακής ζώνης απέτυχε"
 
-#: lib/ManaTools/Module/Clock.pm:355
+#: lib/ManaTools/Module/Clock.pm:346
 msgid "Set NTP Configuration failed"
 msgstr "Η ρύθμιση της διαμόρφωσης NTP απέτυχε"
 
-#: lib/ManaTools/Module/Clock.pm:368
+#: lib/ManaTools/Module/Clock.pm:359
 msgid "Set NTP failed"
 msgstr "Η ρύθμιση του NTP απέτυχε"
 
-#: lib/ManaTools/Module/Clock.pm:391
+#: lib/ManaTools/Module/Clock.pm:382
 msgid "Set system time failed"
 msgstr "Η ρύθμιση της ώρας συστήματος απέτυχε"
 
-#: lib/ManaTools/Module/Clock.pm:422
+#: lib/ManaTools/Module/Clock.pm:413
 msgid "Setting date and time"
 msgstr "Ρύθμιση της ώρας και της ημερομηνίας"
 
-#: lib/ManaTools/Module/Clock.pm:440
+#: lib/ManaTools/Module/Clock.pm:431
 msgid "Enable Network Time Protocol"
 msgstr "Ενεργοποίηση του NTP"
 
-#: lib/ManaTools/Module/Clock.pm:452
+#: lib/ManaTools/Module/Clock.pm:443
 msgid "manaclock: NTP service missed"
 msgstr "manaclock: ελλείπουσα υπηρεσία NTP"
 
-#: lib/ManaTools/Module/Clock.pm:453
+#: lib/ManaTools/Module/Clock.pm:444
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
 "Παρακαλώ εγκαταστήστε μια υπηρεσία NTP όπως το chrony ή το ntp προς "
 "διαχείριση"
 
-#: lib/ManaTools/Module/Clock.pm:468
+#: lib/ManaTools/Module/Clock.pm:459
 msgid "Change &NTP server"
 msgstr "Αλλαγή του διακομιστή &NTP"
 
-#: lib/ManaTools/Module/Clock.pm:478
+#: lib/ManaTools/Module/Clock.pm:469
 msgid "NTP server - DrakClock"
 msgstr "Εξυπηρετητής NTP - DrakClock"
 
-#: lib/ManaTools/Module/Clock.pm:479
+#: lib/ManaTools/Module/Clock.pm:470
 msgid "Choose your NTP server"
 msgstr "Επιλέξτε τον εξυπηρετητή σας NTP"
 
-#: lib/ManaTools/Module/Clock.pm:521 lib/ManaTools/Module/Clock.pm:606
+#: lib/ManaTools/Module/Clock.pm:512 lib/ManaTools/Module/Clock.pm:597
 msgid "Current:"
 msgstr "Τρέχον:"
 
-#: lib/ManaTools/Module/Clock.pm:546
+#: lib/ManaTools/Module/Clock.pm:537
 msgid "TimeZone"
 msgstr "Ωρολογιακή ζώνη"
 
-#: lib/ManaTools/Module/Clock.pm:548
+#: lib/ManaTools/Module/Clock.pm:539
 msgid "Change &Time Zone"
 msgstr "Αλλαγή της &ωρολογιακής ζώνης"
 
-#: lib/ManaTools/Module/Clock.pm:561 lib/ManaTools/Module/Clock.pm:569
+#: lib/ManaTools/Module/Clock.pm:552 lib/ManaTools/Module/Clock.pm:560
 msgid "Timezone - DrakClock"
 msgstr "Ζώνη ώρας - DrakClock"
 
-#: lib/ManaTools/Module/Clock.pm:562
+#: lib/ManaTools/Module/Clock.pm:553
 msgid "Failed to retrieve timezone list"
 msgstr "Αποτυχία λήψης της λίστας των ωρολογιακών ζωνών"
 
-#: lib/ManaTools/Module/Clock.pm:570
+#: lib/ManaTools/Module/Clock.pm:561
 msgid "Which is your timezone?"
 msgstr "Ποια είναι η ζώνη ώρας σας;"
 
-#: lib/ManaTools/Module/Clock.pm:582
+#: lib/ManaTools/Module/Clock.pm:573
 msgid "GMT - manaclock"
 msgstr "GMT - manaclock"
 
-#: lib/ManaTools/Module/Clock.pm:583
+#: lib/ManaTools/Module/Clock.pm:574
 msgid "Is your hardware clock set to GMT?"
 msgstr "Το ρολόι του BIOS είναι ρυθμισμένο σε ώρα Γκρίνουϊτς ;"
 
+#: lib/ManaTools/Module/Hosts.pm:51
+#, fuzzy
+msgid "manahost - manage hosts definitions"
+msgstr "Διαχείριση των καθορισμών των υπολογιστών"
+
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
-#: lib/ManaTools/Module/Hosts.pm:421
+#: lib/ManaTools/Module/Hosts.pm:420
 msgid "Hostname"
 msgstr "Όνομα του υπολογιστή"
 
@@ -1738,15 +1766,15 @@ msgid "Icon Name"
 msgstr "Όνομα του εικονιδίου"
 
 #: lib/ManaTools/Module/Hosts.pm:178 lib/ManaTools/Module/Hosts.pm:262
-#: lib/ManaTools/Module/Hosts.pm:449 lib/ManaTools/Module/Firewall.pm:533
-#: lib/ManaTools/Module/Firewall.pm:741 lib/ManaTools/Module/Firewall.pm:837
-#: lib/ManaTools/Module/DisplayManager.pm:248
-#: lib/ManaTools/Module/Proxy.pm:326
+#: lib/ManaTools/Module/Hosts.pm:448 lib/ManaTools/Module/Firewall.pm:569
+#: lib/ManaTools/Module/Firewall.pm:777 lib/ManaTools/Module/Firewall.pm:873
+#: lib/ManaTools/Module/DisplayManager.pm:241
+#: lib/ManaTools/Module/Proxy.pm:325
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 msgid "&OK"
 msgstr "&Εντάξει"
 
-#: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:420
+#: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:419
 msgid "IP Address"
 msgstr "Διεύθυνση IP"
 
@@ -1766,45 +1794,50 @@ msgstr "Επεξεργαστείτε τις πληροφορίες"
 msgid "Manage hosts definitions"
 msgstr "Διαχείριση των καθορισμών των υπολογιστών"
 
-#: lib/ManaTools/Module/Hosts.pm:422
+#: lib/ManaTools/Module/Hosts.pm:421
 msgid "Host Aliases"
 msgstr "Ψευδώνυμο υπολογιστή"
 
-#: lib/ManaTools/Module/Hosts.pm:435
+#: lib/ManaTools/Module/Hosts.pm:434
 msgid "A&dd"
 msgstr "&Προσθήκη"
 
-#: lib/ManaTools/Module/Hosts.pm:437
+#: lib/ManaTools/Module/Hosts.pm:436
 msgid "&Remove"
 msgstr "Α&φαίρεση"
 
-#: lib/ManaTools/Module/Hosts.pm:438
+#: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Hostname"
 msgstr "&Όνομα του υπολογιστή"
 
-#: lib/ManaTools/Module/Hosts.pm:481 lib/ManaTools/Rpmdragora/pkg.pm:267
+#: lib/ManaTools/Module/Hosts.pm:480 lib/ManaTools/Rpmdragora/pkg.pm:267
 #: lib/ManaTools/Rpmdragora/pkg.pm:812
 msgid "Confirmation"
 msgstr "Επιβεβαίωση"
 
-#: lib/ManaTools/Module/Hosts.pm:481
+#: lib/ManaTools/Module/Hosts.pm:480
 msgid "Are you sure to drop this host?"
 msgstr "Είστε σίγουρος-η για τη διαγραφή του υπολογιστή;"
 
-#: lib/ManaTools/Module/Hosts.pm:498
+#: lib/ManaTools/Module/Hosts.pm:497
 msgid "Graphical manager for hosts definitions"
 msgstr "Γραφικός διαχειριστής για τους καθορισμούς των υπολογιστών"
 
-#: lib/ManaTools/Module/Firewall.pm:165
+#: lib/ManaTools/Module/Firewall.pm:88
+#, fuzzy
+msgid "manawall - Firewall Manager"
+msgstr "manawall: διαχειριστής τείχους προστασίας"
+
+#: lib/ManaTools/Module/Firewall.pm:201
 msgid "Port scan detection"
 msgstr "Εντοπισμός σάρωσης θυρών"
 
-#: lib/ManaTools/Module/Firewall.pm:346 lib/ManaTools/Module/Firewall.pm:353
-#: lib/ManaTools/Module/Firewall.pm:926
+#: lib/ManaTools/Module/Firewall.pm:382 lib/ManaTools/Module/Firewall.pm:389
+#: lib/ManaTools/Module/Firewall.pm:962
 msgid "Firewall configuration"
 msgstr "Ρύθμιση του τοίχους προστασίας"
 
-#: lib/ManaTools/Module/Firewall.pm:347
+#: lib/ManaTools/Module/Firewall.pm:383
 msgid ""
 "drakfirewall configurator\n"
 "                    This configures a personal firewall for this Mageia "
@@ -1814,7 +1847,7 @@ msgstr ""
 "                    Για την διαμόρφωση ενός προσωπικού τείχους προστασίας "
 "για αυτό το μηχάνημα Mageia."
 
-#: lib/ManaTools/Module/Firewall.pm:354
+#: lib/ManaTools/Module/Firewall.pm:390
 msgid ""
 "drakfirewall configurator\n"
 "Make sure you have configured your Network/Internet access with\n"
@@ -1825,11 +1858,11 @@ msgstr ""
 "διαδίκτυο\n"
 "χρησιμοποιώντας το drakconnect."
 
-#: lib/ManaTools/Module/Firewall.pm:417
+#: lib/ManaTools/Module/Firewall.pm:453
 msgid "Interactive Firewall"
 msgstr "Διαδραστικό τείχος προστασίας"
 
-#: lib/ManaTools/Module/Firewall.pm:421
+#: lib/ManaTools/Module/Firewall.pm:457
 msgid ""
 "You can be warned when someone accesses to a service or tries to intrude "
 "into your computer.\n"
@@ -1840,44 +1873,44 @@ msgstr ""
 "Παρακαλώ επιλέξτε ποιες δραστηριότητες του δικτύου θα  πρέπει να "
 "παρακολουθούνται."
 
-#: lib/ManaTools/Module/Firewall.pm:427
+#: lib/ManaTools/Module/Firewall.pm:463
 msgid "Use Interactive Firewall"
 msgstr "Χρήση του διαδραστικού τοίχους προστασίας"
 
-#: lib/ManaTools/Module/Firewall.pm:583
+#: lib/ManaTools/Module/Firewall.pm:619
 msgid "Graphical manager for interactive firewall rules"
 msgstr ""
 "Εργαλείο γραφικού περιβάλλοντος για την διαχείριση των κανόνων του "
 "διαδραστικού τείχους προστασίας"
 
-#: lib/ManaTools/Module/Firewall.pm:630 lib/ManaTools/Module/Firewall.pm:633
-#: lib/ManaTools/Module/Firewall.pm:1015
+#: lib/ManaTools/Module/Firewall.pm:666 lib/ManaTools/Module/Firewall.pm:669
+#: lib/ManaTools/Module/Firewall.pm:1051
 msgid "Firewall"
 msgstr "Τείχος προστασίας"
 
-#: lib/ManaTools/Module/Firewall.pm:637
+#: lib/ManaTools/Module/Firewall.pm:673
 msgid "Which services would you like to allow the Internet to connect to?"
 msgstr "Ποιες υπηρεσίες θα θέλατε να επιτρέπεται να συνδέονται στο διαδίκτυο;"
 
-#: lib/ManaTools/Module/Firewall.pm:638
+#: lib/ManaTools/Module/Firewall.pm:674
 #, perl-format
 msgid "Those settings will be saved for the network profile <b>%s</b>"
 msgstr "Αυτές οι ρυθμίσεις θα αποθηκευτούν για το προφίλ δικτύου <b>%s</b>"
 
-#: lib/ManaTools/Module/Firewall.pm:639
+#: lib/ManaTools/Module/Firewall.pm:675
 msgid "Everything (no firewall)"
 msgstr "Όλες (χωρίς τείχος προστασίας)"
 
-#: lib/ManaTools/Module/Firewall.pm:738
+#: lib/ManaTools/Module/Firewall.pm:774
 msgid "A&dvanced"
 msgstr "&Προηγμένες"
 
-#: lib/ManaTools/Module/Firewall.pm:772
+#: lib/ManaTools/Module/Firewall.pm:808
 msgid "Graphical manager for firewall rules"
 msgstr ""
 "Διαχειριστής γραφικού περιβάλλοντος για τους κανόνες του τείχους προστασίας"
 
-#: lib/ManaTools/Module/Firewall.pm:804
+#: lib/ManaTools/Module/Firewall.pm:840
 msgid ""
 "You can enter miscellaneous ports.\n"
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
@@ -1887,24 +1920,24 @@ msgstr ""
 "Έγκυρα παραδείγματα είναι: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Δείτε στο /etc/services για περισσότερες πληροφορίες."
 
-#: lib/ManaTools/Module/Firewall.pm:809
+#: lib/ManaTools/Module/Firewall.pm:845
 msgid "Define miscellaneus ports"
 msgstr "Καθορίζει τις διάφορες θύρες"
 
-#: lib/ManaTools/Module/Firewall.pm:824
+#: lib/ManaTools/Module/Firewall.pm:860
 msgid "Other ports"
 msgstr "Άλλες θύρες"
 
-#: lib/ManaTools/Module/Firewall.pm:832
+#: lib/ManaTools/Module/Firewall.pm:868
 msgid "Log firewall messages in system logs"
 msgstr ""
 "Καταγραφή των μηνυμάτων του τοίχου προστασίας στις καταγραφές του συστήματος"
 
-#: lib/ManaTools/Module/Firewall.pm:887
+#: lib/ManaTools/Module/Firewall.pm:923
 msgid "Invalid port given"
 msgstr "Μη έγκυρη θύρα"
 
-#: lib/ManaTools/Module/Firewall.pm:888
+#: lib/ManaTools/Module/Firewall.pm:924
 #, perl-format
 msgid ""
 "Invalid port given: %s.\n"
@@ -1919,7 +1952,7 @@ msgstr ""
 "\n"
 "Μπορείτε επίσης να δώσετε ένα εύρος θυρών (πχ: 24300:24350/udp)"
 
-#: lib/ManaTools/Module/Firewall.pm:927
+#: lib/ManaTools/Module/Firewall.pm:963
 msgid ""
 "Please select the interfaces that will be protected by the firewall.\n"
 "\n"
@@ -1942,7 +1975,7 @@ msgstr ""
 "\n"
 "Ποιες διεπαφές θα πρέπει να προστατευθούν;\n"
 
-#: lib/ManaTools/Module/Firewall.pm:1016
+#: lib/ManaTools/Module/Firewall.pm:1052
 msgid ""
 "Your firewall configuration has been manually edited and contains\n"
 "    rules that may conflict with the configuration that has just been set "
@@ -1954,45 +1987,55 @@ msgstr ""
 "μόλις ρυθμίστηκε.\n"
 "    Τι θέλετε να κάνετε;"
 
-#: lib/ManaTools/Module/DisplayManager.pm:93
+#: lib/ManaTools/Module/DisplayManager.pm:57
+#, fuzzy
+msgid "manadm - Display Manager"
+msgstr "Διαχειριστής σύνδεσης"
+
+#: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
 msgstr "LightDM (The Light Display Manager)"
 
-#: lib/ManaTools/Module/DisplayManager.pm:94
+#: lib/ManaTools/Module/DisplayManager.pm:93
 msgid "GDM (GNOME Display Manager)"
 msgstr "GDM (Διαχειριστής σύνδεσης GNOME)"
 
-#: lib/ManaTools/Module/DisplayManager.pm:95
+#: lib/ManaTools/Module/DisplayManager.pm:94
 msgid "KDM (KDE Display Manager)"
 msgstr "KDE (Διαχειριστής σύνδεσης KDE)"
 
-#: lib/ManaTools/Module/DisplayManager.pm:96
+#: lib/ManaTools/Module/DisplayManager.pm:95
 msgid "XDM (X Display Manager)"
 msgstr "XDM (Διαχειριστής σύνδεσης X)"
 
-#: lib/ManaTools/Module/DisplayManager.pm:178
+#: lib/ManaTools/Module/DisplayManager.pm:172
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "X Restart Required"
 msgstr "Απαιτείται επανεκκίνηση του X"
 
-#: lib/ManaTools/Module/DisplayManager.pm:178
+#: lib/ManaTools/Module/DisplayManager.pm:172
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "You need to log out and back in again for changes to take effect"
 msgstr ""
 "Για να εφαρμοστούν οι αλλαγές, θα πρέπει να αποσυνδεθείτε και μετά να "
 "επανασυνδεθείτε."
 
-#: lib/ManaTools/Module/DisplayManager.pm:188 scripts/manadm:35
+#: lib/ManaTools/Module/DisplayManager.pm:182
 msgid "Display Manager"
 msgstr "Διαχειριστής σύνδεσης"
 
-#: lib/ManaTools/Module/DisplayManager.pm:214
+#: lib/ManaTools/Module/DisplayManager.pm:207
 msgid "Choosing a display manager"
 msgstr "Επιλογή ενός διαχειριστή σύνδεσης"
 
-#: lib/ManaTools/Module/DisplayManager.pm:270
+#: lib/ManaTools/Module/DisplayManager.pm:263
 msgid "Graphical configurator for system Display Manager"
 msgstr "Εργαλείο γραφικού περιβάλλοντος διαμόρφωσης του διαχειριστή σύνδεσης"
+
+#: lib/ManaTools/Module/Proxy.pm:56
+#, fuzzy
+msgid "manaproxy - Proxy configuration"
+msgstr "Ρυθμίσεις διαμεσολαβητών"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2010,7 +2053,7 @@ msgstr "Το URL πρέπει να ξεκινά με «http:» ή «ftp:»"
 msgid "Proxies configuration"
 msgstr "Ρυθμίσεις διαμεσολαβητών"
 
-#: lib/ManaTools/Module/Proxy.pm:281
+#: lib/ManaTools/Module/Proxy.pm:280
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
@@ -2018,77 +2061,77 @@ msgstr ""
 "Εδώ μπορείτε να ρυθμίσετε την διαμόρφωση των διαμεσολαβητών (πχ: http://"
 "my_caching_server:8080)"
 
-#: lib/ManaTools/Module/Proxy.pm:289
+#: lib/ManaTools/Module/Proxy.pm:288
 msgid "HTTP proxy"
 msgstr "Διαμεσολαβητής HTTP"
 
-#: lib/ManaTools/Module/Proxy.pm:295
+#: lib/ManaTools/Module/Proxy.pm:294
 msgid "Use HTTP proxy for HTTPS connections"
 msgstr "Χρήση διαμεσολαβητή HTTP για τις συνδέσεις HTTPS"
 
-#: lib/ManaTools/Module/Proxy.pm:301
+#: lib/ManaTools/Module/Proxy.pm:300
 msgid "HTTPS proxy"
 msgstr "Διαμεσολαβητής HTTPS"
 
-#: lib/ManaTools/Module/Proxy.pm:307
+#: lib/ManaTools/Module/Proxy.pm:306
 msgid "FTP proxy"
 msgstr "Διαμεσολαβητής FTP"
 
-#: lib/ManaTools/Module/Proxy.pm:313
+#: lib/ManaTools/Module/Proxy.pm:312
 msgid "No proxy for (comma separated list):"
 msgstr "Κανένας διαμεσολαβητής για (διαχωρισμένα με κόμμα) :"
 
-#: lib/ManaTools/Module/Proxy.pm:348
+#: lib/ManaTools/Module/Proxy.pm:347
 msgid "Graphical manager for proxies"
 msgstr "Εργαλείο γραφικού περιβάλλοντος διαχείρισης των διαμεσολαβητών"
 
-#: lib/ManaTools/Module/Services.pm:184
-msgid "adminService"
-msgstr "adminService"
+#: lib/ManaTools/Module/Services.pm:89
+msgid "Services and daemons"
+msgstr "Υπηρεσίες και δαίμονες"
 
-#: lib/ManaTools/Module/Services.pm:291
+#: lib/ManaTools/Module/Services.pm:283
 msgid "Start when requested"
 msgstr "Εκκινείται όταν ζητηθεί"
 
-#: lib/ManaTools/Module/Services.pm:294
+#: lib/ManaTools/Module/Services.pm:286
 msgid "running"
 msgstr "εκτελείται"
 
-#: lib/ManaTools/Module/Services.pm:294
+#: lib/ManaTools/Module/Services.pm:286
 msgid "stopped"
 msgstr "δεν εκτελείται"
 
-#: lib/ManaTools/Module/Services.pm:372
+#: lib/ManaTools/Module/Services.pm:359
 msgid "Manage system services by enabling or disabling them"
 msgstr ""
 "Διαχειριστείτε τις υπηρεσίες συστήματος ενεργοποιώντας τες ή "
 "απενεργοποιώντας τες."
 
-#: lib/ManaTools/Module/Services.pm:380
+#: lib/ManaTools/Module/Services.pm:367
 msgid "Service"
 msgstr "Υπηρεσία"
 
-#: lib/ManaTools/Module/Services.pm:382
+#: lib/ManaTools/Module/Services.pm:369
 msgid "On boot"
 msgstr "Στην εκκίνηση"
 
-#: lib/ManaTools/Module/Services.pm:393 lib/ManaTools/Rpmdragora/pkg.pm:1093
+#: lib/ManaTools/Module/Services.pm:380 lib/ManaTools/Rpmdragora/pkg.pm:1093
 msgid "Information"
 msgstr "Πληροφορίες"
 
-#: lib/ManaTools/Module/Services.pm:401
+#: lib/ManaTools/Module/Services.pm:388
 msgid "&Start"
 msgstr "&Εκκίνηση"
 
-#: lib/ManaTools/Module/Services.pm:404
+#: lib/ManaTools/Module/Services.pm:391
 msgid "S&top"
 msgstr "&Διακοπή"
 
-#: lib/ManaTools/Module/Services.pm:417
+#: lib/ManaTools/Module/Services.pm:404
 msgid "&Refresh"
 msgstr "Α&νανέωση"
 
-#: lib/ManaTools/Module/Services.pm:458
+#: lib/ManaTools/Module/Services.pm:445
 msgid ""
 "adminService is the Mageia service and daemon management tool\n"
 "\n"
@@ -2101,7 +2144,7 @@ msgstr ""
 "                                                       (από την αρχική ιδέα "
 "του Mandriva draxservice)."
 
-#: lib/ManaTools/Module/Services.pm:460
+#: lib/ManaTools/Module/Services.pm:447
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
 #, perl-format
 msgid ""
@@ -2119,12 +2162,12 @@ msgstr ""
 "                                                       <h3>Μεταφραστές</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 
-#: lib/ManaTools/Module/Services.pm:528
+#: lib/ManaTools/Module/Services.pm:515
 #, perl-format
 msgid "Starting %s"
 msgstr "Εκκίνηση του %s"
 
-#: lib/ManaTools/Module/Services.pm:548
+#: lib/ManaTools/Module/Services.pm:535
 #, perl-format
 msgid "Stopping %s"
 msgstr "Τερματισμός του %s"
@@ -3572,6 +3615,10 @@ msgstr ""
 "  --version      - εμφανίζει τον αριθμό έκδοσης αυτού του εργαλείου\n"
 "                    "
 
+#: lib/ManaTools/Rpmdragora/init.pm:175
+msgid "Running in user mode"
+msgstr "Εκτέλεση σε λειτουργία χρήστη"
+
 #: lib/ManaTools/Rpmdragora/init.pm:176
 msgid ""
 "You are launching this program as a normal user.\n"
@@ -4634,9 +4681,25 @@ msgstr ""
 msgid "valid <commands>:\n"
 msgstr "έγκυρες <commands>:\n"
 
-#: scripts/manaservice:31
-msgid "Services and daemons"
-msgstr "Υπηρεσίες και δαίμονες"
+#: scripts/mpan:34
+#, fuzzy
+msgid "Developers mode"
+msgstr "Ανάπτυξη"
+
+#: scripts/mpan:40
+msgid ""
+"Application name, used for logging identifier and x application "
+"configuration directory. Default mpan"
+msgstr ""
+
+#: scripts/mpan:46
+msgid "Window title. Default name value"
+msgstr ""
+
+#: scripts/mpan:70
+#, fuzzy
+msgid "== Development mode ON =="
+msgstr "Ανάπτυξη"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -4989,6 +5052,9 @@ msgstr "Επιτυχής προσθήκη του μέσου %s."
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "Επιτυχής προσθήκη του μέσου «%s»."
+
+#~ msgid "adminService"
+#~ msgstr "adminService"
 
 #~ msgid ""
 #~ "<h3>Developers</h3>\n"
