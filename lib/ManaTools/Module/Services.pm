@@ -78,6 +78,17 @@ has '+icon' => (
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaservice.png'),
 );
 
+has '+name' => (
+    lazy     => 1,
+    builder => '_nameInitializer',
+);
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("Services and daemons"));
+};
+
 has '_services' => (
     traits  => ['Array'],
     is      => 'rw',
@@ -181,10 +192,6 @@ our $VERSION = '1.0.0';
 sub BUILD {
     my $self = shift;
 
-    if (! $self->name) {
-        $self->name ($self->loc->N("adminService"));
-    }
-
     $self->loadServices();
 }
 
@@ -207,14 +214,6 @@ sub BUILD {
 #=============================================================
 sub start {
     my $self = shift;
-
-#    if ($EUID != 0) {
-#        $self->sh_gui->warningMsgBox({
-#            title => $self->name,
-#            text  => $self->loc->N("root privileges required"),
-#        });
-#        return;
-#    }
 
     $self->_servicePanel();
 };
@@ -350,11 +349,6 @@ sub _servicePanel {
     my $self = shift;
 
     my $appTitle = yui::YUI::app()->applicationTitle();
-
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($self->name);
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon($self->icon);
 
     my $mageiaPlugin = "mga";
     my $factory      = yui::YUI::widgetFactory;

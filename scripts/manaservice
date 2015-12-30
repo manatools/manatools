@@ -21,14 +21,7 @@ use strict;
 use ManaTools::Module::Services;
 use ManaTools::Shared::Locales;
 
-my $locale_dir = ManaTools::Shared::custom_locale_dir();;
-my $loc = ManaTools::Shared::Locales->new(
-    domain_name => 'manatools',
-    dir_name    => $locale_dir,
-);
-
-my $serviceMan = ManaTools::Module::Services->new({icon => "/usr/share/mcc/themes/default/service-mdk.png",
-                                                          name => $loc->N("Services and daemons"),});
+my $serviceMan = ManaTools::Module::Services->new();
 $serviceMan->start();
 
 1;
