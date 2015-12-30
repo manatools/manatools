@@ -11,7 +11,7 @@ WriteMakefile(
     NAME             => 'ManaTools',
     DISTNAME         => 'manatools',
     AUTHOR           => q{Angelo Naselli <anaselli@linux.it> - Matteo Pasotti <matteo.pasotti@gmail.com>},
-    VERSION_FROM     => 'lib/ManaTools/MainDisplay.pm',
+    VERSION_FROM     => 'lib/ManaTools/Version.pm',
     ABSTRACT         => 'ManaTools is a generic launcher application that can run perl modules or external programs using Suse YUI abstarction.',
     LICENSE          => 'GPL_2',
     PL_FILES         => {},

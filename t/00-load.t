@@ -7,8 +7,8 @@ use Test::More;
 plan tests => 2;
 
 BEGIN {
-    use_ok( 'ManaTools::Shared' ) || print "ManaTools::Shared failed\n";
+    use_ok( 'ManaTools::Version' ) || print "ManaTools::Version failed\n";
     use_ok( 'ManaTools::SettingsReader' ) || print "ManaTools::SettingsReader failed\n";
 }
 
-diag( "Testing ManaTools::Shared $ManaTools::Shared::VERSION, Perl $], $^X" );
+diag( "Testing ManaTools::Shared $ManaTools::Version::VERSION, Perl $], $^X" );
