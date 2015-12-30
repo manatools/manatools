@@ -51,13 +51,7 @@ You should have received a copy of the GNU General Public License
 along with this program; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 
-=head1 VERSION
-
-Version 1.0.0
-
 =cut
-
-our $VERSION = '1.0.0';
 
 
 ###############################################
@@ -2409,7 +2403,7 @@ sub _showAboutDialog {
     $translators =~ s/\>/\&gt\;/g;
     $self->sh_gui->AboutDialog({
         name => $self->loc->N("manauser"),
-        version => $self->VERSION,
+        version => $self->Version(),
         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2015'),
         license => $self->loc->N("GPLv2"),
         description => $self->loc->N("manauser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
