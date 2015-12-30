@@ -23,18 +23,12 @@
 package ManaTools::Module;
 
 use Moose;
+with 'ManaTools::Version';
+
 use ManaTools::Shared;
 use ManaTools::Shared::Locales;
 use ManaTools::Shared::Logging;
 use ManaTools::Shared::GUI::CommandLine;
-
-=head1 VERSION
-
-Version 1.0.1
-
-=cut
-
-our $VERSION = '1.0.1';
 
 use yui;
 

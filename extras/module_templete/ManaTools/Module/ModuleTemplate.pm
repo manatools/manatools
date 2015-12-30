@@ -51,11 +51,13 @@ sub _nameInitializer {
 
 =head1 VERSION
 
-Version 0.0.1
+    Module implements Version Role so if you want to have your own versioning
+    override Version attributes e.g. using
+    has '+Version' => (
+        default => "X.Y.Z"
+    );
 
 =cut
-
-our $VERSION = '0.0.1';
 
 # sh_gui to use Shared/GUI object
 has 'sh_gui' => (
