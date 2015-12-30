@@ -41,8 +41,15 @@ has '+icon' => (
 );
 
 has '+name' => (
-    default => "Hostmanager",
+    lazy     => 1,
+    builder => '_nameInitializer',
 );
+
+sub _nameInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("manahost - manage hosts definitions"));
+}
 
 =head1 VERSION
 
@@ -397,7 +404,6 @@ sub _manageHostsDialog {
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
     my $newTitle = $self->loc->N("Manage hosts definitions");
-    yui::YUI::app()->setApplicationTitle($newTitle);
 
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;

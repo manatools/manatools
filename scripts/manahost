@@ -23,16 +23,7 @@ use ManaTools::Module::Hosts;
 
 use yui;
 
-my $wm_icon = "/usr/lib/libDrakX/icons/IC-Dhost-48.png";
-my $wm_name = "Manage hosts definitions";
-
-yui::YUI::app()->setApplicationTitle($wm_name);
-yui::YUI::app()->setApplicationIcon($wm_icon);
-
-my $hostMan = ManaTools::Module::Hosts->new({
-				icon => $wm_icon,
-				name => $wm_name
-			});
+my $hostMan = ManaTools::Module::Hosts->new();
 $hostMan->start();
 
 1;
