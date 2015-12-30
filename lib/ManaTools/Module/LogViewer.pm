@@ -52,6 +52,7 @@ use Moose;
 
 use diagnostics;
 use open OUT => ':utf8';
+use File::ShareDir ':ALL';
 
 use ManaTools::Shared::GUI;
 use ManaTools::Shared::Locales;
@@ -70,7 +71,7 @@ extends qw( ManaTools::Module );
 
 ### TODO icon
 has '+icon' => (
-    default => "/usr/share/mcc/themes/default/logdrake-mdk.png",
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manalog.png'),
 );
 
 has 'sh_gui' => (

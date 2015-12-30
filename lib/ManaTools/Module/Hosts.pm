@@ -25,6 +25,7 @@ use autodie;
 use Moose;
 use POSIX qw(ceil);
 use utf8;
+use File::ShareDir ':ALL';
 
 use Glib;
 use yui;
@@ -36,7 +37,7 @@ extends qw( ManaTools::Module );
 
 
 has '+icon' => (
-    default => "/usr/lib/libDrakX/icons/IC-Dhost-48.png"
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manahost.png'),
 );
 
 has '+name' => (

@@ -59,6 +59,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA
 use Moose;
 use English;
 use Time::HiRes qw(usleep);
+use File::ShareDir ':ALL';
 
 use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::DataStructure qw(member);
@@ -74,7 +75,7 @@ use File::Basename;
 extends qw( ManaTools::Module );
 
 has '+icon' => (
-    default => "/usr/share/mcc/themes/default/service-mdk.png",
+    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaservice.png'),
 );
 
 has '_services' => (
