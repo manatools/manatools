@@ -96,15 +96,6 @@ sub _SharedUGUIInitialize {
     $self->sh_gui(ManaTools::Shared::GUI->new() );
 }
 
-=head1 VERSION
-
-Version 1.0.0
-
-=cut
-
-our $VERSION = '1.0.0';
-
-
 my %prior = ('emerg'   => 0,
             'alert'   => 1,
             'crit'    => 2,
@@ -324,7 +315,7 @@ sub _logViewerPanel {
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({ name    => $self->name,
-                                            version => $self->VERSION,
+                                            version => $self->Version(),
                             credits => $self->loc->N("Copyright (C) %s Mageia community", '2014'),
                             license => $self->loc->N("GPLv2"),
                             description => $self->loc->N("Log viewer is a systemd journal viewer"),
