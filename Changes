@@ -1,3 +1,6 @@
+	- ManaTools::Version role has been added and Module has it to
+		manage Version in a single point. Modules that want their
+		onw versioning have to override Version attribute
 	- ManaTools::MainDisplay now is implemented using Moose using 
 		Shared::GUI::Dialog and Shared::GUI::Event
 	- ManaTools::ConfigReader now is implemented using Moose
