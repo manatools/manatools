@@ -175,7 +175,6 @@ sub ask_for_X_restart {
 sub _manageProxyDialog {
     my $self = shift;
 
-    ## TODO fix for manatools
     my $appTitle = yui::YUI::app()->applicationTitle();
     my $appIcon = yui::YUI::app()->applicationIcon();
     ## set new title to get it in dialog
