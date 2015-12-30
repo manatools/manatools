@@ -103,13 +103,6 @@ has 'NTPServers' => (
         builder => '_get_NTPservers'
 );
 
-=head1 VERSION
-
-Version 1.1.0
-
-=cut
-
-our $VERSION = '1.1.0';
 
 #=============================================================
 
@@ -219,7 +212,7 @@ sub _adminClockPanel {
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({
                     name    => $self->name,
-                    version => $self->VERSION,
+                    version => $self->Version(),
                     credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2015'),
                     license => $self->loc->N("GPLv2"),
                     description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
