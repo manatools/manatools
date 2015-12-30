@@ -161,14 +161,6 @@ sub _SharedServicesInitialize {
 }
 
 
-=head1 VERSION
-
-Version 1.0.0
-
-=cut
-
-our $VERSION = '1.0.0';
-
 =head1 METHODS
 
 =cut
@@ -447,7 +439,7 @@ sub _servicePanel {
                 $translators =~ s/\</\&lt\;/g;
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({ name => $self->name,
-                                             version => $self->VERSION,
+                                             version => $self->Version(),
                          credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2015'),
                          license => $self->loc->N("GPLv2"),
                          description => $self->loc->N("adminService is the Mageia service and daemon management tool\n
