@@ -5,13 +5,14 @@
 # Translators:
 # Ettore Atalan <atalanttore@googlemail.com>, 2015
 # psyca, 2015
+# Valsu <valsu@hylia.de>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2015-12-24 21:10+0000\n"
-"Last-Translator: psyca\n"
+"PO-Revision-Date: 2015-12-31 08:36+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
 "Language: de\n"
@@ -27,7 +28,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
+msgstr "_: Name(n) und E-Mail-Adresse(n) der/des Übersetzer(s)\n"
 
 #: lib/ManaTools/MainDisplay.pm:289 lib/ManaTools/Module/LogViewer.pm:319
 #: lib/ManaTools/Module/Users.pm:2407 lib/ManaTools/Module/Clock.pm:216
@@ -47,10 +48,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr ""
-"mpan ist das mana-tools Bedienelement, welches alle Hilfsprogramme enthält."
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -109,9 +108,9 @@ msgid "Configuration file %s is missing"
 msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:586
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Konfigurations-Dateien untersuchen..."
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:735
 #, perl-format
@@ -161,20 +160,24 @@ msgstr "Auswählen"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> optionales Verzeichnis, das die Übersetzungszeichenfolgen enthält (nur "
+"für Entwickler)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "Diese Anwendungsinformationen ausdrucken."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Das Namensfeld ist leer, bitte geben Sie einen Namen ein"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"Der Name muss mit einem Buchstaben beginnen und darf nur kleine lateinische "
+"Buchstaben, Nummern, '.', '-' und '_' enthalten"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
@@ -993,9 +996,8 @@ msgid "Empty log found"
 msgstr "Leeres Log gefunden"
 
 #: lib/ManaTools/Module/LogViewer.pm:433
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Im Benutzermodus ausführen"
+msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid ""
@@ -1700,9 +1702,8 @@ msgid "Graphical manager for hosts definitions"
 msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:88
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: Firewall-Verwaltung"
+msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:201
 msgid "Port scan detection"
@@ -1830,9 +1831,8 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Displaymanager"
+msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -1875,9 +1875,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "manaproxy: Proxy-Verwaltung"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -4448,9 +4447,8 @@ msgid "valid <commands>:\n"
 msgstr ""
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Entwicklung"
+msgstr ""
 
 #: scripts/mpan:40
 msgid ""
@@ -4463,9 +4461,8 @@ msgid "Window title. Default name value"
 msgstr ""
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Entwicklung"
+msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
