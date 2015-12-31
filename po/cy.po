@@ -9,8 +9,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2015-12-27 13:26+0000\n"
-"Last-Translator: ciaran\n"
+"PO-Revision-Date: 2015-12-31 08:36+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Welsh (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cy/)\n"
 "Language: cy\n"
@@ -49,9 +49,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "Panel mana-tools sy'n casglu'r holl wasanaethau yw mpan."
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -110,9 +109,9 @@ msgid "Configuration file %s is missing"
 msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:586
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Ffufeweddu dirprwyon"
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:735
 #, perl-format
@@ -1190,7 +1189,7 @@ msgstr "Cyfeiriadur cartref:"
 
 #: lib/ManaTools/Module/Users.pm:908
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Creu grŵp preifat i'r defnyddiwr"
 
 #: lib/ManaTools/Module/Users.pm:913
 msgid "Specify user ID manually"
@@ -1206,7 +1205,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:975
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Mae'r defnyddiwr eisoes yn bodoli, defnyddiwch enw defnyddiwr gwahanol"
 
 #: lib/ManaTools/Module/Users.pm:980 lib/ManaTools/Module/Users.pm:1928
 msgid "Password Mismatch"
@@ -1217,6 +1216,8 @@ msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Mae'r cyfrinair hwn yn rhy syml.\n"
+"Dylai cyfrinair da fod o leiaf 6 nod"
 
 #: lib/ManaTools/Module/Users.pm:991
 #, perl-format
@@ -1423,13 +1424,15 @@ msgstr "Gosod cyfrif gwadd"
 
 #: lib/ManaTools/Module/Users.pm:2405
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2409
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"Teclyn rheoli defnyddwyr Mageia yw manauser\n"
+"(yn seiliedig ar syniad gwreiddiol userdrake Mandriva)."
 
 #: lib/ManaTools/Module/Users.pm:2457 lib/ManaTools/Module/Users.pm:2509
 msgid "Refresh"
@@ -1557,7 +1560,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:512 lib/ManaTools/Module/Clock.pm:597
 msgid "Current:"
-msgstr ""
+msgstr "Cyfredol:"
 
 #: lib/ManaTools/Module/Clock.pm:537
 msgid "TimeZone"
@@ -1565,11 +1568,11 @@ msgstr "CylchfaAmser"
 
 #: lib/ManaTools/Module/Clock.pm:539
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Newid y &gylchfa amser"
 
 #: lib/ManaTools/Module/Clock.pm:552 lib/ManaTools/Module/Clock.pm:560
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Cylchfa amser - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:553
 msgid "Failed to retrieve timezone list"
@@ -1581,7 +1584,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:573
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:574
 msgid "Is your hardware clock set to GMT?"
@@ -1623,7 +1626,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:419
 msgid "IP Address"
-msgstr ""
+msgstr "Cyfeiriad IP"
 
 #: lib/ManaTools/Module/Hosts.pm:242
 msgid "Host aliases"
@@ -1631,11 +1634,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:317
 msgid "Add the information"
-msgstr ""
+msgstr "Ychwanegu'r wybodaeth"
 
 #: lib/ManaTools/Module/Hosts.pm:351
 msgid "Modify the information"
-msgstr ""
+msgstr "Golygu'r wybodaeth"
 
 #: lib/ManaTools/Module/Hosts.pm:398
 msgid "Manage hosts definitions"
@@ -1651,7 +1654,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:436
 msgid "&Remove"
-msgstr ""
+msgstr "&Tynnu"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Hostname"
@@ -1736,7 +1739,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:774
 msgid "A&dvanced"
-msgstr ""
+msgstr "&Uwch"
 
 #: lib/ManaTools/Module/Firewall.pm:808
 msgid "Graphical manager for firewall rules"
@@ -1797,9 +1800,8 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "XDM (X Display Manager)"
+msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -1840,9 +1842,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Ffufeweddu dirprwyon"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2313,11 +2314,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:150
 #: lib/ManaTools/Rpmdragora/gui.pm:1646
 msgid "(none)"
-msgstr ""
+msgstr "(dim)"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
-msgstr ""
+msgstr "Cwblhawyd y gosod"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
 msgid "Select a package"
@@ -2342,7 +2343,7 @@ msgstr "Arhoswch, wrthi'n chwilio..."
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
 #: lib/ManaTools/Rpmdragora/gui.pm:1552
 msgid "Fatal error"
-msgstr ""
+msgstr "Gwall terfynol"
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:101 lib/ManaTools/Rpmdragora/pkg.pm:494
 #: lib/ManaTools/Rpmdragora/gui.pm:1553
@@ -2353,12 +2354,12 @@ msgstr "Cododd gwall terfynol:%s."
 #: lib/ManaTools/Rpmdragora/pkg.pm:141
 #, perl-format
 msgid "Getting information from %s..."
-msgstr ""
+msgstr "Wrthi'n nôl gwybodaeth o %s..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:145
 #, perl-format
 msgid "Getting '%s' from XML meta-data..."
-msgstr ""
+msgstr "Wrthi'n nôl '%s' o fetadata XML..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
@@ -2400,6 +2401,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Rhaid cysylltu â'r drych i gael y pecynnau diweddaru.\n"
+"Sicrhewch fod eich rhwydwaith ar waith.\n"
+"\n"
+"Ydy hi'n iawn i barhau?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
@@ -2487,7 +2492,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "Methodd y gosod"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -2510,6 +2515,10 @@ msgid ""
 "Error(s) reported:\n"
 "%s"
 msgstr ""
+"\n"
+"\n"
+"Gwall(au) a adroddwyd:\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:948
 msgid ""
@@ -2527,7 +2536,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
-msgstr ""
+msgstr "Tynnu'r pecyn?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
@@ -2543,7 +2552,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr ""
+msgstr "Wrthi'n ymgychwyn..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
@@ -2560,7 +2569,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Wrthi'n gosod y pecyn `%s' (%d/%d)..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
@@ -3450,11 +3459,11 @@ msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
-msgstr ""
+msgstr "Gweinydd RSYNC"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 msgid "HTTP server"
-msgstr ""
+msgstr "Gweinydd HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
@@ -3778,7 +3787,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr ""
+msgstr "Dirprwy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:760
@@ -3915,11 +3924,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "Hawlfraint (C) %s gan Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2204
 msgid ""
@@ -3962,7 +3971,7 @@ msgstr "Dim disgrifiad"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:172
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "<b>Ni chefnogir</b> hyn gan Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:173
 msgid "It may <b>break</b> your system."
@@ -3970,7 +3979,7 @@ msgstr "Gall <b>dorri</b> eich system."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "This package is not free software"
-msgstr ""
+msgstr "Nid meddalwedd rydd yw'r pecyn hwn"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:178
 msgid "This package contains a new version that was backported."
@@ -3986,11 +3995,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:188
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "Diweddariad answyddogol yw hwn."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:192
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "Pecyn swyddogol a gefnogir gan Mageia yw hwn"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:203
 msgid "Notice: "
@@ -4089,7 +4098,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1154
 msgid "More information on package..."
-msgstr ""
+msgstr "Mwy o wybodaeth am y pecyn..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1156
 msgid "Please choose"
@@ -4097,15 +4106,15 @@ msgstr "Dewiswch"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "The following package is needed:"
-msgstr ""
+msgstr "Mae angen y pecyn canlynol:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1157
 msgid "One of the following packages is needed:"
-msgstr ""
+msgstr "Mae angen un o'r pecynnau canlynol:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1269
 msgid "Select package"
-msgstr ""
+msgstr "Dewis pecyn"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1367
 msgid "Checking dependencies of package..."
@@ -4219,7 +4228,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1649
 msgid "No update"
-msgstr ""
+msgstr "Dim diweddariad"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1650
 msgid ""
@@ -4298,11 +4307,11 @@ msgstr ""
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "Ni chanfuwyd y gorchymyn <%s>!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr ""
+msgstr "GWALL:"
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
@@ -4316,12 +4325,11 @@ msgstr ""
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "<commands> dilys:\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Datblygu"
+msgstr ""
 
 #: scripts/mpan:40
 msgid ""
@@ -4334,9 +4342,8 @@ msgid "Window title. Default name value"
 msgstr ""
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Datblygu"
+msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -4353,15 +4360,15 @@ msgstr "Rheoli meddalwedd"
 
 #: modules/rpmdragora/dragoraUpdate:259
 msgid "Name"
-msgstr ""
+msgstr "Enw"
 
 #: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:468
 msgid "Summary"
-msgstr ""
+msgstr "Crynodeb"
 
 #: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:471
 msgid "Version"
-msgstr ""
+msgstr "Fersiwn"
 
 #: modules/rpmdragora/dragoraUpdate:262 modules/rpmdragora/rpmdragora:475
 msgid "Release"
@@ -4385,7 +4392,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:349
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "Teclyn rheoli pecynnau Mageia yw dragoraUpdate."
 
 #: modules/rpmdragora/dragoraUpdate:350
 #, perl-format
@@ -4395,6 +4402,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Datblygwyr</h3>\n"
+"<ul><li>%s</li></ul>\n"
+"<h3>Cyfieithwyr</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid "rpmdragora update"
