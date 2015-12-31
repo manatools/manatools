@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2015-12-20 13:05+0200\n"
+"PO-Revision-Date: 2015-12-31 10:49+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -48,9 +48,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan — панель mana-tools, яка надає доступ до усіх програм комплекту."
+msgstr "mpan — панель ManaTools, яка надає доступ до усіх програм комплекту."
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -104,19 +103,19 @@ msgid "&About"
 msgstr "Пр&о програму"
 
 #: lib/ManaTools/MainDisplay.pm:581
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "Спроба налаштовування NTP зазнала невдачі"
+msgstr "Не вистачає файла налаштувань %s"
 
 #: lib/ManaTools/MainDisplay.pm:586
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Вивчаємо файли налаштувань…"
+msgstr "Читаємо файл налаштувань %s"
 
 #: lib/ManaTools/MainDisplay.pm:735
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Обробляємо файл категорій %s"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -229,13 +228,12 @@ msgid "start using yui qt plugin implementation"
 msgstr "запустити з використанням реалізації додатків qt для yui"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:107
-#, fuzzy
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
-"<каталог> необов’язковий каталог, що містить перекладені рядки (лише для "
-"розробників)"
+"<каталог> необов’язковий каталог, що містить файли налаштувань для усіх "
+"модулів (наприклад, назва_модуля/файли_налаштувань)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -1100,9 +1098,8 @@ msgid "Empty log found"
 msgstr "Виявлено порожній журнал"
 
 #: lib/ManaTools/Module/LogViewer.pm:433
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Працюємо у режимі користувача"
+msgstr "manalog — працюємо у режимі користувача"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid ""
@@ -1736,9 +1733,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Чи встановлено ваш годинник в GMT?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Налаштувати параметри вузлів"
+msgstr "manahost — налаштувати параметри вузлів"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:420
@@ -1820,9 +1816,8 @@ msgid "Graphical manager for hosts definitions"
 msgstr "Графічне керування визначеннями вузлів"
 
 #: lib/ManaTools/Module/Firewall.pm:88
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: керування захисним шлюзом"
+msgstr "manawall — керування захисним шлюзом"
 
 #: lib/ManaTools/Module/Firewall.pm:201
 msgid "Port scan detection"
@@ -1977,9 +1972,8 @@ msgstr ""
 "Що робити?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Керування входом до системи"
+msgstr "manadm — керування входом до системи"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2020,9 +2014,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Графічний інструмент налаштування засобу керування входом до системи"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Налаштування проксі"
+msgstr "manaproxy — налаштування проксі"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -4628,24 +4621,24 @@ msgid "valid <commands>:\n"
 msgstr "коректні <команди>:\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Розробка"
+msgstr "Режим розробника"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Назва програми, яка використовується як ідентифікатор у журналі та для "
+"визначення каталогу налаштувань. Типовою є назва mpan."
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Заголовок вікна. Типовим є значення name."
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Розробка"
+msgstr "== Увімкнено режим розробника =="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
