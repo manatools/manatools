@@ -133,12 +133,12 @@ has 'backend' => (
 sub processEvent {
     my $self = shift;
     my $yevent = shift;
-    return 1 if ($yevent->eventType != $self->eventType);
-    return 1 if ($yevent->eventType == $yui::YEvent::WidgetEvent && !$self->equalsWidget($yevent->widget));
-    return 1 if ($yevent->eventType == $yui::YEvent::MenuEvent && !$self->equalsItem($yevent->item));
+    return -1 if ($yevent->eventType != $self->eventType);
+    return -1 if ($yevent->eventType == $yui::YEvent::WidgetEvent && !$self->equalsWidget($yevent->widget));
+    return -1 if ($yevent->eventType == $yui::YEvent::MenuEvent && !$self->equalsItem($yevent->item));
     my $event = $self->event();
     return $event->($self, $yevent, $self->backend()) if defined($event);
-    return 1;
+    return -1;
 }
 
 sub equalsWidget {

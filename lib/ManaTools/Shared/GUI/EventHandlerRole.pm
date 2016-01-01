@@ -278,7 +278,7 @@ sub delWidget {
     my $self = shift;
     my $widget = shift;
     my $event = $self->findWidget($widget);
-    $self->delEvent($event) if (defined $event);
+    $self->delEvent($event->name()) if (defined $event);
 }
 
 #=============================================================
@@ -361,7 +361,8 @@ sub processEvents {
     my $events = $self->events();
     # loop all the items
     for my $event (values %{$events}) {
-        return 0 if(!$event->processEvent($yevent));
+        my $processed = $event->processEvent($yevent);
+        return $processed if $processed >= 0;
     }
     return 1;
 }
