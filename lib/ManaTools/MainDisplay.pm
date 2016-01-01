@@ -10,7 +10,7 @@ ManaTools::MainDisplay - class for ManaTools main window
 
     $mainDisplay = new ManaTools::MainDisplay();
     $mainDisplay->start();
-    $mainDisplay->destroy();
+    $mainDisplay->cleanup();
 
 =head1 METHODS
 
