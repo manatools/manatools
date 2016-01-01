@@ -534,6 +534,7 @@ sub _moduleSelected {
 ## returns 1 if category button is selected
 sub _categorySelected {
     my ($self, $selectedWidget) = @_;
+
     for (@{$self->categories()}) {
         if( $_->button() == $selectedWidget ) {
 
@@ -543,16 +544,26 @@ sub _categorySelected {
                 ## the selected widget
                 return 1;
             }
+
             ## Menu item selected, set right pane
             my $ydialog = $self->mainWin()->dialog();
-
             $ydialog->startMultipleChanges();
+
+            ## NOTE widget and item events (Shared::GUI:Event) created in the
+            ## previous replacePoint MUST be cleaned up
+            my $currCategory = $self->currCategory();
+            ## Change Current Category to the selected one
+            $self->currCategory($_);
+            foreach my $mod (@{$currCategory->modules()}) {
+                $self->mainWin()->delWidget(
+                    $self->mainWin()->widget($mod->name())
+                );
+            }
+
             ## Remove existing modules
             $self->replacePoint()->deleteChildren();
             $self->rightPane($self->factory()->createVBox($self->replacePoint()));
 
-            ## Change Current Category to the selected one
-            $self->currCategory($_);
             ## Add new Module Buttons to Right Pane
             $self->currCategory()->addButtons($self);
             $self->rightPaneFrame()->setLabel($self->currCategory()->name());
