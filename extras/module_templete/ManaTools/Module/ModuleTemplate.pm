@@ -91,6 +91,11 @@ sub _SharedUGUIInitialize {
 sub start {
     my $self = shift;
 
+    # if you want to use your module into mpan you should consider to
+    # use either Shared::Module::GUI::Dialog to implement your layout
+    # and manage your events or use yui::YUI::app()->setApplicationTitle
+    # and yui::YUI::app()->setApplicationIcon to here
+    
     $self->sh_gui->msgBox({
         text => $self->loc->N("Hello world, I am the beautiful module template")
     });
