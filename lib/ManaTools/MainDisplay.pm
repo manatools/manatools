@@ -120,6 +120,8 @@ has '+name' => (
 );
 
 has '+icon' => (
+    is      => 'rw',
+    isa     => 'Str',
     default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png'),
 );
 
@@ -381,9 +383,7 @@ sub _setupGui {
 
     $DB::single = 1;
     $self->title($self->settings()->{title});
-    yui::YUI::app()->setApplicationTitle($self->title);
     $self->icon($self->settings()->{icon}) if $self->settings()->{icon};
-    yui::YUI::app()->setApplicationIcon($self->icon);
 
     my $dialog = ManaTools::Shared::GUI::Dialog->new(
         module => $self,
@@ -501,6 +501,12 @@ sub _setupGui {
             $module->currCategory()->addButtons($module);
             $module->rightPaneFrame()->setLabel($module->currCategory()->name());
             $factory->createSpacing($module->rightPane(), 1, 1, 1.0 );
+
+            # Note that Since mpan is a Manatools::Module and creates other modules
+            # title and application are set into BUILD (e.g. constructor) so last
+            # built one is the one shown. Forcing setting again here
+            yui::YUI::app()->setApplicationTitle($self->title);
+            yui::YUI::app()->setApplicationIcon($self->icon);
 
             return $self->widget('layout');
         },
