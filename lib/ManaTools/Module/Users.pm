@@ -83,7 +83,16 @@ with 'ManaTools::LoggingRole';
 has 'configDir' => (
     is      => 'ro',
     isa     => 'Str',
+    lazy => 1,
+    builder => '_configDirBuilder',
 );
+
+sub _configDirBuilder {
+    my $self = shift();
+    my $confDir = $self->commandline()->conf_dir() || $self->defaultConfigDir();
+
+    return $confDir;
+}
 
 with 'ManaTools::ConfigDirRole';
 
@@ -180,25 +189,22 @@ sub _SharedUGUIInitialize {
 }
 
 
-#=============================================================
-
-=head1 METHODS
-
-=cut
-
-=head2 new - additional parameters
-
-=head3 config_file
-
-    optional parameter to set the configuration file name
-
-=cut
-
+# configuration file name
 has 'config_file' => (
-    is      => 'rw',
-    isa     => 'Str',
-    default => '/etc/sysconfig/manauser',
+    is => 'ro',
+    isa => 'Str',
+    lazy => 1,
+    init_arg  => undef,
+    builder => '_config_fileBuilder',
 );
+
+sub _config_fileBuilder {
+    my $self = shift();
+    my $confDir = $self->configPathName();
+
+    return $confDir . "/manauser";
+}
+
 
 #=============================================================
 
@@ -2519,7 +2525,7 @@ sub _manageUsersDialog {
     my $sysfilter = 1;
     if (-e $self->config_file) {
         my $prefs  = Config::Auto::parse($self->config_file);
-        $sysfilter = ($prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq '1');
+        $sysfilter = ($prefs->{FILTER} eq 'true' or $prefs->{FILTER} eq 'TRUE' or $prefs->{FILTER} eq '1');
     }
     $self->set_widget(filter_system => $factory->createCheckBox($head_align_left, $self->loc->N("Filter system users"),
                                                                 $sysfilter));
