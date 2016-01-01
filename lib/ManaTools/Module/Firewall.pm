@@ -518,6 +518,12 @@ sub ask_WatchedServices {
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($dlg_data->{title});
 
+    ## TODO remove title and icon when using Shared::Module::GUI::Dialog
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($dlg_data->{title});
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($dlg_data->{icon});
+
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
 
@@ -721,6 +727,13 @@ sub ask_AllowedServices {
 
     $self->dialog($factory->createMainDialog());
     my $layout    = $factory->createVBox($self->dialog);
+
+    ## TODO remove title and icon when using Shared::Module::GUI::Dialog
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($dlg_data->{title});
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($dlg_data->{icon});
+
 
     my $hbox_header = $factory->createHBox($layout);
     my $headLeft = $factory->createHBox($factory->createLeft($hbox_header));

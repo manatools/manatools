@@ -180,6 +180,12 @@ sub _manageProxyDialog {
     ## set new title to get it in dialog
     my $newTitle = $self->loc->N("Display Manager");
 
+    ## TODO remove title and icon when using Shared::Module::GUI::Dialog
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($newTitle);
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon());
+
     my $factory  = yui::YUI::widgetFactory;
     my $optional = yui::YUI::optionalWidgetFactory;
 

@@ -2433,10 +2433,11 @@ sub _manageUsersDialog {
     ## push application title
     my $appTitle = yui::YUI::app()->applicationTitle();
 
-#     ## set new title to get it in dialog
-#     yui::YUI::app()->setApplicationTitle($self->name);
-#     ## set icon if not already set by external launcher
-#     yui::YUI::app()->setApplicationIcon($self->icon);
+    ## TODO remove title and icon when using Shared::Module::GUI::Dialog
+    ## set new title to get it in dialog
+    yui::YUI::app()->setApplicationTitle($self->name());
+    ## set icon if not already set by external launcher
+    yui::YUI::app()->setApplicationIcon($self->icon());
 
 
     my $factory  = yui::YUI::widgetFactory;

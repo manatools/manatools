@@ -379,19 +379,17 @@ sub _setupGui {
     # fill $self->settings from settings.conf
     $self->_loadSettings();
 
+    $DB::single = 1;
     $self->title($self->settings()->{title});
     yui::YUI::app()->setApplicationTitle($self->title);
-    my $icon = defined($self->settings()->{icon}) ?
-               $self->settings()->{icon} :
-               $self->icon();
-
-    yui::YUI::app()->setApplicationIcon($icon);
+    $self->icon($self->settings()->{icon}) if $self->settings()->{icon};
+    yui::YUI::app()->setApplicationIcon($self->icon);
 
     my $dialog = ManaTools::Shared::GUI::Dialog->new(
         module => $self,
         dialogType => ManaTools::Shared::GUI::Dialog::mainDialog,
         title => $self->title(),
-        icon => $icon,
+        icon => $self->icon,
         buttons => {
             ManaTools::Shared::GUI::Dialog::aboutButton => sub {
                 my $event = shift; ## ManaTools::Shared::GUI::Event

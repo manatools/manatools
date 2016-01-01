@@ -454,6 +454,7 @@ sub addButtons {
 sub call {
     my $self = shift;
     my $oldAppTitle = yui::YUI::app()->applicationTitle();
+    my $oldAppIcon  = yui::YUI::app()->applicationIcon();
 
     ## set new title to get it in dialog
     yui::YUI::app()->setApplicationTitle($self->title());
@@ -502,8 +503,10 @@ sub call {
     # end dialog
     $ydialog->destroy();
 
-    #restore old application title
+    # restore old application title and icon
     yui::YUI::app()->setApplicationTitle($oldAppTitle) if $oldAppTitle;
+    yui::YUI::app()->setApplicationIcon($self->icon()) if $oldAppIcon;
+
     return $result;
 }
 
