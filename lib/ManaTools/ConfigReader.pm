@@ -121,25 +121,20 @@ has 'data' => (
 sub _dataInitialize {
     my $self = shift;
 
-    my $xml = new XML::Simple (KeyAttr=>[]);
-    my $data = $xml->XMLin($self->fileName());
-        if (ref($data->{category}) eq "HASH") {
-        # one element alone
-        my @categories;
-        push @categories, $data->{category};
-        $data->{category} = undef;
-        push @{$data->{category}}, @categories;
-    }
+    my $xml = new XML::Simple ();
+    my $data = $xml->XMLin(
+        $self->fileName(),
+        ContentKey => '-content',
+        ForceArray => ['category', 'title', 'module'],
+        KeyAttr=>{
+            title => "xml:lang",
+        }
+    );
 
     $self->catLen( scalar(@{$data->{category}}) );
-
-    if(ref(@{$data->{category}}[0]->{module}) eq "ARRAY") {
-        $self->modLen(
-            scalar(@{@{$data->{category}}[0]->{module}})
-        );
-    } else {
-        $self->modLen(1);
-    }
+    $self->modLen(
+        scalar(@{@{$data->{category}}[0]->{module}})
+    );
 
     return $data;
 }
@@ -234,24 +229,20 @@ sub hasNextCat {
 sub getNextCat {
     my $self = shift;
 
-    $self->currCat($self->currCat()+1);
-    if($self->currCat() >= $self->catLen()) {
-        return 0;
-    }
-
-    # Reset the Module Count and Mod length for new Category
-    $self->currMod(-1);
-    if(ref(@{$self->data()->{category}}[$self->currCat()]->{module}) eq "ARRAY") {
+    if ($self->hasNextCat()) {
+        $self->currCat($self->currCat()+1);
+        # Reset the Module Count and Mod length for new Category
+        $self->currMod(-1);
         $self->modLen(
             scalar(@{@{$self->data()->{category}}[$self->currCat()]->{module}})
         );
-    } else {
-        $self->modLen(1);
+
+        my $cat = @{$self->data()->{category}}[$self->currCat()];
+
+        return $cat;
     }
 
-    my $cat = @{$self->data()->{category}}[$self->currCat()];
-
-    return $cat;
+    return;
 }
 
 #=============================================================
@@ -306,15 +297,13 @@ sub getNextMod {
 
     my $ret = 0;
 
-    $self->currMod($self->currMod()+1);
-
-    if($self->{modLen} == 1) {
-        $ret = @{$self->data()->{category}}[$self->currCat()]->{module};
-    } else {
+    if ($self->hasNextMod()) {
+        $self->currMod($self->currMod()+1);
         $ret = @{@{$self->data()->{category} }[$self->currCat()]->{module}}[$self->currMod()];
+        return $ret;
     }
 
-    return $ret;
+    return;
 }
 
 no Moose;
