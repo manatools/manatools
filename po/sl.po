@@ -3,13 +3,13 @@
 # This file is distributed under the same license as the ManaTools package.
 #
 # Translators:
-# Filip Komar <filip.komar@gmail.com>, 2015
+# Filip Komar <filip.komar@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2015-12-20 18:36+0100\n"
+"PO-Revision-Date: 2016-01-01 14:17+0000\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>, Translation list <mageia-"
 "i18n@mageia.org>\n"
@@ -47,9 +47,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan je pult, ki zbere vsa orodja mana-tools."
+msgstr "mpan je pult, ki zbere vsa orodja ManaTools."
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -103,19 +102,19 @@ msgid "&About"
 msgstr "O &programu"
 
 #: lib/ManaTools/MainDisplay.pm:581
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "Nastavitev protokola NTP ni uspela"
+msgstr "Manjka nastavitvena datoteka %s"
 
 #: lib/ManaTools/MainDisplay.pm:586
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Pregledovanje nastavitvenih datotek ..."
+msgstr "Branje nastavitvenih datotek %s"
 
 #: lib/ManaTools/MainDisplay.pm:735
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Razčlenjevanje datoteke kategorije %s"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -226,11 +225,12 @@ msgid "start using yui qt plugin implementation"
 msgstr "prični z uporabo izvedbe vstavka yui qt"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:107
-#, fuzzy
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
-msgstr "<dir> mapa s shranjenimi prevodi po izbiri (samo za razvijalce)"
+msgstr ""
+"<dir> mapa z nastavitvenimi datotekami po izbiri za vsak modul (npr.: "
+"ime_modula/nastavitvena_datoteka)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -1075,9 +1075,8 @@ msgid "Empty log found"
 msgstr "Dnevniška datoteka je prazna"
 
 #: lib/ManaTools/Module/LogViewer.pm:433
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Teče v uporabniškem načinu"
+msgstr "manalog - teče v uporabniškem načinu"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid ""
@@ -1708,9 +1707,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Je ura v vašem računalniku nastavljena na GMT?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Upravljajte definicije gostiteljev"
+msgstr "manahost - upravljajanje definicije gostiteljev"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:420
@@ -1792,7 +1790,6 @@ msgid "Graphical manager for hosts definitions"
 msgstr "Grafični upravitelj definicij gostiteljev"
 
 #: lib/ManaTools/Module/Firewall.pm:88
-#, fuzzy
 msgid "manawall - Firewall Manager"
 msgstr "manawall: upravitelj požarnega zidu"
 
@@ -1947,9 +1944,8 @@ msgstr ""
 "Kaj želite storiti? "
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Upravitelj zaslona"
+msgstr "manadm - upravitelj zaslona"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -1990,9 +1986,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafični upravitelj zaslonskih nastavitev"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Nastavitve posredniških strežnikov (proxy)"
+msgstr "manaproxy - nastavljanje posredniškega strežnika"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -4600,24 +4595,24 @@ msgid "valid <commands>:\n"
 msgstr "veljavni <ukazi>:\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Razvoj"
+msgstr "Razvojni način"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Ime programa, uporabljeno za beleženje določil in mapo za shranjevanje "
+"nastavitev programov za okolje x. Privzeto ime je mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Ime okna. Privzeto ime"
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Razvoj"
+msgstr "== Razvojni način VKLJUČEN =="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -4964,17 +4959,3 @@ msgstr "Vir »%s« je uspešno dodan. "
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "Vir »%s« je uspešno dodan."
-
-#~ msgid "adminService"
-#~ msgstr "adminService"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Translators</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
-#~ msgstr ""
-#~ "<h3>Razvojniki</h3>\n"
-#~ "<ul><li>%s</li></ul>\n"
-#~ "<h3>Prevajalci</h3>\n"
-#~ "<ul><li>%s</li></ul>"
