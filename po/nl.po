@@ -9,8 +9,7 @@
 # Geert Poels <Geert.Poels@skynet.be>, 2000
 # Hendrik-Jan Heins <hjh@passys.nl>, 2003-2004
 # Jeroen ten Berge <j.ten.berge@twinbit.nl>, 2002
-# Marja van Waes <marja@mageia.org, 2013,2015
-# Marja van Waes <marja@mageia.org>, 2013-2015
+# Marja van Waes <marja@mageia.org>, 2013-2016
 # Niels Gras <niels.gras@wanadoo.nl>, 2000
 # Peter Bosch <peter.bosch@hccnet.nl>, 2002
 # Peter Bosch <peter@dromas.student.utwente.nl>, 2003
@@ -25,7 +24,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2015-07-10 14:49+0200\n"
+"PO-Revision-Date: 2016-01-02 22:00+0100\n"
 "Last-Translator: Marja van Waes <marja@mageia.org>\n"
 "Language-Team: Dutch <i18n-nl@ml.mageia.org>\n"
 "Language: nl\n"
@@ -68,9 +67,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan is het mana-tools paneel dat al deze tools bevat."
+msgstr "mpan is het ManaTools-paneel dat al deze gereedschappen bevat."
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -124,19 +122,19 @@ msgid "&About"
 msgstr "&Info"
 
 #: lib/ManaTools/MainDisplay.pm:581
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "NTP-configuratie instellen is mislukt"
+msgstr "Configuratiebestand %s ontbreekt"
 
 #: lib/ManaTools/MainDisplay.pm:586
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Inspecteren van configuratiebestanden…"
+msgstr "Configuratiebestand %s lezen"
 
 #: lib/ManaTools/MainDisplay.pm:735
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Ontleden van categoriebestand %s"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -181,11 +179,11 @@ msgstr "Selecteer"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> optionele map met localisatiestrings (enkel developers)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Pas de informatie aan"
+msgstr "Print deze gebruiksinformatie."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -237,21 +235,23 @@ msgstr "De zefaangepaste regels verwijderen"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "yui-gtk-pluging-implementatie gaan gebruiken"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "yui-ncurses-pluging-implementatie gaan gebruiken"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "yui-qt-pluging-implementatie gaan gebruiken"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:107
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> optionele map met configuratiebestanden voor elke module (bijv. "
+"modulenaam/configbestanden)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -283,9 +283,8 @@ msgid "&Ok"
 msgstr "&OK"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Sluiten"
+msgstr "S&luiten"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -1116,9 +1115,8 @@ msgid "Empty log found"
 msgstr "Leeg logboek gevonden"
 
 #: lib/ManaTools/Module/LogViewer.pm:433
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Geactiveerd in gebruikersmodus"
+msgstr "manalog - draait in gebruikersmodus"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid ""
@@ -1648,7 +1646,7 @@ msgstr ""
 "en tijd aanpassen"
 
 #: lib/ManaTools/Module/Clock.pm:219
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1754,9 +1752,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Is uw computerklok ingesteld op GMT?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Hosts-definities beheren"
+msgstr "manahost - hostdefinities beheren"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:420
@@ -1838,9 +1835,8 @@ msgid "Graphical manager for hosts definitions"
 msgstr "Grafische beheerder voor hosts-definities"
 
 #: lib/ManaTools/Module/Firewall.pm:88
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: firewallbeheerder"
+msgstr "manawall - Firewallbeheerder"
 
 #: lib/ManaTools/Module/Firewall.pm:201
 msgid "Port scan detection"
@@ -1993,9 +1989,8 @@ msgstr ""
 "Wat wilt u doen?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Displaybeheer"
+msgstr "manadm - Displaybeheer"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2038,9 +2033,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafische configurator van het systeem-displaybeheer"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Configuratie van proxy('s)"
+msgstr "manaproxy - Proxyconfiguratie"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -4666,24 +4660,24 @@ msgid "valid <commands>:\n"
 msgstr "geldige <commando's>:\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Ontwikkeling"
+msgstr "Ontwikkelaarsmodus"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Toepassingsnaam, gebruikt als log-identifier en x-toepassings-"
+"configuratiemap. Standaard mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Venstertitel. Standaard naam"
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Ontwikkeling"
+msgstr "==Ontwikkelingmodus AAN=="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
