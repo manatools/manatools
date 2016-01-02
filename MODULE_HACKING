@@ -103,13 +103,13 @@ Layout can change in future though.
 
 Let's see an example of a category configuration
 <category>
-    <title>Hardware</title>
+    <title xml:lang="en">Hardware</title>
     <icon>/usr/share/icons/configuration_section.png</icon>
     <module>
         <class>ManaTools::Module::Services</class>
     </module>
     <module>
-        <title>Module name</title>
+        <title xml:lang="en">Module name</title>
         <launcher>PATH/to/lunch/module</launcher>
         <icon>absolute/paht/to/module/icon</icon>
     </module>
