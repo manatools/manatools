@@ -593,11 +593,17 @@ sub _localizedValue {
 
     return if !defined($hash->{$key});
 
+    if (ref($hash->{$key}) ne "HASH") {
+        $self->logger()->W($self->loc()->N("Bad configuration file, %s has not xml:lang attribute, guessing it is a string", $key));
+        # Force array is set for "title"
+        return $hash->{$key}[0];
+    }
+
     my @lang = I18N::LangTags::Detect::detect();
     # Adding default value as English (en)
     push @lang, 'en';
     foreach my $l ( @lang ) {
-        return $hash->{$key}->{$l} if $hash->{$key}->{$l};
+        return $hash->{$key}->{$l} if defined($hash->{$key}->{$l});
     }
 
     return;
