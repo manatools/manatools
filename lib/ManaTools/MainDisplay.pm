@@ -55,6 +55,7 @@ ManaTools::MainDisplay - class for ManaTools main window
 use Moose;
 extends qw( ManaTools::Module );
 
+use I18N::LangTags::Detect;
 
 use diagnostics;
 use ManaTools::SettingsReader;
@@ -602,7 +603,30 @@ sub _loadSettings {
 
     if (! scalar %{$self->settings()} || $force_load) {
         my $settingsReader = ManaTools::SettingsReader->new({fileName => $fileName});
-        $self->settings($settingsReader->settings());
+
+        my $settings;
+        my @lang = I18N::LangTags::Detect::detect();
+        my $read = $settingsReader->settings();
+        foreach (keys %{$read}) {
+            my $key = $_;
+            # localized strings
+            if ($key eq "title" or $key eq "category_title") {
+                # default is en
+                $settings->{$key} = $read->{$key}->{en};
+                foreach my $l ( @lang ) {
+                    if ($read->{$key}->{$l}) {
+                         $settings->{$key} = $read->{$key}->{$l};
+                         last;
+                    }
+                }
+                $self->logger()->I($self->loc()->N("%s content is <<%s>>", $key, $settings->{$key}));
+            }
+            else {
+                $settings->{$key} = $read->{$key};
+            }
+        }
+
+        $self->settings($settings);
     }
 }
 

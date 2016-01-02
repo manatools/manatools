@@ -98,8 +98,18 @@ has 'settings' => (
 sub _settingsInitialize {
     my $self = shift;
 
-    my $xml = new XML::Simple (KeyAttr=>[]);
-    return $xml->XMLin($self->fileName());
+    my $xml = new XML::Simple ();
+    my $cont = $xml->XMLin(
+        $self->fileName(),
+        ContentKey => '-content',
+        ForceArray => ['title', 'category_title'],
+        KeyAttr    => {
+            title => "xml:lang",
+            category_title => "xml:lang",
+        }
+    );
+
+    return $cont;
 }
 
 no Moose;
