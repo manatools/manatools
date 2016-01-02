@@ -586,6 +586,23 @@ sub _categorySelected {
     return 0;
 }
 
+# return the localized string from a hash and given the key
+# by default en value
+sub _localizedValue {
+    my ($self, $hash, $key) = @_;
+
+    return if !defined($hash->{$key});
+
+    my @lang = I18N::LangTags::Detect::detect();
+    # Adding default value as English (en)
+    push @lang, 'en';
+    foreach my $l ( @lang ) {
+        return $hash->{$key}->{$l} if $hash->{$key}->{$l};
+    }
+
+    return;
+}
+
 ## mpan settings
 sub _loadSettings {
     my ($self, $force_load) = @_;
@@ -612,14 +629,11 @@ sub _loadSettings {
             # localized strings
             if ($key eq "title" or $key eq "category_title") {
                 # default is en
-                $settings->{$key} = $read->{$key}->{en};
-                foreach my $l ( @lang ) {
-                    if ($read->{$key}->{$l}) {
-                         $settings->{$key} = $read->{$key}->{$l};
-                         last;
-                    }
-                }
-                $self->logger()->I($self->loc()->N("%s content is <<%s>>", $key, $settings->{$key}));
+                $settings->{$key} = $self->_localizedValue(
+                    $read,
+                    $key
+                );
+                $self->logger()->I($self->loc()->N("Load settings: %s content is <<%s>>", $key, $settings->{$key}));
             }
             else {
                 $settings->{$key} = $read->{$key};
@@ -778,10 +792,15 @@ sub _loadCategories {
         my $hasNextCat = $inFile->hasNextCat();
         while( $hasNextCat ) {
             $tmp = $inFile->getNextCat();
-            $tmpCat = $self->_getCategory($tmp->{title});
+            my $title = $self->_localizedValue(
+                $tmp,
+                'title'
+            );
+            $self->logger()->D($self->loc()->N("Load categories: title content is <<%s>>", $title));
+            $tmpCat = $self->_getCategory($title);
             if (!$tmpCat) {
                 $tmpCat = new ManaTools::Category({
-                    name => $tmp->{title},
+                    name => $title,
                     icon => $tmp->{icon}
                 });
             }
@@ -796,10 +815,16 @@ sub _loadCategories {
                 my $loaded = 0;
 
                 if (exists $tmp->{title}) {
-                    if (not $currCategory->moduleLoaded($tmp->{title})) {
-                        $tmpMod = ManaTools::Module->create(name => $tmp->{title},
-                                                             icon => $tmp->{icon},
-                                                             launch => $tmp->{launcher}
+                    my $title = $self->_localizedValue(
+                        $tmp,
+                        'title'
+                    );
+                    $self->logger()->D($self->loc()->N("Load categories: module title is <<%s>>", $title));
+                    if (not $currCategory->moduleLoaded($title)) {
+                        $tmpMod = ManaTools::Module->create(
+                            name => $title,
+                            icon => $tmp->{icon},
+                            launch => $tmp->{launcher}
                         );
                     }
                 }
