@@ -99,6 +99,18 @@ has 'qt' => (
     documentation => $loc->N('start using yui qt plugin implementation')
 );
 
+has 'fullscreen' => (
+    traits    => [ 'Getopt' ],
+    is => 'ro',
+    documentation => $loc->N('use full screen for dialogs')
+);
+
+has 'noborder' => (
+    traits    => [ 'Getopt' ],
+    is => 'ro',
+    documentation => $loc->N('no window manager border for dialogs')
+);
+
 has 'conf_dir' => (
     traits    => [ 'Getopt' ],
     isa => 'Str',
