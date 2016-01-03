@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2016-01-01 17:49+0000\n"
+"PO-Revision-Date: 2016-01-02 23:59+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -562,6 +562,10 @@ msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"Der APM-Dienst (apmd) wird von Laptops verwendet, um den Ladestatus der "
+"Batterie durch den Syslog-Dienst erfassen zu lassen.\n"
+"Mit seiner Hilfe kann man den Computer auch rechtzeitig herunterfahren "
+"lassen, bevor die Batterien leer sind."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
@@ -571,7 +575,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi ist ein ZeroConf Dämon, der einen mDNS-Stack implementiert."
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
@@ -606,6 +610,9 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"FAM ist ein Datei-Monitor-Dienst. Er wird benutzt um anzuzeigen, wenn sich "
+"Dateien ändern.\n"
+"FAM wird von GNOME und KDE genutzt."
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -629,18 +636,22 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr ""
+msgstr "HAL ist ein Dienst, der Hardware-Informationen sammelt und verwaltet"
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"HardDrake führt eine Hardwareuntersuchung durch, und konfiguriert optional\n"
+"neue/geänderte Hardware."
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
+"Apache ist ein World-Wide-Web-Server. Er wird dazu verwendet um HTML Dateien "
+"zu publizieren und unterstützt CGI."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -3279,7 +3290,7 @@ msgstr "Büro-Arbeitsplatz"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Scientific Workstation"
-msgstr ""
+msgstr "Wissenschaftlicher Arbeitsplatz"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
 #: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
@@ -4412,7 +4423,7 @@ msgstr ""
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: Administrationsmenü"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
