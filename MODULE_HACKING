@@ -115,6 +115,11 @@ Let's see an example of a category configuration
     </module>
 </category>
 
+Note that icon and logo elements could be absolute or relative
+pathnames (e.g. no "/" as first char), if relative the absolute
+pathname is evaluated as
+File::ShareDir::dist_file(ManaTools::Shared::distName(), 'given/file').
+
 First module is a perl ManaTools::Module extension (Services),
 latter is an external one, called "module" and with a full pathname.
 

@@ -641,6 +641,10 @@ sub _loadSettings {
                 );
                 $self->logger()->I($self->loc()->N("Load settings: %s content is <<%s>>", $key, $settings->{$key}));
             }
+            elsif (($key eq "icon" || $key eq "logo") && (substr( $read->{$key}, 0, 1) ne '/')) {
+                # icon with relative path?
+                $settings->{$key} = File::ShareDir::dist_file(ManaTools::Shared::distName(), $read->{$key});
+            }
             else {
                 $settings->{$key} = $read->{$key};
             }
@@ -825,11 +829,17 @@ sub _loadCategories {
                         $tmp,
                         'title'
                     );
+                    my $icon = $tmp->{icon};
+                    if ((substr( $icon, 0, 1) ne '/')) {
+                        # icon with relative path?
+                        $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $tmp->{icon});
+                    }
+
                     $self->logger()->D($self->loc()->N("Load categories: module title is <<%s>>", $title));
                     if (not $currCategory->moduleLoaded($title)) {
                         $tmpMod = ManaTools::Module->create(
                             name => $title,
-                            icon => $tmp->{icon},
+                            icon => $icon,
                             launch => $tmp->{launcher}
                         );
                     }
