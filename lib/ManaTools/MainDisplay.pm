@@ -807,11 +807,17 @@ sub _loadCategories {
                 'title'
             );
             $self->logger()->D($self->loc()->N("Load categories: title content is <<%s>>", $title));
+            my $icon = $tmp->{icon};
+            if ((substr( $icon, 0, 1) ne '/')) {
+                # icon with relative path?
+                $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $tmp->{icon});
+            }
+
             $tmpCat = $self->_getCategory($title);
             if (!$tmpCat) {
                 $tmpCat = new ManaTools::Category({
                     name => $title,
-                    icon => $tmp->{icon}
+                    icon => $icon,
                 });
             }
             $self->_loadCategory($tmpCat);
