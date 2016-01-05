@@ -1,7 +1,7 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
-# 
+#
 # Translators:
 # Jiří Vírava <appukonrad@gmail.com>, 2015
 # fri, 2015
@@ -13,11 +13,12 @@ msgstr ""
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
 "PO-Revision-Date: 2016-01-03 13:38+0000\n"
 "Last-Translator: fri\n"
-"Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/cs/)\n"
+"Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
+"cs/)\n"
+"Language: cs\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: cs\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
 
 #: lib/ManaTools/MainDisplay.pm:283 lib/ManaTools/Module/LogViewer.pm:314
@@ -27,7 +28,9 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr "Michal Bukovjan <bukm@centrum.cz>\nPavel Fric <pavelfric@seznam.cz>\n"
+msgstr ""
+"Michal Bukovjan <bukm@centrum.cz>\n"
+"Pavel Fric <pavelfric@seznam.cz>\n"
 
 #: lib/ManaTools/MainDisplay.pm:289 lib/ManaTools/Module/LogViewer.pm:319
 #: lib/ManaTools/Module/Users.pm:2407 lib/ManaTools/Module/Clock.pm:216
@@ -48,7 +51,9 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan je panel mana-tools, který shromažďuje všechny ostatní užitečné nástroje."
+msgstr ""
+"mpan je panel mana-tools, který shromažďuje všechny ostatní užitečné "
+"nástroje."
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -59,7 +64,13 @@ msgid ""
 "                                    </ul>\n"
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
-msgstr "<h3>Vývojáři</h3>\n                                    <ul><li>%s</li>\n                                        <li>%s</li>\n                                    </ul>\n                                    <h3>Překladatelé</h3>\n                                    <ul><li>%s</li></ul>"
+msgstr ""
+"<h3>Vývojáři</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Překladatelé</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:420 lib/ManaTools/Module/Users.pm:2456
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -166,7 +177,9 @@ msgstr "Pole se jménem je prázdné. Zadejte, prosím, jméno"
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
-msgstr "Jméno musí začínat písmenem obsahovat pouze malá písmena, číslice a znaky  '.', '-' a '_'"
+msgstr ""
+"Jméno musí začínat písmenem obsahovat pouze malá písmena, číslice a znaky  "
+"'.', '-' a '_'"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
@@ -218,9 +231,11 @@ msgstr "začít používat provedení přídavného modulu qt yui"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:107
 msgid ""
-"<dir> optional directory containing configuration files for each module "
-"(e.g. modulename/config_files)"
-msgstr "<dir> volitelný adresář obsahující soubory s nastavením pro každý modul (např. modulename/config_files)"
+"<dir> optional directory containing configuration files for each module (e."
+"g. modulename/config_files)"
+msgstr ""
+"<dir> volitelný adresář obsahující soubory s nastavením pro každý modul "
+"(např. modulename/config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -543,13 +558,17 @@ msgstr "Anacron - spouští opakující se akce"
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
-msgstr "apmd je používán pro sledování stavu baterie a zaznamenávání přes syslog.\nMůže také být použit pro vypnutí počítače při vybité baterii."
+msgstr ""
+"apmd je používán pro sledování stavu baterie a zaznamenávání přes syslog.\n"
+"Může také být použit pro vypnutí počítače při vybité baterii."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
-msgstr "Spouští příkazy naplánované příkazem na určitý čas příkazem 'at'.\nTaké spouští příkazy při nízkém vytížení systému."
+msgstr ""
+"Spouští příkazy naplánované příkazem na určitý čas příkazem 'at'.\n"
+"Také spouští příkazy při nízkém vytížení systému."
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
@@ -566,14 +585,20 @@ msgstr "Nastavit volby frekvence CPU"
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
 "cron is a standard UNIX program that runs user-specified programs\n"
-"at periodic scheduled times. vixie cron adds a number of features to the basic\n"
+"at periodic scheduled times. vixie cron adds a number of features to the "
+"basic\n"
 "UNIX cron, including better security and more powerful configuration options."
-msgstr "cron je standardní Unixový program který spouští uživatelem zadané programy\nv předem definovaných intervalech. vixie cron má navíc mnoho vlastností,\nvčetně vyšší bezpečnosti a více možností nastavení."
+msgstr ""
+"cron je standardní Unixový program který spouští uživatelem zadané programy\n"
+"v předem definovaných intervalech. vixie cron má navíc mnoho vlastností,\n"
+"včetně vyšší bezpečnosti a více možností nastavení."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
-msgstr "Common UNIX Printing System (CUPS) je pokročilý systém pro správu tisku a tiskáren."
+msgstr ""
+"Common UNIX Printing System (CUPS) je pokročilý systém pro správu tisku a "
+"tiskáren."
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
@@ -581,35 +606,57 @@ msgstr "Spustí grafického správce přihlášení"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
-"FAM is a file monitoring daemon. It is used to get reports when files change.\n"
+"FAM is a file monitoring daemon. It is used to get reports when files "
+"change.\n"
 "It is used by GNOME and KDE"
-msgstr "FAM je démon pro sledování souborů. Používá se ke zjištění, zda byl soubor změněn.\nPoužívá jej prostředí GNOME a KDE"
+msgstr ""
+"FAM je démon pro sledování souborů. Používá se ke zjištění, zda byl soubor "
+"změněn.\n"
+"Používá jej prostředí GNOME a KDE"
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
 "G15Daemon allows users access to all extra keys by decoding them and\n"
-"pushing them back into the kernel via the linux UINPUT driver. This driver must be loaded\n"
-"before g15daemon can be used for keyboard access. The G15 LCD is also supported. By default,\n"
-"with no other clients active, g15daemon will display a clock. Client applications and\n"
+"pushing them back into the kernel via the linux UINPUT driver. This driver "
+"must be loaded\n"
+"before g15daemon can be used for keyboard access. The G15 LCD is also "
+"supported. By default,\n"
+"with no other clients active, g15daemon will display a clock. Client "
+"applications and\n"
 "scripts can access the LCD via a simple API."
-msgstr "G15Daemon umožňuje uživatelům přístup ke všem dodatečným klávesám\ntím, že je dekóduje a vrací je zpět do jádra přes ovladač UINPUT. Tento ovladač musí\nbýt načten dřív, než se začne používat g15daemon pro přístup ke klávesnici. Rovněž je\npodporováno G15 LCD. Pokud nejsou aktivní žádní další klienti, zobrazuje g15daemon hodiny.\nKlientské aplikace a skripty mohou přistupovat k LCD pomocí jednoduchého API."
+msgstr ""
+"G15Daemon umožňuje uživatelům přístup ke všem dodatečným klávesám\n"
+"tím, že je dekóduje a vrací je zpět do jádra přes ovladač UINPUT. Tento "
+"ovladač musí\n"
+"být načten dřív, než se začne používat g15daemon pro přístup ke klávesnici. "
+"Rovněž je\n"
+"podporováno G15 LCD. Pokud nejsou aktivní žádní další klienti, zobrazuje "
+"g15daemon hodiny.\n"
+"Klientské aplikace a skripty mohou přistupovat k LCD pomocí jednoduchého API."
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
 "GPM adds mouse support to text-based Linux applications such the\n"
-"Midnight Commander. It also allows mouse-based console cut-and-paste operations,\n"
+"Midnight Commander. It also allows mouse-based console cut-and-paste "
+"operations,\n"
 "and includes support for pop-up menus on the console."
-msgstr "GPM přidává do textových programů podporu myši (např pro Midnight Commander).\nMůže také v konzoli provádět operace 'vyjmi' a 'vlož' a ovládat pop-up menu."
+msgstr ""
+"GPM přidává do textových programů podporu myši (např pro Midnight "
+"Commander).\n"
+"Může také v konzoli provádět operace 'vyjmi' a 'vlož' a ovládat pop-up menu."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr "HAL je démon, který sbírá a udržuje informace o technickém vybavení počítače"
+msgstr ""
+"HAL je démon, který sbírá a udržuje informace o technickém vybavení počítače"
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
-msgstr "HardDrake zkouší technické vybavení počítače a umožňuje nové/změněné\nvybavení nastavit"
+msgstr ""
+"HardDrake zkouší technické vybavení počítače a umožňuje nové/změněné\n"
+"vybavení nastavit"
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
@@ -619,10 +666,16 @@ msgstr "Apache je WWW server. Je používán k poskytování HTML a CGI souborů
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
 "The internet superserver daemon (commonly called inetd) starts a\n"
-"variety of other internet services as needed. It is responsible for starting\n"
-"many services, including telnet, ftp, rsh, and rlogin. Disabling inetd disables\n"
+"variety of other internet services as needed. It is responsible for "
+"starting\n"
+"many services, including telnet, ftp, rsh, and rlogin. Disabling inetd "
+"disables\n"
 "all of the services it is responsible for."
-msgstr "Internetový superserver démon (nazývaný inetd) spouští mnoho ostatních\ninternetových služeb, tak jak jsou zapotřebí. Odpovídá za start např.\ntelnetu, ftp, rsh a rlogin. Pokud vypnete inetd, vypnete tím i ostatní\nslužby které spouští."
+msgstr ""
+"Internetový superserver démon (nazývaný inetd) spouští mnoho ostatních\n"
+"internetových služeb, tak jak jsou zapotřebí. Odpovídá za start např.\n"
+"telnetu, ftp, rsh a rlogin. Pokud vypnete inetd, vypnete tím i ostatní\n"
+"služby které spouští."
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -642,17 +695,23 @@ msgid ""
 "This package loads the selected keyboard map as set in\n"
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
-msgstr "Tento balíček nahraje zvolenou mapu klávesnice definovanou\nv /etc/sysconfig/keyboard. Tu lze vybrat pomocí nástroje kbdconfig.\nPro většinu počítačů byste ji měli nechat zapnutou."
+msgstr ""
+"Tento balíček nahraje zvolenou mapu klávesnice definovanou\n"
+"v /etc/sysconfig/keyboard. Tu lze vybrat pomocí nástroje kbdconfig.\n"
+"Pro většinu počítačů byste ji měli nechat zapnutou."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
-msgstr "Automatická generace hlavičky jádra v adresáři /boot\npro soubory /usr/include/linux/{autoconf,version}.h"
+msgstr ""
+"Automatická generace hlavičky jádra v adresáři /boot\n"
+"pro soubory /usr/include/linux/{autoconf,version}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr "Automatické zjištění a nastavení technického vybavení počítače při spuštění."
+msgstr ""
+"Automatické zjištění a nastavení technického vybavení počítače při spuštění."
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
@@ -662,19 +721,25 @@ msgstr "Upravuje chování systému pro delší životnost baterie"
 msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
-msgstr "LinuxConf provádí různé úkoly při spuštění systému\nnutné pro správu systémové konfigurace."
+msgstr ""
+"LinuxConf provádí různé úkoly při spuštění systému\n"
+"nutné pro správu systémové konfigurace."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
-msgstr "lpd je tiskový démon, bez kterého nebude fungovat lpr (program pro tisk).\nJe to server, který posílá tištěné dokumenty jednotlivým tiskárnám."
+msgstr ""
+"lpd je tiskový démon, bez kterého nebude fungovat lpr (program pro tisk).\n"
+"Je to server, který posílá tištěné dokumenty jednotlivým tiskárnám."
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
-msgstr "Linux Virtual Server používaný pro sestavení vysoce výkonného\na dostupného serveru."
+msgstr ""
+"Linux Virtual Server používaný pro sestavení vysoce výkonného\n"
+"a dostupného serveru."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
@@ -688,7 +753,8 @@ msgstr "Sledování a správa softwarového RAIDu"
 msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
-msgstr "DBUS je démon, který vysílá upozornění na události v systému a další zprávy"
+msgstr ""
+"DBUS je démon, který vysílá upozornění na události v systému a další zprávy"
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
@@ -698,7 +764,9 @@ msgstr "Zapne bezpečnostní politiku MSEC při startu systému"
 msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
-msgstr "named (BIND) je doménový (DNS) server, který překládá hostitelská jména na IP adresy."
+msgstr ""
+"named (BIND) je doménový (DNS) server, který překládá hostitelská jména na "
+"IP adresy."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
@@ -708,13 +776,18 @@ msgstr "Inicializuje zaznamenávání síťové konzole"
 msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
-msgstr "Připojuje a odpojuje všechny síťové (NFS), SMB (Lan/Windows) a Netware (NCP)\npřípojné body (mount points)."
+msgstr ""
+"Připojuje a odpojuje všechny síťové (NFS), SMB (Lan/Windows) a Netware "
+"(NCP)\n"
+"přípojné body (mount points)."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
-msgstr "Zapíná či vypíná všechna síťová rozhraní, která se mají nastavit při\nspouštění systému."
+msgstr ""
+"Zapíná či vypíná všechna síťová rozhraní, která se mají nastavit při\n"
+"spouštění systému."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
@@ -729,13 +802,17 @@ msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP networks.\n"
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
-msgstr "NFS je oblíbený protokol pro sdílení souborů přes sítě TCP/IP.\nTato služba poskytuje NFS server, jehož nastavení je v /etc/exports."
+msgstr ""
+"NFS je oblíbený protokol pro sdílení souborů přes sítě TCP/IP.\n"
+"Tato služba poskytuje NFS server, jehož nastavení je v /etc/exports."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
-msgstr "NFS je oblíbený protokol pro sdílení souborů přes sítě TCP/IP.\nTato služba poskytuje možnost uzamykání souborů na NFS."
+msgstr ""
+"NFS je oblíbený protokol pro sdílení souborů přes sítě TCP/IP.\n"
+"Tato služba poskytuje možnost uzamykání souborů na NFS."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
@@ -745,7 +822,9 @@ msgstr "Synchronizuje systémový čas pomocí síťového časového protokolu 
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
-msgstr "Automaticky nastaví podporu numerické klávesnice v konzoli\na v Xorg při startu."
+msgstr ""
+"Automaticky nastaví podporu numerické klávesnice v konzoli\n"
+"a v Xorg při startu."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
@@ -758,16 +837,25 @@ msgstr "Kontroluje, zda-li je oddíl blízko zaplnění"
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
 "PCMCIA support is usually to support things like ethernet and\n"
-"modems in laptops.  It will not get started unless configured so it is safe to have\n"
+"modems in laptops.  It will not get started unless configured so it is safe "
+"to have\n"
 "it installed on machines that do not need it."
-msgstr "Podpora PCMCIA většinou znamená podporu zařízení jako síťové karty a\nmodemy v laptopech. Nespustí se pokud ji přímo nenastavíte, ale není problém\nji mít nainstalovanou i na počítačích, které ji nepotřebují."
+msgstr ""
+"Podpora PCMCIA většinou znamená podporu zařízení jako síťové karty a\n"
+"modemy v laptopech. Nespustí se pokud ji přímo nenastavíte, ale není "
+"problém\n"
+"ji mít nainstalovanou i na počítačích, které ji nepotřebují."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
 "The portmapper manages RPC connections, which are used by\n"
-"protocols such as NFS and NIS. The portmap server must be running on machines\n"
+"protocols such as NFS and NIS. The portmap server must be running on "
+"machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
-msgstr "Portmapper spravuje RPC spojení, která jsou používána protokoly jako NFS\na NIS. Portmap server musí být spuštěn na počítačích, které fungují jako\nservery pro protokoly, které používají mechanismus RPC."
+msgstr ""
+"Portmapper spravuje RPC spojení, která jsou používána protokoly jako NFS\n"
+"a NIS. Portmap server musí být spuštěn na počítačích, které fungují jako\n"
+"servery pro protokoly, které používají mechanismus RPC."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -775,21 +863,25 @@ msgstr "Rezervuje některé TCP porty"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
-"Postfix is a Mail Transport Agent, which is the program that moves mail from"
-" one machine to another."
+"Postfix is a Mail Transport Agent, which is the program that moves mail from "
+"one machine to another."
 msgstr "Postfix je program pro doručování pošty z jednoho počítače na jiný."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
-msgstr "Ukládá a obnovuje 'stav entropie' na počítači, což je používáno pro\nkvalitnější generaci náhodných čísel."
+msgstr ""
+"Ukládá a obnovuje 'stav entropie' na počítači, což je používáno pro\n"
+"kvalitnější generaci náhodných čísel."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
-msgstr "Přiřadit raw zařízení k blokovým zařízením (jako třeba oddíly pevných disků) k užití v aplikacích Oracle nebo DVD přehrávačích"
+msgstr ""
+"Přiřadit raw zařízení k blokovým zařízením (jako třeba oddíly pevných disků) "
+"k užití v aplikacích Oracle nebo DVD přehrávačích"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
@@ -800,37 +892,51 @@ msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the RIP protocol. While RIP is widely used on small networks, more complex\n"
 "routing protocols are needed for complex networks."
-msgstr "Démon routed umožňuje automaticky obnovovat směrovací tabulku (router table)\npro IP adresy. K tomu používá protokol RIP. Zatímco RIP je běžně používán\nv malých sítích, pro složitější sítě je zapotřebí složitější protokoly."
+msgstr ""
+"Démon routed umožňuje automaticky obnovovat směrovací tabulku (router "
+"table)\n"
+"pro IP adresy. K tomu používá protokol RIP. Zatímco RIP je běžně používán\n"
+"v malých sítích, pro složitější sítě je zapotřebí složitější protokoly."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
-msgstr "Protokol rstat umožňuje uživatelům sítě sledovat vytížení jednotlivých\nstrojů připojených k síti."
+msgstr ""
+"Protokol rstat umožňuje uživatelům sítě sledovat vytížení jednotlivých\n"
+"strojů připojených k síti."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
-msgstr "Syslog je program, pomocí něhož zaznamenává mnoho démonů zprávy do různých systémových souborů se záznamy. Je dobré mít rsyslog vždy spuštěný."
+msgstr ""
+"Syslog je program, pomocí něhož zaznamenává mnoho démonů zprávy do různých "
+"systémových souborů se záznamy. Je dobré mít rsyslog vždy spuštěný."
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
-msgstr "Protokol rusers umožňuje uživatelům sítě zjistit, kdo je přihlášen na\njiném počítači."
+msgstr ""
+"Protokol rusers umožňuje uživatelům sítě zjistit, kdo je přihlášen na\n"
+"jiném počítači."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
-msgstr "Protokol rwho umožňuje vzdáleným uživatelům získat seznam\nvšech uživatelů přihlášených na počítači s démonem rwho (je to podobné\nslužbě finger)."
+msgstr ""
+"Protokol rwho umožňuje vzdáleným uživatelům získat seznam\n"
+"všech uživatelů přihlášených na počítači s démonem rwho (je to podobné\n"
+"službě finger)."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
-"SANE (Scanner Access Now Easy) enables to access scanners, video cameras, "
-"..."
-msgstr "SANE (Scanner Access Now Easy) umožňuje přístup ke skenerům, video kamerám a dalším zařízením..."
+"SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
+msgstr ""
+"SANE (Scanner Access Now Easy) umožňuje přístup ke skenerům, video kamerám a "
+"dalším zařízením..."
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -840,7 +946,9 @@ msgstr "Firewall filtrující pakety"
 msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
-msgstr "Protokol SMB/CIFS umožňuje sdílet přístup k souborům a tiskárnám a také integraci se serverovými doménami Windows"
+msgstr ""
+"Protokol SMB/CIFS umožňuje sdílet přístup k souborům a tiskárnám a také "
+"integraci se serverovými doménami Windows"
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
@@ -854,13 +962,18 @@ msgstr "vrstva pro analýzu řeči"
 msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
-msgstr "Secure Shell je síťový protokol, který umožňuje výměnu dat pomocí zabezpečeného kanálu mezi dvěma počítači"
+msgstr ""
+"Secure Shell je síťový protokol, který umožňuje výměnu dat pomocí "
+"zabezpečeného kanálu mezi dvěma počítači"
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
-msgstr "Syslog je program pomocí něhož zaznamenává mnoho démonů správy do systémových\nlog souborů. Je dobré mít spuštěný syslog."
+msgstr ""
+"Syslog je program pomocí něhož zaznamenává mnoho démonů správy do "
+"systémových\n"
+"log souborů. Je dobré mít spuštěný syslog."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -951,7 +1064,13 @@ msgid ""
 "                                                    </ul>\n"
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
-msgstr "<h3>Vývojáři</h3>\n                                    <ul><li>%s</li>\n                                        <li>%s</li>\n                                    </ul>\n                                    <h3>Překladatelé</h3>\n                                    <ul><li>%s</li></ul>"
+msgstr ""
+"<h3>Vývojáři</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Překladatelé</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:340
 msgid "Empty log found"
@@ -966,7 +1085,10 @@ msgid ""
 "You are launching this program as a normal user.\n"
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
-msgstr "Spouštíte tento program jako běžný uživatel.\nNebudete moci číst záznamy systému, pro něž nemáte oprávnění.\nMůžete však prohlížet všechny ostatní."
+msgstr ""
+"Spouštíte tento program jako běžný uživatel.\n"
+"Nebudete moci číst záznamy systému, pro něž nemáte oprávnění.\n"
+"Můžete však prohlížet všechny ostatní."
 
 #: lib/ManaTools/Module/LogViewer.pm:456
 msgid "Save as.."
@@ -1041,7 +1163,9 @@ msgstr "Smazat"
 msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
-msgstr "%s je primární skupina pro uživatele %s\nOdstraňte nejprve tohoto uživatele"
+msgstr ""
+"%s je primární skupina pro uživatele %s\n"
+"Odstraňte nejprve tohoto uživatele"
 
 #: lib/ManaTools/Module/Users.pm:483
 #, perl-format
@@ -1057,7 +1181,9 @@ msgstr "Odstranit soubory nebo ne?"
 msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
-msgstr "Odstraňuji uživatele %s\n Provádějí se také následující činnosti\n"
+msgstr ""
+"Odstraňuji uživatele %s\n"
+" Provádějí se také následující činnosti\n"
 
 #: lib/ManaTools/Module/Users.pm:540
 #, perl-format
@@ -1105,7 +1231,10 @@ msgid ""
 "Creating a group with a GID less than %d is not recommended.\n"
 " Are you sure you want to do this?\n"
 "\n"
-msgstr "Vytváření skupin s GID menším než %d se nedoporučuje.\nJste si jisti, že to chcete udělat?\n\n"
+msgstr ""
+"Vytváření skupin s GID menším než %d se nedoporučuje.\n"
+"Jste si jisti, že to chcete udělat?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:674
 msgid " Group ID is already used "
@@ -1115,7 +1244,9 @@ msgstr " ID skupiny se již používá "
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
-msgstr "Vytváření skupin s nejedinečným GID?\n\n"
+msgstr ""
+"Vytváření skupin s nejedinečným GID?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:687
 #, perl-format
@@ -1198,14 +1329,19 @@ msgstr "Hesla se neshodují"
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
-msgstr "Toto heslo je příliš jednoduché.\n Správná hesla by měla být delší než 6 znaků"
+msgstr ""
+"Toto heslo je příliš jednoduché.\n"
+" Správná hesla by měla být delší než 6 znaků"
 
 #: lib/ManaTools/Module/Users.pm:991
 #, perl-format
 msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
-msgstr "Domovský adresář <%s> již existuje.\nZrušte, prosím, zaškrtnutí volby pro vytvoření domovského adresáře, nebo změňte název cesty k adresáři"
+msgstr ""
+"Domovský adresář <%s> již existuje.\n"
+"Zrušte, prosím, zaškrtnutí volby pro vytvoření domovského adresáře, nebo "
+"změňte název cesty k adresáři"
 
 #: lib/ManaTools/Module/Users.pm:1004
 #, perl-format
@@ -1218,7 +1354,10 @@ msgid ""
 "Creating a user with a UID less than %d is not recommended.\n"
 "Are you sure you want to do this?\n"
 "\n"
-msgstr "Vytváření uživatelů s UID menším než%d se nedoporučuje.\nJste si jisti, že to chcete udělat?\n\n"
+msgstr ""
+"Vytváření uživatelů s UID menším než%d se nedoporučuje.\n"
+"Jste si jisti, že to chcete udělat?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:1020
 #, perl-format
@@ -1355,7 +1494,9 @@ msgstr "Vyberte, prosím, pro uživatele alespoň jednu skupinu"
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
-msgstr "Zadejte, prosím, rok, měsíc a den\nvypršení účtu"
+msgstr ""
+"Zadejte, prosím, rok, měsíc a den\n"
+"vypršení účtu"
 
 #: lib/ManaTools/Module/Users.pm:1979
 msgid "Please fill up all fields in password aging\n"
@@ -1409,7 +1550,9 @@ msgstr "manauser"
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
-msgstr "manauser je nástroj pro správu uživatelských účtů Mageii)\n(z původní myšlenky userdrake Mandrivy)."
+msgstr ""
+"manauser je nástroj pro správu uživatelských účtů Mageii)\n"
+"(z původní myšlenky userdrake Mandrivy)."
 
 #: lib/ManaTools/Module/Users.pm:2457 lib/ManaTools/Module/Users.pm:2509
 msgid "Refresh"
@@ -1457,7 +1600,9 @@ msgstr "Nastavení data, hodin a časové zóny"
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
-msgstr "Nastavení data, hodin a časové zóny umožní nastavit časové pásmo a upravit datum a čas"
+msgstr ""
+"Nastavení data, hodin a časové zóny umožní nastavit časové pásmo a upravit "
+"datum a čas"
 
 #: lib/ManaTools/Module/Clock.pm:219
 #, perl-format
@@ -1466,7 +1611,11 @@ msgid ""
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
-msgstr "<h3>Vývojáři</h3>\n<ul><li>%s</li></ul>\n<h3>Překladatelé</h3>\n<ul><li>%s</li></ul>"
+msgstr ""
+"<h3>Vývojáři</h3>\n"
+"<ul><li>%s</li></ul>\n"
+"<h3>Překladatelé</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:235
 msgid "Restore data"
@@ -1660,15 +1809,22 @@ msgstr "Nastavení firewallu"
 #: lib/ManaTools/Module/Firewall.pm:383
 msgid ""
 "drakfirewall configurator\n"
-"                    This configures a personal firewall for this Mageia machine."
-msgstr "Nastavení drakfirewall\n                    Nastavte osobní firewall na tomto stroji s Mageia Linuxem."
+"                    This configures a personal firewall for this Mageia "
+"machine."
+msgstr ""
+"Nastavení drakfirewall\n"
+"                    Nastavte osobní firewall na tomto stroji s Mageia "
+"Linuxem."
 
 #: lib/ManaTools/Module/Firewall.pm:390
 msgid ""
 "drakfirewall configurator\n"
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
-msgstr "Nastavení aplikace drakfirewall\nPředtím, než budete pokračovat, se ujistěte, že jste nastavili vaši\nsíť a přístup k internetu pomocí aplikace drakconnect."
+msgstr ""
+"Nastavení aplikace drakfirewall\n"
+"Předtím, než budete pokračovat, se ujistěte, že jste nastavili vaši\n"
+"síť a přístup k internetu pomocí aplikace drakconnect."
 
 #: lib/ManaTools/Module/Firewall.pm:453
 msgid "Interactive Firewall"
@@ -1676,9 +1832,13 @@ msgstr "Interaktivní firewall"
 
 #: lib/ManaTools/Module/Firewall.pm:457
 msgid ""
-"You can be warned when someone accesses to a service or tries to intrude into your computer.\n"
+"You can be warned when someone accesses to a service or tries to intrude "
+"into your computer.\n"
 "Please select which network activities should be watched."
-msgstr "Může se vám dostat varování, pokud se někdo pokusí přistupovat k vaší službě nebo proniknout do vašeho počítače.\nVyberte, prosím, které síťové činnosti by měly být sledovány."
+msgstr ""
+"Může se vám dostat varování, pokud se někdo pokusí přistupovat k vaší službě "
+"nebo proniknout do vašeho počítače.\n"
+"Vyberte, prosím, které síťové činnosti by měly být sledovány."
 
 #: lib/ManaTools/Module/Firewall.pm:463
 msgid "Use Interactive Firewall"
@@ -1719,7 +1879,10 @@ msgid ""
 "You can enter miscellaneous ports.\n"
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
-msgstr "Můžete zadat různé porty.\nSprávně je například: 139/tcp 139/udp 600:610/tcp 600:610/udp.\nVíce se dozvíte ze souboru /etc/services."
+msgstr ""
+"Můžete zadat různé porty.\n"
+"Správně je například: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Více se dozvíte ze souboru /etc/services."
 
 #: lib/ManaTools/Module/Firewall.pm:845
 msgid "Define miscellaneus ports"
@@ -1745,7 +1908,12 @@ msgid ""
 "where port is between 1 and 65535.\n"
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
-msgstr "Zadán špatný port: %s.\nSprávný formát je \"port/tcp\" nebo \"port/udp\", \nkde číslo portu je mezi 1 a 65535.\n\nLze také zadat rozmezí portů (např. 24300:24350/udp)"
+msgstr ""
+"Zadán špatný port: %s.\n"
+"Správný formát je \"port/tcp\" nebo \"port/udp\", \n"
+"kde číslo portu je mezi 1 a 65535.\n"
+"\n"
+"Lze také zadat rozmezí portů (např. 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:963
 msgid ""
@@ -1758,14 +1926,28 @@ msgid ""
 "unselect interfaces which will be connected to local network.\n"
 "\n"
 "Which interfaces should be protected?\n"
-msgstr "Prosím, vyberte, která rozhraní budou chráněna firewallem.\n\nVšechna rozhraní, která jsou připojena k síti internet by měla \nbýt vybrána zatímco rozhraní, která váš počítač spojují s místní\nsítí by vybrána být neměla.\n\nPakliže hodláte používat sdílení připojení k internetu, nesmíte\nvybrat rozhraní, která budou připojena k místní síti.\n\nKterá rozhraní máme chránit?\n"
+msgstr ""
+"Prosím, vyberte, která rozhraní budou chráněna firewallem.\n"
+"\n"
+"Všechna rozhraní, která jsou připojena k síti internet by měla \n"
+"být vybrána zatímco rozhraní, která váš počítač spojují s místní\n"
+"sítí by vybrána být neměla.\n"
+"\n"
+"Pakliže hodláte používat sdílení připojení k internetu, nesmíte\n"
+"vybrat rozhraní, která budou připojena k místní síti.\n"
+"\n"
+"Která rozhraní máme chránit?\n"
 
 #: lib/ManaTools/Module/Firewall.pm:1052
 msgid ""
 "Your firewall configuration has been manually edited and contains\n"
-"    rules that may conflict with the configuration that has just been set up.\n"
+"    rules that may conflict with the configuration that has just been set "
+"up.\n"
 "    What do you want to do?"
-msgstr "Vaše nastavení firewallu bylo ručně upraveno a obsahuje pravidla,\nkterá mohou být v rozporu s nastavením, které bylo právě provedeno.\nCo chcete udělat?"
+msgstr ""
+"Vaše nastavení firewallu bylo ručně upraveno a obsahuje pravidla,\n"
+"která mohou být v rozporu s nastavením, které bylo právě provedeno.\n"
+"Co chcete udělat?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
 msgid "manadm - Display Manager"
@@ -1831,9 +2013,10 @@ msgstr "Nastavení proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:280
 msgid ""
-"Here you can set up your proxies configuration (eg: "
-"http://my_caching_server:8080)"
-msgstr "Zde můžete zadat nastavení vaší proxy (např. http://muj_proxy_server:8080)"
+"Here you can set up your proxies configuration (eg: http://"
+"my_caching_server:8080)"
+msgstr ""
+"Zde můžete zadat nastavení vaší proxy (např. http://muj_proxy_server:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:288
 msgid "HTTP proxy"
@@ -1907,8 +2090,13 @@ msgstr "&Obnovit"
 msgid ""
 "adminService is the Mageia service and daemon management tool\n"
 "\n"
-"                                                       (from the original idea of Mandriva draxservice)."
-msgstr "adminService je nástroj pro správu služeb a démonů Mageii)\n\n                                                       (z původní myšlenky draxservice Mandrivy)."
+"                                                       (from the original "
+"idea of Mandriva draxservice)."
+msgstr ""
+"adminService je nástroj pro správu služeb a démonů Mageii)\n"
+"\n"
+"                                                       (z původní myšlenky "
+"draxservice Mandrivy)."
 
 #: lib/ManaTools/Module/Services.pm:447
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
@@ -1920,7 +2108,13 @@ msgid ""
 "                                                       </ul>\n"
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
-msgstr "<h3>Vývojáři</h3>\n                                    <ul><li>%s</li>\n                                        <li>%s</li>\n                                    </ul>\n                                    <h3>Překladatelé</h3>\n                                    <ul><li>%s</li></ul>"
+msgstr ""
+"<h3>Vývojáři</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Překladatelé</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:515
 #, perl-format
@@ -2011,7 +2205,10 @@ msgid ""
 "Unable to add medium, errors reported:\n"
 "\n"
 "%s"
-msgstr "Nelze přidat zdroj, byly nahlášeny chyby:\n\n%s"
+msgstr ""
+"Nelze přidat zdroj, byly nahlášeny chyby:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Medium: "
@@ -2031,7 +2228,10 @@ msgid ""
 "There was a problem adding medium:\n"
 "\n"
 "%s"
-msgstr "Při pokusu o přidání zdroje nastaly problémy:\n\n%s"
+msgstr ""
+"Při pokusu o přidání zdroje nastaly problémy:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
@@ -2050,10 +2250,17 @@ msgstr "Chyba při získávání balíčků"
 msgid ""
 "It's impossible to retrieve the list of new packages from the media\n"
 "`%s'. Either this update media is misconfigured, and in this case\n"
-"you should use the Software Media Manager to remove it and re-add it in order\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
-msgstr "Nelze získat seznam nových balíčků ze zdroje `%s'.\nBuď je tento instalační zdroj chybně nastaven, a pak byste\nměli použít Správce zdrojů softwaru a tento zdroj odstranit\na znovu přidat či jej jinak nastavit, nebo není tento\ninstalační zdroj dostupný a měli byste to zkusit\npozději."
+msgstr ""
+"Nelze získat seznam nových balíčků ze zdroje `%s'.\n"
+"Buď je tento instalační zdroj chybně nastaven, a pak byste\n"
+"měli použít Správce zdrojů softwaru a tento zdroj odstranit\n"
+"a znovu přidat či jej jinak nastavit, nebo není tento\n"
+"instalační zdroj dostupný a měli byste to zkusit\n"
+"později."
 
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
@@ -2093,20 +2300,25 @@ msgstr "Začíná se stahovat '%s'..."
 msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
-msgstr "Stahování '%s'\nzbývající čas: %s, rychlost: %s"
+msgstr ""
+"Stahování '%s'\n"
+"zbývající čas: %s, rychlost: %s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
 msgid ""
 "Download of `%s'\n"
 "speed:%s"
-msgstr "Stahování '%s'\nrychlost: %s"
+msgstr ""
+"Stahování '%s'\n"
+"rychlost: %s"
 
 #: lib/ManaTools/rpmdragora.pm:854
 msgid ""
-"No active medium found. You must enable some media to be able to update "
-"them."
-msgstr "Nebyl nalezen žádný aktivní zdroj. Aby bylo možné zdroje aktualizovat, musíte některé z nich povolit."
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+"Nebyl nalezen žádný aktivní zdroj. Aby bylo možné zdroje aktualizovat, "
+"musíte některé z nich povolit."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:707
 msgid "Update media"
@@ -2132,7 +2344,11 @@ msgid ""
 "\n"
 "Errors:\n"
 "%s"
-msgstr "Nelze aktualizovat zdroj, bude automaticky vypnut.\n\nChyby:\n%s"
+msgstr ""
+"Nelze aktualizovat zdroj, bude automaticky vypnut.\n"
+"\n"
+"Chyby:\n"
+"%s"
 
 #: lib/ManaTools/rpmdragora.pm:999
 msgid ""
@@ -2140,7 +2356,11 @@ msgid ""
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
-msgstr "Je třeba připojit se k internetu a stáhnout seznam zrcadel.\nOvěřte, prosím, že je připojení k síti v pořádku.\n\nMůže se pokračovat?"
+msgstr ""
+"Je třeba připojit se k internetu a stáhnout seznam zrcadel.\n"
+"Ověřte, prosím, že je připojení k síti v pořádku.\n"
+"\n"
+"Může se pokračovat?"
 
 #: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:298
 msgid ""
@@ -2148,7 +2368,12 @@ msgid ""
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
-msgstr "Je potřeba spojit se s webovými stránkami Mageia pro získání seznamu zrcadel.\nZkontrolujte prosím, že vaše síť je aktuálně spuštěna.\n\nJe vše v pořádku, může se pokračovat?"
+msgstr ""
+"Je potřeba spojit se s webovými stránkami Mageia pro získání seznamu "
+"zrcadel.\n"
+"Zkontrolujte prosím, že vaše síť je aktuálně spuštěna.\n"
+"\n"
+"Je vše v pořádku, může se pokračovat?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
@@ -2166,7 +2391,12 @@ msgid ""
 "\n"
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
-msgstr "Při stahování seznamu zrcadel došlo k chybě:\n%s\n\nJe možné, že síť nebo webové stránky nejsou k dispozici.\nZkuste to, prosím, později."
+msgstr ""
+"Při stahování seznamu zrcadel došlo k chybě:\n"
+"%s\n"
+"\n"
+"Je možné, že síť nebo webové stránky nejsou k dispozici.\n"
+"Zkuste to, prosím, později."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -2176,7 +2406,12 @@ msgid ""
 "\n"
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
-msgstr "Při stahování seznamu zrcadel došlo k chybě:\n%s\n\nPřipojení k síti nebo stránky Mageia mohou být mimo provoz. \nZkuste to prosím později."
+msgstr ""
+"Při stahování seznamu zrcadel došlo k chybě:\n"
+"%s\n"
+"\n"
+"Připojení k síti nebo stránky Mageia mohou být mimo provoz. \n"
+"Zkuste to prosím později."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -2193,7 +2428,12 @@ msgid ""
 "There can be many reasons for this problem; the most frequent is\n"
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
-msgstr "Nelze nalézt žádné vhodné zrcadlo.\n\nTento problém může vzniknout z řady různých důvodů, zpravidla je \nto však tím, že architektura vašeho počítače není podporována\noficiálními aktualizacemi Mageia."
+msgstr ""
+"Nelze nalézt žádné vhodné zrcadlo.\n"
+"\n"
+"Tento problém může vzniknout z řady různých důvodů, zpravidla je \n"
+"to však tím, že architektura vašeho počítače není podporována\n"
+"oficiálními aktualizacemi Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1044
 msgid "Please choose the desired mirror."
@@ -2202,16 +2442,24 @@ msgstr "Vyberte, prosím, vhodné zrcadlo."
 #: lib/ManaTools/rpmdragora.pm:1071
 #, perl-format
 msgid ""
-"Your medium `%s', used for updates, does not match the version of %s you're running (%s).\n"
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
 "It will be disabled."
-msgstr "Váš zdroj \"%s\", který se používá pro aktualizace, neodpovídá verzi distribuce %s, která právě běží (%s).\nTento zdroj bude vypnut."
+msgstr ""
+"Váš zdroj \"%s\", který se používá pro aktualizace, neodpovídá verzi "
+"distribuce %s, která právě běží (%s).\n"
+"Tento zdroj bude vypnut."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
 msgid ""
-"Your medium `%s', used for updates, does not match the version of Mageia you're running (%s).\n"
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
 "It will be disabled."
-msgstr "Verze aktualizačního média `%s' se neshoduje s verzí Mageia kterou provozujete (%s).\nZ toho důvodu bylo vypnuto."
+msgstr ""
+"Verze aktualizačního média `%s' se neshoduje s verzí Mageia kterou "
+"provozujete (%s).\n"
+"Z toho důvodu bylo vypnuto."
 
 #: lib/ManaTools/rpmdragora.pm:1104
 msgid "Please wait, downloading mirror addresses."
@@ -2233,7 +2481,8 @@ msgstr "Nápověda spuštěna v pozadí"
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
-msgstr "Okno s nápovědou bylo spuštěno, po chvíli by se mělo objevit na vaší ploše."
+msgstr ""
+"Okno s nápovědou bylo spuštěno, po chvíli by se mělo objevit na vaší ploše."
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:148 lib/ManaTools/Rpmdragora/pkg.pm:127
 #: lib/ManaTools/Rpmdragora/pkg.pm:176 lib/ManaTools/Rpmdragora/pkg.pm:189
@@ -2292,12 +2541,16 @@ msgstr "Získává se '%s' z XML metadat..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
-msgstr "Chybí XML informace pro zdroj \"%s\", pouze částečný výsledek pro balíček %s"
+msgstr ""
+"Chybí XML informace pro zdroj \"%s\", pouze částečný výsledek pro balíček %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:164
 #, perl-format
-msgid "No xml info for medium \"%s\", unable to return any result for package %s"
-msgstr "Chybí XML informace pro zdroj \"%s\", nelze vrátit žádný výsledek pro balíček %s"
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+"Chybí XML informace pro zdroj \"%s\", nelze vrátit žádný výsledek pro "
+"balíček %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:347
 #: lib/ManaTools/Rpmdragora/gui.pm:358 lib/ManaTools/Rpmdragora/gui.pm:362
@@ -2325,7 +2578,11 @@ msgid ""
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
-msgstr "Je třeba se spojit se zrcadlem a stáhnout poslední informace o balíčcích\nk aktualizaci. Ověřte, prosím, že vaše síť běží v pořádku.\n\nMůže se pokračovat?"
+msgstr ""
+"Je třeba se spojit se zrcadlem a stáhnout poslední informace o balíčcích\n"
+"k aktualizaci. Ověřte, prosím, že vaše síť běží v pořádku.\n"
+"\n"
+"Může se pokračovat?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
@@ -2340,7 +2597,12 @@ msgid ""
 "column).\n"
 "\n"
 "Then, restart \"%s\"."
-msgstr "Máte již nastaven alespoň jeden zdroj pro aktualizaci, všechny\njsou však právě vypnuty. Spusťte Správce zdrojů softwaru a alespoň\njeden zapněte (zatrhněte políčko ve sloupci \"%s\").\n\nPoté znovu spusťte \"%s\"."
+msgstr ""
+"Máte již nastaven alespoň jeden zdroj pro aktualizaci, všechny\n"
+"jsou však právě vypnuty. Spusťte Správce zdrojů softwaru a alespoň\n"
+"jeden zapněte (zatrhněte políčko ve sloupci \"%s\").\n"
+"\n"
+"Poté znovu spusťte \"%s\"."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:292
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
@@ -2352,9 +2614,11 @@ msgstr "Povolen"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:297
 msgid ""
-"You have no configured update media. MageiaUpdate cannot operate without any"
-" update media."
-msgstr "Nemáte nastavena žádná aktualizační média. MageiaUpdate nemůže bez aktualizačních médií pracovat."
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+"Nemáte nastavena žádná aktualizační média. MageiaUpdate nemůže bez "
+"aktualizačních médií pracovat."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
@@ -2368,7 +2632,12 @@ msgid ""
 "updates' medium.\n"
 "\n"
 "Then, restart %s."
-msgstr "Požadované zrcadlo si můžete zvolit také ručně; chcete-li tak\nučinit, spusťte aplikaci Správce zdrojů softwaru a přidejte zdroj\n`Bezpečnostní aktualizace'.\n\nPoté znovu spusťte aplikaci %s."
+msgstr ""
+"Požadované zrcadlo si můžete zvolit také ručně; chcete-li tak\n"
+"učinit, spusťte aplikaci Správce zdrojů softwaru a přidejte zdroj\n"
+"`Bezpečnostní aktualizace'.\n"
+"\n"
+"Poté znovu spusťte aplikaci %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
@@ -2409,7 +2678,10 @@ msgid ""
 "There was a problem during the installation:\n"
 "\n"
 "%s"
-msgstr "Při instalaci balíčků došlo k chybě:\n\n%s"
+msgstr ""
+"Při instalaci balíčků došlo k chybě:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
@@ -2435,13 +2707,19 @@ msgid ""
 "\n"
 "Error(s) reported:\n"
 "%s"
-msgstr "\n\nNahlášené chyby:\n%s"
+msgstr ""
+"\n"
+"\n"
+"Nahlášené chyby:\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:948
 msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
-msgstr "Je třeba nejprve aktualizovat aplikaci Rpmdragora nebo jednu z jejich prioritních závislostí. Aplikace Rpmdragora se poté restartuje."
+msgstr ""
+"Je třeba nejprve aktualizovat aplikaci Rpmdragora nebo jednu z jejich "
+"prioritních závislostí. Aplikace Rpmdragora se poté restartuje."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:809
 msgid "The following package is going to be installed:"
@@ -2457,11 +2735,14 @@ msgstr "Odstranit %d balíček?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr "Následující balíček musí být odebrán, aby mohly být jiné balíčky aktualizovány:"
+msgstr ""
+"Následující balíček musí být odebrán, aby mohly být jiné balíčky "
+"aktualizovány:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:818
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr "Následující balíčky musí být odebrány, aby bylo možné jiné aktualizovat:"
+msgstr ""
+"Následující balíčky musí být odebrány, aby bylo možné jiné aktualizovat:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
@@ -2525,7 +2806,11 @@ msgid ""
 "\n"
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
-msgstr "Instalace byla dokončena; vše bylo nainstalováno v pořádku.\n\nNěkteré soubory s nastavením byly vytvořeny s příponou `.rpmnew' nebo\n`.rpmsave'. Některé z nich můžete nyní prozkoumat a rozhodnout, co s nimi:"
+msgstr ""
+"Instalace byla dokončena; vše bylo nainstalováno v pořádku.\n"
+"\n"
+"Některé soubory s nastavením byly vytvořeny s příponou `.rpmnew' nebo\n"
+"`.rpmsave'. Některé z nich můžete nyní prozkoumat a rozhodnout, co s nimi:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -2558,7 +2843,10 @@ msgid ""
 "There was a problem during the removal of packages:\n"
 "\n"
 "%s"
-msgstr "Při odstraňování balíčků došlo k chybě:\n\n%s"
+msgstr ""
+"Při odstraňování balíčků došlo k chybě:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:392
 #: modules/rpmdragora/rpmdragora:535 modules/rpmdragora/rpmdragora:560
@@ -3179,7 +3467,9 @@ msgstr "  --auto                 předpokládá výchozí odpovědi na dotazy"
 msgid ""
 "  --changelog-first      display changelog before filelist in the "
 "description window"
-msgstr "  --changelog-first      zobrazí v okně s popisem změnové záznamy dříve než seznam souborů"
+msgstr ""
+"  --changelog-first      zobrazí v okně s popisem změnové záznamy dříve než "
+"seznam souborů"
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
@@ -3188,23 +3478,28 @@ msgstr "  --media=medium1,..     omezení na zadané zdroje"
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
-msgstr "  --merge-all-rpmnew     navrhne sloučit všechny nalezené soubory .rpmnew/.rpmsave"
+msgstr ""
+"  --merge-all-rpmnew     navrhne sloučit všechny nalezené soubory .rpmnew/."
+"rpmsave"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
-msgstr "  --mode=MODE            nastaví režim (install (výchozí), remove, update)"
+msgstr ""
+"  --mode=MODE            nastaví režim (install (výchozí), remove, update)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
-msgstr "  --justdb               aktualizuje databázi, ale nezmění souborový systém"
+msgstr ""
+"  --justdb               aktualizuje databázi, ale nezmění souborový systém"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
-"  --no-confirmation      don't ask first confirmation question in update "
-"mode"
-msgstr "  --no-confirmation      nebude se ptát na první potvrzení v režimu aktualizace"
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+"  --no-confirmation      nebude se ptát na první potvrzení v režimu "
+"aktualizace"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
@@ -3216,9 +3511,11 @@ msgstr "  --no-verify-rpm        nebude ověřovat podpisy balíčků"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
-"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use "
-"\"host\" machine to show needed deps"
-msgstr "  --parallel=alias,host  přepne se do paralelního režimu, použije skupinu \"alias\", použije počítač \"host\" pro zobrazení potřebných závislostí"
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+"  --parallel=alias,host  přepne se do paralelního režimu, použije skupinu "
+"\"alias\", použije počítač \"host\" pro zobrazení potřebných závislostí"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
@@ -3227,7 +3524,9 @@ msgstr "  --rpm-root=cesta       použije pro instalaci jiný kořenový adresá
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
-msgstr "  --urpmi-root           použít jiný kořenový adresář pro instalaci balíčků rpm a databázi urpmi"
+msgstr ""
+"  --urpmi-root           použít jiný kořenový adresář pro instalaci balíčků "
+"rpm a databázi urpmi"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
@@ -3241,13 +3540,16 @@ msgstr "  --search=pkg           spustit hledání \"pkg\""
 msgid ""
 "  --test                 only verify if the installation can be achieved "
 "correctly"
-msgstr "  --test                 pouze ověří, zda-li lze instalaci provést bezchybně"
+msgstr ""
+"  --test                 pouze ověří, zda-li lze instalaci provést bezchybně"
 
 #: lib/ManaTools/Rpmdragora/init.pm:83
 msgid ""
 "  --version              print this tool's version number\n"
 "                    "
-msgstr "  --version      vypsat číslo verze tohoto nástroje\n                    "
+msgstr ""
+"  --version      vypsat číslo verze tohoto nástroje\n"
+"                    "
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -3258,7 +3560,10 @@ msgid ""
 "You are launching this program as a normal user.\n"
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
-msgstr "Spouštíte tento program jako běžný uživatel.\nNebudete moci provádět úpravy systému,\nmůžete však prohlížet stávající databázi."
+msgstr ""
+"Spouštíte tento program jako běžný uživatel.\n"
+"Nebudete moci provádět úpravy systému,\n"
+"můžete však prohlížet stávající databázi."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
@@ -3304,13 +3609,24 @@ msgstr "Zvolte typ zdroje"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
-"In order to keep your system secure and stable, you must at a minimum set up\n"
-"sources for official security and stability updates. You can also choose to set\n"
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
 "up a fuller set of sources which includes the complete official Mageia\n"
 "repositories, giving you access to more software than can fit on the Mageia\n"
-"discs. Please choose whether to configure update sources only, or the full set\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
 "of sources."
-msgstr "Abychom zajistili trvalou a udržitelnou bezpečnost a stabilitu vašeho systému, musíme nastavit minimální množinu zdrojů s oficiálními bezpečnostními aktualizacemi. \nMůžete si rovněž vybrat širší okruh zdrojů, které zahrnují veškeré zdroje softwaru Mageia, čímž získáte přístup k širšímu\nokruhu softwaru, než bylo možno vměstnat na disky Mageia. \nProsím vyberte si zda chcete nastavit pouze zdroje s aktualizacemi nebo všechny zdroje."
+msgstr ""
+"Abychom zajistili trvalou a udržitelnou bezpečnost a stabilitu vašeho "
+"systému, musíme nastavit minimální množinu zdrojů s oficiálními "
+"bezpečnostními aktualizacemi. \n"
+"Můžete si rovněž vybrat širší okruh zdrojů, které zahrnují veškeré zdroje "
+"softwaru Mageia, čímž získáte přístup k širšímu\n"
+"okruhu softwaru, než bylo možno vměstnat na disky Mageia. \n"
+"Prosím vyberte si zda chcete nastavit pouze zdroje s aktualizacemi nebo "
+"všechny zdroje."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -3330,7 +3646,14 @@ msgid ""
 "Please check that your network is currently running.\n"
 "\n"
 "Is it ok to continue?"
-msgstr "Tímto nastavíte všechny oficiální zdroje pro svou distribuci \n(%s).\n\nNejprve je však potřeba stáhnout ze stránek Mageia seznam zrcadel.\nProsím zkontrolujte, zda jste připojeni k síti.\n\nPokračovat?"
+msgstr ""
+"Tímto nastavíte všechny oficiální zdroje pro svou distribuci \n"
+"(%s).\n"
+"\n"
+"Nejprve je však potřeba stáhnout ze stránek Mageia seznam zrcadel.\n"
+"Prosím zkontrolujte, zda jste připojeni k síti.\n"
+"\n"
+"Pokračovat?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
@@ -3409,7 +3732,9 @@ msgstr "Musíte vyplnit alespoň první dvě políčka."
 msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
-msgstr "Zdroj pojmenovaný <%s> již existuje.\nChcete jej opravdu nahradit?"
+msgstr ""
+"Zdroj pojmenovaný <%s> již existuje.\n"
+"Chcete jej opravdu nahradit?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
@@ -3518,7 +3843,9 @@ msgstr "Globální nastavení proxy"
 msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
-msgstr "Pokud potřebujete proxy, zadejte název počítače a volitelně port (ve tvaru <proxyhost[:port]>):"
+msgstr ""
+"Pokud potřebujete proxy, zadejte název počítače a volitelně port (ve tvaru "
+"<proxyhost[:port]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
@@ -3658,7 +3985,8 @@ msgstr "Odebrat klíč"
 msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
-msgstr "Opravdu chcete odebrat klíč <br>%s<br> ze zdroje %s?<br>(název klíče je: %s)"
+msgstr ""
+"Opravdu chcete odebrat klíč <br>%s<br> ze zdroje %s?<br>(název klíče je: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -3667,7 +3995,10 @@ msgid ""
 "Unable to update medium, errors reported:\n"
 "\n"
 "%s"
-msgstr "Nelze aktualizovat zdroj, byly nahlášeny chyby:\n\n%s"
+msgstr ""
+"Nelze aktualizovat zdroj, byly nahlášeny chyby:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
@@ -3732,7 +4063,9 @@ msgstr "Rpmdragora je nástroj pro správu balíčků Mageia"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr "Aby byl tento zdroj použitelný, je třeba jej aktualizovat. Chcete jej aktualizovat nyní?"
+msgstr ""
+"Aby byl tento zdroj použitelný, je třeba jej aktualizovat. Chcete jej "
+"aktualizovat nyní?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -3851,7 +4184,11 @@ msgid ""
 "working with the Package Database. Do you have another media\n"
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
-msgstr "Databáze balíčků je zamčená. Ukončete, prosím, jiné aplikace,\nkteré s databází balíčků pracují. Možná máte správce\nzdrojů softwaru spuštěný na jiné ploše nebo právě \ninstalujete balíčky?"
+msgstr ""
+"Databáze balíčků je zamčená. Ukončete, prosím, jiné aplikace,\n"
+"které s databází balíčků pracují. Možná máte správce\n"
+"zdrojů softwaru spuštěný na jiné ploše nebo právě \n"
+"instalujete balíčky?"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
@@ -4009,7 +4346,9 @@ msgstr "Odstranění balíčku %s by poškodilo váš systém"
 msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
-msgstr "Balíček \"%s\" je na seznamu urpmi pro vynechávání.\nChcete jej přesto vybrat?"
+msgstr ""
+"Balíček \"%s\" je na seznamu urpmi pro vynechávání.\n"
+"Chcete jej přesto vybrat?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1154
 msgid "More information on package..."
@@ -4053,13 +4392,19 @@ msgstr "Některé balíčky nelze odstranit"
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
-msgstr "Odstranění těchto balíčků by poškodilo váš systém, omlouváme se:\n\n"
+msgstr ""
+"Odstranění těchto balíčků by poškodilo váš systém, omlouváme se:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1397 lib/ManaTools/Rpmdragora/gui.pm:1468
 msgid ""
-"Because of their dependencies, the following package(s) must be unselected now:\n"
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
 "\n"
-msgstr "Kvůli jejich závislostem je třeba nyní zrušit výběr následujících\nbalíčků:\n\n"
+msgstr ""
+"Kvůli jejich závislostem je třeba nyní zrušit výběr následujících\n"
+"balíčků:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1421
 msgid "Additional packages needed"
@@ -4067,9 +4412,13 @@ msgstr "Jsou potřeba další balíčky"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1422
 msgid ""
-"To satisfy dependencies, the following package(s) also need to be installed:\n"
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
 "\n"
-msgstr "Aby byly splněny závislosti, je třeba nainstalovat také následující\nbalíčky:\n\n"
+msgstr ""
+"Aby byly splněny závislosti, je třeba nainstalovat také následující\n"
+"balíčky:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1430
 msgid "Conflicting Packages"
@@ -4094,7 +4443,10 @@ msgid ""
 "Sorry, the following package cannot be selected:\n"
 "\n"
 "%s"
-msgstr "Promiňte, ale následující balíček nelze vybrat:\n\n%s"
+msgstr ""
+"Promiňte, ale následující balíček nelze vybrat:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1451
 #, perl-format
@@ -4102,7 +4454,10 @@ msgid ""
 "Sorry, the following packages cannot be selected:\n"
 "\n"
 "%s"
-msgstr "Promiňte, ale následující balíčky nelze vybrat:\n\n%s"
+msgstr ""
+"Promiňte, ale následující balíčky nelze vybrat:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1505
 msgid "Some packages are selected."
@@ -4133,7 +4488,13 @@ msgid ""
 "dangerous and should be considered with care.\n"
 "\n"
 "Do you really want to install all the selected packages?"
-msgstr "Varování: Zdá se, že se pokoušíte přidat takové množství\nbalíčků, že vám během instalace nebo po ní může dojít místo\nna disku; to je velmi nebezpečné, a proto by se mělo\npostupovat opatrně.\n\nOpravdu chcete nainstalovat všechny vybrané balíčky?"
+msgstr ""
+"Varování: Zdá se, že se pokoušíte přidat takové množství\n"
+"balíčků, že vám během instalace nebo po ní může dojít místo\n"
+"na disku; to je velmi nebezpečné, a proto by se mělo\n"
+"postupovat opatrně.\n"
+"\n"
+"Opravdu chcete nainstalovat všechny vybrané balíčky?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1636
 msgid "Please wait, listing packages..."
@@ -4148,7 +4509,10 @@ msgid ""
 "The list of updates is empty. This means that either there is\n"
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
-msgstr "Seznam aktualizací je prázdný. To znamená, že buď nejsou k dispozici\nžádné aktualizace pro balíčky instalované na vašem počítači, nebo už\nmáte všechny aktualizace nainstalované."
+msgstr ""
+"Seznam aktualizací je prázdný. To znamená, že buď nejsou k dispozici\n"
+"žádné aktualizace pro balíčky instalované na vašem počítači, nebo už\n"
+"máte všechny aktualizace nainstalované."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1689 modules/rpmdragora/rpmdragora:380
 msgid "Upgradable"
@@ -4231,7 +4595,9 @@ msgstr "Použití mana --help | -h           - vypíše tuto nápovědu\n"
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
-msgstr "Použití mana <command> [args...]\n\n"
+msgstr ""
+"Použití mana <command> [args...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
@@ -4245,7 +4611,9 @@ msgstr "Vývojářský režim"
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
-msgstr "Název programu, používán pro identifikátor při zaznamenávání a adresář s nastavením aplikace x. Výchozí mpan"
+msgstr ""
+"Název programu, používán pro identifikátor při zaznamenávání a adresář s "
+"nastavením aplikace x. Výchozí mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
@@ -4311,7 +4679,11 @@ msgid ""
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
-msgstr "<h3>Vývojáři</h3>\n                                                    <ul><li>%s</li></ul>\n                                                    <h3>Překladatelé</h3>\n                                                    <ul><li>%s</li></ul>"
+msgstr ""
+"<h3>Vývojáři</h3>\n"
+"                                                    <ul><li>%s</li></ul>\n"
+"                                                    <h3>Překladatelé</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid "rpmdragora update"
@@ -4320,9 +4692,12 @@ msgstr "Aktualizace rpmdragora"
 #: modules/rpmdragora/dragoraUpdate:414
 msgid ""
 "The list of updates is empty. This means that either there is no available "
-"update for the packages installed on your computer, or you already installed"
-" all of them."
-msgstr "Seznam aktualizací je prázdný. To znamená, že buď nejsou k dispozici\nžádné aktualizace pro balíčky instalované na vašem počítači, nebo už\nmáte všechny aktualizace nainstalované."
+"update for the packages installed on your computer, or you already installed "
+"all of them."
+msgstr ""
+"Seznam aktualizací je prázdný. To znamená, že buď nejsou k dispozici\n"
+"žádné aktualizace pro balíčky instalované na vašem počítači, nebo už\n"
+"máte všechny aktualizace nainstalované."
 
 #: modules/rpmdragora/rpmdragora:317
 #, perl-format
@@ -4350,7 +4725,8 @@ msgstr "Žádné výsledky hledání."
 msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
-msgstr "Žádné výsledky hledání. Možná chcete přepnout na pohled „%s” a filtr „%s”"
+msgstr ""
+"Žádné výsledky hledání. Možná chcete přepnout na pohled „%s” a filtr „%s”"
 
 #: modules/rpmdragora/rpmdragora:421
 #, perl-format
@@ -4512,9 +4888,16 @@ msgid ""
 "                                                        <ul><li>%s</li>\n"
 "                                                            <li>%s</li>\n"
 "                                                        </ul>\n"
-"                                                        <h3>Translators</h3>\n"
+"                                                        <h3>Translators</"
+"h3>\n"
 "                                                        <ul><li>%s</li></ul>"
-msgstr "<h3>Vývojáři</h3>\n                                    <ul><li>%s</li>\n                                        <li>%s</li>\n                                    </ul>\n                                    <h3>Překladatelé</h3>\n                                    <ul><li>%s</li></ul>"
+msgstr ""
+"<h3>Vývojáři</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Překladatelé</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1187
 #, perl-format
@@ -4535,14 +4918,20 @@ msgid ""
 "%s\n"
 "\n"
 "Is it ok to continue?"
-msgstr "%s\n\nMůže se pokračovat?"
+msgstr ""
+"%s\n"
+"\n"
+"Může se pokračovat?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
 "You are about to add new package media.\n"
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
-msgstr "Chystáte se přidat nové zdroje softwaru.\nTo znamená, že budete moci do svého systému instalovat\nnové softwarové balíčky z těchto nových zdrojů."
+msgstr ""
+"Chystáte se přidat nové zdroje softwaru.\n"
+"To znamená, že budete moci do svého systému instalovat\n"
+"nové softwarové balíčky z těchto nových zdrojů."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4550,7 +4939,10 @@ msgid ""
 "You are about to add new package medium, %s.\n"
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
-msgstr "Chystáte se přidat nový zdroj softwaru, %s.\nTo znamená, že budete moci z tohoto zdroje \ndo svého systému instalovat nové softwarové balíčky."
+msgstr ""
+"Chystáte se přidat nový zdroj softwaru, %s.\n"
+"To znamená, že budete moci z tohoto zdroje \n"
+"do svého systému instalovat nové softwarové balíčky."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4558,7 +4950,10 @@ msgid ""
 "You are about to add a new package medium, `%s'.\n"
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
-msgstr "Chystáte se přidat nový zdroj softwaru, %s.\nTo znamená, že budete moci z tohoto zdroje \ndo svého systému instalovat nové softwarové balíčky."
+msgstr ""
+"Chystáte se přidat nový zdroj softwaru, %s.\n"
+"To znamená, že budete moci z tohoto zdroje \n"
+"do svého systému instalovat nové softwarové balíčky."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
