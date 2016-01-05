@@ -7,16 +7,16 @@
  <vendor>Mageia</vendor>
  <vendor_url>http://www.mageia.org/</vendor_url>
 
- <action id="org.mageia.manaclock.pkexec.run">
-    <_description>Run Mageia Date and Time Configuration</_description>
-    <_message>Authentication is required to run Mageia Date and Time Configuration</_message>
+ <action id="org.mageia.manadm.pkexec.run">
+    <description>Run Mageia Login Manager Configuration</description>
+    <message>Authentication is required to run Mageia Login Manager Configuration</message>
     <icon_name>drakconf</icon_name>
     <defaults>
      <allow_any>no</allow_any>
      <allow_inactive>no</allow_inactive>
-     <allow_active>yes</allow_active>
+     <allow_active>auth_admin_keep</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/manaclock</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/manadm</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
  </action>
 </policyconfig>

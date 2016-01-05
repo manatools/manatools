@@ -7,16 +7,16 @@
  <vendor>Mageia</vendor>
  <vendor_url>http://www.mageia.org/</vendor_url>
 
- <action id="org.mageia.rpmdragora.pkexec.run">
-    <_description>Run Mageia install and remove software</_description>
-    <_message>Authentication is required to run Mageia rpm manager</_message>
-    <icon_name>rpmdrake</icon_name>
+ <action id="org.mageia.manaclock.pkexec.run">
+    <description>Run Mageia Date and Time Configuration</description>
+    <message>Authentication is required to run Mageia Date and Time Configuration</message>
+    <icon_name>drakconf</icon_name>
     <defaults>
      <allow_any>no</allow_any>
      <allow_inactive>no</allow_inactive>
-     <allow_active>auth_admin_keep</allow_active>
+     <allow_active>yes</allow_active>
     </defaults>
-    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/rpmdragora</annotate>
+    <annotate key="org.freedesktop.policykit.exec.path">/usr/bin/manaclock</annotate>
     <annotate key="org.freedesktop.policykit.exec.allow_gui">true</annotate>
  </action>
 </policyconfig>

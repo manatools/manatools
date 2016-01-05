@@ -1,0 +1,7 @@
+<its:rules
+  xmlns:its="http://www.w3.org/2005/11/its"
+  version="1.0">
+  <its:translateRule translate="no" selector="/categories"/>
+  <its:translateRule translate="yes"
+    selector="/categories/category/title | /categories/category/module/title"/>
+</its:rules> 
