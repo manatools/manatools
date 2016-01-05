@@ -3,15 +3,16 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
+# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2015-12-30 23:04+0100\n"
-"PO-Revision-Date: 2015-07-07 15:46+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
-"Language-Team: Basque (http://www.transifex.com/p/mageia/language/eu/)\n"
+"PO-Revision-Date: 2016-01-03 13:54+0000\n"
+"Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
+"Language-Team: Basque (http://www.transifex.com/MageiaLinux/mageia/language/"
+"eu/)\n"
 "Language: eu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,7 +49,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:291
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan ManaTools-eko erabilgarri guztiak biltzen dituen panela da."
 
 #: lib/ManaTools/MainDisplay.pm:292 lib/ManaTools/Module/Users.pm:2410
 #, perl-format
@@ -102,19 +103,19 @@ msgid "&About"
 msgstr "&Honi buruz"
 
 #: lib/ManaTools/MainDisplay.pm:581
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "NTP Konfigurazioa ezartzeak huts egin du"
+msgstr "%s konfigurazio fitxategia falta da"
 
 #: lib/ManaTools/MainDisplay.pm:586
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Konfigurazio fitxategiei inspekzioa egiten..."
+msgstr "%s konfigurazio fitxategia irakurtzen"
 
 #: lib/ManaTools/MainDisplay.pm:735
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "%s fitxategi kategoria analizatzen"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -161,9 +162,8 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Aldatu informazioa"
+msgstr "Inprimatu erabilera informazio hau."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -261,9 +261,8 @@ msgid "&Ok"
 msgstr "&Ados"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Itxi"
+msgstr "&Itxi"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -743,7 +742,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Sarearen segimendua (Suhesi Interaktiboa eta haririk gabekoa)"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
@@ -887,8 +886,8 @@ msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
-"Esleitu gailu \"gordinak\" (raw devices) blokeko gailuei \n"
-"(disko zurruneko partizioak adib.), Oracle bezalako aplikazioentzat\n"
+"Esleitu gailu \"gordinak\" blokeko gailuei \n"
+"(disko gogorreko partizioak adib.), Oracle bezalako aplikazioentzat\n"
 "edo DVD erreproduzigailuentzat"
 
 #: lib/ManaTools/Shared/Services.pm:321
@@ -1085,9 +1084,8 @@ msgid "Empty log found"
 msgstr "Erregistro hutsa topatu da"
 
 #: lib/ManaTools/Module/LogViewer.pm:433
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Erabiltzaile-moduan ari da exekutatzen"
+msgstr "manalog - erabiltzaile-moduan exekutatzen ari da"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid ""
@@ -1615,7 +1613,7 @@ msgstr ""
 "ordua egokitzen uzten du"
 
 #: lib/ManaTools/Module/Clock.pm:219
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1722,9 +1720,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Hardwareko erlojua GMTn ezarria duzu?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Kudeatu ostalarien definizioak"
+msgstr "manahost - kudeatu ostalarien definizioak"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:420
@@ -1806,9 +1803,8 @@ msgid "Graphical manager for hosts definitions"
 msgstr "Ostalari definizioen kudeatzaile grafikoa"
 
 #: lib/ManaTools/Module/Firewall.pm:88
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: suebaki kudeatzailea"
+msgstr "manawall - Suebaki Kudeatzailea"
 
 #: lib/ManaTools/Module/Firewall.pm:201
 msgid "Port scan detection"
@@ -1962,9 +1958,8 @@ msgstr ""
 "Zer egin nahi duzu?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Pantaila kudeatzailea"
+msgstr "manadm - Pantaila Kudeatzailea"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2006,9 +2001,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafiko konfiguratzailea sistemaren pantaila kudeatzailearentzat"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Proxy-en konfigurazioa"
+msgstr "manaproxy - Proxy konfiguraketa"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2175,7 +2169,7 @@ msgstr "Ez galdetu berriz"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr ""
+msgstr "Mendekotasunak"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -2190,7 +2184,7 @@ msgstr "Itxaron"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Britainia"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
@@ -2250,7 +2244,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
@@ -2405,6 +2399,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Akats bat gertatu da ispilu zerrenda jaisterakoan:\n"
+"%s\n"
+"\n"
+"Sarea, edo webgunea, erabilgarri ez egotea.\n"
+"Saiatu berriro geroago."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -2415,6 +2414,11 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Akatsa gertatu da ispiluen zerrenda jaisterakoan:\n"
+"\n"
+"%s\n"
+"Baliteke sarea edo Mageia-ren web gunea erabilgarri ez egotea.\n"
+"Saiatu berriro geroago."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -4604,9 +4608,8 @@ msgid "valid <commands>:\n"
 msgstr "Baliozko <commands>:\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Garapena"
+msgstr "Garapen modua"
 
 #: scripts/mpan:40
 msgid ""
@@ -4616,12 +4619,11 @@ msgstr ""
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Leiho izenburua. Izen balio lehenetsia"
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Garapena"
+msgstr "== Garapen modua ON =="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -4971,17 +4973,3 @@ msgstr "%s euskarria egokiro erantsi da."
 #, perl-format
 msgid "Successfully added medium `%s'."
 msgstr "%s euskarria behar bezala gehitu da."
-
-#~ msgid "adminService"
-#~ msgstr "adminService"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Translators</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
-#~ msgstr ""
-#~ "<h3>Garatzaileak</h3>\n"
-#~ "<ul><li>%s</li></ul>\n"
-#~ "<h3>Itzultzaileak</h3>\n"
-#~ "<ul><li>%s</li></ul>"
