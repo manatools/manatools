@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2016-01-05 23:45+0100\n"
+"POT-Creation-Date: 2016-01-06 00:06+0100\n"
 "PO-Revision-Date: 2016-01-03 13:38+0000\n"
 "Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -5041,6 +5041,20 @@ msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
 
 #. (itstool) path: action/description
+#: extras/polkit/org.mageia.manahost.policy.in:11
+#: extras/polkit/org.mageia.manaproxy.policy.in:11
+#: extras/polkit/org.mageia.mpan.policy.in:11
+msgid "Allow APanel GUI"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manahost.policy.in:12
+msgid ""
+"Authentication is required to run the program manahost (user=$(user), "
+"program=$(program), command_line=$(command_line))"
+msgstr ""
+
+#. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
 msgstr ""
@@ -5048,6 +5062,13 @@ msgstr ""
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manaproxy.policy.in:12
+msgid ""
+"Authentication is required to run the program manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 msgstr ""
 
 #. (itstool) path: action/description
@@ -5081,6 +5102,13 @@ msgstr "Nastavení firewallu"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.mpan.policy.in:12
+msgid ""
+"Authentication is required to run the program apanel (user=$(user), program="
+"$(program), command_line=$(command_line))"
 msgstr ""
 
 #. (itstool) path: action/description

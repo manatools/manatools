@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2016-01-05 23:45+0100\n"
+"POT-Creation-Date: 2016-01-06 00:06+0100\n"
 "PO-Revision-Date: 2015-09-26 13:10+0200\n"
 "Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
 "Language-Team: Greek <kde-i18n-el@kde.org>\n"
@@ -5125,6 +5125,20 @@ msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
 
 #. (itstool) path: action/description
+#: extras/polkit/org.mageia.manahost.policy.in:11
+#: extras/polkit/org.mageia.manaproxy.policy.in:11
+#: extras/polkit/org.mageia.mpan.policy.in:11
+msgid "Allow APanel GUI"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manahost.policy.in:12
+msgid ""
+"Authentication is required to run the program manahost (user=$(user), "
+"program=$(program), command_line=$(command_line))"
+msgstr ""
+
+#. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
 msgstr ""
@@ -5132,6 +5146,13 @@ msgstr ""
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manaproxy.policy.in:12
+msgid ""
+"Authentication is required to run the program manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 msgstr ""
 
 #. (itstool) path: action/description
@@ -5165,6 +5186,13 @@ msgstr "Ρύθμιση του τοίχους προστασίας"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.mpan.policy.in:12
+msgid ""
+"Authentication is required to run the program apanel (user=$(user), program="
+"$(program), command_line=$(command_line))"
 msgstr ""
 
 #. (itstool) path: action/description
