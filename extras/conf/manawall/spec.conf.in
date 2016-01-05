@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<servers>
+<server>
+    <id>www</id>
+    <description>Web Server</description>
+    <packages>apache apache-mod_perl boa lighttpd thttpd</packages>
+    <ports>80/tcp 443/tcp</ports>
+    <pos>1</pos>
+</server>
+<server>
+    <id>dns</id>
+    <description>Domain Name Server</description>
+    <packages>bind dnsmasq mydsn</packages>
+    <ports>53/tcp 53/udp</ports>
+    <pos>4</pos>
+</server>
+<server>
+    <id>ssh</id>
+    <description>SSH server</description>
+    <packages>openssh-server</packages>
+    <ports>22/tcp</ports>
+    <pos>3</pos>
+</server>
+<server>
+    <id>ftp</id>
+    <description>FTP server</description>
+    <packages>ftp-server-krb5 wu-ftpd proftpd pure-ftpd</packages>
+    <ports>20/tcp 21/tcp</ports>
+    <pos>2</pos>
+</server>
+<server>
+    <id>dhcp</id>
+    <description>DHCP Server</description>
+    <packages>dhcp-server udhcpd</packages>
+    <ports>67/udp 68/udp</ports>
+    <pos>5</pos>
+    <hide />
+</server>
+<server>
+    <id>mail</id>
+    <description>Mail Server</description>
+    <packages>sendmail postfix qmail exim</packages>
+    <ports>25/tcp 465/tcp 587/tcp</ports>
+    <pos>6</pos>
+</server>
+<server>
+    <id>popimap</id>
+    <description>POP and IMAP Server</description>
+    <packages>imap courier-imap-pop</packages>
+    <ports>109/tcp 110/tcp 143/tcp 993/tcp 995/tcp</ports>
+    <pos>7</pos>
+</server>
+<server>
+    <id>telnet</id>
+    <description>Telnet server</description>
+    <packages>telnet-server-krb5</packages>
+    <ports>23/tcp</ports>
+    <pos>8</pos>
+    <hide />
+</server>
+<server>
+    <id>nfs</id>
+    <description>NFS Server</description>
+    <packages>nfs-utils nfs-utils-clients</packages>
+    <ports>111/tcp 111/udp 2049/tcp 2049/udp</ports>
+    <pos>9</pos>
+    <hide />
+    <prepare />
+    <restart />
+</server>
+<server>
+    <id>smbserver</id>
+    <description>Windows Files Sharing (CIFS Server)</description>
+    <packages>samba-server swat</packages>
+    <ports>137/udp 138/udp 139/tcp 445/tcp 901/tcp 389/tcp</ports>
+    <pos>10</pos>
+</server>
+<server>
+    <id>bacula</id>
+    <description>Bacula backup</description>
+    <packages>bacula-fd bacula-sd bacula-dir-common</packages>
+    <ports>9101:9103/tcp</ports>
+    <pos>11</pos>
+    <hide />
+</server>
+<server>
+    <id>syslog</id>
+    <description>Syslog network logging</description>
+    <packages>rsyslog syslog-ng</packages>
+    <ports>514/udp</ports>
+    <pos>12</pos>
+    <hide />
+</server>
+<server>
+    <id>cups</id>
+    <description>CUPS server</description>
+    <packages>cups</packages>
+    <ports>631/tcp 631/udp</ports>
+    <pos>13</pos>
+    <hide />
+</server>
+<server>
+    <id>mysql</id>
+    <description>MySQL server</description>
+    <packages>mysql</packages>
+    <ports>3306/tcp 3306/udp</ports>
+    <pos>14</pos>
+    <hide />
+</server>
+<server>
+    <id>postgresql</id>
+    <description>PostgreSQL server</description>
+    <packages>postgresql8.2 postgresql8.3</packages>
+    <ports>5432/tcp 5432/udp</ports>
+    <pos>15</pos>
+    <hide />
+</server>
+<server>
+    <id>echo</id>
+    <description>Echo request (ping)</description>
+    <ports>8/icmp</ports>
+    <default>0</default>
+    <pos>16</pos>
+</server>
+<server>
+    <id>zeroconf</id>
+    <description>Network servers autodiscovery (zeroconf and slp)</description>
+    <ports>5353/udp 427/udp</ports>
+    <packages>avahi cups openslp</packages>
+    <pos>17</pos>
+</server>
+<server>
+    <id>bittorrent</id>
+    <description>BitTorrent</description>
+    <ports>6881:6999/tcp 6881:6999/udp</ports>
+    <hide />
+    <packages>bittorrent deluge ktorrent transmission vuze rtorrent ctorrent</packages>
+    <pos>18</pos>
+</server>
+<server>
+    <id>wmds</id>
+    <description>Windows Mobile device synchronization</description>
+    <packages>synce-hal</packages>
+    <ports>990/tcp 999/tcp 5678/tcp 5679/udp 26675/tcp</ports>
+    <pos>19</pos>
+    <hide />
+</server>
+</servers>
