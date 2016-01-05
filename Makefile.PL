@@ -108,7 +108,21 @@ PL_FILES = $(shell find lib/ManaTools/ -type f -name "*.pm") \
 	modules/rpmdragora/dragora-urpm-addmedia \
 	modules/rpmdragora/dragora-urpm-sources.pl
 
-#XMLFILES?
+# its files (let's use them all at the moment)
+ITS_FILES = -i extras/polkit/policy.its \
+            -i extras/conf/mpan/categories.its \
+            -i extras/conf/mpan/settings.its \
+            -i extras/conf/manawall/manawall.its 
+
+# polkit files
+POL_FILES_IN = $(shell find extras/polkit/*.policy.in)
+POL_FILES = $(POL_FILES_IN:%.policy.in=%.policy)
+
+# manatools configuration files
+CONF_FILES_IN =  $(shell find  extras/conf/mpan/ -type f -name "*.conf.in") \
+	$(shell find  extras/conf/manawall/ -type f -name "*.conf.in")
+CONF_FILES = $(CONF_FILES_IN:%.conf.in=%.conf)
+
 
 POFILES = $(shell find po/ -name "*.po")
 MOFILES = $(POFILES:%.po=%.mo)
@@ -118,19 +132,30 @@ GOALS = $(PGOAL).pot  $(MOFILES)
 
 locales: $(GOALS)
 
-install_locales: locales
+install_locales: locales 
+	# add translation in policy file
+	for p in $(POL_FILES_IN); do \
+		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
+	done
+	for p in $(CONF_FILES_IN); do \
+		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
+	done
 	cd po && for l in $(LANGS); do \
 		install -d $(localedir)/$$l/LC_MESSAGES; \
 		install -m 644 $$l.mo $(localedir)/$$l/LC_MESSAGES/$(PGOAL).mo; \
 	done
 
 clean_locales:
-	rm -f po/*~ po/*.[oas] po/*.mo
+	rm -f po/*~ po/*.[oas] po/*.mo po/manatools_perl.pot po/manapol.pot \
+	po/manaconf.pot $(POL_FILES) $(CONF_FILES)
 
 %.mo: %.po
 	msgfmt --check -o $@ $<
 
-$(PGOAL).pot: $(PL_FILES)
+$(PGOAL).pot: manatools_perl.pot manapol.pot manaconf.pot
+	msgcat po/manatools_perl.pot po/manapol.pot po/manaconf.pot > po/$@
+
+manatools_perl.pot: $(PL_FILES)  
 	xgettext --from-code=UTF-8 --language=Perl -D ./ -o po/$@ \
 		--msgid-bugs-address="https://bugs.mageia.org/" \
 		--package-name=$(NAME) --package-version=$(VERSION) \
@@ -138,6 +163,12 @@ $(PGOAL).pot: $(PL_FILES)
 		--keyword=N --keyword=N_ --keyword=P \
 		$(PL_FILES)
 
+manapol.pot: $(POL_FILES_IN)
+	itstool -o po/$@ $(ITS_FILES) $(POL_FILES_IN)
+
+manaconf.pot: $(CONF_FILES_IN)
+	itstool -o po/$@ $(ITS_FILES) $(CONF_FILES_IN)
+	
 update_n_merge: $(PGOAL).pot merge
 
 merge:
