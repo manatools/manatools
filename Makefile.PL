@@ -123,10 +123,14 @@ CONF_FILES_IN =  $(shell find  extras/conf/mpan/ -type f -name "*.conf.in") \
 	$(shell find  extras/conf/manawall/ -type f -name "*.conf.in")
 CONF_FILES = $(CONF_FILES_IN:%.conf.in=%.conf)
 
+# deskrop files
+DESKTOP_FILES_IN = $(shell find extras/desktop/*.desktop.in)
+DESKTOP_FILES = $(DESKTOP_FILES_IN:%.desktop.in=%.desktop)
 
 POFILES = $(shell find po/ -name "*.po")
 MOFILES = $(POFILES:%.po=%.mo)
 LANGS = $(POFILES:po/%.po=%)
+LINGUAS = $(LANGS)
 
 GOALS = $(PGOAL).pot  $(MOFILES)
 
@@ -140,6 +144,10 @@ install_locales: locales
 	for p in $(CONF_FILES_IN); do \
 		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
 	done
+	echo $(LINGUAS) > po/LINGUAS
+	for p in $(DESKTOP_FILES_IN); do \
+		msgfmt --desktop --template $$p -d po -o "$${p%.*}"; \
+	done
 	cd po && for l in $(LANGS); do \
 		install -d $(localedir)/$$l/LC_MESSAGES; \
 		install -m 644 $$l.mo $(localedir)/$$l/LC_MESSAGES/$(PGOAL).mo; \
@@ -147,13 +155,14 @@ install_locales: locales
 
 clean_locales:
 	rm -f po/*~ po/*.[oas] po/*.mo po/manatools_perl.pot po/manapol.pot \
-	po/manaconf.pot $(POL_FILES) $(CONF_FILES)
+	po/manaconf.pot $(POL_FILES) $(CONF_FILES) $(DESKTOP_FILES)
 
 %.mo: %.po
 	msgfmt --check -o $@ $<
 
-$(PGOAL).pot: manatools_perl.pot manapol.pot manaconf.pot
-	msgcat po/manatools_perl.pot po/manapol.pot po/manaconf.pot > po/$@
+$(PGOAL).pot: manatools_perl.pot manapol.pot manaconf.pot manadesktop.pot
+	msgcat po/manatools_perl.pot po/manapol.pot \
+	po/manaconf.pot po/manadesktop.pot > po/$@
 
 manatools_perl.pot: $(PL_FILES)  
 	xgettext --from-code=UTF-8 --language=Perl -D ./ -o po/$@ \
@@ -168,6 +177,9 @@ manapol.pot: $(POL_FILES_IN)
 
 manaconf.pot: $(CONF_FILES_IN)
 	itstool -o po/$@ $(ITS_FILES) $(CONF_FILES_IN)
+
+manadesktop.pot: $(DESKTOP_FILES_IN)
+	xgettext $(DESKTOP_FILES_IN) -o po/manadesktop.pot 
 	
 update_n_merge: $(PGOAL).pot merge
 
