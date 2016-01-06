@@ -2,13 +2,13 @@
 # Copyright (C) 2015 Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the manatools package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2015.
+# Yuri Chornoivan <yurchor@ukr.net>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-06 00:06+0100\n"
-"PO-Revision-Date: 2015-12-31 10:49+0200\n"
+"PO-Revision-Date: 2016-01-06 10:16+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -108,6 +108,8 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Помилковий файл налаштувань, у %s немає атрибута xml:lang, вважаємо його "
+"рядком"
 
 #: lib/ManaTools/MainDisplay.pm:620
 #, perl-format
@@ -122,7 +124,7 @@ msgstr "Читаємо файл налаштувань %s"
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Завантаження параметрів: вмістом %s є <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:798
 #, perl-format
@@ -132,12 +134,12 @@ msgstr "Обробляємо файл категорій %s"
 #: lib/ManaTools/MainDisplay.pm:809
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Завантаження категорій: вмістом заголовка є <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:844
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Завантаження категорій: заголовком модуля є <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -251,11 +253,11 @@ msgstr "запустити з використанням реалізації д
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "розгортати діалогові вікна на увесь екран"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "не додавати обрамлення до діалогових вікон"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -5031,40 +5033,44 @@ msgstr "Успішно додано джерело «%s»."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Запуск засобу оновлення програмного забезпечення Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Щоб запустити допоміжний засіб оновлення Mageia rpmdragora, слід пройти "
+"розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Запуск засобу налаштовування дати і часу у Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Щоб запустити засіб налаштовування дати і часу у Mageia, слід пройти "
+"розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: налаштовування засобу входу до системи"
+msgstr "Запуск засобу керування входом до Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Щоб запустити засіб керування входом до Mageia, слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Дозвіл на використання інтерфейсу APanel"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5072,16 +5078,19 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Для виконання програми manahost (user=$(user), "
+"program=$(program), command_line=$(command_line)) слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Запуск засобу перегляду журналу Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
 msgstr ""
+"Щоб запустити засіб перегляду журналу Mageia, слід пройти розпізнавання"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5089,39 +5098,42 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Щоб запустити програму manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line)), слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Налаштування проксі"
+msgstr "Запуск засобу налаштовування служб Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
 msgstr ""
+"Щоб запустити засіб налаштовування служб Mageia, слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "Кер&ування джерелами"
+msgstr "Запуск засобу Mageia для керування записами користувачів"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
 msgstr ""
+"Для запуску засобу керування користувачами Mageia слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Налаштування захисного шлюзу"
+msgstr "Запуск засобу налаштовування захисного шлюзу Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
 msgstr ""
+"Щоб запустити засіб налаштовування захисного шлюзу Mageia, слід пройти "
+"розпізнавання"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5129,54 +5141,54 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Щоб запустити програму apanel (user=$(user), program="
+"$(program), command_line=$(command_line)), слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Цей пакунок містить програмне забезпечення, яке не є вільним"
+msgstr "Запуск засобу Mageia для встановлення або вилучення програм"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
 msgstr ""
+"Щоб запустити засіб керування пакунками rpm Mageia, слід пройти розпізнавання"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Оновлення Mageia"
+msgstr "Панель Mageia"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Категорії"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Встановити або вилучити програми"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Тільки джерела з оновленнями"
+msgstr "Оновити систему"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Налаштувати джерела встановлення і поновлення"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Мережа та інтернет"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Завантаження"
 
 #, fuzzy
 #~ msgid "/usr/bin/rpmdragora"
