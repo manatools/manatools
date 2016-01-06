@@ -115,17 +115,17 @@ ITS_FILES = -i extras/polkit/policy.its \
             -i extras/conf/manawall/manawall.its 
 
 # polkit files
-POL_FILES_IN = $(shell find extras/polkit/*.policy.in)
-POL_FILES = $(POL_FILES_IN:%.policy.in=%.policy)
+POL_IN_FILES = $(shell find extras/polkit/*.policy.in)
+POL_FILES = $(POL_IN_FILES:%.policy.in=%.policy)
 
 # manatools configuration files
-CONF_FILES_IN =  $(shell find  extras/conf/mpan/ -type f -name "*.conf.in") \
+CONF_IN_FILES =  $(shell find  extras/conf/mpan/ -type f -name "*.conf.in") \
 	$(shell find  extras/conf/manawall/ -type f -name "*.conf.in")
-CONF_FILES = $(CONF_FILES_IN:%.conf.in=%.conf)
+CONF_FILES = $(CONF_IN_FILES:%.conf.in=%.conf)
 
 # deskrop files
-DESKTOP_FILES_IN = $(shell find extras/desktop/*.desktop.in)
-DESKTOP_FILES = $(DESKTOP_FILES_IN:%.desktop.in=%.desktop)
+DESKTOP_IN_FILES = $(shell find extras/desktop/*.desktop.in)
+DESKTOP_FILES = $(DESKTOP_IN_FILES:%.desktop.in=%.desktop)
 
 POFILES = $(shell find po/ -name "*.po")
 MOFILES = $(POFILES:%.po=%.mo)
@@ -138,14 +138,14 @@ locales: $(GOALS)
 
 install_locales: locales 
 	# add translation in policy file
-	for p in $(POL_FILES_IN); do \
+	for p in $(POL_IN_FILES); do \
 		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
 	done
-	for p in $(CONF_FILES_IN); do \
+	for p in $(CONF_IN_FILES); do \
 		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
 	done
 	echo $(LINGUAS) > po/LINGUAS
-	for p in $(DESKTOP_FILES_IN); do \
+	for p in $(DESKTOP_IN_FILES); do \
 		msgfmt --desktop --template $$p -d po -o "$${p%.*}"; \
 	done
 	cd po && for l in $(LANGS); do \
@@ -155,7 +155,7 @@ install_locales: locales
 
 clean_locales:
 	rm -f po/*~ po/*.[oas] po/*.mo po/manatools_perl.pot po/manapol.pot \
-	po/manaconf.pot $(POL_FILES) $(CONF_FILES) $(DESKTOP_FILES)
+	po/manaconf.pot po/manadesktop.pot $(POL_FILES) $(CONF_FILES) $(DESKTOP_FILES)
 
 %.mo: %.po
 	msgfmt --check -o $@ $<
@@ -172,14 +172,14 @@ manatools_perl.pot: $(PL_FILES)
 		--keyword=N --keyword=N_ --keyword=P \
 		$(PL_FILES)
 
-manapol.pot: $(POL_FILES_IN)
-	itstool -o po/$@ $(ITS_FILES) $(POL_FILES_IN)
+manapol.pot: $(POL_IN_FILES)
+	itstool -o po/$@ $(ITS_FILES) $(POL_IN_FILES)
 
-manaconf.pot: $(CONF_FILES_IN)
-	itstool -o po/$@ $(ITS_FILES) $(CONF_FILES_IN)
+manaconf.pot: $(CONF_IN_FILES)
+	itstool -o po/$@ $(ITS_FILES) $(CONF_IN_FILES)
 
-manadesktop.pot: $(DESKTOP_FILES_IN)
-	xgettext $(DESKTOP_FILES_IN) -o po/manadesktop.pot 
+manadesktop.pot: $(DESKTOP_IN_FILES)
+	xgettext $(DESKTOP_IN_FILES) -o po/manadesktop.pot 
 	
 update_n_merge: $(PGOAL).pot merge
 
