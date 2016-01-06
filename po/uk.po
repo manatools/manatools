@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2016-01-06 00:06+0100\n"
+"POT-Creation-Date: 2016-01-06 19:05+0100\n"
 "PO-Revision-Date: 2016-01-06 10:16+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -5078,8 +5078,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
-"Для виконання програми manahost (user=$(user), "
-"program=$(program), command_line=$(command_line)) слід пройти розпізнавання"
+"Для виконання програми manahost (user=$(user), program=$(program), "
+"command_line=$(command_line)) слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5098,8 +5098,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
-"Щоб запустити програму manaproxy (user=$(user), "
-"program=$(program), command_line=$(command_line)), слід пройти розпізнавання"
+"Щоб запустити програму manaproxy (user=$(user), program=$(program), "
+"command_line=$(command_line)), слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5141,8 +5141,8 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
-"Щоб запустити програму apanel (user=$(user), program="
-"$(program), command_line=$(command_line)), слід пройти розпізнавання"
+"Щоб запустити програму apanel (user=$(user), program=$(program), "
+"command_line=$(command_line)), слід пройти розпізнавання"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
@@ -5189,6 +5189,164 @@ msgstr "Мережа та інтернет"
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
 msgstr "Завантаження"
+
+#: extras/desktop/dragoraupdate.desktop.in:3
+#, fuzzy
+msgid "rpmdragora - Mageia Update"
+msgstr "Оновлення rpmdragora"
+
+#: extras/desktop/dragoraupdate.desktop.in:4
+msgid "/usr/share/icons/manaupdate.png"
+msgstr ""
+
+#: extras/desktop/dragoraupdate.desktop.in:6
+msgid "A graphical front end for updating packages"
+msgstr ""
+
+#: extras/desktop/manaclock.desktop.in:3
+#, fuzzy
+msgid "manaclock - Date, Clock & Time Zone Settings"
+msgstr "Параметри дати, часу та часового поясу"
+
+#: extras/desktop/manaclock.desktop.in:4
+#, fuzzy
+msgid "ManaTools clock manager"
+msgstr "manahost: керування вузлами"
+
+#: extras/desktop/manaclock.desktop.in:6
+msgid "/usr/share/icons/manaclock.png"
+msgstr ""
+
+#: extras/desktop/manadm.desktop.in:3
+#, fuzzy
+msgid "manadm - login configuration manager"
+msgstr "manadm: налаштовування засобу входу до системи"
+
+#: extras/desktop/manadm.desktop.in:4
+#, fuzzy
+msgid "ManaTools login configuration manager"
+msgstr "manadm: налаштовування засобу входу до системи"
+
+#: extras/desktop/manadm.desktop.in:6
+msgid "/usr/share/icons/manadm.png"
+msgstr ""
+
+#: extras/desktop/manahost.desktop.in:3
+#, fuzzy
+msgid "manahost - Host and hostname manager"
+msgstr "manahost: керування вузлами"
+
+#: extras/desktop/manahost.desktop.in:4
+#, fuzzy
+msgid "ManaTools host manager"
+msgstr "manahost: керування вузлами"
+
+#: extras/desktop/manahost.desktop.in:6
+msgid "/usr/share/icons/manahost.png"
+msgstr ""
+
+#: extras/desktop/manalog.desktop.in:3
+#, fuzzy
+msgid "manalog - Journalctl log viewer, administrator mode"
+msgstr "manalog: засіб для читання журналів journalct"
+
+#: extras/desktop/manalog.desktop.in:4
+msgid "ManaTools log viewer, administrator mode"
+msgstr ""
+
+#: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
+msgid "/usr/share/icons/manalog.png"
+msgstr ""
+
+#: extras/desktop/manaproxy.desktop.in:3
+#, fuzzy
+msgid "manaproxy - Proxy configuration manager"
+msgstr "manaproxy — налаштування проксі"
+
+#: extras/desktop/manaproxy.desktop.in:4
+#, fuzzy
+msgid "ManaTools proxy manager"
+msgstr "manaproxy: керування проксі-сервером"
+
+#: extras/desktop/manaproxy.desktop.in:6
+msgid "/usr/share/icons/manaproxy.png"
+msgstr ""
+
+#: extras/desktop/manaservice.desktop.in:3
+#, fuzzy
+msgid "manaservice - Srvice configuration manager"
+msgstr "manaservice: керування службами"
+
+#: extras/desktop/manaservice.desktop.in:4
+#, fuzzy
+msgid "ManaTools service manager"
+msgstr "manaservice: керування службами"
+
+#: extras/desktop/manaservice.desktop.in:6
+msgid "/usr/share/icons/manaservice.png"
+msgstr ""
+
+#: extras/desktop/manauser.desktop.in:3
+#, fuzzy
+msgid "manauser - Users and Groups Manager"
+msgstr "manauser: керування записами користувачів"
+
+#: extras/desktop/manauser.desktop.in:4
+#, fuzzy
+msgid "ManaTools user manager"
+msgstr "manauser: керування записами користувачів"
+
+#: extras/desktop/manauser.desktop.in:6
+msgid "/usr/share/icons/manauser.png"
+msgstr ""
+
+#: extras/desktop/manauserlog.desktop.in:3
+#, fuzzy
+msgid "manalog - Journalctl log viewer, user mode"
+msgstr "manalog: засіб для читання журналів journalct"
+
+#: extras/desktop/manauserlog.desktop.in:4
+msgid "ManaTools log viewer, user mode"
+msgstr ""
+
+#: extras/desktop/manawall.desktop.in:3
+#, fuzzy
+msgid "manawall - firewall configuration manager"
+msgstr "manawall: керування захисним шлюзом"
+
+#: extras/desktop/manawall.desktop.in:4
+#, fuzzy
+msgid "ManaTools firewall configurator"
+msgstr "Налаштування захисного шлюзу"
+
+#: extras/desktop/manawall.desktop.in:6
+msgid "/usr/share/icons/manawall.png"
+msgstr ""
+
+#: extras/desktop/mpan.desktop.in:3
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr ""
+
+#: extras/desktop/mpan.desktop.in:4
+msgid "ManaTools panel - application launcher"
+msgstr ""
+
+#: extras/desktop/mpan.desktop.in:6
+msgid "/usr/share/icons/mpan.png"
+msgstr ""
+
+#: extras/desktop/rpmdragora.desktop.in:3
+#, fuzzy
+msgid "rpmdragora - Install & Remove Software"
+msgstr "Встановити або вилучити програми"
+
+#: extras/desktop/rpmdragora.desktop.in:4
+msgid "/usr/share/icons/manarpm.png"
+msgstr ""
+
+#: extras/desktop/rpmdragora.desktop.in:6
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr ""
 
 #, fuzzy
 #~ msgid "/usr/bin/rpmdragora"
