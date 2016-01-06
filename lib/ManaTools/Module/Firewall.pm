@@ -26,6 +26,7 @@ use Moose;
 use Moose::Autobox;
 use utf8;
 use File::ShareDir ':ALL';
+use I18N::LangTags::Detect;
 
 use yui;
 use ManaTools::Shared qw(trim);
@@ -218,6 +219,29 @@ sub _initUnlisted {
     return \@unlisted;
 }
 
+
+# return the localized string from a hash and given the key
+# by default en value
+sub _localizedValue {
+    my ($self, $hash, $key) = @_;
+
+    return if !defined($hash->{$key});
+
+    if (ref($hash->{$key}) ne "HASH") {
+        # Force array is set for "title"
+        return $hash->{$key}[0];
+    }
+
+    my @lang = I18N::LangTags::Detect::detect();
+    # Adding default value as English (en)
+    push @lang, 'en';
+    foreach my $l ( @lang ) {
+        return $hash->{$key}->{$l} if defined($hash->{$key}->{$l});
+    }
+
+    return;
+}
+
 #=============================================================
 
 sub get_servers {
@@ -225,17 +249,28 @@ sub get_servers {
     my $fh = undef;
     my @all_servers = ();
     my $xml = XML::Simple->new();
-    my $data = $xml->XMLin($self->conf());
-    foreach my $server (keys %{$data->{server}})
+    my $data = $xml->XMLin($self->conf(),
+        ContentKey => '-content',
+        ForceArray => ['description'],
+        KeyAttr=>{
+            description => "xml:lang",
+        }
+    );
+
+    foreach my $server (@{$data->{server}})
     {
+        my $description = $self->_localizedValue(
+            $server,
+            'description'
+        );
         push(@all_servers, {
-               id => $server,
-               name => $data->{server}->{$server}->{description},
-               pkg => $data->{server}->{$server}->{packages},
-               ports => $data->{server}->{$server}->{ports},
-               hide => (defined($data->{server}->{$server}->{hide}) ? 1 : 0),
-               default => (defined($data->{server}->{$server}->{default}) ? 1 : 0),
-               pos => (defined($data->{server}->{$server}->{pos}) ? $data->{server}->{$server}->{pos} : 0),
+               id => $server->{id},
+               name => $description,
+               pkg => $server->{packages},
+               ports => $server->{ports},
+               hide => (defined($server->{hide}) ? 1 : 0),
+               default => (defined($server->{default}) ? 1 : 0),
+               pos => (defined($server->{pos}) ? $server->{pos} : 0),
         });
     }
     my @sorted = sort { ${a}->{pos} <=> ${b}->{pos} } @all_servers;
