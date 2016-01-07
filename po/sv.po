@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -11,7 +17,7 @@
 # Kenneth Krekula, 2005
 # Kenneth Krekula <kenneth.krekula@kiruna.se>, 2004-2005,2007
 # Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2013
-# Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2012-2014
+# Kristoffer Grundström <kristoffer.grundstrom1983@gmail.com>, 2012-2016
 # Lars Westergren <lars.westergren@home.se>, 2003,2005
 # Magnus Björklöf <bjorklof@nic.fi>, 2003
 # Mattias Dahlberg <voz@home.se>, 2001
@@ -24,9 +30,11 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-06 19:05+0100\n"
-"PO-Revision-Date: 2015-07-09 08:57+0000\n"
-"Last-Translator: Michael Eklund <willard@null.net>\n"
-"Language-Team: Swedish (http://www.transifex.com/p/mageia/language/sv/)\n"
+"PO-Revision-Date: 2016-01-07 06:49+0000\n"
+"Last-Translator: Kristoffer Grundström <kristoffer.grundstrom1983@gmail."
+"com>\n"
+"Language-Team: Swedish (http://www.transifex.com/MageiaLinux/mageia/language/"
+"sv/)\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -68,9 +76,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:294
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan är mana-tools panel som samlar alla verktygen."
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:295 lib/ManaTools/Module/Users.pm:2416
 #, perl-format
@@ -129,36 +136,38 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Dålig konfigurationsfil, %s har ingen xml:lang-attribut, gissar att det är "
+"en sträng"
 
 #: lib/ManaTools/MainDisplay.pm:620
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "Misslyckades att ställa in NTP-konfigurationen"
+msgstr "Konfigurationsfilen %s saknas"
 
 #: lib/ManaTools/MainDisplay.pm:625
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Kontrollerar inställningsfiler..."
+msgstr "Läser konfigurationsfilen %s"
 
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Laddar inställningar: %s innehållet är <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:798
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Tolkar kategorifilen %s"
 
 #: lib/ManaTools/MainDisplay.pm:809
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Laddar kategorier: titelns innehåll är <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:844
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Ladda kategorier: modulens titel är <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -203,11 +212,11 @@ msgstr "Välj"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> valfri mapp som innehåller lokaliseringssträngar (endast utvecklare)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Ändra information"
+msgstr "Skriver ut den här användningsinformationen."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -269,7 +278,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "använd helskärm för dialogrutor"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
@@ -311,9 +320,8 @@ msgid "&Ok"
 msgstr "&Ok"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Stäng"
+msgstr "&Stäng"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -1124,9 +1132,8 @@ msgid "Empty log found"
 msgstr "En tom logg hittades"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Körs i användarläge"
+msgstr "manalog - körs i användarläge"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -1657,7 +1664,7 @@ msgstr ""
 "datum och tid."
 
 #: lib/ManaTools/Module/Clock.pm:219
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1665,9 +1672,12 @@ msgid ""
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Utvecklare</h3>\n"
-"                                            <ul><li>%s</li></ul>\n"
-"                                            <h3>Översättare</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"\n"
+"<ul><li>%s</li></ul>\n"
+"\n"
+"<h3>Översättare</h3>\n"
+"\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:235
 msgid "Restore data"
@@ -1764,9 +1774,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Är din hårdvaruklocka ställd till GMT?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Hantera maskindefinitioner"
+msgstr "manahost - hantera värdens definitioner"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
@@ -1848,9 +1857,8 @@ msgid "Graphical manager for hosts definitions"
 msgstr "Grafiskt verktyg för värddefinitioner"
 
 #: lib/ManaTools/Module/Firewall.pm:88
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: hantera brandvägg"
+msgstr "manawall - Hanterare för brandvägg"
 
 #: lib/ManaTools/Module/Firewall.pm:201
 msgid "Port scan detection"
@@ -2003,9 +2011,8 @@ msgstr ""
 "Vad vill du göra?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Skärmhanterare"
+msgstr "manadm - Skärmhanterare"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2047,9 +2054,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafiskt konfigurationsverktyg för systemets skärmhanterare"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Proxykonfiguration"
+msgstr "manaproxy - Konfiguration av proxy-server"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2182,7 +2188,7 @@ msgstr "Stoppar %s"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
-msgstr "Uppdatera Program"
+msgstr "Programuppdatering"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
@@ -4660,9 +4666,8 @@ msgstr ""
 "\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Utveckling"
+msgstr "Utvecklarläge"
 
 #: scripts/mpan:40
 msgid ""
@@ -4672,12 +4677,11 @@ msgstr ""
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Fönstertitel. Standardnamn för värdet"
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Utveckling"
+msgstr "== Utvecklingsläget är PÅ =="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -5033,7 +5037,7 @@ msgstr "Installation av media %s lyckades."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Kör Mageia's mjukvaru-uppdateringsverktyg"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
@@ -5043,30 +5047,33 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Kör Mageias konfigurationsverktyg för datum och tid"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Autentisering krävs för att köra Mageias konfigurationsverktyg för datum och "
+"tid"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: konfigurera loginhantering"
+msgstr "Kör Mageias konfigurationsverktyg för loginhantering"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Autentisering krävs för att köra Mageias konfigurationsverktyg för "
+"loginhantering"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Tillåt det grafiska gränssnittet för APanel"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5074,16 +5081,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Autentisering krävs för att köra  programmet manahost (användare=$(user), "
+"program=$(program), kommando_rad=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Kör Mageias loggvisare"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Autentisering krävs för att köra Mageias loggvisare"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5094,36 +5103,36 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Proxykonfiguration"
+msgstr "Kör Mageias konfigurationsverktyg för tjänster"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
 msgstr ""
+"Autentisering krävs för att köra Mageias konfigurationsverktyg för tjänster"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "&Mediahanterare"
+msgstr "Starta Mageias användarhanterare"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Autentisering krävs för att starta Mageias användarhanterare"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Brandväggskonfiguration"
+msgstr "Kör Mageias verktyg för konfigurering av brandvägg"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
 msgstr ""
+"Autentisering krävs för att köra Mageias verktyg för konfigurering av "
+"brandvägg"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5134,111 +5143,100 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Detta paket är inte fri mjukvara"
+msgstr "Kör Mageia's mjukvara för att installera eller ta bort"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Autentisering krävs för att köra Mageia's rpm-hanterare"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Uppdatera Mageia"
+msgstr "Panel för Mageia"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategorier"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Installera och Ta bort programvara"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Uppdatera endast källor"
+msgstr "Uppdatera ditt system"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Konfigurera mediakällor för installation och uppdateringar"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Nätverk &amp;amp; Internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Uppstart"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "rpmdragora updatera"
+msgstr "rpmdragora - Uppdatera Mageia"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Ett grafisk framände för att uppdatera paket"
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Datum, Tid & Tidszon inställningar"
+msgstr "manaclock - Datum, klocka och inställningar för tidszon"
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manahost: hantera värdar"
+msgstr "ManaTools klockhanterare"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manadm: konfigurera loginhantering"
+msgstr "manadm - konfigurationshanterare för inloggning"
 
 #: extras/desktop/manadm.desktop.in:4
-#, fuzzy
 msgid "ManaTools login configuration manager"
-msgstr "manadm: konfigurera loginhantering"
+msgstr ""
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
-#, fuzzy
 msgid "manahost - Host and hostname manager"
-msgstr "manahost: hantera värdar"
+msgstr "manahost - Hanterare av värd och värdnamn"
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manahost: hantera värdar"
+msgstr "Värdhanteraren ManaTools"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr "manalog: journalct loggläsare"
+msgstr ""
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
@@ -5246,76 +5244,67 @@ msgstr ""
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
-msgstr "Proxykonfiguration"
+msgstr "manaproxy - Konfigurationshanteraren för proxy-server"
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: hantera proxy"
+msgstr "Hanteraren för proxy-servern ManaTools"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
-msgid "manaservice - Srvice configuration manager"
-msgstr "manaservice: hantera tjänster"
+msgid "manaservice - Service configuration manager"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manaservice: hantera tjänster"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: användarhanterare"
+msgstr "manauser - Hanterare av Användare och Grupper"
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: användarhanterare"
+msgstr "Användarhanterare för ManaTools"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr "manalog: journalct loggläsare"
+msgstr ""
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaToosl logg-läsare. användarläge"
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: hantera brandvägg"
+msgstr "manawall - konfigurationshanteraren för brandväggen"
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Brandväggskonfiguration"
+msgstr "Brandväggskonfigureraren för ManaTools"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia's kontrollpanel för ManaTools"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
@@ -5323,47 +5312,18 @@ msgstr ""
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Detta paket är inte fri mjukvara"
+msgstr "rpmdragora - Installera & Ta bort programvara"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "/usr/bin/dragoraUpdate"
-#~ msgstr "rpmdragora updatera"
-
-#, fuzzy
-#~ msgid "images/rpmdragora/title-update.png"
-#~ msgstr "rpmdragora updatera"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "Skärmhanterare"
-
-#~ msgid "adminService"
-#~ msgstr "adminTjänster"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Translators</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
-#~ msgstr ""
-#~ "<h3>Utvecklare</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Översättare</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
+"Ett grafiskt gränssnitt för installation, borttagning och uppdatering av "
+"paket"
