@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -12,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-06 19:05+0100\n"
-"PO-Revision-Date: 2016-01-04 10:07+0000\n"
+"PO-Revision-Date: 2016-01-06 20:45+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -113,6 +119,8 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Fehlerhafte Konfigurationsdatei, %s enthält kein xml:lang Attribut, "
+"vermutlich ist es eine Zeichenkette"
 
 #: lib/ManaTools/MainDisplay.pm:620
 #, perl-format
@@ -705,6 +713,8 @@ msgstr "Automatisiert eine Paketfilter-Firewall mit iptables"
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
 msgstr ""
+"Verteilt die IRQ-Auslastung gleichmäßig auf die CPUs, um die Leistung zu "
+"steigern"
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -712,6 +722,10 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Dieser Dienst lädt die Tastaturbelegung, die in der Datei „/etc/sysconfig/"
+"keyboard“ \n"
+"angegeben ist. Mittels „kbdconfig“ können Sie diese Einstellung auswählen. \n"
+"Sie sollten dies für die meisten Rechner aktiviert lassen. "
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
@@ -743,6 +757,8 @@ msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"Der Dienst lpd ist der Drucker-Server. Dieser wird von lpr benötigt. \n"
+"Er ist ein Server, der Ihre Druckaufträge an Ihre/n Drucker weiterleitet. "
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
@@ -823,6 +839,8 @@ msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Schaltet beim Betriebssystemstart automatisch die „Num“-Taste für\n"
+"die virtuellen Konsolen und Xorg ein."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
@@ -839,6 +857,11 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"PCMCIA wird normalerweise in Laptops verwendet, um Ethernet-Karten oder\n"
+"Modems verwenden zu können. Dieser Dienst wird nur gestartet, wenn Sie ihn "
+"vorher konfiguriert haben. \n"
+"Daher schadet es nicht, wenn Sie ihn auf Rechnern aktivieren, auf denen er "
+"nicht benötigt wird."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -857,6 +880,8 @@ msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"Postfix ist ein E-Mail-Transport-Dienst. Mit seiner Hilfe werden E-Mails "
+"zwischen verschiedenen Rechnern ausgetauscht."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
@@ -872,7 +897,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
-msgstr ""
+msgstr "Nameserver-Informationsverwaltung"
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid ""
@@ -1200,6 +1225,9 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Das Erstellen von Gruppen mit ID kleiner als %d ist nicht empfehlenswert.\n"
+"Wollen Sie das wirklich machen?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:680
 msgid " Group ID is already used "
@@ -1689,7 +1717,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:165
 msgid "Icon Name"
-msgstr ""
+msgstr "Symbolname"
 
 #: lib/ManaTools/Module/Hosts.pm:178 lib/ManaTools/Module/Hosts.pm:262
 #: lib/ManaTools/Module/Hosts.pm:452 lib/ManaTools/Module/Firewall.pm:575
@@ -1768,6 +1796,8 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"DrakFirewall Konfigurator\n"
+"Dieser konfiguriert eine persönliche Firewall für diese Mageia-Maschine."
 
 #: lib/ManaTools/Module/Firewall.pm:390
 msgid ""
@@ -1775,6 +1805,9 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"DrakFirewall-Konfigurator\n"
+"Stellen Sie sicher, dass Sie Ihre Netzwerk-/Internetverbindung mit\n"
+"DrakConnect eingerichtet haben, bevor Sie fortfahren."
 
 #: lib/ManaTools/Module/Firewall.pm:453
 msgid "Interactive Firewall"
@@ -1802,12 +1835,12 @@ msgstr "Firewall"
 
 #: lib/ManaTools/Module/Firewall.pm:679
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "Auf welche Dienste darf aus dem Internet zugegriffen werden?"
 
 #: lib/ManaTools/Module/Firewall.pm:680
 #, perl-format
 msgid "Those settings will be saved for the network profile <b>%s</b>"
-msgstr ""
+msgstr "Diese Einstellungen werden im Netzwerk-Profil <b>%s</b> gespeichert"
 
 #: lib/ManaTools/Module/Firewall.pm:681
 msgid "Everything (no firewall)"
@@ -1837,11 +1870,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:873
 msgid "Other ports"
-msgstr ""
+msgstr "Andere Ports"
 
 #: lib/ManaTools/Module/Firewall.pm:881
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "Firewall-Meldungen in den Systemprotokollen aufzeichnen"
 
 #: lib/ManaTools/Module/Firewall.pm:936
 msgid "Invalid port given"
@@ -1976,7 +2009,7 @@ msgstr "Grafische Verwaltung für Proxys"
 
 #: lib/ManaTools/Module/Services.pm:89
 msgid "Services and daemons"
-msgstr ""
+msgstr "Dienste und Dämonen"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "Start when requested"
@@ -1992,11 +2025,11 @@ msgstr "gestoppt"
 
 #: lib/ManaTools/Module/Services.pm:365
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "Ein- oder Ausschalten von Systemdiensten"
 
 #: lib/ManaTools/Module/Services.pm:373
 msgid "Service"
-msgstr ""
+msgstr "Dienst"
 
 #: lib/ManaTools/Module/Services.pm:375
 msgid "On boot"
@@ -2530,6 +2563,13 @@ msgid ""
 "\n"
 "Then, restart \"%s\"."
 msgstr ""
+"Sie haben schon mindestens ein Update-Medium angegeben, aber im Moment\n"
+"sind alle diese Medien ausgeschaltet. Sie sollten den Software Medien "
+"Manager\n"
+"ausführen und mindestens eines der Medien aktivieren\n"
+"(schalten Sie es in der „%s“-Spalte ein). \n"
+"\n"
+"Starten Sie anschließend erneut „%s“."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:292
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
@@ -2560,6 +2600,11 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"Sie können Ihren bevorzugten Spiegelserver auch selbst angeben: \n"
+"Starten Sie den Paketquellen-Manager, und fügen Sie ein \n"
+"„Sicherheitsupdate“-Medium hinzu. \n"
+"\n"
+"Starten Sie anschließend erneut %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
@@ -4249,7 +4294,7 @@ msgstr "-%s (Medium: %s)"
 #: lib/ManaTools/Rpmdragora/gui.pm:939
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "Das Entfernen des %s-Paketes würde Ihr System unbrauchbar machen"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:943
 #, perl-format
@@ -4815,6 +4860,7 @@ msgstr "Beenden"
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
 msgstr ""
+"Fehler in der <url> (für das lokale Verzeichnis, der Pfad muss absolut sein)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4882,26 +4928,32 @@ msgstr ""
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Authentifizierung wird benötigt, um rpmdragora Mageia Aktualisierungs-"
+"Werkzeug auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Führe Mageia Zeiteinstellungs Konfiguration aus"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Authentifizierung wird benötigt, um die Mageia Zeiteinstellungs "
+"Konfiguration auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Führe Mageia Login Manager Konfiguration aus"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Authentifizierung wird benötigt, um die Mageia Login Manager Konfiguration "
+"auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -4916,16 +4968,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Authentifizierung wird benötigt, um manahost (user=$(user), program="
+"$(program), command_line=$(command_line)) auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia Log Viewer starten"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Eine Authentifizierung wird benötigt, um Mageia Log Viewer zu starten"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4933,39 +4987,44 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Authentifizierung wird benötigt, um manaproxy (user=$(user), program="
+"$(program), command_line=$(command_line)) auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Proxies konfigurieren"
+msgstr "Führe Mageia Service Konfiguration aus"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
 msgstr ""
+"Authentifizierung wird benötigt, um die Mageia Service Konfiguration "
+"auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "manauser - Mageia-Benutzerveraltungs-Werkzeug"
+msgstr "Mageia-Benutzerveraltungs-Werkzeug starten"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
 msgstr ""
+"Eine Authentifizierung wird benötigt, um das Mageia-Benutzerveraltungs-"
+"Werkzeug zu starten"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Firewall Konfiguration"
+msgstr "Führe Mageia Firewall-Konfiguration aus"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
 msgstr ""
+"Authentifizierung wird benötigt, um die Mageia Firewall-Konfiguration "
+"auszuführen"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4973,86 +5032,82 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Authentifizierung wird benötigt, um apanel (user=$(user), program="
+"$(program), command_line=$(command_line)) auszuführen"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Dieses Paket ist keine freie Software"
+msgstr "Mageias Installieren &amp; Entfernen von Software ausführen"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
 msgstr ""
+"Eine Authentifizierung wird benötigt, um die Mageia rpm Verwaltung zu starten"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia-Aktualisierung"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategorien"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Installieren & Entfernen von Software"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Nur Aktualisierungsquellen"
+msgstr "Aktualisieren des Systems"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Paketquellen für Installation und Aktualisierungen einrichten"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Netzwerk &amp;&amp; Internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Systemstart"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Mageia-Aktualisierung"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Eine grafische Benutzerschnittstelle zum aktualisieren von Paketen"
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Datum, Zeit und Zeitzonen Einstellungen"
+msgstr "manaclock - Datum, Zeit und Zeitzonen Einstellungen"
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manaclock: Datum-/Zeitverwaltung"
+msgstr "ManaTools Zeitverwaltung"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manaproxy - Proxy-Konfiguration"
+msgstr ""
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
@@ -5060,20 +5115,19 @@ msgstr ""
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
 msgstr ""
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manauser: Benutzerverwaltung"
+msgstr ""
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
@@ -5085,49 +5139,43 @@ msgstr ""
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
-msgstr "manaproxy - Proxy-Konfiguration"
+msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: Proxy-Verwaltung"
+msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
-msgid "manaservice - Srvice configuration manager"
-msgstr "Proxies konfigurieren"
+msgid "manaservice - Service configuration manager"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manauser: Benutzerverwaltung"
+msgstr "ManaTools Dienstverwaltung"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: Benutzerverwaltung"
+msgstr "manauser - Benutzer- und Gruppenverwaltung"
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: Benutzerverwaltung"
+msgstr "ManaTools Benutzerverwaltung"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
@@ -5138,18 +5186,16 @@ msgid "ManaTools log viewer, user mode"
 msgstr ""
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: Firewall-Verwaltung"
+msgstr "manawall - Firewall-Konfigurationsverwaltung"
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Firewall Konfiguration"
+msgstr "ManaTools Firewall-Konfiguration"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
@@ -5161,25 +5207,18 @@ msgstr ""
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Dieses Paket ist keine freie Software"
+msgstr "rpmdragora - Installieren & Entfernen von Software"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "manadm - Displaymanager"
+"Eine grafische Benutzerschnittstelle zum Installieren, Entfernen und Updaten "
+"von Paketen"
