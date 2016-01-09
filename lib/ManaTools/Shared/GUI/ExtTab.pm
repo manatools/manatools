@@ -12,7 +12,7 @@ use ManaTools::Shared::GUI::ExtTab;
 
 my $exttab = ManaTools::Shared::GUI::ExtTab->new(name => "Tab1", eventHandler => $dialog, parentWidget => $widget, callback => { my $self = shift; my $yevent = shift; my $backenditem = $_; ... });
 
-$exttab->addItem("Label 1", $backenditem1, sub {
+$exttab->addTabItem("Label 1", $backenditem1, sub {
     my ($self, $parent, $backendItem) = @_;
     my $dialog = $self->parentDialog();
     my $factory = $dialog->factory();
@@ -27,10 +27,10 @@ $exttab->addItem("Label 1", $backenditem1, sub {
     my $button2 = $self->addWidget($backendItem->label() .'_button2', $factory->createPushButton('Button 2', $vbox), sub {...}, $backendItem);
     ...
 });
-$exttab->addItem("Label 2", $backenditem2, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
-$exttab->addItem("Label 3", $backenditem3, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
-$exttab->addItem("Label 4", $backenditem4, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
-$exttab->finishedItems();
+$exttab->addTabItem("Label 2", $backenditem2, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addTabItem("Label 3", $backenditem3, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
+$exttab->addTabItem("Label 4", $backenditem4, sub { my ($self, $parent, $backendItem) = @_; my $factory = $self->parentDialog()->factory(); my $vbox = $factory->createVBox($parent); ... } );
+$exttab->finishedTabItems();
 
 
 =head1 DESCRIPTION
@@ -229,11 +229,11 @@ sub processEvent {
 
     # only items from *this* tab
     my $yitem = $yevent->item();
-    my $item = $self->findItem($yitem);
+    my $item = $self->findTabItem($yitem);
     return 1 if !defined($item);
 
     # build the children
-    $self->buildItem($item);
+    $self->buildTabItem($item);
 
     # execute callback if needed
     my $callback = $self->callback();
@@ -249,7 +249,7 @@ sub processEvent {
 
 #=============================================================
 
-=head2 addItem
+=head2 addTabItem
 
 =head3 INPUT
 
@@ -271,7 +271,7 @@ sub processEvent {
 =cut
 
 #=============================================================
-sub addItem {
+sub addTabItem {
     my $self = shift;
     my $label = shift;
     my $backendItem = shift;
@@ -289,7 +289,7 @@ sub addItem {
 
 #=============================================================
 
-=head2 findItem
+=head2 findTabItem
 
 =head3 INPUT
 
@@ -303,7 +303,7 @@ sub addItem {
 =cut
 
 #=============================================================
-sub findItem {
+sub findTabItem {
     my $self = shift;
     my $yitem = shift;
     # loop all the items
@@ -315,7 +315,7 @@ sub findItem {
 
 #=============================================================
 
-=head2 buildItem
+=head2 buildTabItem
 
 =head3 INPUT
 
@@ -329,7 +329,7 @@ sub findItem {
 =cut
 
 #=============================================================
-sub buildItem {
+sub buildTabItem {
     my $self = shift;
     my $item = shift;
     my $container = $self->container();
@@ -361,7 +361,7 @@ sub buildItem {
 
 #=============================================================
 
-=head2 clearItems
+=head2 clearTabItems
 
 =head3 INPUT
 
@@ -369,12 +369,12 @@ sub buildItem {
 
 =head3 DESCRIPTION
 
-    clears the tab to prepare for re-adding new items, call finishedItems() afterwards
+    clears the tab to prepare for re-adding new items, call finishedTabItems() afterwards
 
 =cut
 
 #=============================================================
-sub clearItems {
+sub clearTabItems {
     my $self = shift;
     my $items = $self->items();
 
@@ -388,7 +388,7 @@ sub clearItems {
 
 #=============================================================
 
-=head2 finishedItems
+=head2 finishedTabItems
 
 =head3 INPUT
 
@@ -401,7 +401,7 @@ sub clearItems {
 =cut
 
 #=============================================================
-sub finishedItems {
+sub finishedTabItems {
     my $self = shift;
 
     # remove all Items before adding
@@ -414,7 +414,7 @@ sub finishedItems {
     my $item = $self->lastItem();
 
     # show the current one if there is one
-    $self->buildItem($item) if defined($item);
+    $self->buildTabItem($item) if defined($item);
 
     # create a new itemcollection for adding new items
     $self->itemcollection(new yui::YItemCollection());
