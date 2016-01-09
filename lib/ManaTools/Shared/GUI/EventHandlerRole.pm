@@ -65,6 +65,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose::Role;
 
+has 'eventHandlers' => (
+    is => 'ro',
+    isa => 'ArrayRef[ManaTools::Shared::GUI::EventHandlerRole]',
+    init_arg => undef,
+    default => sub {
+        return [];
+    }
+);
+
 has 'events' => (
     is => 'ro',
     isa => 'HashRef[ManaTools::Shared::GUI::EventRole]',
@@ -72,6 +81,60 @@ has 'events' => (
         return {};
     }
 );
+
+#=============================================================
+
+=head2 addEventHandler
+
+=head3 INPUT
+
+    $self: this object
+    $eventHandler: an EventHandlerRole to be added
+
+=head3 DESCRIPTION
+
+    add an EventHandler to the events list
+
+=cut
+
+#=============================================================
+sub addEventHandler {
+    my $self = shift;
+    my $eventHandler = shift;
+    my $eventHandlers = $self->eventHandlers();
+    push @{$eventHandlers}, $eventHandler;
+}
+
+#=============================================================
+
+=head2 delEventHandler
+
+=head3 INPUT
+
+    $self: this object
+    $eventHandler: an EventHandlerRole to be removed
+
+=head3 DESCRIPTION
+
+    del an eventHandler from the events list
+
+=cut
+
+#=============================================================
+sub delEventHandler {
+    my $self = shift;
+    my $eventHandler = shift;
+    my $eventHandlers = $self->eventHandlers();
+    my $i = scalar(@{$eventHandlers});
+    while ($i > 0) {
+        $i = $i - 1;
+        if ($eventHandlers->[$i] == $eventHandler) {
+            # splice the eventHandler out of it
+            splice @{$eventHandlers}, $i, 1;
+            return ;
+        }
+    }
+}
 
 #=============================================================
 
@@ -463,12 +526,21 @@ sub findItem {
 sub processEvents {
     my $self = shift;
     my $yevent = shift;
-    my $events = $self->events();
+
+    # first check the other eventHandlers
+    my $eventHandlers = $self->eventHandlers();
+    for my $eventHandler (@{$eventHandlers}) {
+        my $processed = $eventHandler->processEvents($yevent);
+        return $processed if $processed >= 0;
+    }
+
     # loop all the items
+    my $events = $self->events();
     for my $event (values %{$events}) {
         my $processed = $event->processEvent($yevent);
         return $processed if $processed >= 0;
     }
+
     return 1;
 }
 
