@@ -337,6 +337,111 @@ sub findWidget {
 
 #=============================================================
 
+=head2 addItem
+
+=head3 INPUT
+
+    $self: this object
+    $name: a name to identify the item
+    $item: a yui item
+    $event: an optional CodeRef that will be executed when an Event triggers
+    $backend: an optional backend object that will be present in the event handler
+
+=head3 DESCRIPTION
+
+    add a item event handler to the events list
+
+=cut
+
+#=============================================================
+sub addItem {
+    my $self = shift;
+    my $name = shift;
+    my $item = shift;
+    my $event = shift;
+    my $backend = shift;
+    return ManaTools::Shared::GUI::Event->new(name => $name, eventHandler => $self, eventType => $yui::YEvent::MenuEvent, item => $item, event => $event, backend => $backend);
+}
+
+#=============================================================
+
+=head2 delItem
+
+=head3 INPUT
+
+    $self: this object
+    $item: a yui item
+
+=head3 DESCRIPTION
+
+    del a item event handler from the events list
+
+=cut
+
+#=============================================================
+sub delItem {
+    my $self = shift;
+    my $item = shift;
+    my $event = $self->findItem($item);
+    $self->delEvent($event->name()) if (defined $event);
+}
+
+#=============================================================
+
+=head2 item
+
+=head3 INPUT
+
+    $self: this object
+    $name: the item identified by $name
+
+=head3 DESCRIPTION
+
+    returns a yui::YItem
+
+=cut
+
+#=============================================================
+sub item {
+    my $self = shift;
+    my $name = shift;
+    return undef if (!$self->hasEvent($name));
+    my $event = $self->getEvent($name);
+    return undef if ($event->eventType() != $yui::YEvent::MenuEvent);
+    return undef if (!$event->isa('ManaTools::Shared::GUI::Event'));
+    return $event->item();
+}
+
+#=============================================================
+
+=head2 findItem
+
+=head3 INPUT
+
+    $self: this object
+    $item: the yui::YItem to be found
+
+=head3 DESCRIPTION
+
+    returns a ManaTools::Shared::GUI::Dialog::Event that has the item
+
+=cut
+
+#=============================================================
+sub findItem {
+    my $self = shift;
+    my $item = shift;
+    return $self->findEvent(sub {
+        my $event = shift;
+        my $item = shift;
+        return 0 if ($event->eventType() != $yui::YEvent::MenuEvent);
+        return 0 if (!$event->isa('ManaTools::Shared::GUI::Event'));
+        return $event->equalsItem($item);
+    }, $item);
+}
+
+#=============================================================
+
 =head2 processEvents
 
 =head3 INPUT
