@@ -78,7 +78,6 @@ use Moose;
 use diagnostics;
 use utf8;
 
-with 'ManaTools::Shared::GUI::EventHandlerRole';
 with 'ManaTools::Shared::GUI::EventRole';
 
 use yui;
@@ -134,10 +133,11 @@ has 'items' => (
     }
 );
 
-has 'container' => (
+has 'replacepoint' => (
     is => 'rw',
-    isa => 'Maybe[yui::YReplacePoint]',
+    isa => 'Maybe[ManaTools::Shared::GUI::ReplacePoint]',
     init_arg => undef,
+    handles => ['addEvent', 'delEvent', 'getEvent', 'addWidget', 'delWidget', 'widget', 'addItem', 'delItem', 'item'],
     default => sub {
         return undef;
     }
@@ -187,7 +187,6 @@ has 'itemcollection' => (
 sub buildTab {
     my $self = shift;
     my $dialog = $self->parentDialog();
-    my $factory = $dialog->factory();
     my $optFactory = $dialog->optFactory();
     my $parentWidget = $self->parentWidget();
 
@@ -195,7 +194,9 @@ sub buildTab {
     my $tab = $optFactory->createDumbTab($parentWidget);
 
     # create a replacepoint on the tab
-    $self->{container} = $factory->createReplacePoint($tab);
+    $self->{replacepoint} = ManaTools::Shared::GUI::ReplacePoint->new(parentWidget => $tab);
+    # don't add any children right away
+    $self->{replacepoint}->finished();
 
     return $tab;
 }
@@ -219,10 +220,11 @@ sub buildTab {
 sub processEvent {
     my $self = shift;
     my $yevent = shift;
+    my $replacepoint = $self->replacepoint();
     my $items = $self->items();
 
     # call subevents
-    return 0 if (!$self->processEvents($yevent));
+    return 0 if (!$replacepoint->processEvents($yevent));
 
     # only MenuEvents here...
     return 1 if ($yevent->eventType() != $yui::YEvent::MenuEvent);
@@ -332,31 +334,18 @@ sub findTabItem {
 sub buildTabItem {
     my $self = shift;
     my $item = shift;
-    my $container = $self->container();
-    my $dialog = $self->parentDialog();
-    my $ydialog = $dialog->dialog();
+    my $replacepoint = $self->replacepoint();
+    my $container = $replacepoint->container();
 
-    # lock windows for multiple changes
-    $ydialog->startMultipleChanges();
-
-    # clear out the events of the children
-    $self->clearEvents();
-
-    # clear out replacepoint
-    $container->deleteChildren();
+    # clear out any previous children/events
+    $replacepoint->clear();
 
     # build item's widgetbuilder
     my $builder = $item->builder();
     $builder->($self, $container, $item->backend()) if (defined $builder);
 
-    # trigger showChild on the container
-    $container->showChild();
-
-    # recalulate layout
-    $ydialog->recalcLayout();
-
-    # unlock windows for multiple changes
-    $ydialog->doneMultipleChanges();
+    # finished with replacepoint children
+    $replacepoint->finished();
 }
 
 #=============================================================
