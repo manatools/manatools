@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -9,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-06 19:05+0100\n"
-"PO-Revision-Date: 2016-01-03 13:54+0000\n"
+"PO-Revision-Date: 2016-01-09 09:39+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/MageiaLinux/mageia/language/"
 "eu/)\n"
@@ -5027,30 +5033,32 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Exekutatu Mageia Data eta Ordua Konfigurazioa"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Egiaztapena beharrezkoa da Mageia Data eta Ordua Konfigurazioa exekutatzeko"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: saioa hasteko kudeatzaileren konfigurazioa"
+msgstr "Exekutatu Mageia Saioa hasteko Kudeatzaileren Konfigurazioa"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Egiaztapena beharrezkoa da Mageia Saioa hasteko Kudeatzaileren Konfigurazioa "
+"exekutatzeko"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "APanelarentzako Interfaze Grafikoa baimendu"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5062,12 +5070,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Exekutatu Mageia Log ikustailea"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Egiaztapena beharrezkoa da Mageia Log ikustailea exekutatzeko"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5078,36 +5086,34 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Proxy-en konfigurazioa"
+msgstr "Exekutatu Mageia Zerbitzu Konfigurazioa"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Egiaztapena beharrezkoa da Mageia Zerbitzu Konfigurazioa exekutatzeko"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "&Euskarri Kudeatzailea"
+msgstr "Exekutatu Mageia Erabiltzaile Kudeatzailea"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
 msgstr ""
+"Autentifikazioa beharrezkoa da Mageia Erabiltzaile Kudeatzailea exekutatzeko"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Suhesi konfiguraketa"
+msgstr "Exekutatu Mageia Suebaki Konfigurazioa"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Egiaztapena beharrezkoa da Mageia Suebaki Konfigurazioa exekutazteko"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5118,9 +5124,8 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Pakete hau ez da software askea"
+msgstr ""
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
@@ -5129,100 +5134,90 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia Update"
+msgstr "Mageia Panela"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategoriak"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Softwarea Instalatu eta Kendu"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Soilik eguneraketa jatorriak"
+msgstr "Eguneratu zure Sistema"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Konfiguratu instalatu eta eguneratzeko euskarriak"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Sarea &amp;&amp; Internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Abioa"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "rpmdragora eguneratu"
+msgstr "rpmdragora - Mageia Eguneratu"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Paketeak eguneratzeko bitarteko grafiko bat"
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Data, ordulari eta ordu gune ezarpenak"
+msgstr "manaclock - Data, Ordulari eta Ordu Gune Ezarpenak"
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manahost: ostalarien kudeatzailea"
+msgstr "ManaTools ordu kudeatzailea"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manadm: saioa hasteko kudeatzaileren konfigurazioa"
+msgstr "manadm - saioa hasteko kudeatzaileren konfigurazioa"
 
 #: extras/desktop/manadm.desktop.in:4
-#, fuzzy
 msgid "ManaTools login configuration manager"
-msgstr "manadm: saioa hasteko kudeatzaileren konfigurazioa"
+msgstr "ManaTools saioa hasteko kudeatzaileren konfigurazioa"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
-#, fuzzy
 msgid "manahost - Host and hostname manager"
-msgstr "manahost: ostalarien kudeatzailea"
+msgstr "manahost - ostalarien kudeatzailea"
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manahost: ostalarien kudeatzailea"
+msgstr "ManaTools ostalarien kudeatzailea"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr "manalog: journalct erregistro irakutzailea"
+msgstr ""
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
@@ -5230,72 +5225,63 @@ msgstr ""
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
-msgstr "manaproxy - Proxy konfiguraketa"
+msgstr "manaproxy - Proxy kudeatzaileren konfigurazioa"
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: proxy kudeatzailea"
+msgstr "ManaTools proxykudeatzailea"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
-msgid "manaservice - Srvice configuration manager"
-msgstr "manaservice: zerbitzu kudeatzailea"
+msgid "manaservice - Service configuration manager"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manaservice: zerbitzu kudeatzailea"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: erbiltzaile kudeatzailea"
+msgstr ""
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: erbiltzaile kudeatzailea"
+msgstr ""
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr "manalog: journalct erregistro irakutzailea"
+msgstr ""
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
 msgstr ""
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: suebaki kudeatzailea"
+msgstr "manawall - suebaki kudeatzaileren konfigurazioa"
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Suhesi konfiguraketa"
+msgstr ""
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
@@ -5307,33 +5293,16 @@ msgstr ""
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Pakete hau ez da software askea"
+msgstr "rpmdragora - Instalatu & Kendu Softwarea"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "/usr/bin/dragoraUpdate"
-#~ msgstr "rpmdragora eguneratu"
-
-#, fuzzy
-#~ msgid "images/rpmdragora/title-update.png"
-#~ msgstr "rpmdragora eguneratu"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "manadm - Pantaila Kudeatzailea"
+msgstr "Paketeak instalatu, ezabatu eta eguneratzeko bitarteko grafiko bat"
