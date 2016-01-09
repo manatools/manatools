@@ -81,6 +81,7 @@ use utf8;
 with 'ManaTools::Shared::GUI::EventRole';
 
 use yui;
+use ManaTools::Shared::GUI::ReplacePoint;
 
 #=============================================================
 
@@ -195,6 +196,12 @@ sub buildTab {
 
     # create a replacepoint on the tab
     $self->{replacepoint} = ManaTools::Shared::GUI::ReplacePoint->new(parentWidget => $tab);
+
+    # parentEventHandler must be set directly, because we don't add the
+    # eventHandler to a parentEventHandler, instead the events are processed
+    # through the Tab's EventRole processEvent function
+    $self->{replacepoint}->parentEventHandler($self->{eventHandler});
+
     # don't add any children right away
     $self->{replacepoint}->finished();
 

@@ -65,6 +65,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose::Role;
 
+has 'parentEventHandler' => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Shared::GUI::EventHandlerRole]',
+    default => undef,
+);
+
 has 'eventHandlers' => (
     is => 'ro',
     isa => 'ArrayRef[ManaTools::Shared::GUI::EventHandlerRole]',
@@ -103,6 +109,7 @@ sub addEventHandler {
     my $eventHandler = shift;
     my $eventHandlers = $self->eventHandlers();
     push @{$eventHandlers}, $eventHandler;
+    $eventHandler->parentEventHandler($self);
 }
 
 #=============================================================
@@ -129,6 +136,7 @@ sub delEventHandler {
     while ($i > 0) {
         $i = $i - 1;
         if ($eventHandlers->[$i] == $eventHandler) {
+            $eventHandler->parentEventHandler(undef);
             # splice the eventHandler out of it
             splice @{$eventHandlers}, $i, 1;
             return ;
@@ -542,6 +550,29 @@ sub processEvents {
     }
 
     return 1;
+}
+
+#=============================================================
+
+=head2 parentDialog
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    finds the parent Dialog
+
+=cut
+
+#=============================================================
+sub parentDialog {
+    my $self = shift;
+    return $self if $self->isa('ManaTools::Shared::GUI::Dialog');
+    my $eventHandler = $self->parentEventHandler();
+    return $eventHandler->parentDialog() if defined $eventHandler;
+    return undef;
 }
 
 #=============================================================
