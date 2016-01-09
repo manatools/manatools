@@ -211,6 +211,9 @@ sub clear {
 #=============================================================
 sub finished {
     my $self = shift;
+    my $container = $self->container();
+    my $dialog = $self->parentDialog();
+    my $ydialog = $dialog->dialog();
 
     # trigger showChild on the container
     $container->showChild();
