@@ -6,8 +6,8 @@ package ManaTools::Rpmdragora::icon;
 #  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
 #  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
 #  Copyright (c) 2005-2007 Mandriva SA
-#  Copyright (c) 2013 - 2015 Matteo Pasotti <matteo.pasotti@gmail.com>
-#  Copyright (c) 2014 - 2015 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2013-2016 Matteo Pasotti <matteo.pasotti@gmail.com>
+#  Copyright (c) 2014-2016 Angelo Naselli <anaselli@linux.it>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
