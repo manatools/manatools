@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-06 19:05+0100\n"
-"PO-Revision-Date: 2016-01-06 20:45+0000\n"
+"PO-Revision-Date: 2016-01-11 17:23+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -594,6 +594,11 @@ msgstr "Startet das ALSA (Advanced Linux Sound Architecture) Soundsystem"
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
 msgstr ""
+"Mit dem Dienst anacron können cron-Prozesse auch zu anderen als den \n"
+"vorgegebenen Zeiten gestartet werden. Dies ist vor allem dann \n"
+"sinnvoll, wenn Ihr Rechner nicht rund um die Uhr läuft, da sonst \n"
+"Prozesse, die etwa zwischen Mitternacht und 6:00 Uhr gestartet \n"
+"werden sollten, nie ausgeführt würden."
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
@@ -671,6 +676,11 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"Der GPM-Dienst stellt Ihnen eine Mausunterstützung in textbasierten Linux- "
+"Programmen, \n"
+"wie dem Midnight Commander, zur Verfügung. Er erlaubt auch mausbasierte "
+"Ausschneiden-und-Einfügen-Operationen \n"
+"auf der Konsole und unterstützt Pop-Up-Menüs auf der Konsole."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
@@ -794,7 +804,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "Initialisiert Netzwerk-Konsolen-Erfassung"
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
@@ -939,17 +949,19 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
-msgstr ""
+msgstr "Paketfilter-Firewall"
 
 #: lib/ManaTools/Shared/Services.pm:334
 msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
 msgstr ""
+"Das SMB/CIFS Protokoll erlaubt es, den Zugang zu Dateien und Druckern zu "
+"teilen und integriert sich auch in eine Windows-Server-Umgebung"
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "Starten des Sound-Systems Ihres Rechners"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
@@ -960,6 +972,8 @@ msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
 msgstr ""
+"Secure Shell ist ein Netzwerkprotokoll, das es erlaubt, Daten über eine "
+"sichere Verbindung zwischen zwei Computern auszutauschen"
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
@@ -970,6 +984,7 @@ msgstr ""
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
 msgstr ""
+"Verschiebt die generierten persistenten udev-Regeln nach /etc/udev/rules.d"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
@@ -985,7 +1000,7 @@ msgstr "Startet den X-Font-Server."
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "Startet andere Daemonen auf Verlangen."
 
 #: lib/ManaTools/Module/LogViewer.pm:84
 msgid "Log viewer"
@@ -4508,7 +4523,7 @@ msgstr "manaclock: Datum-/Zeitverwaltung"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: Hostverwaltung"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
@@ -4630,6 +4645,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Entwickler</h3>\n"
+"<ul><li>%s</li></ul>\n"
+"<h3>Übersetzer</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid "rpmdragora update"
@@ -4726,7 +4745,7 @@ msgstr "Alle Pakete, nach Medienquelle"
 
 #: modules/rpmdragora/rpmdragora:561
 msgid "Backports"
-msgstr ""
+msgstr "Backports"
 
 #: modules/rpmdragora/rpmdragora:562
 msgid "Meta packages"
@@ -4798,7 +4817,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:700
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Im _kompletten Paketnamen suchen"
 
 #: modules/rpmdragora/rpmdragora:701
 msgid "Use _regular expressions in searches"
@@ -5123,7 +5142,7 @@ msgstr ""
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "ManaTools Hostverwaltung"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
@@ -5143,11 +5162,11 @@ msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - Proxy-Konfigurationsverwaltung"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "ManaTools Proxy-Verwaltung"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
