@@ -106,7 +106,7 @@ use yui;
 
 has 'eventHandler' => (
     is => 'rw',
-    does => 'Maybe[EventHandlerRole]',
+    does => 'Maybe[ManaTools::Shared::GUI::EventHandlerRole]',
     lazy => 1,
     default => undef,
     trigger => sub {
