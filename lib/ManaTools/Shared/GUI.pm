@@ -34,7 +34,7 @@ Angelo Naselli <anaselli@linux.it>
 =head1 COPYRIGHT and LICENSE
 
 Copyright (C) 2014-2016, Angelo Naselli.
-Copyright (C) 2015, Matteo Pasotti <matteo.pasotti@gmail.com>.
+Copyright (C) 2015-2016, Matteo Pasotti <matteo.pasotti@gmail.com>.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as

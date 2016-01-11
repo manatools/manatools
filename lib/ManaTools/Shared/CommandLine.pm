@@ -35,7 +35,7 @@ package ManaTools::Shared::CommandLine;
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2015, Angelo Naselli.
+Copyright (C) 2015-2016, Angelo Naselli.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as

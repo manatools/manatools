@@ -48,7 +48,7 @@ package ManaTools::Shared::GUI::EventRole;
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (c) 2015 Maarten Vanraes <alien@rmail.be>
+Copyright (c) 2015-2016 Maarten Vanraes <alien@rmail.be>
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as

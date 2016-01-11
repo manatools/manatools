@@ -36,7 +36,7 @@ package ManaTools::Rpmdragora::DB;
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (c) 2015 Angelo Naselli <anaselli@linux.it>
+Copyright (c) 2015-2016 Angelo Naselli <anaselli@linux.it>
     from Rpmdrake::open_db:
      Copyright (c) 2002 Guillaume Cottenceau
      Copyright (C) 2008 Aurelien Lefebvre <alkh@mandriva.org>

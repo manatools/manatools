@@ -1,7 +1,7 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
 #
-#  Copyright (c) 2015 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2015-2016 Angelo Naselli <anaselli@linux.it>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
@@ -95,11 +95,11 @@ sub start {
     # use either Shared::Module::GUI::Dialog to implement your layout
     # and manage your events or use yui::YUI::app()->setApplicationTitle
     # and yui::YUI::app()->setApplicationIcon to here
-    
+
     $self->sh_gui->msgBox({
         text => $self->loc->N("Hello world, I am the beautiful module template")
     });
-    
+
 };
 
 

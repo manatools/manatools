@@ -33,7 +33,7 @@ Angelo Naselli <anaselli@linux.it>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2015, Angelo Naselli.
+Copyright (C) 2015-2016, Angelo Naselli.
 
 This module is free software.  You can redistribute it and/or
 modify it under the terms of the Artistic License 2.0.
