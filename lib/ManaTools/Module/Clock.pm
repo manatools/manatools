@@ -31,7 +31,7 @@ Angelo Naselli <anaselli@linux.it>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2014-2015, Angelo Naselli.
+Copyright (C) 2014-2016, Angelo Naselli.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as
@@ -213,7 +213,7 @@ sub _adminClockPanel {
                 $self->sh_gui->AboutDialog({
                     name    => $self->name,
                     version => $self->Version(),
-                    credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2015'),
+                    credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2016'),
                     license => $self->loc->N("GPLv2"),
                     description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
                     authors => $self->loc->N("<h3>Developers</h3>

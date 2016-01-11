@@ -32,7 +32,7 @@ package ManaTools::SettingsReader;
 
 =head1 COPYRIGHT and LICENSE
 
-    Copyright (C) 2012-2015, Angelo Naselli.
+    Copyright (C) 2012-2016, Angelo Naselli.
 
    This file is part of ManaTools
 

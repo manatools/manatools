@@ -32,7 +32,7 @@ ManaTools::MainDisplay - class for ManaTools main window
 
 =head1 COPYRIGHT and LICENSE
 
-    Copyright (C) 2012-2015, Angelo Naselli.
+    Copyright (C) 2012-2016, Angelo Naselli.
     Copyright (C) 2012, Steven Tucker.
 
     ManaTools is free software: you can redistribute it and/or modify
@@ -289,7 +289,7 @@ sub _showAboutDialog {
     my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->AboutDialog({ name => $self->{name},
         version => $self->Version(),
-        credits => $self->loc()->N("Copyright (C) %s Mageia community", '2013-2015'),
+        credits => $self->loc()->N("Copyright (C) %s Mageia community", '2013-2016'),
         license => $self->loc()->N("GPLv2"),
         description => $self->loc()->N("mpan is the ManaTools panel that collects all the utilities."),
         authors => $self->loc()->N("<h3>Developers</h3>

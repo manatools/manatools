@@ -35,7 +35,7 @@ You can find documentation for this module with the perldoc command:
 
 =head1 COPYRIGHT and LICENSE
 
-    Copyright 2012-2015, Angelo Naselli.
+    Copyright 2012-2016, Angelo Naselli.
     Copyright 2012, Steven Tucker.
 
     This program is free software; you can redistribute it and/or modify

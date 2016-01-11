@@ -1,5 +1,5 @@
 # vim: set et ts=4 sw=4:
-#    Copyright 2012-2015 Matteo Pasotti
+#    Copyright 2012-2016 Matteo Pasotti
 #
 #    This file is part of ManaTools
 #

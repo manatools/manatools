@@ -33,7 +33,7 @@ Angelo Naselli <anaselli@linux.it>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2014-2015, Angelo Naselli.
+Copyright (C) 2014-2016, Angelo Naselli.
 Copyright (C) 2015, Matteo Pasotti <matteo.pasotti@gmail.com>.
 
 This program is free software; you can redistribute it and/or modify

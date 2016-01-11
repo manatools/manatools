@@ -38,7 +38,7 @@ Angelo Naselli <anaselli@linux.it>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2014-2015, Angelo Naselli.
+Copyright (C) 2014-2016, Angelo Naselli.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as
@@ -446,7 +446,7 @@ sub _servicePanel {
                 $translators =~ s/\>/\&gt\;/g;
                 $self->sh_gui->AboutDialog({ name => $self->name,
                                              version => $self->Version(),
-                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2015'),
+                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2016'),
                          license => $self->loc->N("GPLv2"),
                          description => $self->loc->N("adminService is the Mageia service and daemon management tool\n
                                                        (from the original idea of Mandriva draxservice)."),
