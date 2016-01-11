@@ -136,7 +136,7 @@ GOALS = $(PGOAL).pot  $(MOFILES)
 
 locales: $(GOALS)
 
-install_locales: locales 
+install_locales: $(MOFILES) 
 	# add translation in policy file
 	for p in $(POL_IN_FILES); do \
 		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
