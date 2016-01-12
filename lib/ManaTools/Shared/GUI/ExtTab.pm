@@ -231,22 +231,23 @@ sub processEvent {
     my $items = $self->items();
 
     # call subevents
-    return 0 if (!$replacepoint->processEvents($yevent));
+    my processed = $replacepoint->processEvents($yevent);
+    return $processed if $processed >= 0;
 
     # only MenuEvents here...
-    return 1 if ($yevent->eventType() != $yui::YEvent::MenuEvent);
+    return -1 if ($yevent->eventType() != $yui::YEvent::MenuEvent);
 
     # only items from *this* tab
     my $yitem = $yevent->item();
     my $item = $self->findTabItem($yitem);
-    return 1 if !defined($item);
+    return -1 if !defined($item);
 
     # build the children
     $self->buildTabItem($item);
 
     # execute callback if needed
     my $callback = $self->callback();
-    my $result = 1;
+    my $result = -1;
     $result = $callback->($self, $yevent, $item->backend()) if defined($callback);
 
     # mark last item as this one

@@ -522,7 +522,7 @@ sub findItem {
 
 =head3 OUTPUT
 
-    0 if the loop should end, 1 otherwise
+    0 if the loop should end, positive if handled, negative otherwise
 
 =head3 DESCRIPTION
 
@@ -549,7 +549,7 @@ sub processEvents {
         return $processed if $processed >= 0;
     }
 
-    return 1;
+    return -1;
 }
 
 #=============================================================
