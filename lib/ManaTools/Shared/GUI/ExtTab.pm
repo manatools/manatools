@@ -231,7 +231,7 @@ sub processEvent {
     my $items = $self->items();
 
     # call subevents
-    my processed = $replacepoint->processEvents($yevent);
+    my $processed = $replacepoint->processEvents($yevent);
     return $processed if $processed >= 0;
 
     # only MenuEvents here...
