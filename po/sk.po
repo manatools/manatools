@@ -9,14 +9,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Jajo Pajo, 2016
 # Milan Baša <minkob@mail.t-com.sk>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-09 02:57+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-01-12 15:15+0000\n"
+"Last-Translator: Jajo Pajo\n"
 "Language-Team: Slovak (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sk/)\n"
 "Language: sk\n"
@@ -55,7 +56,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:294
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan je panel ManaTools, ktorý zhromažďuje všetky užitočné nástroje."
 
 #: lib/ManaTools/MainDisplay.pm:295 lib/ManaTools/Module/Users.pm:2416
 #, perl-format
@@ -115,16 +116,18 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Chybný konfiguračný súbor, %s nemá xml:lang atribút, predpokladáme teda že "
+"je to reťazec"
 
 #: lib/ManaTools/MainDisplay.pm:620
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Chýba konfiguračný súbor %s"
 
 #: lib/ManaTools/MainDisplay.pm:625
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "Načítava sa konfiguračný súbor %s"
 
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
@@ -2432,9 +2435,9 @@ msgstr "Naozaj chcete preskočiť tohoto hosťa?"
 #: lib/ManaTools/Module/Hosts.pm:499
 #: lib/ManaTools/Module/DisplayManager.pm:266
 #: lib/ManaTools/Module/Firewall.pm:179
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Copyright (C) %s by Mandriva"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
