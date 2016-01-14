@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-13 23:03+0000\n"
+"PO-Revision-Date: 2016-01-14 18:17+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -183,7 +183,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
-msgstr ""
+msgstr "--mode=MODE setze Modus (install (Vorgabe), remove, update)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
@@ -197,10 +197,11 @@ msgstr ""
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
+"--no-confirmation keine Erstbestätigung im Aktualisierungsmodus abfragen"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "--no-media-update die Medien nicht bei Inbetriebnahme aktualisieren"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
@@ -211,15 +212,20 @@ msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"--parallel=alias,host sind im parallelen Modus, benutze \"alias\" Gruppe, "
+"benutze \"host\" Rechner zum Anzeigen der benötigten Abhängigkeiten"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
 msgstr ""
+"--rpm-root=path nutze ein anderes Wurzelverzeichnis für die RPM Installation"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"--urpmi-root benutze anderes Wurzelverzeichnis für urpmi db & rpm "
+"Installation"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
@@ -240,7 +246,7 @@ msgstr ""
 msgid ""
 "  --version              print this tool's version number\n"
 "                    "
-msgstr ""
+msgstr "--version Ausgabe der Versionsnummer dieses Tools"
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -321,6 +327,13 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"Um Ihr System sicher und stabil zu halten, müssen Sie mindestens die\n"
+"offiziellen Sicherheits- und Stabilitäts-Updatequellen einrichten. Sie "
+"können auch einen vollständigen Quellensatz einrichten, der alle offiziellen "
+"Mageiaquellen beinhaltet. So erhalten Sie Zugang zu vielen weiteren "
+"Programmen, die nicht auf die Mageia-CDs/DVDs passen.\n"
+"Bitte wählen Sie aus, ob nur die Updatequellen oder ein vollständiger "
+"Quellensatz eingebunden werden soll."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -1010,6 +1023,11 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"Die Paketdatenbank ist gesperrt. Bitte schließen Sie andere Anwendungen,\n"
+"die mit der Paketdatenbank arbeiten. Haben Sie vielleicht einen weiteren "
+"Paket-\n"
+"Manager auf einem anderen Desktop geöffnet oder sind Sie bereits andere\n"
+"Pakete am installieren?"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
@@ -2489,7 +2507,7 @@ msgstr "Wählen Sie einen Display-Manager"
 
 #: lib/ManaTools/Module/DisplayManager.pm:268
 msgid "Graphical configurator for system Display Manager"
-msgstr ""
+msgstr "Grafische Konfiguration des Display-Managers für das System"
 
 #: lib/ManaTools/Module/Firewall.pm:89
 msgid "manawall - Firewall Manager"
@@ -2533,6 +2551,9 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Sie können gewarnt werden, wenn jemand auf einen Dienst zugreift oder "
+"versucht, in Ihren Rechner einzudringen.\n"
+"Bitte wählen Sie, welche Netzwerk-Aktivitäten beobachtet werden sollen."
 
 #: lib/ManaTools/Module/Firewall.pm:499
 msgid "Use Interactive Firewall"
@@ -2603,6 +2624,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"Angabe eines ungültigen Ports: „%s“.\n"
+"Das Format lautet: „port/tcp“ oder „port/udp“,\n"
+"wobei Port eine Zahl zwischen 1 und 65535 ist.\n"
+"\n"
+"Sie können auch einen Portbereich (z.B. 24300:24350/udp) angeben."
 
 #: lib/ManaTools/Module/Firewall.pm:1012
 msgid ""
@@ -2616,6 +2642,20 @@ msgid ""
 "\n"
 "Which interfaces should be protected?\n"
 msgstr ""
+"Bitte wählen Sie die Schnittstellen aus, welche durch die Firewall geschützt "
+"werden sollen. \n"
+"\n"
+"Alle Schnittstellen mit einer direkten Verbindung zum Internet, sollten "
+"ausgewählt werden,\n"
+"während Schnittstellen mit einer Verbindung zum lokalen Netzwerk abgewählt "
+"werden können.\n"
+"\n"
+"Falls Sie vorhaben die Internetverbindung mit anderen Rechnern zu teilen/"
+"freizugeben,\n"
+"wählen Sie Schnittstellen, welche mit dem lokalen Netzwerk verbunden sind, "
+"ab.\n"
+"\n"
+"Welche Schnittstellen sollen geschützt werden?\n"
 
 #: lib/ManaTools/Module/Firewall.pm:1101
 msgid ""
@@ -2708,7 +2748,7 @@ msgstr "Leeres Log gefunden"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - Arbeite im Benutzer-Modus"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -4519,7 +4559,7 @@ msgstr ""
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: Login Manager Konfiguration"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
@@ -4809,7 +4849,7 @@ msgstr "Verlassen"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/_Wähle Abhängigkeiten ohne nachzufragen"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Clear download cache after successful install"
@@ -4817,7 +4857,7 @@ msgstr "Lösche den Downloadspeicher nach der erfolgreichen Installation"
 
 #: modules/rpmdragora/rpmdragora:699
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/__Während dem Start nach Updates suchen"
 
 #: modules/rpmdragora/rpmdragora:700
 msgid "Search in _full package names"
@@ -4825,7 +4865,7 @@ msgstr "Im _kompletten Paketnamen suchen"
 
 #: modules/rpmdragora/rpmdragora:701
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Nutze in der Suche _reguläre Ausdrücke"
 
 #: modules/rpmdragora/rpmdragora:708
 msgid "Reset the selection"
@@ -5130,11 +5170,11 @@ msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - Login Konfigurationsverwaltung"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "ManaTools Login Konfigurationsverwaltung"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
@@ -5142,7 +5182,7 @@ msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - Host und Hostname-Verwaltung"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
@@ -5154,11 +5194,11 @@ msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Journalctl Protokollbetrachter, Administratormodus"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools Protokollbetrachter, Administratormodus"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
@@ -5202,11 +5242,11 @@ msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Journalctl Protokollbetrachter, Benutzermodus"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools Protokollbetrachter, Benutzermodus"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
