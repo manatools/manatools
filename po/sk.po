@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-13 00:27+0000\n"
+"PO-Revision-Date: 2016-01-14 17:26+0000\n"
 "Last-Translator: Jajo Pajo\n"
 "Language-Team: Slovak (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sk/)\n"
@@ -132,22 +132,22 @@ msgstr "Načítava sa konfiguračný súbor %s"
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Načítať nastavenia: %s obsah je <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:798
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Spracováva sa súbor kategórie %s"
 
 #: lib/ManaTools/MainDisplay.pm:809
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Nahrať kategórie: obsah nadpisu je <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:844
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Nahrať kategórie: nadpis modulu je <<%s>>"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2365,7 +2365,7 @@ msgstr "Informácia"
 
 #: lib/ManaTools/Module/Hosts.pm:51
 msgid "manahost - manage hosts definitions"
-msgstr ""
+msgstr "manahost - spravovať definície hostiteľov"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
@@ -2437,7 +2437,7 @@ msgstr "Naozaj chcete preskočiť tohoto hosťa?"
 #: lib/ManaTools/Module/Firewall.pm:179
 #, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr ""
+msgstr "Copyright (C) %s by Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -2445,7 +2445,7 @@ msgstr "Grafický správca pre definície hosťovských počítačov "
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
 msgid "manadm - Display Manager"
-msgstr ""
+msgstr "manadm - správca pracovnej plochy"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2495,7 +2495,7 @@ msgstr "Grafický konfigurátor pre  správcu pracovnej plochy"
 
 #: lib/ManaTools/Module/Firewall.pm:89
 msgid "manawall - Firewall Manager"
-msgstr ""
+msgstr "manawall - Správca Firewallu"
 
 #: lib/ManaTools/Module/Firewall.pm:203
 msgid "Port scan detection"
@@ -2733,7 +2733,7 @@ msgstr "Nájdený prázdny záznam"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - bežiaci v používateľskom režime"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -3135,7 +3135,7 @@ msgstr "Upraviť používateľa"
 
 #: lib/ManaTools/Module/Users.pm:2186 lib/ManaTools/Module/Users.pm:2289
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Nie je možné vytvoriť ovládacie prvky karty"
 
 #: lib/ManaTools/Module/Users.pm:2202
 msgid "Edit Group"
@@ -3191,7 +3191,7 @@ msgstr "Aplikovať filter"
 
 #: lib/ManaTools/Module/Proxy.pm:56
 msgid "manaproxy - Proxy configuration"
-msgstr ""
+msgstr "manaproxy - konfigurácia Proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -3322,6 +3322,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Vývojári</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Prekladatelia</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:235
 msgid "Restore data"
@@ -3428,10 +3432,11 @@ msgstr "Zahodiť vlastné pravidlá"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> voliteľný adresár obsahujúci lokalizačné reťazce (len pre vývojárov)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "Vytlačí túto informáciu o používaní."
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -3720,29 +3725,31 @@ msgstr "Vybrať"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "začať používať yui gtk implementáciu pluginu"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "začať používať yui ncurses implementáciu pluginu"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "začať používať yui qt implementáciu pluginu"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "použiť pre dialógy celú obrazovku"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "žiadne rámik správcu okien pre dialógy"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> voliteľný adresár obsahujúci konfiguračné súbory pre každý modul "
+"(napr. menomodulu/konfiguracne_subory)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -3750,7 +3757,7 @@ msgstr "&Reset"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
 msgid "&Close"
-msgstr ""
+msgstr "&Zatvoriť"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -4622,21 +4629,23 @@ msgstr "platné <commands>:\n"
 
 #: scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "Vývojársky režim"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Názov aplikácie, použitý ako identifikátor oznámení a konfiguračného "
+"adresára x aplikácie. Predvolene mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Nadpis okna. Hodnota predvoleného názvu"
 
 #: scripts/mpan:70
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== Vývojársky režim ZAPNUTÝ =="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -4992,12 +5001,13 @@ msgstr "Úspešne pridaný zdroj `%s'."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Spustiť nástroj na aktualizáciu softvéru Mageie"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Pre spustenie akualizátora Mageie - rpmdragora - je potrebná autentifikácia."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -5024,7 +5034,7 @@ msgstr "Pre spustenie Mageia správcu prihlásenia sa vyžaduje overenie"
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Zapnúť grafické rozhranie APanel"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5032,6 +5042,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Autentifikácia je vyžadovaná pre spustenie programu manahost (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5049,6 +5061,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Autentifikácia je nutná pre spustenie programu manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5086,36 +5100,38 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Autentifikácia je nutná pre spustenie programu apanel (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Spustiť Inštalovanie a odstraňovanie softvéru v Mageii"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Autentifikácia je vyžadovaná pre spustenie správcu rpm balíčkov Mageie"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Panel Mageie"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategórie"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Inštalovanie a odstránenie softvéru"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "Aktualizovať váš Systém"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -5125,7 +5141,7 @@ msgstr "Nastaviť inštalačné a aktualizačné zdroje médií"
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Sieť a Internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5134,139 +5150,140 @@ msgstr "Štart"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Aktualizovať Mageiu"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Grafické rozhranie na aktualizovanie balíčkov"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - Nastavenia dátumu, hodín a časového pásma"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "ManaTools správca hodín"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - správca prihlasovacej konfigurácie"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "ManaTools správca prihlasovacích nastavení"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - správca hostiteľov a ich mien"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "ManaTools správca hostiteľov"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - prehliadač logovaných súborov Journalctlu, správcovský režim"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools prehliadač logovaných súborov, správcovský režim"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - správca proxy nastavení"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "ManaTools správca proxy"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - správca nastavení služieb"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "ManaTools správca služieb"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - správca používateľov a skupín"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "ManaTools správca používateľov"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
 msgstr ""
+"manalog - prehliadač logovaných súborov Journalctlu, používateľský režim"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools prehliadač logovaných súborov, používateľský režim"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall - správca nastavenia firewallu"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "ManaTools - nastavovač firewallu"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - ovládací panel správcovských nástrojov Mageia ManaTools"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "Panel ManaTools - spúšťač aplikácií"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - inštalovanie a odstraňovanie softvéru"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
