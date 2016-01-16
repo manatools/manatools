@@ -65,7 +65,9 @@ use ManaTools::Module;
 use ManaTools::Shared;
 use ManaTools::Shared::GUI;
 use ManaTools::Shared::GUI::Dialog;
+use ManaTools::Shared::GUI::ReplacePoint;
 use ManaTools::Shared::Locales;
+
 use File::ShareDir ':ALL';
 
 use yui;
@@ -214,9 +216,12 @@ has 'rightPaneFrame' => (
 
 has 'replacePoint' => (
     is => 'rw',
-    isa => 'Maybe[yui::YReplacePoint]',
+    isa => 'Maybe[ManaTools::Shared::GUI::ReplacePoint]',
     init_arg => undef,
-    default => undef,
+    handles => ['addEvent', 'delEvent', 'getEvent', 'addWidget', 'delWidget', 'widget', 'addItem', 'delItem', 'item'],
+    default => sub {
+        return undef;
+    }
 );
 
 has 'selectedModule' => (
@@ -470,9 +475,17 @@ sub _setupGui {
             my $leftPaneFrame = $factory->createFrame($layout, $module->settings()->{category_title});
             #create right Panel Frame no need to add a label for title (use setLabel when module changes)
             my $rightPaneFrame = $factory->createFrame($layout, "");
+
+
+             # create a replacepoint on the tab
+            $module->replacePoint (ManaTools::Shared::GUI::ReplacePoint->new(
+                eventHandler => $self,
+                parentWidget => $rightPaneFrame
+             ));
+            my $container =  $module->replacePoint->container();
+
             #create replace point for dynamically created widgets
-            $module->replacePoint($factory->createReplacePoint($rightPaneFrame));
-            $module->rightPane($factory->createVBox($module->replacePoint()));
+            $module->rightPane($factory->createVBox($container));
             $module->leftPane($factory->createVBox($leftPaneFrame));
             $module->rightPaneFrame($rightPaneFrame);
 
@@ -508,6 +521,7 @@ sub _setupGui {
             # built one is the one shown. Forcing setting again here
             yui::YUI::app()->setApplicationTitle($self->title);
             yui::YUI::app()->setApplicationIcon($self->icon);
+            $module->replacePoint->finished();
 
             return $self->widget('layout');
         },
@@ -568,15 +582,16 @@ sub _categorySelected {
             }
 
             ## Remove existing modules
-            $self->replacePoint()->deleteChildren();
-            $self->rightPane($self->factory()->createVBox($self->replacePoint()));
+            $self->replacePoint->clear();
+            $self->rightPane($self->factory()->createVBox($self->replacePoint->container()));
 
             ## Add new Module Buttons to Right Pane
             $self->currCategory()->addButtons($self);
             $self->rightPaneFrame()->setLabel($self->currCategory()->name());
             $self->factory()->createSpacing($self->rightPane(), 1, 1, 1.0 );
-            $self->replacePoint()->showChild();
-            $ydialog->recalcLayout();
+
+            $self->replacePoint->finished();
+
             $ydialog->doneMultipleChanges();
 
             return 1;
