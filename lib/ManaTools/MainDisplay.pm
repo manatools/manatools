@@ -300,11 +300,13 @@ sub _showAboutDialog {
         authors => $self->loc()->N("<h3>Developers</h3>
                                     <ul><li>%s</li>
                                         <li>%s</li>
+                                        <li>%s</li>
                                     </ul>
                                     <h3>Translators</h3>
                                     <ul><li>%s</li></ul>",
                                     "Angelo Naselli &lt;anaselli\@linux.it&gt;",
                                     "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
+                                    "Maarten Vanraes &lt;alien\@rmail.be&gt;",
                                     $translators
         ),
 
