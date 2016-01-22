@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-14 18:17+0000\n"
+"PO-Revision-Date: 2016-01-21 19:37+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -2319,6 +2319,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
 msgstr ""
+"Unbehebbarer Fehler: es wurde leider kein Paket zum Installieren gefunden."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
@@ -2664,6 +2665,10 @@ msgid ""
 "up.\n"
 "    What do you want to do?"
 msgstr ""
+"Ihre Firewall-Konfiguration wurde manuell verändert und enthält Regeln, "
+"welche einen Konflikt mit der\n"
+"eingestellten Konfiguration verursachen kann.\n"
+"Was wollen Sie tun?"
 
 #: lib/ManaTools/Module/LogViewer.pm:84
 msgid "Log viewer"
@@ -3180,6 +3185,8 @@ msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser ist ein Mageia Werkzeug zur Benutzerverwaltung\n"
+"(nach der ursprünglichen Idee von Mandrivas userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2464 lib/ManaTools/Module/Users.pm:2516
 msgid "Refresh"
@@ -3989,6 +3996,8 @@ msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Der Linux Virtual Server kann verwendet werden, um einen\n"
+"hochperformanten Hochverfügbarkeitsserver aufzusetzen."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
@@ -4555,7 +4564,7 @@ msgstr "manauser: Benutzerverwaltung"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: Dienstverwaltung"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
