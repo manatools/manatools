@@ -1,15 +1,21 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
-# Moo, 2015
+# Moo, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2015-12-31 16:55+0000\n"
+"PO-Revision-Date: 2016-01-18 21:22+0000\n"
 "Last-Translator: Moo\n"
 "Language-Team: Lithuanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/lt/)\n"
@@ -243,7 +249,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:1553 lib/ManaTools/Rpmdragora/pkg.pm:494
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr ""
+msgstr "Įvyko lemtinga klaida: %s."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
@@ -459,7 +465,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
-msgstr ""
+msgstr "Niekada"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
@@ -471,7 +477,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
-msgstr ""
+msgstr "Visada"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
@@ -488,7 +494,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr ""
+msgstr "Prašome palaukti, šalinama laikmena..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
@@ -509,7 +515,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2058
 #: lib/ManaTools/Rpmdragora/pkg.pm:292
 msgid "Enabled"
-msgstr ""
+msgstr "Įjungta"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
@@ -525,7 +531,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:611 lib/ManaTools/Module/Firewall.pm:826
 #: lib/ManaTools/Module/Firewall.pm:922 lib/ManaTools/Module/Proxy.pm:330
 msgid "&OK"
-msgstr ""
+msgstr "&Gerai"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
@@ -1810,7 +1816,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
 msgid "Configuration"
-msgstr ""
+msgstr "Konfigūracija"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
 #: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
@@ -2113,6 +2119,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Įdiegimo metu, įvyko klaida:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
@@ -2188,12 +2197,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Change medium"
-msgstr ""
+msgstr "Pakeiskite laikmeną"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "Prašome įdėti laikmeną, pavadinimu \"%s\""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
@@ -2257,6 +2266,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Paketų šalinimo metu, atsirado problemų:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1093 lib/ManaTools/Module/Services.pm:386
 msgid "Information"
@@ -2334,9 +2346,9 @@ msgstr ""
 #: lib/ManaTools/Module/Hosts.pm:499
 #: lib/ManaTools/Module/DisplayManager.pm:266
 #: lib/ManaTools/Module/Firewall.pm:179
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Autorių Teisės (C) %s pagal Mandriva"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -4834,7 +4846,7 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Įkrovimas"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
