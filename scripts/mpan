@@ -98,7 +98,7 @@ sub getSettings {
     my ($self) = @_;
 
     # yui commandline parser
-    my $confDir = $cmdline->conf_dir() || "/etc";
+    my $confDir = $cmdline->conf_dir() || "/etc/manatools";
     chop $confDir if substr($confDir, -1) eq '/';
     $confDir .= '/mpan';
 
