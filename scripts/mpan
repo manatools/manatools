@@ -19,7 +19,7 @@
 #    You should have received a copy of the GNU General Public License
 #    along with ManaTools.  If not, see <http://www.gnu.org/licenses/>.
 
-package mpan::CommandLine;
+package mpanCommandLine;
 
 use Moose;
 extends 'ManaTools::Shared::GUI::CommandLine';
@@ -58,11 +58,10 @@ use diagnostics;
 use ManaTools::Privileges;
 use ManaTools::SettingsReader;
 use ManaTools::MainDisplay;
-use mpan::CommandLine;
 
 use yui;
 
-my $cmdline = mpan::CommandLine->new_with_options();
+my $cmdline = mpanCommandLine->new_with_options();
 
 my $settings = getSettings();
 
