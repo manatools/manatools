@@ -1,17 +1,23 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
-# Davidmp <medipas@gmail.com>, 2015
+# Davidmp <medipas@gmail.com>, 2015-2016
 # Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2015-12-07 11:35+0000\n"
-"Last-Translator: Robert Antoni Buj i Gelonch <rbuj@fedoraproject.org>\n"
+"PO-Revision-Date: 2016-01-25 18:17+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -27,7 +33,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:444 lib/ManaTools/Module/Clock.pm:210
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
+msgstr "La traducció del Mageia es fa per mitjà de www.transifex.com\n"
 
 #: lib/ManaTools/MainDisplay.pm:292
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
@@ -48,7 +54,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:294
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan és el plafó de ManaTools que agrupa totes les utilitats."
 
 #: lib/ManaTools/MainDisplay.pm:295 lib/ManaTools/Module/Users.pm:2416
 #, perl-format
@@ -60,6 +66,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Traductors</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:419
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -102,51 +114,57 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Fitxer de configuració erroni, %s no té l'atribut xml:lang, suposant que "
+"sigui una cadena"
 
 #: lib/ManaTools/MainDisplay.pm:620
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Falta el fitxer de configuració %s"
 
 #: lib/ManaTools/MainDisplay.pm:625
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "S'estan inspeccionant els fitxers de configuració..."
+msgstr "S'està llegint el fitxer de configuració %s"
 
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Càrrega de paràmetres: el contingut de %s content és <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:798
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "S'està analitzat el fitxer de categoria %s"
 
 #: lib/ManaTools/MainDisplay.pm:809
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Càrrega de categories: el contingut del títol és <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:844
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Càrrega de categories: el títol del mòdul és <<%s>>"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "Sintaxi: %s [OPCIÓ]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
 msgstr ""
+"  --auto                 assumeix les respostes predeterminades a les "
+"preguntes"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
 "  --changelog-first      display changelog before filelist in the "
 "description window"
 msgstr ""
+"  --changelog-first      mostra primer el registre de canvis abans de la "
+"llista de fitxers a la finestra de descripció"
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
@@ -156,10 +174,14 @@ msgstr "  --media=mitjà1,..     limita als mitjans especificats"
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
 msgstr ""
+"  --merge-all-rpmnew     proposa de fusionar tots els fitxers .rpmnew/."
+"rpmsave trobats"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=MODE            estableix el mode (install (per defecte), remove, "
+"update)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
@@ -174,7 +196,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      no actualitzis els mitjans a l'inici"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
@@ -185,23 +207,28 @@ msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"  --parallel=alias,host  sigues en mode paral·lel, usa el grup \"alias\", "
+"usa la màquina \"host\" per mostrar les dependències necessàries"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
 msgstr ""
+"  --rpm-root=path        usa una altra arrel per a la instal·lació de rpm"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"  --urpmi-root   usa una altra arrel per a la instal·lació de la base de "
+"dades urpmi i rpm."
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root          força'n l'execució com a arrel"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "  --search=pkg           cerca \"pkg\""
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
@@ -225,6 +252,9 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"No esteu executant aquest programa com a usuari normal.\n"
+"No podreu fer modificacions al sistema,\n"
+"però podreu navegar per la base de dades existent."
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
 #: lib/ManaTools/Rpmdragora/gui.pm:1552
@@ -291,6 +321,15 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"Per tal de mantenir el sistema segur i estable, heu d'establir com a mínim "
+"fonts\n"
+"per a actualitzacions oficials de seguretat i estabilitat. També podeu optar "
+"per establir\n"
+"un conjunt més complet de fonts que inclogui tots els repositoris oficials "
+"Mageia,\n"
+"fet que us dóna accés a més programes dels que caben als discos de Mageia.\n"
+"Si us plau, escolliu si voleu configurar només les fonts d'actualització o "
+"el conjunt complet de fonts."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -585,6 +624,8 @@ msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
 msgstr ""
+"Si vostè necessita un proxy, introduïu el nom d'amfitrió i un port opcional "
+"(sintaxi: <proxyhost:[:port]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
@@ -597,6 +638,8 @@ msgstr "Nom d'amfitrió del servidor intermediari:"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
 msgid "You may specify a username/password for the proxy authentication:"
 msgstr ""
+"Podeu especificar un nom d'usuari / contrasenya per a l'autentificació de "
+"proxy:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
@@ -616,7 +659,7 @@ msgstr "Afegeix la limitació d'un suport"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "Trieu un mitjà per afegir al límit dels mitjans:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
@@ -629,7 +672,7 @@ msgstr "Introduïu el nom o bé l'adreça IP de l'amfitrió que voleu afegir:"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
 msgid "Editing parallel group \"%s\":"
-msgstr ""
+msgstr "Editant grup paral·lel \"%s\":"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
@@ -718,7 +761,7 @@ msgstr "Claus"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr ""
+msgstr "Cap nom trobat, la clau no existeix en el clauer rpm!"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
@@ -968,6 +1011,10 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"La base de dades de paquets està bloquejada. Si us plau, tanqueu\n"
+"les altres aplicacions que estiguin treballant amb la base de dades\n"
+"de paquets. Teniu algun altre gestor de mitjans en un altre escriptori\n"
+"o també esteu instal·lant paquets?"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
@@ -1269,7 +1316,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:1444
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s (pertany a la llista d'omissions)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "One package cannot be installed"
@@ -1329,6 +1376,12 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"Advertència: sembla que esteu intentant afegir tants paquets\n"
+"que el sistema de fitxers pot quedar-se sense espai de disc lliure,\n"
+"durant o després de la instal·lació del paquet; això és particularment\n"
+"perillós i ha de ser considerat amb cura.\n"
+"\n"
+"Realment voleu instal·lar tots els paquets seleccionats?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1636
 msgid "Please wait, listing packages..."
@@ -1566,7 +1619,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
-msgstr ""
+msgstr "Tirador"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
@@ -1718,7 +1771,7 @@ msgstr "Full de càlcul"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
-msgstr ""
+msgstr "Suite"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
@@ -2058,6 +2111,8 @@ msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
+"No heu configurat un mitjà d'actualització. El MageiaUpdate no pot funcionar "
+"sense un mitjà d'actualització."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:298 lib/ManaTools/rpmdragora.pm:1003
 msgid ""
@@ -2080,6 +2135,11 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"També podeu triar la rèplica que desitgeu manualment. Per fer-ho,\n"
+"obriu el gestor de mitjans de programari del Mageia i afegiu un mitjà\n"
+"d'\"actualitzacions de seguretat\".\n"
+"\n"
+"Després. reinicieu %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
@@ -2229,6 +2289,7 @@ msgstr "Han fallat %d transaccions d'instal·lació"
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
 msgstr ""
+"Error irrecuperable: cap paquet trobat per a la instal·lació, ho sento."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
@@ -2241,6 +2302,11 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"Ha acabat la instal·lació. Tot s'ha instal·lat correctament.\n"
+"\n"
+"S'han creat alguns fitxers de configuració com a \".rpmnew\" o \".rpmsave"
+"\".\n"
+"Ara en podeu examinar algun per tal d'emprendre accions:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -2283,46 +2349,45 @@ msgid "Information"
 msgstr "Informació"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Gestiona les definicions dels amfitrions"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
 msgid "Hostname"
-msgstr ""
+msgstr "Nom d'amfitrió: "
 
 #: lib/ManaTools/Module/Hosts.pm:150
 msgid "Pretty Hostname"
-msgstr ""
+msgstr "Nom d'amfitrió bonic"
 
 #: lib/ManaTools/Module/Hosts.pm:155
 msgid "Static Hostname"
-msgstr ""
+msgstr "Nom d'amfitrió estàtic"
 
 #: lib/ManaTools/Module/Hosts.pm:160
 msgid "Chassis"
-msgstr ""
+msgstr "Xassís"
 
 #: lib/ManaTools/Module/Hosts.pm:165
 msgid "Icon Name"
-msgstr ""
+msgstr "Nom de la icona"
 
 #: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:423
 msgid "IP Address"
-msgstr ""
+msgstr "Adreça IP"
 
 #: lib/ManaTools/Module/Hosts.pm:242
 msgid "Host aliases"
-msgstr ""
+msgstr "Àlies dels amfitrions"
 
 #: lib/ManaTools/Module/Hosts.pm:317
 msgid "Add the information"
-msgstr ""
+msgstr "Afegiu la informació"
 
 #: lib/ManaTools/Module/Hosts.pm:351
 msgid "Modify the information"
-msgstr ""
+msgstr "Modifiqueu la informació"
 
 #: lib/ManaTools/Module/Hosts.pm:397
 msgid "Manage hosts definitions"
@@ -2334,54 +2399,54 @@ msgstr "Àlies dels amfitrions"
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "A&dd"
-msgstr ""
+msgstr "&Afegeix"
 
 #: lib/ManaTools/Module/Hosts.pm:439 lib/ManaTools/Module/Users.pm:2372
 msgid "&Edit"
-msgstr ""
+msgstr "&Edita"
 
 #: lib/ManaTools/Module/Hosts.pm:440
 msgid "&Remove"
-msgstr ""
+msgstr "&Elimina"
 
 #: lib/ManaTools/Module/Hosts.pm:441
 msgid "&Hostname"
-msgstr ""
+msgstr "&Nom d'amfitrió"
 
 #: lib/ManaTools/Module/Hosts.pm:484
 msgid "Are you sure to drop this host?"
-msgstr ""
+msgstr "Esteu segur que voleu deixar aquest amfitrió?"
 
 #: lib/ManaTools/Module/Hosts.pm:499
 #: lib/ManaTools/Module/DisplayManager.pm:266
 #: lib/ManaTools/Module/Firewall.pm:179
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Copyright (C) %s per Mandriva"
+msgstr "Copyright (C) %s per Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
-msgstr ""
+msgstr "Gestor gràfic per a les definicions d'amfitrió"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
 msgid "manadm - Display Manager"
-msgstr ""
+msgstr "manadm - Gestor de pantalla"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
-msgstr ""
+msgstr "LightDM (El gestor de pantalla lleuger)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:93
 msgid "GDM (GNOME Display Manager)"
-msgstr ""
+msgstr "GDM (El gestor de pantalla del GNOME)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:94
 msgid "KDM (KDE Display Manager)"
-msgstr ""
+msgstr "KDM (El gestor de pantalla del KDE)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:95
 msgid "XDM (X Display Manager)"
-msgstr ""
+msgstr "XDM (El gestor de pantalla X)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:141
 #: lib/ManaTools/Module/Users.pm:871 lib/ManaTools/Module/Users.pm:2434
@@ -2389,7 +2454,7 @@ msgstr ""
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "calen privilegis d'usuari primari"
 
 #: lib/ManaTools/Module/DisplayManager.pm:172
 #: lib/ManaTools/Module/Proxy.pm:178
@@ -3296,9 +3361,8 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Informació de l'actualització"
+msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -3616,9 +3680,8 @@ msgid "&Reset"
 msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Tanca"
+msgstr ""
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -4153,6 +4216,11 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
+"És impossible recuperar la llista de nous paquets del mitjà \n"
+"\"%s\". O bé aquest mitjà d'actualització està mal configurat,\n"
+"i en aquest cas hauríeu d'utilitzar el programari d'administració de\n"
+"mitjans per eliminar-lo i tornar a afegir-lo per tal de reconfigurar-lo,\n"
+"o bé ara és inaccessible i ho hauríeu de tornar a provar més tard."
 
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
@@ -4209,6 +4277,8 @@ msgstr ""
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
 msgstr ""
+"No s'ha trobat cap mitjà actiu. Habiliteu alguns mitjans per poder "
+"actualitzar-los."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:707
 msgid "Update media"
@@ -4291,6 +4361,11 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
+"No puc trobar cap rèplica adient.\n"
+"\n"
+"Hi pot haver unes quantes raons per a aquest problema. El cas més\n"
+"freqüent és que l'arquitectura del vostre processador no té suport a\n"
+"a les actualitzacions oficials de Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1044
 msgid "Please choose the desired mirror."
@@ -4303,6 +4378,9 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
+"El mitjà \"%s\", usat per a les actualitzacions, no coincideix amb la versió "
+"de %s que esteu executant (%s).\n"
+"S'inhabilitarà."
 
 #: lib/ManaTools/rpmdragora.pm:1074
 #, perl-format
@@ -4311,6 +4389,9 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
+"El mitjà \"%s\", usat per a les actualitzacions, no coincideix amb la versió "
+"de Magfeia que esteu executant (%s).\n"
+"S'inhabilitarà."
 
 #: lib/ManaTools/rpmdragora.pm:1104
 msgid "Please wait, downloading mirror addresses."
@@ -4410,9 +4491,8 @@ msgid "valid <commands>:\n"
 msgstr ""
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Desenvolupament"
+msgstr ""
 
 #: scripts/mpan:40
 msgid ""
@@ -4425,9 +4505,8 @@ msgid "Window title. Default name value"
 msgstr ""
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Desenvolupament"
+msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -4579,7 +4658,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:561
 msgid "Backports"
-msgstr ""
+msgstr "Backports"
 
 #: modules/rpmdragora/rpmdragora:562
 msgid "Meta packages"
@@ -4680,6 +4759,8 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:1067
 msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr ""
+"Restabliment avortat (la base de dades RPM està bloquejada per un altre "
+"procés)"
 
 #: modules/rpmdragora/rpmdragora:1099
 #, perl-format
@@ -4720,6 +4801,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Esteu a punt d'afegir un nou mitjà de paquets.\n"
+"Això significa que podreu afegir paquets de programari nous\n"
+"al sistema des d'aquests mitjans nous."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4728,6 +4812,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Esteu a punt d'afegir un mitjà de paquets, %s.\n"
+"Això significa que podreu afegir paquets de programari nous\n"
+"al sistema des d'aquests mitjans nous."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4736,6 +4823,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"Esteu a punt d'afegir un mitjà de paquets, %s.\n"
+"Això significa que podreu afegir paquets de programari nous\n"
+"al sistema des d'aquests mitjans nous."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
@@ -4764,22 +4854,25 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Executa la configuració de data i temps de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Cal autenticar-vos per a executar la configuració de data i hora de Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Executa la configuració de gestió de l'inici de sessió"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Cal autenticar-vos per a executar la configuració del gestor d'inici de "
+"sessió de Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -4798,12 +4891,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Executa el visor de registres de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Cal autenticar-vos per a executar el visor de registres de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4815,33 +4908,33 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "Executa la configuració dels serveis de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
 msgstr ""
+"Cal autenticar-vos per a executar la configuració dels serveis de Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "Gestor dels &mitjans"
+msgstr "Executa el gestor d'usuaris de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Cal autenticar-vos per executar el gestor d'usuaris de Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Executa la configuració de tallafoc de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Cal autenticar-se per a executar la configuració de tallafoc de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4852,9 +4945,8 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Aquest paquet no és programari lliure"
+msgstr ""
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
@@ -4863,9 +4955,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Actualització de Mageia"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4879,14 +4970,13 @@ msgstr ""
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Actualitza només els orígens"
+msgstr ""
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Configura els mitjans per a la instal·lació i l'actualització"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4896,12 +4986,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Arrencada"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Actualització de Mageia"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -4912,9 +5001,8 @@ msgid "A graphical front end for updating packages"
 msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Ajusts de la data, del rellotge i del fus horari"
+msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
@@ -4925,9 +5013,8 @@ msgid "/usr/share/icons/manaclock.png"
 msgstr ""
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "S'estan inspeccionant els fitxers de configuració..."
+msgstr ""
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
@@ -4974,9 +5061,8 @@ msgid "/usr/share/icons/manaproxy.png"
 msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
 msgid "manaservice - Service configuration manager"
-msgstr "Gestor de la informació del servidor de noms"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
@@ -4991,9 +5077,8 @@ msgid "manauser - Users and Groups Manager"
 msgstr ""
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "Gestor dels &mitjans"
+msgstr ""
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
@@ -5032,9 +5117,8 @@ msgid "/usr/share/icons/mpan.png"
 msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Aquest paquet no és programari lliure"
+msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
@@ -5042,8 +5126,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
+msgstr "Una interfície gràfica per instal·lar, suprimir i actualitzar paquets"
