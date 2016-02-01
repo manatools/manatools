@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-06 20:24+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-01-31 21:07+0000\n"
+"Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cs/)\n"
 "Language: cs\n"
@@ -119,6 +119,8 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Špatný soubor s nastavením, %s nemá vlastnost xml:lang. Odhad je, že je to "
+"řetězec"
 
 #: lib/ManaTools/MainDisplay.pm:620
 #, perl-format
@@ -133,7 +135,7 @@ msgstr "Nahrává se znovu soubor s nastavením %s"
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Nahrát nastavení: %s obsah je <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:798
 #, perl-format
@@ -143,12 +145,12 @@ msgstr "Zpracovává se soubor se skupinou %s"
 #: lib/ManaTools/MainDisplay.pm:809
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Nahrát skupiny: Obsah názvu je <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:844
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Nahrát skupiny: Název modulu je <<%s>>"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2447,9 +2449,9 @@ msgstr "Opravdu chcete vynechat tento počítač?"
 #: lib/ManaTools/Module/Hosts.pm:499
 #: lib/ManaTools/Module/DisplayManager.pm:266
 #: lib/ManaTools/Module/Firewall.pm:179
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Autorské právo (C) %s Mandriva"
+msgstr "Autorské právo © %s Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -3750,11 +3752,11 @@ msgstr "začít používat provedení přídavného modulu qt yui"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "Použít celou obrazovku pro dialogy"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "Žádný okraj u okenního správce pro dialogy"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -5022,12 +5024,13 @@ msgstr "Zdroj `%s' byl úspěšně přidán."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Spustit nástroj Mageii pro aktualizace programů"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Ke spuštění programu pro aktualizace Mageii rpmdragora je vyžadováno ověření"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -5055,7 +5058,7 @@ msgstr ""
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Povolit rozhraní APanel"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5063,6 +5066,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Ke spuštění programu manahost je vyžadováno ověření (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5080,6 +5085,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Ke spuštění programu manaproxy je vyžadováno ověření (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5117,36 +5124,38 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Ke spuštění programu apanel je vyžadováno ověření (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Spustit program Mageii pro istalování a odebírání software"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Ke spuštění správce RPM Mageii je vyžadováno ověření"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Panel Mageii"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Skupiny"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Instalovat a odebírat software"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "Aktualizovat systém"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -5156,7 +5165,7 @@ msgstr "Nastavit zdroje softwaru pro instalaci a aktualizaci"
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Síť a internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5165,139 +5174,139 @@ msgstr "Zavádění systému"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Aktualizace Mageii"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Grafický nástroj pro aktualizaci balíčků"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - Nastavení data, hodin a časové zóny"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "Správce hodin ManaTools"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - Správce nastavení přihlášení"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "Správce nastavení přihlášení ManaTools"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - Správce počítačů a názvů počítačů"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "Správce počítačů ManaTools"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Prohlížeč záznamů Journalctl, správcovský režim"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "Prohlížeč záznamů ManaTools, správcovský režim"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - Správce nastavení proxy"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "Správce proxy ManaTools"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Správce nastavení služeb"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "Správce služeb ManaTools"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - Správce uživatelů a skupin"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "Správce uživatelů ManaTools"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Prohlížeč záznamů Journalctl, uživatelský režim"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "Prohlížeč záznamů ManaTools, uživatelský režim"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall - Správce nastavení firewallu"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "Nastavení firewallu ManaTools"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Ovládací panel ManaTools Mageii"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "Panel ManaTools - Spouštěč programů"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - Instalovat a odebírat software"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
