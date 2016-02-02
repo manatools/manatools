@@ -180,7 +180,6 @@ sub _restoreValues {
     my $info;
     if (!$datetime_only) {
         $info->{time_zone}  = $self->sh_tz->readConfiguration();
-        $DB::single = 1;
         $info->{ntp_servers} = [ $self->sh_tz->ntpCurrentServers() ];
         $info->{ntp_running} = $self->sh_tz->isNTPRunning();
     }
