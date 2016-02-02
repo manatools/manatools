@@ -389,7 +389,6 @@ sub _setupGui {
     # fill $self->settings from settings.conf
     $self->_loadSettings();
 
-    $DB::single = 1;
     $self->title($self->settings()->{title});
     $self->icon($self->settings()->{icon}) if $self->settings()->{icon};
 
