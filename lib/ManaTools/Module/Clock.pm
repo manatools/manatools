@@ -168,7 +168,8 @@ sub _get_NTPservers {
 #
 ## returns 'info', a HASH references containing:
 ##    time_zone   => time zone hash reference to be restored
-##    ntp_server  => ntp server address
+##    ntp_servers  => ntp server address
+##    pool_server  => ntp pool server address
 ##    date        => date string
 ##    time        => time string
 ##    ntp_running => is NTP running?
@@ -179,9 +180,8 @@ sub _restoreValues {
     my $info;
     if (!$datetime_only) {
         $info->{time_zone}  = $self->sh_tz->readConfiguration();
-        $info->{ntp_server} = $self->sh_tz->ntpCurrentServer();
-        #- strip digits from \d+.foo.pool.ntp.org
-        $info->{ntp_server} =~ s/^\d+\.// if $info->{ntp_server};
+        $DB::single = 1;
+        $info->{ntp_servers} = [ $self->sh_tz->ntpCurrentServers() ];
         $info->{ntp_running} = $self->sh_tz->isNTPRunning();
     }
     my $t = localtime;
@@ -255,8 +255,8 @@ sub _adminClockPanel {
                 else {
                     $dialog->widget('timeZoneLbl')->setValue($self->loc->N("not defined"));
                 }
-                if ($info->{ntp_server}) {
-                    $dialog->widget('ntpLabel')->setValue($info->{ntp_server});
+                if (scalar @{$info->{ntp_servers}}) {
+                    $dialog->widget('ntpLabel')->setValue(join (',', @{$info->{ntp_servers}}));
                 }
                 else {
                     $dialog->widget('ntpLabel')->setValue($self->loc->N("not defined"));
@@ -314,17 +314,17 @@ sub _adminClockPanel {
                 my $ntpFrame = $dialog->widget('ntpFrame');
                 if ($ntpFrame->value()) {
                     # (2)
-                    my $currentServer   = $self->sh_tz->ntpCurrentServer();
-                    #- strip digits from \d+.foo.pool.ntp.org
-                    $currentServer      =~ s/^\d+\.// if $currentServer;
+                    my @currentServers   = $self->sh_tz->ntpCurrentServers();
+                    my $currentServer = join(',', @currentServers) if scalar @currentServers;
                     my $isRunning       = $self->sh_tz->isNTPRunning();
                     my $currentService  = $self->sh_tz->ntp_program();
                     my $ntpService      = $dialog->widget('ntpService');
                     my $selectedService = $ntpService->selectedItem();
+                    my $newServers = join(',', sort @{$info->{ntp_servers}}) if scalar @{$info->{ntp_servers}};
 
                     my $sameService = ($currentService && $currentService eq $selectedService->label());
-                    my $sameConfig  = $sameService && ((!$currentServer && !$info->{ntp_server}) ||
-                        ($currentServer && $info->{ntp_server} && $currentServer eq $info->{ntp_server})
+                    my $sameConfig  = $sameService && ((!$currentServer && !$newServers) ||
+                        ($currentServer && $newServers && $currentServer eq $newServers)
                     );
 
                     my $nothingToDo = ($isRunning && $sameConfig);
@@ -339,7 +339,7 @@ sub _adminClockPanel {
                             $self->sh_tz->ntp_program($selectedService->label());
                         }
                         if (!$sameConfig) {
-                            eval { $self->sh_tz->setNTPConfiguration($info->{ntp_server}) };
+                            eval { $self->sh_tz->setNTPConfiguration($info->{ntp_servers}) };
                             my $errors = $@;
                             if ($errors) {
                                 $self->sh_gui->warningMsgBox({
@@ -351,7 +351,10 @@ sub _adminClockPanel {
                             $ydialog->pollEvent();
                         }
                         # and finally enabling the service
-                        eval { $self->sh_tz->enableAndStartNTP($info->{ntp_server}) };
+                        eval {
+                            my $ntp_server = $info->{ntp_servers}->[0];
+                            $self->sh_tz->enableAndStartNTP($ntp_server);
+                        };
                         my $errors = $@;
                         if ($errors) {
                             $finished = 0;
@@ -456,27 +459,36 @@ sub _adminClockPanel {
             );
 
             my $hbox1 = $factory->createHBox($ntpFrame);
-            my $changeNTPButton = $factory->createPushButton($hbox1, $self->loc->N("Change &NTP server"));
+            my $vbx = $factory->createVBox($hbox1);
+            my $chooseNTPButton = $factory->createPushButton($vbx, $self->loc->N("Choose &NTP server"));
             $self->addWidget(
-                "changeNTPButton",
-                $changeNTPButton, sub {
+                "chooseNTPButton",
+                $chooseNTPButton, sub {
                     my $event = shift; #ManaTools::Shared::GUI::Event
                     my $dialog = $event->parentDialog();
                     my $self = $dialog->module(); #this object
+                    my $info = $dialog->info();
 
                     # get time to calculate elapsed
                     my $t0 = localtime;
+                    # let's guess it's a pool for selecting item
+                    my $pool_server = $info->{ntp_servers}->[0] if scalar @{$info->{ntp_servers}};
+                    #- strip digits from \d+.foo.pool.ntp.org
+                    $pool_server =~ s/^\d+\.// if $pool_server;
+
                     my $item = $self->sh_gui->ask_fromTreeList({title => $self->loc->N("NTP server - DrakClock"),
                                                                 header => $self->loc->N("Choose your NTP server"),
                                                                 default_button => 1,
                                                                 item_separator => '|',
-                                                                default_item => $info->{ntp_server},
+                                                                default_item => $pool_server,
                                                                 skip_path => 1,
                                                                 list  => $self->NTPServers});
                     if ($item) {
                         my $ntpLabel = $dialog->widget('ntpLabel');
-                        $ntpLabel->setValue($item);
-                        $info->{ntp_server} = $item;
+                        my $pool_match = qr/\.pool\.ntp\.org$/;
+                        my $server = $item;
+                        $info->{ntp_servers} = [  $server =~ $pool_match  ? (map { "$_.$server" } 0 .. 2) : $server ];
+                        $ntpLabel->setValue(join (',', @{$info->{ntp_servers}}));
                     }
                     # fixing elapsed time (dialog is modal)
                     my $t1 = localtime;
@@ -493,6 +505,63 @@ sub _adminClockPanel {
                     return 1;
                 },
             );
+            $chooseNTPButton->setStretchable(0,1);
+
+            my $localNTPButton = $factory->createPushButton($vbx, $self->loc->N("&Local NTP server"));
+            $self->addWidget(
+                "localNTPButton",
+                $localNTPButton, sub {
+                    my $event = shift; #ManaTools::Shared::GUI::Event
+                    my $dialog = $event->parentDialog();
+                    my $self = $dialog->module(); #this object
+                    my $info = $dialog->info();
+
+                    my $factory = $dialog->factory();
+                    ## push application title
+                    my $appTitle = yui::YUI::app()->applicationTitle();
+                    ## set new title to get it in dialog
+                    yui::YUI::app()->setApplicationTitle($self->loc->N("Set local NTP server"));
+
+                    my $dlg = $factory->createPopupDialog($yui::YDialogNormalColor);
+                    my $layout = $factory->createVBox($dlg);
+                    my $input = $factory->createInputField($layout, $self->loc->N("Please set your local NTP server"));
+                    $input->setStretchable(0,1);
+                    my $hbox = $factory->createHBox($layout);
+
+                    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
+                    my $okButton = $factory->createPushButton($hbox, $self->loc->N("&Ok"));
+                    $dlg->setDefaultButton($okButton);
+
+                    while (1) {
+                        my $event = $dlg->waitForEvent();
+
+                        my $eventType = $event->eventType();
+                        #event type checking
+                        if ($eventType == $yui::YEvent::CancelEvent) {
+                            last;
+                        }
+                        elsif ($eventType == $yui::YEvent::WidgetEvent) {
+                            # widget selected
+                            my $widget = $event->widget();
+
+                            if ($widget == $cancelButton) {
+                                last;
+                            }
+                            elsif ($widget == $okButton) {
+                                my $server = $input->value();
+                                my $ntpLabel = $dialog->widget('ntpLabel');
+                                $info->{ntp_servers} = [  $server ];
+                                $ntpLabel->setValue(join (',', @{$info->{ntp_servers}}));
+                                last;
+                            }
+                        }
+                    }
+
+                    $dlg->destroy();
+                }
+            );
+            $localNTPButton->setStretchable(0,1);
+
             $factory->createHSpacing($hbox1, 1.0);
             my $ntpService = $factory->createComboBox($hbox1, "", );
              $self->addWidget(
@@ -518,8 +587,8 @@ sub _adminClockPanel {
                     return 1;
                 },
             );
-            if ($info->{ntp_server}) {
-                $ntpLabel->setValue($info->{ntp_server});
+            if ($info->{ntp_servers}) {
+                $ntpLabel->setValue(join (',', @{$info->{ntp_servers}}));
             }
             $ntpFrame->setValue($info->{ntp_running});
             $dateTimeFrame->setEnabled(!$info->{ntp_running});
@@ -527,7 +596,7 @@ sub _adminClockPanel {
 
             $factory->createHSpacing($hbox1, 1.0);
             $ntpLabel->setWeight($yui::YD_HORIZ, 2);
-            $changeNTPButton->setWeight($yui::YD_HORIZ, 1);
+            $chooseNTPButton->setWeight($yui::YD_HORIZ, 1);
             $factory->createHSpacing($hbox, 1.0);
             $factory->createVSpacing($layoutstart, 1.0);
 
