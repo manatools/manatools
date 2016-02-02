@@ -399,12 +399,10 @@ sub addButtons {
     my $factory = $self->factory();
 
     ### buttons on the last line
-    $factory->createVSpacing($layout, 1.0);
-    my $align = $factory->createBottom($layout);
-    my $buttonbox = $factory->createHBox($align);
+    my $buttonbox = $factory->createHBox($layout);
 
     ## Left side
-    $align = $factory->createLeft($buttonbox);
+    my $align = $factory->createLeft($buttonbox);
     my $hbox = $factory->createHBox($align);
 
     $self->addWidget('aboutButton',
