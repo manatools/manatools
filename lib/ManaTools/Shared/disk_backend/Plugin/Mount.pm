@@ -95,6 +95,7 @@ override ('probe', sub {
         $part->prop('fstype', $fields[8]);
         $part->prop('srcmount', $fields[9]);
 
+        ## take care of family
         # finding parent mount
         if ($fields[1] != $fields[0]) {
             # find parent and put into parentmount field
@@ -108,11 +109,40 @@ override ('probe', sub {
             $p->parentmount($part) if (!defined $pm);
         }
 
-        # source is $fields[2] (major,minor) and $fields[3] (source path within device, default /)
+        ## get the in IO
+        # first, track down the device
+        my $in = undef;
         my @ios = $self->parent->findioprop('dev', $fields[2]);
         if (scalar(@ios) > 0) {
-            $part->in_add($ios[0]);
+            $in = $ios[0];
         }
+        else {
+            # if major is 0, it's a non-device mount, try fsprobe with srcmount
+            if ($fields[2] =~ s':.+$''r eq "0") {
+                # just pass on the srcmount string and hope with fsprobe
+                $in = $fields[9];
+            }
+        }
+        # no need to continue trying to parse this one if we can't have an IO
+        continue if (!defined $in);
+
+        ## try to insert filesystem in between, look at fstype
+        # first, check the exact filesystem (if it exists)
+        my $out = $self->parent->walkplugin(sub {
+            my $plugin = shift;
+            my $type = shift;
+            my $in = shift;
+            my $mount = shift;
+            return ($plugin->does('ManaTools::Shared::disk_backend::FileSystem') and $plugin->has_type($type) and $plugin->fsprobe($in, $mount));
+        }, $fields[8], $in, $part);
+
+        if (defined $out) {
+            my $res = $part->in_add($out);
+        }
+        else {
+            $part->in_add($in);
+        }
+
         # TODO: look up device with this
         # TODO: find the end of the options, and store them
         # TODO: also the super options and mount source (may have UUID or whatnot)
@@ -193,6 +223,8 @@ has '+in_restriction' => (
             my $self = shift;
             my $io = shift;
             my $del = shift;
+            my $rio = ref($io);
+            return 0 if !defined($rio) || !$rio;
             if (defined $del && !$del) {
                 return ($self->in_length() > 0);
             }
