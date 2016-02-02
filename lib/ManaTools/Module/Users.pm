@@ -2582,7 +2582,6 @@ sub _manageUsersDialog {
         elsif ($eventType == $yui::YEvent::MenuEvent) {
 ### MENU ###
             my $item = $event->item();
-            $DB::single = 1;
             my $menuLabel = $item->label();
             if ($menuLabel eq $fileMenu{ quit }->label())  {
                 last;
