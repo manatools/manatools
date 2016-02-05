@@ -1,17 +1,16 @@
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
-#
 # Translators:
 # faradundamarti <faradundamarti@yandex.com>, 2015
 # Fırat Kutlu <firatkutlu@gmail.com>, 2015
-# Atilla ÖNTAŞ <tarakbumba@gmail.com>, 2015.
+# Atilla ÖNTAŞ <tarakbumba@gmail.com>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2015-12-10 00:12+0300\n"
+"PO-Revision-Date: 2016-02-05 23:16+0300\n"
 "Last-Translator: Atilla ÖNTAŞ <tarakbumba@gmail.com>\n"
 "Language-Team: Mageia Turkish Translation Team <i18n-tr@ml.mageia.org>\n"
 "Language: tr\n"
@@ -27,7 +26,8 @@ msgstr ""
 #: lib/ManaTools/Module/LogViewer.pm:320 lib/ManaTools/Module/Users.pm:2407
 #: lib/ManaTools/Module/Services.pm:444 lib/ManaTools/Module/Clock.pm:210
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
-msgid "_: Translator(s) name(s) & email(s)\n"
+msgid ""
+"_: Translator(s) name(s) & email(s)\n"
 msgstr ""
 "Faraduntamarti\n"
 "Atilla ÖNTAŞ <tarakbumba@gmail.com>\n"
@@ -50,9 +50,8 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:294
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan tüm yardımcı programları bir araya toplayan mana-tools panelidir."
+msgstr "mpan tüm yardımcı programları bir araya toplayan ManaTools panelidir."
 
 #: lib/ManaTools/MainDisplay.pm:295 lib/ManaTools/Module/Users.pm:2416
 #, perl-format
@@ -112,36 +111,38 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Bozuk yapılandırma dosyası, %s xml:lang özniteliğini taşımıyor, bir söz "
+"dizisi olarak ele alınıyor"
 
 #: lib/ManaTools/MainDisplay.pm:620
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "NTP Yapılandırması ayarlanamadı"
+msgstr "%s yapılandırma dosyası yok"
 
 #: lib/ManaTools/MainDisplay.pm:625
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Yapılandırma dosyaları inceleniyor..."
+msgstr "%s yapılandırma dosyası okunuyor"
 
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Ayarlar yükleniyor: %s içeriği <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:798
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "%s kategori dosyası ayrıştırılıyor"
 
 #: lib/ManaTools/MainDisplay.pm:809
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Kategoriler yükleniyor: başlık içeriği <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:844
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Kategoriler yükleniyor: modül başlığı <<%s>>"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -770,8 +771,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
-"%s anahtarını, %s kaynağından kaldırmak istediğinize emin misiniz?\n"
-"(Anahtarın adı: %s)"
+"<br>%s<br> anahtarını, %s kaynağından kaldırmak istediğinize emin "
+"misiniz?<br>(Anahtarın adı: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -2359,9 +2360,8 @@ msgid "Information"
 msgstr "Bilgi"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Makine tanımlamalarını yönet"
+msgstr "manahost - makine tanımlamalarını yönet"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
@@ -2431,18 +2431,17 @@ msgstr "Bu makineyi düşürmek istediğinizden emin misiniz?"
 #: lib/ManaTools/Module/Hosts.pm:499
 #: lib/ManaTools/Module/DisplayManager.pm:266
 #: lib/ManaTools/Module/Firewall.pm:179
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Tüm Hakları Saklıdır (C) %s Mandriva"
+msgstr "Tüm Hakları Saklıdır (C) %s Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
 msgstr "Makine tanımlamaları için grafiksel yönetici"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Ekran Yöneticisi"
+msgstr "manadm - Ekran Yöneticisi"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2493,9 +2492,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Sistem Görüntü Yöneticisi için grafiksel yapılandırıcı"
 
 #: lib/ManaTools/Module/Firewall.pm:89
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: güvenlik duvarı yöneticisi"
+msgstr "manawall - Güvenlik Duvarı Yöneticisi"
 
 #: lib/ManaTools/Module/Firewall.pm:203
 msgid "Port scan detection"
@@ -2732,9 +2730,8 @@ msgid "Empty log found"
 msgstr "Boş günlük kaydı bulundu"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Kullanıcı kipinde çalıştırılıyor"
+msgstr "manalog - kullanıcı kipinde çalıştırılıyor"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -3195,9 +3192,8 @@ msgid "Apply filter"
 msgstr "Filtreyi uygula"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Vekil sunucu ayarları"
+msgstr "manaproxy - Vekil sunucu ayarları"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -3323,7 +3319,7 @@ msgstr ""
 "ayarlamanızı sağlar"
 
 #: lib/ManaTools/Module/Clock.pm:219
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -3331,9 +3327,9 @@ msgid ""
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Geliştiriciler</h3>\n"
-"                                            <ul><li>%s</li></ul>\n"
-"                                            <h3>Çevirmenler</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Çevirmenler</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:235
 msgid "Restore data"
@@ -3440,11 +3436,12 @@ msgstr "Kişisel kuralları sil"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> yerelleştirme söz dizilerini barındıran isteğe bağlı dizin (sadece "
+"geliştirici için)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Bilgiyi değiştir"
+msgstr "Bu kullanım bilgisini ekrana yazdır."
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -3733,38 +3730,39 @@ msgstr "Seç"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "yui gtk eklentisini kullanarak başlat"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "yui ncurses eklentisini kullanarak başlat"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "yui qt eklentisini kullanarak başlat"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "iletişim kutularını tam ekranda kullan"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "iletişim kutularında pencere yöneticisi kenarı kullanma"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> her modül için (mesela modüladı/yapılandırma_dosyaları) yapılandırma "
+"dosyalarını içeren isteğe bağlı dizin"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
 msgstr "&Sıfırla"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:419
-#, fuzzy
 msgid "&Close"
-msgstr "/Kapat"
+msgstr "&Kapat"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -4656,24 +4654,24 @@ msgid "valid <commands>:\n"
 msgstr "geçerli <commands>:\n"
 
 #: scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Geliştirme"
+msgstr "Geliştirici kipi"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Uygulama adı, günlükleme tanımlayıcısı ve x uygulama yapılandırma dizini "
+"için kullanılır. Öntanımlı mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Pencere başlığı. Öntanımlı isim değeri"
 
 #: scripts/mpan:70
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Geliştirme"
+msgstr "== Geliştirme kipi AÇIK =="
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
@@ -5029,40 +5027,44 @@ msgstr "`%s' veri kaynağı başarıyla eklendi."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Mageia güncelleme aracını çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Mageia güncelleyicisi rpmdragora' nın çalışması için yetkilendirme gerekiyor"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Mageia Tarih ve Zaman Yapılandırmasını çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Mageia Tarih ve Zaman Yapılandırmasının çalışması için yetkilendirme "
+"gerekiyor"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: giriş yöneticisi yapılandırma"
+msgstr "Mageia Giriş Yöneticisi Yapılandırmasını çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Mageia Giriş Yöneticisi Yapılandırmasının çalışması için yetkilendirme "
+"gerekiyor"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "APanel GUI için izin ver"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5070,16 +5072,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"manahost uygulamasının çalışması için yetkilendirme gerekiyor "
+"(kullanıcı=$(user), program=$(program), komut_satırı=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia Günlük Görüntüleyicisini çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia Günlük Görüntüleyicisinin çalışması için yetkilendirme gerekiyor"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5087,39 +5091,40 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"manaproxy uygulamasının çalışması için yetkilendirme gerekiyor "
+"(kullanıcı=$(user), program=$(program), komut_satırı=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Vekil sunucu ayarları"
+msgstr "Mageia Hizmet Yapılandırmasını çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Mageia Hizmet Yapılandırmasının çalışması için yetkilendirme gerekiyor"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "&Ortam Yöneticisi"
+msgstr "Mageia Kullanıcı Yöneticisini çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Mageia Kullanıcı Yöneticisinin çalışması için yetkilendirme gerekiyor"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Güvenlik duvarı yapılandırması"
+msgstr "Mageia Güvenlik Duvarı Yapılandırmasını çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
 msgstr ""
+"Mageia Güvenlik Duvarı Yapılandırmasının çalışması için yetkilendirme "
+"gerekiyor"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5127,212 +5132,193 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"apanel uygulamasının çalışması için yetkilendirme gerekiyor "
+"(kullanıcı=$(user), program=$(program), komut_satırı=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Bu paket özgür bir yazılım değildir."
+msgstr "Mageia yazılım kurma ve kaldırmayı çalıştır"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Mageia RPM Yöneticisinin çalışması için yetkilendirme gerekiyor"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia Güncelleme"
+msgstr "Mageia Panel"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategoriler"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Yazılım Kur ve Kaldır"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Sadece Güncelleme Kaynakları"
+msgstr "Sisteminizi Güncelleyin"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Kurulum ve güncelleme için veri kaynaklarını yapılandır"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Ağ &amp;&amp; İnternet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Önyükleme"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "rpmdragora güncelleme"
+msgstr "rpmdragora - Mageia Güncelleme"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Paketleri güncellemek için grafiksel bir önyüz"
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Tarih, Saat & Zaman Dilimi Ayarları"
+msgstr "manaclock - Tarih, Saat & Zaman Dilimi Ayarları"
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manahost: makine yöneticisi"
+msgstr "ManaTools saat yöneticisi"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manadm: giriş yöneticisi yapılandırma"
+msgstr "manadm - giriş yöneticisi yapılandırma"
 
 #: extras/desktop/manadm.desktop.in:4
-#, fuzzy
 msgid "ManaTools login configuration manager"
-msgstr "manadm: giriş yöneticisi yapılandırma"
+msgstr "ManaTools giriş yapılandırma yöneticisi"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
-#, fuzzy
 msgid "manahost - Host and hostname manager"
-msgstr "manahost: makine yöneticisi"
+msgstr "manahost - makine yöneticisi"
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manahost: makine yöneticisi"
+msgstr "ManaTools makine yöneticisi"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr "manalog: journalct günlük kaydı okuyucu"
+msgstr "manalog - Journalctl günlük kaydı okuyucu, yönetici kipi"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools günlük kaydı okuyucu, yönetici kipi"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
-msgstr "Vekil sunucu ayarları"
+msgstr "manaproxy - Vekil sunucu yapılandırma yöneticisi"
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: vekil sunucu yöneticisi"
+msgstr "ManaTools vekil sunucu yöneticisi"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
 msgid "manaservice - Service configuration manager"
-msgstr "manaservice: hizmet yöneticisi"
+msgstr "manaservice - Sistem hizmeti yapılandırma yöneticisi"
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manaservice: hizmet yöneticisi"
+msgstr "ManaTools sistem hizmeti yöneticisi"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: kullanıcı yöneticisi"
+msgstr "manauser - Kullanıcı ve Grup Yöneticisi"
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: kullanıcı yöneticisi"
+msgstr "ManaTools kullanıcı yöneticisi"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr "manalog: journalct günlük kaydı okuyucu"
+msgstr "manalog - Journalctl günlük kaydı okuyucu, kullanıcı kipi"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools günlük kaydı okuyucu, kullanıcı kipi"
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: güvenlik duvarı yöneticisi"
+msgstr "manawall - güvenlik duvarı yöneticisi"
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Güvenlik duvarı yapılandırması"
+msgstr "ManaTools güvenlik duvarı yapılandırıcı"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools Denetim Paneli"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools paneli- uygulama başlatıcı"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Bu paket özgür bir yazılım değildir."
+msgstr "rpmdragora - Yazılım Kur & Kaldır"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Paketleri kurmak, kaldırmak ve güncellemek için grafiksel bir önyüz"
 
 #, fuzzy
 #~ msgid "/usr/bin/rpmdragora"
