@@ -94,6 +94,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose;
 
+use ManaTools::Shared::RunProgram;
+
 ## class DATA
 has 'dependencies' => (
     is => 'ro',
@@ -102,13 +104,24 @@ has 'dependencies' => (
     lazy => 1,
     default => sub {
         return [];
-    }
+    },
+);
+
+has 'tools' => (
+    traits => ['Hash'],
+    is => 'ro',
+    isa => 'HashRef[Str]',
+    default => sub { return {}; },
+    init_arg => undef,
+    handles => {
+        tool => 'get',
+    },
 );
 
 has 'parent' => (
     is => 'ro',
     isa => 'ManaTools::Shared::disk_backend',
-    required => 1
+    required => 1,
 );
 
 #=============================================================
@@ -178,6 +191,10 @@ sub probe {
 
 =head2 loadio
 
+=head3 INPUT
+
+    $io: ManaTools::Shared::disk_backend::IO
+
 =head3 OUTPUT
 
     0 if failed, 1 if success
@@ -199,6 +216,10 @@ sub loadio {
 #=============================================================
 
 =head2 savepart
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
 
 =head3 OUTPUT
 
@@ -222,6 +243,10 @@ sub savepart {
 
 =head2 probeio
 
+=head3 INPUT
+
+    $io: ManaTools::Shared::disk_backend::IO
+
 =head3 OUTPUT
 
     0 if failed, 1 if success
@@ -238,6 +263,91 @@ sub probeio {
     my $io = shift;
 
     1;
+}
+
+#=============================================================
+
+=head2 tool_lines
+
+=head3 INPUT
+
+    $toolname: Str
+    @args: Array[Str]
+
+=head3 OUTPUT
+
+    Array[Str]
+
+=head3 DESCRIPTION
+
+    this is a default method for executing a tool and getting all the STDOUT
+    lines in an ARRAY
+
+=cut
+
+#=============================================================
+sub tool_lines {
+    my $self = shift;
+    my $toolname = shift;
+    my @args = @_;
+    my $tool = $self->tool($toolname);
+    # exit early if tool doesn't exit
+    return undef if (!defined($tool) || !$tool);
+
+    # insert tool before @args
+    unshift @args, $self->tool($toolname);
+
+    # get lines
+    return ManaTools::Shared::RunProgram::get_stdout(join(' ', @args). ' 2>/dev/null');
+}
+
+#=============================================================
+
+=head2 tool_fields
+
+=head3 INPUT
+
+    $toolname: Str
+    $separator: Str
+    @args: Array[Str]
+
+=head3 OUTPUT
+
+    0 if failed, 1 if success
+
+=head3 DESCRIPTION
+
+    this is a default method for executing a tool and getting all the STDOUT
+    in a HASH depending on the separator
+
+=cut
+
+#=============================================================
+sub tool_fields {
+    my $self = shift;
+    my $toolname = shift;
+    my $separator = shift;
+    my @args = @_;
+    my %fields = ();
+
+    # get lines from tool
+    my @lines = $self->tool_lines($toolname, @args);
+    for my $line (@lines) {
+
+        # split into key & value
+        my ($key, @value) = split($separator, $line);
+        my $value = join($separator, @value);
+
+        # trim key & value
+        $key =~ s/^\s+//;
+        $key =~ s/\s+$//;
+        $value =~ s/^\s+//;
+        $value =~ s/\s+$//;
+
+        # assign into fields
+        $fields{$key} = $value if ($key ne '');
+    }
+    return %fields;
 }
 
 1;

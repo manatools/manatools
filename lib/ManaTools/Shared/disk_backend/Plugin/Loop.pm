@@ -54,7 +54,6 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 use Moose;
 
 use File::Basename;
-use ManaTools::Shared::RunProgram;
 
 ## Requires /usr/sbin/losetup
 
@@ -64,6 +63,12 @@ extends 'ManaTools::Shared::disk_backend::Plugin';
 has '+dependencies' => (
     default => sub {
         return ['Disk'];
+    }
+);
+
+has '+tools' => (
+    default => sub {
+        return {'losetup' => '/usr/sbin/losetup'};
     }
 );
 
@@ -126,7 +131,7 @@ override ('probe', sub {
             return 0;
         }
     }
-    my @lines = ManaTools::Shared::RunProgram::get_stdout('/usr/sbin/losetup --list --noheadings --raw --output MAJ:MIN,NAME,SIZELIMIT,OFFSET,AUTOCLEAR,RO,BACK-MAJ:MIN,BACK-INO,BACK-FILE');
+    my @lines = $self->tool_lines('losetup', '--list', '--noheadings', '--raw', '--output', 'MAJ:MIN,NAME,SIZELIMIT,OFFSET,AUTOCLEAR,RO,BACK-MAJ:MIN,BACK-INO,BACK-FILE');
     for my $line (@lines) {
         chomp($line);
         my @fields = split(' ', $line);

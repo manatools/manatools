@@ -64,6 +64,12 @@ has '+dependencies' => (
     }
 );
 
+has '+tools' => (
+    default => sub {
+        return {parted => '/usr/sbin/parted'};
+    }
+);
+
 #=============================================================
 
 =head2 load
@@ -83,7 +89,7 @@ override ('loadio', sub {
     my $self = shift;
     my $io = shift;
     # get the partition table
-    my $pt = ManaTools::Shared::disk_backend::PartitionTable->new(disk => $io->file());
+    my $pt = ManaTools::Shared::disk_backend::PartitionTable->new(parted => $self->tool('parted'), disk => $io->file());
     # get partitions and mkio them all
     for my $p (values %{$pt->partitions()}) {
         my @stat = stat($p->{'file'});

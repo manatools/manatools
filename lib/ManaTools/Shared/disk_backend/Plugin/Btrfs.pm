@@ -69,6 +69,12 @@ has '+dependencies' => (
     }
 );
 
+has '+tools' => (
+    default => sub {
+        return {'btrfs' => '/usr/sbin/btrfs'};
+    }
+);
+
 has 'filesystems' => (
     is => 'ro',
     isa => 'HashRef[ManaTools::Shared::disk_backend::Part::Btrfs]',
