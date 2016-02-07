@@ -64,6 +64,12 @@ has '+dependencies' => (
     }
 );
 
+has '+tools' => (
+    default => sub {
+        return {'swaplabel' => '/usr/sbin/swaplabel'};
+    }
+);
+
 #=============================================================
 
 =head2 probe
@@ -94,6 +100,12 @@ override ('probe', sub {
         $part->prop('size', $fields[2]);
         $part->prop('used', $fields[3]);
         $part->prop('priority', $fields[4]);
+
+        # use swaplabel to get label and uuid
+        my %labelfields = $self->tool_fields('swaplabel', ':', $fields[0]);
+        $part->prop('uuid', defined($labelfields{'UUID'}) ? $labelfields{'UUID'} : '');
+        $part->prop('label', defined($labelfields{'LABEL'}) ? $labelfields{'LABEL'} : '');
+
         # check first if it's a device, then find the define
         my @stat = stat($fields[0]);
         # if device: then...
