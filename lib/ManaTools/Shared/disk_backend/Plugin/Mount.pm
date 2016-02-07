@@ -86,7 +86,7 @@ override ('probe', sub {
     open F, '</proc/self/mountinfo' or return 0;
     while (my $line = <F>) {
         my @fields = split(/ /, $line);
-        my $part = $self->parent->mkpart('Mount', {path => $fields[4]});
+        my $part = $self->parent->mkpart('Mount', {path => $fields[4], plugin => $self});
         $part->prop('options', $fields[5]);
         $part->prop('dev', $fields[2]);
         $part->prop('id', $fields[0]);

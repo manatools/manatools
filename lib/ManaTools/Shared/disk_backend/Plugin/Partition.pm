@@ -139,7 +139,7 @@ override ('probeio', sub {
         $part = $parts[0];
     }
     else {
-        $part = $self->parent->mkpart('PartitionTable', {});
+        $part = $self->parent->mkpart('PartitionTable', {plugin => $self});
         if (!defined($part)) {
             return 0;
         }

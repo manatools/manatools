@@ -81,7 +81,7 @@ override ('probe', sub {
         $part = $parts[0];
     }
     else {
-        $part = $self->parent->mkpart('Disks', {});
+        $part = $self->parent->mkpart('Disks', {plugin => $self});
         if (!defined($part)) {
             return 0;
         }

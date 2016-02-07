@@ -147,7 +147,7 @@ override ('probe', sub {
     # check in sysfs and create a Btrfs for each one
     for my $fs (glob("/sys/fs/btrfs/*")) {
         next if ($fs !~ m'/[-0-9a-f]+$'i);
-        my $part = $self->parent->mkpart('Btrfs', {uuid => $fs =~ s'^.+/''r});
+        my $part = $self->parent->mkpart('Btrfs', {uuid => $fs =~ s'^.+/''r, plugin => $self});
         $part->prop_from_file('label', "$fs/label");
         $part->prop('features', join(',', map {$_ =~ s'^.+/''r} glob("$fs/features/*")));
         $part->prop_from_file('used', "$fs/allocation/data/disk_used");
@@ -332,7 +332,7 @@ sub refresh {
         # top level is 2 strings, so combine them, so that the fields can be nicely splitted
         my %fields = split(/[ \t\r\n]+/, $line =~ s'top level'top_level'r);
         # create the volume part
-        my $part = $self->db->mkpart('BtrfsVol', {fs => $self, uuid => $fields{uuid}});
+        my $part = $self->db->mkpart('BtrfsVol', {fs => $self, uuid => $fields{uuid}, plugin => $self->plugin()});
         # add the IO::Btrfs filesystem
         $part->in_add($outs[0]);
         # create a IO::BtrfsVol

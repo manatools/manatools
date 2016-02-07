@@ -94,7 +94,7 @@ override ('probe', sub {
     <F>;
     while (my $line = <F>) {
         my @fields = split(/[ \t\r\n]+/, $line);
-        my $part = $self->parent->mkpart('Swap', {path => $fields[0]});
+        my $part = $self->parent->mkpart('Swap', {path => $fields[0], plugin => $self});
         $part->prop('filename', $fields[0]);
         $part->prop('swaptype', $fields[1]);
         $part->prop('size', $fields[2]);

@@ -126,7 +126,7 @@ override ('probe', sub {
         $part = $parts[0];
     }
     else {
-        $part = $self->parent->mkpart('Loops', {});
+        $part = $self->parent->mkpart('Loops', {plugin => $self});
         if (!defined($part)) {
             return 0;
         }
