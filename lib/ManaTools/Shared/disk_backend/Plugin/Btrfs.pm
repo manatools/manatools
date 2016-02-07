@@ -327,8 +327,8 @@ sub refresh {
 
     # btrfs subvolume list / -agcpuq
     # ID 264 gen 1090157 cgen 255 parent 5 top level 5 parent_uuid - uuid ab6d48f8-6d65-6b43-b792-dd31d93018be path <FS_TREE>/backup-@
-    open (F, '-|', "/usr/sbin/btrfs subvolume list '$path' -agcpuq") or die('some error happened');
-    while (my $line = <F>) {
+    my @lines = $self->tool_lines('btrfs', 'subvolume', 'list', "'$path'", '-agcpuq');
+    for my $line (@lines) {
         # top level is 2 strings, so combine them, so that the fields can be nicely splitted
         my %fields = split(/[ \t\r\n]+/, $line =~ s'top level'top_level'r);
         # create the volume part
@@ -349,7 +349,6 @@ sub refresh {
         $part->out_add($vol);
         push @{$subvols}, $vol;
     }
-    close F;
     return $subvols;
 }
 
