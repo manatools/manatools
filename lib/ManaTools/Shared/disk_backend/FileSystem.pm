@@ -123,4 +123,24 @@ sub has_type {
     return 0;
 }
 
+package ManaTools::Shared::disk_backend::IOFS;
+
+use Moose::Role;
+
+package ManaTools::Shared::disk_backend::FileRole;
+
+use Moose::Role;
+
+has 'fs' => (
+    is => 'rw',
+    does => 'ManaTools::Shared::disk_backend::IOFS',
+    required => 1,
+);
+
+has 'path' => (
+    is => 'rw',
+    isa => 'Str',
+    required => 1,
+);
+
 1;
