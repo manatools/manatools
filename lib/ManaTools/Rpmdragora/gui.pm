@@ -951,7 +951,7 @@ sub fast_toggle {
 
     my $old_status = node_state($name);
 
-    #$DB::single = 1;
+    # $DB::single = 1;
 
 #    my $old_state;
 #     if($item->checked()){
@@ -960,6 +960,9 @@ sub fast_toggle {
 #         $old_state = "to_remove";
 #     }
     toggle_nodes($w->{tree}, $w->{detail_list}, \&set_leaf_state, $old_status, $name);
+
+    $w->{detail_list}->selectItem($item, 1);
+
     update_size($common);
 };
 
@@ -1013,7 +1016,22 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         carp "TODO ==================> ADD NODES - add packages (" . scalar(@nodes) . ") \n";
         yui::YUI::app()->busyCursor();
 
-        my $lastItem = $w->{detail_list}->selectedItem() ? $w->{detail_list}->selectedItem()->label() : "";
+        my $it = undef;
+
+        if ($w->{detail_list}->selectedItem() && yui::toYTableItem($w->{detail_list}->selectedItem())->cellCount()) {
+            $it = yui::toYTableItem($w->{detail_list}->selectedItem());
+        }
+        elsif ($w->{detail_list}->changedItem() && yui::toYTableItem($w->{detail_list}->changedItem())->cellCount()) {
+            $it = yui::toYTableItem($w->{detail_list}->changedItem());
+        }
+        # name-version-release.arch
+        my $lastItem =  $it ?
+            ($it->cell(0)->label() . "-" .
+             $it->cell(2)->label() . "-" .
+             $it->cell(3)->label() . "." .
+             $it->cell(4)->label()) :
+            "";
+
         $w->{detail_list}->startMultipleChanges();
         $w->{detail_list}->deleteAllItems();
         my $itemColl = new yui::YItemCollection;
