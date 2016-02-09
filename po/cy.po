@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-08 23:20+0000\n"
+"PO-Revision-Date: 2016-01-30 15:39+0000\n"
 "Last-Translator: ciaran\n"
 "Language-Team: Welsh (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cy/)\n"
@@ -154,7 +154,7 @@ msgstr "Defnydd: %s [OPTION]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "--auto derbyn atebion rhagosodedig i gwestiynau"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
@@ -164,7 +164,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "--media=medium1,.. cyfyngu i gyfrwng dewisedig"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
@@ -173,13 +173,13 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
-msgstr ""
+msgstr "--mode=MODE dewis modd (gosod (rhagosodiad), tynnu, diweddaru)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
-msgstr ""
+msgstr "--justdb diweddaru'r gronfa ddata heb addasu'r system ffeiliau"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
@@ -188,11 +188,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "--no-media-update peidio â diweddaru'r cyfrwng wrth gychwyn"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "--no-verify-rpm peidio â gwirio llofnodion pecynnau"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
@@ -215,7 +215,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "--search=pkg chwilio am \"pkg\""
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
@@ -364,7 +364,7 @@ msgstr "Ffeiliau lleol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
-msgstr ""
+msgstr "Llwybr i'r cyfrwng:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
@@ -445,7 +445,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr ""
+msgstr "Gwirio RPMau i'w gosod:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
@@ -744,6 +744,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Ydych chi wir am dynnu'r allwedd <br>%s<br> o'r cyfrwng %s?<br>(enw'r "
+"allwedd: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -753,6 +755,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Methu diweddaru cyfrwng, gwallau a adroddwyd:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
@@ -852,6 +857,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
 msgstr ""
+"Rhaid diweddaru'r cyfrwng hwn i'w ddefnyddio. Hoffech chi ei ddiweddaru nawr?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -999,7 +1005,7 @@ msgstr "Arhoswch, wrthi'n chwilio..."
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 msgid "None (installed)"
-msgstr ""
+msgstr "Dim (gosodwyd)"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
@@ -1312,7 +1318,7 @@ msgstr "Ydych chi'n siŵr eich bod am adael?"
 #: lib/ManaTools/Rpmdragora/gui.pm:1515
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "Gwall: Mae'n ymddangos bod %s wedi ei arosod i'w ddarllen yn unig."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1519
 msgid "You need to select some packages first."
@@ -2247,7 +2253,7 @@ msgstr "Wrthi'n chwilio am ffeiliau \"README\"..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:1025
 #, perl-format
 msgid "RPM transaction %d/%d"
-msgstr ""
+msgstr "Trafodiad RPM %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1026
 msgid "Unselect all"
@@ -2287,7 +2293,7 @@ msgstr ""
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
 msgid "Hostname"
-msgstr ""
+msgstr "Enw gwesteiwr: "
 
 #: lib/ManaTools/Module/Hosts.pm:150
 msgid "Pretty Hostname"
@@ -2352,9 +2358,9 @@ msgstr ""
 #: lib/ManaTools/Module/Hosts.pm:499
 #: lib/ManaTools/Module/DisplayManager.pm:266
 #: lib/ManaTools/Module/Firewall.pm:179
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Hawlfraint (C) %s gan Mandriva"
+msgstr "Hawlfraint (C) %s gan Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -2671,7 +2677,7 @@ msgstr "Dewis grŵp"
 
 #: lib/ManaTools/Module/Users.pm:374
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Mae grŵp â'r enw hwn yn bodoli eisoes. Beth hoffech chi ei wneud?"
 
 #: lib/ManaTools/Module/Users.pm:380
 msgid "Add to the existing group"
@@ -2697,6 +2703,8 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"Mae %s yn grŵp cynradd i'r defnyddiwr %s\n"
+"Tynnwch y defnyddiwr yn gyntaf"
 
 #: lib/ManaTools/Module/Users.pm:489
 #, perl-format
@@ -3142,7 +3150,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:365
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "Rheoli gwasanaethau system drwy eu galluogi neu eu analluogi"
 
 #: lib/ManaTools/Module/Services.pm:373
 msgid "Service"
@@ -3222,7 +3230,7 @@ msgstr "heb ddiffinio"
 
 #: lib/ManaTools/Module/Clock.pm:290
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Methodd gosod RTC lleol"
 
 #: lib/ManaTools/Module/Clock.pm:305
 msgid "Set time zone failed"
@@ -3302,11 +3310,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr "Cadw rheolau addasedig"
+msgstr "Cadw'r rheolau addasedig"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Tynnu'r rheolau addasedig"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -3587,7 +3595,7 @@ msgstr "Pob gweinydd"
 
 #: lib/ManaTools/Shared/TimeZone.pm:937
 msgid "user does not have the rights to change configuration file, skipped"
-msgstr ""
+msgstr "nid oes gan y defnyddiwr yr hawl i newid ffeil ffurfweddu, hepgor"
 
 #: lib/ManaTools/Shared/GUI.pm:318 lib/ManaTools/rpmdragora.pm:361
 msgid "Yes"
@@ -3604,15 +3612,15 @@ msgstr "Dewis"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "cychwyn defnyddio ategyn yui gtk"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "cychwyn defnyddio ategyn yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "cychwyn defnyddio ategyn yui qt"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
@@ -3670,7 +3678,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Lansio system sain ALSA (Advanced Linux Sound Architecture)"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
@@ -3698,7 +3706,7 @@ msgstr "Cleient/gweinydd NTP"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "Pennu gosodiadau amlder CPU"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -4704,11 +4712,18 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Datblygwyr</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Cyfieithwyr</"
+"h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1187
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "mae rpmdragora yn rhedeg eisoes (pid: %s)"
 
 #: modules/rpmdragora/rpmdragora:1187
 msgid "Quit"
@@ -4735,6 +4750,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Rydych ar fin ychwanegu cyfryngau pecynnau newydd.\n"
+"Golyga hyn y bydd modd i chi ychwanegu pecynnau meddalwedd newydd\n"
+"i'ch system o'r cyfryngau newydd hyn."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4743,6 +4761,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Rydych ar fin ychwanegu cyfrwng pecynnau newydd, %s.\n"
+"Golyga hyn y bydd modd i chi ychwanegu pecynnau meddalwedd newydd\n"
+"i'ch system o'r cyfryngau newydd hyn."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4751,6 +4772,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"Rydych ar fin ychwanegu cyfrwng pecynnau newydd, `%s'.\n"
+"Golyga hyn y bydd modd i chi ychwanegu pecynnau meddalwedd newydd\n"
+"i'ch system o'r cyfrwng newydd hwnnw."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
@@ -4810,6 +4834,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Rhaid dilysu er mwyn rhedeg y rhaglen manahost (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -4972,7 +4998,7 @@ msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaroxy - Rheolydd ffurfweddu dirprwyon"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
