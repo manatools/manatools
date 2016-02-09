@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -9,8 +15,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2015-11-18 15:10+0000\n"
-"Last-Translator: Dominik Grzywak <starterx4@gmail.com>\n"
+"PO-Revision-Date: 2016-01-12 09:42+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Polish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "pl/)\n"
 "Language: pl\n"
@@ -109,9 +115,9 @@ msgid "Configuration file %s is missing"
 msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:625
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Pobieranie informacji z %s..."
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:642
 #, perl-format
@@ -3258,9 +3264,8 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Informacja o aktualizacji"
+msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:903
 #, perl-format
@@ -4709,22 +4714,22 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Zarządzanie datą i czasem"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Zarządzanie datą i czasem - wymagane uwierzytelnianie"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Menadżer Logowania"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Menadżer Logowania - wymagane uwierzytelnianie"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -4743,12 +4748,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Przeglądanie Logów"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Przeglądanie Logów - wymagane uwierzytelnianie"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4760,22 +4765,22 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "Konfiguracja Usług"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Konfiguracja Usług - wymagane uwierzytelnianie"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "Uruchom Menadżer Użytkowników Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Menadżer Użytkowników Mageia - wymagane uwierzytelnianie"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
@@ -4806,9 +4811,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Aktualizacja Mageia"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4828,7 +4832,7 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Konfiguracja nośników do instalacji i aktualizacji"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4838,12 +4842,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Uruchamianie"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Aktualizacja Mageia"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -4866,9 +4869,8 @@ msgid "/usr/share/icons/manaclock.png"
 msgstr ""
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "Pobieranie informacji z %s..."
+msgstr ""
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
@@ -4915,9 +4917,8 @@ msgid "/usr/share/icons/manaproxy.png"
 msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
 msgid "manaservice - Service configuration manager"
-msgstr "Pobieranie informacji z %s..."
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
@@ -4981,4 +4982,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Graficzny program do instalowania, usuwania i aktualizowania pakietów"
