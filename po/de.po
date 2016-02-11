@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-01-11 19:13+0100\n"
-"PO-Revision-Date: 2016-01-30 19:38+0000\n"
+"PO-Revision-Date: 2016-02-10 22:03+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -354,6 +354,14 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Es wird versucht alle offiziellen Quellen zu installieren, die Ihrer\n"
+"Distribution (%s) entsprechen.\n"
+"\n"
+"Es muss die Mageia Webseite kontaktiert werden, um die Liste der Spiegel-"
+"Server zu laden. \n"
+"Stellen Sie sicher, dass Ihre Netzwerk läuft. \n"
+"\n"
+"Möchten Sie fortfahren?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
@@ -3773,6 +3781,8 @@ msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> optionales Verzeichnis, das die Konfigurationsdateien für jedes Modul "
+"enthält (z.B. modulname/config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:412
 msgid "&Reset"
@@ -4048,6 +4058,8 @@ msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Aktiviert/Deaktiviert alle Netzwerkgeräte, die so konfiguriert wurden,\n"
+"dass sie bei Systemstart zur Verfügung stehen."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
@@ -5281,7 +5293,7 @@ msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools Systemsteuerung"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
