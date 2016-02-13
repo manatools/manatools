@@ -326,7 +326,7 @@ sub addWidget {
     my $widget = shift;
     my $event = shift;
     my $backend = shift;
-    return ManaTools::Shared::GUI::Event->new(name => $name, eventHandler => $self, eventType => $yui::YEvent::WidgetEvent, widget => $widget, event => $event, backend => $backend);
+    return ManaTools::Shared::GUI::Event->new(basename => 'widget', name => $name, eventHandler => $self, eventType => $yui::YEvent::WidgetEvent, widget => $widget, event => $event, backend => $backend);
 }
 
 #=============================================================
@@ -431,7 +431,7 @@ sub addItem {
     my $item = shift;
     my $event = shift;
     my $backend = shift;
-    return ManaTools::Shared::GUI::Event->new(name => $name, eventHandler => $self, eventType => $yui::YEvent::MenuEvent, item => $item, event => $event, backend => $backend);
+    return ManaTools::Shared::GUI::Event->new(basename => 'Item', name => $name, eventHandler => $self, eventType => $yui::YEvent::MenuEvent, item => $item, event => $event, backend => $backend);
 }
 
 #=============================================================

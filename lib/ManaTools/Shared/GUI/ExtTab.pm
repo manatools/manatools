@@ -78,6 +78,12 @@ use Moose;
 use diagnostics;
 use utf8;
 
+has 'basename' => (
+    is => 'ro',
+    isa => 'Str',
+    default => 'ExtTab',
+);
+
 with 'ManaTools::Shared::GUI::EventRole';
 
 use yui;

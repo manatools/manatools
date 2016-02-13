@@ -70,6 +70,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 use Moose::Role;
 
 requires 'processEvent';
+requires 'basename';
 
 has 'eventHandler' => (
     is => 'ro',
@@ -79,10 +80,50 @@ has 'eventHandler' => (
 );
 
 has 'name' => (
-    is => 'ro',
-    isa => 'Str',
-    required => 1,
+    is => 'rw',
+    isa => 'Maybe[Str]',
+    lazy => 1,
+    default => undef,
 );
+
+around 'name' => sub {
+    my $orig = shift;
+    my $self = shift;
+    my $name = undef;
+    my $setting = 0;
+
+    # set name if requested
+    if (scalar(@_) > 0) {
+        $name = shift;
+        $setting = 1;
+    }
+    else {
+        $name = $self->$orig();
+        $setting = 1 if (!defined $name);
+    }
+
+    # return the current name
+    # if it's undef, we need to change this...
+    if (!defined $name) {
+        # generate a unique Event name
+        $name = $self->uniqueName($self->eventHandler());
+    }
+
+    # set the name if we were setting it
+    $name = $self->$orig($name) if ($setting);
+    return $name;
+};
+
+sub uniqueName {
+    my $self = shift;
+    my $eventHandler = shift;
+    my $name = $self->basename();
+    my $i = 1;
+    while ($eventHandler->hasEvent($name . $i)) {
+        $i = $i + 1;
+    }
+    return $name;
+}
 
 has 'eventType' => (
     is => 'ro',

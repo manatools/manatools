@@ -68,6 +68,12 @@ use Moose;
 use diagnostics;
 use utf8;
 
+has 'basename' => (
+    is => 'ro',
+    isa => 'Str',
+    default => 'Event',
+);
+
 with 'ManaTools::Shared::GUI::EventRole';
 
 use yui;
