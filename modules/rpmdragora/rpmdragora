@@ -656,13 +656,13 @@ sub _run_treeview_dialog {
         _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
     };
 
-    my $select_all_button = $factory->createIconButton($hbox_footbar,"",$loc->N("Select all"));
+    my $select_all_button = $factory->createIconButton($hbox_footbar,"",$loc->N("&Select all"));
     $select_all_button->setWeight(0,6);
 
-    my $apply_button = $factory->createIconButton($hbox_footbar,"",$loc->N("Apply"));
+    my $apply_button = $factory->createIconButton($hbox_footbar,"",$loc->N("&Apply"));
     $apply_button->setWeight(0,6);
 
-    my $QuitButton = $factory->createIconButton($hbox_footbar,"",$loc->N("Exit"));
+    my $QuitButton = $factory->createIconButton($hbox_footbar,"",$loc->N("&Quit"));
     $QuitButton->setWeight(0,6);
 
 
@@ -1184,7 +1184,7 @@ print "Menu " . $menuLabel . " chosen\n";
 
 
 if (my $pid = ManaTools::Shared::isProcessRunning('rpmdragora')) {
-    interactive_msg($loc->N("Warning"), $loc->N("rpmdragora is already running (pid: %s)", $pid), yesno => [ $loc->N("Quit") ]);
+    interactive_msg($loc->N("Warning"), $loc->N("rpmdragora is already running (pid: %s)", $pid), yesno => [ $loc->N("&Quit") ]);
     exit(0);
 }
 
