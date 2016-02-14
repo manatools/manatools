@@ -122,7 +122,7 @@ sub warningMsgBox {
     my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
-    $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
+    $dlg->setButtonLabel($self->loc->N("&Ok"), $yui::YMGAMessageBox::B_ONE );
 #     $dlg->setMinSize(50, 5);
 
     $retVal = $dlg->show();
@@ -168,7 +168,7 @@ sub infoMsgBox {
     my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
-    $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
+    $dlg->setButtonLabel($self->loc->N("&Ok"), $yui::YMGAMessageBox::B_ONE );
 #     $dlg->setMinSize(50, 5);
 
     $retVal = $dlg->show();
@@ -212,7 +212,7 @@ sub msgBox {
     my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
-    $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
+    $dlg->setButtonLabel($self->loc->N("&Ok"), $yui::YMGAMessageBox::B_ONE );
 #     $dlg->setMinSize(50, 5);
 
     $retVal = $dlg->show();
@@ -262,8 +262,8 @@ sub ask_OkCancel {
     my $rt = (exists $info->{richtext})  ? $info->{richtext} : 0;
     $dlg->setText($info->{text}, $rt) if (exists $info->{text});
 
-    $dlg->setButtonLabel($self->loc->N("Ok"), $yui::YMGAMessageBox::B_ONE );
-    $dlg->setButtonLabel($self->loc->N("Cancel"), $yui::YMGAMessageBox::B_TWO);
+    $dlg->setButtonLabel($self->loc->N("&Ok"), $yui::YMGAMessageBox::B_ONE );
+    $dlg->setButtonLabel($self->loc->N("&Cancel"), $yui::YMGAMessageBox::B_TWO);
     $dlg->setDefaultButton($yui::YMGAMessageBox::B_ONE);
     $dlg->setMinSize(50, 5);
 
@@ -496,8 +496,8 @@ sub ask_fromList {
 
     my $align = $factory->createRight($layout);
     my $hbox = $factory->createHBox($align);
-    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("Select"));
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("&Select"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
 
     if (exists $info->{default_button} ) {
         my $dflBtn = ($info->{default_button} == 1) ? $selectButton : $cancelButton;
@@ -614,8 +614,8 @@ sub ask_multiple_fromList {
 
     my $align = $factory->createRight($layout);
     my $hbox = $factory->createHBox($align);
-    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("Select"));
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("&Select"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
 
     if (exists $info->{default_button} ) {
         my $dflBtn = ($info->{default_button} == 1) ? $selectButton : $cancelButton;
@@ -921,8 +921,8 @@ sub ask_fromTreeList {
 
     my $align = $factory->createRight($layout);
     my $hbox = $factory->createHBox($align);
-    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("Select"));
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
+    my $selectButton = $factory->createPushButton($hbox, $self->loc->N("&Select"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
 
     if (exists $info->{default_button} ) {
         my $dflBtn = ($info->{default_button} == 1) ? $selectButton : $cancelButton;
@@ -1075,7 +1075,7 @@ sub select_fromList {
     my $align = $factory->createRight($layout);
     my $hbox = $factory->createHBox($align);
     $factory->createVSpacing($hbox, 1.0);
-    my $okButton = $factory->createPushButton($hbox, $self->loc->N("Ok"));
+    my $okButton = $factory->createPushButton($hbox, $self->loc->N("&Ok"));
     $dlg->setDefaultButton($okButton);
     $dlg->recalcLayout();
 
