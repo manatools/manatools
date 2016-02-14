@@ -387,8 +387,8 @@ sub ChooseGroup {
 
     my $hbox         = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $self->loc->N("&Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
@@ -458,8 +458,8 @@ sub _deleteGroupDialog {
 
     $align    = $factory->createRight($layout);
     my $hbox  = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
-    my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("Delete"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
+    my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("&Delete"));
 
     while(1) {
         my $event     = $dlg->waitForEvent();
@@ -549,8 +549,8 @@ sub _deleteUserDialog {
                                                         $username), 0);
     $align    = $factory->createRight($layout);
     my $hbox  = $factory->createHBox($align);
-    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("Cancel"));
-    my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("Delete"));
+    my $cancelButton = $factory->createPushButton($hbox, $self->loc->N("&Cancel"));
+    my $deleteButton = $factory->createPushButton($hbox,  $self->loc->N("&Delete"));
 
     if ($homedir !~ m!(?:/home|/var/spool)!) {
         $checkhome->setDisabled();
@@ -633,8 +633,8 @@ sub _addGroupDialog {
 
     $hbox            = $factory->createHBox($layout);
     $align           = $factory->createRight($hbox);
-    my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
-    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
+    my $cancelButton = $factory->createPushButton($align, $self->loc->N("&Cancel"));
+    my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
     while(1) {
         my $event     = $dlg->waitForEvent();
         my $eventType = $event->eventType();
@@ -2228,8 +2228,8 @@ sub _editGroupDialog {
 
         $hbox            = $factory->createHBox($vbox);
         $align           = $factory->createRight($hbox);
-        my $cancelButton = $factory->createPushButton($align, $self->loc->N("Cancel"));
-        my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("Ok"));
+        my $cancelButton = $factory->createPushButton($align, $self->loc->N("&Cancel"));
+        my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
 
         my %groupData        = $self->_getGroupInfo();
         # groupData here should be tested because it could be undef
@@ -2534,7 +2534,7 @@ sub _manageUsersDialog {
     $headRight              = $factory->createHBox($head_align_right);
                               $factory->createLabel($headRight, $self->loc->N("Search:"));
     $self->set_widget(filter         => $factory->createInputField($headRight, "", 0));
-    $self->set_widget(apply_filter  => $factory->createPushButton($headRight, $self->loc->N("Apply filter")));
+    $self->set_widget(apply_filter  => $factory->createPushButton($headRight, $self->loc->N("Apply &filter")));
     $self->get_widget('filter')->setWeight($yui::YD_HORIZ, 2);
     $self->get_widget('apply_filter')->setWeight($yui::YD_HORIZ, 1);
     $self->get_widget('filter_system')->setNotify(1);
