@@ -808,7 +808,7 @@ sub edit_callback {
                     interactive_msg(
                         $loc->N("You need to insert the medium to continue"),
                                     $loc->N("In order to save the changes, you need to insert the medium in the drive."),
-                                    yesno => 1, text => { yes => $loc->N("Ok"), no => $loc->N("Cancel") }
+                                    yesno => 1, text => { yes => $loc->N("&Ok"), no => $loc->N("&Cancel") }
                     ) or return 0
                 );
                 my $saved_proxy = urpm::download::get_proxy($m_name);

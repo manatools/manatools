@@ -358,11 +358,11 @@ sub interactive_msg {
         my $alignRight = $factory->createRight($bottomhbox);
         my $buttonBox  = $factory->createHBox($alignRight);
 
-        $info->{B1} = $factory->createPushButton($buttonBox, $options{text}{yes} || $loc->N("Yes"));
-        $info->{B2} = $factory->createPushButton($buttonBox, $options{text}{no}  || $loc->N("No"));
+        $info->{B1} = $factory->createPushButton($buttonBox, $options{text}{yes} || $loc->N("&Yes"));
+        $info->{B2} = $factory->createPushButton($buttonBox, $options{text}{no}  || $loc->N("&No"));
     }
     else {
-        $info->{B1} = $factory->createPushButton($bottomhbox, $loc->N("Ok"));
+        $info->{B1} = $factory->createPushButton($bottomhbox, $loc->N("&Ok"));
     }
 
     $dlg->setDefaultButton($info->{B1});
@@ -890,9 +890,9 @@ sub update_sources_interactive {
     ## Window push buttons
     my $hbox = $factory->createHBox( $vbox );
 
-    my $cancelButton = $factory->createPushButton($hbox, $loc->N("Cancel") );
-    my $selectButton = $factory->createPushButton($hbox, $loc->N("Select all") );
-    my $updateButton = $factory->createPushButton($hbox, $loc->N("Update") );
+    my $cancelButton = $factory->createPushButton($hbox, $loc->N("&Cancel") );
+    my $selectButton = $factory->createPushButton($hbox, $loc->N("&Select all") );
+    my $updateButton = $factory->createPushButton($hbox, $loc->N("&Update") );
 
     while(1) {
         my $event       = $dialog->waitForEvent();

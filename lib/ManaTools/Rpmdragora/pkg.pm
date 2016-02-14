@@ -927,7 +927,7 @@ sub perform_installation {  #- (partially) duplicated from /usr/sbin/urpmi :-(
                                  interactive_msg(
                                      $loc->N("Change medium"),
                                      $loc->N("Please insert the medium named \"%s\"", $medium),
-                                     yesno => 1, text => { no => $loc->N("Cancel"), yes => $loc->N("Ok") },
+                                     yesno => 1, text => { no => $loc->N("&Cancel"), yes => $loc->N("&Ok") },
                                  );
                              },
                              pre_check_sig => sub { $gurpm->label($loc->N("Verifying package signatures...")) },
