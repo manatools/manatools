@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2016-02-10 22:03+0000\n"
+"PO-Revision-Date: 2016-02-15 11:24+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -63,7 +63,7 @@ msgstr ""
 "mpan ist das ManaTools Bedienelement, welches alle Hilfsprogramme enthält."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -73,8 +73,9 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Entwickler</h3>\n"
+"<h3>Entwickler</h3> \n"
 "<ul><li>%s</li>\n"
+"<li>%s</li>\n"
 "<li>%s</li>\n"
 "</ul>\n"
 "<h3>Übersetzer</h3>\n"
@@ -202,9 +203,8 @@ msgstr "Nein"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Auswählen"
+msgstr "Au&swählen"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -1616,9 +1616,8 @@ msgid "Search:"
 msgstr "Suche:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Filter anwenden"
+msgstr "&Filter anwenden"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1695,9 +1694,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr "Bitte installiere zur Verwaltung einen NTP Dienst wie chrony oder ntp"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Wählen Sie Ihren NTP-Server"
+msgstr "&NTP Server Auswählen"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1708,19 +1706,16 @@ msgid "Choose your NTP server"
 msgstr "Wählen Sie Ihren NTP-Server"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "&NTP Server ändern"
+msgstr "&Lokaler NTP Server"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Wählen Sie Ihren NTP-Server"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Wählen Sie Ihren NTP-Server"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -2213,12 +2208,11 @@ msgstr "Beim nächsten Mal nicht mehr nachfragen"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Ja"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Nein"
+msgstr "&Nein"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4915,9 +4909,8 @@ msgid "Reset"
 msgstr "Zurücksetzen"
 
 #: modules/rpmdragora/rpmdragora:662
-#, fuzzy
 msgid "&Apply"
-msgstr "Anwenden"
+msgstr "&Anwenden"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "/_Select dependencies without asking"
@@ -5353,12 +5346,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Eine grafische Benutzerschnittstelle zum Installieren, Entfernen und Updaten "
 "von Paketen"
-
-#~ msgid "Select all"
-#~ msgstr "Alle auswählen"
-
-#~ msgid "Exit"
-#~ msgstr "Verlassen"
-
-#~ msgid "Quit"
-#~ msgstr "Beenden"
