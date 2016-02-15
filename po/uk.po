@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2016-01-12 11:44+0200\n"
+"PO-Revision-Date: 2016-02-15 18:35+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -52,7 +52,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan — панель ManaTools, яка надає доступ до усіх програм комплекту."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -64,6 +64,7 @@ msgid ""
 msgstr ""
 "<h3>Розробники</h3>\n"
 "                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Перекладачі</h3>\n"
@@ -191,9 +192,8 @@ msgstr "Ні"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Вибрати"
+msgstr "Ви&брати"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -1657,9 +1657,8 @@ msgid "Search:"
 msgstr "Шукати:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Застосувати фільтр"
+msgstr "Застосувати &фільтр"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1737,9 +1736,8 @@ msgstr ""
 "Будь ласка, встановіть службу NTP, зокрема chrony або ntp, для керування"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Виберіть ваш сервер NTP"
+msgstr "Виб&рати сервер NTP"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1750,19 +1748,16 @@ msgid "Choose your NTP server"
 msgstr "Виберіть ваш сервер NTP"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Змі&нити сервер NTP"
+msgstr "&Локальний сервер NTP"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Виберіть ваш сервер NTP"
+msgstr "Встановити локальний сервер NTP"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Виберіть ваш сервер NTP"
+msgstr "Будь ласка, налаштуйте ваш локальний сервер NTP"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -2253,12 +2248,11 @@ msgstr "Не запитувати наступного разу"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Так"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Ні"
+msgstr "&Ні"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4937,9 +4931,8 @@ msgid "Reset"
 msgstr "Скинути"
 
 #: modules/rpmdragora/rpmdragora:662
-#, fuzzy
 msgid "&Apply"
-msgstr "Застосувати"
+msgstr "&Застосувати"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "/_Select dependencies without asking"
