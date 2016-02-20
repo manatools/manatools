@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2016-01-25 18:17+0000\n"
-"Last-Translator: Davidmp <medipas@gmail.com>\n"
+"PO-Revision-Date: 2016-02-15 09:41+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -57,7 +57,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan és el plafó de ManaTools que agrupa totes les utilitats."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -67,12 +67,6 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Desenvolupadors</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Traductors</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -196,9 +190,8 @@ msgstr "No"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Selecciona-ho tot"
+msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -1006,15 +999,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "&Find"
-msgstr ""
+msgstr "&Cerca"
 
 #: lib/ManaTools/Module/LogViewer.pm:284
 msgid "Log content"
-msgstr ""
+msgstr "Contingut del registre"
 
 #: lib/ManaTools/Module/LogViewer.pm:300
 msgid "&Save"
-msgstr ""
+msgstr "&Desa"
 
 #: lib/ManaTools/Module/LogViewer.pm:327
 msgid "Log viewer is a systemd journal viewer"
@@ -1530,7 +1523,7 @@ msgstr "Edita"
 
 #: lib/ManaTools/Module/Users.pm:2511
 msgid "Delete"
-msgstr ""
+msgstr "Elimina"
 
 #: lib/ManaTools/Module/Users.pm:2530
 msgid "Filter system users"
@@ -1613,9 +1606,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Servidor FTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1626,14 +1618,12 @@ msgid "Choose your NTP server"
 msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Servidor FTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Servidor FTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:526
 msgid "Please set your local NTP server"
@@ -2102,9 +2092,8 @@ msgid "&Yes"
 msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "No"
+msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -2799,11 +2788,11 @@ msgstr "Arxivament"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:44
 msgid "Backup"
-msgstr ""
+msgstr "Còpia de seguretat"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
-msgstr ""
+msgstr "Gravació de CD"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
@@ -2820,7 +2809,7 @@ msgstr "Altres"
 #: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
 #: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Communications"
-msgstr ""
+msgstr "Comunicacions"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:49
 msgid "Bluetooth"
@@ -2828,7 +2817,7 @@ msgstr "Bluetooth"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
-msgstr ""
+msgstr "Marcatge"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
@@ -2836,19 +2825,19 @@ msgstr "Fax"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:52
 msgid "Mobile"
-msgstr ""
+msgstr "Mòbil"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:53
 msgid "Radio"
-msgstr ""
+msgstr "Ràdio"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
-msgstr ""
+msgstr "De sèrie"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Telephony"
-msgstr ""
+msgstr "Telefonia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
@@ -2870,88 +2859,88 @@ msgstr "Desenvolupament"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr ""
+msgstr "Bàsic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:60
 msgid "C++"
-msgstr ""
+msgstr "C++"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:61
 msgid "C#"
-msgstr ""
+msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "Depuració"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
-msgstr ""
+msgstr "GNOME i GTK+"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:66
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:67
 msgid "KDE and Qt"
-msgstr ""
+msgstr "KDE i Qt"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr ""
+msgstr "Nucli"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
-msgstr ""
+msgstr "Perl"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:72
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:73
 msgid "Python"
-msgstr ""
+msgstr "Python"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:74
 msgid "Tools"
-msgstr ""
+msgstr "Eines"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
 msgid "X11"
-msgstr ""
+msgstr "X11"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
 #: lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Documentation"
-msgstr ""
+msgstr "Documentació"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:77
 msgid "Editors"
-msgstr ""
+msgstr "Editors"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:78
 msgid "Education"
-msgstr ""
+msgstr "Educació"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:79
 msgid "Emulators"
-msgstr ""
+msgstr "Emuladors"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:80
 msgid "File tools"
-msgstr ""
+msgstr "Eines de fitxers"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
 #: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
@@ -2960,27 +2949,27 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Games"
-msgstr ""
+msgstr "Jocs"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:82
 msgid "Adventure"
-msgstr ""
+msgstr "Aventura"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:83
 msgid "Arcade"
-msgstr ""
+msgstr "Arcade"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:84
 msgid "Boards"
-msgstr ""
+msgstr "Taulers"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:85
 msgid "Cards"
-msgstr ""
+msgstr "Cartes"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:87
 msgid "Puzzles"
-msgstr ""
+msgstr "Trencaclosques"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
@@ -2988,87 +2977,87 @@ msgstr "Tirador"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
-msgstr ""
+msgstr "Simulació"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
-msgstr ""
+msgstr "Esports"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Strategy"
-msgstr ""
+msgstr "Estratègia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:92
 msgid "Geography"
-msgstr ""
+msgstr "Geografia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
 #: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
 #: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
 msgid "Graphical desktop"
-msgstr ""
+msgstr "Escriptori gràfic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:96
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:99
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:102
 msgid "Icewm"
-msgstr ""
+msgstr "Icewm"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:105
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:109
 msgid "WindowMaker"
-msgstr ""
+msgstr "WindowMaker"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:112
 msgid "Xfce"
-msgstr ""
+msgstr "Xfce"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:113 lib/ManaTools/Rpmdragora/icon.pm:114
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:116
 #: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Graphics"
-msgstr ""
+msgstr "Gràfics"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
-msgstr ""
+msgstr "3D"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Editors i convertidors"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Utilities"
-msgstr ""
+msgstr "Utilitats"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
-msgstr ""
+msgstr "Fotografia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
-msgstr ""
+msgstr "Escaneig"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
-msgstr ""
+msgstr "Visualitzadors"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitoratge"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
 #: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
@@ -3076,11 +3065,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
 #: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
 msgid "Networking"
-msgstr ""
+msgstr "Xarxa"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:122
 msgid "File transfer"
-msgstr ""
+msgstr "Transferència de fitxers"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:123
 msgid "IRC"
@@ -3088,23 +3077,23 @@ msgstr "IRC"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:124
 msgid "Instant messaging"
-msgstr ""
+msgstr "Missatgeria instantània"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
 msgid "Mail"
-msgstr ""
+msgstr "Correu"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:126
 msgid "News"
-msgstr ""
+msgstr "Notícies"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:128
 msgid "Remote access"
-msgstr ""
+msgstr "Accés remot"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:129
 msgid "WWW"
-msgstr ""
+msgstr "WWW"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
 #: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
@@ -3112,19 +3101,19 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Office"
-msgstr ""
+msgstr "Oficina"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
-msgstr ""
+msgstr "Diccionari"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "Finances"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
-msgstr ""
+msgstr "Gestió"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:134
 msgid "Organizer"
@@ -3390,11 +3379,11 @@ msgstr "Correu/Programari de grup/Notícies"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
-msgstr ""
+msgstr "Servidor de xarxa"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Web/FTP"
-msgstr ""
+msgstr "Web/FTP"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -3813,11 +3802,11 @@ msgstr "Cancel·la"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "Afegeix un grup paral·lel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "Edita un grup paral·lel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
@@ -3875,7 +3864,7 @@ msgstr "Amfitrions:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr ""
+msgstr "Configura urpmi paral·lel (execució distribuïda d'urpmi)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
@@ -3899,13 +3888,13 @@ msgstr "Afegeix..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
-msgstr ""
+msgstr "Gestiona claus per a signatures digitals de paquets"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2068
 msgid "Medium"
-msgstr ""
+msgstr "Suport"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
@@ -3922,7 +3911,7 @@ msgstr "Afegeix una clau"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "Escolliu una clau per afegir al suport %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
@@ -3957,11 +3946,11 @@ msgstr "Actualitza"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "Afegeix una rèplica específica"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "Afegeix un suport personalitzat"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
@@ -4146,12 +4135,12 @@ msgstr "s'utilitzarà %s d'espai de disc addicional."
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "S'alliberaran %s d'espai de disc."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "Es recuperaran %s de paquets."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:104
 msgid "Search results"
@@ -4356,7 +4345,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1439
 msgid "Additional packages needed"
-msgstr ""
+msgstr "Paquets addicionals necessaris"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1440
 msgid ""
@@ -4364,10 +4353,11 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
+"Per satisfer les dependències, cal instal·lar també els paquets següents:\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "Paquets conflictius"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1462
 #, perl-format
@@ -4376,11 +4366,11 @@ msgstr "%s (pertany a la llista d'omissions)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1466
 msgid "One package cannot be installed"
-msgstr ""
+msgstr "Un paquet no es pot instal·lar"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1466
 msgid "Some packages cannot be installed"
-msgstr ""
+msgstr "Alguns paquets no es poden instal·lar"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1468
 #, perl-format
@@ -4455,7 +4445,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1707 modules/rpmdragora/rpmdragora:380
 msgid "Upgradable"
-msgstr ""
+msgstr "Actualitzable"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1707 modules/rpmdragora/rpmdragora:536
 msgid "Installed"
@@ -4463,11 +4453,11 @@ msgstr "Instal·lat"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1708 modules/rpmdragora/rpmdragora:380
 msgid "Addable"
-msgstr ""
+msgstr "Afegible"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1742
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "No hi ha descripció disponible per a aquest paquet\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
