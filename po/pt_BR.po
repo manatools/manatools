@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,15 +9,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Marcio Andre Padula <padula1000@gmail.com>, 2015
+# Marcio Andre Padula <padula1000@gmail.com>, 2015-2016
 # Rodrigo Macedo <rodrigomacedo@rmsolucoeseminformatica.com>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2016-01-28 14:05+0000\n"
-"Last-Translator: Rodrigo Macedo <rodrigomacedo@rmsolucoeseminformatica.com>\n"
+"PO-Revision-Date: 2016-02-21 17:44+0000\n"
+"Last-Translator: Marcio Andre Padula <padula1000@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/MageiaLinux/"
 "mageia/language/pt_BR/)\n"
 "Language: pt_BR\n"
@@ -33,7 +33,9 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr "_: Tradutor(s) nome(s) & e-mail(s)\n"
+msgstr ""
+"_: Tradutor(s) nome(s) & e-mail(s)\n"
+"Marcio Andre Padula <padula1000@gmail.com>\n"
 
 #: lib/ManaTools/MainDisplay.pm:297 lib/ManaTools/Module/LogViewer.pm:325
 #: lib/ManaTools/Module/Users.pm:2413 lib/ManaTools/Module/Clock.pm:215
@@ -57,7 +59,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "MPAN é o painel de ManaTools que recolhe todos as utilitários."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -68,11 +70,12 @@ msgid ""
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Desenvolvedores</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Trandutores</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Tradutores</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -121,12 +124,12 @@ msgstr ""
 #: lib/ManaTools/MainDisplay.pm:636
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr "Está faltando configuração de arquivo %s"
+msgstr "Está faltando configuração do arquivo %s"
 
 #: lib/ManaTools/MainDisplay.pm:641
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr "Lendo configuração de arquivo %s"
+msgstr "Lendo configuração do arquivo %s"
 
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
@@ -184,7 +187,7 @@ msgstr "&OK"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1298
 msgid "&Cancel"
-msgstr "&Cancelado"
+msgstr "&Cancelar"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -196,9 +199,8 @@ msgstr "Não"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "selecionar"
+msgstr "&Selecionar"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -224,7 +226,7 @@ msgstr "O nome deve conter apenas caracteres minúsculos, números,'-' e '_'"
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr "Nome é muito longo. O comprimento máximo é%d"
+msgstr "Nome é muito longo. O comprimento máximo é %d"
 
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -245,12 +247,12 @@ msgstr "Bloqueado"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Expired"
-msgstr "Expirada"
+msgstr "Expirado"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 msgid "None (installed)"
-msgstr "Nenhuma (instalados)"
+msgstr "Nenhum (instalado)"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
@@ -1654,9 +1656,8 @@ msgid "Search:"
 msgstr "Pesquisa:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Aplicar filtro"
+msgstr "Aplicar &filtro"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1733,9 +1734,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr "Por favor, instale um serviço NTP como chrony ou NTP para gerenciar"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Escolha seu servidor NTP"
+msgstr "Escolha &servidor NTP"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1746,19 +1746,16 @@ msgid "Choose your NTP server"
 msgstr "Escolha seu servidor NTP"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Mudar servidor &NTP"
+msgstr "&Servidor NTP local"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Escolha seu servidor NTP"
+msgstr "Definir servidor local NTP"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Escolha seu servidor NTP"
+msgstr "Por favor, configure seu servidor NTP locais"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -2249,12 +2246,11 @@ msgstr "Não perguntar na próxima vez"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Sim"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Não"
+msgstr "&Não"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4942,9 +4938,8 @@ msgid "Reset"
 msgstr "Reset"
 
 #: modules/rpmdragora/rpmdragora:662
-#, fuzzy
 msgid "&Apply"
-msgstr "Aplicar"
+msgstr "&Aplicar"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "/_Select dependencies without asking"
@@ -5370,12 +5365,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Uma Interface gráfica para instalar, remover e atualizar Programas"
-
-#~ msgid "Select all"
-#~ msgstr "Selecionar tudo"
-
-#~ msgid "Exit"
-#~ msgstr "Sair"
-
-#~ msgid "Quit"
-#~ msgstr "Desistir"
