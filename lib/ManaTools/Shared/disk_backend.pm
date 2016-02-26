@@ -363,6 +363,11 @@ sub probeio {
 
 =head2 findin
 
+=head3 INPUT
+
+    $io: ManaTools::Shared::disk_backend::IO
+    $state: ManaTools::Shared::disk_backend::Part::PartState|undef
+
 =head3 OUTPUT
 
     array of Part
@@ -377,13 +382,19 @@ sub probeio {
 sub findin {
     my $self = shift;
     my $io = shift;
+    my $state = shift;
 
-    return grep {grep {$io eq $_} $_->get_ins()} @{$self->parts};
+    return grep {grep {$io eq $_} $_->get_ins() && (!defined $state || $_->is_state($state))} @{$self->parts};
 }
 
 #=============================================================
 
 =head2 findout
+
+=head3 INPUT
+
+    $io: ManaTools::Shared::disk_backend::IO
+    $state: ManaTools::Shared::disk_backend::Part::PartState|undef
 
 =head3 OUTPUT
 
@@ -399,8 +410,9 @@ sub findin {
 sub findout {
     my $self = shift;
     my $io = shift;
+    my $state = shift;
 
-    return grep {grep {$io eq $_} $_->get_outs()} @{$self->parts};
+    return grep {grep {$io eq $_} $_->get_outs() && (!defined $state || $_->is_state($state))} @{$self->parts};
 }
 
 #=============================================================
