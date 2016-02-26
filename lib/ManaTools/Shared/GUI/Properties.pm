@@ -153,7 +153,7 @@ sub refresh {
             $factory->createLabel($hbox, $key .': ');
             my $val = $properties->prop($key);
             $val = '' if (!defined($val));
-            $val = '' if (ref($val) != '');
+            $val = '' if (ref($val) ne '');
             $val = ''. $val;
             $factory->createOutputField($hbox, $val);
             $factory->createHStretch($hbox);
