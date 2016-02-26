@@ -143,17 +143,19 @@ use Moose;
 
 extends 'ManaTools::Shared::disk_backend::Part';
 
-has '+type' => (
+use MooseX::ClassAttribute;
+
+class_has '+type' => (
     default => 'Disks'
 );
 
-has '+in_restriction' => (
+class_has '+in_restriction' => (
     default => sub {
         return sub {return 0;};
     }
 );
 
-has '+out_restriction' => (
+class_has '+out_restriction' => (
     default => sub {
         return sub {
             my $self = shift;

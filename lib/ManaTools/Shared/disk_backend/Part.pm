@@ -80,29 +80,30 @@ use Moose;
 
 with 'ManaTools::Shared::ActionsRole', 'ManaTools::Shared::PropertiesRole';
 
+use MooseX::ClassAttribute;
+
 use ManaTools::Shared::disk_backend::IOs;
 
 ## Class DATA
-has 'type' => (
+class_has 'type' => (
     is => 'ro',
     init_arg => undef,
-    lazy => 1,
     isa => 'Str',
     default => 'Part'
 );
-has 'in_restriction' => (
+
+class_has 'in_restriction' => (
     is => 'ro',
     init_arg => undef,
-    lazy => 1,
     isa => 'Maybe[CodeRef]',
     default => sub {
         sub { return 1; }
     }
 );
-has 'out_restriction' => (
+
+class_has 'out_restriction' => (
     is => 'ro',
     init_arg => undef,
-    lazy => 1,
     isa => 'Maybe[CodeRef]',
     default => sub {
         sub { return 1; }
