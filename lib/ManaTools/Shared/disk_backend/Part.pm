@@ -81,10 +81,37 @@ use Moose;
 with 'ManaTools::Shared::ActionsRole', 'ManaTools::Shared::PropertiesRole';
 
 use MooseX::ClassAttribute;
+use Moose::Util::TypeConstraints qw/subtype as where/;
 
 use ManaTools::Shared::disk_backend::IOs;
 
 ## Class DATA
+
+subtype 'PartState'
+    => as Int
+    => where {($_ > 0 && $_<=3)};
+
+class_has 'LoadedState' => (
+    is => 'ro',
+    isa => 'PartState',
+    init_arg => undef,
+    default => sub {return 1;},
+);
+
+class_has 'CurrentState' => (
+    is => 'ro',
+    isa => 'PartState',
+    init_arg => undef,
+    default => sub {return 2;},
+);
+
+class_has 'FutureState' => (
+    is => 'ro',
+    isa => 'PartState',
+    init_arg => undef,
+    default => sub {return 3;},
+);
+
 class_has 'type' => (
     is => 'ro',
     init_arg => undef,
@@ -111,6 +138,39 @@ class_has 'out_restriction' => (
 );
 
 ## Object Variables
+has 'loaded' => (
+    is => 'rw',
+    init_arg => undef,
+    lazy => 1,
+    isa => 'Maybe[ManaTools::Shared::disk_backend::Part]',
+    default => sub {
+        my $self = shift;
+        return $self;
+    }
+);
+
+has 'probed' => (
+    is => 'rw',
+    init_arg => undef,
+    lazy => 1,
+    isa => 'Maybe[ManaTools::Shared::disk_backend::Part]',
+    default => sub {
+        my $self = shift;
+        return $self;
+    }
+);
+
+has 'saved' => (
+    is => 'rw',
+    init_arg => undef,
+    lazy => 1,
+    isa => 'Maybe[ManaTools::Shared::disk_backend::Part]',
+    default => sub {
+        my $self = shift;
+        return $self;
+    }
+);
+
 has 'db' => (
     is => 'rw',
     isa => 'ManaTools::Shared::disk_backend',
@@ -205,6 +265,114 @@ sub is_equal {
     return 0 if (!$self->outs()->is_equal($part->outs()));
 
     return 1;
+}
+
+#=============================================================
+
+=head2 is_state
+
+=head3 INPUT
+
+    $state: PartState
+
+=head3 OUTPUT
+
+    bool
+
+=head3 DESCRIPTION
+
+    this method returns true if this part is in this particular state
+
+=cut
+
+#=============================================================
+sub is_state {
+    my $self = shift;
+    my $state = shift;
+    return $self->is_loaded() if ($state == ManaTools::Shared::disk_backend::Part->LoadedState);
+    return $self->is_current() if ($state == ManaTools::Shared::disk_backend::Part->CurrentState);
+    return $self->to_be_saved() if ($state == ManaTools::Shared::disk_backend::Part->FutureState);
+    return undef;
+}
+
+#=============================================================
+
+=head2 is_loaded
+
+=head3 OUTPUT
+
+    bool
+
+=head3 DESCRIPTION
+
+    this method returns true if this part has been loaded like this (past state)
+
+=cut
+
+#=============================================================
+sub is_loaded {
+    my $self = shift;
+    return ($self->loaded == $self);
+}
+
+#=============================================================
+
+=head2 is_current
+
+=head3 OUTPUT
+
+    bool
+
+=head3 DESCRIPTION
+
+    this method returns true if this part is how it actually currently is (current state)
+
+=cut
+
+#=============================================================
+sub is_current {
+    my $self = shift;
+    return ($self->probed == $self);
+}
+
+#=============================================================
+
+=head2 to_be_saved
+
+=head3 OUTPUT
+
+    bool
+
+=head3 DESCRIPTION
+
+    this method returns true if this part has changed and is awaiting saving (future state)
+
+=cut
+
+#=============================================================
+sub to_be_saved {
+    my $self = shift;
+    return ($self->saved == $self);
+}
+
+#=============================================================
+
+=head2 check_merge
+
+=head3 DESCRIPTION
+
+    this method checks if the other Part States are actually equal and merge back
+
+=cut
+
+#=============================================================
+sub check_merge {
+    my $self = shift;
+    my $db = $self->db();
+
+    $db->rmpart($self->loaded()) && $self->loaded($self) if !$self->is_loaded() && $self->equal($self->loaded());
+    $db->rmpart($self->probed()) && $self->probed($self) if !$self->is_current() && $self->equal($self->probed());
+    $db->rmpart($self->saved()) && $self->saved($self) if !$self->to_be_saved() && $self->equal($self->saved());
 }
 
 #=============================================================
