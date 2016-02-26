@@ -10,7 +10,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2016-02-05 23:16+0300\n"
+"PO-Revision-Date: 2016-02-26 23:35+0300\n"
 "Last-Translator: Atilla ÖNTAŞ <tarakbumba@gmail.com>\n"
 "Language-Team: Mageia Turkish Translation Team <i18n-tr@ml.mageia.org>\n"
 "Language: tr\n"
@@ -26,10 +26,12 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
-msgid "_: Translator(s) name(s) & email(s)\n"
+msgid ""
+"_: Translator(s) name(s) & email(s)\n"
 msgstr ""
-"Faraduntamarti\n"
+"Faraduntamarti <faradundamarti@yandex.com>\n"
 "Atilla ÖNTAŞ <tarakbumba@gmail.com>\n"
+"Fırat Kutlu <firatkutlu@gmail.com>\n"
 
 #: lib/ManaTools/MainDisplay.pm:297 lib/ManaTools/Module/LogViewer.pm:325
 #: lib/ManaTools/Module/Users.pm:2413 lib/ManaTools/Module/Clock.pm:215
@@ -53,7 +55,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan tüm yardımcı programları bir araya toplayan ManaTools panelidir."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -65,6 +67,7 @@ msgid ""
 msgstr ""
 "<h3>Geliştiriciler</h3>\n"
 "                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Çevirmenler</h3>\n"
@@ -192,9 +195,8 @@ msgstr "Hayır"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Seç"
+msgstr "&Seç"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -1648,9 +1650,8 @@ msgid "Search:"
 msgstr "Ara:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Filtreyi uygula"
+msgstr "S&üzgeci uygula"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1727,9 +1728,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr "Lüfen yönetmek üzere chrony veya ntp gibi bir NTP hizmeti kurun"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "NTP sunucunuzu seçin"
+msgstr "&NTP sunucunuzu seçin"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1740,19 +1740,16 @@ msgid "Choose your NTP server"
 msgstr "NTP sunucunuzu seçin"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "&NTP sunucusunu değiştir"
+msgstr "&Yerel NTP sunuc"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "NTP sunucunuzu seçin"
+msgstr "Yerel NTP sunucunuzu ayarlayın"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "NTP sunucunuzu seçin"
+msgstr "Lütfen yerel NTP sunucunuzu ayarlayın"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -2246,12 +2243,11 @@ msgstr "Bir daha sorma"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Evet"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Hayır"
+msgstr "&Hayır"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4925,9 +4921,8 @@ msgid "Reset"
 msgstr "Sıfırla"
 
 #: modules/rpmdragora/rpmdragora:662
-#, fuzzy
 msgid "&Apply"
-msgstr "Uygula"
+msgstr "&Uygula"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "/_Select dependencies without asking"
