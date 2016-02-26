@@ -120,6 +120,36 @@ sub list {
 
 #=============================================================
 
+=head2 is_equal
+
+=head3 INPUT
+
+    $ios: ManaTools::Shared::disk_backend::IOs
+
+=head3 OUTPUT
+
+    bool
+
+=head3 DESCRIPTION
+
+    this method returns true of $self is equal to $ios
+
+=cut
+
+#=============================================================
+sub is_equal {
+    my $self = shift;
+    my $ios = shift;
+
+    return 0 if $self->length() != $ios->length();
+    for my $key (keys %{$self->ios()}) {
+        return 0 if $ios->ios()->{$key} != $self->ios()->{$key};
+    }
+    return 1;
+}
+
+#=============================================================
+
 =head2 append
 
 =head3 INPUT
