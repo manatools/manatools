@@ -177,6 +177,37 @@ sub label {
 
 #=============================================================
 
+=head2 is_equal
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
+
+=head3 OUTPUT
+
+    bool
+
+=head3 DESCRIPTION
+
+    this method checks if the given part is equal to self
+
+=cut
+
+#=============================================================
+sub is_equal {
+    my $self = shift;
+    my $part = shift;
+
+    return 0 if ($self->label() ne $part->label());
+    return 0 if ($self->type() ne $part->type());
+    return 0 if (!$self->ins()->is_equal($part->ins()));
+    return 0 if (!$self->outs()->is_equal($part->outs()));
+
+    return 1;
+}
+
+#=============================================================
+
 =head2 get_ins
 
 =head3 OUTPUT
