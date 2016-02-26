@@ -206,8 +206,8 @@ sub raw {
     my $real_name = ref($name) ? $name->[0] : $name;
 
     my ($stdout_raw, $stdout_mode, $stderr_raw, $stderr_mode);
-    ($stdout_mode, $stdout_raw, @args) = @args if $args[0] =~ /^>>?$/;
-    ($stderr_mode, $stderr_raw, @args) = @args if $args[0] =~ /^2>>?$/;
+    ($stdout_mode, $stdout_raw, @args) = @args if scalar(@args) >= 2 && $args[0] =~ /^>>?$/;
+    ($stderr_mode, $stderr_raw, @args) = @args if scalar(@args) >= 2 && $args[0] =~ /^2>>?$/;
 
     my $home;
     if ($options->{as_user}) {
