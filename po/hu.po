@@ -1,16 +1,23 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
+# Balzamon, 2015
 # Balzamon, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2015-12-31 08:36+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-03-02 13:25+0000\n"
+"Last-Translator: Csaba Mészáros <pingvin@y2k.hu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -26,7 +33,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
 #: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
+msgstr "_: Fordító(k) név & email\n"
 
 #: lib/ManaTools/MainDisplay.pm:297 lib/ManaTools/Module/LogViewer.pm:325
 #: lib/ManaTools/Module/Users.pm:2413 lib/ManaTools/Module/Clock.pm:215
@@ -35,7 +42,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1096
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Copyright (C) %s Mageia közösség"
 
 #: lib/ManaTools/MainDisplay.pm:298 lib/ManaTools/Module/LogViewer.pm:326
 #: lib/ManaTools/Module/Users.pm:2414 lib/ManaTools/Module/Clock.pm:216
@@ -47,7 +54,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:299
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan az a ManaTools, mely összegyűjti az összes programot."
 
 #: lib/ManaTools/MainDisplay.pm:300
 #, perl-format
@@ -60,6 +67,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Fordítók</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -94,44 +108,44 @@ msgstr "Súgó"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:762
 msgid "&About"
-msgstr ""
+msgstr "&Magunkról"
 
 #: lib/ManaTools/MainDisplay.pm:613
 #, perl-format
 msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
-msgstr ""
+msgstr "Rossz konfigurációs fájl. A %s nem xml:nyelvi formátum."
 
 #: lib/ManaTools/MainDisplay.pm:636
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "A %s konfigurációs fájl hiányzik"
 
 #: lib/ManaTools/MainDisplay.pm:641
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "A %s konfigurációs fájl olvasása"
 
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Beállítások betöltése: %s tartalom <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "%s kategória fájl elemzése"
 
 #: lib/ManaTools/MainDisplay.pm:825
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Kategóriák betöltése: tartalomjegyzék <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:860
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Kategóriák betöltése: modulok <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -147,7 +161,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1299
 msgid "&Ok"
-msgstr ""
+msgstr "&Ok"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -169,7 +183,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1298
 msgid "&Cancel"
-msgstr ""
+msgstr "&Mégsem"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -181,9 +195,8 @@ msgstr "Nem"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Mindent kijelöl"
+msgstr "&Kijelölés"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -192,22 +205,24 @@ msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "Eme használati útmutató kinyomtatása"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Név mező üres. Adjon meg egy nevet"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"A megadott név csak egy betűvel kezdődik, és kizárólag kisbetűs latin "
+"betűket, számokat tartalmaz,  '.', '-' and '_'"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "A megadott név túl hosszú. Maximum %d karakter lehet."
 
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -221,52 +236,53 @@ msgstr "Ok"
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
 msgstr ""
+"Nem tudja eltávolítani a felhasználót <%s> a saját elsődleges csoportjából"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Locked"
-msgstr ""
+msgstr "Lezárt"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Expired"
-msgstr ""
+msgstr "Lejárt"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 msgid "None (installed)"
-msgstr ""
+msgstr "Nincs (telepítve)"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 msgid "Unknown"
-msgstr ""
+msgstr "Ismeretlen"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "Egyedi szabályok megtartása"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Egyedi szabályok eldobása"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "yui gtk bővítmény használata"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "yui ncurses bővítmény használata"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "yui qt bővítmény használata"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "Teljes képernyős párbeszéd ablakok használata"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "Keret nélküli párbeszéd ablakok"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -276,116 +292,116 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:411
 msgid "&Reset"
-msgstr ""
+msgstr "&Újraindítás"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:418
 msgid "&Close"
-msgstr ""
+msgstr "&Bezár"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s engedélyezett, de megállt - letiltani"
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "Globális"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "Afrika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "Ázsia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "Európa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "Észak Amerika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "Óceánia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "Dél Amerika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
-msgstr ""
+msgstr "Kelet Afrika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzánia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
-msgstr ""
+msgstr "Kína"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "Hong Kong"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "India"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonézia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
-msgstr ""
+msgstr "Irán"
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
-msgstr ""
+msgstr "Izrael"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
 msgid "Japan"
-msgstr ""
+msgstr "Japán"
 
 #: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
 msgid "Korea"
-msgstr ""
+msgstr "Korea"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "Malájzia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "Fülöp szigetek"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "Szingapúr"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "Tajvan"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
-msgstr ""
+msgstr "Thaiföld"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "Törökország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Egyesült Arab Emirátusok"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
@@ -401,7 +417,7 @@ msgstr "Belgium"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgária"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
@@ -409,19 +425,19 @@ msgstr "Cseh Köztársaság"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "Dánia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Észtország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
-msgstr ""
+msgstr "Finnország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "Franciaország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
@@ -434,55 +450,55 @@ msgstr "Görögország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
-msgstr ""
+msgstr "Magyarország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Írország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "Olaszország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Litvánia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxembourg"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "Hollandia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "Norvégia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "Lengyelország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "Portugália"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "Románia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Oroszország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "Szlovákia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Szlovénia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
@@ -490,7 +506,7 @@ msgstr "Spanyolország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "Svédország"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
@@ -498,15 +514,15 @@ msgstr "Svájc"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukrajna"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Anglia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Jugoszlávia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
@@ -514,17 +530,17 @@ msgstr "Kanada"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Mexikó"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "USA"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
@@ -532,7 +548,7 @@ msgstr "Ausztrália"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Új-Zéland "
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
@@ -544,15 +560,15 @@ msgstr "Brazília"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "Minden szerver"
 
 #: lib/ManaTools/Shared/TimeZone.pm:947
 msgid "user does not have the rights to change configuration file, skipped"
-msgstr ""
+msgstr "A felhasználó nem rendelkezik a változtatás jogával. "
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -560,35 +576,39 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Indítsuk el az ALSA (Advanced Linux Sound Architecture) hangrendszert"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "Az Anacron egy parancsidőzítő."
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"Az apmd az akkumulátor állapotát figyeli és naplózza a syslog fájlba. \n"
+"Arra is rá lehet venni, hogy kikapcsolja a gépet, ha az akkumulátor "
+"töltöttsége alacsony."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"Az \"at\" parancs is egy időzítő, de csak egyszer fut le a megadott időben."
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi egy ZeroConf démon, amely egy vermet hoz létre az mDNS számára."
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "NTP-kliens / szerver "
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "CPU frekvencia beállítása"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -597,15 +617,20 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"A cron egy időzítő. A felhasználó által megadott szabványos UNIX programot "
+"futtat a megadott időben\n"
+"A vixie cron a cron egy továbbfejlesztett változata\n"
+"A UNIX cron nagyobb biztonságot és szélesebb körű beállítási lehetőségeket "
+"kínál."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
-msgstr ""
+msgstr "Common UNIX Printing System (CUPS) egy fejlett nyomtatási rendszer"
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "Elindítja a grafikus bejelentkező menedzsert"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -613,6 +638,9 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"A FAM egy fájl figyelő démon. Arra használják, hogy jelentéseket készítsen, "
+"ha a fájlok módosultak. \n"
+"A GNOME és a KDE is alkalmazza."
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -625,6 +653,15 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"A G15Daemon hozzáférést biztosít az összes extra billentyűgombokhoz \n"
+"Visszaküldi a dekódolt adatokat a kernelen keresztül az UINPUT "
+"meghajtónak. \n"
+"A g15daemon el kell indítani mielőtt használhatóak lennének a billentyűzet "
+"extra gombjai. \n"
+"Alapértelmezetten a G15 LCD is támogatott.  \n"
+" Ha nincs más ügyfelek aktív, g15daemon megjelenít egy órát. Kliens "
+"alkalmazások és \n"
+" szkriptek elérhetik az LCD-t egy egyszerű API-val."
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -633,21 +670,25 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"A GPM egy egér támogatás a szöveg alapú Linux alkalmazások számára, mint a \n"
+"Midnight Commander. Az egérrel lehet kijelölni, másolni, beilleszteni "
+"szövegrészeket.\n"
+"és támogatja a felbukkanó menüket is a terminálon."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr ""
+msgstr "A HAL a hardverekről gyűjt lekérdezhető adatokat."
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
-msgstr ""
+msgstr "A HardDrake egy hardver beállító eszköz"
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
-msgstr ""
+msgstr "Az Apache egy webszerver."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -658,14 +699,17 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"INETD - Az internet szuper szerver démon\n"
+"Ez a démon felel a számos egyéb internetes szolgáltatásokért. mint pld. \n"
+"a telnet, ftp, rsh és rlogin. "
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
-msgstr ""
+msgstr "ip6tables - Automatikus csomagszűrő tűzfal ip6tables alapokon"
 
 #: lib/ManaTools/Shared/Services.pm:272
 msgid "Automates a packet filtering firewall with iptables"
-msgstr ""
+msgstr "iptables - Automatikus csomagszűrő tűzfal iptables alapokon"
 
 #: lib/ManaTools/Shared/Services.pm:273
 msgid ""
@@ -2038,9 +2082,8 @@ msgid "&Yes"
 msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Nem"
+msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4709,22 +4752,23 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "A Mageia Dátum és idő beállítások indítása."
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "A Mageia Dátum és idő beállítások indításához azonosítás szükséges"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "A Mageia Bejelentkezés-kezelő beállítások indítása"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"A Mageia Bejelentkezés-kezelő beállítások indításához azonosítás szükséges"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -4743,12 +4787,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "A Mageia Naplók megtekintésének indítása"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "A Mageia Naplók megtekintésének indításához azonosítás szükséges"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4760,32 +4804,32 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "A Mageia Szolgáltatásbeállítások indítása"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "A Mageia Szolgáltatásbeállítások indításához azonosítás szükséges"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "A Mageia Felhasználókezelő indítása"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Azonosítás szükséges a Mageia Felhasználókezelő futtatásához"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "A Mageia Tűzfal beállító futtatása"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "A Mageia tűzfaelbeállító használatához azonosítás szükséges."
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4806,9 +4850,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia-frissítés"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4828,7 +4871,7 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Csomagforrások beállítása telepítéshez és frissítéshez"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4838,12 +4881,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Rendszerindulás"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Mageia-frissítés"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -4979,8 +5021,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
+msgstr "Grafikus felület csomagok telepítéséhez, törléséhez és frissítéséhez"
