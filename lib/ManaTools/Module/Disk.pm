@@ -241,6 +241,7 @@ sub _rebuildTab {
         });
     }
     $tab->finishedTabItems();
+    return $tab;
 }
 
 sub _rebuildList {
@@ -248,6 +249,8 @@ sub _rebuildList {
     my $eventHandler = shift;
     my $container = shift;
     my @items = @_;
+    my $list = undef;
+    return $list;
 }
 
 sub _rebuildTree {
@@ -255,6 +258,8 @@ sub _rebuildTree {
     my $eventHandler = shift;
     my $container = shift;
     my @items = @_;
+    my $tree = undef;
+    return $tree;
 }
 
 sub _rebuildItems {
