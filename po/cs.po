@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2016-02-14 15:09+0100\n"
+"POT-Creation-Date: 2016-03-13 21:27+0100\n"
 "PO-Revision-Date: 2016-02-17 08:31+0000\n"
 "Last-Translator: Jiří Vírava <appukonrad@gmail.com>\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -32,7 +32,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:444
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
-#: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1090
+#: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
 "Michal Bukovjan <bukm@centrum.cz>\n"
@@ -42,7 +42,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:2413 lib/ManaTools/Module/Clock.pm:215
 #: lib/ManaTools/Module/Services.pm:449
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
-#: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1096
+#: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1094
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
 msgstr "Autorské právo (C) %s Mageia komunita"
@@ -51,7 +51,7 @@ msgstr "Autorské právo (C) %s Mageia komunita"
 #: lib/ManaTools/Module/Users.pm:2414 lib/ManaTools/Module/Clock.pm:216
 #: lib/ManaTools/Module/Services.pm:450
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
-#: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1097
+#: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1095
 msgid "GPLv2"
 msgstr "GPLv2"
 
@@ -82,7 +82,7 @@ msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
-#: modules/rpmdragora/rpmdragora:706
+#: modules/rpmdragora/rpmdragora:703
 msgid "File"
 msgstr "Soubor"
 
@@ -92,8 +92,8 @@ msgstr "Soubor"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1584
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1704
-#: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:665
-#: modules/rpmdragora/rpmdragora:710 modules/rpmdragora/rpmdragora:1187
+#: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:662
+#: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1209
 msgid "&Quit"
 msgstr "U&končit"
 
@@ -111,7 +111,7 @@ msgstr "Nápověda"
 #: lib/ManaTools/Module/DisplayManager.pm:244
 #: lib/ManaTools/Module/Proxy.pm:328 lib/ManaTools/Module/Services.pm:405
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
-#: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:762
+#: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:759
 msgid "&About"
 msgstr "O programu"
 
@@ -166,7 +166,7 @@ msgstr "Nahrát skupiny: Název modulu je <<%s>>"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
-#: lib/ManaTools/Rpmdragora/gui.pm:1299
+#: lib/ManaTools/Rpmdragora/gui.pm:1303
 msgid "&Ok"
 msgstr "&Ok"
 
@@ -188,7 +188,7 @@ msgstr "&Ok"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:767
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
-#: lib/ManaTools/Rpmdragora/gui.pm:1298
+#: lib/ManaTools/Rpmdragora/gui.pm:1302
 msgid "&Cancel"
 msgstr "&Zrušit"
 
@@ -1047,7 +1047,7 @@ msgstr "Shodných"
 msgid "but not matching"
 msgstr "neshodných"
 
-#: lib/ManaTools/Module/LogViewer.pm:171 modules/rpmdragora/rpmdragora:726
+#: lib/ManaTools/Module/LogViewer.pm:171 modules/rpmdragora/rpmdragora:723
 msgid "Options"
 msgstr "Volby"
 
@@ -1178,9 +1178,9 @@ msgstr "Přidat ke skupině „users”"
 #: lib/ManaTools/Module/Users.pm:448 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
 #: lib/ManaTools/Rpmdragora/pkg.pm:950 lib/ManaTools/Rpmdragora/pkg.pm:964
-#: lib/ManaTools/Rpmdragora/gui.pm:390 lib/ManaTools/Rpmdragora/gui.pm:939
-#: lib/ManaTools/Rpmdragora/gui.pm:943 lib/ManaTools/Rpmdragora/gui.pm:948
-#: modules/rpmdragora/rpmdragora:1187
+#: lib/ManaTools/Rpmdragora/gui.pm:392 lib/ManaTools/Rpmdragora/gui.pm:945
+#: lib/ManaTools/Rpmdragora/gui.pm:949 lib/ManaTools/Rpmdragora/gui.pm:954
+#: modules/rpmdragora/rpmdragora:1209
 msgid "Warning"
 msgstr "Varování"
 
@@ -1439,7 +1439,7 @@ msgid "Home Directory"
 msgstr "Domovský adresář"
 
 #: lib/ManaTools/Module/Users.pm:1126 lib/ManaTools/Module/Services.pm:374
-#: modules/rpmdragora/rpmdragora:494
+#: modules/rpmdragora/rpmdragora:478
 msgid "Status"
 msgstr "Stav"
 
@@ -1613,13 +1613,13 @@ msgstr "Činnosti"
 
 #: lib/ManaTools/Module/Users.pm:2476
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
-#: modules/rpmdragora/dragoraUpdate:278 modules/rpmdragora/rpmdragora:759
+#: modules/rpmdragora/dragoraUpdate:278 modules/rpmdragora/rpmdragora:756
 msgid "&Help"
 msgstr "&Nápověda"
 
 #: lib/ManaTools/Module/Users.pm:2478
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
-#: modules/rpmdragora/rpmdragora:761
+#: modules/rpmdragora/rpmdragora:758
 msgid "Report Bug"
 msgstr "Nahlásit chybu"
 
@@ -2217,7 +2217,7 @@ msgstr "Jméno uživatele:"
 msgid "Software Packages Removal"
 msgstr "Odstranění balíčků softwaru"
 
-#: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:440
+#: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
 msgstr "Aktualizace balíčků softwaru"
 
@@ -2248,7 +2248,7 @@ msgstr "OK"
 #: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
 #: lib/ManaTools/Rpmdragora/pkg.pm:149 lib/ManaTools/Rpmdragora/pkg.pm:465
 #: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
-#: modules/rpmdragora/rpmdragora:307
+#: modules/rpmdragora/rpmdragora:296
 msgid "Please wait"
 msgstr "Počkejte, prosím"
 
@@ -2289,7 +2289,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:230
+#: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
 msgid "Medium: "
 msgstr "Zdroj: "
 
@@ -2399,7 +2399,7 @@ msgstr ""
 "Nebyl nalezen žádný aktivní zdroj. Aby bylo možné zdroje aktualizovat, "
 "musíte některé z nich povolit."
 
-#: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:707
+#: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
 msgid "Update media"
 msgstr "Aktualizovat zdroje"
 
@@ -2408,7 +2408,7 @@ msgid "Media"
 msgstr "Média"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:285
-#: modules/rpmdragora/rpmdragora:659
+#: modules/rpmdragora/rpmdragora:653
 msgid "&Select all"
 msgstr "&Vybrat vše"
 
@@ -2568,7 +2568,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:208 lib/ManaTools/Rpmdragora/pkg.pm:689
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1150
 #: lib/ManaTools/Rpmdragora/formatting.pm:150
-#: lib/ManaTools/Rpmdragora/gui.pm:1664
+#: lib/ManaTools/Rpmdragora/gui.pm:1668
 msgid "(none)"
 msgstr "(žádný)"
 
@@ -2592,17 +2592,17 @@ msgstr "Použít nový soubor"
 msgid "Do nothing"
 msgstr "Nedělat nic"
 
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:261
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
 msgid "Please wait, searching..."
 msgstr "Prosím počkejte, hledá se..."
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
-#: lib/ManaTools/Rpmdragora/gui.pm:1570
+#: lib/ManaTools/Rpmdragora/gui.pm:1574
 msgid "Fatal error"
 msgstr "Fatální chyba"
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:101 lib/ManaTools/Rpmdragora/pkg.pm:494
-#: lib/ManaTools/Rpmdragora/gui.pm:1571
+#: lib/ManaTools/Rpmdragora/gui.pm:1575
 #, perl-format
 msgid "A fatal error occurred: %s."
 msgstr "Došlo k závažné chybě: %s."
@@ -2631,8 +2631,8 @@ msgstr ""
 "Chybí XML informace pro zdroj \"%s\", nelze vrátit žádný výsledek pro "
 "balíček %s"
 
-#: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:347
-#: lib/ManaTools/Rpmdragora/gui.pm:358 lib/ManaTools/Rpmdragora/gui.pm:362
+#: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:349
+#: lib/ManaTools/Rpmdragora/gui.pm:360 lib/ManaTools/Rpmdragora/gui.pm:364
 msgid "(Not available)"
 msgstr "(Není k dispozici)"
 
@@ -2792,7 +2792,7 @@ msgstr ""
 "Nahlášené chyby:\n"
 "%s"
 
-#: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:948
+#: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:954
 msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
@@ -2804,7 +2804,7 @@ msgstr ""
 msgid "The following package is going to be installed:"
 msgstr "Bude nainstalován %d následující balíček:"
 
-#: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1485
+#: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1489
 msgid "Some packages need to be removed"
 msgstr "Některé balíčky musí být odebrány"
 
@@ -2927,8 +2927,8 @@ msgstr ""
 "\n"
 "%s"
 
-#: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:392
-#: modules/rpmdragora/rpmdragora:535 modules/rpmdragora/rpmdragora:560
+#: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
+#: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
 msgid "All"
 msgstr "Vše"
 
@@ -3490,7 +3490,7 @@ msgstr "Vědecká stanice"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
 #: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
-#: lib/ManaTools/Rpmdragora/icon.pm:201 lib/ManaTools/Rpmdragora/gui.pm:133
+#: lib/ManaTools/Rpmdragora/icon.pm:201 lib/ManaTools/Rpmdragora/gui.pm:135
 msgid "Graphical Environment"
 msgstr "Grafické prostředí"
 
@@ -4132,7 +4132,7 @@ msgid "Proxy"
 msgstr "Proxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
-#: modules/rpmdragora/rpmdragora:760
+#: modules/rpmdragora/rpmdragora:757
 msgid "Manual"
 msgstr "Ruční"
 
@@ -4151,7 +4151,7 @@ msgstr "Dolů"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
-#: modules/rpmdragora/rpmdragora:1098
+#: modules/rpmdragora/rpmdragora:1096
 msgid "Rpmdragora is the Mageia package management tool."
 msgstr "Rpmdragora je nástroj pro správu balíčků Mageia"
 
@@ -4208,9 +4208,9 @@ msgstr "<control>W"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
-#: modules/rpmdragora/rpmdragora:695 modules/rpmdragora/rpmdragora:697
-#: modules/rpmdragora/rpmdragora:699 modules/rpmdragora/rpmdragora:700
-#: modules/rpmdragora/rpmdragora:701
+#: modules/rpmdragora/rpmdragora:692 modules/rpmdragora/rpmdragora:694
+#: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
+#: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
 msgstr "/_Volby"
 
@@ -4301,143 +4301,143 @@ msgstr "Bude uvolněno %s diskového prostoru."
 msgid "%s of packages will be retrieved."
 msgstr "Bude staženo %s balíčků."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:104
+#: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
 msgstr "Výsledky hledání"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:104
+#: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results (none)"
 msgstr "Výsledky hledání (žádné)"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:148
+#: lib/ManaTools/Rpmdragora/gui.pm:150
 msgid "Security advisory"
 msgstr "Bezpečnostní informace"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:158
+#: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
 msgstr "Žádný popis"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:172
+#: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
 msgstr "Tento balíček <b>není</b> podporován distribucí Mageia."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:173
+#: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
 msgstr "Může <b>rozbít</b> váš systém."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:175
+#: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
 msgstr "Tento balíček neobsahuje svobodný software"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:178
+#: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
 msgstr "Tento balíček obsahuje novou verzi, která byla zpětně portována."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:182
+#: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
 msgstr "Tento balíček je potenciální kandidát na aktualizaci."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:187
+#: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
 msgstr "Toto je oficiální aktualizace podporovaná distribucí Mageia."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:188
+#: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
 msgstr "Toto je neoficiální aktualizace."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:192
+#: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
 msgstr "Toto je oficiální balíček podporovaný Mageiou"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:203
+#: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
 msgstr "Poznámka: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:210
+#: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
 msgstr "Důležitost: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:211
+#: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
 msgstr "Důvod pro aktualizaci: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:225
+#: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
 msgstr "Verze: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:226
+#: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
 msgstr "Nyní nainstalovaná verze: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:227
+#: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
 msgstr "Skupina: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:228
+#: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
 msgstr "Architektura: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:229
+#: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
 msgstr "Velikost: "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:229
+#: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
 msgid "%s KB"
 msgstr "%s KB"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:252
+#: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
 msgstr "Všechny závislosti nainstalovány."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:270
+#: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
 msgstr "Adresa (URL): "
 
-#: lib/ManaTools/Rpmdragora/gui.pm:332
+#: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
 msgstr "Podrobnosti:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:341
+#: lib/ManaTools/Rpmdragora/gui.pm:343
 msgid "Files:"
 msgstr "Soubory:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:355
+#: lib/ManaTools/Rpmdragora/gui.pm:357
 msgid "Changelog:"
 msgstr "Změny:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:372
+#: lib/ManaTools/Rpmdragora/gui.pm:374
 msgid "New dependencies:"
 msgstr "Nové závislosti:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:392
+#: lib/ManaTools/Rpmdragora/gui.pm:394
 #, perl-format
 msgid "The package \"%s\" was found."
 msgstr "Byl nalezen balíček \"%s\"."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:393
+#: lib/ManaTools/Rpmdragora/gui.pm:395
 msgid "However this package is not in the package list."
 msgstr "Tento balíček se nicméně nenachází na seznamu balíčků."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:394
+#: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "You may want to update your urpmi database."
 msgstr "Možná byste měli aktualizovat databázi urpmi."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:396
+#: lib/ManaTools/Rpmdragora/gui.pm:398
 msgid "Matching packages:"
 msgstr "Odpovídající balíčky:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:401
+#: lib/ManaTools/Rpmdragora/gui.pm:403
 #, perl-format
 msgid "- %s (medium: %s)"
 msgstr "- %s (zdroj: %s)"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:939
+#: lib/ManaTools/Rpmdragora/gui.pm:945
 #, perl-format
 msgid "Removing package %s would break your system"
 msgstr "Odstranění balíčku %s by poškodilo váš systém"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:943
+#: lib/ManaTools/Rpmdragora/gui.pm:949
 #, perl-format
 msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
@@ -4446,45 +4446,45 @@ msgstr ""
 "Balíček \"%s\" je na seznamu urpmi pro vynechávání.\n"
 "Chcete jej přesto vybrat?"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1172
+#: lib/ManaTools/Rpmdragora/gui.pm:1176
 msgid "More information on package..."
 msgstr "Více informací o balíčku..."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1174
+#: lib/ManaTools/Rpmdragora/gui.pm:1178
 msgid "Please choose"
 msgstr "Prosím vyberte"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1175
+#: lib/ManaTools/Rpmdragora/gui.pm:1179
 msgid "The following package is needed:"
 msgstr "Je zapotřebí následující balíček:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1175
+#: lib/ManaTools/Rpmdragora/gui.pm:1179
 msgid "One of the following packages is needed:"
 msgstr "Je zapotřebí jeden z následujících balíčků:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1287
+#: lib/ManaTools/Rpmdragora/gui.pm:1291
 msgid "Select package"
 msgstr "Vybrat balíček"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1385
+#: lib/ManaTools/Rpmdragora/gui.pm:1389
 msgid "Checking dependencies of package..."
 msgstr "Ověřují se závislosti balíčku..."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1390
+#: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Some additional packages need to be removed"
 msgstr "Je třeba odstranit některé další balíčky"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1401
+#: lib/ManaTools/Rpmdragora/gui.pm:1405
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
 msgstr "Kvůli jejich závislostem je třeba odstranit také následující balíčky:"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1406
+#: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid "Some packages cannot be removed"
 msgstr "Některé balíčky nelze odstranit"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1407
+#: lib/ManaTools/Rpmdragora/gui.pm:1411
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
@@ -4492,7 +4492,7 @@ msgstr ""
 "Odstranění těchto balíčků by poškodilo váš systém, omlouváme se:\n"
 "\n"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1415 lib/ManaTools/Rpmdragora/gui.pm:1486
+#: lib/ManaTools/Rpmdragora/gui.pm:1419 lib/ManaTools/Rpmdragora/gui.pm:1490
 msgid ""
 "Because of their dependencies, the following package(s) must be unselected "
 "now:\n"
@@ -4502,11 +4502,11 @@ msgstr ""
 "balíčků:\n"
 "\n"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1439
+#: lib/ManaTools/Rpmdragora/gui.pm:1443
 msgid "Additional packages needed"
 msgstr "Jsou potřeba další balíčky"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1440
+#: lib/ManaTools/Rpmdragora/gui.pm:1444
 msgid ""
 "To satisfy dependencies, the following package(s) also need to be "
 "installed:\n"
@@ -4516,24 +4516,24 @@ msgstr ""
 "balíčky:\n"
 "\n"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1448
+#: lib/ManaTools/Rpmdragora/gui.pm:1452
 msgid "Conflicting Packages"
 msgstr "Konfliktní balíčky"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1462
+#: lib/ManaTools/Rpmdragora/gui.pm:1466
 #, perl-format
 msgid "%s (belongs to the skip list)"
 msgstr "%s (patří do přeskakovaných)"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1466
+#: lib/ManaTools/Rpmdragora/gui.pm:1470
 msgid "One package cannot be installed"
 msgstr "Jeden balíček nelze nainstalovat"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1466
+#: lib/ManaTools/Rpmdragora/gui.pm:1470
 msgid "Some packages cannot be installed"
 msgstr "Některé balíčky nelze nainstalovat"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1468
+#: lib/ManaTools/Rpmdragora/gui.pm:1472
 #, perl-format
 msgid ""
 "Sorry, the following package cannot be selected:\n"
@@ -4544,7 +4544,7 @@ msgstr ""
 "\n"
 "%s"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1469
+#: lib/ManaTools/Rpmdragora/gui.pm:1473
 #, perl-format
 msgid ""
 "Sorry, the following packages cannot be selected:\n"
@@ -4555,28 +4555,28 @@ msgstr ""
 "\n"
 "%s"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1523
+#: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Some packages are selected."
 msgstr "Některé balíčky jsou vybrány."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1523
+#: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Do you really want to quit?"
 msgstr "Opravdu chcete skončit?"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1533
+#: lib/ManaTools/Rpmdragora/gui.pm:1537
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
 msgstr "Chyba: %s vypadá, že je připojen pouze ke čtení."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1537
+#: lib/ManaTools/Rpmdragora/gui.pm:1541
 msgid "You need to select some packages first."
 msgstr "Musíte nejprve vybrat nějaké balíčky."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1542
+#: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "Too many packages are selected"
 msgstr "Je vybráno příliš mnoho balíčků"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1543
+#: lib/ManaTools/Rpmdragora/gui.pm:1547
 msgid ""
 "Warning: it seems that you are attempting to add so many\n"
 "packages that your filesystem may run out of free diskspace,\n"
@@ -4592,15 +4592,15 @@ msgstr ""
 "\n"
 "Opravdu chcete nainstalovat všechny vybrané balíčky?"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1654
+#: lib/ManaTools/Rpmdragora/gui.pm:1658
 msgid "Please wait, listing packages..."
 msgstr "Prosím počkejte, vypisují se balíčky..."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1667
+#: lib/ManaTools/Rpmdragora/gui.pm:1671
 msgid "No update"
 msgstr "Žádné aktualizace"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1668
+#: lib/ManaTools/Rpmdragora/gui.pm:1672
 msgid ""
 "The list of updates is empty. This means that either there is\n"
 "no available update for the packages installed on your computer,\n"
@@ -4610,25 +4610,45 @@ msgstr ""
 "žádné aktualizace pro balíčky instalované na vašem počítači, nebo už\n"
 "máte všechny aktualizace nainstalované."
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1707 modules/rpmdragora/rpmdragora:380
+#: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
 msgstr "Lze aktualizovat"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1707 modules/rpmdragora/rpmdragora:536
+#: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
 msgstr "Nainstalováno"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1708 modules/rpmdragora/rpmdragora:380
+#: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
 msgstr "Lze přidat"
 
-#: lib/ManaTools/Rpmdragora/gui.pm:1742
+#: lib/ManaTools/Rpmdragora/gui.pm:1746
 msgid "Description not available for this package\n"
 msgstr "Popis tohoto balíčku není k dispozici\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
 msgstr "Nástroj pro přidání uživatelů Mageia"
+
+#: scripts/mpan~:34 scripts/mpan:34
+msgid "Developers mode"
+msgstr "Vývojářský režim"
+
+#: scripts/mpan~:40 scripts/mpan:40
+msgid ""
+"Application name, used for logging identifier and x application "
+"configuration directory. Default mpan"
+msgstr ""
+"Název programu, používán pro identifikátor při zaznamenávání a adresář s "
+"nastavením aplikace x. Výchozí mpan"
+
+#: scripts/mpan~:46 scripts/mpan:46
+msgid "Window title. Default name value"
+msgstr "Název okna. Výchozí hodnota pro název"
+
+#: scripts/mpan~:69 scripts/mpan:69
+msgid "== Development mode ON =="
+msgstr "== Vývojářský režim ZAPNUT =="
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -4699,26 +4719,6 @@ msgstr ""
 msgid "valid <commands>:\n"
 msgstr "platný <commands>:\n"
 
-#: scripts/mpan:34
-msgid "Developers mode"
-msgstr "Vývojářský režim"
-
-#: scripts/mpan:40
-msgid ""
-"Application name, used for logging identifier and x application "
-"configuration directory. Default mpan"
-msgstr ""
-"Název programu, používán pro identifikátor při zaznamenávání a adresář s "
-"nastavením aplikace x. Výchozí mpan"
-
-#: scripts/mpan:46
-msgid "Window title. Default name value"
-msgstr "Název okna. Výchozí hodnota pro název"
-
-#: scripts/mpan:69
-msgid "== Development mode ON =="
-msgstr "== Vývojářský režim ZAPNUT =="
-
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
 msgstr "Opravení chyby"
@@ -4729,8 +4729,8 @@ msgstr "Seznam softwarových balíčků k aktualizaci"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
-#: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:440
-#: modules/rpmdragora/rpmdragora:1195 extras/conf/mpan/categories.conf.in:4
+#: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:424
+#: modules/rpmdragora/rpmdragora:1217 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
 msgstr "Správa softwaru"
 
@@ -4738,15 +4738,15 @@ msgstr "Správa softwaru"
 msgid "Name"
 msgstr "Název"
 
-#: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:468
+#: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
 msgstr "Souhrn"
 
-#: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:471
+#: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:455
 msgid "Version"
 msgstr "Verze"
 
-#: modules/rpmdragora/dragoraUpdate:262 modules/rpmdragora/rpmdragora:475
+#: modules/rpmdragora/dragoraUpdate:262 modules/rpmdragora/rpmdragora:459
 msgid "Release"
 msgstr "Vydání"
 
@@ -4789,28 +4789,28 @@ msgstr ""
 "žádné aktualizace pro balíčky instalované na vašem počítači, nebo už\n"
 "máte všechny aktualizace nainstalované."
 
-#: modules/rpmdragora/rpmdragora:317
+#: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
 msgstr "Není k dispozici žádné xml-info pro zdroj \"%s\""
 
-#: modules/rpmdragora/rpmdragora:333 modules/rpmdragora/rpmdragora:361
+#: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
 msgstr "Hledání přerušeno"
 
-#: modules/rpmdragora/rpmdragora:382
+#: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
 msgstr "Vybráno"
 
-#: modules/rpmdragora/rpmdragora:382
+#: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
 msgstr "Nevybráno"
 
-#: modules/rpmdragora/rpmdragora:390
+#: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
 msgstr "Žádné výsledky hledání."
 
-#: modules/rpmdragora/rpmdragora:391
+#: modules/rpmdragora/rpmdragora:376
 #, perl-format
 msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
@@ -4818,156 +4818,161 @@ msgid ""
 msgstr ""
 "Žádné výsledky hledání. Možná chcete přepnout na pohled „%s” a filtr „%s”"
 
-#: modules/rpmdragora/rpmdragora:421
+#: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
 msgstr "Vybráno: %s / Volné místo na disku: %s"
 
-#: modules/rpmdragora/rpmdragora:464
+#: modules/rpmdragora/rpmdragora:448
 msgid "Package"
 msgstr "Balíček"
 
-#: modules/rpmdragora/rpmdragora:481
+#: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
 msgstr "Arch."
 
-#: modules/rpmdragora/rpmdragora:485
+#: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
 msgstr "ToInst"
 
-#: modules/rpmdragora/rpmdragora:537
+#: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
 msgstr "Není instalováno"
 
-#: modules/rpmdragora/rpmdragora:550
+#: modules/rpmdragora/rpmdragora:528
+#, perl-format
+msgid "Show %s and noarch only"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
 msgstr "Všechny balíčky, abecedně"
 
-#: modules/rpmdragora/rpmdragora:551
+#: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
 msgstr "Všechny balíčky, podle skupiny"
 
-#: modules/rpmdragora/rpmdragora:552
+#: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
 msgstr "Pouze listy, řazené podle data instalace"
 
-#: modules/rpmdragora/rpmdragora:553
+#: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
 msgstr "Všechny balíčky, podle dostupnosti aktualizací"
 
-#: modules/rpmdragora/rpmdragora:554
+#: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
 msgstr "Všechny balíčky, podle stavu výběru"
 
-#: modules/rpmdragora/rpmdragora:555
+#: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
 msgstr "Všechny balíčky, podle velikosti"
 
-#: modules/rpmdragora/rpmdragora:556
+#: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
 msgstr "Všechny balíčky, podle umístění zdroje"
 
-#: modules/rpmdragora/rpmdragora:561
+#: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
 msgstr "Zpětné portace"
 
-#: modules/rpmdragora/rpmdragora:562
+#: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
 msgstr "Meta balíčky"
 
-#: modules/rpmdragora/rpmdragora:563
+#: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
 msgstr "Balíčky s GUI"
 
-#: modules/rpmdragora/rpmdragora:564
+#: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
 msgstr "Všechny aktualizace"
 
-#: modules/rpmdragora/rpmdragora:565
+#: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
 msgstr "Bezpečnostní aktualizace"
 
-#: modules/rpmdragora/rpmdragora:566
+#: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
 msgstr "Opravy chyb"
 
-#: modules/rpmdragora/rpmdragora:567
+#: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
 msgstr "Běžné aktualizace"
 
-#: modules/rpmdragora/rpmdragora:614
+#: modules/rpmdragora/rpmdragora:608
 msgid "in names"
 msgstr "v názvech"
 
-#: modules/rpmdragora/rpmdragora:615
+#: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
 msgstr "v popisech"
 
-#: modules/rpmdragora/rpmdragora:616
+#: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
 msgstr "ve shrnutích"
 
-#: modules/rpmdragora/rpmdragora:617
+#: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
 msgstr "v názvech souborů"
 
-#: modules/rpmdragora/rpmdragora:636
+#: modules/rpmdragora/rpmdragora:630
 msgid "Search"
 msgstr "Hledat"
 
-#: modules/rpmdragora/rpmdragora:642
+#: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
 msgstr "Nastavit znovu"
 
-#: modules/rpmdragora/rpmdragora:662
+#: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
 msgstr "&Použít"
 
-#: modules/rpmdragora/rpmdragora:695
+#: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
 msgstr "/Vybírat závi_slé balíčky bez ptaní"
 
-#: modules/rpmdragora/rpmdragora:698
+#: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
 msgstr "Smazat dočasnou paměť po úspěšné instalaci"
 
-#: modules/rpmdragora/rpmdragora:699
+#: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
 msgstr "/Počítat aktualiza_ce při startu"
 
-#: modules/rpmdragora/rpmdragora:700
+#: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
 msgstr "Hledat v _plných názvech balíčků"
 
-#: modules/rpmdragora/rpmdragora:701
+#: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
 msgstr "Používat při hledání _regulární výrazy"
 
-#: modules/rpmdragora/rpmdragora:708
+#: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
 msgstr "Nulovat výběr"
 
-#: modules/rpmdragora/rpmdragora:709
+#: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
 msgstr "Znovu načíst seznam balíčků"
 
-#: modules/rpmdragora/rpmdragora:723
+#: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
 msgstr "Nastavení"
 
-#: modules/rpmdragora/rpmdragora:725
+#: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
 msgstr "&Správce médií"
 
-#: modules/rpmdragora/rpmdragora:755
+#: modules/rpmdragora/rpmdragora:752
 msgid "View"
 msgstr "Pohled"
 
-#: modules/rpmdragora/rpmdragora:1067
+#: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Nastavit znovu přerušené (databáze RPM je zamknuta jiným procesem)"
 
-#: modules/rpmdragora/rpmdragora:1099
+#: modules/rpmdragora/rpmdragora:1097
 #, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
@@ -4985,7 +4990,7 @@ msgstr ""
 "                                    <h3>Překladatelé</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 
-#: modules/rpmdragora/rpmdragora:1187
+#: modules/rpmdragora/rpmdragora:1209
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
 msgstr "rpmdragora již běží (pid: %s)"
