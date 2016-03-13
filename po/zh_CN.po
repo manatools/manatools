@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -8,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2015-07-07 15:46+0000\n"
+"PO-Revision-Date: 2016-03-08 14:38+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_CN/)\n"
@@ -554,7 +560,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "监听并分发来自内核的 ACPi 事件"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
@@ -578,15 +584,15 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi 是一个实现了 mDNS 栈的零配置守护进程"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "一个 NTP 客户端/服务器"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "CPU 频率设置"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -659,16 +665,16 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
-msgstr ""
+msgstr "使用 ip6tables 配置自动化包过滤防火墙"
 
 #: lib/ManaTools/Shared/Services.pm:272
 msgid "Automates a packet filtering firewall with iptables"
-msgstr ""
+msgstr "使用 iptables 配置自动化包过滤防火墙"
 
 #: lib/ManaTools/Shared/Services.pm:273
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
-msgstr ""
+msgstr "在多个 CPU 间平衡 IRQ 负载以增强性能"
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -689,7 +695,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
-msgstr ""
+msgstr "微调系统行为以延长电池寿命"
 
 #: lib/ManaTools/Shared/Services.pm:281
 msgid ""
@@ -715,7 +721,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
-msgstr ""
+msgstr "监视和管理软 RAID"
 
 #: lib/ManaTools/Shared/Services.pm:289
 msgid ""
@@ -725,7 +731,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
-msgstr ""
+msgstr "系统启动时启用 MSEC 安全策略"
 
 #: lib/ManaTools/Shared/Services.pm:291
 msgid ""
@@ -735,7 +741,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "初始化网络终端登录"
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
@@ -751,11 +757,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "若启用了网络，则激活它"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "等待热插拔网络被激活"
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid ""
@@ -786,7 +792,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "检查某个分区的空间是否即将用尽"
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
@@ -806,7 +812,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
-msgstr ""
+msgstr "保留部分 TCP 端口"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
@@ -828,7 +834,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
-msgstr ""
+msgstr "域名服务器信息管理器"
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid ""
@@ -848,6 +854,8 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"Syslog 是诸多守护进程用于记录消息（系统日志）的工具。最好确保 rsyslog 能够运"
+"行。"
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
@@ -868,7 +876,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
-msgstr ""
+msgstr "包过滤防火墙"
 
 #: lib/ManaTools/Shared/Services.pm:334
 msgid ""
@@ -882,7 +890,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
-msgstr ""
+msgstr "语音分析层"
 
 #: lib/ManaTools/Shared/Services.pm:337
 msgid ""
@@ -898,7 +906,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
-msgstr ""
+msgstr "将生成的永久 udev 规则移动到 /etc/udev/rules.d"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
@@ -906,7 +914,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
-msgstr ""
+msgstr "轻量级网络流量监控程序"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
@@ -4697,7 +4705,7 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "运行 Mageia 日期和时间配置"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
@@ -4758,22 +4766,22 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "打开Mageia 用户管理工具"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "需要授权才能打开Mageia用户管理工具"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "运行 Mageia 防火墙配置"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "运行 Mageia 防火墙配置需要身份验证"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4794,9 +4802,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia 更新"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4816,7 +4823,7 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "配置安装和更新所用的介质源"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4826,12 +4833,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "引导"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Mageia 更新"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -4967,4 +4973,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "安装、删除和更新软件包的图形化工具"
