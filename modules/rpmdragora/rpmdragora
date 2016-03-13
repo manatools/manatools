@@ -53,10 +53,7 @@ use yui;
 use feature 'state';
 use POSIX qw/uname/;
 
-# OLD $ugtk2::wm_icon = get_icon('installremoverpm', "title-$MODE");
-#TODO fix $wm_resource_path
-my $wm_resource_path="/usr/share/rpmdrake/icons";
-my $wm_icon = "$wm_resource_path"."/title-$MODE.png";
+my $wm_icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), "images/rpmdragora/title-$MODE.png");
 
 # Declarations
 my $my_win;

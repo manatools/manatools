@@ -41,6 +41,7 @@ use MDK::Common::Various qw(chomp_ to_bool);
 use MDK::Common::String qw(formatAlaTeX);
 use MDK::Common::Math qw(sum);
 use MDK::Common::System qw(list_passwd);
+use File::ShareDir ':ALL';
 
 use ManaTools::rpmdragora;
 use ManaTools::Rpmdragora::open_db;
@@ -489,28 +490,22 @@ sub set_node_state {
     my ($tblItem, $state, $detail_list) = @_;
     return if $state eq 'XXX' || !$state;
 
+    my $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), "images/rpmdragora/state_$state.png");
     if ($detail_list) {
         $detail_list->parent()->parent()->startMultipleChanges();
-        $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
+
+        $tblItem->addCell($state, $icon) if(ref $tblItem eq "yui::YCBTableItem");
         if(to_bool(member($state, qw(base installed to_install)))){
-            # it should be parent()->setChecked(1)
             $detail_list->checkItem($tblItem, 1);
-            # $tblItem->setSelected(1);
         }else{
             $detail_list->checkItem($tblItem, 0);
-            # $tblItem->setSelected(0);
         }
-#         if(!to_bool($state ne 'base')){
-#             #$iter->cell(0)->setLabel('-');
-#             $tblItem->cell(0)->setLabel('-');
-#         }
         $detail_list->parent()->parent()->doneMultipleChanges();
     }
     else {
         # no item list means we use just the item to add state information
-        $tblItem->addCell($state,"/usr/share/rpmdrake/icons/state_$state.png") if(ref $tblItem eq "yui::YCBTableItem");
+        $tblItem->addCell($state, $icon) if(ref $tblItem eq "yui::YCBTableItem");
         $tblItem->check(to_bool(member($state, qw(base installed to_install))));
-#         $tblItem->cell(0)->setLabel('-') if !to_bool($state ne 'base');
     }
 }
 
