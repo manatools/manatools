@@ -30,6 +30,7 @@ use File::ShareDir ':ALL';
 
 use MDK::Common::Func qw(any if_ before_leaving);
 use utf8;
+use English;
 
 use MDK::Common::DataStructure qw(uniq intersection);
 use MDK::Common::Various qw(to_bool first);
@@ -654,6 +655,9 @@ sub _run_treeview_dialog {
 
     my $apply_button = $factory->createIconButton($hbox_footbar,"",$loc->N("&Apply"));
     $apply_button->setWeight(0,6);
+    # NOTE apply button is disabled if not root atm
+    # TODO use a method instead of testing uid    #
+    $apply_button->setEnabled(0) if ($EUID != 0);
 
     my $QuitButton = $factory->createIconButton($hbox_footbar,"",$loc->N("&Quit"));
     $QuitButton->setWeight(0,6);
