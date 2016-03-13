@@ -159,16 +159,8 @@ sub _searchmenu_callback {
 my $current_group = -1;
 sub _tree_callback {
     my ($selection, $options) = @_;
-    #OLD my ($model, $iter) = $tree->currentItem();
-    #OLD return if !$iter;
-    #state $current_group;
-    #OLD my $new_group = $model->get_path_str($iter);
-    #my $new_group = $selection->index();
-    #$current_group = -1 if(!defined($current_group));
-    #return if $current_group eq $new_group && !$force_displaying_group;
+
     undef $force_displaying_group;
-    #$current_group = $new_group;
-    #OLD $model && $iter or return;
     $selection or return;
 
     my $fullname = $selection->label();
@@ -181,9 +173,7 @@ sub _tree_callback {
     utf8::decode($group);
 
     if (!$selection->hasChildren()) {
-        #$detail_list->window->freeze_updates;
         $options->{add_nodes}->(@{$elems{$group}});
-        #$detail_list->window->thaw_updates if $detail_list->window;
     }
     return;
 }
@@ -1122,11 +1112,13 @@ print "Menu " . $menuLabel . " chosen\n";
 
             my $widget      = $event->widget();
             my $perform_search = 0;
+            my $perform_show_packages = 0;
 
             if($widget == $reset_search_button) {
                 $find_entry->setValue('');
                 reset_search();
                 $options->{rebuild_tree}->();
+                $perform_show_packages = 1;
             }
             elsif ($widget == $find_button) {
                 $perform_search = 1;
@@ -1140,21 +1132,36 @@ print "Menu " . $menuLabel . " chosen\n";
             }
             elsif ($widget == $view_box) {
                 if (_viewbox_callback($view_box->selectedItem(), \%$options, \%wanted_categories)) {
-                    $perform_search = 1 if $find_entry->value();
+                    if ($find_entry->value()) {
+                        $perform_search = 1;
+                    }
+                    else {
+                        $perform_show_packages = 1;
+                    }
                 }
             }
             elsif ($widget == $filter_box) {
                 if (_filterbox_callback($filter_box->selectedItem(), \%$options, \@ordered_filters)) {
-                    $perform_search = 1 if $find_entry->value();
+                    if ($find_entry->value()) {
+                        $perform_search = 1;
+                    }
+                    else {
+                        $perform_show_packages = 1;
+                    }
                 }
             }
             elsif ($widget == $search_menu) {
                 if (_searchmenu_callback($search_menu->selectedItem(), \%$options, \@search_types, \$current_search_type)) {
-                    $perform_search = 1 if $find_entry->value();
+                    if ($find_entry->value()) {
+                        $perform_search = 1;
+                    }
+                    else {
+                        $perform_show_packages = 1;
+                    }
                 }
             }
             elsif ($widget == $tree) {
-                _tree_callback($tree->currentItem(),\%$options);
+                $perform_show_packages = 1;
             }
             elsif ($widget == $detail_list){
                 $info_options = {};
@@ -1177,6 +1184,11 @@ print "Menu " . $menuLabel . " chosen\n";
                 _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
                 yui::YUI::app()->normalCursor();
                 $perform_search = 0;
+                $perform_show_packages = 0;
+            }
+            elsif ($perform_show_packages) {
+                _tree_callback($tree->currentItem(),\%$options);
+                $perform_show_packages = 0;
             }
         }
 
