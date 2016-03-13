@@ -1019,6 +1019,7 @@ sub _run_treeview_dialog {
     my $info_options = {};
     # select group and show items evenctually
     _tree_callback($tree->currentItem(),\%$options);
+     _detaillist_callback($detail_list->selectedItem(), $info, \%$options);
 
     ######## main loop ####################
     while(1) {
@@ -1183,11 +1184,13 @@ print "Menu " . $menuLabel . " chosen\n";
                 yui::YUI::app()->busyCursor();
                 _do_search($find_entry, $tree, $options, $current_search_type, $urpm, $pkgs);
                 yui::YUI::app()->normalCursor();
+                _detaillist_callback($detail_list->selectedItem(), $info, \%$options);
                 $perform_search = 0;
                 $perform_show_packages = 0;
             }
             elsif ($perform_show_packages) {
                 _tree_callback($tree->currentItem(),\%$options);
+                _detaillist_callback($detail_list->selectedItem(), $info, \%$options);
                 $perform_show_packages = 0;
             }
         }
