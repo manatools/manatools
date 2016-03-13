@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: ManaTools\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-02-14 15:09+0100\n"
-"PO-Revision-Date: 2016-01-01 14:17+0000\n"
+"PO-Revision-Date: 2016-03-13 20:04+0100\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>, Translation list <mageia-"
 "i18n@mageia.org>\n"
@@ -51,7 +51,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan je pult, ki zbere vsa orodja ManaTools."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -62,11 +62,12 @@ msgid ""
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Razvojniki</h3>\n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul>\n"
-"<h3>Prevajalci</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Prevajalci</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -109,6 +110,7 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Napaka v nastavitveni datoteki, %s nima atributa xml:lang, verjetno je niz"
 
 #: lib/ManaTools/MainDisplay.pm:636
 #, perl-format
@@ -123,7 +125,7 @@ msgstr "Branje nastavitvenih datotek %s"
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Naloži nastavitve: vsebina %s je <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
@@ -133,12 +135,12 @@ msgstr "Razčlenjevanje datoteke kategorije %s"
 #: lib/ManaTools/MainDisplay.pm:825
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Naloži kategorije: naslov vsebine je <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:860
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Naloži kategorije: naslov modula je <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -188,9 +190,8 @@ msgstr "Ne"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Izberite"
+msgstr "&Izberite"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -271,11 +272,11 @@ msgstr "prični z uporabo izvedbe vstavka yui qt"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "uporaba celotnega zaslona za pogovorna okna"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "pogovorna okna brez mej okenskega upravljalnika"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -1630,9 +1631,8 @@ msgid "Search:"
 msgstr "Iskanje:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Uporabi filter"
+msgstr "Uporabi &filter"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1709,9 +1709,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr "Namestite program za upravljanje storitev NTP kot sta chrony ali ntp"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Izberite strežnik NTP"
+msgstr "Izberite strežnik &NTP"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1722,19 +1721,16 @@ msgid "Choose your NTP server"
 msgstr "Izberite strežnik NTP"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Spremenite strežnik NTP"
+msgstr "&Krajevni strežnik NTP"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Izberite strežnik NTP"
+msgstr "Nastavitev krajevnega strežnika NTP"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Izberite strežnik NTP"
+msgstr "Nastavite krajevni strežnik NTP"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -1849,9 +1845,9 @@ msgstr "Ali res želite opustiti tega gostitelja?"
 
 #: lib/ManaTools/Module/Hosts.pm:499 lib/ManaTools/Module/Firewall.pm:179
 #: lib/ManaTools/Module/DisplayManager.pm:266
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Avtorske pravice (C) %s Mandriva"
+msgstr "Avtorske pravice (C) %s Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -2220,12 +2216,11 @@ msgstr "Ne sprašuj več"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Da"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Ne"
+msgstr "&Ne"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4909,9 +4904,8 @@ msgid "Reset"
 msgstr "Ponastavi"
 
 #: modules/rpmdragora/rpmdragora:662
-#, fuzzy
 msgid "&Apply"
-msgstr "Uporabi"
+msgstr "&Uveljavi"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "/_Select dependencies without asking"
@@ -5044,40 +5038,41 @@ msgstr "Vir »%s« je uspešno dodan."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Zagon programskega orodja za posodobitev Mageje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Za zagon programskega orodja rpmdragora za posodobitev Mageje je potrebno "
+"overjanje"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Zagon nastavitev datuma in časa Mageje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Za zagon nastavitev datuma in časa Mageje je potrebno overjanje"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: nastavitve upravitelja prijav"
+msgstr "Zagon nastavitev upravitelja prijav Mageje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Za zagon nastavitev upravitelja prijav Mageje je potrebno overjanje"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Dovoli grafični uporabniški vmesnik APanel"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5085,16 +5080,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Za zagon programa manahost (user=$(uporabnik), program=$(program), "
+"command_line=$(ukaz)) je potrebna overitev"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Zagon pregledovalnika dnevnikov Mageje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Za zagon pregledovalnika dnevnikov Mageje je potrebno overjanje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5102,39 +5099,39 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Za zagon programa manaproxy (user=$(uporabnik), program=$(program), "
+"command_line=$(ukaz)) je potrebna overitev"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Nastavitve posredniških strežnikov (proxy)"
+msgstr "Zagon nastavitev storitev Mageje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Za zagon nastavitev storitev Mageje je potrebno overjanje"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "Upravitelj &virov programske opreme"
+msgstr "Zagon Mageia orodja za upravljanje z uporabniki"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
 msgstr ""
+"Za zagon Mageia orodja za upravljanje z uporabniki je zahtevano overjanje"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Nastavitev požarnega zidu"
+msgstr "Zagon nastavitev požarnega zidu Mageje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Za zagon nastavitev požarnega zidu Mageje je potrebno overjanje"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5142,212 +5139,197 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Za zagon programa apanel (user=$(uporabnik), program=$(program), "
+"command_line=$(ukaz)) je potrebna overitev"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Ta paket ni na voljo z odprto kodo"
+msgstr "Zagon programa za namestitev in odstranitev programov"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Za zagon Mageia orodja za upravljanje s paketi je zahtevano overjanje"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia posodobitev"
+msgstr "Pult Mageia"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategorije"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Namestite in odstranite programe"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Samo viri s posodobitvami"
+msgstr "Posodobite vaš sistem"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Določite vire paketov za nameščanje in posodabljanje"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Omrežje in internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Zagon"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Posodobitev programa rpmdragora"
+msgstr "rpmdragora - posodobitveni program Mageia"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
 msgstr ""
+"Grafični vmesnik za nameščanje, odstranjevanje in posodabljanje paketov"
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Nastavitev ure, datuma in časovnega pasu"
+msgstr "manaclock - nastavitev ure, datuma in časovnega pasu"
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manahost: upravitelj gostiteljev"
+msgstr "ManaTools- upravitelj časovnih nastavitev"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manadm: nastavitve upravitelja prijav"
+msgstr "manadm - nastavitve upravitelja prijav"
 
 #: extras/desktop/manadm.desktop.in:4
-#, fuzzy
 msgid "ManaTools login configuration manager"
-msgstr "manadm: nastavitve upravitelja prijav"
+msgstr "ManaTools - upravitelj nastavitev prijav"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
-#, fuzzy
 msgid "manahost - Host and hostname manager"
-msgstr "manahost: upravitelj gostiteljev"
+msgstr "manahost - upravitelj gostiteljev"
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manahost: upravitelj gostiteljev"
+msgstr "Upravitelj gostiteljev ManaTools"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr "manalog: branje dnevniških datotek programa journalct"
+msgstr ""
+"manalog - pregledovalnik dnevniških datotek Journalctl v skrbniškem načinu"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "Pregledovalnik dnevniških datotek ManaTools v skrbniškem načinu"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
 msgstr "manaproxy - nastavljanje posredniškega strežnika"
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: upravitelj posredniških strežnikov"
+msgstr "ManaTools- upravitelj posredniških strežnikov"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
 msgid "manaservice - Service configuration manager"
-msgstr "manaservice: upravljanje storitev"
+msgstr "manaservice - upravljanje nastavitev storitev"
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manaservice: upravljanje storitev"
+msgstr "ManaTools - upravljanje storitev"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: upravljanje z uporabniki"
+msgstr "manauser - upravljanje z uporabniki in skupinami"
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: upravljanje z uporabniki"
+msgstr "Upravljanje z uporabniki ManaTools"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr "manalog: branje dnevniških datotek programa journalct"
+msgstr ""
+"manalog - pregledovalnik dnevniških datotek Journalctl v  uporabniškem načinu"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "Pregledovalnik dnevniških datotek ManaTools v uporabniškem načinu"
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: upravitelj požarnega zidu"
+msgstr "manawall - upravitelj nastavitev požarnega zidu"
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Nastavitev požarnega zidu"
+msgstr "Nastavitev požarnega zidu ManaTools"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - nadzorno središče Mageia ManaTools"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "pult ManaTools - zaganjalnik programov"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Ta paket ni na voljo z odprto kodo"
+msgstr "rpmdragora - namestitev in odstranjevanje programske opreme"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
+"Grafični vmesnik za nameščanje, odstranjevanje in posodabljanje paketov"
 
 #~ msgid "Select all"
 #~ msgstr "Izberi vse"
@@ -5357,19 +5339,3 @@ msgstr ""
 
 #~ msgid "Quit"
 #~ msgstr "Končaj"
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "/usr/bin/dragoraUpdate"
-#~ msgstr "Posodobitev programa rpmdragora"
-
-#, fuzzy
-#~ msgid "images/rpmdragora/title-update.png"
-#~ msgstr "Posodobitev programa rpmdragora"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "manadm - upravitelj zaslona"
