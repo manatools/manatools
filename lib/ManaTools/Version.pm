@@ -58,12 +58,12 @@ use Moose::Role;
 
 =head1 VERSION
 
-    Version 1.1.1
+    Version 1.1.2
     See Changes for details
 
 =cut
 
-our $VERSION = '1.1.1';
+our $VERSION = '1.1.2';
 
 has 'Version' => (
     is       => 'ro',
