@@ -55,6 +55,7 @@ use ManaTools::Shared::RunProgram qw(get_stdout raw);
 use yui;
 use feature 'state';
 use Carp;
+use POSIX qw/uname/;
 
 use Exporter;
 our @ISA = qw(Exporter);
@@ -668,6 +669,11 @@ sub add_tree_item {
 
 =item B<$select>:     select given package
 
+=item B<$skip_other_arch>:     true if other archs have to be skipped
+
+=head3 OUTPUT
+    return 1 if item is added 0 otherwise
+
 =head3 DESCRIPTION
 
     populates the item list for the table view with the given rpm package
@@ -676,7 +682,7 @@ sub add_tree_item {
 
 #=============================================================
 sub add_package_item {
-    my ($item_list, $pkg_name, $select) = @_;
+    my ($item_list, $pkg_name, $select, $skip_other_arch) = @_;
 
     return if !$pkg_name;
 
@@ -687,6 +693,9 @@ sub add_package_item {
     my $iter;
     if (is_a_package($pkg_name)) {
         my ($name, $version, $release, $arch) = split_fullname($pkg_name);
+        my ($sysname, $nodename, $rel, $ver, $machine) = POSIX::uname();
+
+        return 0 if $skip_other_arch&& $arch ne $machine && $arch ne "noarch";
 
         $name    = "" if !defined($name);
         $version = "" if !defined($version);
@@ -711,8 +720,10 @@ sub add_package_item {
     }
     else {
         carp $pkg_name . " is not a leaf package and that is not managed!";
+        return 0;
     }
 
+    return 1;
 }
 
 #
@@ -951,14 +962,6 @@ sub fast_toggle {
 
     my $old_status = node_state($name);
 
-    # $DB::single = 1;
-
-#    my $old_state;
-#     if($item->checked()){
-#         $old_state = "to_install";
-#     }else{
-#         $old_state = "to_remove";
-#     }
     toggle_nodes($w->{tree}, $w->{detail_list}, \&set_leaf_state, $old_status, $name);
 
     $w->{detail_list}->selectItem($item, 1);
@@ -1033,17 +1036,21 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
             "";
 
         $w->{detail_list}->startMultipleChanges();
+        # cleanup old changed items since we are removing all of them
+        $w->{detail_list}->setChangedItem(undef);
         $w->{detail_list}->deleteAllItems();
         my $itemColl = new yui::YItemCollection;
 
         @table_item_list = ();
         my $index = 0;
+
         foreach(@nodes){
-            add_package_item($itemColl, $_->[0], ($lastItem eq $_->[0]));
-            warn "Unmanaged param " . $_->[2] if defined $_->[2];
-            $ptree{$_->[0]} = [ $index ];
-            $index++;
-            push @table_item_list, $_->[0];
+            if (add_package_item($itemColl, $_->[0], ($lastItem eq $_->[0]), $common->{'skip_other'})) {
+                warn "Unmanaged param 3 " . $_->[2] if defined $_->[2];
+                $ptree{$_->[0]} = [ $index ];
+                $index++;
+                push @table_item_list, $_->[0];
+            }
         }
 
         update_size($common);
@@ -1071,6 +1078,7 @@ sub reset_search() {
     yui::YUI::app()->busyCursor();
     my $wdgt = $common->{widgets};
     $wdgt->{detail_list}->startMultipleChanges();
+    $wdgt->{detail_list}->setChangedItem(undef);
     $wdgt->{detail_list}->deleteAllItems();
     $wdgt->{detail_list}->doneMultipleChanges();
     yui::YUI::app()->normalCursor();
@@ -1140,7 +1148,8 @@ sub pkgs_provider {
     foreach my $type (keys %tmp_filter_methods) {
         $filter_methods{$type} = sub {
             $force_rebuild = 1; # force rebuilding tree since we changed filter (FIXME: switch to SortModel)
-            @filtered_pkgs = intersection($filters{$filter->[0]}, $tmp_filter_methods{$type}->());
+            my $curr_filter = $filter->[0] eq 'skip_other' ? 'all' : $filter->[0];
+            @filtered_pkgs = intersection($filters{$curr_filter}, $tmp_filter_methods{$type}->());
         };
     }
 

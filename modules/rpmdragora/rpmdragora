@@ -51,6 +51,7 @@ use ManaTools::Rpmdragora::pkg;
 use yui;
 
 use feature 'state';
+use POSIX qw/uname/;
 
 # OLD $ugtk2::wm_icon = get_icon('installremoverpm', "title-$MODE");
 #TODO fix $wm_resource_path
@@ -119,6 +120,7 @@ sub _filterbox_callback {
     my $val = $rfilters->[$curr_index];
     if ($filter->[0] ne $val) {
         $filter->[0] = $val;
+        $options->{'skip_other'} = $val eq 'skip_other';
         reset_search();
         slow_func(sub { switch_pkg_list_mode($default_list_mode) });
         $options->{rebuild_tree}->();
@@ -301,8 +303,7 @@ sub _do_search($$$$$$) {
             my $xml_info_file =
                 urpm::media::any_xml_info($urpm, $medium,
                                         ($current_search_type eq 'files' ? 'files' : 'info'),
-                                        undef,
-                                        sub {
+                                        undef, sub {
                                             $gurpm ||= ManaTools::Rpmdragora::gurpm->new(
                                                 text => $loc->N("Please wait"),
                                                 main_dialog => $searchw,
@@ -345,8 +346,7 @@ sub _do_search($$$$$$) {
                 eval {
                     urpm::xml_info::do_something_with_nodes(
                         'info',
-                        $xml_info_file,
-                        sub {
+                        $xml_info_file, sub {
                             $searchstop and die 'search aborted';
                             my ($node) = @_;
                             $update_search_pb->();
@@ -369,11 +369,9 @@ sub _do_search($$$$$$) {
         $searchw->destroy;
     }
 
-#     my $iter;
     if (@search_results) {
         @search_results = sort_packages(@search_results);
         $elems{$results_ok} = [ map { [ $_, $results_ok ] } @search_results ];
-#         $iter = $options->{add_parent}->($tree, $results_ok);
 
         ManaTools::Rpmdragora::gui::add_tree_item($tree, $results_ok, 1);
         $options->{add_nodes}->(map { [ $_, $results_ok . ($options->{tree_mode} eq 'by_presence'
@@ -384,14 +382,12 @@ sub _do_search($$$$$$) {
                       ] } @search_results);
     } else {
         ManaTools::Rpmdragora::gui::add_tree_item($tree, $results_none, 1);
-#         $iter = $options->{add_parent}->($tree, $results_none);
         # clear package list:
         $options->{add_nodes}->();
         my $string = $default_list_mode eq 'all' && $filter->[0] eq 'all' ? $loc->N("No search results.") :
           $loc->N("No search results. You may want to switch to the '%s' view and to the '%s' filter",
             $loc->N("All"), $loc->N("All"),);
         statusbar_msg($string , 1);
-        #gtkset_mousecursor_normal($::w->{rwindow}->window);
     }
     my $tree_selection = $tree->currentItem();
 }
@@ -537,12 +533,20 @@ sub _run_treeview_dialog {
         non_installed => $loc->N("Not installed"),
     );
     my @ordered_filters = (qw (all installed non_installed) );
-
-    # handle migrating config file from rpmdragora <= 4.9
-    if (exists $filters{$default_list_mode}) {
-        $filter->[0] = $default_list_mode;
-        $default_list_mode = 'all';
+    my ($sysname, $nodename, $rel, $ver, $machine) = POSIX::uname();
+    if ($machine eq "x86_64") {
+        # NOTE this should work on other architectures too, but maybe it
+        #      is a nonsense, at least for i586
+        $filters{'skip_other'} = $loc->N("Show %s and noarch only", $machine);
+        push @ordered_filters, 'skip_other';
     }
+
+#     leaving the code by now waiting for rpmdrake developers comment
+#     # handle migrating config file from rpmdragora <= 4.9
+#     if (exists $filters{$default_list_mode}) {
+#         $filter->[0] = $default_list_mode;
+#         $default_list_mode = 'all';
+#     }
 
     $options->{tree_mode} = $default_list_mode;
 
@@ -599,6 +603,8 @@ sub _run_treeview_dialog {
 
     my $filter_box = $factory->createComboBox($hbox_top,"");
     $itemColl = new yui::YItemCollection;
+
+    $options->{'skip_other'} = $filter->[0] eq 'skip_other';
 
     foreach (@ordered_filters) {
         my $item = yui::YItem->new("$filters{$_}", 0);

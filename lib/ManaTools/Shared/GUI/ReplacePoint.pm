@@ -154,11 +154,11 @@ sub buildReplacePoint {
     my $factory = $dialog->factory();
     my $parentWidget = $self->parentWidget();
 
-    # lock windows for multiple changes
-    $ydialog->startMultipleChanges();
-
     # create the replacepoint
     my $replacepoint = $factory->createReplacePoint($parentWidget);
+
+    # lock windows for multiple changes
+    $ydialog->startMultipleChanges();
 
     return $replacepoint;
 }
