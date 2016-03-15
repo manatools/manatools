@@ -122,7 +122,7 @@ sub uniqueName {
     while ($eventHandler->hasEvent($name . $i)) {
         $i = $i + 1;
     }
-    return $name;
+    return $name . $i;
 }
 
 has 'eventType' => (
