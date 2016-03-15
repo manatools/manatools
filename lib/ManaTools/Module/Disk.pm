@@ -223,7 +223,7 @@ sub _rebuildTab {
     my @items = @_;
     my $tab = ManaTools::Shared::GUI::ExtTab->new(eventHandler => $eventHandler, parentWidget => $container);
     for my $i (@items) {
-        $tab->addTabItem($i->label(), $i, sub {
+        $tab->addSelectorItem($i->label(), $i, sub {
             my $self = shift;
             my $parent = shift;
             my $backendItem = shift;
@@ -240,7 +240,7 @@ sub _rebuildTab {
             $module->set_properties($i);
         });
     }
-    $tab->finishedTabItems();
+    $tab->finishedSelectorItems();
     return $tab;
 }
 
