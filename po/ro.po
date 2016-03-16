@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -9,9 +15,10 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2015-07-10 16:13+0000\n"
-"Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
-"Language-Team: Romanian (http://www.transifex.com/p/mageia/language/ro/)\n"
+"PO-Revision-Date: 2016-03-13 20:35+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Romanian (http://www.transifex.com/MageiaLinux/mageia/"
+"language/ro/)\n"
 "Language: ro\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -48,12 +55,11 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:299
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan este panoul mana-tools care colectează toate utilitarele."
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -63,12 +69,6 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Dezvoltatori</h3>\n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul>\n"
-"<h3>Traducători</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -113,14 +113,14 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:636
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "Stabilirea configurației NTP a eșuat"
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:641
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Se inspectează fișierele de configurare..."
+msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
@@ -190,9 +190,8 @@ msgstr "Nu"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Selectează"
+msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -200,9 +199,8 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Modificați informațiile"
+msgstr ""
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -291,9 +289,8 @@ msgid "&Reset"
 msgstr "&Reinițializează"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:418
-#, fuzzy
 msgid "&Close"
-msgstr "/Închide"
+msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
@@ -1125,9 +1122,8 @@ msgid "Empty log found"
 msgstr "S-a găsit un fișier jurnal gol"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Executare în mod utilizator"
+msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -1659,9 +1655,8 @@ msgid "Search:"
 msgstr "Căutare: "
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Aplică filtru"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1676,17 +1671,13 @@ msgstr ""
 "să ajustați data și ora"
 
 #: lib/ManaTools/Module/Clock.pm:218
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Dezvoltatori</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Traducători</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:234
 msgid "Restore data"
@@ -1739,9 +1730,8 @@ msgstr ""
 "Instalați un serviciu de NTP precum chrony  sau ntp pentru a-l gestiona"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Alegeți serverul NTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1752,19 +1742,16 @@ msgid "Choose your NTP server"
 msgstr "Alegeți serverul NTP"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Schimbă serverul &NTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Alegeți serverul NTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Alegeți serverul NTP"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -1799,9 +1786,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Este ceasul intern fixat pe GMT?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Gestionați definițiile de gazde"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
@@ -1880,18 +1866,17 @@ msgstr "Sigur doriți să renunțați la această gazdă?"
 
 #: lib/ManaTools/Module/Hosts.pm:499 lib/ManaTools/Module/Firewall.pm:179
 #: lib/ManaTools/Module/DisplayManager.pm:266
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Drepturi de autor (C) %s Mandriva"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
 msgstr "Gestionar grafic pentru definiții de gazde"
 
 #: lib/ManaTools/Module/Firewall.pm:89
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: gestionar de parafoc"
+msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:203
 msgid "Port scan detection"
@@ -2044,9 +2029,8 @@ msgstr ""
 "Ce doriți să faceți?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Gestionar de ecran"
+msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2089,9 +2073,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Configurator grafic pentru gestionarul de ecran al sistemului"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Configurare proxy"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2262,9 +2245,8 @@ msgid "&Yes"
 msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Nu"
+msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4664,9 +4646,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Utilitarul Mageia de adăugat utilizatori"
 
 #: scripts/mpan~:34 scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Dezvoltare"
+msgstr ""
 
 #: scripts/mpan~:40 scripts/mpan:40
 msgid ""
@@ -4679,9 +4660,8 @@ msgid "Window title. Default name value"
 msgstr ""
 
 #: scripts/mpan~:69 scripts/mpan:69
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Dezvoltare"
+msgstr ""
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -4959,9 +4939,8 @@ msgid "Reset"
 msgstr "Reinițializează"
 
 #: modules/rpmdragora/rpmdragora:656
-#, fuzzy
 msgid "&Apply"
-msgstr "Aplică"
+msgstr ""
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -5105,23 +5084,26 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Lansează configurarea datei și orei pentru Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Autentificare necesară pentru lansarea aplicației Mageia de configurat data "
+"și ora"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: configurarea gestionarului de autentificare"
+msgstr "Lansează configurarea gestionarului de autentificare pentru Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Autentificare necesară pentru lansarea aplicației Mageia de configurat "
+"gestionarul de autentificare"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -5140,12 +5122,14 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Lansează vizualizatorul de fișiere jurnal pentru Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
 msgstr ""
+"Autentificare necesară pentru lansarea aplicației Mageia de vizualizat "
+"fișiere jurnal"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5156,36 +5140,36 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Configurare proxy"
+msgstr "Lansează configurarea seviciilor Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Autentificare necesară pentru lansarea configurării serviciilor Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "Gestionar de &medii"
+msgstr "Lansează gestionarul de utilizatori Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
 msgstr ""
+"Autentificare necesară pentru lansarea gestionarului de utilizatori Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Configurare parafoc"
+msgstr "Lansează configurarea parafocului pentru Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
 msgstr ""
+"Autentificare necesară pentru lansarea aplicației Mageia de configurat "
+"parafocul"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5196,9 +5180,8 @@ msgstr ""
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "Acest pachet nu este un program liber"
+msgstr ""
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
@@ -5207,9 +5190,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Actualizări Mageia"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -5223,14 +5205,13 @@ msgstr ""
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Numai sursele pentru actualizare"
+msgstr ""
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Configurați mediile sursă pentru instalare și actualizări"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -5240,12 +5221,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Demaraj"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "rpmdragora update"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -5256,51 +5236,44 @@ msgid "A graphical front end for updating packages"
 msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Parametri de dată, oră și fus orar"
+msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manahost: gestionar de gazde"
+msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
 msgstr ""
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manadm: configurarea gestionarului de autentificare"
+msgstr ""
 
 #: extras/desktop/manadm.desktop.in:4
-#, fuzzy
 msgid "ManaTools login configuration manager"
-msgstr "manadm: configurarea gestionarului de autentificare"
+msgstr ""
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
 msgstr ""
 
 #: extras/desktop/manahost.desktop.in:3
-#, fuzzy
 msgid "manahost - Host and hostname manager"
-msgstr "manahost: gestionar de gazde"
+msgstr ""
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manahost: gestionar de gazde"
+msgstr ""
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
 msgstr ""
 
 #: extras/desktop/manalog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr "manalog: cititor de jurnale journalct"
+msgstr ""
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
@@ -5311,65 +5284,56 @@ msgid "/usr/share/icons/manalog.png"
 msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
-msgstr "Configurare proxy"
+msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: gestionar de proxy"
+msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
 msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
 msgid "manaservice - Service configuration manager"
-msgstr "manaservice: gestionar de servicii"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manaservice: gestionar de servicii"
+msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
 msgstr ""
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: gestionar de utilizatori"
+msgstr ""
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: gestionar de utilizatori"
+msgstr ""
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
 msgstr ""
 
 #: extras/desktop/manauserlog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr "manalog: cititor de jurnale journalct"
+msgstr ""
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
 msgstr ""
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: gestionar de parafoc"
+msgstr ""
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Configurare parafoc"
+msgstr ""
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
@@ -5388,9 +5352,8 @@ msgid "/usr/share/icons/mpan.png"
 msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "Acest pachet nu este un program liber"
+msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
@@ -5399,42 +5362,4 @@ msgstr ""
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
-
-#~ msgid "Select all"
-#~ msgstr "Selectează tot"
-
-#~ msgid "Exit"
-#~ msgstr "Ieșire"
-
-#~ msgid "Quit"
-#~ msgstr "Terminare"
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "/usr/bin/dragoraUpdate"
-#~ msgstr "rpmdragora update"
-
-#, fuzzy
-#~ msgid "images/rpmdragora/title-update.png"
-#~ msgstr "rpmdragora update"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "Gestionar de ecran"
-
-#~ msgid "adminService"
-#~ msgstr "adminService"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Translators</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
-#~ msgstr ""
-#~ "<h3>Dezvoltatori</h3>\n"
-#~ "<ul><li>%s</li></ul>\n"
-#~ "<h3>Traducători</h3>\n"
-#~ "<ul><li>%s</li></ul>"
+"O interfață grafică pentru instalarea, înlăturarea și actualizarea pachetelor"
