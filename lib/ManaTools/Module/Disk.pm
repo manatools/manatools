@@ -62,6 +62,7 @@ use ManaTools::Shared::GUI;
 use ManaTools::Shared::GUI::Dialog;
 use ManaTools::Shared::GUI::ReplacePoint;
 use ManaTools::Shared::GUI::Properties;
+use ManaTools::Shared::GUI::ExtList;
 use ManaTools::Shared::GUI::ExtTab;
 use File::ShareDir ':ALL';
 use ManaTools::Shared::Locales;
@@ -249,7 +250,24 @@ sub _rebuildList {
     my $eventHandler = shift;
     my $container = shift;
     my @items = @_;
-    my $list = undef;
+    my $list = ManaTools::Shared::GUI::ExtList->new(eventHandler => $eventHandler, parentWidget => $container);
+    for my $i (@items) {
+        $list->addSelectorItem($i->label(), $i, sub {
+            my $self = shift;
+            my $parent = shift;
+            my $backendItem = shift;
+            my $dialog = $self->parentDialog();
+            my $module = $dialog->module();
+            my $factory = $dialog->factory();
+            my $vbox = $factory->createVBox($parent);
+            $self->addWidget($backendItem->label() .': button 1', $factory->createPushButton($vbox, $backendItem->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
+            $self->addWidget($backendItem->label() .': button 2', $factory->createPushButton($vbox, $backendItem->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
+            $self->addWidget($backendItem->label() .': button 3', $factory->createPushButton($vbox, $backendItem->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
+            $factory->createHStretch($vbox);
+            $factory->createVStretch($vbox);
+        });
+    }
+    $list->finishedSelectorItems();
     return $list;
 }
 
