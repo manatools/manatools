@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-03-13 20:35+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-03-18 12:51+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -67,6 +67,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Traductors</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -228,7 +235,7 @@ msgstr "D'acord"
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "No podeu eliminar l'usuari <%s> del seu grup primari"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Locked"
@@ -258,23 +265,23 @@ msgstr "Abandona les regles personalitzades"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "inicia usant la implementació de connector yui gtk"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "inicia usant la implementació de connector yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "inicia usant la implementació de connector yui qt"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "usa la pantalla completa per als diàlegs"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "sense vora del gestor de finestres per als diàlegs"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -284,44 +291,44 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:411
 msgid "&Reset"
-msgstr ""
+msgstr "&Reinicialitza"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:418
 msgid "&Close"
-msgstr ""
+msgstr "&Tanca"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s està habilitat però aturat - s'inhabilita"
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "Global"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "Àfrica"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "Àsia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "Europa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "Amèrica del nord"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "Oceania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "Amèrica del sud"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
@@ -329,11 +336,11 @@ msgstr "Sud-àfrica"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzània"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
@@ -341,11 +348,11 @@ msgstr "Xina"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "Hong Kong"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "Índia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
@@ -353,7 +360,7 @@ msgstr "Indonèsia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
-msgstr ""
+msgstr "Iran"
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
@@ -369,11 +376,11 @@ msgstr "Corea"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "Malàisia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "Filipines"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
@@ -389,11 +396,11 @@ msgstr "Tailàndia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "Turquia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Unió dels Emirats Àrabs"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
@@ -409,7 +416,7 @@ msgstr "Bèlgica"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgària"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
@@ -417,11 +424,11 @@ msgstr "República Txeca"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "Dinamarca"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Estònia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
@@ -446,7 +453,7 @@ msgstr "Hongria"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Irlanda"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
@@ -454,11 +461,11 @@ msgstr "Itàlia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Lituània"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxemburg"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
@@ -478,11 +485,11 @@ msgstr "Portugal"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "Romania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Rússia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
@@ -490,7 +497,7 @@ msgstr "Eslovàquia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Eslovènia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
@@ -506,15 +513,15 @@ msgstr "Suïssa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Ucraïna"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Regne Unit"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Iugoslàvia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
@@ -522,11 +529,11 @@ msgstr "Canadà"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Mèxic"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
@@ -540,7 +547,7 @@ msgstr "Austràlia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Nova Zelanda"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
@@ -552,15 +559,16 @@ msgstr "Brasil"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Xile"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "Tots els servidors"
 
 #: lib/ManaTools/Shared/TimeZone.pm:947
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"l'usuari no té els permisos per canviar el fitxer de configuració, s'omet"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -812,14 +820,16 @@ msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Activa automàticament  la tecla de fixació del teclat numèric \n"
+"sota consola i  Xorg durant l'arrencada."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Funciona amb OKI 4w i winprinters compatibles."
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "Comprova si una partició està a punt d'omplir-se"
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
@@ -843,7 +853,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
-msgstr ""
+msgstr "Reserva alguns ports TCP"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
@@ -971,31 +981,31 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:171 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "Opcions"
 
 #: lib/ManaTools/Module/LogViewer.pm:176
 msgid "Last boot"
-msgstr ""
+msgstr "Última arrencada"
 
 #: lib/ManaTools/Module/LogViewer.pm:189
 msgid "Since"
-msgstr ""
+msgstr "Des de"
 
 #: lib/ManaTools/Module/LogViewer.pm:194
 msgid "Until"
-msgstr ""
+msgstr "fins a"
 
 #: lib/ManaTools/Module/LogViewer.pm:221
 msgid "Select a unit"
-msgstr ""
+msgstr "Seleccioneu una unitat"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "From priority"
-msgstr ""
+msgstr "Des de la prioritat"
 
 #: lib/ManaTools/Module/LogViewer.pm:263
 msgid "To priority"
-msgstr ""
+msgstr "Fins a la prioritat"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "&Find"
@@ -1041,52 +1051,52 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:462
 msgid "Save as.."
-msgstr ""
+msgstr "Desa com a..."
 
 #: lib/ManaTools/Module/Users.pm:118
 msgid "manauser - Mageia Users Management Tool"
-msgstr ""
+msgstr "manauser - Eina de gestió d'usuaris de Mageia"
 
 #: lib/ManaTools/Module/Users.pm:325
 msgid "User Data"
-msgstr ""
+msgstr "Dades de l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:326
 msgid "Account Info"
-msgstr ""
+msgstr "Informació del compte"
 
 #: lib/ManaTools/Module/Users.pm:327
 msgid "Password Info"
-msgstr ""
+msgstr "Informació de contrasenya"
 
 #: lib/ManaTools/Module/Users.pm:328 lib/ManaTools/Module/Users.pm:1439
 #: lib/ManaTools/Module/Users.pm:2560
 msgid "Groups"
-msgstr ""
+msgstr "Grups"
 
 #: lib/ManaTools/Module/Users.pm:331
 msgid "Group Data"
-msgstr ""
+msgstr "Dades del grup"
 
 #: lib/ManaTools/Module/Users.pm:332
 msgid "Group Users"
-msgstr ""
+msgstr "Usuaris del grup"
 
 #: lib/ManaTools/Module/Users.pm:366
 msgid "Choose group"
-msgstr ""
+msgstr "Escolliu un grup"
 
 #: lib/ManaTools/Module/Users.pm:374
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Ja existeix un grup amb aquest nom. Què voleu fer?"
 
 #: lib/ManaTools/Module/Users.pm:380
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Afegir-lo al grup existent"
 
 #: lib/ManaTools/Module/Users.pm:384
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Afegir-lo al grup d'usuaris"
 
 #: lib/ManaTools/Module/Users.pm:448 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
@@ -1100,12 +1110,12 @@ msgstr "Avís"
 #: lib/ManaTools/Module/Users.pm:456
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Realment voleu eliminar el grup %s?"
 
 #: lib/ManaTools/Module/Users.pm:462 lib/ManaTools/Module/Users.pm:553
 #: lib/ManaTools/Module/Users.pm:2373
 msgid "&Delete"
-msgstr ""
+msgstr "E&limina"
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
@@ -1113,15 +1123,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s és un grup primari per a l'usuari %s\n"
+"Primer elimineu l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:489
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "S'elimina el grup: %s"
 
 #: lib/ManaTools/Module/Users.pm:536
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Voleu eliminar els fitxers o no?"
 
 #: lib/ManaTools/Module/Users.pm:543
 #, perl-format
@@ -1129,11 +1141,13 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"S'elimina l'usuari %s\n"
+"Fes també les accions següents:\n"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Elimina el directori personal: %s"
 
 #: lib/ManaTools/Module/Users.pm:548
 #, perl-format
@@ -1143,15 +1157,15 @@ msgstr "Suprimeix el mailbox: /var/spool/mail/%s"
 #: lib/ManaTools/Module/Users.pm:576
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "S'elimina l'usuari: %s"
 
 #: lib/ManaTools/Module/Users.pm:608
 msgid "Create New Group"
-msgstr ""
+msgstr "Crea un grup nou"
 
 #: lib/ManaTools/Module/Users.pm:618 lib/ManaTools/Module/Users.pm:1655
 msgid "Group Name:"
-msgstr ""
+msgstr "Nom del grup:"
 
 #: lib/ManaTools/Module/Users.pm:628
 msgid "Specify group ID manually"
@@ -1159,7 +1173,7 @@ msgstr "Especifica manualment l'id. del grup"
 
 #: lib/ManaTools/Module/Users.pm:630
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:663
 msgid "Group already exists, please choose another Group Name"
@@ -1168,7 +1182,7 @@ msgstr "El grup ja existeix, si us plau, trieu un altre nom de grup"
 #: lib/ManaTools/Module/Users.pm:671
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr " El Gid del grup és < %n"
 
 #: lib/ManaTools/Module/Users.pm:672
 #, perl-format
@@ -1299,103 +1313,103 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:1040
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "S'està creant el nou grup: %s"
 
 #: lib/ManaTools/Module/Users.pm:1053
 msgid "Adding user: "
-msgstr ""
+msgstr "S'està afegint l'usuari: "
 
 #: lib/ManaTools/Module/Users.pm:1054
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "S'està afegint l'usuari: %s"
 
 #: lib/ManaTools/Module/Users.pm:1120
 msgid "User Name"
-msgstr ""
+msgstr "Nom d'usuari:"
 
 #: lib/ManaTools/Module/Users.pm:1121
 msgid "User ID"
-msgstr ""
+msgstr "ID d'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1122 lib/ManaTools/Module/Users.pm:1869
 msgid "Primary Group"
-msgstr ""
+msgstr "Grup primari"
 
 #: lib/ManaTools/Module/Users.pm:1123
 msgid "Full Name"
-msgstr ""
+msgstr "Nom complet"
 
 #: lib/ManaTools/Module/Users.pm:1124
 msgid "Login Shell"
-msgstr ""
+msgstr "Intèrpret d'ordres per a l'entrada"
 
 #: lib/ManaTools/Module/Users.pm:1125
 msgid "Home Directory"
-msgstr ""
+msgstr "Directori de l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1126 lib/ManaTools/Module/Services.pm:374
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 #: lib/ManaTools/Module/Users.pm:1166
 msgid "Group Name"
-msgstr ""
+msgstr "Nom del grup"
 
 #: lib/ManaTools/Module/Users.pm:1167
 msgid "Group ID"
-msgstr ""
+msgstr "ID de grup"
 
 #: lib/ManaTools/Module/Users.pm:1168
 msgid "Group Members"
-msgstr ""
+msgstr "Membres del grup"
 
 #: lib/ManaTools/Module/Users.pm:1351 lib/ManaTools/Module/Users.pm:2304
 #: lib/ManaTools/Module/Users.pm:2319 lib/ManaTools/Module/Users.pm:2335
 #: lib/ManaTools/Module/Users.pm:2556
 msgid "Users"
-msgstr ""
+msgstr "Usuaris"
 
 #: lib/ManaTools/Module/Users.pm:1582
 msgid "Home:"
-msgstr ""
+msgstr "Directori de l'usuari:"
 
 #: lib/ManaTools/Module/Users.pm:1681
 msgid "Enable account expiration"
-msgstr ""
+msgstr "Habilita el venciment de comptes"
 
 #: lib/ManaTools/Module/Users.pm:1684
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "El compte venç (AAAA-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1691
 msgid "Lock User Account"
-msgstr ""
+msgstr "Bloqueja el compte d'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "Cliqueu a la icona per a canviar-ho"
 
 #: lib/ManaTools/Module/Users.pm:1725
 msgid "User last changed password on: "
-msgstr ""
+msgstr "L'últim canvi de contrasenya fet per l'usuari: "
 
 #: lib/ManaTools/Module/Users.pm:1738
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Habilita el venciment de contrasenyes"
 
 #: lib/ManaTools/Module/Users.pm:1742
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Dies abans que es permeti el canvi:"
 
 #: lib/ManaTools/Module/Users.pm:1750
 msgid "Days before change required:"
-msgstr ""
+msgstr "Dies abans que es requereixi el canvi:"
 
 #: lib/ManaTools/Module/Users.pm:1758
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Dies d'avís abans del canvi:"
 
 #: lib/ManaTools/Module/Users.pm:1766
 msgid "Days before account inactive:"
@@ -1407,11 +1421,11 @@ msgstr "Escolliu els usuaris que s'uniran a aquest grup:"
 
 #: lib/ManaTools/Module/Users.pm:1799
 msgid "User"
-msgstr ""
+msgstr "Usuari: "
 
 #: lib/ManaTools/Module/Users.pm:1840
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Escolliu de quins grups serà membre aquest usuari:"
 
 #: lib/ManaTools/Module/Users.pm:1844
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
@@ -1420,45 +1434,47 @@ msgstr "Grup"
 
 #: lib/ManaTools/Module/Users.pm:1946
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Escolliu com a mínim un grup per a l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1969
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Indiqueu l'any, mes i dia\n"
+"per al venciment del compte"
 
 #: lib/ManaTools/Module/Users.pm:1985
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Empleneu tots els camps per a l'envelliment de la contrasenya\n"
 
 #: lib/ManaTools/Module/Users.pm:2020
 msgid "Strong"
-msgstr ""
+msgstr "Forta"
 
 #: lib/ManaTools/Module/Users.pm:2020
 msgid "Weak"
-msgstr ""
+msgstr "Dèbil"
 
 #: lib/ManaTools/Module/Users.pm:2033
 msgid "Edit User"
-msgstr ""
+msgstr "Edita l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:2186 lib/ManaTools/Module/Users.pm:2289
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "No s'ha pogut crear la pestanya de ginys"
 
 #: lib/ManaTools/Module/Users.pm:2202
 msgid "Edit Group"
-msgstr ""
+msgstr "Edita el grup"
 
 #: lib/ManaTools/Module/Users.pm:2370 lib/ManaTools/Module/Users.pm:2496
 msgid "Add User"
-msgstr ""
+msgstr "Afegeix un usuari"
 
 #: lib/ManaTools/Module/Users.pm:2371 lib/ManaTools/Module/Users.pm:2501
 msgid "Add Group"
-msgstr ""
+msgstr "Afegeix un grup"
 
 #: lib/ManaTools/Module/Users.pm:2372 lib/ManaTools/Module/Hosts.pm:439
 msgid "&Edit"
@@ -1470,13 +1486,15 @@ msgstr "Instal·la el compte del convidat"
 
 #: lib/ManaTools/Module/Users.pm:2411
 msgid "manauser"
-msgstr ""
+msgstr "Manauser"
 
 #: lib/ManaTools/Module/Users.pm:2415
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"El Manauser és una eina de gestió d'usuaris del Mageia \n"
+"(de la idea original de l'userdrake del Mandriva)."
 
 #: lib/ManaTools/Module/Users.pm:2416
 #, perl-format
@@ -1497,11 +1515,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2464 lib/ManaTools/Module/Users.pm:2516
 msgid "Refresh"
-msgstr ""
+msgstr "Actualitza"
 
 #: lib/ManaTools/Module/Users.pm:2472
 msgid "Actions"
-msgstr ""
+msgstr "Accions"
 
 #: lib/ManaTools/Module/Users.pm:2476
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
@@ -1527,15 +1545,15 @@ msgstr "Elimina"
 
 #: lib/ManaTools/Module/Users.pm:2530
 msgid "Filter system users"
-msgstr ""
+msgstr "Filtra els usuaris de sistema"
 
 #: lib/ManaTools/Module/Users.pm:2535
 msgid "Search:"
-msgstr ""
+msgstr "Cerca:"
 
 #: lib/ManaTools/Module/Users.pm:2537
 msgid "Apply &filter"
-msgstr ""
+msgstr "Aplica el &filtre"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1546,6 +1564,8 @@ msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Els paràmetres de la data, l'hora i la zona horària permeten configurar la "
+"zona horària i ajustar la data i l'hora"
 
 #: lib/ManaTools/Module/Clock.pm:218
 #, perl-format
@@ -1555,47 +1575,51 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Traductors</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:234
 msgid "Restore data"
-msgstr ""
+msgstr "Restaura les dades"
 
 #: lib/ManaTools/Module/Clock.pm:235
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Només es restauren la data i l'hora?"
 
 #: lib/ManaTools/Module/Clock.pm:255 lib/ManaTools/Module/Clock.pm:261
 #: lib/ManaTools/Module/Clock.pm:582 lib/ManaTools/Module/Clock.pm:667
 msgid "not defined"
-msgstr ""
+msgstr "sense definir"
 
 #: lib/ManaTools/Module/Clock.pm:289
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Ha fallat la configuració de local RTC"
 
 #: lib/ManaTools/Module/Clock.pm:304
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Ha fallat la configuració de la zona horària"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Ha fallat la configuració d'NTP"
 
 #: lib/ManaTools/Module/Clock.pm:361
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Ha fallat la configuració d'NTP"
 
 #: lib/ManaTools/Module/Clock.pm:384
 msgid "Set system time failed"
-msgstr ""
+msgstr "Ha fallat la configuració de l'hora del sistema"
 
 #: lib/ManaTools/Module/Clock.pm:415
 msgid "Setting date and time"
-msgstr ""
+msgstr "Es configura la data i l'hora"
 
 #: lib/ManaTools/Module/Clock.pm:433
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "Habilita el Network Time Protocol"
 
 #: lib/ManaTools/Module/Clock.pm:445
 msgid "manaclock: NTP service missed"
@@ -1631,39 +1655,39 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
-msgstr ""
+msgstr "Actual:"
 
 #: lib/ManaTools/Module/Clock.pm:605
 msgid "TimeZone"
-msgstr ""
+msgstr "Zona horària"
 
 #: lib/ManaTools/Module/Clock.pm:607
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Canvia la zona &horària"
 
 #: lib/ManaTools/Module/Clock.pm:620 lib/ManaTools/Module/Clock.pm:628
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Zona horària - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:621
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Ha fallat l'obtenció de la llista de zones horàries"
 
 #: lib/ManaTools/Module/Clock.pm:629
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "A quina zona horària sou?"
 
 #: lib/ManaTools/Module/Clock.pm:641
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:642
 msgid "Is your hardware clock set to GMT?"
-msgstr ""
+msgstr "El rellotge del vostre ordinador està establert a GTM?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
 msgid "manahost - manage hosts definitions"
-msgstr ""
+msgstr "manahost - gestiona les definicions dels amfitrions"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
@@ -1752,16 +1776,16 @@ msgstr "Gestor gràfic per a les definicions d'amfitrió"
 
 #: lib/ManaTools/Module/Firewall.pm:89
 msgid "manawall - Firewall Manager"
-msgstr ""
+msgstr "manawall - Gestor del tallafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:203
 msgid "Port scan detection"
-msgstr ""
+msgstr "Detecció i escaneig de ports"
 
 #: lib/ManaTools/Module/Firewall.pm:418 lib/ManaTools/Module/Firewall.pm:425
 #: lib/ManaTools/Module/Firewall.pm:1011
 msgid "Firewall configuration"
-msgstr ""
+msgstr "Configuració del tallafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:419
 msgid ""
@@ -1799,7 +1823,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:708 lib/ManaTools/Module/Firewall.pm:711
 #: lib/ManaTools/Module/Firewall.pm:1100
 msgid "Firewall"
-msgstr ""
+msgstr "Tallafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:715
 msgid "Which services would you like to allow the Internet to connect to?"
@@ -1812,15 +1836,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:717
 msgid "Everything (no firewall)"
-msgstr ""
+msgstr "Tot (sense tallafoc)"
 
 #: lib/ManaTools/Module/Firewall.pm:823
 msgid "A&dvanced"
-msgstr ""
+msgstr "A&vançat"
 
 #: lib/ManaTools/Module/Firewall.pm:857
 msgid "Graphical manager for firewall rules"
-msgstr ""
+msgstr "Gestor gràfic per a les regles del tallafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:889
 msgid ""
@@ -1831,11 +1855,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:894
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Defineix ports diversos"
 
 #: lib/ManaTools/Module/Firewall.pm:909
 msgid "Other ports"
-msgstr ""
+msgstr "Altres ports"
 
 #: lib/ManaTools/Module/Firewall.pm:917
 msgid "Log firewall messages in system logs"
@@ -1910,20 +1934,20 @@ msgstr "XDM (El gestor de pantalla X)"
 #: lib/ManaTools/Module/DisplayManager.pm:172
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "X Restart Required"
-msgstr ""
+msgstr "Cal reiniciar l'X"
 
 #: lib/ManaTools/Module/DisplayManager.pm:172
 #: lib/ManaTools/Module/Proxy.pm:178
 msgid "You need to log out and back in again for changes to take effect"
-msgstr ""
+msgstr "Heu de sortir i tornar a entrar per tal que els canvis tinguin efecte"
 
 #: lib/ManaTools/Module/DisplayManager.pm:181
 msgid "Display Manager"
-msgstr ""
+msgstr "Gestor de pantalla"
 
 #: lib/ManaTools/Module/DisplayManager.pm:212
 msgid "Choosing a display manager"
-msgstr ""
+msgstr "Elecció d'un gestor de pantalla"
 
 #: lib/ManaTools/Module/DisplayManager.pm:268
 msgid "Graphical configurator for system Display Manager"
