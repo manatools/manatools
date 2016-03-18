@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-01-09 09:39+0000\n"
+"PO-Revision-Date: 2016-03-18 15:12+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/MageiaLinux/mageia/language/"
 "eu/)\n"
@@ -58,7 +58,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan ManaTools-eko erabilgarri guztiak biltzen dituen panela da."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -70,6 +70,7 @@ msgid ""
 msgstr ""
 "<h3>Garatzaileak</h3>\n"
 "<ul><li>%s</li>\n"
+"<li>%s</li>\n"
 "<li>%s</li>\n"
 "</ul>\n"
 "<h3>Itzultzaileak</h3>\n"
@@ -195,9 +196,8 @@ msgstr "Ez"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Aukeratu"
+msgstr "&Aukeratu"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -1648,9 +1648,8 @@ msgid "Search:"
 msgstr "Bilatu:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Iragazkia aplikatu"
+msgstr "&Iragazkia aplikatu"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1728,9 +1727,8 @@ msgstr ""
 "Mesedez instalatu NTP zerbitzu bat, hala nola chrony edo NTP gisa kudeatzeko"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Aukeratu NTP zerbitzari bat"
+msgstr "Aukeratu &NTP zerbitzaria"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1741,19 +1739,16 @@ msgid "Choose your NTP server"
 msgstr "Aukeratu NTP zerbitzari bat"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Aldatu &NTP zerbitzaria"
+msgstr "&Tokiko NTP zerbitzaria"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Aukeratu NTP zerbitzari bat"
+msgstr "Tokiko NTP zerbitzaria ezarri"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Aukeratu NTP zerbitzari bat"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -1868,9 +1863,9 @@ msgstr "Ziur zaude ostalari hau askatu nahi duzula?"
 
 #: lib/ManaTools/Module/Hosts.pm:499 lib/ManaTools/Module/Firewall.pm:179
 #: lib/ManaTools/Module/DisplayManager.pm:266
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Copyright (C) %s Mandriva"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -2243,12 +2238,11 @@ msgstr "Ez galdetu berriz"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Bai"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Ez"
+msgstr "&Ez"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4932,9 +4926,8 @@ msgid "Reset"
 msgstr "Berrezarri"
 
 #: modules/rpmdragora/rpmdragora:656
-#, fuzzy
 msgid "&Apply"
-msgstr "Aplikatu"
+msgstr "&Aplikatu"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -5352,12 +5345,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Paketeak instalatu, ezabatu eta eguneratzeko bitarteko grafiko bat"
-
-#~ msgid "Select all"
-#~ msgstr "Guztia hautatu"
-
-#~ msgid "Exit"
-#~ msgstr "Irten"
-
-#~ msgid "Quit"
-#~ msgstr "Irten"
