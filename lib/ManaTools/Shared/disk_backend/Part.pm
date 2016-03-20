@@ -183,7 +183,7 @@ has 'plugin' => (
     is => 'rw',
     isa => 'ManaTools::Shared::disk_backend::Plugin',
     required => 1,
-    handles => ['tool', 'tool_lines', 'tool_fields'],
+    handles => ['tool', 'tool_exec', 'tool_lines', 'tool_fields'],
 );
 
 has 'ins' => (
