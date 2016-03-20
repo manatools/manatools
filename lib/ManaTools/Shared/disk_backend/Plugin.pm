@@ -267,6 +267,41 @@ sub probeio {
 
 #=============================================================
 
+=head2 tool_exec
+
+=head3 INPUT
+
+    $toolname: Str
+    @args: Array[Str]
+
+=head3 OUTPUT
+
+    Int: exitcode
+
+=head3 DESCRIPTION
+
+    this is a method for executing a tool and getting only the exit code
+
+=cut
+
+#=============================================================
+sub tool_exec {
+    my $self = shift;
+    my $toolname = shift;
+    my @args = @_;
+    my $tool = $self->tool($toolname);
+    # exit early if tool doesn't exit
+    return undef if (!defined($tool) || !$tool);
+
+    # insert tool before @args
+    unshift @args, $self->tool($toolname);
+
+    # get lines
+    return ManaTools::Shared::RunProgram::raw({exitcode => 1}, @args);
+}
+
+#=============================================================
+
 =head2 tool_lines
 
 =head3 INPUT
