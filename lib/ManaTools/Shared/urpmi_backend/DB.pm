@@ -343,7 +343,7 @@ sub get_inactive_backport_media {
 
 #=============================================================
 
-=head2 get_update_medias
+=head2 get_update_media
 
 =head3 INPUT
 
@@ -356,13 +356,33 @@ sub get_inactive_backport_media {
 =cut
 
 #=============================================================
-sub get_update_medias {
+sub get_update_media {
     my ($self, $urpm) = @_;
     if ($self->is_it_a_devel_distro()) {
         grep { !$_->{ignore} } @{$urpm->{media}};
     } else {
         grep { !$_->{ignore} && $_->{update} } @{$urpm->{media}};
     }
+}
+
+#=============================================================
+
+=head2 get_active_media
+
+=head3 INPUT
+
+    $urpm: an urpm object
+
+=head3 DESCRIPTION
+
+    This method returns a list of active media
+
+=cut
+
+#=============================================================
+sub get_active_media {
+    my ($self, $urpm) = @_;
+    grep { $_->{name} !~ /debug|testing|backport/i } @{$urpm->{media}};
 }
 
 #=============================================================
@@ -376,7 +396,7 @@ sub get_update_medias {
 
 =head3 DESCRIPTION
 
-    This method returns an urpm option with a lcok on db
+    This method returns an urpm option with a lock on db
 
 =cut
 

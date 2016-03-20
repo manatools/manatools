@@ -114,7 +114,7 @@ sub _localeInitialize {
 
 #=============================================================
 
-=head2 get_update_medias
+=head2 get_update_media
 
 =head3 INPUT
 
@@ -129,10 +129,10 @@ sub _localeInitialize {
 =cut
 
 #=============================================================
-sub get_update_medias {
+sub get_update_media {
     my ($self, $urpm) = @_;
 
-    $self->urpmi_db_backend()->get_update_medias($urpm);
+    $self->urpmi_db_backend()->get_update_media($urpm);
 }
 
 #=============================================================
