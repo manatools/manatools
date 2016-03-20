@@ -384,7 +384,7 @@ sub findin {
     my $io = shift;
     my $state = shift;
 
-    return grep {grep {$io eq $_} $_->get_ins() && (!defined $state || $_->is_state($state))} @{$self->parts};
+    return grep {scalar(grep {$io eq $_} $_->get_ins()) > 0 && (!defined $state || $_->is_state($state))} @{$self->parts};
 }
 
 #=============================================================
@@ -412,7 +412,7 @@ sub findout {
     my $io = shift;
     my $state = shift;
 
-    return grep {grep {$io eq $_} $_->get_outs() && (!defined $state || $_->is_state($state))} @{$self->parts};
+    return grep {scalar(grep {$io eq $_} $_->get_outs()) > 0 && (!defined $state || $_->is_state($state))} @{$self->parts};
 }
 
 #=============================================================
