@@ -186,6 +186,8 @@ make sure environment is set right and keep a copy of the X11 cookie
 
 =item * B<timeout>: execution of $name will be aborted after C<timeout> seconds
 
+=item * B<exitcode>: function will return the exit code of the process
+
 =back
 
 eg:
@@ -327,8 +329,10 @@ sub raw {
         } : do {
             exec $name, @args;
         };
+        my $exitcode = $!;
+        return $exitcode if $options->{exitcode};
         if (!$ok) {
-            _die_exit("exec of $real_name failed: $!");
+            _die_exit("exec of $real_name failed: $exitcode");
         }
     }
 
