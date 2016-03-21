@@ -95,6 +95,13 @@ override ('probe', sub {
         $part->prop('fstype', $fields[8]);
         $part->prop('srcmount', $fields[9]);
 
+        # add an unmount action
+        $part->add_action('unmount', 'Unmount', undef, sub {
+            my $self = shift;
+            print STDERR "Unmount is not implemented...\n";
+            return 1;
+        });
+
         ## take care of family
         # finding parent mount
         if ($fields[1] != $fields[0]) {

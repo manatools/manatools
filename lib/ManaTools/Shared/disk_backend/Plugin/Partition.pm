@@ -147,8 +147,23 @@ override ('probeio', sub {
         if (!$part->in_add($io)) {
             return 0;
         }
+        # add properties
+        # TODO: partition table type, size and position, logical alignment, etc...
+        # default partition is always 1 sector ?
+        $part->prop('size', 1);
+        # add an action
+        $part->add_action('addPartition', 'Add a partition', undef, sub {
+            my $self = shift;
+            print STDERR "Add partition is not implemented...\n";
+            return 1;
+        }, sub {
+            my $self = shift;
+            return 1;
+        });
     }
+    @parts = $self->parent->findin($io);
     my $err =  0;
+    my $partitions = 0;
     # find subdevices in /sys/
     for my $pf (glob($io->path(). "/". $io->id() ."*")) {
         my $io = $self->parent->mkio('Partition', {id => $pf =~ s'^.+/''r});
@@ -160,10 +175,12 @@ override ('probeio', sub {
         $io->prop_from_file('dev', $pf . '/dev');
         $io->sync_majorminor();
         $io->prop('num', $pf =~ s/^.+([0-9]+)$/$1/r);
+        $partitions = $partitions + 1;
         if (!$part->out_add($io)) {
             $err = 1;
         }
     }
+    $part->prop('partitions', $partitions);
     # find out how to differentiate between an empty partition table and no partition table
     return $err == 0;
 });

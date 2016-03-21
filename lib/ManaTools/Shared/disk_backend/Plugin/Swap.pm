@@ -66,7 +66,11 @@ has '+dependencies' => (
 
 has '+tools' => (
     default => sub {
-        return {'swaplabel' => '/usr/sbin/swaplabel'};
+        return {
+            'swaplabel' => '/usr/sbin/swaplabel',
+            'swapon' => '/usr/sbin/swapon',
+            'swapoff' => '/usr/sbin/swapoff',
+        };
     }
 );
 
@@ -100,6 +104,23 @@ override ('probe', sub {
         $part->prop('size', $fields[2]);
         $part->prop('used', $fields[3]);
         $part->prop('priority', $fields[4]);
+        $part->prop('active', 1);
+
+        # add a swapoff action
+        $part->add_action('swapoff', 'Turn off swap', undef, sub {
+            my $self = shift;
+            my $plugin = $self->plugin();
+            print STDERR "Dangerous actions are disabled: $self\n";
+            return 1;
+            if ($plugin->tool_exec('swapoff', $self->prop('filename')) == 0) {
+                $self->prop('active', 0);
+                $part->prop('priority', 0);
+            }
+            return 1;
+        }, sub {
+            my $self = shift;
+            return $self->prop('active') == 1;
+        });
 
         # use swaplabel to get label and uuid
         my %labelfields = $self->tool_fields('swaplabel', ':', $fields[0]);
