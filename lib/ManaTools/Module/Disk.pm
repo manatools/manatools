@@ -240,7 +240,7 @@ sub _rebuildTab {
     my $tab = ManaTools::Shared::GUI::ExtTab->new(eventHandler => $eventHandler, parentWidget => $container);
     for my $io (@items) {
         $tab->addSelectorItem($io->label(), $io, sub {
-            my $self = shift;# eventHandler
+            my $self = shift;# tab
             my $parent = shift;
             my $io = shift;
             my $dialog = $self->parentDialog();
@@ -249,9 +249,10 @@ sub _rebuildTab {
 
             # create content
             my $vbox = $factory->createVBox($parent);
-            $self->addWidget($io->label() .': button 1', $factory->createPushButton($vbox, $io->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
-            $self->addWidget($io->label() .': button 2', $factory->createPushButton($vbox, $io->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
-            $self->addWidget($io->label() .': button 3', $factory->createPushButton($vbox, $io->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
+            $module->_rebuildItem($io, $self->eventHandler(), $vbox);
+            #$self->addWidget($io->label() .': button 1', $factory->createPushButton($vbox, $io->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
+            #$self->addWidget($io->label() .': button 2', $factory->createPushButton($vbox, $io->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
+            #$self->addWidget($io->label() .': button 3', $factory->createPushButton($vbox, $io->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
             $factory->createHStretch($vbox);
             $factory->createVStretch($vbox);
 
@@ -328,16 +329,52 @@ sub _rebuildItems {
     my $info = shift;
     my $eventHandler = shift;
     my $container = shift;
-    if ($info->{type} eq 'tab') {
-        return $self->_rebuildTab($eventHandler, $container, @{$info->{items}});
-    }
-    if ($info->{type} eq 'list') {
-        return $self->_rebuildList($eventHandler, $container, @{$info->{items}});
-    }
-    if ($info->{type} eq 'tree') {
-        return $self->_rebuildTree($eventHandler, $container, @{$info->{items}});
+    for my $i (@{$info}) {
+        if ($i->{type} eq 'tab') {
+            return $self->_rebuildTab($eventHandler, $container, @{$i->{items}});
+        }
+        if ($i->{type} eq 'list') {
+            return $self->_rebuildList($eventHandler, $container, @{$i->{items}});
+        }
+        if ($i->{type} eq 'tree') {
+            return $self->_rebuildTree($eventHandler, $container, @{$i->{items}});
+        }
     }
     return undef;
+}
+
+sub _expandItem {
+    my $self = shift;
+    my $io = shift;
+    my $infos = [];
+    my $type = 'list';
+    my @items;
+
+    # get parts
+    if (defined $io) {
+        @items = $io->findin();
+    }
+    else {
+        my $backend = $self->backend();
+        @items = $backend->findnoin();
+    }
+
+    # merge all outs from these Parts
+    for my $p (@items) {
+        if ($p->type() eq 'Disks') {
+            $type = 'tab';
+        }
+        push @{$infos}, {io => $io, part=> $p, type => $type, items => [sort {$a->label() cmp $b->label()} $p->out_list()]};
+    }
+    return $infos;
+}
+
+sub _rebuildItem {
+    my $self = shift;
+    my $item = shift;
+    my $eventHandler = shift;
+    my $container = shift;
+    return $self->_rebuildItems($self->_expandItem($item), $eventHandler, $container);
 }
 
 sub _rebuildParts {
@@ -497,7 +534,7 @@ sub _adminDiskPanel {
             # set the replacepoint in module
             $module->content($replacepoint);
 
-            ## TODO: buttons to be initialized dynamically
+            ## build the parts
             $module->_rebuildParts();
         },
         restoreValues => sub {
@@ -513,18 +550,11 @@ sub _adminDiskPanel {
             # fs has a list of endpoints and in a tree (mount/swap?): ie: Parts without out
 
             ## start the info structure
-            my $info = {disks => {type => 'tab', items => []}, unused => {type => 'list', items => []}, fs => {type => 'tree', items => []}};
-
-            ## disks Part, and others
-            my @items = $backend->findnoin();
-            # merge all outs from these Parts
-            for my $i (@items) {
-                for my $j (sort {$a->label() cmp $b->label()} $i->out_list()) {
-                    push @{$info->{disks}->{items}}, $j;
-                }
-            }
-
-            ## unused, i donno yet, parts without out? or ins without part?
+            my $info = {
+                disks => $module->_expandItem(),
+                unused => {type => 'list', items => sort {$a->label() cmp $b->label()} grep {scalar($_->findin()) == 0} values %{$backend->ios()}},
+                fs => {type => 'tree', items => []}
+            };
 
             ## fs Part should be linked to all the mounts (hierarchial)
 
