@@ -101,7 +101,9 @@ has 'parentWidget' => (
 
 has 'properties' => (
     is => 'rw',
-    does => 'Maybe[ManaTools::Shared::PropertiesRole]',
+    does => 'ManaTools::Shared::PropertiesRole',
+    required => 0,
+    lazy => 1,
     trigger => \&refresh,
     default => undef,
 );
