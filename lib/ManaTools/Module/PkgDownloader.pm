@@ -18,14 +18,14 @@ package ManaTools::Module::PkgDownloader;
 
 use strict;
 use warnings;
-# use diagnostics;
+use diagnostics;
+use Modern::Perl '2011';
+use English;
 use Term::ANSIColor qw(:constants);
 # use Getopt::Long qw(:config permute);
-# use urpmex::Urpmex;
 use Moose;
 use Moose::Autobox;
 use ManaTools::Shared::urpmi_backend::DB;
-
 
 with 'MooseX::Getopt';
 
@@ -143,7 +143,7 @@ sub start {
 
 	if(scalar(@media_urls) lt 1)
 	{
-		print BOLD, RED, "==", RESET, " no active media found\n";
+		print BOLD, WHITE, "== ", RESET, RED, $self->loc->N("no active media found\n");
 		return 3;
 	}
 
@@ -167,13 +167,13 @@ sub start {
 				$srpm =~s/^\s+//g;
 				chomp $srpm;
 				$srpm = $srpm.".rpm" if(!$self->srpm());
-				print BOLD, WHITE, "== Processing $srpm\n", RESET;
+				print BOLD, WHITE, $self->loc->N("== Processing ")."$srpm\n", RESET;
 				for my $url(@media_urls){
 					chomp $url;
 					my @protocol = split(':',$url);
 					if($protocol[0] eq "http"){
-						print BOLD, WHITE, "== ", RESET, "protocol in use: ", BOLD, WHITE, $protocol[0], RESET, "\n"; 
-						print BOLD, WHITE, "== ", RESET, "trying with $url/$srpm\n";
+						print BOLD, WHITE, "== ", RESET, $self->loc->N("protocol in use: "), BOLD, GREEN, $protocol[0], RESET, "\n"; 
+						print BOLD, WHITE, "== ", RESET, $self->loc->N("trying with ")."$url/$srpm\n";
 						my $check = `curl -s --head "$url/$srpm" | head -n 1 | grep "200 OK" > /dev/null ; echo \$?`;
 						chomp $check;
 						if($check eq "0"){
@@ -181,7 +181,7 @@ sub start {
 							last;
 						}
 					}elsif($protocol[0] eq "ftp"){
-						print BOLD, WHITE, "== ", "protocol in use: ", BOLD, WHITE, $protocol[0], RESET, "\n"; 
+						print BOLD, WHITE, "== ", $self->loc->N("protocol in use: "), BOLD, GREEN, $protocol[0], RESET, "\n"; 
 						my $check = `curl -s --head "$url/$srpm"`;
 						$check =~s/\n/ /g;
 						$check =~s/^\s+//g;
@@ -191,15 +191,15 @@ sub start {
 							last;
 						}
 					}elsif($protocol[0] eq "rsync"){
-						print BOLD, WHITE, "== ", "protocol in use: ", BOLD, WHITE, $protocol[0], RESET, "\n"; 
+						print BOLD, WHITE, "== ", $self->loc->N("protocol in use: "), BOLD, GREEN, $protocol[0], RESET, "\n"; 
 					}
 				}
-				print BOLD, WHITE, "== $srpm", RESET, " downloaded successfully\n";
+				print BOLD, WHITE, "== ", GREEN, "$srpm", RESET, $self->loc->N(" downloaded successfully\n");
 			}
 		}
 		return 0;
 	}else{
-		print BOLD, RED, "== no packages passed as argument\n", RESET;
+		print BOLD, WHITE, "== ", RED, $self->loc->N("no packages passed as argument\n"), RESET;
 		return 2;
 	}
 }
