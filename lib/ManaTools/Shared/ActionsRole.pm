@@ -18,9 +18,9 @@ package ManaTools::Shared::ActionsRole;
 
     my $f = Foo->new();
     my @actionnames = $f->get_actions();
-    $f->add('aname', sub { my @params = @_; ... ; return 'foo'; });
+    $f->add_action('aname', 'a label', $item, sub { my $self = shift; my @params = @_; ... ; return 'foo'; }, sub { return 1; });
     my $res = $f->act('aname', 'param1', 'param2', @params);
-    $f->remove('aname');
+    $f->remove_action('aname');
 
 
 =head1 DESCRIPTION
@@ -61,13 +61,15 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose::Role;
 
-## Class DATA
-has 'actions' => (
+use MooseX::ClassAttribute;
+use ManaTools::Shared::Action;
+
+class_has 'acts' => (
     is => 'ro',
     init_arg => undef,
     lazy => 1,
-    isa => 'HashRef[CodeRef]',
-    default => sub {return {};}
+    isa => 'ArrayRef[ManaTools::Shared::Action]',
+    default => sub {return [];}
 );
 
 #=============================================================
@@ -88,7 +90,7 @@ has 'actions' => (
 sub get_actions {
     my $self = shift;
 
-    return keys %{$self->actions};
+    return map { return $_->name()} @{$self->acts()};
 }
 
 #=============================================================
@@ -114,17 +116,26 @@ sub get_actions {
 sub act {
     my $self = shift;
     my $key = shift;
-    return $self->actions->{$key}(@_);
+    my $acts = $self->acts();
+    for my $action (@{$self->acts()}) {
+        if ($key == $action->name()) {
+            return $action->act($self, @_);
+        }
+    }
+
+    return undef;
 }
 
 #=============================================================
 
-=head2 add
+=head2 add_action
 
 =head3 INPUT
 
-    $key: string
-    $action: sub
+    $name: Str
+    $label: Str
+    $action: CodeRef
+    $valid: CodeRef
 
 =head3 DESCRIPTION
 
@@ -133,17 +144,22 @@ sub act {
 =cut
 
 #=============================================================
-sub add {
+sub add_action {
     my $self = shift;
-    my $key = shift;
+    my $name = shift;
+    my $label = shift;
+    my $item = shift;
     my $action = shift;
+    my $valid = shift;
+    my $options = {name => $name, label => $label, item => $item, action => $action};
+    $options->{valid} = $valid if defined $valid;
 
-    $self->actions->{$key} = $action;
+    push @{$self->acts()}, ManaTools::Shared::Action->new($options);
 }
 
 #=============================================================
 
-=head2 remove
+=head2 remove_action
 
 =head3 INPUT
 
@@ -156,11 +172,17 @@ sub add {
 =cut
 
 #=============================================================
-sub remove {
+sub remove_action {
     my $self = shift;
     my $key = shift;
-
-    delete $self->actions->{$key};
+    my $acts = $self->acts();
+    my $index = scalar(@{$acts});
+    while ($index > 0) {
+        $index = $index - 1;
+        if ($acts->[$index]->name() == $key) {
+            delete $acts->[$index];
+        }
+    }
 }
 
 1;
