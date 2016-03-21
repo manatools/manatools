@@ -71,7 +71,7 @@ has 'db' => (
     isa => 'ManaTools::Shared::disk_backend',
     init_arg => undef,
     lazy => 1,
-    default => undef,
+    default => undef
 );
 
 has 'id' => (
@@ -115,6 +115,40 @@ sub label {
 sub unhook {
     my $self = shift;
     $self->db->rmio($self);
+}
+
+#=============================================================
+
+=head2 findin
+
+=head3 DESCRIPTION
+
+    this method find the Parts it's an in for
+
+=cut
+
+#=============================================================
+sub findin {
+    my $self = shift;
+    my $db = $self->db();
+    return $db->findin($self, @_);
+}
+
+#=============================================================
+
+=head2 findout
+
+=head3 DESCRIPTION
+
+    this method find the Parts it's an out for
+
+=cut
+
+#=============================================================
+sub findout {
+    my $self = shift;
+    my $db = $self->db();
+    return $db->findout($self, @_);
 }
 
 1;
