@@ -59,6 +59,7 @@ use MooseX::ClassAttribute;
 
 use ManaTools::Shared::PropertiesRole;
 use ManaTools::Shared::GUI;
+use ManaTools::Shared::GUI::ActionList;
 use ManaTools::Shared::GUI::Dialog;
 use ManaTools::Shared::GUI::ReplacePoint;
 use ManaTools::Shared::GUI::Properties;
@@ -139,14 +140,28 @@ has mainDialog => (
     },
 );
 
-has replacepoint => (
+has content => (
     is => 'rw',
     isa => 'Maybe[ManaTools::Shared::GUI::ReplacePoint]',
     default => undef,
     init_arg => undef,
 );
 
-has partProperties => (
+has propertiesBox => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Shared::GUI::ReplacePoint]',
+    default => undef,
+    init_arg => undef,
+);
+
+has actionsBox => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Shared::GUI::ReplacePoint]',
+    default => undef,
+    init_arg => undef,
+);
+
+has ioProperties => (
     is => 'rw',
     isa => 'Maybe[ManaTools::Shared::GUI::Properties]',
     default => undef,
@@ -223,22 +238,50 @@ sub _rebuildTab {
     my $container = shift;
     my @items = @_;
     my $tab = ManaTools::Shared::GUI::ExtTab->new(eventHandler => $eventHandler, parentWidget => $container);
-    for my $i (@items) {
-        $tab->addSelectorItem($i->label(), $i, sub {
-            my $self = shift;
+    for my $io (@items) {
+        $tab->addSelectorItem($io->label(), $io, sub {
+            my $self = shift;# eventHandler
             my $parent = shift;
-            my $backendItem = shift;
+            my $io = shift;
             my $dialog = $self->parentDialog();
             my $module = $dialog->module();
             my $factory = $dialog->factory();
+
+            # create content
             my $vbox = $factory->createVBox($parent);
-            $self->addWidget($backendItem->label() .': button 1', $factory->createPushButton($vbox, $backendItem->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
-            $self->addWidget($backendItem->label() .': button 2', $factory->createPushButton($vbox, $backendItem->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
-            $self->addWidget($backendItem->label() .': button 3', $factory->createPushButton($vbox, $backendItem->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
+            $self->addWidget($io->label() .': button 1', $factory->createPushButton($vbox, $io->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
+            $self->addWidget($io->label() .': button 2', $factory->createPushButton($vbox, $io->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
+            $self->addWidget($io->label() .': button 3', $factory->createPushButton($vbox, $io->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
             $factory->createHStretch($vbox);
             $factory->createVStretch($vbox);
+
             # update the properties
-            $module->set_properties($i);
+            my $ioProperties = $module->ioProperties();
+            $ioProperties->properties($io);
+            my $db = $io->db();
+            my $propbox = $module->propertiesBox();
+            my $actionbox = $module->actionsBox();
+
+            # clear children of propbox and actionbox
+            $propbox->clear();
+            $actionbox->clear();
+
+            # loop all connected parts
+            for my $part ($db->findin($io)) {
+
+                # add properties for each part in a frame with label
+                my $frame = $factory->createFrame($propbox->container(), $part->label() ." properties");
+                my $align = $factory->createLeft($frame);
+                ManaTools::Shared::GUI::Properties->new({parentDialog => $dialog, parentWidget => $align, properties => $part});
+
+                # add actions for each part in a frame with label
+                $frame = $factory->createFrame($actionbox->container(), $part->label() ." actions");
+                ManaTools::Shared::GUI::ActionList->new({parentDialog => $dialog, parentWidget => $frame, actions => $part});
+            }
+
+            # finalize propbox and actionbox
+            $propbox->finished();
+            $actionbox->finished();
         });
     }
     $tab->finishedSelectorItems();
@@ -304,7 +347,7 @@ sub _rebuildParts {
     my $simplified = $self->simplified();
     my $info = $dialog->info();
 
-    my $rpl = $self->replacepoint();
+    my $rpl = $self->content();
     # TODO: rebuild Tabs according to baseType and simplified, instead of always disks
     $rpl->clear();
     $self->_rebuildItems($info->{disks}, $rpl, $rpl->container());
@@ -425,25 +468,34 @@ sub _adminDiskPanel {
             my $hbox2 = $factory->createHBox($align);
             my $vbox1 = $factory->createVBox($hbox2);
 
-            my $actionFrame = $self->addWidget('actionFrame', $factory->createFrame($hbox2, $self->loc->N("&Actions")));
-            $factory->createVStretch($self->widget('actionFrame'));
-            ## TODO: buttons with actions (dynamically)
+            ## actions
+            my $vbox2 = $factory->createVBox($hbox2);
+            my $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $vbox2);
+            # don't add children right away
+            $replacepoint->finished();
+            $module->actionsBox($replacepoint);
+            $factory->createVStretch($vbox2);
 
             my $hbox3 = $factory->createHBox($vbox1);
 
             ## properties
-            my $propframe = $factory->createFrame($vbox1, $self->loc->N("&Properties"));
-            my $vbox2 = $factory->createVBox($propframe);
-            $align = $factory->createLeft($vbox2);
-            $module->partProperties(ManaTools::Shared::GUI::Properties->new(parentDialog => $self, parentWidget => $align));
+            my $propframe = $factory->createFrame($vbox1, $self->loc->N("&Device properties"));
+            my $vbox3 = $factory->createVBox($propframe);
+            $align = $factory->createLeft($vbox3);
+            # properties from IO first, and then the applicable Parts
+            $module->ioProperties(ManaTools::Shared::GUI::Properties->new(parentDialog => $self, parentWidget => $align));
+            $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $vbox1);
+            # don't add children right away
+            $replacepoint->finished();
+            $module->propertiesBox($replacepoint);
 
-            ## in this vbox is the Tabs with all the data
-            my $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $hbox3);
+            ## in this replacepoint is the Tabs with all the data
+            $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $hbox3);
             # don't add children right away
             $replacepoint->finished();
 
             # set the replacepoint in module
-            $module->replacepoint($replacepoint);
+            $module->content($replacepoint);
 
             ## TODO: buttons to be initialized dynamically
             $module->_rebuildParts();
