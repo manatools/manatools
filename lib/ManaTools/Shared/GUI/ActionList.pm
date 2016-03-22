@@ -141,10 +141,13 @@ sub refresh {
     # clear and start new changes on replacepoint
     $replacepoint->clear();
     if (defined $actions) {
-        my $vbox = $factory->createVBox($replacepoint->container());
+        my $hsquash = $factory->createHSquash($replacepoint->container());
+        my $vbox = $factory->createVBox($hsquash);
         # rebuild for all actions a Button
         for my $key (sort $actions->get_actions()) {
-            $replacepoint->addWidget($key, $factory->createPushButton($vbox, $key), sub {
+            my $button = $factory->createPushButton($vbox, $key);
+            $button->setStretchable(0, 1);
+            $replacepoint->addWidget($key, $button, sub {
                 my $self = shift;
                 my $actions = shift;
                 my $key = shift;
