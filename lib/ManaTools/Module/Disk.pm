@@ -254,7 +254,7 @@ sub _rebuildTab {
             #$self->addWidget($io->label() .': button 2', $factory->createPushButton($vbox, $io->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
             #$self->addWidget($io->label() .': button 3', $factory->createPushButton($vbox, $io->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
             $factory->createHStretch($vbox);
-            $factory->createVStretch($vbox);
+            #$factory->createVStretch($vbox);
 
             # update the properties
             my $ioProperties = $module->ioProperties();
