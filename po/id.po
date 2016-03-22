@@ -1,5 +1,11 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
@@ -8,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2015-07-07 15:46+0000\n"
+"PO-Revision-Date: 2016-03-13 20:35+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Indonesian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/id/)\n"
@@ -4718,22 +4724,24 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Jalankan Konfigurasi Tanggal dan Waktu Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
 msgstr ""
+"Otentikasi diperlukan untuk menjalankan Konfigurasi Tanggal dan Waktu Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Jalankan Konfigurasi Pengelola Login Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Otentikasi diperlukan untuk menjalankan Konfigurasi Pengelola Login Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -4752,12 +4760,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Jalankan Penampil Log Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Otentikasi diperlukan untuk menjalankan Penampil Log Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4769,32 +4777,32 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "Jalankan Konfigurasi Layanan Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Otentikasi diperlukan untuk menjalankan Konfigurasi Layanan Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "Jalankan Pengelola Pengguna Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Otentikasi diperlukan untuk menjalankan Pengelola Pengguna Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Jalankan Konfigurasi Firewall Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Otentikasi diperlukan untuk menjalankan Konfigurasi Firewall Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4815,9 +4823,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Update Mageia"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4837,7 +4844,7 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Konfigurasi sumber media untuk install dan update"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4847,12 +4854,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Mulawal"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Update Mageia"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -4988,4 +4994,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Front end grafis untuk menginstall, menghapus dan mengupdate paket"
