@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.0)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -11,13 +11,14 @@
 # Translators:
 # motitos, 2015-2016
 # Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
+# Jose Manuel López <joselp@outlook.es>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-01-08 17:17+0000\n"
-"Last-Translator: motitos\n"
+"PO-Revision-Date: 2016-04-07 11:45+0000\n"
+"Last-Translator: Jose Manuel López <joselp@outlook.es>\n"
 "Language-Team: Spanish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "es/)\n"
 "Language: es\n"
@@ -59,7 +60,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan es el panel de mana-tools que contiene todas las utilidades. "
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -69,12 +70,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
-"<h3>Desarrolladores</h3>\n"
+"<h3>Desarrolladores</h3> \n"
 "<ul><li>%s</li>\n"
 "<li>%s</li>\n"
-"</ul>\n"
+"<li>%s</li>\n"
+"</ul> \n"
 "<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+" <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -198,7 +200,6 @@ msgstr "No"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
 msgstr "Seleccionar"
 
@@ -1665,7 +1666,6 @@ msgid "Search:"
 msgstr "Buscar:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
 msgstr "Aplicar filtro"
 
@@ -1744,9 +1744,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr "Por favor instale un servicio NTP como chrony o ntp para administrarlo"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "Escoja su servidor NTP"
+msgstr "Escoger servidor NTP"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1757,19 +1756,16 @@ msgid "Choose your NTP server"
 msgstr "Escoja su servidor NTP"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Cambiar servidor &NTP"
+msgstr "Servidor NTP"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "Escoja su servidor NTP"
+msgstr "Configurar servidor local NTP"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "Escoja su servidor NTP"
+msgstr "Por favor, configure su servidor local NTP"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -1884,9 +1880,9 @@ msgstr "¿Quiere realmente quitar este dominio?"
 
 #: lib/ManaTools/Module/Hosts.pm:499 lib/ManaTools/Module/Firewall.pm:179
 #: lib/ManaTools/Module/DisplayManager.pm:266
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Derechos reservados (C) %s por Mandriva"
+msgstr "Copyright (C) %s de Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
@@ -2261,10 +2257,9 @@ msgstr "No volver a preguntar"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "Sí"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
 msgstr "No"
 
@@ -4889,7 +4884,7 @@ msgstr "No instalado"
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Mostar %s y noarch solamente"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4972,7 +4967,6 @@ msgid "Reset"
 msgstr "Resetear"
 
 #: modules/rpmdragora/rpmdragora:656
-#, fuzzy
 msgid "&Apply"
 msgstr "Aplicar"
 
@@ -5400,12 +5394,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Una interfaz gráfica para instalar, desinstalar y actualizar paquetes"
-
-#~ msgid "Select all"
-#~ msgstr "Seleccionar todos"
-
-#~ msgid "Exit"
-#~ msgstr "Salir"
-
-#~ msgid "Quit"
-#~ msgstr "Salir"
