@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-03-18 12:51+0000\n"
+"PO-Revision-Date: 2016-04-11 16:53+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -218,6 +218,8 @@ msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"El nom ha de començar amb una lletra i contenir només per lletres "
+"minúscules, números, «-» i «_»"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
@@ -572,15 +574,15 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "Escolta i despatxa els esdeveniments ACPI del nucli"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Executa el sistema de so ALSA (Advanced Linux Sound Architecture)"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "L'Anacron és un programador d'ordres periòdiques."
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
@@ -596,6 +598,9 @@ msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"Executa les ordres programades per l'ordre \"at\" a l'hora que es va\n"
+"especificar en executar \"at\" i executa les ordres automàtiques quan la\n"
+"mitjana de càrrega és prou baixa."
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
@@ -603,7 +608,7 @@ msgstr "Avahi és un dimoni ZeroConf que implementa una pila mDNS"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "Un servidor/client NTP"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
@@ -626,10 +631,12 @@ msgstr ""
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
 msgstr ""
+"El Common UNIX Printing System (CUPS) és un sistema avançat de gestió de "
+"cues d'impressió"
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "Executa el gestor de pantalla gràfic"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -663,13 +670,15 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr ""
+msgstr "El HAL és un dimoni que recull i manté informació sobre el maquinari"
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"El HardDrake fa una prova del maquinari i opcionalment configura\n"
+"el maquinari nou/canviat."
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
@@ -721,11 +730,12 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr ""
+msgstr "Detecció i configuració automàtica del maquinari durant l'arrencada."
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
 msgstr ""
+"Ajusta el comportament del sistema per augmentar la durada de la bateria"
 
 #: lib/ManaTools/Shared/Services.pm:281
 msgid ""
@@ -747,14 +757,16 @@ msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"El Servidor Virtual de Linux (LVS) s'usa per construir un servidor de \n"
+"gran capacitat i robustesa."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Monitora la xarxa (tallafoc interactiu i sense fil)"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
-msgstr ""
+msgstr "Monitoratge i gestió del RAID per programari"
 
 #: lib/ManaTools/Shared/Services.pm:289
 msgid ""
@@ -764,7 +776,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
-msgstr ""
+msgstr "Habilita la política de seguretat MSEC a l'arrencada del sistema"
 
 #: lib/ManaTools/Shared/Services.pm:291
 msgid ""
@@ -776,7 +788,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "Inicialitza el registre de consola de xarxa."
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
@@ -789,14 +801,16 @@ msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Activa/Desactiva totes les interfícies de xarxa configurades per\n"
+"iniciar-se durant l'arrencada."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "Cal que la xarxa estigui activa si s'habilita"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "Espera que la xarxa connectada en calent estigui engegada"
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid ""
@@ -915,7 +929,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
-msgstr ""
+msgstr "Tallafoc de filtratge de paquets"
 
 #: lib/ManaTools/Shared/Services.pm:334
 msgid ""
@@ -925,27 +939,32 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "Executa el sistema de so del vostre ordinador"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
-msgstr ""
+msgstr "capa per a anàlisi de parla"
 
 #: lib/ManaTools/Shared/Services.pm:337
 msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
 msgstr ""
+"El Secure Shell és un protocol de xarxa que permet l'intercanvi de dades per "
+"un canal segur entre dos ordinadors"
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"El syslog és el sistema que utilitzen molts dimonis per registrar\n"
+"missatges en diversos fitxers de registre del sistema. És aconsellable\n"
+"executar-lo sempre."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
-msgstr ""
+msgstr "Mou les regles udev persistents generades cap a /etc/udev/rules.d"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
@@ -953,31 +972,31 @@ msgstr "Carrega els controladors per als dispositius USB."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
-msgstr ""
+msgstr "Un monitor lleuger de trànsit de xarxa"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "Inicia el servidor de tipografia X."
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "Inicia altres dimonis segons demanda."
 
 #: lib/ManaTools/Module/LogViewer.pm:84
 msgid "Log viewer"
-msgstr ""
+msgstr "Visualitzador de registre"
 
 #: lib/ManaTools/Module/LogViewer.pm:159
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "Eina per veure els registres"
 
 #: lib/ManaTools/Module/LogViewer.pm:163
 msgid "Matching"
-msgstr ""
+msgstr "Que coincideixin amb"
 
 #: lib/ManaTools/Module/LogViewer.pm:167
 msgid "but not matching"
-msgstr ""
+msgstr "però que no coincideixin amb"
 
 #: lib/ManaTools/Module/LogViewer.pm:171 modules/rpmdragora/rpmdragora:723
 msgid "Options"
