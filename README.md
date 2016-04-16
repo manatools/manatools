@@ -100,16 +100,18 @@ Contact authors or Mageia team (http://www.mageia.org/en/contribute/)
 
 # EMBEDDED MODULES #
 
-* manaclock:      date/time manager
-* manadm:         login manager configuration
-* manahost:       hosts manager
-* manalog:        journalct log reader
-* manaproxy:      proxy manager
-* rpmdragora:     rpm install manager
-* manaservice:    service manager
-* dragoraUpdate:  rpm update manager
-* manauser:       user manager
-* manawall:       firewall manager
+* manaclock:       date/time manager
+* manadm:          login manager configuration
+* manahost:        hosts manager
+* manalog:         journalct log reader
+* manaproxy:       proxy manager
+* rpmdragora:      rpm install manager
+* manaservice:     service manager
+* dragoraUpdate:   rpm update manager
+* manauser:        user manager
+* manawall:        firewall manager
+* urpm-downloader: s/rpm downloader 
+* contribfinder:   retrieve the contributor email for a given package name
 
 
 # LICENSE AND COPYRIGHT #
