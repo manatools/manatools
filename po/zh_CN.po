@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-03-08 14:38+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-04-22 09:05+0000\n"
+"Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_CN/)\n"
 "Language: zh_CN\n"
@@ -3708,7 +3708,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2162
 msgid "Add"
-msgstr ""
+msgstr "添加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
@@ -3717,66 +3717,66 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2152
 msgid "Remove"
-msgstr ""
+msgstr "移除"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
 msgid "Hosts:"
-msgstr ""
+msgstr "主机："
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr ""
+msgstr "配置并发 urpmi（分布式执行 urpmi）"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
-msgstr ""
+msgstr "协议"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "介质限制"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
-msgstr ""
+msgstr "命令"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
-msgstr ""
+msgstr "编辑……"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
 msgid "Add..."
-msgstr ""
+msgstr "添加……"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
-msgstr ""
+msgstr "管理有数字签名的软件包的密钥"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2068
 msgid "Medium"
-msgstr ""
+msgstr "介质"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
-msgstr ""
+msgstr "密钥"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr ""
+msgstr "没有找到此名称，RPM 密钥环中没有此密钥！"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
-msgstr ""
+msgstr "添加密钥"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "请选择要添加到介质 %s 的密钥"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
-msgstr ""
+msgstr "移除密钥"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
 #, perl-format
@@ -3784,6 +3784,7 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"您确定需要从介质 %2$s 中移除密钥 <br>%1$s<br> 吗？<br>（密钥名称：%3$s）"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -3793,75 +3794,78 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"无法更新介质，已报告错误：\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2145
 #: modules/rpmdragora/dragora-urpm-sources.pl:38
 msgid "Configure media"
-msgstr ""
+msgstr "配置介质"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "添加特定介质镜像"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "添加自定义介质"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "选项(&O)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
-msgstr ""
+msgstr "全局选项"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
-msgstr ""
+msgstr "管理密钥"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "并发"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr ""
+msgstr "代理"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
 msgid "Manual"
-msgstr ""
+msgstr "手动"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
-msgstr ""
+msgstr "上"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
 msgid "Down"
-msgstr ""
+msgstr "下"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
 #: modules/rpmdragora/rpmdragora:1096
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora 是 Mageia 的软件包管理工具。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr ""
+msgstr "需要更新此介质后才能使用它。是否现在更新？"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -3869,39 +3873,39 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/_File"
-msgstr ""
+msgstr "/文件(_F)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
-msgstr ""
+msgstr "/更新(_U)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>U"
-msgstr ""
+msgstr "<Ctrl>U"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "/添加特定的介质镜像(_M)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>M"
-msgstr ""
+msgstr "<Ctrl>M"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_Add a custom medium"
-msgstr ""
+msgstr "/添加自定义介质(_A)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "<control>A"
-msgstr ""
+msgstr "<Ctrl>A"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/Close"
-msgstr ""
+msgstr "/关闭"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "<control>W"
-msgstr ""
+msgstr "<Ctrl>W"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
@@ -3912,67 +3916,67 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
-msgstr ""
+msgstr "/选项(_O)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
-msgstr ""
+msgstr "/全局选项(_G)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>G"
-msgstr ""
+msgstr "<Ctrl>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/Manage _keys"
-msgstr ""
+msgstr "/按键密钥(_K)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>K"
-msgstr ""
+msgstr "<Ctrl>K"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/_Parallel"
-msgstr ""
+msgstr "/并发(_P)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>P"
-msgstr ""
+msgstr "<Ctrl>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr ""
+msgstr "/代理(_R)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
-msgstr ""
+msgstr "<Ctrl>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_Help"
-msgstr ""
+msgstr "/帮助(_H)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 msgid "/_Report Bug"
-msgstr ""
+msgstr "/报告缺陷(_R)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_About..."
-msgstr ""
+msgstr "/关于……(_A)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
-msgstr ""
+msgstr "Rpmdragora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "版权所有 (C) %s Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2204
 msgid ""
@@ -3981,49 +3985,51 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"软件包数据库被锁定。请使用其他程序来操作软件包数据库。\n"
+"您是否正在其他桌面上使用介质管理器，或者正在安装软件包？"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "将会使用 %s 额外的磁盘空间。"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "将会释放 %s 磁盘空间。"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "将会下载 %s 个软件包。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
-msgstr ""
+msgstr "查找结果"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results (none)"
-msgstr ""
+msgstr "查找结果（无）"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:150
 msgid "Security advisory"
-msgstr ""
+msgstr "安全建议"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
-msgstr ""
+msgstr "没有描述"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "此软件包不被 Mageia 官方支持。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "它可能会破坏系统的软件关联。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "此软件包不是自由软件"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
@@ -4031,107 +4037,107 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "此软件包是可能被收录的更新。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "此软件包是 Mageia 官方支持的更新。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "此软件包是非官方更新。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "此软件包是 Mageia 官方支持的软件包。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
-msgstr ""
+msgstr "注释："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
-msgstr ""
+msgstr "重要性："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr ""
+msgstr "更新原因："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "版本："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "当前已安装版本："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr ""
+msgstr "组："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "架构："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
-msgstr ""
+msgstr "大小："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
-msgstr ""
+msgstr "已安装所有依赖关系。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
-msgstr ""
+msgstr "URL："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
-msgstr ""
+msgstr "细节："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:343
 msgid "Files:"
-msgstr ""
+msgstr "文件："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:357
 msgid "Changelog:"
-msgstr ""
+msgstr "变更日志："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:374
 msgid "New dependencies:"
-msgstr ""
+msgstr "新依赖关系："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "找不到软件包“%s”。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:395
 msgid "However this package is not in the package list."
-msgstr ""
+msgstr "然而此软件包不在软件列表中。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "You may want to update your urpmi database."
-msgstr ""
+msgstr "您可能需要更新 urmpi 数据库。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:398
 msgid "Matching packages:"
-msgstr ""
+msgstr "匹配的软件包："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s（介质：%s）"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:945
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "移除软件包 %s 将会破坏系统的软件关联"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:949
 #, perl-format
@@ -4139,50 +4145,54 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
+"软件包“%s”位于 urpmi 排除列表中。\n"
+"您仍然希望选中它吗？"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1176
 msgid "More information on package..."
-msgstr ""
+msgstr "有关软件包的更多信息……"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1178
 msgid "Please choose"
-msgstr ""
+msgstr "请选择"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1179
 msgid "The following package is needed:"
-msgstr ""
+msgstr "需要安装下列软件包："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1179
 msgid "One of the following packages is needed:"
-msgstr ""
+msgstr "需要安装下列软件包之一："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1291
 msgid "Select package"
-msgstr ""
+msgstr "选择软件包"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1389
 msgid "Checking dependencies of package..."
-msgstr ""
+msgstr "检查软件包依赖关系……"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Some additional packages need to be removed"
-msgstr ""
+msgstr "部分软件包需要被移除"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1405
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
-msgstr ""
+msgstr "要满足以来关系，必须同时移除下列软件包："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid "Some packages cannot be removed"
-msgstr ""
+msgstr "部分软件包无法被移除"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1411
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
 msgstr ""
+"抱歉，移除下列软件包会破坏系统的软件关联：\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1419 lib/ManaTools/Rpmdragora/gui.pm:1490
 msgid ""
@@ -4190,10 +4200,12 @@ msgid ""
 "now:\n"
 "\n"
 msgstr ""
+"由于依赖关系需要，需要同时安装下列软件包：\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1443
 msgid "Additional packages needed"
-msgstr ""
+msgstr "需要额外的软件包"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1444
 msgid ""
@@ -4201,23 +4213,25 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
+"要满足以来关系，必须同时安装下列软件包：\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1452
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "有冲突的软件"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1466
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s（在排除列表中）"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1470
 msgid "One package cannot be installed"
-msgstr ""
+msgstr "某个软件包无法安装"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1470
 msgid "Some packages cannot be installed"
-msgstr ""
+msgstr "部分软件包无法安装"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1472
 #, perl-format
@@ -4226,6 +4240,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"抱歉，无法选择下列软件包：\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1473
 #, perl-format
@@ -4234,27 +4251,30 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"抱歉，无法选择下列软件包：\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Some packages are selected."
-msgstr ""
+msgstr "选中了一些软件包。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "您真的希望退出吗？"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1537
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "错误：%s 以只读模式挂载。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1541
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "您需要先选择软件包。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "Too many packages are selected"
-msgstr ""
+msgstr "选中的软件包太多"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1547
 msgid ""
@@ -4265,14 +4285,18 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"警告：您将要添加的软件包可能导致（安装时或安装后）磁盘\n"
+"空间不足；这种情况是非常危险的，您应当三思而后行。\n"
+"\n"
+"您真的希望安装所有选定的软件包吗？"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1658
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "请稍后，正在列出软件包……"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1671
 msgid "No update"
-msgstr ""
+msgstr "没有更新"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1672
 msgid ""
@@ -4280,154 +4304,158 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"更新列表为空。这说明您的电脑上没有可以升级的软件包，\n"
+"或者您已经更新了所有软件。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
-msgstr ""
+msgstr "可升级"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
-msgstr ""
+msgstr "已安装"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
-msgstr ""
+msgstr "可添加"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1746
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "此软件包中没有可用的描述。\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Mageia 用户添加工具"
 
 #: scripts/mpan~:34 scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "开发者模式"
 
 #: scripts/mpan~:40 scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
-msgstr ""
+msgstr "应用程序名称，用于登录标识符和 X 应用程序配置目录。默认 mpan"
 
 #: scripts/mpan~:46 scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "窗口标题。默认为名称"
 
 #: scripts/mpan~:69 scripts/mpan:69
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== 已开启开发者模式 =="
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog：Journalctl 日志查看器"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser：用户管理器"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice：服务管理器"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm：登录配置管理器"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock：日期/时间管理器"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost：主机管理器"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan：管理员面板"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy：代理管理器"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora：RPM 安装管理器"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate：RPM 更新管理器"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall：防火墙管理器"
 
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "未找到命令 <%s>！\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr ""
+msgstr "错误："
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "用法 mana --help | -h        显示此帮助\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"用法：mana <命令> [参数...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "有效 <命令>：\n"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
-msgstr ""
+msgstr "缺陷修复"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "以下为软件包更新列表"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1217 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
-msgstr ""
+msgstr "软件管理"
 
 #: modules/rpmdragora/dragoraUpdate:259
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "概要"
 
 #: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "版本"
 
 #: modules/rpmdragora/dragoraUpdate:262 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "发行"
 
 #: modules/rpmdragora/dragoraUpdate:263
 msgid "Arch"
-msgstr ""
+msgstr "架构"
 
 #: modules/rpmdragora/dragoraUpdate:284
 msgid "U&ncheck all"
-msgstr ""
+msgstr "全部不选（&N）"
 
 #: modules/rpmdragora/dragoraUpdate:349
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate 是 Mageia 的软件包管理工具。"
 
 #: modules/rpmdragora/dragoraUpdate:350
 #, perl-format
@@ -4437,10 +4465,14 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>开发者</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>翻译者</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora 更新"
 
 #: modules/rpmdragora/dragoraUpdate:414
 msgid ""
@@ -4448,88 +4480,90 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"更新列表为空。这说明您的电脑上没有可以升级的软件包，或者您已经更新了所有软"
+"件。"
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "介质“%s”没有可用的 xml-info"
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
-msgstr ""
+msgstr "搜索已终止"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "已选择"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
-msgstr ""
+msgstr "未选择"
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
-msgstr ""
+msgstr "没有搜索结果。"
 
 #: modules/rpmdragora/rpmdragora:376
 #, perl-format
 msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
-msgstr ""
+msgstr "没有搜索结果。您可能需要切换至“%s”视图并使用“%s”筛选器。"
 
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "已选择：%s / 空闲磁盘空间：%s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "软件包"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
-msgstr ""
+msgstr "架构"
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
-msgstr ""
+msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "未安装"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "仅显示 %s 和任意架构的软件"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr ""
+msgstr "所有软件包（按字母顺序排列）"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr ""
+msgstr "所有软件包（按组排列）"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "显示剩余的软件包（根据安装日期排列）"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "所有软件包（根据是否可以更新排列）"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "所有软件包（根据选择状态排列）"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr ""
+msgstr "所有软件包（根据大小排列）"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "所有软件包（根据介质仓库排列）"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
@@ -4537,99 +4571,99 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "元软件包"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
-msgstr ""
+msgstr "含有图形化界面的软件包"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr ""
+msgstr "所有更新"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr ""
+msgstr "安全更新"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "缺陷修复更新"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "一般更新"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
-msgstr ""
+msgstr "在名称中"
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "在描述中"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "在概要中"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
-msgstr ""
+msgstr "在文件名中"
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
-msgstr ""
+msgstr "查找"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr ""
+msgstr "重置"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "应用(&A)"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/自动选择相关依赖而不询问(_S)"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "成功安装后清除下载缓存"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/启动时分析可用更新(_C)"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr ""
+msgstr "在完整的软件包名称中搜索(_F)"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "使用正则表达式搜索(_R)"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "重置所选项"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
-msgstr ""
+msgstr "重新加载软件包列表"
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
-msgstr ""
+msgstr "介质管理器(&M)"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
-msgstr ""
+msgstr "查看"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
-msgstr ""
+msgstr "已终止重置（RPM 数据库被其他进程锁定）"
 
 #: modules/rpmdragora/rpmdragora:1097
 #, perl-format
@@ -4642,15 +4676,21 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>开发者</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>翻译者</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1209
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdragora 进程已经在运行（pid：%s）"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
-msgstr ""
+msgstr "错误 <url>（对于本地目录，路径必须为绝对路径）"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4659,6 +4699,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"是否确定继续？"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -4666,6 +4709,8 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"您将要添加新的软件包介质。\n"
+"稍后您可以从这些介质安装新的软包到系统。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4674,6 +4719,8 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"您将要添加新的软件包介质：%s。\n"
+"稍后您可以从这些介质安装新的软包到系统。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4682,30 +4729,32 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"您将要添加新的软件包介质“%s”。\n"
+"稍后您可以从这些介质安装新的软包到系统。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr ""
+msgstr "成功添加介质。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "成功添加介质 %s。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "成功添加介质“%s”。"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "运行  Mageia 软件更新工具"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
-msgstr ""
+msgstr "需要进行认证以运行 Mageia更新器（rpmdragora）"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -4715,24 +4764,24 @@ msgstr "运行 Mageia 日期和时间配置"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "需要进行认证以运行 Mageia 日期与时间墙配置"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "运行 Mageia 登录管理器"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "需要进行认证以运行 Mageia 登录管理器"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "允许使用 APanel 图形化界面"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -4740,16 +4789,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"需要进行认证以运行程序 manahost（用户=$(user)，程序名=$(program)，命令行="
+"$(command_line)）"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "运行 Mageia 日志查看器"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "需要进行认证以运行 Mageia 日志查看器"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4757,16 +4808,18 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"需要进行认证以运行程序 manaproxy（用户=$(user)，程序名=$(program)，命令行="
+"$(command_line)）"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "运行 Mageia 服务配置"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "需要进行认证以运行 Mageia 服务配置"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
@@ -4786,7 +4839,7 @@ msgstr "运行 Mageia 防火墙配置"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr "运行 Mageia 防火墙配置需要身份验证"
+msgstr "需要进行认证以运行 Mageia 防火墙配置"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4794,36 +4847,38 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"需要进行认证以运行程序 apanel（用户=$(user)，程序名=$(program)，命令行="
+"$(command_line)）"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "安装和移除 Mageia 上的软件"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "需要进行认证以运行 Mageia RPM 管理器"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Mageia 面板"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "分类"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "安装与移除软件"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "更新系统"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -4833,7 +4888,7 @@ msgstr "配置安装和更新所用的介质源"
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "网络 &amp;&amp; 互联网"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -4842,139 +4897,139 @@ msgstr "引导"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Mageia 更新器"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "用于更新软件包的图形化前端"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - 日期、时钟与时区设置"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "ManaTools 时钟管理器"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - 登录配置管理器"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "ManaTools 登录配置管理器"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - 主机与主机名管理器"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "ManaTools 主机管理器"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Journalctl 日志查看器（管理员模式）"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools 日志查看器（管理员模式）"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - 代理配置管理器"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "ManaTools 代理管理器"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - 服务配置管理器"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "ManaTools 服务管理器"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - 用户与组管理器"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "ManaTools 用户管理器"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Journalctl 日志查看器（用户模式）"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools 日志查看器（用户模式）"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall - 防火墙配置管理器"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "ManaTools 防火墙配置器"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools 控制面板"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools 面板 - 程序启动器"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - 安装 & 移除软件"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
