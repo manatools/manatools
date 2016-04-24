@@ -268,7 +268,6 @@ class_has 'TabField' => (
     default => sub {return 3;},
 );
 
-
 has 'optFields' => (
     is => 'ro',
     isa => 'ArrayRef[Int]',
@@ -276,6 +275,12 @@ has 'optFields' => (
     default => sub {
         return [];
     },
+);
+
+has 'layoutDirty' => (
+    is => 'rw',
+    isa => 'Bool',
+    default => 0,
 );
 
 has 'info' => (
@@ -433,6 +438,55 @@ sub addButtons {
 
 #=============================================================
 
+=head2 multipleChanges
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    Start multiple changes (if required)
+
+=cut
+
+#=============================================================
+sub multipleChanges {
+    my $self = shift;
+    my $ydialog = $self->dialog();
+    return if ($self->layoutDirty());
+    $ydialog->startMultipleChanges();
+    $self->layoutDirty(1);
+}
+
+#=============================================================
+
+=head2 recalcLayout
+
+=head3 INPUT
+
+    $self: this object
+    $force: bool
+
+=head3 DESCRIPTION
+
+    Recalculates the layout and ends multiple changes (if required or if forced)
+
+=cut
+
+#=============================================================
+sub recalcLayout {
+    my $self = shift;
+    my $force = shift || 0;
+    my $ydialog = $self->dialog();
+    return if (!$self->layoutDirty() || $force);
+    $ydialog->recalcLayout();
+    $ydialog->doneMultipleChanges();
+    $self->layoutDirty(0);
+}
+
+#=============================================================
+
 =head2 call
 
 =head3 INPUT
@@ -485,13 +539,19 @@ sub call {
     ## build the whole layout
     my $layout = $self->layout->($self, $layoutstart);
 
-
     ## add a cancelEvent
     ManaTools::Shared::GUI::Event->new(name => 'cancelEvent', eventHandler => $self, eventType => $yui::YEvent::CancelEvent, event => sub { return 0; });
 
     # main loop
     while(1) {
-        my $yevent = $ydialog->waitForEvent($self->event_timeout);
+        my $yevent = $ydialog->pollEvent();
+        if (!$yevent) {
+            # only recalc layout after all pending events have run
+            $self->recalcLayout();
+            # wait for a new event
+            $yevent = $ydialog->waitForEvent($self->event_timeout);
+        }
+        # if we have an event, process it (and possibly exit)
         last if (!$self->processEvents($yevent));
     }
 

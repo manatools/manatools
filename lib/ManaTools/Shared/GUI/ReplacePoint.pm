@@ -150,7 +150,6 @@ has 'container' => (
 sub buildReplacePoint {
     my $self = shift;
     my $dialog = $self->parentDialog();
-    my $ydialog = $dialog->dialog();
     my $factory = $dialog->factory();
     my $parentWidget = $self->parentWidget();
 
@@ -158,7 +157,7 @@ sub buildReplacePoint {
     my $replacepoint = $factory->createReplacePoint($parentWidget);
 
     # lock windows for multiple changes
-    $ydialog->startMultipleChanges();
+    $dialog->multipleChanges();
 
     return $replacepoint;
 }
@@ -184,11 +183,11 @@ sub clear {
     my $dialog = $self->parentDialog();
     my $ydialog = $dialog->dialog();
 
+    $dialog->multipleChanges();
     # clear out the events of the children
     $self->clearEvents();
 
     # lock windows for multiple changes (this way it becomes ready for adding new children)
-    $ydialog->startMultipleChanges();
 
     # clear out replacepoint
     $container->deleteChildren();
@@ -212,17 +211,9 @@ sub clear {
 sub finished {
     my $self = shift;
     my $container = $self->container();
-    my $dialog = $self->parentDialog();
-    my $ydialog = $dialog->dialog();
 
     # trigger showChild on the container
     $container->showChild();
-
-    # recalulate layout
-    $ydialog->recalcLayout();
-
-    # unlock windows for multiple changes
-    $ydialog->doneMultipleChanges();
 }
 
 #=============================================================
