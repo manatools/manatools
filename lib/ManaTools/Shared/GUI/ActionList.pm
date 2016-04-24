@@ -149,11 +149,13 @@ sub refresh {
             $button->setStretchable(0, 1);
             $replacepoint->addWidget($key, $button, sub {
                 my $self = shift;
-                my $actions = shift;
-                my $key = shift;
+                my $yevent = shift;
+                my $args = shift;
+                my $actions = shift(@{$args});
+                my $key = shift(@{$args});
                 my @args = @_;
                 return $actions->act($key, @args);
-            }, $actions, $key);
+            }, [$actions, $key]);
         }
     }
     # finished
