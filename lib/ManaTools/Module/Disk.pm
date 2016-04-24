@@ -249,7 +249,7 @@ sub _rebuildTab {
 
             # create content
             my $vbox = $factory->createVBox($parent);
-            $module->_rebuildItem($io, $self->eventHandler(), $vbox);
+            $module->_rebuildItem($io, $self->replacepoint(), $vbox);
             #$self->addWidget($io->label() .': button 1', $factory->createPushButton($vbox, $io->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
             #$self->addWidget($io->label() .': button 2', $factory->createPushButton($vbox, $io->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
             #$self->addWidget($io->label() .': button 3', $factory->createPushButton($vbox, $io->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
@@ -273,11 +273,11 @@ sub _rebuildTab {
                 # add properties for each part in a frame with label
                 my $frame = $factory->createFrame($propbox->container(), $part->label() ." properties");
                 my $align = $factory->createLeft($frame);
-                ManaTools::Shared::GUI::Properties->new({parentDialog => $dialog, parentWidget => $align, properties => $part});
+                ManaTools::Shared::GUI::Properties->new({eventHandler => $propbox, parentWidget => $align, properties => $part});
 
                 # add actions for each part in a frame with label
                 $frame = $factory->createFrame($actionbox->container(), $part->label() ." actions");
-                ManaTools::Shared::GUI::ActionList->new({parentDialog => $dialog, parentWidget => $frame, actions => $part});
+                ManaTools::Shared::GUI::ActionList->new({eventHandler => $actionbox, parentWidget => $frame, actions => $part});
             }
 
             # finalize propbox and actionbox
@@ -520,7 +520,7 @@ sub _adminDiskPanel {
             my $vbox3 = $factory->createVBox($propframe);
             $align = $factory->createLeft($vbox3);
             # properties from IO first, and then the applicable Parts
-            $module->ioProperties(ManaTools::Shared::GUI::Properties->new(parentDialog => $self, parentWidget => $align));
+            $module->ioProperties(ManaTools::Shared::GUI::Properties->new(eventHandler => $self, parentWidget => $align));
             $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $vbox1);
             # don't add children right away
             $replacepoint->finished();
