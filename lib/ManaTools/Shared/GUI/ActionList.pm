@@ -83,9 +83,9 @@ use ManaTools::Shared::GUI::ReplacePoint;
 
 #=============================================================
 
-has 'parentDialog' => (
+has 'eventHandler' => (
     is => 'ro',
-    isa => 'ManaTools::Shared::GUI::Dialog',
+    does => 'ManaTools::Shared::GUI::EventHandlerRole',
     required => 1,
 );
 
@@ -109,7 +109,11 @@ has 'replacepoint' => (
     lazy => 1,
     default => sub {
         my $self = shift;
-        my $rpl = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self->parentDialog(), parentWidget => $self->parentWidget());
+        my $eventHandler = $self->eventHandler();
+        my $dialog = $eventHandler->parentDialog();
+        my $factory = $dialog->factory();
+        my $rpl = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self->eventHandler(), parentWidget => $self->parentWidget());
+        $factory->createVStretch($rpl->container());
         $rpl->finished();
         return $rpl;
     },
@@ -132,7 +136,8 @@ has 'replacepoint' => (
 #=============================================================
 sub refresh {
     my $self = shift;
-    my $dialog = $self->parentDialog();
+    my $eventHandler = $self->eventHandler();
+    my $dialog = $eventHandler->parentDialog();
     my $factory = $dialog->factory();
     my $parentWidget = $self->parentWidget();
     my $replacepoint = $self->replacepoint();

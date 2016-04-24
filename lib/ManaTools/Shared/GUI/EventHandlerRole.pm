@@ -65,12 +65,14 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose::Role;
 
+# parent event handler
 has 'parentEventHandler' => (
     is => 'rw',
     isa => 'Maybe[ManaTools::Shared::GUI::EventHandlerRole]',
     default => undef,
 );
 
+# child event handlers
 has 'eventHandlers' => (
     is => 'ro',
     isa => 'ArrayRef[ManaTools::Shared::GUI::EventHandlerRole]',

@@ -147,6 +147,7 @@ has 'itemEventType' => (
     default => $yui::YEvent::MenuEvent,
 );
 
+# TODO: eventHandler from event Role should react with replacepoint!!!
 has 'replacepoint' => (
     is => 'rw',
     isa => 'Maybe[ManaTools::Shared::GUI::ReplacePoint]',
@@ -232,9 +233,12 @@ sub buildSelectionWidget {
     # create a replacepoint on the selectionWidget
     $self->{replacepoint} = ManaTools::Shared::GUI::ReplacePoint->new(parentWidget => $parentWidget);
 
-    # parentEventHandler must be set directly, because we don't add the
-    # eventHandler to a parentEventHandler, instead the events are processed
-    # through the selectorWidget's EventRole processEvent function
+    # because this Event's processEvent also takes care of the replacepoints
+    # processEvents, it means we cannot set the replacepoint's (being an
+    # eventHandler) eventHandler -- which would add (next to setting the
+    # parentEventHandler) the replacepoint as a child, and thus also call
+    # processEvents from the parent down. Therefor, we'll set the
+    # parentEventHandler directly, so that any parent referrals still work.
     $self->{replacepoint}->parentEventHandler($self->{eventHandler});
 
     # don't add any children right away
