@@ -118,7 +118,7 @@ sub act {
     my $key = shift;
     my $acts = $self->acts();
     for my $action (@{$self->acts()}) {
-        if ($key == $action->name()) {
+        if ($key eq $action->name()) {
             return $action->act($self, @_);
         }
     }
@@ -179,7 +179,7 @@ sub remove_action {
     my $index = scalar(@{$acts});
     while ($index > 0) {
         $index = $index - 1;
-        if ($acts->[$index]->name() == $key) {
+        if ($acts->[$index]->name() eq $key) {
             delete $acts->[$index];
         }
     }
