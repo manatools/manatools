@@ -268,7 +268,8 @@ sub _rebuildTab {
             $actionbox->clear();
 
             # loop all connected parts
-            for my $part ($db->findin($io)) {
+            my @parts = $db->findin($io);
+            for my $part (@parts) {
 
                 # add properties for each part in a frame with label
                 my $frame = $factory->createFrame($propbox->container(), $part->label() ." properties");
@@ -283,6 +284,9 @@ sub _rebuildTab {
             # finalize propbox and actionbox
             $propbox->finished();
             $actionbox->finished();
+
+            # stretch vertically if no children are there
+            $factory->createVStretch($vbox) if (scalar(@parts) == 0);
         });
     }
     $tab->finishedSelectorItems();
@@ -383,8 +387,8 @@ sub _rebuildParts {
     my $baseType = $self->baseType();
     my $simplified = $self->simplified();
     my $info = $dialog->info();
-
     my $rpl = $self->content();
+
     # TODO: rebuild Tabs according to baseType and simplified, instead of always disks
     $rpl->clear();
     $self->_rebuildItems($info->{disks}, $rpl, $rpl->container());
@@ -509,6 +513,7 @@ sub _adminDiskPanel {
             my $vbox2 = $factory->createVBox($hbox2);
             my $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $vbox2);
             # don't add children right away
+            $factory->createVStretch($replacepoint->container());
             $replacepoint->finished();
             $module->actionsBox($replacepoint);
             $factory->createVStretch($vbox2);
@@ -522,12 +527,14 @@ sub _adminDiskPanel {
             # properties from IO first, and then the applicable Parts
             $module->ioProperties(ManaTools::Shared::GUI::Properties->new(eventHandler => $self, parentWidget => $align));
             $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $vbox1);
+            $factory->createVStretch($replacepoint->container());
             # don't add children right away
             $replacepoint->finished();
             $module->propertiesBox($replacepoint);
 
             ## in this replacepoint is the Tabs with all the data
             $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $hbox3);
+            $factory->createVStretch($replacepoint->container());
             # don't add children right away
             $replacepoint->finished();
 
