@@ -108,6 +108,12 @@ has 'properties' => (
     default => undef,
 );
 
+has 'labelWeight' => (
+    is => 'rw',
+    isa => 'Int',
+    default => 25,
+);
+
 has 'replacepoint' => (
     is => 'ro',
     isa => 'ManaTools::Shared::GUI::ReplacePoint',
@@ -152,13 +158,16 @@ sub refresh {
         for my $key (sort $properties->properties()) {
             # $properties->prop($key)
             my $hbox = $factory->createHBox($vbox);
-            $factory->createLabel($hbox, $key .': ');
+            my $align = $factory->createRight($hbox);
+            my $label = $factory->createLabel($align, $key .': ');
+            $align->setWeight(0, $self->labelWeight());
             my $val = $properties->prop($key);
             $val = '' if (!defined($val));
             $val = '' if (ref($val) ne '');
             $val = ''. $val;
-            $factory->createOutputField($hbox, $val);
-            $factory->createHStretch($hbox);
+            my $field = $factory->createOutputField($hbox, $val);
+            $field->setWeight(0, 100 - $self->labelWeight());
+            $factory->createHSpacing($hbox, 3);
         }
     }
     # finished
