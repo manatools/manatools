@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-04-11 16:53+0000\n"
+"PO-Revision-Date: 2016-04-12 16:53+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -684,6 +684,8 @@ msgstr ""
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
+"L'Apache és un servidor de World Wide Web. S'utilitza per servir fitxers\n"
+"HTML i CGI."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -714,6 +716,8 @@ msgstr "Automatitza el tallafoc del filtratge d'un paquet amb iptables"
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
 msgstr ""
+"Distribueix uniformement la càrrega IRQ entre les múltiples CPU per a una "
+"millora del rendiment"
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -721,12 +725,18 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Aquest paquet carrega el mapa de teclat seleccionat segons s'ha definit\n"
+"a /etc/sysconfig/keyboard. Es pot seleccionar mitjançant la utilitat\n"
+"kbdconfig.\n"
+"Per a la majoria d'ordinadors, s'ha de deixar habilitat."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"Regeneració automàtica del capçal de nucli a /boot per a\n"
+"/usr/include/linux/{autoconf,versió}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
@@ -742,6 +752,8 @@ msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"De vegades, el Linuxconf determinarà que s'han de fer algunes tasques\n"
+"en iniciar l'ordinador per mantenir la configuració del sistema."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
@@ -795,6 +807,8 @@ msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Munta i desmunta tots els punts de muntatge dels sistemes de fitxers\n"
+"de xarxa (NFS), SMB (gestor de xarxes d'àrea local/Windows) i NCP (NetWare)."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
@@ -818,16 +832,22 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"L'NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
+"Aquest servei proporciona la funcionalitat del servidor NFS, que es\n"
+"configura mitjançant el fitxer /etc/exports."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"L'NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
+"Aquest servei proporciona la funcionalitat de blocatge de fitxer NFS."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
 msgstr ""
+"Sincronitza el temps de sistema utilitzant el Network Time Protocol (NTP)"
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
@@ -852,6 +872,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"El suport PCMCIA serveix normalment per funcionar amb coses com ara "
+"l'ethernet\n"
+"i els mòdems en portàtils. No s'iniciarà tret que es configuri, de manera\n"
+"que no hi ha problema per instal·lar-lo en ordinadors que no el necessiten."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -874,18 +898,26 @@ msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"El Postfix és un agent de transport de correu, que és el programa que passa "
+"el correu d'un ordinador a un altre."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Desa i recupera el generador d'entropia del sistema per a\n"
+"la generació de nombres aleatoris d'una qualitat més alta."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Assigna els dispositius en cru a dispositius de blocs (com ara les "
+"particions de\n"
+"disc dur), perquè siguin utilitzats per aplicacions com ara Oracle o "
+"reproductors DVD."
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
@@ -897,35 +929,50 @@ msgid ""
 "the RIP protocol. While RIP is widely used on small networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"El dimoni routed permet que la taula d'encaminadors IP automàtics\n"
+"s'actualitzi mitjançant el protocol RIP. Mentre que el RIP s'utilitza\n"
+"àmpliament en xarxes petites, les xarxes complexes necessiten protocols\n"
+"d'encaminament més complexos."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"El protocol rstat permet que els usuaris d'una xarxa recuperin\n"
+"mesures de rendiment de qualsevol ordinador de la mateixa xarxa."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"El syslog és el sistema que utilitzen molts dimonis per registrar\n"
+"missatges en diversos fitxers de registre del sistema. És aconsellable\n"
+"executar-lo sempre."
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"El protocol rusers permet que els usuaris d'una xarxa identifiquin\n"
+"qui està connectat en altres ordinadors de la mateixa xarxa."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"El protocol rwho permet que els usuaris remots obtinguin una llista\n"
+"de tots els usuaris que estan connectats a un ordinador que està\n"
+"executant el dimoni rwho (similar al finger)."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
+"SANE (Scanner Access Now Easy) permet l'accés a escàners, càmeres de vídeo..."
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -936,6 +983,8 @@ msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
 msgstr ""
+"El protocol SMB/CIFS permet compartir l'accés a fitxers i impressores i \n"
+"també s'integra amb un domini Windows Server."
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
@@ -1052,14 +1101,20 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Traductors</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:346
 msgid "Empty log found"
-msgstr ""
+msgstr "S'ha trobat un registre buit"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - S'està executant en mode d'usuari"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -1067,6 +1122,9 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"Esteu executant aquest programa com a usuari normal.\n"
+"No podreu llegir registres del sistema perquè no en teniu els permisos,\n"
+"però podreu navegar per tots els altres."
 
 #: lib/ManaTools/Module/LogViewer.pm:462
 msgid "Save as.."
@@ -1210,25 +1268,30 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Crear un grup amb el GID menor que %d no és recomanable.\n"
+"Esteu segur que voleu fer-ho?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:680
 msgid " Group ID is already used "
-msgstr ""
+msgstr "Aquest ID de grup ja està en ús"
 
 #: lib/ManaTools/Module/Users.pm:681
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Voleu crear un grup sense un GID no únic?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:693
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "S'està afegint el grup: %s "
 
 #: lib/ManaTools/Module/Users.pm:749
 msgid "Full Name:"
-msgstr ""
+msgstr "Nom complet:"
 
 #: lib/ManaTools/Module/Users.pm:758
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
@@ -1247,12 +1310,12 @@ msgstr "Confirmeu la contrasenya:"
 
 #: lib/ManaTools/Module/Users.pm:799
 msgid "Login Shell:"
-msgstr ""
+msgstr "Intèrpret d'ordres per a l'entrada:"
 
 #: lib/ManaTools/Module/Users.pm:838
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Icon (%s)"
 
 #: lib/ManaTools/Module/Users.pm:871 lib/ManaTools/Module/Users.pm:2434
 #: lib/ManaTools/Module/DisplayManager.pm:141
@@ -1264,19 +1327,19 @@ msgstr "calen privilegis d'usuari primari"
 
 #: lib/ManaTools/Module/Users.pm:886
 msgid "Create New User"
-msgstr ""
+msgstr "Crea un usuari nou"
 
 #: lib/ManaTools/Module/Users.pm:901
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Crea el directori de l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:905
 msgid "Home Directory:"
-msgstr ""
+msgstr "Directori de l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:914
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Crea un grup privat per a l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:919
 msgid "Specify user ID manually"
@@ -1284,25 +1347,27 @@ msgstr "Especifica manualment l'id. de l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:921
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:929
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Cliqueu a la icona per a canviar-ho"
 
 #: lib/ManaTools/Module/Users.pm:981
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Aquest usuari ja existeix al sistema, escolliu-ne un altre"
 
 #: lib/ManaTools/Module/Users.pm:986 lib/ManaTools/Module/Users.pm:1934
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Les contrasenyes no coincideixen"
 
 #: lib/ManaTools/Module/Users.pm:990 lib/ManaTools/Module/Users.pm:1940
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Aquesta contrasenya és massa simple. \n"
+"Les bones contrasenyes tenen més de 6 caràcters."
 
 #: lib/ManaTools/Module/Users.pm:997
 #, perl-format
@@ -1310,11 +1375,14 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"El directori d'usuari <%s> ja existeix.\n"
+"Si us plau, desmarqueu l'opció de la creació del directori d'usuari o "
+"canvieu-ne el nom del camí."
 
 #: lib/ManaTools/Module/Users.pm:1010
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "L'Uid d'usuari és < %d"
 
 #: lib/ManaTools/Module/Users.pm:1011
 #, perl-format
@@ -1650,11 +1718,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "Trieu un servidor &NTP"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "Servidor NTP  - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:479
 msgid "Choose your NTP server"
@@ -1833,11 +1901,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:499
 msgid "Use Interactive Firewall"
-msgstr ""
+msgstr "Utilitza el tallafoc interactiu"
 
 #: lib/ManaTools/Module/Firewall.pm:661
 msgid "Graphical manager for interactive firewall rules"
-msgstr ""
+msgstr "Gestor gràfic per a les regles del tallafoc interactiu"
 
 #: lib/ManaTools/Module/Firewall.pm:708 lib/ManaTools/Module/Firewall.pm:711
 #: lib/ManaTools/Module/Firewall.pm:1100
@@ -1846,12 +1914,12 @@ msgstr "Tallafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:715
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "A quins serveis voleu permetre la connexió d'Internet?"
 
 #: lib/ManaTools/Module/Firewall.pm:716
 #, perl-format
 msgid "Those settings will be saved for the network profile <b>%s</b>"
-msgstr ""
+msgstr "Els paràmetres es desaran per al perfil de xarxa <b>%s</b>"
 
 #: lib/ManaTools/Module/Firewall.pm:717
 msgid "Everything (no firewall)"
@@ -1990,29 +2058,31 @@ msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:235
 msgid "Proxies configuration"
-msgstr ""
+msgstr "Configuració de servidor intermediari"
 
 #: lib/ManaTools/Module/Proxy.pm:285
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
 msgstr ""
+"Aquí podeu establir la configuració dels servidors intermediaris (per "
+"exemple: http://servidor_intermediari:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:293
 msgid "HTTP proxy"
-msgstr ""
+msgstr "Intermediari per a HTTP"
 
 #: lib/ManaTools/Module/Proxy.pm:299
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr ""
+msgstr "Utilitza el servidor intermediari HTTP per a connexions HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:305
 msgid "HTTPS proxy"
-msgstr ""
+msgstr "Intermediari per a HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:311
 msgid "FTP proxy"
-msgstr ""
+msgstr "Intermediari per a FTP"
 
 #: lib/ManaTools/Module/Proxy.pm:317
 msgid "No proxy for (comma separated list):"
@@ -2032,23 +2102,23 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:286
 msgid "running"
-msgstr ""
+msgstr "s'està executant"
 
 #: lib/ManaTools/Module/Services.pm:286
 msgid "stopped"
-msgstr ""
+msgstr "aturat"
 
 #: lib/ManaTools/Module/Services.pm:365
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "Gestiona els serveis de sistema activant-los o desactivant-los"
 
 #: lib/ManaTools/Module/Services.pm:373
 msgid "Service"
-msgstr ""
+msgstr "Servei"
 
 #: lib/ManaTools/Module/Services.pm:375
 msgid "On boot"
-msgstr ""
+msgstr "En arrencar"
 
 #: lib/ManaTools/Module/Services.pm:386 lib/ManaTools/Rpmdragora/pkg.pm:1093
 msgid "Information"
@@ -2056,15 +2126,15 @@ msgstr "Informació"
 
 #: lib/ManaTools/Module/Services.pm:394
 msgid "&Start"
-msgstr ""
+msgstr "&Inicia"
 
 #: lib/ManaTools/Module/Services.pm:397
 msgid "S&top"
-msgstr ""
+msgstr "A&tura"
 
 #: lib/ManaTools/Module/Services.pm:410
 msgid "&Refresh"
-msgstr ""
+msgstr "&Refresca"
 
 #: lib/ManaTools/Module/Services.pm:451
 msgid ""
@@ -2094,7 +2164,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:541
 #, perl-format
 msgid "Stopping %s"
-msgstr ""
+msgstr "S'està aturant %s"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
@@ -2132,11 +2202,11 @@ msgstr "No m'ho tornis a preguntar"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Sí"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&No"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -2310,11 +2380,11 @@ msgstr "Suport"
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:285
 #: modules/rpmdragora/rpmdragora:653
 msgid "&Select all"
-msgstr ""
+msgstr "&Selecciona-ho tot"
 
 #: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:286
 msgid "&Update"
-msgstr ""
+msgstr "Act&ualitza"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -3525,7 +3595,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
-msgstr ""
+msgstr "S'està executant en mode d'usuari"
 
 #: lib/ManaTools/Rpmdragora/init.pm:176
 msgid ""
