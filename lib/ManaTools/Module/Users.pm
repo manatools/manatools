@@ -1354,14 +1354,14 @@ sub _refreshGroups {
 sub _getUserInfo {
     my $self = shift;
 
-    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label ne $self->loc->N("Users") ) {
-        return undef;
+    my $selectedTab = $self->get_widget('tabs')->selectedItem();
+    if ($selectedTab != $self->groups_users_tab()->{users}) {
+        return ();
     }
 
     my $item = $self->get_widget('table')->selectedItem();
     if (! $item) {
-       return undef;
+       return ();
     }
 
     my %userData;
@@ -2079,7 +2079,7 @@ sub _editUserDialog {
         my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
 
         my $userData        = $self->_getUserInfo();
-        # userData here should be tested because it could be undef
+        # userData here should be tested because it could be empty hash
 
         # Useful entry point for the current edit user/group tab widget
         $self->set_edit_tab_widget( %{$self->_userDataTabWidget($dlg, $tabs{replace_pnt}, $userData)} );
