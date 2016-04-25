@@ -205,6 +205,13 @@ sub _config_fileBuilder {
     return $confDir . "/manauser";
 }
 
+# users/groups tab
+has 'groups_users_tab' => (
+    is => 'rw',
+    isa => 'HashRef',
+    init_arg  => undef,
+    default  => sub {return {};},
+);
 
 #=============================================================
 
@@ -1435,14 +1442,14 @@ sub _getUserInfo {
 sub _getGroupInfo {
     my $self = shift;
 
-    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label ne $self->loc->N("Groups") ) {
-        return undef;
+    my $selectedTab = $self->get_widget('tabs')->selectedItem();
+    if ($selectedTab != $self->groups_users_tab()->{groups}) {
+        return ();
     }
 
     my $item = $self->get_widget('table')->selectedItem();
     if (! $item) {
-       return undef;
+       return ();
     }
 
     my %groupData;
@@ -2038,7 +2045,7 @@ sub _editUserDialog {
     my $dlg      = $factory->createPopupDialog();
     my $layout   = $factory->createVBox($dlg);
 
-    my %tabs;
+    my %tabs = ();
     if ($optional->hasDumbTab()) {
         my $hbox = $factory->createHBox($layout);
         my $align = $factory->createHCenter($hbox);
@@ -2089,28 +2096,28 @@ sub _editUserDialog {
             elsif ($eventType == $yui::YEvent::MenuEvent) {
                 ### MENU ###
                 my $item = $event->item();
-                if ($item->label() eq $tabs{user_data}->label()) {
+                if ($item == $tabs{user_data}) {
                     $self->_storeDataFromUserEditPreviousTab($userData);
                     my $edit_tab = $self->_userDataTabWidget($dlg, $tabs{replace_pnt}, $userData );
                     $self->edit_tab_widgets( {} );
                     $self->set_edit_tab_widget(%{$edit_tab});
                     $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{user_data});
                 }
-                elsif ($item->label() eq $tabs{account_info}->label()) {
+                elsif ($item == $tabs{account_info}) {
                     $self->_storeDataFromUserEditPreviousTab($userData);
                     my $edit_tab = $self->_userAccountInfoTabWidget($dlg, $tabs{replace_pnt}, $userData );
                     $self->edit_tab_widgets( {} );
                     $self->set_edit_tab_widget(%{$edit_tab});
                     $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{account_info});
                 }
-                elsif ($item->label() eq $tabs{password_info}->label()) {
+                elsif ($item == $tabs{password_info}) {
                     $self->_storeDataFromUserEditPreviousTab($userData);
                     my $edit_tab = $self->_userPasswordInfoTabWidget($dlg, $tabs{replace_pnt}, $userData );
                     $self->edit_tab_widgets( {} );
                     $self->set_edit_tab_widget(%{$edit_tab});
                     $self->set_edit_tab_widget( edit_tab_label => $userEditLabel{password_info});
                 }
-                elsif ($item->label() eq $tabs{groups}->label()) {
+                elsif ($item == $tabs{groups}) {
                     $self->_storeDataFromUserEditPreviousTab($userData);
                     my $edit_tab = $self->_userGroupsTabWidget($dlg, $tabs{replace_pnt}, $userData );
                     $self->edit_tab_widgets( {} );
@@ -2232,7 +2239,7 @@ sub _editGroupDialog {
         my $okButton     = $factory->createPushButton($hbox,  $self->loc->N("&Ok"));
 
         my %groupData        = $self->_getGroupInfo();
-        # groupData here should be tested because it could be undef
+        # groupData here should be tested because it could be an empty hash
 
 # %groupData:  selected group info as:
 # $groupname:  group name
@@ -2254,14 +2261,14 @@ sub _editGroupDialog {
             elsif ($eventType == $yui::YEvent::MenuEvent) {
                 ### MENU ###
                 my $item = $event->item();
-                if ($item->label() eq $tabs{group_data}->label()) {
+                if ($item == $tabs{group_data}) {
                     %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
                     my %edit_tab = $self->_groupDataTabWidget($dlg, $tabs{replace_pnt}, %groupData );
                     $self->edit_tab_widgets( {} );
                     $self->set_edit_tab_widget(%edit_tab);
                     $self->set_edit_tab_widget( edit_tab_label => $groupEditLabel{group_data});
                 }
-                elsif ($item->label() eq $tabs{group_users}->label()) {
+                elsif ($item == $tabs{group_users}) {
                     %groupData = $self->_storeDataFromGroupEditPreviousTab(%groupData);
                     my %edit_tab = $self->_groupUsersTabWidget($dlg, $tabs{replace_pnt}, %groupData );
                     $self->edit_tab_widgets( {} );
@@ -2299,9 +2306,8 @@ sub _editGroupDialog {
 sub _editUserOrGroup {
     my $self = shift;
 
-    # TODO item management avoid label if possible
-    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label eq $self->loc->N("Users") ) {
+    my $selectedTab = $self->get_widget('tabs')->selectedItem();
+    if ($selectedTab == $self->groups_users_tab()->{users}) {
         $self->_editUserDialog();
     }
     else {
@@ -2314,9 +2320,8 @@ sub _editUserOrGroup {
 sub _deleteUserOrGroup {
     my $self = shift;
 
-    # TODO item management avoid label if possible
-    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label eq $self->loc->N("Users") ) {
+    my $selectedTab = $self->get_widget('tabs')->selectedItem();
+    if ($selectedTab == $self->groups_users_tab()->{users}) {
         $self->_deleteUserDialog();
         $self->_refresh();
     }
@@ -2330,9 +2335,8 @@ sub _deleteUserOrGroup {
 sub _refresh {
     my $self = shift;
 
-    # TODO item management avoid label if possible
-    my $label = $self->_skipShortcut($self->get_widget('tabs')->selectedItem()->label());
-    if ($label eq $self->loc->N("Users") ) {
+    my $selectedTab = $self->get_widget('tabs')->selectedItem();
+    if ($selectedTab == $self->groups_users_tab()->{users}) {
         $self->_refreshUsers();
     }
     else {
@@ -2568,6 +2572,8 @@ sub _manageUsersDialog {
         $self->get_widget('table')->DISOWN();
     }
 
+    $self->groups_users_tab(\%tabs);
+
     $self->_refreshActions();
 
     # main loop
@@ -2581,35 +2587,34 @@ sub _manageUsersDialog {
         }
         elsif ($eventType == $yui::YEvent::MenuEvent) {
 ### MENU ###
-            my $item = $event->item();
-            my $menuLabel = $item->label();
-            if ($menuLabel eq $fileMenu{ quit }->label())  {
+            my $menuItem = $event->item();
+            if ($menuItem == $fileMenu{ quit })  {
                 last;
             }
-            elsif ($menuLabel eq $helpMenu{about}->label())  {
+            elsif ($menuItem == $helpMenu{about})  {
                 $self->_showAboutDialog();
             }
-            elsif ($menuLabel eq $self->get_action_menu('add_user')->label())  {
+            elsif ($menuItem == $self->get_action_menu('add_user'))  {
                 $self->addUserDialog();
                 $self->_refresh();
             }
-            elsif ($menuLabel eq $self->get_action_menu('add_group')->label()) {
+            elsif ($menuItem == $self->get_action_menu('add_group')) {
                 $self->_addGroupDialog();
                 $self->_refresh();
             }
-            elsif ($menuLabel eq $self->get_action_menu('del')->label())  {
+            elsif ($menuItem == $self->get_action_menu('del'))  {
                 $self->_deleteUserOrGroup();
             }
-            elsif ($menuLabel eq $self->get_action_menu('edit')->label())  {
+            elsif ($menuItem == $self->get_action_menu('edit'))  {
                 $self->_editUserOrGroup();
             }
-            elsif ($self->get_widget('tabs') && $menuLabel eq  $tabs{groups}->label()) {
+            elsif ($self->get_widget('tabs') && $menuItem == $tabs{groups}) {
                 $self->_createGroupTable();
             }
-            elsif ($self->get_widget('tabs') && $menuLabel eq  $tabs{users}->label()) {
+            elsif ($self->get_widget('tabs') && $menuItem == $tabs{users}) {
                 $self->_createUserTable();
             }
-            elsif ($menuLabel eq  $fileMenu{refresh}->label()) {
+            elsif ($menuItem == $fileMenu{refresh}) {
                 $self->_refresh();
             }
         }
