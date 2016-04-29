@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-04-22 09:05+0000\n"
+"PO-Revision-Date: 2016-04-29 11:53+0000\n"
 "Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_CN/)\n"
@@ -40,7 +40,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1094
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Copyright (C) %s Mageia 社区"
 
 #: lib/ManaTools/MainDisplay.pm:298 lib/ManaTools/Module/LogViewer.pm:326
 #: lib/ManaTools/Module/Users.pm:2414 lib/ManaTools/Module/Clock.pm:216
@@ -48,11 +48,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1095
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:299
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan 是集成了各类工具的 ManaTools 管理器。"
 
 #: lib/ManaTools/MainDisplay.pm:300
 #, perl-format
@@ -65,12 +65,19 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>开发者</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>译者</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: modules/rpmdragora/rpmdragora:703
 msgid "File"
-msgstr ""
+msgstr "文件"
 
 #: lib/ManaTools/MainDisplay.pm:426 lib/ManaTools/Module/LogViewer.pm:301
 #: lib/ManaTools/Module/Users.pm:2465 lib/ManaTools/Module/Users.pm:2553
@@ -81,14 +88,14 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1209
 msgid "&Quit"
-msgstr ""
+msgstr "退出(&Q)"
 
 #: lib/ManaTools/MainDisplay.pm:438 lib/ManaTools/MainDisplay.pm:439
 #: lib/ManaTools/Module/Users.pm:2477
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 msgid "Help"
-msgstr ""
+msgstr "帮助"
 
 #: lib/ManaTools/MainDisplay.pm:440 lib/ManaTools/Shared/GUI/Dialog.pm:409
 #: lib/ManaTools/Module/LogViewer.pm:297 lib/ManaTools/Module/Users.pm:2479
@@ -99,44 +106,44 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr ""
+msgstr "关于(&A)"
 
 #: lib/ManaTools/MainDisplay.pm:613
 #, perl-format
 msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
-msgstr ""
+msgstr "配置文件有误，%s 没有 xml:lang 属性，推测它是一个字符串"
 
 #: lib/ManaTools/MainDisplay.pm:636
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "配置文件 %s 缺失"
 
 #: lib/ManaTools/MainDisplay.pm:641
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "读取配置文件 %s 出错"
 
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "加载设置：%s 内容为“%s”"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "解析编录文件 %s"
 
 #: lib/ManaTools/MainDisplay.pm:825
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "加载编录：标题内容为“%s”"
 
 #: lib/ManaTools/MainDisplay.pm:860
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "加载编录：模块标题为“%s”"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -152,7 +159,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1303
 msgid "&Ok"
-msgstr ""
+msgstr "确定(&O)"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -174,44 +181,44 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1302
 msgid "&Cancel"
-msgstr ""
+msgstr "取消(&C)"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
-msgstr ""
+msgstr "是"
 
 #: lib/ManaTools/Shared/GUI.pm:319
 msgid "No"
-msgstr ""
+msgstr "否"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "&Select"
-msgstr ""
+msgstr "选择(&S)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
-msgstr ""
+msgstr "<dir> 包含用于本地化的字符串的目录（可选，仅用于开发者）"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "显示用法信息。"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "名称字段为空，请提供一个名称"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
-msgstr ""
+msgstr "名称必须以字母开头，写只能包含小写字母、数字、“.”、“-”和“_”"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "名称太长，最多只能含有 %d 个字符"
 
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -219,344 +226,344 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1186
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2182
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "您无法将用户 <%s> 从其基础组中移除"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Locked"
-msgstr ""
+msgstr "已锁定"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Expired"
-msgstr ""
+msgstr "已过期"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 msgid "None (installed)"
-msgstr ""
+msgstr "无（已安装）"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 msgid "Unknown"
-msgstr ""
+msgstr "未知"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "保留自定义规则"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "删除自定义规则"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "开始使用 gtk 实现的 yui 图形界面插件"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "开始使用 ncurses 实现的 yui 图形界面插件"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "开始使用 qt 实现的 yui 图形界面插件"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "全屏显示对话框"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "对话框没有被窗口管理器渲染"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
-msgstr ""
+msgstr "<dir> 包含每个模块的配置文件的目录（例如：modulename/config_files）"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:411
 msgid "&Reset"
-msgstr ""
+msgstr "重置(&R)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:418
 msgid "&Close"
-msgstr ""
+msgstr "关闭(&C)"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "已启用 %s，但其已停止 - 将会禁用它"
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "全球"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "非洲"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "亚洲"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "欧洲"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "北美洲"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "大洋洲"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "南美洲"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
-msgstr ""
+msgstr "南非"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "坦桑尼亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "孟加拉国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
-msgstr ""
+msgstr "中国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "香港"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "印度"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
-msgstr ""
+msgstr "印度尼西亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
-msgstr ""
+msgstr "伊朗"
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
-msgstr ""
+msgstr "以色列"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
 msgid "Japan"
-msgstr ""
+msgstr "日本"
 
 #: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
 msgid "Korea"
-msgstr ""
+msgstr "韩国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "马来西亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "菲律宾"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "新加坡"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "台湾"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
-msgstr ""
+msgstr "泰国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "土耳其"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "阿拉伯联合酋长国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
-msgstr ""
+msgstr "奥地利"
 
 #: lib/ManaTools/Shared/TimeZone.pm:408 lib/ManaTools/rpmdragora.pm:578
 msgid "Belarus"
-msgstr ""
+msgstr "白俄罗斯"
 
 #: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
 msgid "Belgium"
-msgstr ""
+msgstr "比利时"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "保加利亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
-msgstr ""
+msgstr "捷克共和国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "丹麦"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "爱沙尼亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
-msgstr ""
+msgstr "芬兰"
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "法国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
-msgstr ""
+msgstr "德国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
 #: lib/ManaTools/rpmdragora.pm:593
 msgid "Greece"
-msgstr ""
+msgstr "希腊"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
-msgstr ""
+msgstr "匈牙利"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "爱尔兰"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "意大利"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "立陶宛"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "卢森堡"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "荷兰"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "挪威"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "波兰"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "葡萄牙"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "罗马尼亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "俄罗斯"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "斯洛伐克"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "斯洛文尼亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "西班牙"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "瑞典"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "瑞士"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "乌克兰"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "英国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "南斯拉夫"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
-msgstr ""
+msgstr "加拿大"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "危地马拉"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "墨西哥"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "美国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "澳大利亚"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "新西兰"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
-msgstr ""
+msgstr "阿根廷"
 
 #: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
 msgid "Brazil"
-msgstr ""
+msgstr "巴西"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "智利"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "所有服务器"
 
 #: lib/ManaTools/Shared/TimeZone.pm:947
 msgid "user does not have the rights to change configuration file, skipped"
-msgstr ""
+msgstr "用户无权修改配置文件，已跳过"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -564,23 +571,25 @@ msgstr "监听并分发来自内核的 ACPi 事件"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "启动 ALSA（高级Linux声音体系）系统"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "Anacron 是一个周期行命令执行器。"
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"apmd 用于监控电池状态，并将其记录到系统日志。\n"
+"它也可用于在电量低时关闭系统。"
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
-msgstr ""
+msgstr "在指定时间运行预先安排的命令，并在系统空闲时运行批处理命令。"
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
@@ -601,15 +610,17 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"cron 是用于定时运行用户命令的标准 UNIX 程序。vixie cron 在 UNIX cron\n"
+"的基础上添加了一系列特性，如更好的安全性和更强大的配置选项。"
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
-msgstr ""
+msgstr "通用 UNIX 打印系统（CUPS）是高级的打印调度系统"
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "启动图形显示管理器"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -617,6 +628,8 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"FAM 是文件监控守护进程，用于监视文件更改并发出通知。\n"
+"用于 GNOME 和 KDE 桌面应用程序"
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -629,6 +642,9 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"G15Daemon 允许用户访问所有额外的按键，通过解码后经 Linux UINPUT 驱动发回内核"
+"来操纵按键。同时，也提供 G15 LCD 的支持。默认情况下，若没有其他活动的客户端，"
+"g15daemon 将显示一个时钟。客户端程序和脚本可以通过简单的 API 访问 LCD。"
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -637,21 +653,23 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"GPM 为 Linux 命令行程序（如 Midnight Commander）提供鼠标支持。\n"
+"它也可以用于提供鼠标的剪切-粘贴操作，以及终端中弹出菜单的支持。"
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr ""
+msgstr "HAL 是控制和维护硬件信息的守护进程"
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
-msgstr ""
+msgstr "HardDrake 执行硬件探测认为，并可对新硬件或更改后的硬件进行配置。"
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
-msgstr ""
+msgstr "Apache 是一个 WWW 服务器，用于提供 HTML 文件和执行 CGI 脚本。"
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -662,6 +680,9 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"互联网超级服务器守护进程（inetd）用于启动各类互联网服务，\n"
+"如 telnet、ftp、rsh、rlogin 等。\n"
+"若被禁用，则相关服务也会被禁用。"
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -682,16 +703,21 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"此软件包加载 /etc/sysconfig/keyboard 配置中设定的键盘映射，可以使用\n"
+"kbdconfig 工具来调整配置。\n"
+"多数机器需要启用该服务。"
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"根据/usr/include/linux/{autoconf,version}.h 自动生成\n"
+" /boot 下的内核头部文件"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr ""
+msgstr "在启动时自动检测并配置硬件。"
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
@@ -701,23 +727,23 @@ msgstr "微调系统行为以延长电池寿命"
 msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
-msgstr ""
+msgstr "Linuxconf 可用于操作引导时的各类任务，以便维护系统配置。"
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
-msgstr ""
+msgstr "lpd 是 lpr 所需的打印守护进程。它是用于调度打印任务的服务器。"
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
-msgstr ""
+msgstr "Linux 虚拟服务器，用于构建高性能、高可用性的服务器。"
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "监视网络（交互式防火墙和无线网络）"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
@@ -727,7 +753,7 @@ msgstr "监视和管理软 RAID"
 msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
-msgstr ""
+msgstr "Dbus 是用于广播系统事件及其他消息的守护进程"
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
@@ -737,7 +763,7 @@ msgstr "系统启动时启用 MSEC 安全策略"
 msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
-msgstr ""
+msgstr "named（BIND）是用于解析主机名的域名服务器（DNS）。"
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
@@ -748,12 +774,14 @@ msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"挂载/卸载所有网络文件系统（NFS）、SMB（局域网管理器/\n"
+"Windows）以及 NCP（NetWare）的挂载点。"
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
-msgstr ""
+msgstr "在启动时启用/禁用所有网络接口。"
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
@@ -769,26 +797,30 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"NFS 是一个在 TCP/IP 网络上进行文件共享的协议。\n"
+"此服务提供 NFS 服务器相关功能，并根据 /etc/exports 文件进行配置。"
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS 是一个在 TCP/IP 网络上进行文件共享的协议。\n"
+"此服务提供 NFS 文件锁功能。"
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
-msgstr ""
+msgstr "使用网络时间协议（NTP）同步系统时钟"
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
-msgstr ""
+msgstr "在启动时的终端和 Xorg 环境下自动切换数字键盘锁（NumLock）。"
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "支持 OKI 4w 和兼容的 winprinters 打印机。"
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
@@ -801,6 +833,8 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"PCMCIA 常用于支持笔记本的以太网卡和调制解调器。\n"
+"为了安全起见，只有手动配置后才会启动。"
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -809,6 +843,8 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"portmapper 管理用于 NFS 和 NIS 协议的 RPC 链接。\n"
+"portmapper 服务器必须运行于使用 RPC 机制作为通讯协议的服务器上。"
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -818,19 +854,21 @@ msgstr "保留部分 TCP 端口"
 msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
-msgstr ""
+msgstr "Postfix 是一个邮件传输代理，用于在不同机器间传递邮件。"
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
-msgstr ""
+msgstr "保存/恢复系统熵池，以便生成高质量的随机数。"
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"为块设备指定原始设备（例如硬盘驱动器上的分区），用于 Oracle 或\n"
+"DVD 播放器"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
@@ -842,12 +880,14 @@ msgid ""
 "the RIP protocol. While RIP is widely used on small networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"路由守护进程允许通过 RIP 协议自动更新 IP 路由表。RIP 被广泛用于小型网络，\n"
+"而更大的网络则需要更复制的路由协议。"
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
-msgstr ""
+msgstr "rstat 协议允许用户获取同一网络上任意机器的性能指标。"
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
@@ -861,18 +901,20 @@ msgstr ""
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
-msgstr ""
+msgstr "rusers 协议允许用户获取网络中其他机器上的登录用户。"
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"rhwo 协议允许远程用户获取所有运行 rwho 守护进程的机器上的登录\n"
+"用户（与 finger 类似）。"
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
-msgstr ""
+msgstr "SANE（简易扫描仪）用于访问扫描仪、摄像头等设备。"
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -882,11 +924,11 @@ msgstr "包过滤防火墙"
 msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
-msgstr ""
+msgstr "SMB/CIFS 用于分享文件和打印机，并且集成了 Windows 服务器域的功能。"
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "启动声音系统"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
@@ -896,13 +938,15 @@ msgstr "语音分析层"
 msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
-msgstr ""
+msgstr "Secure Shell 是用于在安全通道间交换数据的网络协议"
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog 是诸多守护进程用于记录消息（系统日志）的工具。\n"
+"最好确保 rsyslog 能够运行。"
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -910,7 +954,7 @@ msgstr "将生成的永久 udev 规则移动到 /etc/udev/rules.d"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "从 USB 设备加载驱动。"
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
@@ -918,71 +962,71 @@ msgstr "轻量级网络流量监控程序"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "启动 X 前端服务器。"
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "按需启动其他守护进程。"
 
 #: lib/ManaTools/Module/LogViewer.pm:84
 msgid "Log viewer"
-msgstr ""
+msgstr "日志查看器"
 
 #: lib/ManaTools/Module/LogViewer.pm:159
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "用于管理日志的工具"
 
 #: lib/ManaTools/Module/LogViewer.pm:163
 msgid "Matching"
-msgstr ""
+msgstr "匹配"
 
 #: lib/ManaTools/Module/LogViewer.pm:167
 msgid "but not matching"
-msgstr ""
+msgstr "但不匹配"
 
 #: lib/ManaTools/Module/LogViewer.pm:171 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "选项"
 
 #: lib/ManaTools/Module/LogViewer.pm:176
 msgid "Last boot"
-msgstr ""
+msgstr "上一次启动"
 
 #: lib/ManaTools/Module/LogViewer.pm:189
 msgid "Since"
-msgstr ""
+msgstr "自"
 
 #: lib/ManaTools/Module/LogViewer.pm:194
 msgid "Until"
-msgstr ""
+msgstr "至"
 
 #: lib/ManaTools/Module/LogViewer.pm:221
 msgid "Select a unit"
-msgstr ""
+msgstr "选择一个 unit"
 
 #: lib/ManaTools/Module/LogViewer.pm:243
 msgid "From priority"
-msgstr ""
+msgstr "从优先级"
 
 #: lib/ManaTools/Module/LogViewer.pm:263
 msgid "To priority"
-msgstr ""
+msgstr "至优先级"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "&Find"
-msgstr ""
+msgstr "查找(&F)"
 
 #: lib/ManaTools/Module/LogViewer.pm:284
 msgid "Log content"
-msgstr ""
+msgstr "日志内容"
 
 #: lib/ManaTools/Module/LogViewer.pm:300
 msgid "&Save"
-msgstr ""
+msgstr "保存(&S)"
 
 #: lib/ManaTools/Module/LogViewer.pm:327
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Log viewer 是一个 systemd 日志查看器"
 
 #: lib/ManaTools/Module/LogViewer.pm:328
 #, perl-format
@@ -994,14 +1038,20 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>开发者</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>翻译者</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:346
 msgid "Empty log found"
-msgstr ""
+msgstr "找到空日志"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - 以用户模式运行"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -1009,55 +1059,57 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"您以普通用户的身份启动此程序。\n"
+"您将无法读取未授权的系统日志，但可以查看其他日志。"
 
 #: lib/ManaTools/Module/LogViewer.pm:462
 msgid "Save as.."
-msgstr ""
+msgstr "另存为..."
 
 #: lib/ManaTools/Module/Users.pm:118
 msgid "manauser - Mageia Users Management Tool"
-msgstr ""
+msgstr "manauser - Mageia 用户管理工具"
 
 #: lib/ManaTools/Module/Users.pm:325
 msgid "User Data"
-msgstr ""
+msgstr "用户数据"
 
 #: lib/ManaTools/Module/Users.pm:326
 msgid "Account Info"
-msgstr ""
+msgstr "账户信息"
 
 #: lib/ManaTools/Module/Users.pm:327
 msgid "Password Info"
-msgstr ""
+msgstr "密码信息"
 
 #: lib/ManaTools/Module/Users.pm:328 lib/ManaTools/Module/Users.pm:1439
 #: lib/ManaTools/Module/Users.pm:2560
 msgid "Groups"
-msgstr ""
+msgstr "组"
 
 #: lib/ManaTools/Module/Users.pm:331
 msgid "Group Data"
-msgstr ""
+msgstr "组数据"
 
 #: lib/ManaTools/Module/Users.pm:332
 msgid "Group Users"
-msgstr ""
+msgstr "组用户"
 
 #: lib/ManaTools/Module/Users.pm:366
 msgid "Choose group"
-msgstr ""
+msgstr "选择组"
 
 #: lib/ManaTools/Module/Users.pm:374
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "此组已存在。您希望如何操作？"
 
 #: lib/ManaTools/Module/Users.pm:380
 msgid "Add to the existing group"
-msgstr ""
+msgstr "添加到现存的组"
 
 #: lib/ManaTools/Module/Users.pm:384
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "添加到“user”组"
 
 #: lib/ManaTools/Module/Users.pm:448 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
@@ -1066,17 +1118,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:949 lib/ManaTools/Rpmdragora/gui.pm:954
 #: modules/rpmdragora/rpmdragora:1209
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: lib/ManaTools/Module/Users.pm:456
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "您真的想要删除组“%s”吗？"
 
 #: lib/ManaTools/Module/Users.pm:462 lib/ManaTools/Module/Users.pm:553
 #: lib/ManaTools/Module/Users.pm:2373
 msgid "&Delete"
-msgstr ""
+msgstr "删除(&D)"
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
@@ -1084,15 +1136,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s 是用户 %s 的基础组\n"
+"请先移除该用户"
 
 #: lib/ManaTools/Module/Users.pm:489
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "移除组：%s"
 
 #: lib/ManaTools/Module/Users.pm:536
 msgid "Delete files or not?"
-msgstr ""
+msgstr "删除文件吗？"
 
 #: lib/ManaTools/Module/Users.pm:543
 #, perl-format
@@ -1100,37 +1154,39 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"删除用户 %s\n"
+"同时进行下列操作\n"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "删除主目录：%s"
 
 #: lib/ManaTools/Module/Users.pm:548
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "删除邮件箱：/var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:576
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "移除用户：%s"
 
 #: lib/ManaTools/Module/Users.pm:608
 msgid "Create New Group"
-msgstr ""
+msgstr "创建新组"
 
 #: lib/ManaTools/Module/Users.pm:618 lib/ManaTools/Module/Users.pm:1655
 msgid "Group Name:"
-msgstr ""
+msgstr "组名称："
 
 #: lib/ManaTools/Module/Users.pm:628
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "手动指定组 ID"
 
 #: lib/ManaTools/Module/Users.pm:630
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:663
 msgid "Group already exists, please choose another Group Name"
@@ -4033,7 +4089,7 @@ msgstr "此软件包不是自由软件"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr ""
+msgstr "此软件包包含已移植的新版本。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
@@ -4567,7 +4623,7 @@ msgstr "所有软件包（根据介质仓库排列）"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
-msgstr ""
+msgstr "移植"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
