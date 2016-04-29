@@ -1954,9 +1954,12 @@ sub _userEdit_Ok {
         return 0;
     }
 
+    my $fullname = $userData->{full_name};
+    utf8::decode($fullname);
+
     my $userInfo = {
         username      => $userData->{username},
-        fullname      => $userData->{full_name},
+        fullname      => $fullname,
         homedir       => $userData->{homedir},
         shell         => $userData->{shell},
         members       => $userData->{members},
