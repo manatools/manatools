@@ -149,13 +149,14 @@ has 'container' => (
 #=============================================================
 sub buildReplacePoint {
     my $self = shift;
-    my $dialog = $self->parentDialog();
-    my $factory = $dialog->factory();
-    my $parentWidget = $self->parentWidget();
     my $eventHandler = $self->parentEventHandler();
 
     # safeguard if no eventHandler
     die("eventHandler is not set when creating replacepoint") if (!defined $eventHandler);
+
+    my $dialog = $self->parentDialog();
+    my $factory = $dialog->factory();
+    my $parentWidget = $self->parentWidget();
 
     # create the replacepoint
     my $replacepoint = $factory->createReplacePoint($parentWidget);
