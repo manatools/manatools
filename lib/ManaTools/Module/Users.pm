@@ -79,7 +79,6 @@ use MDK::Common::DataStructure qw(member);
 use feature 'state';
 
 extends qw( ManaTools::Module );
-with 'ManaTools::LoggingRole';
 has 'configDir' => (
     is      => 'ro',
     isa     => 'Str',
@@ -202,32 +201,6 @@ has 'groups_users_tab' => (
     init_arg  => undef,
     default  => sub {return {};},
 );
-
-#=============================================================
-
-=head2 identifier
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 OUTPUT
-
-    name: module name
-
-=head3 DESCRIPTION
-
-    Returns the module name as logging identifier.
-    This method is required by LoggingRole
-
-=cut
-
-#=============================================================
-sub identifier {
-    my $self = shift;
-
-    return $self->name();
-}
 
 #=============================================================
 
@@ -483,7 +456,7 @@ sub _deleteGroupDialog {
                 }
                 else {
                     if ($self->sh_users->deleteGroup($groupname)) {
-                        $self->logger->I($self->loc->N("Removing group: %s", $groupname));
+                        $self->I("Removing group: %s", $groupname);
                     }
                     $self->_refresh();
                 }
@@ -570,7 +543,7 @@ sub _deleteUserDialog {
                 last;
             }
             elsif ($widget == $deleteButton) {
-                $self->logger->I($self->loc->N("Removing user: %s", $username));
+                $self->I("Removing user: %s", $username);
                 my $option = undef;
                 $option->{clean_home} = $checkhome->isChecked() if $checkhome->isChecked();
                 $option->{clean_spool} = $checkspool->isChecked() if $checkspool->isChecked();
@@ -687,7 +660,7 @@ sub _addGroupDialog {
                     $self->sh_gui->msgBox({text => $errorString}) if ($errorString);
                 }
                 else {
-                    $self->logger->I($self->loc->N("Adding group: %s ", $groupname));
+                    $self->I("Adding group: %s ", $groupname);
                     my $groupParams = {
                         groupname  => $groupname,
                         is_system  => $is_system,
@@ -1020,8 +993,7 @@ sub addUserDialog {
                                 $gid = $self->sh_users->groupID($username);
                             } elsif ($groupchoice == 1) {
                                 # Put it in 'users' group
-                                $self->logger->I($self->loc->N("Putting %s to 'users' group",
-                                                 $username));
+                                $self->I("Putting %s to 'users' group", $username);
                                 $gid = $self->sh_users->Add2UsersGroup($username);
                             }
                             else {
@@ -1034,7 +1006,7 @@ sub addUserDialog {
                                 groupname => $username,
                                 is_system => $is_system,
                             });
-                            $self->logger->I($self->loc->N("Creating new group: %s", $username));
+                            $self->I("Creating new group: %s", $username);
                         }
                     }
                 } else {
@@ -1047,8 +1019,9 @@ sub addUserDialog {
                 }
                 else {
                     ## OK let's create the user
+                    # TODO: will this output to STDOUT disrupt ncurses?
                     print $self->loc->N("Adding user: ") . $username . " \n";
-                    $self->logger->I($self->loc->N("Adding user: %s", $username));
+                    $self->I("Adding user: %s", $username);
                     my $loginshell = $userData->{ login_shell }->value();
                     my $fullname   = $userData->{ full_name }->value();
                     utf8::decode($fullname);

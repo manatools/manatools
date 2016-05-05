@@ -71,7 +71,6 @@ use ManaTools::Shared::Locales;
 use File::ShareDir ':ALL';
 
 use yui;
-with 'ManaTools::LoggingRole';
 
 has 'configDir' => (
     is      => 'ro',
@@ -241,33 +240,6 @@ sub configName {
 
     return $self->name();
 }
-
-#=============================================================
-
-=head2 identifier
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 OUTPUT
-
-    name: application name
-
-=head3 DESCRIPTION
-
-    Returns the application name as logging identifier.
-    This method is required by LoggingRole
-
-=cut
-
-#=============================================================
-sub identifier {
-    my $self = shift;
-
-    return $self->name();
-}
-
 
 sub _showAboutDialog {
     my $self = shift;
@@ -594,7 +566,7 @@ sub _localizedValue {
     return if !defined($hash->{$key});
 
     if (ref($hash->{$key}) ne "HASH") {
-        $self->logger()->W($self->loc()->N("Bad configuration file, %s has not xml:lang attribute, guessing it is a string", $key));
+        $self->W("Bad configuration file, %s has not xml:lang attribute, guessing it is a string", $key);
         # Force array is set for "title"
         return $hash->{$key}[0];
     }
@@ -618,11 +590,11 @@ sub _loadSettings {
 
     if (! -e $fileName) {
         my $err = $self->loc()->N("Configuration file %s is missing", $fileName);
-        $self->logger()->E($err);
+        $self->E($err);
         die $err;
     }
 
-    $self->logger()->I($self->loc()->N("Reading configuration file %s", $fileName));
+    $self->I("Reading configuration file %s", $fileName);
 
     if (! scalar %{$self->settings()} || $force_load) {
         my $settingsReader = ManaTools::SettingsReader->new({fileName => $fileName});
@@ -639,7 +611,7 @@ sub _loadSettings {
                     $read,
                     $key
                 );
-                $self->logger()->I($self->loc()->N("Load settings: %s content is <<%s>>", $key, $settings->{$key}));
+                $self->I("Load settings: %s content is <<%s>>", $key, $settings->{$key});
             }
             elsif (($key eq "icon" || $key eq "logo") && (substr( $read->{$key}, 0, 1) ne '/')) {
                 # icon with relative path?
@@ -795,7 +767,7 @@ sub _loadCategories {
     my $currCategory;
 
     foreach $fileName (@categoryFiles) {
-        $self->logger()->I($self->loc()->N("Parsing category file %s", $fileName));
+        $self->I("Parsing category file %s", $fileName);
         my $inFile = new ManaTools::ConfigReader({fileName => $fileName});
         my $tmpCat;
         my $tmp;
@@ -806,7 +778,7 @@ sub _loadCategories {
                 $tmp,
                 'title'
             );
-            $self->logger()->D($self->loc()->N("Load categories: title content is <<%s>>", $title));
+            $self->D("Load categories: title content is <<%s>>", $title);
             my $icon = $tmp->{icon};
             if ((substr( $icon, 0, 1) ne '/')) {
                 # icon with relative path?
@@ -841,7 +813,7 @@ sub _loadCategories {
                         $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $tmp->{icon});
                     }
 
-                    $self->logger()->D($self->loc()->N("Load categories: module title is <<%s>>", $title));
+                    $self->D("Load categories: module title is <<%s>>", $title);
                     if (not $currCategory->moduleLoaded($title)) {
                         $tmpMod = ManaTools::Module->create(
                             name => $title,

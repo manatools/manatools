@@ -157,6 +157,41 @@ has 'loc' => (
 
 #=============================================================
 
+=head2 logger
+
+    logger attribute defines logging object that uses the loc attribute
+    and goes to Syslog. (see ManaTools::Shared::Logging for details).
+    You can use this attribute to log various messages:
+
+        $log->D("debugstuff: %s", $somestring);
+        $log->I("infostuff: %s", $somestring);
+        $log->W("warnstuff: %s", $somestring);
+        $log->E("errorstuff: %s", $somestring);
+
+    if you wish to trace (goes to STDERR):
+
+        $log->trace(1);
+
+=cut
+
+#=============================================================
+has 'logger' => (
+    is => 'rw',
+    isa => 'ManaTools::Shared::Logging',
+    lazy => 1,
+    init_arg => undef,
+    required => 0,
+    default => sub {
+        my $self = shift;
+        # make sure to trigger loc & name first
+        return ManaTools::Shared::Logging->new(loc => $self->loc(), ident => $self->name());
+    },
+    handles => ['D','I','W','E'],
+);
+
+
+#=============================================================
+
 =head2 commandline
 
     commandline attribute defines the given command line, if
