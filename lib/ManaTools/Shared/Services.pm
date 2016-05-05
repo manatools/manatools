@@ -393,10 +393,14 @@ sub set_service {
 
     my @xinetd_services = map { $_->[0] } $self->xinetd_services();
 
+    # NOTE EnableUnitFiles and DisableUnitFiles don't work with legacy services
+    #      and return file not found
+    my $legacy = -e "/etc/rc.d/init.d/$service";
+
     if (MDK::Common::DataStructure::member($service, @xinetd_services)) {
         $ENV{PATH} = "/usr/bin:/usr/sbin";
         ManaTools::Shared::RunProgram::rooted("", "/usr/sbin/chkconfig", $enable ? "--add" : "--del", $service);
-    } elsif ($self->_running_systemd() || $self->_has_systemd()) {
+    } elsif (!$legacy && ($self->_running_systemd() || $self->_has_systemd())) {
         $service = $service . ".service";
         my $dbus_object = $self->dbus_systemd1_object;
         if ($enable) {
