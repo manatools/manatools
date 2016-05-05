@@ -113,6 +113,7 @@ has 'module' => (
     is => 'ro',
     isa => 'ManaTools::Module',
     required => 1,
+    handles => ['loc', 'logger', 'D', 'I', 'W', 'E'],
 );
 
 has 'factory' => (
@@ -322,11 +323,6 @@ has 'result' => (
         return undef;
     }
 );
-
-sub loc {
-    my $self = shift;
-    return $self->module->loc(@_);
-}
 
 #=============================================================
 
