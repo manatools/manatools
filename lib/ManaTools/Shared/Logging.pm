@@ -91,6 +91,22 @@ has 'loc' => (
     }
 );
 
+has 'lastcaller' => (
+    is => 'ro',
+    isa => 'Ref',
+    required => 0,
+    init_arg => undef,
+    default => sub {
+        return \[];
+    }
+);
+
+has 'trace' => (
+    is => 'rw',
+    isa => 'Bool',
+    default => 0,
+);
+
 #=============================================================
 
 =head2 new
@@ -183,6 +199,55 @@ sub R {
     my $s = shift;
 
     Sys::Syslog::syslog($syslog, $s);
+
+    if ($self->trace()) {
+        my $last = ${$self->lastcaller()};
+        my $current = [];
+
+        # build $current trace
+        my $lastfile = '';
+        my $lastline = 0;
+        my $i = 0;
+        while (my @call = caller($i)) {
+            my $call = [];
+            @{$call} = @call;
+            if ($call[0] ne 'ManaTools::Shared::Logging' && $call[3] !~ m/::[RPDIWE]$/) {
+                unshift @{$current}, $call;
+            }
+            else {
+                $lastfile = $call[1];
+                $lastline = $call[2];
+            }
+            $i = $i + 1;
+        }
+
+        # get equal min length of both
+        my $l = 0;
+        while ($l < scalar(@{$last}) && $l < scalar(@{$current}) && $last->[$l]->[1] eq $current->[$l]->[1] && $last->[$l]->[2] == $current->[$l]->[2]) {
+            $l = $l + 1;
+        }
+
+        # loop down to common lines
+        $i = scalar(@{$last});
+        $i = 0 if ($i < 0);
+        while ($i > $l) {
+            $i = $i - 1;
+            printf STDERR "(%5s):%". ($i + 1) ."s} // %s(): %s:%d\n", '-----', ' ', $last->[$i]->[3], $last->[$i]->[1], $last->[$i]->[2];
+        }
+
+        # loop back up to current line
+        $l = scalar(@{$current});
+        while ($i < $l) {
+            printf STDERR "(%5s):%". ($i + 1) ."s%s() %s:%d {\n", '-----', ' ', $current->[$i]->[3], $current->[$i]->[1], $current->[$i]->[2];
+            $i = $i + 1;
+        }
+
+        # print current trace message
+        printf STDERR "(%5s):%". ($i + 1) ."s%s in %s:%d\n", $syslog, ' ', $s, $lastfile, $lastline;
+
+        # set last trace to current
+        ${$self->lastcaller()} = $current;
+    }
 }
 
 #=============================================================
