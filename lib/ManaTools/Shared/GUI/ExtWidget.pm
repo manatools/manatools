@@ -191,6 +191,7 @@ has 'itemcollection' => (
 =head3 INPUT
 
     $self: this object
+    $parentWidget: yui:YWidget as parent
 
 =head3 OUTPUT
 
