@@ -212,6 +212,26 @@ sub _buildSelectorWidget {
 
 #=============================================================
 
+=head2 _finishSelectorWidget
+
+=head3 INPUT
+
+    $self: this object
+
+=head3 DESCRIPTION
+
+    finalizes the selection widget, needs to be overridden in subclasses
+
+=cut
+
+#=============================================================
+sub _finishSelectorWidget {
+    my $self = shift;
+    my $selectorWidget = shift;
+}
+
+#=============================================================
+
 =head2 buildSelectionWidget
 
 =head3 INPUT
@@ -241,6 +261,7 @@ sub buildSelectionWidget {
     # processEvents from the parent down. Therefor, we'll set the
     # parentEventHandler directly, so that any parent referrals still work.
     $self->{replacepoint}->parentEventHandler($self->{eventHandler});
+    $self->_finishSelectorWidget($selectorWidget);
 
     # don't add any children right away
     $self->{replacepoint}->finished();
