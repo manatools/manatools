@@ -160,7 +160,7 @@ has 'replacepoint' => (
 
 has 'selector' => (
     is => 'ro',
-    does => 'yui::YWidget',
+#    does => 'ManaTools::Shared::GUI::SelectionWidgetRole|yui::YSelectionWidget',
     init_arg => undef,
     lazy => 1,
     builder => 'buildSelectionWidget',
@@ -247,12 +247,14 @@ sub _finishSelectorWidget {
 #=============================================================
 sub buildSelectionWidget {
     my $self = shift;
-
+    my $dialog = $self->parentDialog();
+    $dialog->D("$self: first _buildSelectorWidget in ". $self->parentWidget());
     # this builds the actual widget in subclasses
     my ($selectorWidget, $parentWidget) = $self->_buildSelectorWidget($self->parentWidget());
 
     # create a replacepoint on the selectionWidget
     $self->{replacepoint} = ManaTools::Shared::GUI::ReplacePoint->new(parentWidget => $parentWidget);
+    $dialog->D("$self: need replacepoint ". $self->{replacepoint} ." in parent $parentWidget");
 
     # because this Event's processEvent also takes care of the replacepoints
     # processEvents, it means we cannot set the replacepoint's (being an
@@ -265,6 +267,7 @@ sub buildSelectionWidget {
 
     # don't add any children right away
     $self->{replacepoint}->finished();
+    $dialog->D("$self: return selectorWidget $selectorWidget");
 
     return $selectorWidget;
 }
@@ -373,10 +376,13 @@ sub addSelectorItem {
     my $label = shift;
     my $backendItem = shift;
     my $buildWidget = shift;
+    my $dialog = $self->parentDialog();
     my $items = $self->items();
     my $item = ManaTools::Shared::GUI::ExtWidget::Item->new(backend => $backendItem, builder => $buildWidget);
+    $dialog->D("$self: new item: $item");
     $item->setLabel($label);
     push @{$items}, $item;
+    $dialog->D("$self: add item $item to collection ". $self->itemcollection());
     $item->addToCollection($self->itemcollection());
     if (scalar(@{$items}) == 1) {
         $self->lastItem($item);
@@ -431,13 +437,16 @@ sub buildSelectorItem {
     my $item = shift;
     my $replacepoint = $self->replacepoint();
     my $container = $replacepoint->container();
+    my $dialog = $self->parentDialog();
 
     # clear out any previous children/events
     $replacepoint->clear();
 
+    $dialog->D("$self: call builder for item $item in $container");
     # build item's widgetbuilder
     my $builder = $item->builder();
     $builder->($self, $container, $item->backend()) if (defined $builder);
+    $dialog->D("$self: done building, now finish the replacepoint $replacepoint");
 
     # finished with replacepoint children
     $replacepoint->finished();
@@ -461,9 +470,11 @@ sub buildSelectorItem {
 sub clearSelectorItems {
     my $self = shift;
     my $items = $self->items();
+    my $dialog = $self->parentDialog();
 
     # remove all events before deleting all items
     $self->clearEvents();
+    $dialog->D("$self: cleared events");
 
     for (my $i = 0; $i < scalar(@{$items}); $i = $i + 1) {
         delete $items->[$i];
@@ -487,22 +498,30 @@ sub clearSelectorItems {
 #=============================================================
 sub finishedSelectorItems {
     my $self = shift;
+    my $dialog = $self->parentDialog();
+    $dialog->D("$self: lazy init selector if required.");
     my $selector = $self->selector();
+    $dialog->D("$self: clear selector so we can add the items.");
 
+    $dialog->D("$self: clear selector $selector with deleteAllItems.");
     # remove all Items before adding
     $selector->deleteAllItems();
 
+    $dialog->D("$self: addItems ". $self->itemcollection ." to selector $selector.");
     # add items from collection
     $selector->addItems($self->itemcollection);
 
     # set last item to know the active item
     my $item = $self->lastItem();
+    $dialog->D("$self: lastItem is $item");
 
     # show the current one if there is one
+    $dialog->D("$self: start buildSelectorItem($item)");
     $self->buildSelectorItem($item) if defined($item);
 
     # create a new itemcollection for adding new items
     $self->itemcollection(new yui::YItemCollection());
+    $dialog->D("$self: new collection: ". $self->itemcollection);
 }
 
 #=============================================================

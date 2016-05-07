@@ -65,6 +65,7 @@ use ManaTools::Shared::GUI::ReplacePoint;
 use ManaTools::Shared::GUI::Properties;
 use ManaTools::Shared::GUI::ExtList;
 use ManaTools::Shared::GUI::ExtTab;
+use ManaTools::Shared::GUI::ExtButtonBox;
 use File::ShareDir ':ALL';
 use ManaTools::Shared::Locales;
 use ManaTools::Shared::disk_backend;
@@ -213,6 +214,7 @@ our $VERSION = '1.0.1';
 sub start {
     my $self = shift;
 
+    $self->logger()->trace(1);
     $self->_adminDiskPanel();
 }
 
@@ -305,6 +307,109 @@ sub _rebuildList {
     return $list;
 }
 
+sub _rebuildButtonBox {
+    my $self = shift;
+    my $eventHandler = shift;
+    my $container = shift;
+    my $parent = shift;
+    my @items = sort {$a->prop('start') <=> $b->prop('start')} @_;
+    my $minsize = 2;        # min DISPLAY size
+    my $maxparts = 128;     # max GPT partitions
+    my $boundary = 34;      # GPT sector boundaries
+    my $alignment = 2048;   # current Disk partition alignment convention
+    $maxparts = 8; # TODO: fix it so that the actions don't disappear when this is removed!!!!!!!!
+    my $offset = $boundary;
+    my $totalWeight = $maxparts * $minsize;
+    # TODO: dependant upon disk types, etc...
+    $offset = $alignment;
+    my $totalWidth = $parent->prop('size') - $boundary - $offset; # offset at beginning, boundary at end
+    my $start = $offset;
+    my $buttonWidths = [];
+    my $count = 0;
+    my $currentWeight = 0;
+    $self->D("$self: make a new ExtButtonBox inside $container with eventHandler $eventHandler");
+    my $buttonbox = ManaTools::Shared::GUI::ExtButtonBox->new(eventHandler => $eventHandler, parentWidget => $container, buttonWidths => $buttonWidths);
+    for my $i (@items) {
+        # handle overlaps
+        $start = $i->prop('start') if ($start > $i->prop('start'));
+        # fill in gaps
+        if ($start < $i->prop('start')) {
+            $self->D("$self: add a gap SelectorItem to $buttonbox");
+            my $item = $buttonbox->addSelectorItem('', { prop => sub { my $prop = shift; return $start if ($prop eq 'start'); return $i->prop('start') - $start if ($prop eq 'sectors'); return 0 if ($prop eq 'size'); return undef; } }, sub {
+                my $self = shift;
+                my $parent = shift;
+                my $backendItem = shift;
+                my $dialog = $self->parentDialog();
+                my $factory = $dialog->factory();
+                my $vbox = $factory->createVBox($parent);
+                $dialog->D("$self: build the gap SelectorItem");
+                $factory->createHStretch($vbox);
+                $factory->createVStretch($vbox);
+            });
+            my $width = int(($i->prop('start') - $start) * $totalWeight / $totalWidth);
+            if ($width < $minsize) {
+                $width = $minsize;
+            }
+            $buttonWidths->[$count] = $width;
+            $currentWeight = $currentWeight + $buttonWidths->[$count];
+            $count = $count + 1;
+            $start = $i->prop('start');
+        }
+        # get part type (path)
+        my $label = '';
+        my @p = $i->findin();
+        if (scalar(@p) > 0) {
+            $label = join ',', map { ($_->type() eq 'Mount') && $_->prop('path') || $_->type() } @p;
+        }
+        $self->D("$self: add a button SelectorItem to $buttonbox with label $label and backend $i");
+        my $item = $buttonbox->addSelectorItem($label, $i, sub {
+            my $self = shift;
+            my $parent = shift;
+            my $backendItem = shift;
+            my $dialog = $self->parentDialog();
+            $dialog->D("$self: build the button SelectorItem with backend $backendItem");
+            my $factory = $dialog->factory();
+            my $vbox = $factory->createVBox($parent);
+            $self->addWidget($backendItem->label() .': button 1', $factory->createPushButton($vbox, $backendItem->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
+            $self->addWidget($backendItem->label() .': button 2', $factory->createPushButton($vbox, $backendItem->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
+            $self->addWidget($backendItem->label() .': button 3', $factory->createPushButton($vbox, $backendItem->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
+            $factory->createHStretch($vbox);
+            $factory->createVStretch($vbox);
+        });
+        my $backendItem = $item->backend();
+        my $width = $backendItem->prop('sectors') * $totalWeight / $totalWidth;
+        if ($width < $minsize) {
+            $width = $minsize;
+        }
+        $buttonWidths->[$count] = int($width);
+        $currentWeight = $currentWeight + $buttonWidths->[$count];
+        $count = $count + 1;
+        $start = $start + $backendItem->prop('sectors');
+    }
+    # fill in gaps
+    if ($start < ($totalWidth + $offset)) {
+        my $item = $buttonbox->addSelectorItem('', { prop => sub { my $prop = shift; return $start if ($prop eq 'start'); return $totalWidth + $offset - $start if ($prop eq 'sectors'); return 0 if ($prop eq 'size'); return undef; } }, sub {
+            my $self = shift;
+            my $parent = shift;
+            my $backendItem = shift;
+            my $dialog = $self->parentDialog();
+            $dialog->D("$self: build the gap SelectorItem (at the end)");
+            my $factory = $dialog->factory();
+            my $vbox = $factory->createVBox($parent);
+            $factory->createHStretch($vbox);
+            $factory->createVStretch($vbox);
+        });
+        my $width = $totalWeight - $currentWeight;
+        if ($width < $minsize) {
+            $width = $minsize;
+        }
+        $buttonWidths->[$count] = $width;
+    }
+    $buttonbox->finishedSelectorItems();
+    $self->D("$self: finished $buttonbox SelectorItems");
+    return $buttonbox;
+}
+
 sub _rebuildTree {
     my $self = shift;
     my $eventHandler = shift;
@@ -323,6 +428,9 @@ sub _rebuildItems {
     for my $i (@{$info}) {
         if ($i->{type} eq 'tab') {
             return $self->_rebuildTab($eventHandler, $container, $i->{io}, @{$i->{items}});
+        }
+        if ($i->{type} eq 'buttonbox') {
+            return $self->_rebuildButtonBox($eventHandler, $container, $i->{io}, @{$i->{items}});
         }
         if ($i->{type} eq 'list') {
             return $self->_rebuildList($eventHandler, $container, $i->{io}, @{$i->{items}});
@@ -352,10 +460,7 @@ sub _expandItem {
 
     # merge all outs from these Parts
     for my $p (@items) {
-        if ($p->type() eq 'Disks') {
-            $type = 'tab';
-        }
-        push @{$infos}, {io => $io, part=> $p, type => $type, items => [sort {$a->label() cmp $b->label()} $p->out_list()]};
+        push @{$infos}, {io => $io, part => $p, type => ( $p->type() eq 'Disks' ? 'tab' : $p->type() eq 'PartitionTable' ? 'buttonbox' : $type ), items => [sort {$a->label() cmp $b->label()} $p->out_list()]};
     }
     return $infos;
 }
@@ -553,7 +658,9 @@ sub _adminDiskPanel {
         },
     ));
 
+    $self->D("$self: call mainDialog");
     $self->mainDialog->call();
+    $self->D("$self: done calling mainDialog");
 
     return 1;
 }
