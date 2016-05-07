@@ -375,8 +375,8 @@ sub addSelectorItem {
     my $buildWidget = shift;
     my $items = $self->items();
     my $item = ManaTools::Shared::GUI::ExtWidget::Item->new(backend => $backendItem, builder => $buildWidget);
-    push @{$items}, $item;
     $item->setLabel($label);
+    push @{$items}, $item;
     $item->addToCollection($self->itemcollection());
     if (scalar(@{$items}) == 1) {
         $self->lastItem($item);
