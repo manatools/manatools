@@ -9,7 +9,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Ettore Atalan <atalanttore@googlemail.com>, 2015
+# Ettore Atalan <atalanttore@googlemail.com>, 2015-2016
 # psyca, 2015-2016
 # psyca, 2015
 # valsu <valsu@hylia.de>, 2015
@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-04-28 18:56+0000\n"
-"Last-Translator: psyca\n"
+"PO-Revision-Date: 2016-05-06 20:32+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
 "Language: de\n"
@@ -138,7 +138,7 @@ msgstr "Lese die Konfigurationsdatei %s"
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Einstellungen laden: %s Inhalt ist <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
@@ -148,12 +148,12 @@ msgstr ""
 #: lib/ManaTools/MainDisplay.pm:825
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Kategorien laden: Titelinhalt ist <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:860
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Kategorien laden: Modultitel ist <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -287,11 +287,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "Vollbild für Dialoge verwenden"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "kein Fenstermanagerrahmen für Dialoge"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -626,7 +626,7 @@ msgstr "Ein NTP Klient/Server"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "CPU-Taktfrequenzeinstellungen festlegen"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -1020,7 +1020,7 @@ msgstr "Startet andere Daemonen auf Verlangen."
 
 #: lib/ManaTools/Module/LogViewer.pm:84
 msgid "Log viewer"
-msgstr ""
+msgstr "Protokollbetrachter"
 
 #: lib/ManaTools/Module/LogViewer.pm:159
 msgid "A tool to monitor your logs"
@@ -1068,7 +1068,7 @@ msgstr "&Finde"
 
 #: lib/ManaTools/Module/LogViewer.pm:284
 msgid "Log content"
-msgstr ""
+msgstr "Protokollinhalt"
 
 #: lib/ManaTools/Module/LogViewer.pm:300
 msgid "&Save"
@@ -1180,7 +1180,7 @@ msgstr "Möchten Sie wirklich die Gruppe %s löschen?"
 #: lib/ManaTools/Module/Users.pm:462 lib/ManaTools/Module/Users.pm:553
 #: lib/ManaTools/Module/Users.pm:2373
 msgid "&Delete"
-msgstr ""
+msgstr "&Löschen"
 
 #: lib/ManaTools/Module/Users.pm:482
 #, perl-format
@@ -1671,7 +1671,7 @@ msgstr "nicht definiert"
 
 #: lib/ManaTools/Module/Clock.pm:289
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Lokalen RTC festlegen fehlgeschlagen"
 
 #: lib/ManaTools/Module/Clock.pm:304
 msgid "Set time zone failed"
@@ -1679,11 +1679,11 @@ msgstr "Einstellen der Zeitzone fehlgeschlagen"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Festlegen der NTP-Konfiguration fehlgeschlagen"
 
 #: lib/ManaTools/Module/Clock.pm:361
 msgid "Set NTP failed"
-msgstr ""
+msgstr "NTP festlegen fehlgeschlagen"
 
 #: lib/ManaTools/Module/Clock.pm:384
 msgid "Set system time failed"
@@ -1699,7 +1699,7 @@ msgstr "Aktiviere das Netzwerk Zeitprotokoll"
 
 #: lib/ManaTools/Module/Clock.pm:445
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: NTP-Dienst fehlt"
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Please install a NTP service such as chrony or ntp to manage"
@@ -1707,15 +1707,15 @@ msgstr "Bitte installiere zur Verwaltung einen NTP Dienst wie chrony oder ntp"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "Choose &NTP server"
-msgstr "&NTP Server Auswählen"
+msgstr "&NTP-Server auswählen"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
-msgstr "NTP Server - DrakClock"
+msgstr "NTP-Server - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:479
 msgid "Choose your NTP server"
-msgstr "Wählen Sie Ihren NTP-Server"
+msgstr "Wählen Sie Ihren NTP-Server aus"
 
 #: lib/ManaTools/Module/Clock.pm:509
 msgid "&Local NTP server"
@@ -1723,11 +1723,11 @@ msgstr "&Lokaler NTP Server"
 
 #: lib/ManaTools/Module/Clock.pm:522
 msgid "Set local NTP server"
-msgstr ""
+msgstr "Lokalen NTP-Server festlegen"
 
 #: lib/ManaTools/Module/Clock.pm:526
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Bitte legen Sie Ihren lokalen NTP-Server fest"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -1821,7 +1821,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "A&dd"
-msgstr ""
+msgstr "&Hinzufügen"
 
 #: lib/ManaTools/Module/Hosts.pm:440
 msgid "&Remove"
@@ -1924,7 +1924,7 @@ msgstr "Alles (Keine Firewall)"
 
 #: lib/ManaTools/Module/Firewall.pm:823
 msgid "A&dvanced"
-msgstr ""
+msgstr "&Erweitert"
 
 #: lib/ManaTools/Module/Firewall.pm:857
 msgid "Graphical manager for firewall rules"
@@ -2862,7 +2862,7 @@ msgstr "Überprüfe Paketsignaturen..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "%d Installationstransaktionen fehlgeschlagen"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
@@ -3192,7 +3192,7 @@ msgstr "Editoren und Konverter"
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Utilities"
-msgstr ""
+msgstr "Dienstprogramme"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
@@ -3370,7 +3370,7 @@ msgstr "System"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:158
 msgid "Base"
-msgstr ""
+msgstr "Basis"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
@@ -4125,7 +4125,7 @@ msgstr "Schlüssel verwalten"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "Parallel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
@@ -4134,7 +4134,7 @@ msgstr "Proxy"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
 msgid "Manual"
-msgstr ""
+msgstr "Manuell"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
@@ -4312,7 +4312,7 @@ msgstr "Suchergebnisse (keine)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:150
 msgid "Security advisory"
-msgstr ""
+msgstr "Sicherheitshinweis"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
@@ -4427,7 +4427,7 @@ msgstr "Sie sollten Ihre urpmi-Datenbank aktualisieren."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:398
 msgid "Matching packages:"
-msgstr ""
+msgstr "Übereinstimmende Pakete:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 #, perl-format
@@ -4622,7 +4622,7 @@ msgstr "Installiert"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
-msgstr ""
+msgstr "Hinzufügbar"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1746
 msgid "Description not available for this package\n"
@@ -4644,7 +4644,7 @@ msgstr ""
 
 #: scripts/mpan~:46 scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Fenstertitel. Standardnamenswert"
 
 #: scripts/mpan~:69 scripts/mpan:69
 msgid "== Development mode ON =="
@@ -4717,11 +4717,11 @@ msgstr ""
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "gültige <commands>:\n"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
-msgstr ""
+msgstr "Fehlerkorrektur"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
@@ -4740,7 +4740,7 @@ msgstr "Name"
 
 #: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "Zusammenfassung"
 
 #: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:455
 msgid "Version"
@@ -4777,7 +4777,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:414
 msgid ""
@@ -4834,7 +4834,7 @@ msgstr "Arch."
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
-msgstr ""
+msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
@@ -4963,11 +4963,11 @@ msgstr "Einstellungen"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
-msgstr ""
+msgstr "&Medienmanager"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
-msgstr ""
+msgstr "Ansicht"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
@@ -5190,7 +5190,7 @@ msgstr ""
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Mageia-Leiste"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -5224,7 +5224,7 @@ msgstr "Systemstart"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Mageia-Aktualisierung"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -5296,7 +5296,7 @@ msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Dienstkonfigurationsverwaltung"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
@@ -5344,7 +5344,7 @@ msgstr "mpan - Mageia ManaTools Systemsteuerung"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools-Leiste - Anwendungsstarter"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
