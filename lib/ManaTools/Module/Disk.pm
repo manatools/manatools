@@ -236,6 +236,7 @@ sub _rebuildTab {
     my $self = shift;
     my $eventHandler = shift;
     my $container = shift;
+    my $parent = shift;
     my @items = @_;
     my $tab = ManaTools::Shared::GUI::ExtTab->new(eventHandler => $eventHandler, parentWidget => $container);
     for my $io (@items) {
@@ -297,6 +298,7 @@ sub _rebuildList {
     my $self = shift;
     my $eventHandler = shift;
     my $container = shift;
+    my $parent = shift;
     my @items = @_;
     my $list = ManaTools::Shared::GUI::ExtList->new(eventHandler => $eventHandler, parentWidget => $container);
     for my $i (@items) {
@@ -323,6 +325,7 @@ sub _rebuildTree {
     my $self = shift;
     my $eventHandler = shift;
     my $container = shift;
+    my $parent = shift;
     my @items = @_;
     my $tree = undef;
     return $tree;
@@ -335,13 +338,13 @@ sub _rebuildItems {
     my $container = shift;
     for my $i (@{$info}) {
         if ($i->{type} eq 'tab') {
-            return $self->_rebuildTab($eventHandler, $container, @{$i->{items}});
+            return $self->_rebuildTab($eventHandler, $container, $i->{io}, @{$i->{items}});
         }
         if ($i->{type} eq 'list') {
-            return $self->_rebuildList($eventHandler, $container, @{$i->{items}});
+            return $self->_rebuildList($eventHandler, $container, $i->{io}, @{$i->{items}});
         }
         if ($i->{type} eq 'tree') {
-            return $self->_rebuildTree($eventHandler, $container, @{$i->{items}});
+            return $self->_rebuildTree($eventHandler, $container, $i->{io}, @{$i->{items}});
         }
     }
     return undef;
