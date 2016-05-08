@@ -74,6 +74,33 @@ has 'name' => (
 
 #=============================================================
 
+=head2 title
+
+    title attribute defines the Module title, override this
+    attribute by using
+        has '+title' => (
+            ...
+        )
+    into your module implementation.
+
+=cut
+
+#=============================================================
+has 'title' => (
+    is      => 'rw',
+    isa     => 'Str',
+    lazy    => 1,
+    builder => '_titleInitializer',
+);
+
+sub _titleInitializer {
+    my $self = shift;
+
+    return ($self->loc->N("%s - Management Tool", $self->name()));
+}
+
+#=============================================================
+
 =head2 launch
 
     launch attribute defines the Module as external command
@@ -211,7 +238,7 @@ sub BUILD {
     my $self = shift;
 
     ## set title
-    yui::YUI::app()->setApplicationTitle($self->name) if $self->name;
+    yui::YUI::app()->setApplicationTitle($self->title) if $self->title;
     ## set icon
     yui::YUI::app()->setApplicationIcon($self->icon) if $self->icon;
 }
