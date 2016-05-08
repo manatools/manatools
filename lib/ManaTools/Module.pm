@@ -51,7 +51,15 @@ use yui;
 has 'icon' => (
     is      => 'rw',
     isa     => 'Str',
+    lazy    => 1,
+    builder => '_iconInitializer',
 );
+
+sub _iconInitializer {
+    my $self = shift;
+
+    return File::ShareDir::dist_file(ManaTools::Shared::distName(), sprintf('images/%s.png', $self->name())),
+}
 
 #=============================================================
 
