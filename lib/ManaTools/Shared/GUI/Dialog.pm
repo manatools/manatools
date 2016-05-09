@@ -181,7 +181,7 @@ subtype 'DialogType'
 has 'dialogType' => (
     is => 'ro',
     isa => 'DialogType',
-    required => 1,
+    default => 1,
 );
 
 class_has 'mainDialog' => (
