@@ -3,7 +3,7 @@ ManaTools Modules
 
 mpan, ManaTools panel or Mageia Panel if you like,
 is basically an application launcher, so everything
-executable file can be run really. To get benefit of UI abstarction
+executable file can be run really. To get benefit of UI abstraction
 though, the "modules" should be written with the use of libYUI, yast
 user interface abstraction, so that they can be run using a  Gtk, ncurses
 or Qt environment in a transparent manner.
@@ -19,7 +19,7 @@ How to write a perl ManaTools module
 ManaTools module are written using Moose wit an OO apporach.
 Modules are extension of the ManaTools::Module class.
 
-- Code alignemnt
+- Code alignment
 As a simple code convention, we add the followin line at the
 beginning of the file
 
@@ -50,14 +50,14 @@ graphic user interface and another is a lower level interface. Such
 an approach allows to use shared things also into other projects
 that don't want to use YUI bindings for instance.
 
-Said that you have to:
+Meaning that you have to:
 1. Define the package name usually like:
    package ManaTools::Module::MyModule;
 
 2. Use Moose and yui, the first to extend Module the latter for libYUI
    bindings.
 
-3. Extend ManaTools::Module defining a "start" method that has to be invokated
+3. Extend ManaTools::Module defining a "start" method that has to be invocated
    by ManaTools.
    Other important things are icon and name attributes, please have look at other modules
    code and to Moose documentation.
