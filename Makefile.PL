@@ -170,7 +170,7 @@ manatools_perl.pot: $(PL_FILES)
 		--msgid-bugs-address="https://bugs.mageia.org/" \
 		--package-name=$(NAME) --package-version=$(VERSION) \
 		--copyright-holder="Angelo Naselli - Matteo Pasotti" \
-		--keyword=N --keyword=N_ --keyword=P \
+		--keyword=N --keyword=N_ --keyword=P --keyword=I --keyword=W --keyword=E --keyword=D \
 		$(PL_FILES)
 
 manapol.pot: $(POL_IN_FILES)
