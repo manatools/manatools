@@ -433,10 +433,7 @@ sub _adminDiskPanel {
     my $self = shift;
     
     $self->mainDialog(ManaTools::Shared::GUI::Dialog->new(
-        dialogType => ManaTools::Shared::GUI::Dialog->mainDialog, ## or popupDialog
         module => $self,
-        title => $self->name,
-        icon => $self->icon,
         optFields => [
             ManaTools::Shared::GUI::Dialog->TabField,
         ],
