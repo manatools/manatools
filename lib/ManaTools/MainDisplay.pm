@@ -117,30 +117,14 @@ with 'ManaTools::ConfigDirRole';
 
 #=============================================================
 has '+name' => (
-    is      => 'ro',
-    isa     => 'Str',
     default => 'mpan',
+    required => 0,
+    init_arg => 'name',
 );
 
-has '+icon' => (
-    is      => 'rw',
-    isa     => 'Str',
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png'),
-);
-
-has 'title'  => (
-    is       => 'rw',
-    isa      => 'Str',
-    init_arg => undef,
-    lazy     => 1,
-    builder  => '_titleInitialize',
-);
-
-sub _titleInitialize {
-    my $self = shift;
-
-    return $self->name();
-}
+override('_iconInitializer', sub {
+    return (File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png'),
+});
 
 has 'settings' => (
     is       => 'rw',

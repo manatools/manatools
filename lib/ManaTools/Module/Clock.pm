@@ -67,9 +67,17 @@ use Time::Piece;
 use yui;
 
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaclock.png'),
+has '+name' => (
+    default => 'manaclock',
+    required => 0,
+    init_arg => undef,
 );
+
+override('_titleInitializer', sub {
+    my $self = shift;
+
+    return ($self->loc->N("%s - Date, Clock & Time Zone Settings", $self->name()));
+});
 
 has 'sh_gui' => (
         is => 'rw',
@@ -103,30 +111,6 @@ has 'NTPServers' => (
         builder => '_get_NTPservers'
 );
 
-
-#=============================================================
-
-=head2 BUILD
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 DESCRIPTION
-
-    The BUILD method is called after a Moose object is created,
-    in this methods Services loads all the service information.
-
-=cut
-
-#=============================================================
-sub BUILD {
-    my $self = shift;
-
-    if (! $self->name) {
-        $self->name ($self->loc->N("Date, Clock & Time Zone Settings"));
-    }
-}
 
 #=============================================================
 

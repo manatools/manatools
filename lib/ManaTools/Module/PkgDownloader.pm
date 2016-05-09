@@ -38,6 +38,11 @@ my $QUERY_LOOKFORSRPM_PARM = "--sourcerpm";
 my $QUERY_PKG_FULL = "-f";
 my $DLDER = "--wget";
 
+has '+name' => (
+   default => 'urpm-downloader',
+   required => 0,
+   init_arg => undef,
+);
 
 has 'use_wget' => (
    is      => 'rw',

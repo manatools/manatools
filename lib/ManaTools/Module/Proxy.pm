@@ -41,19 +41,16 @@ use MDK::Common::System qw(getVarsFromSh);
 extends qw( ManaTools::Module );
 
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaproxy.png'),
-);
-
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manaproxy',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("manaproxy - Proxy configuration"));
+    return ($self->loc->N("%s - Proxy configuration", $self->name()));
 };
 
 has 'dialog' => (

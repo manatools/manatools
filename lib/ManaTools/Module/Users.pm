@@ -103,19 +103,16 @@ has 'moduleName' => (
     default   => 'manauser',
 );
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manauser.png'),
-);
-
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manauser',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("manauser - Mageia Users Management Tool"));
+    return ($self->loc->N("%s - Users Management Tool", $self->name()));
 }
 
 # main dialog

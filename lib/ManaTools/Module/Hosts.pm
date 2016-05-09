@@ -36,19 +36,16 @@ use ManaTools::Shared::Hosts;
 extends qw( ManaTools::Module );
 
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manahost.png'),
-);
-
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manahost',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("manahost - manage hosts definitions"));
+    return ($self->loc->N("%s - manage hosts definitions", $self->name()));
 }
 
 has 'dialog' => (

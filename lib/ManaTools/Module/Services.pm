@@ -74,19 +74,16 @@ use File::Basename;
 
 extends qw( ManaTools::Module );
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manaservice.png'),
-);
-
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manaservice',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("Services and daemons"));
+    return ($self->loc->N("%s - Services and daemons", $self->name()));
 };
 
 has '_services' => (

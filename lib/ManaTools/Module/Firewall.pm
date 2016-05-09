@@ -74,19 +74,16 @@ sub _configDirBuilder {
 with 'ManaTools::ConfigDirRole';
 
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manawall.png'),
-);
-
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manawall',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("manawall - Firewall Manager"));
+    return ($self->loc->N("%s - Firewall Manager", $self->name()));
 }
 
 

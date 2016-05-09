@@ -69,19 +69,16 @@ use yui;
 
 extends qw( ManaTools::Module );
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manalog.png'),
-);
-
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manalog',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("Log viewer"));
+    return ($self->loc->N("%s - Log viewer", $self->name()));
 }
 
 has 'sh_gui' => (
