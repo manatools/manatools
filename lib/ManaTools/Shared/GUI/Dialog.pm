@@ -201,13 +201,21 @@ class_has 'popupDialog' => (
 has 'title' => (
     is => 'ro',
     isa => 'Str',
-    required => 1,
+    lazy => 1,
+    default => sub {
+        my $self = shift;
+        return $self->module->title();
+    }
 );
 
 has 'icon' => (
     is => 'ro',
     isa => 'Str',
-    required => 1,
+    lazy => 1,
+    default => sub {
+        my $self = shift;
+        return $self->module->icon();
+    }
 );
 
 class_has 'cancelButton' => (
