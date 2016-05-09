@@ -73,9 +73,17 @@ use yui;
 
 extends qw( ManaTools::Module );
 
-has '+icon' => (
-    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/manadisk.png'),
+has '+name' => (
+    default => 'manadisk',
+    required => 0,
+    init_arg => undef,
 );
+
+override('_titleInitializer', sub {
+    my $self = shift;
+
+    return $self->loc->N("%s - Storage partitioning & Mounts", $self->name());
+});
 
 has 'sh_gui' => (
     is => 'rw',
@@ -185,30 +193,6 @@ Version 1.0.1
 =cut
 
 our $VERSION = '1.0.1';
-
-#=============================================================
-
-=head2 BUILD
-
-=head3 INPUT
-
-    $self: this object
-
-=head3 DESCRIPTION
-
-    The BUILD method is called after a Moose object is created,
-    in this methods Services loads all the service information.
-
-=cut
-
-#=============================================================
-sub BUILD {
-    my $self = shift;
-
-    if (! $self->name) {
-        $self->name ($self->loc->N("Storage partitioning & Mounts"));
-    }
-}
 
 #=============================================================
 
