@@ -32,20 +32,18 @@ use ManaTools::Shared::GUI;
 extends qw( ManaTools::Module );
 
 
-#uncomment this and set the right icon
-#has '+icon' => (
-#    default => File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/ModuleTemplate.png'),
-#);
+# icon will be by default the name + .png ; if not, override _iconInitializer
 
 has '+name' => (
-    lazy     => 1,
-    builder => '_nameInitializer',
+    default => 'manatemplate',
+    required => 0,
+    init_arg => undef,
 );
 
-sub _nameInitializer {
+sub _titleInitializer {
     my $self = shift;
 
-    return ($self->loc->N("Module template tools"));
+    return ($self->loc->N("%s - Module template tools", $self->name()));
 }
 
 
