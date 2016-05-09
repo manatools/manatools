@@ -96,13 +96,6 @@ sub _configDirBuilder {
 
 with 'ManaTools::ConfigDirRole';
 
-has 'moduleName' => (
-    is        => 'ro',
-    isa       => 'Str',
-    init_arg  => undef,
-    default   => 'manauser',
-);
-
 has '+name' => (
     default => 'manauser',
     required => 0,
@@ -233,7 +226,7 @@ has 'groups_users_tab' => (
 sub identifier {
     my $self = shift;
 
-    return $self->moduleName();
+    return $self->name();
 }
 
 #=============================================================
@@ -251,7 +244,7 @@ sub identifier {
 =head3 DESCRIPTION
 
     Returns the module name as configuration subdirectory.
-    This method is required by ConfifDirRole
+    This method is required by ConfigDirRole
 
 =cut
 
@@ -259,7 +252,7 @@ sub identifier {
 sub configName {
     my $self = shift;
 
-    return $self->moduleName();
+    return $self->name();
 }
 
 #=============================================================
