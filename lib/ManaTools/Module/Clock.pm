@@ -182,9 +182,6 @@ sub _adminClockPanel {
 
     my $dialog = ManaTools::Shared::GUI::Dialog->new(
         module => $self,
-        dialogType => ManaTools::Shared::GUI::Dialog::mainDialog,
-        title => $self->name(),
-        icon => $self->icon(),
         buttons => {
             ManaTools::Shared::GUI::Dialog::aboutButton => sub {
                 my $event = shift; ## ManaTools::Shared::GUI::Event
