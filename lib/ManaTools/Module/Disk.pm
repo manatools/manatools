@@ -180,6 +180,15 @@ has ioProperties => (
     },
 );
 
+has selectedItem => (
+    is => 'rw',
+    isa => 'Maybe[ManaTools::Shared::disk_backend::IO]',
+    default => undef,
+    init_arg => undef,
+);
+
+around 'selectedItem' => \&_selectedItem;
+
 sub _SharedGUIInitialize {
     my $self = shift;
 
@@ -216,6 +225,38 @@ sub start {
 
     $self->logger()->trace(1);
     $self->_adminDiskPanel();
+}
+
+sub _selectItem {
+    my $orig = shift;
+    my $self = shift;
+    my $old = $self->$orig();
+
+    return $old unless @_;
+
+    my $new = shift;
+    my @parts = $new->findin();
+    while (scalar(@parts) > 0) {
+    }
+    # if $new has children, get the first one instead
+    # if $new is an ancestor of $old, we're not gonna change it
+    return $self->$orig($new);
+};
+
+sub _showSelectedItem {
+    my $self = shift;
+    my $module = $self->module();
+    my $io = $self->selectedItem();
+    my $ioProperties = $module->ioProperties();
+    $ioProperties->properties($io);
+
+    my $propbox = $module->propertiesBox();
+    # properties
+    # parent properties
+
+    my $actionbox = $module->actionsBox();
+    # actions
+    # parent actions
 }
 
 sub _rebuildTab {
