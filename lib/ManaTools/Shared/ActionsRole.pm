@@ -72,6 +72,14 @@ class_has 'acts' => (
     default => sub {return [];}
 );
 
+has 'level' => (
+    is => 'rw',
+    init_arg => undef,
+    lazy => 1,
+    isa => 'LevelType',
+    default => sub {return ManaTools::Shared::Action->beginnerLevel;}
+);
+
 #=============================================================
 
 =head2 get_actions
@@ -89,8 +97,9 @@ class_has 'acts' => (
 #=============================================================
 sub get_actions {
     my $self = shift;
+    my $level = $self->level();
 
-    return map { return $_->name()} @{$self->acts()};
+    return map { return $_->name()} grep { $_->is_valid($_) && ($_->is_level($_) <= $level) } @{$self->acts()};
 }
 
 #=============================================================
@@ -151,8 +160,10 @@ sub add_action {
     my $item = shift;
     my $action = shift;
     my $valid = shift;
+    my $level = shift;
     my $options = {name => $name, label => $label, item => $item, action => $action};
     $options->{valid} = $valid if defined $valid;
+    $options->{level} = $level if defined $level;
 
     push @{$self->acts()}, ManaTools::Shared::Action->new($options);
 }
