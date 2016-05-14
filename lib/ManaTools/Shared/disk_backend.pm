@@ -507,13 +507,18 @@ sub findinnoout {
 
 =head2 findpart
 
+=head3 INPUT
+
+    $type: Str
+    @tags: Str
+
 =head3 OUTPUT
 
     array of Part
 
 =head3 DESCRIPTION
 
-    this method will return all Part that match on a type
+    this method will return all Part that match on a type and have all the tags
 
 =cut
 
@@ -521,8 +526,37 @@ sub findinnoout {
 sub findpart {
     my $self = shift;
     my $type = shift;
+    my @tags = @_;
 
-    return grep {$_->type() eq $type} @{$self->parts};
+    return grep {(!defined $type || $_->type() eq $type) && $_->has_link(undef, @tags)} @{$self->parts};
+}
+
+#=============================================================
+
+=head2 findnopart
+
+=head3 INPUT
+
+    $type: Str
+    @tags: Str
+
+=head3 OUTPUT
+
+    array of Part
+
+=head3 DESCRIPTION
+
+    this method will return all Part that match on a type and do not have any of the tags
+
+=cut
+
+#=============================================================
+sub findnopart {
+    my $self = shift;
+    my $type = shift;
+    my @tags = @_;
+
+    return grep {(!defined $type || $_->type() eq $type) && !$_->has_link(undef, @tags)} @{$self->parts};
 }
 
 #=============================================================

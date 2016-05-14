@@ -73,10 +73,17 @@ if ($mode eq 'fs') {
 	}
 }
 else {
-
-	my @parts = $db_man->findoutnoin();
-	for my $part (@parts) {
-		dumppart($db_man, $part, 0);
+	if ($mode eq 'old') {
+		my @parts = $db_man->findoutnoin();
+		for my $part (@parts) {
+			dumppart($db_man, $part, 0);
+		}
+	}
+	else {
+		my @parts = $db_man->findnopart(undef, 'parent');
+		for my $part (@parts) {
+			dumppart($db_man, $part, 0);
+		}
 	}
 }
 

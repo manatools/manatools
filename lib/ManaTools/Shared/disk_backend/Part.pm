@@ -293,6 +293,17 @@ sub add_taglink {
     return ($partlink1, $partlink2);
 }
 
+sub has_link {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    for my $link (@{$links}) {
+        return 1 if ($link->check($self, $part, @tags));
+    }
+    return 0;
+}
+
 sub find_link {
     my $self = shift;
     my $part = shift;
