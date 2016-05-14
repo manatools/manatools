@@ -211,6 +211,26 @@ class_has '+type' => (
     default => 'PartitionTable'
 );
 
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::PartitionElement');
+            },
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->does('ManaTools::Shared::disk_backend::BlockDevice');
+            },
+            sibling => sub { return 0; },
+            previous => sub { return 0; },
+            next => sub { return 0; },
+        }
+    }
+);
+
 class_has '+in_restriction' => (
     default => sub {
         return sub {
@@ -242,6 +262,47 @@ class_has '+out_restriction' => (
             }
             return ($self->out_length() < 4 && ref($io) eq 'ManaTools::Shared::disk_backend::IO::Partition');
         };
+    }
+);
+
+package ManaTools::Shared::disk_backend::Part::PartitionElement;
+
+use Moose;
+
+extends 'ManaTools::Shared::disk_backend::Part';
+
+with 'ManaTools::Shared::disk_backend::BlockDevice';
+
+use MooseX::ClassAttribute;
+
+class_has '+type' => (
+    default => 'PartitionElement'
+);
+
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::PartitionTable');
+            },
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::PartitionElement');
+            },
+            previous => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::PartitionElement');
+            },
+            next => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::PartitionElement');
+            },
+        }
     }
 );
 
