@@ -189,6 +189,30 @@ sub probe {
 
 #=============================================================
 
+=head2 changedpart
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
+    $state: PartState (L, P, S)
+
+=head3 DESCRIPTION
+
+    this is a default method for announcing a changed Part, the idea is to override it if needed
+
+=cut
+
+#=============================================================
+sub changedpart {
+    my $self = shift;
+    my $part = shift;
+    my $state = shift;
+
+    1;
+}
+
+#=============================================================
+
 =head2 loadio
 
 =head3 INPUT

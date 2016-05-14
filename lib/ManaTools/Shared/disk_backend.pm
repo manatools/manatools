@@ -336,6 +336,32 @@ sub probe {
 
 #=============================================================
 
+=head2 changedpart
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
+    $state: PartState (L, P, S)
+
+=head3 DESCRIPTION
+
+    this method will call changedpart for all plugins, should only be called when a module is done with the changed part
+
+=cut
+
+#=============================================================
+sub changedpart {
+    my $self = shift;
+    my $part = shift;
+    my $state = shift;
+
+    for my $plugin (@{$self->plugins}) {
+        $plugin->changedpart($part, $state);
+    }
+}
+
+#=============================================================
+
 =head2 probeio
 
 =head3 OUTPUT

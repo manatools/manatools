@@ -411,6 +411,13 @@ sub mkpart {
     return $part;
 }
 
+sub changedpart {
+    my $self = shift;
+    my $partstate = shift;
+    my $db = $self->db();
+    return $db->changedpart($self, $partstate);
+}
+
 has 'ins' => (
     is => 'ro',
     isa => 'ManaTools::Shared::disk_backend::IOs',
