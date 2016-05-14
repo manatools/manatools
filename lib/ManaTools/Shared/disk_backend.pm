@@ -362,6 +362,40 @@ sub changedpart {
 
 #=============================================================
 
+=head2 diff
+
+=head3 INPUT
+
+    $from: PartState (L, P, S)
+    $to: PartState (L, P, S)
+
+=head3 OUTPUT
+
+    list of translated strings explaining the differences
+
+=head3 DESCRIPTION
+
+    this method will call diff on all Parts with $from state on their $to counterpart.
+
+=cut
+
+#=============================================================
+sub diff {
+    my $self = shift;
+    my $from = shift;
+    my $to = shift;
+
+    my @res = ();
+    for my $part (grep {$_->is_state($from)} @{$self->parts}) {
+        for my $str ($part->diff($to)) {
+            push @res, $str;
+        }
+    }
+    return @res;
+}
+
+#=============================================================
+
 =head2 probeio
 
 =head3 OUTPUT

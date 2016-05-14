@@ -70,6 +70,104 @@ has '+tools' => (
     }
 );
 
+sub _mkparttable {
+    my $self = shift;
+    my $part = shift;
+
+    return ManaTools::Shared::disk_backend::PartitionTable->new(parted => $self->tool('parted'), disk => $part->file());
+}
+
+#=============================================================
+
+=head2 changedpart
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
+    $partstate: PartState
+
+=head3 OUTPUT
+
+    0 if failed, 1 if success or unneeded
+
+=head3 DESCRIPTION
+
+    this overridden method will load/probe/save a partition table when it's called
+
+=cut
+
+#=============================================================
+override ('changedpart', sub {
+    my $self = shift;
+    my $part = shift;
+    my $partstate = shift;
+
+    ## LOAD
+    # read the partition table
+    if ($partstate == ManaTools::Shared::disk_backend::Part->PastState) {
+        # only BlockDevices for loading
+        return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
+        my $pt = $self->_mkparttable($part);
+
+        # exit if there is no detected PartitionTable
+        return 1 if (!defined($pt));
+
+        # make the PartitionElement children
+        my $prevchild = undef;
+        for my $p (values %{$pt->partitions()}) {
+            # define tags
+            my @tags = ('child', 'loaded', 'saved');
+            if (!defined $prevchild) {
+                push @tags, 'first';
+            }
+
+            # create the child with id based on the filename
+            my $child = $part->mkpart('PartitionElement', {id => $p->{'file'} =~ s'^.+/''r}, @tags);
+            # TODO: what about earlier loaded parts, or modified saved parts to clean up because we're reloading this one?
+
+            # link with ordered siblings to the previous one
+            $child->add_taglink($prevchild, 'previous', 'sibling') if (defined $prevchild);
+
+            # set the necessary properties
+            my @stat = stat($p->{'file'});
+            my $dev = $stat[6];
+            my $minor = $dev % 256;
+            my $major = int (($dev - $minor) / 256);
+            $child->prop('dev', $major .':'. $minor);
+            $child->sync_majorminor();
+            $child->prop('start', $p->{'start'});
+            $child->prop('size', $p->{'size'});
+            $child->prop('num', $p->{'num'});
+            $prevchild = $child;
+        }
+
+        # add an extra tag to the last child
+        $part->add_taglink($prevchild, 'last') if (defined $prevchild);
+
+        # trigger changedpart on all children for other plugins to load further
+        for my $child ($part->find_parts('PartitionElement', 'child', 'loaded')) {
+            $child->changedpart($partstate);
+        }
+    }
+
+    ## PROBE
+    # TODO: check in the kernel partition table by reading /sys
+    if ($partstate == ManaTools::Shared::disk_backend::Part->PresentState) {
+    }
+
+    ## SAVE
+    # save the partition table
+    if ($partstate == ManaTools::Shared::disk_backend::Part->FutureState) {
+        # in all child parts, find PartitionTable entries and trigger ->save();
+        for my $p ($part->find_parts(undef, 'child')) {
+            # TODO: need to be able to abort during save!!!
+            $p->save();
+        }
+    }
+
+    return 1;
+});
+
 #=============================================================
 
 =head2 load

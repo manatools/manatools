@@ -241,6 +241,8 @@ sub _reverse_tag {
     return 'parent' if ($tag eq 'child');
     return 'previous' if ($tag eq 'next');
     return 'next' if ($tag eq 'previous');
+    return undef if ($tag eq 'first');
+    return undef if ($tag eq 'last');
     return undef if ($tag eq 'loaded');
     return undef if ($tag eq 'probed');
     return undef if ($tag eq 'saved');
@@ -418,6 +420,28 @@ sub changedpart {
     return $db->changedpart($self, $partstate);
 }
 
+sub _save {
+    return 1;
+}
+
+sub save {
+    my $self = shift;
+    $self->_save();
+    # TODO: merge loaded into saved
+}
+
+sub _diff {
+    return ();
+}
+
+sub diff {
+    my $self = shift;
+    my $partstate = shift;
+    my $part = $self->part_state($partstate);
+
+    return $self->_diff($part, $partstate);
+}
+
 has 'ins' => (
     is => 'ro',
     isa => 'ManaTools::Shared::disk_backend::IOs',
@@ -524,6 +548,34 @@ sub is_state {
     return $self->is_loaded() if ($state == ManaTools::Shared::disk_backend::Part->LoadedState);
     return $self->is_current() if ($state == ManaTools::Shared::disk_backend::Part->CurrentState);
     return $self->to_be_saved() if ($state == ManaTools::Shared::disk_backend::Part->FutureState);
+    return undef;
+}
+
+#=============================================================
+
+=head2 part_state
+
+=head3 INPUT
+
+    $state: PartState
+
+=head3 OUTPUT
+
+    ManaTools::Shared::disk_backend::Part|undef
+
+=head3 DESCRIPTION
+
+    this method returns to requested state of this part
+
+=cut
+
+#=============================================================
+sub part_state {
+    my $self = shift;
+    my $state = shift;
+    return $self->loaded() if ($state == ManaTools::Shared::disk_backend::Part->LoadedState);
+    return $self->probed() if ($state == ManaTools::Shared::disk_backend::Part->CurrentState);
+    return $self->saved() if ($state == ManaTools::Shared::disk_backend::Part->FutureState);
     return undef;
 }
 
