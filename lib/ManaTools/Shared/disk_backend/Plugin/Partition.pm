@@ -152,12 +152,14 @@ override ('probeio', sub {
         # default partition is always 1 sector ?
         $part->prop('size', 1);
         # add an action
-        $part->add_action('addPartition', 'Add a partition', undef, sub {
+        $part->add_action('addPartition', 'Add a partition', $part, sub {
             my $self = shift;
+            my $part = $self->item();
             print STDERR "Add partition is not implemented...\n";
             return 1;
         }, sub {
             my $self = shift;
+            my $part = $self->item();
             return 1;
         });
     }
