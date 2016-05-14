@@ -146,6 +146,13 @@ has 'loaded' => (
     default => sub {
         my $self = shift;
         return $self;
+    },
+    trigger => sub {
+        my $self = shift;
+        my $new = shift;
+        my $old = shift;
+        $self->remove_taglinks($old, 'loaded') if (defined $old);
+        $self->add_taglink($new, 'loaded') if (defined $new);
     }
 );
 
@@ -157,6 +164,13 @@ has 'probed' => (
     default => sub {
         my $self = shift;
         return $self;
+    },
+    trigger => sub {
+        my $self = shift;
+        my $new = shift;
+        my $old = shift;
+        $self->remove_taglinks($old, 'probed') if (defined $old);
+        $self->add_taglink($new, 'probed') if (defined $new);
     }
 );
 
@@ -168,6 +182,13 @@ has 'saved' => (
     default => sub {
         my $self = shift;
         return $self;
+    },
+    trigger => sub {
+        my $self = shift;
+        my $new = shift;
+        my $old = shift;
+        $self->remove_taglinks($old, 'saved') if (defined $old);
+        $self->add_taglink($new, 'saved') if (defined $new);
     }
 );
 
@@ -185,6 +206,199 @@ has 'plugin' => (
     required => 1,
     handles => ['tool', 'tool_exec', 'tool_lines', 'tool_fields'],
 );
+
+has 'links' => (
+    is => 'ro',
+    isa => 'ArrayRef[ManaTools::Shared::disk_backend::PartLink]',
+    required => 0,
+    init_arg => undef,
+    default => sub {return []}
+);
+
+class_has 'restrictions' => (
+    is => 'ro',
+    isa => 'HashRef[CodeRef]',
+    traits => ['Hash'],
+    default => sub {return {}},
+    init_arg => undef,
+    required => 0,
+    handles => {
+        restriction => 'get',
+    }
+);
+
+sub allow_tag {
+    my $self = shift;
+    my $tag = shift;
+    my $part = shift;
+    my $restriction = $self->restriction($tag);
+    return $restriction->($self, $part);
+}
+
+sub _reverse_tag {
+    my $tag = shift;
+    return 'child' if ($tag eq 'parent');
+    return 'parent' if ($tag eq 'child');
+    return 'previous' if ($tag eq 'next');
+    return 'next' if ($tag eq 'previous');
+    return undef if ($tag eq 'loaded');
+    return undef if ($tag eq 'probed');
+    return undef if ($tag eq 'saved');
+    return $tag;
+}
+
+sub _add_partlink {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my $partlink = ManaTools::Shared::disk_backend::PartLink->new(parent => $self, part => $part);
+    my $count = $partlink->add_tags(@tags);
+    return 0 if ($count == 0);
+    return $partlink;
+}
+
+sub add_link {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my @rtags = map { _reverse_tag($_) } @tags;
+    my $partlink1 = $self->_add_partlink($part, @tags);
+    my $partlink2 = $part->_add_partlink($self, @rtags);
+    return ($partlink1, $partlink2);
+}
+
+sub add_taglink {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my @rtags = map { _reverse_tag($_) } @tags;
+
+    # partlink1
+    my $partlink1 = $self->find_link($part);
+    if (defined $partlink1) {
+        $partlink1->add_tags(@tags);
+    }
+    else {
+        $partlink1 = $self->_add_partlink($part, @tags);
+    }
+
+    # partlink2
+    my $partlink2 = $part->find_link($self);
+    if (defined $partlink2) {
+        $partlink2->add_tags(@rtags);
+    }
+    else {
+        $partlink2 = $part->_add_partlink($self, @rtags);
+    }
+    return ($partlink1, $partlink2);
+}
+
+sub find_link {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    for my $link (@{$links}) {
+        return $link if ($link->check($self, $part, @tags));
+    }
+    return undef;
+}
+
+sub find_links {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    my @res = ();
+    for my $link (@{$links}) {
+        push @res, $self if ($link->check($self, $part, @tags));
+    }
+    return @res;
+}
+
+sub _remove_partlink {
+    my $self = shift;
+    my $partlink = shift;
+    my $links = $self->links();
+    my $i = scalar(@{$links});
+    while ($i > 0) {
+        $i = $i - 1;
+        splice @{$links}, $i, 1 if ($links->[$i] == $partlink);
+    }
+}
+
+sub remove_links {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    for my $link (@{$links}) {
+        $self->_remove_partlink($link) if ($link->check($self, $part, @tags));
+    }
+}
+
+sub remove_taglinks {
+    my $self = shift;
+    my $part = shift;
+    my @tags = @_;
+    my @rtags = map { _reverse_tag($_) } @tags;
+
+    # partlink1
+    my $partlink1 = $self->find_link($part);
+    if (defined $partlink1) {
+        $partlink1->remove_tags(@tags);
+        $self->_remove_partlink($partlink1) if ($partlink1->tagcount() == 0);
+    }
+
+    # partlink2
+    my $partlink2 = $part->find_link($self);
+    if (defined $partlink2) {
+        $partlink2->remove_tags(@rtags);
+        $part->_remove_partlink($partlink2) if ($partlink2->tagcount() == 0);
+    }
+    return ($partlink1, $partlink2);
+}
+
+sub find_parts {
+    my $self = shift;
+    my $parttype = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    my @res = ();
+    for my $link (@{$links}) {
+        push @res, $link->part() if ($link->check($self, $parttype, @tags));
+    }
+    return @res;
+}
+
+sub find_recursive_parts {
+    my $self = shift;
+    my $parttype = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    my @res = ();
+    for my $link (@{$links}) {
+        if ($link->check($self, $parttype, @tags)) {
+            my $part = $link->part();
+            push @res, $part;
+            for my $p ($part->find_recursive_parts($part, $parttype, @tags)) {
+                push @res, $p;
+            }
+        }
+    }
+    return @res;
+}
+
+sub mkpart {
+    my $self = shift;
+    my $parttype = shift;
+    my $parameters = shift;
+    my @tags = @_;
+    my $db = $self->db();
+    my $part = $db->mkpart($parttype, $parameters);
+    $self->add_taglink($part, @tags);
+    return $part;
+}
 
 has 'ins' => (
     is => 'ro',
@@ -456,6 +670,125 @@ sub rmio {
 sub unhook {
     my $self = shift;
     $self->db->rmpart($self);
+}
+
+
+package ManaTools::Shared::disk_backend::PartLink;
+
+use Moose;
+
+has 'parent' => (
+    is => 'ro',
+    isa => 'ManaTools::Shared::disk_backend::Part',
+    required => 1,
+    handles => {
+        parenttype => 'type',
+    },
+    trigger => sub {
+        my $self = shift;
+        my $parent = $self->parent();
+        my $links = $parent->links();
+        push @{$links}, $self;
+    }
+);
+
+has 'part' => (
+    is => 'ro',
+    isa => 'ManaTools::Shared::disk_backend::Part',
+    required => 1,
+    handles => {
+        parttype => 'type',
+    }
+);
+
+has 'tags' => (
+    is => 'ro',
+    traits => ['Array'],
+    isa => 'ArrayRef[Str]',
+    lazy => 1,
+    default => sub {return []},
+    handles => {
+        tagcount => 'count',
+    }
+);
+
+sub has_tag {
+    my $self = shift;
+    my $tag = shift;
+    my $tags = $self->tags();
+    for my $t (@{$tags}) {
+        return 1 if $t eq $tag;
+    }
+    return 0;
+}
+
+sub is_tagged {
+    my $self = shift;
+    my @tags = @_;
+    for my $tag (@tags) {
+        return 0 if (defined $tag && !$self->has_tag($tag));
+    }
+    return 1;
+}
+
+sub check_parent {
+    my $self = shift;
+    my $parent = shift;
+    return 1 if (!defined $parent);
+    if (!ref($parent)) {
+        return ($self->parenttype() == $parent);
+    }
+    return ($self->parent() == $parent);
+}
+
+sub check_part {
+    my $self = shift;
+    my $part = shift;
+    return 1 if (!defined $part);
+    if (!ref($part)) {
+        return ($self->parttype() == $part);
+    }
+    return ($self->part() == $part);
+}
+
+sub check {
+    my $self = shift;
+    my $parent = shift;
+    my $part = shift;
+    my @tags = @_;
+    return ($self->check_parent($parent) && $self->check_part($part) && $self->is_tagged(@tags));
+}
+
+sub add_tag {
+    my $self = shift;
+    my $tag = shift;
+    my $parent = $self->parent();
+    return 1 if (!defined $tag || $self->has_tag($tag));
+    return 0 if (!$parent->allow_tag($tag, $self->part()));
+    my $tags = $self->tags();
+    push @{$tags}, $tag;
+    return 1;
+}
+
+sub add_tags {
+    my $self = shift;
+    my @tags = @_;
+    my $count = 0;
+    for my $tag (@tags) {
+        $count = $count + $self->add_tag($tag);
+    }
+    return $count;
+}
+
+sub remove_tag {
+    my $self = shift;
+    my $tag = shift;
+    my $tags = $self->tags();
+    my $i = scalar(@{$tags});
+    while ($i > 0) {
+        $i = $i - 1;
+        splice @{$tags}, $i, 1 if ($tags->[$i] == $tag);
+    }
 }
 
 1;
