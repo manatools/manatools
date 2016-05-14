@@ -107,19 +107,21 @@ override ('probe', sub {
         $part->prop('active', 1);
 
         # add a swapoff action
-        $part->add_action('swapoff', 'Turn off swap', undef, sub {
+        $part->add_action('swapoff', 'Turn off swap', $part, sub {
             my $self = shift;
-            my $plugin = $self->plugin();
-            print STDERR "Dangerous actions are disabled: $self\n";
+            my $part = $self->item();
+            my $plugin = $part->plugin();
+            print STDERR "Dangerous actions are disabled: '". $self->label() ."'\n";
             return 1;
-            if ($plugin->tool_exec('swapoff', $self->prop('filename')) == 0) {
-                $self->prop('active', 0);
+            if ($plugin->tool_exec('swapoff', $part->prop('filename')) == 0) {
+                $part->prop('active', 0);
                 $part->prop('priority', 0);
             }
             return 1;
         }, sub {
             my $self = shift;
-            return $self->prop('active') == 1;
+            my $part = $self->item();
+            return $part->prop('active') == 1;
         });
 
         # use swaplabel to get label and uuid
