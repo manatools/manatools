@@ -46,9 +46,8 @@ sub dumppart {
 	for my $io (sort { $a->label() cmp $b->label() } @ios) {
 		dumpio($db_man, $io, $level);
 	}
-	my @parts = $part->find_parts();
-	print sp($level) ."PartLinks: ". scalar(@parts) ."\n" if scalar(@parts) > 0;
-	@parts = $part->find_parts(undef, 'child');
+	print sp($level) ."PartLinks: '". join("','", map { "(". ( defined $_ ? join(",", @{$_->tags()}) : '' ) .")" } @{$part->links()}) ."'\n" if scalar(@{$part->links()}) > 0;
+	my @parts = $part->find_parts(undef, 'child');
 	print sp($level) ."Child links:\n" if scalar(@parts) > 0;
 	for my $p (sort { $a->label() cmp $b->label() } @parts) {
 		dumppart($db_man, $p, $level);
