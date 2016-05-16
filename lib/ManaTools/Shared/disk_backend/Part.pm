@@ -247,7 +247,7 @@ sub add_link {
     my $self = shift;
     my $part = shift;
     my @tags = @_;
-    my @rtags = map { _reverse_tag($_) } @tags;
+    my @rtags = grep { defined $_ } map { _reverse_tag($_) } @tags;
     my $partlink1 = $self->_add_partlink($part, @tags);
     my $partlink2 = $part->_add_partlink($self, @rtags);
     return ($partlink1, $partlink2);
@@ -257,7 +257,7 @@ sub add_taglink {
     my $self = shift;
     my $part = shift;
     my @tags = @_;
-    my @rtags = map { _reverse_tag($_) } @tags;
+    my @rtags = grep { defined $_ } map { _reverse_tag($_) } @tags;
 
     # partlink1
     my $partlink1 = $self->find_link($part);
@@ -338,7 +338,7 @@ sub remove_taglinks {
     my $self = shift;
     my $part = shift;
     my @tags = @_;
-    my @rtags = map { _reverse_tag($_) } @tags;
+    my @rtags = grep { defined $_ } map { _reverse_tag($_) } @tags;
 
     # partlink1
     my $partlink1 = $self->find_link($part);
