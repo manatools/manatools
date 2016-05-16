@@ -218,6 +218,7 @@ sub allow_tag {
     my $tag = shift;
     my $part = shift;
     my $restriction = $self->restriction($tag);
+    return 1 if (!defined $restriction);
     return $restriction->($self, $part);
 }
 
