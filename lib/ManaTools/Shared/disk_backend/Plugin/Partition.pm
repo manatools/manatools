@@ -154,7 +154,7 @@ override ('changedpart', sub {
         return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
 
         # only devices that are present
-        return 1 if (!$part->prop('present'));
+        return 1 if ($part->has_prop('present') && !$part->prop('present'));
 
         # only devices with positive size
         return 1 if (!$part->prop('size') <= 0);
