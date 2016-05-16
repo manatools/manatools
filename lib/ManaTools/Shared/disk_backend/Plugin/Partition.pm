@@ -112,21 +112,18 @@ override ('changedpart', sub {
         # exit if there is no detected PartitionTable
         return 1 if (!defined($pt));
 
+        # look or make the PartitionTable as a child of the BlockDevice
+        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {probed => undef, saved => undef});
+        my @changedparts = ($parttable);
+
         # make the PartitionElement children
-        my $prevchild = undef;
         for my $p (values %{$pt->partitions()}) {
-            # define tags
-            my @tags = ('child', 'loaded', 'saved');
-            if (!defined $prevchild) {
-                push @tags, 'first';
-            }
-
-            # create the child with id based on the filename
-            my $child = $part->mkpart('PartitionElement', {id => $p->{'file'} =~ s'^.+/''r}, @tags);
-            # TODO: what about earlier loaded parts, or modified saved parts to clean up because we're reloading this one?
-
-            # link with ordered siblings to the previous one
-            $child->add_taglink($prevchild, 'previous', 'sibling') if (defined $prevchild);
+            # look or create the child with id based on the filename
+            my $child = $part->trychild($partstate, sub {
+                my $self = shift;
+                my $parameters = shift;
+                return ($self->id() eq $parameters->{id});
+            },'PartitionElement', {id => $p->{'file'} =~ s'^.+/''r, probed => undef, saved => undef});
 
             # set the necessary properties
             my @stat = stat($p->{'file'});
@@ -138,21 +135,68 @@ override ('changedpart', sub {
             $child->prop('start', $p->{'start'});
             $child->prop('size', $p->{'size'});
             $child->prop('num', $p->{'num'});
-            $prevchild = $child;
+
+            # add the child to the changedparts
+            push @changedparts, $child;
         }
 
-        # add an extra tag to the last child
-        $part->add_taglink($prevchild, 'last') if (defined $prevchild);
-
         # trigger changedpart on all children for other plugins to load further
-        for my $child ($part->find_parts('PartitionElement', 'child', 'loaded')) {
-            $child->changedpart($partstate);
+        for my $part (@changedparts) {
+            $part->changedpart($partstate);
         }
     }
 
     ## PROBE
-    # TODO: check in the kernel partition table by reading /sys
+    # check in the kernel partition table by reading /sys
     if ($partstate == ManaTools::Shared::disk_backend::Part->PresentState) {
+        # only BlockDevices for loading
+        return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
+
+        # only devices that are present
+        return 1 if (!$part->prop('present'));
+
+        # only devices with positive size
+        return 1 if (!$part->prop('size') <= 0);
+
+        # there is no way to differentiate between an in-kernel empty partition table and no partition table
+        # so, we're not making an empty partition table entry for probed state
+        # since there is none, it'll just recreate the partition table (probably with the loaded state settings) anyway
+        #
+        # in any case, if there are no partition entries (in-kernel), we exit early.
+        my @devices = glob($part->path(). "/". $part->id() ."*");
+        return 1 if (!scalar(@devices));
+
+        # look or make the PartitionTable as a child of the BlockDevice
+        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {loaded => undef, saved => undef});
+        my @changedparts = ($parttable);
+
+        # find subdevices in /sys/
+        my $prevchild = undef;
+        for my $pf (@devices) {
+            # look or create the child with id based on the filename
+            my $child = $part->trychild($partstate, sub {
+                my $self = shift;
+                my $parameters = shift;
+                return ($self->id() eq $parameters->{id});
+            },'PartitionElement', {id => $pf =~ s'^.+/''r, loaded => undef, saved => undef});
+
+            $child->prop_from_file('sectors', $pf . '/size');
+            # sectors are always 512 bytes here!
+            $child->prop('size', $child->prop('sectors') * 512);
+            $child->prop_from_file('start', $pf . '/start');
+            $child->prop_from_file('ro', $pf . '/ro');
+            $child->prop_from_file('dev', $pf . '/dev');
+            $child->sync_majorminor();
+            $child->prop('num', $pf =~ s/^.+([0-9]+)$/$1/r);
+
+            # add the child to the changedparts
+            push @changedparts, $child;
+        }
+
+        # trigger changedpart on all children for other plugins to load further
+        for my $part (@changedparts) {
+            $part->changedpart($partstate);
+        }
     }
 
     ## SAVE
