@@ -122,7 +122,7 @@ class_has 'type' => (
 class_has 'order' => (
     is => 'ro',
     init_arg => undef,
-    isa => 'Bool',
+    isa => 'Maybe[CodeRef]',
     default => undef,
 );
 
