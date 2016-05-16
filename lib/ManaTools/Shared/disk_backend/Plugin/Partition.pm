@@ -119,7 +119,7 @@ override ('changedpart', sub {
         # make the PartitionElement children
         for my $p (values %{$pt->partitions()}) {
             # look or create the child with id based on the filename
-            my $child = $part->trychild($partstate, sub {
+            my $child = $parttable->trychild($partstate, sub {
                 my $self = shift;
                 my $parameters = shift;
                 return ($self->id() eq $parameters->{id});
@@ -175,7 +175,7 @@ override ('changedpart', sub {
         my $prevchild = undef;
         for my $pf (@devices) {
             # look or create the child with id based on the filename
-            my $child = $part->trychild($partstate, sub {
+            my $child = $parttable->trychild($partstate, sub {
                 my $self = shift;
                 my $parameters = shift;
                 return ($self->id() eq $parameters->{id});
