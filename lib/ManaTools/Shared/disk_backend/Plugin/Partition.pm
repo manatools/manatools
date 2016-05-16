@@ -157,7 +157,7 @@ override ('changedpart', sub {
         return 1 if ($part->has_prop('present') && !$part->prop('present'));
 
         # only devices with positive size
-        return 1 if (!$part->prop('size') <= 0);
+        return 1 if ($part->prop('size') <= 0);
 
         # there is no way to differentiate between an in-kernel empty partition table and no partition table
         # so, we're not making an empty partition table entry for probed state
