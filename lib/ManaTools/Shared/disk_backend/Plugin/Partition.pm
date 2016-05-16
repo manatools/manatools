@@ -101,6 +101,7 @@ override ('changedpart', sub {
     my $self = shift;
     my $part = shift;
     my $partstate = shift;
+    $self->D("$self: called changepart for partitions: $part, $partstate");
 
     ## LOAD
     # read the partition table
@@ -113,7 +114,7 @@ override ('changedpart', sub {
         return 1 if (!defined($pt));
 
         # look or make the PartitionTable as a child of the BlockDevice
-        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {probed => undef, saved => undef});
+        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {plugin => $self, probed => undef, saved => undef});
         my @changedparts = ($parttable);
 
         # make the PartitionElement children
@@ -122,8 +123,8 @@ override ('changedpart', sub {
             my $child = $parttable->trychild($partstate, sub {
                 my $self = shift;
                 my $parameters = shift;
-                return ($self->id() eq $parameters->{id});
-            },'PartitionElement', {id => $p->{'file'} =~ s'^.+/''r, probed => undef, saved => undef});
+                return ($self->devicepath() =~ s'^.+/''r eq $parameters->{devicepath} =~ s'^.+/''r);
+            },'PartitionElement', {plugin => $self, devicepath => $p->{'file'}, probed => undef, saved => undef});
 
             # set the necessary properties
             my @stat = stat($p->{'file'});
@@ -141,8 +142,8 @@ override ('changedpart', sub {
         }
 
         # trigger changedpart on all children for other plugins to load further
-        for my $part (@changedparts) {
-            $part->changedpart($partstate);
+        for my $p (@changedparts) {
+            $p->changedpart($partstate);
         }
     }
 
@@ -156,6 +157,7 @@ override ('changedpart', sub {
         # only devices that are present
         return 1 if ($part->has_prop('present') && !$part->prop('present'));
 
+        $self->D("$self: called changepart for probing partitiontable on $part: size ". $part->prop('size'));
         # only devices with positive size
         return 1 if ($part->prop('size') <= 0);
 
@@ -164,11 +166,11 @@ override ('changedpart', sub {
         # since there is none, it'll just recreate the partition table (probably with the loaded state settings) anyway
         #
         # in any case, if there are no partition entries (in-kernel), we exit early.
-        my @devices = glob($part->path(). "/". $part->id() ."*");
+        my @devices = map { $_ =~ s'/size$''r } glob($part->devicepath(). "/*/size");
         return 1 if (!scalar(@devices));
 
         # look or make the PartitionTable as a child of the BlockDevice
-        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {loaded => undef, saved => undef});
+        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {plugin => $self, loaded => undef, saved => undef});
         my @changedparts = ($parttable);
 
         # find subdevices in /sys/
@@ -178,25 +180,16 @@ override ('changedpart', sub {
             my $child = $parttable->trychild($partstate, sub {
                 my $self = shift;
                 my $parameters = shift;
-                return ($self->id() eq $parameters->{id});
-            },'PartitionElement', {id => $pf =~ s'^.+/''r, loaded => undef, saved => undef});
-
-            $child->prop_from_file('sectors', $pf . '/size');
-            # sectors are always 512 bytes here!
-            $child->prop('size', $child->prop('sectors') * 512);
-            $child->prop_from_file('start', $pf . '/start');
-            $child->prop_from_file('ro', $pf . '/ro');
-            $child->prop_from_file('dev', $pf . '/dev');
-            $child->sync_majorminor();
-            $child->prop('num', $pf =~ s/^.+([0-9]+)$/$1/r);
+                return ($self->devicepath() =~ s'^.+/''r eq $parameters->{devicepath} =~ s'^.+/''r);
+            },'PartitionElement', {plugin => $self, devicepath => $pf, loaded => undef, saved => undef});
 
             # add the child to the changedparts
             push @changedparts, $child;
         }
 
         # trigger changedpart on all children for other plugins to load further
-        for my $part (@changedparts) {
-            $part->changedpart($partstate);
+        for my $p (@changedparts) {
+            $p->changedpart($partstate);
         }
     }
 
@@ -310,8 +303,8 @@ override ('probeio', sub {
     my $err =  0;
     my $partitions = 0;
     # find subdevices in /sys/
-    for my $pf (glob($io->path(). "/". $io->id() ."*")) {
-        my $io = $self->parent->mkio('Partition', {id => $pf =~ s'^.+/''r});
+    for my $pf (glob($io->devicepath(). "/". $io->id() ."*")) {
+        my $io = $self->parent->mkio('Partition', {id => $pf =~ s'^.+/''r, devicepath => $pf});
         $io->prop_from_file('sectors', $pf . '/size');
         # sectors are always 512 bytes here!
         $io->prop('size', $io->prop('sectors') * 512);
@@ -427,8 +420,24 @@ class_has '+order' => (
         return sub {
             my $self = shift;
             my $part = shift;
-            return $self->prop('offset') <=> $part->prop('offset');
+            $self->plugin->D("compare for ordering: $self(". join(',', $self->properties()) .") and $part(". join(',', $part->properties()) .")");
+            return $self->prop('start') <=> $part->prop('start');
         }
+    }
+);
+
+has '+devicepath' => (
+    trigger => sub {
+        my $self = shift;
+        my $value = shift;
+        $self->prop_from_file('sectors', $value . '/size');
+        # sectors are always 512 bytes here!
+        $self->prop('size', $self->prop('sectors') * 512);
+        $self->prop_from_file('start', $value . '/start');
+        $self->prop_from_file('ro', $value . '/ro');
+        $self->prop_from_file('dev', $value . '/dev');
+        $self->sync_majorminor();
+        $self->prop('num', $value =~ s/^.+([0-9]+)$/$1/r);
     }
 );
 

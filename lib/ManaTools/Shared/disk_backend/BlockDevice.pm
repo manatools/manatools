@@ -73,11 +73,7 @@ has 'devicemm' => (
 has 'devicepath' => (
     is => 'ro',
     isa => 'Str',
-    lazy => 1,
-    default => sub {
-        my $self = shift;
-        return '/dev/'. $self->id();
-    }
+    required => 1,
 );
 
 #=============================================================

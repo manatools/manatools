@@ -54,6 +54,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 use Moose;
 
 use File::Basename;
+use ManaTools::Shared::disk_backend::Part;
 
 extends 'ManaTools::Shared::disk_backend::Plugin';
 
@@ -88,7 +89,16 @@ override ('probe', sub {
     }
     for my $dfile (glob("/sys/bus/scsi/devices/[0-9]*")) {
         for my $bdfile (glob($dfile ."/block/*")) {
-            my $io = $self->parent->mkio('Disk', {id => basename($bdfile), path => $bdfile});
+            # try or create child as a disk
+            my $p = $part->trychild(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
+                my $part = shift;
+                my $parameters = shift;
+                return ($part->devicepath() =~ s'^.+/''r eq $parameters->{devicepath} =~ s'^.+/''r);
+            }, 'Disk', {plugin => $self, devicepath => $bdfile, loaded => undef, saved => undef});
+            # trigger the changedpart
+            $p->changedpart(ManaTools::Shared::disk_backend::Part->CurrentState);
+            # create the IO
+            my $io = $self->parent->mkio('Disk', {id => basename($bdfile), devicepath => $bdfile});
             if (!defined($io) || !$part->out_add($io)) {
                 $err = 1;
             }
@@ -109,14 +119,10 @@ has '+type' => (
     default => 'Disk'
 );
 
-has 'path' => (
-    is => 'ro',
-    isa => 'Str',
-    required => 1,
+has '+devicepath' => (
     trigger => sub {
         my $self = shift;
         my $value = shift;
-        $self->prop('path', $value);
         $self->prop_from_file('ro', $value .'/ro');
         $self->prop_from_file('removable', $value .'/removable');
         $self->prop_from_file('size', $value .'/size');
@@ -167,13 +173,77 @@ class_has '+out_restriction' => (
 );
 
 override('label', sub {
-   my $self = shift;
-   my $label = super;
-   if ($self->out_length() < 1) {
-       return $label;
-   }
-   return $label .'('. join(',', sort map { $_->id(); } $self->out_list()) .')';
+    my $self = shift;
+    my $label = super;
+    if ($self->out_length() < 1) {
+        return $label;
+    }
+    return $label .'('. join(',', sort map { $_->id(); } $self->out_list()) .')';
 });
 
+package ManaTools::Shared::disk_backend::Part::Disk;
+
+use Moose;
+
+extends 'ManaTools::Shared::disk_backend::Part';
+
+use MooseX::ClassAttribute;
+
+with 'ManaTools::Shared::disk_backend::BlockDevice';
+
+class_has '+type' => (
+    default => 'Disk'
+);
+
+has '+devicepath' => (
+    trigger => sub {
+        my $self = shift;
+        my $value = shift;
+        $self->prop_from_file('ro', $value .'/ro');
+        $self->prop_from_file('removable', $value .'/removable');
+        $self->prop_from_file('size', $value .'/size');
+        $self->prop('present', ($self->prop('removable') == 0 || $self->prop('size') > 0) ? 1 : 0);
+        $self->prop_from_file('dev', $value .'/dev');
+        $self->sync_majorminor();
+
+        # additional data
+        my $dpath = $value =~ s,/[^/]+/[^/]+$,,r;
+        $self->prop_from_file('vendor', $dpath .'/vendor');
+        $self->prop_from_file('model', $dpath .'/model');
+        $self->prop_from_file('type', $dpath .'/type');
+    }
+);
+
+class_has '+order' => (
+    default => sub {
+        sub {
+            my $self = shift;
+            my $part = shift;
+            return ($self->devicepath() =~ s'^.+/''r cmp $part->devicepath() =~ s'^.+/''r);
+        }
+    }
+);
+
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Disk');
+            },
+            previous => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Disk');
+            },
+            next => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Disk');
+            },
+        }
+    }
+);
 
 1;
