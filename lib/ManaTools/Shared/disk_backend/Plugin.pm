@@ -122,6 +122,7 @@ has 'parent' => (
     is => 'ro',
     isa => 'ManaTools::Shared::disk_backend',
     required => 1,
+    handles => ['D','I','W','E'],
 );
 
 #=============================================================

@@ -98,7 +98,8 @@ has 'backend' => (
     lazy => 1,
     init_arg => undef,
     default => sub {
-        return ManaTools::Shared::disk_backend->new();
+        my $self = shift;
+        return ManaTools::Shared::disk_backend->new(logger => $self->logger());
     }
 );
 

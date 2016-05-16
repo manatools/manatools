@@ -67,6 +67,68 @@ use Moose;
 use File::Basename;
 use Module::Path qw(module_path);
 
+use ManaTools::Shared::Locales;
+use ManaTools::Shared::Logging;
+
+#=============================================================
+
+=head2 loc
+
+    loc attribute defines localization object that uses "manatools"
+    domain as default. (see ManaTools::Shared::Locales for details).
+    To use your own Module domain, override this attribute by using
+        has '+loc' => (
+            ...
+        )
+    or assign it again to your ManaTools::Shared::Locales object into
+    the extension module implementation.
+
+=cut
+
+#=============================================================
+has 'loc' => (
+    is => 'rw',
+    isa => 'ManaTools::Shared::Locales',
+    lazy => 1,
+    default => sub {
+        return ManaTools::Shared::Locales->new();
+    }
+);
+
+
+#=============================================================
+
+=head2 logger
+
+    logger attribute defines logging object that uses the loc attribute
+    and goes to Syslog. (see ManaTools::Shared::Logging for details).
+    You can use this attribute to log various messages:
+
+        $log->D("debugstuff: %s", $somestring);
+        $log->I("infostuff: %s", $somestring);
+        $log->W("warnstuff: %s", $somestring);
+        $log->E("errorstuff: %s", $somestring);
+
+    if you wish to trace (goes to STDERR):
+
+        $log->trace(1);
+
+=cut
+
+#=============================================================
+has 'logger' => (
+    is => 'rw',
+    isa => 'ManaTools::Shared::Logging',
+    lazy => 1,
+    init_arg => undef,
+    required => 0,
+    default => sub {
+        my $self = shift;
+        # make sure to trigger loc & name first
+        return ManaTools::Shared::Logging->new(loc => $self->loc(), ident => 'disk_backend');
+    },
+    handles => ['D','I','W','E'],
+);
 
 has 'plugins' => (
     is => 'ro',

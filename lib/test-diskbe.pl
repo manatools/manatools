@@ -65,6 +65,8 @@ sub dumppart {
 
 my $db_man = ManaTools::Shared::disk_backend->new();
 
+#$db_man->logger->trace(1);
+
 $db_man->probe();
 
 my $mode = 'disks';
