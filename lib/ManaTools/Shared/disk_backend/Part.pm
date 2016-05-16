@@ -146,13 +146,6 @@ has 'loaded' => (
     default => sub {
         my $self = shift;
         return $self;
-    },
-    trigger => sub {
-        my $self = shift;
-        my $new = shift;
-        my $old = shift;
-        $self->remove_taglinks($old, 'loaded') if (defined $old);
-        $self->add_taglink($new, 'loaded') if (defined $new);
     }
 );
 
@@ -164,13 +157,6 @@ has 'probed' => (
     default => sub {
         my $self = shift;
         return $self;
-    },
-    trigger => sub {
-        my $self = shift;
-        my $new = shift;
-        my $old = shift;
-        $self->remove_taglinks($old, 'probed') if (defined $old);
-        $self->add_taglink($new, 'probed') if (defined $new);
     }
 );
 
@@ -182,13 +168,6 @@ has 'saved' => (
     default => sub {
         my $self = shift;
         return $self;
-    },
-    trigger => sub {
-        my $self = shift;
-        my $new = shift;
-        my $old = shift;
-        $self->remove_taglinks($old, 'saved') if (defined $old);
-        $self->add_taglink($new, 'saved') if (defined $new);
     }
 );
 
@@ -243,9 +222,6 @@ sub _reverse_tag {
     return 'next' if ($tag eq 'previous');
     return undef if ($tag eq 'first');
     return undef if ($tag eq 'last');
-    return undef if ($tag eq 'loaded');
-    return undef if ($tag eq 'probed');
-    return undef if ($tag eq 'saved');
     return $tag;
 }
 
@@ -426,8 +402,7 @@ sub _save {
 
 sub save {
     my $self = shift;
-    $self->_save();
-    # TODO: merge loaded into saved
+    return $self->_save();
 }
 
 sub _diff {
@@ -490,37 +465,6 @@ sub label {
     my $self = shift;
 
     return $self->type;
-}
-
-#=============================================================
-
-=head2 is_equal
-
-=head3 INPUT
-
-    $part: ManaTools::Shared::disk_backend::Part
-
-=head3 OUTPUT
-
-    bool
-
-=head3 DESCRIPTION
-
-    this method checks if the given part is equal to self
-
-=cut
-
-#=============================================================
-sub is_equal {
-    my $self = shift;
-    my $part = shift;
-
-    return 0 if ($self->label() ne $part->label());
-    return 0 if ($self->type() ne $part->type());
-    return 0 if (!$self->ins()->is_equal($part->ins()));
-    return 0 if (!$self->outs()->is_equal($part->outs()));
-
-    return 1;
 }
 
 #=============================================================
