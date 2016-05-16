@@ -433,15 +433,15 @@ sub mkchild {
                     # insert
                     if ($i == 0) {
                         # remove first tag from first
-                        $self->remove_taglink($children[$i], 'first');
+                        $self->remove_taglinks($children[$i], 'first');
 
                         # tag it first
                         push @tags, 'first';
                     }
                     else {
                         # decouple prev and next
-                        $children[$i - 1]->remove_taglink($children[$i], 'next');
-                        $children[$i]->remove_taglink($children[$i - 1], 'previous');
+                        $children[$i - 1]->remove_taglinks($children[$i], 'next');
+                        $children[$i]->remove_taglinks($children[$i - 1], 'previous');
 
                         # tag to the previous one
                         $part->add_taglink($children[$i - 1], 'previous');
@@ -457,7 +457,7 @@ sub mkchild {
                 # append it instead
                 if ($i > 0) {
                     # remove last tag from previous one, and tag it previous
-                    $self->remove_taglink($children[$i - 1], 'last');
+                    $self->remove_taglinks($children[$i - 1], 'last');
                     $part->add_taglink($children[$i - 1], 'previous');
                 }
                 else {
@@ -919,7 +919,15 @@ sub remove_tag {
     my $i = scalar(@{$tags});
     while ($i > 0) {
         $i = $i - 1;
-        splice @{$tags}, $i, 1 if ($tags->[$i] == $tag);
+        splice @{$tags}, $i, 1 if ($tags->[$i] eq $tag);
+    }
+}
+
+sub remove_tags {
+    my $self = shift;
+    my @tags = @_;
+    for my $tag (@tags) {
+        $self->remove_tag($tag);
     }
 }
 
