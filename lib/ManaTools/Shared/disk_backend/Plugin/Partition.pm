@@ -377,6 +377,16 @@ class_has '+type' => (
     default => 'PartitionElement'
 );
 
+class_has '+order' => (
+    default => sub {
+        return sub {
+            my $self = shift;
+            my $part = shift;
+            return $self->prop('offset') <=> $part->prop('offset');
+        }
+    }
+);
+
 class_has '+restrictions' => (
     default => sub {
         return {

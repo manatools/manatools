@@ -119,6 +119,13 @@ class_has 'type' => (
     default => 'Part'
 );
 
+class_has 'order' => (
+    is => 'ro',
+    init_arg => undef,
+    isa => 'Bool',
+    default => undef,
+);
+
 class_has 'in_restriction' => (
     is => 'ro',
     init_arg => undef,
@@ -360,6 +367,18 @@ sub find_parts {
     return @res;
 }
 
+sub children {
+    my $self = shift;
+    my @children = $self->find_parts(undef, 'child');
+    return @children if (scalar(@children) == 0 || !defined $children[0]->order());
+    my $child = $self->find_part(undef, 'first');
+    @children = ($child);
+    while ($child = $child->find_part(undef, 'next')) {
+        push @children, $child;
+    }
+    return @children;
+}
+
 sub find_recursive_parts {
     my $self = shift;
     my $parttype = shift;
@@ -387,6 +406,102 @@ sub mkpart {
     my $part = $db->mkpart($parttype, $parameters);
     $self->add_taglink($part, @tags);
     return $part;
+}
+
+sub mkchild {
+    my $self = shift;
+    my $parttype = shift;
+    my $parameters = shift;
+    my @tags = @_;
+    my $db = $self->db();
+    # make the part
+    my $part = $db->mkpart($parttype, $parameters);
+
+    # add a sibling tag to all other children
+    my @children = $self->children();
+    for my $child (@children) {
+        $part->add_taglink($child, 'sibling');
+    }
+
+    # if child has order, insert the child in 'previous' and 'next' tags, and re-mark 'first' and 'last' if applicable
+    my $order = $part->order();
+    if (defined $order) {
+        for (my $i = 0; $i <= scalar(@children); $i = $i + 1) {
+            if ($i < scalar(@children)) {
+                if ($order->($part, $children[$i]) < 0) {
+                    # insert
+                    if ($i == 0) {
+                        # remove first tag from first
+                        $self->remove_taglink($children[$i], 'first');
+
+                        # tag it first
+                        push @tags, 'first';
+                    }
+                    else {
+                        # decouple prev and next
+                        $children[$i - 1]->remove_taglink($children[$i], 'next');
+                        $children[$i]->remove_taglink($children[$i - 1], 'previous');
+
+                        # tag to the previous one
+                        $part->add_taglink($children[$i - 1], 'previous');
+                    }
+                    # tag to the next one
+                    $part->add_taglink($children[$i], 'next');
+
+                    # make sure it doesn't go through this again
+                    last;
+                }
+            }
+            else {
+                # append it instead
+                if ($i > 0) {
+                    # remove last tag from previous one, and tag it previous
+                    $self->remove_taglink($children[$i - 1], 'last');
+                    $part->add_taglink($children[$i - 1], 'previous');
+                }
+                else {
+                    # tag it first as well (because, there are no other children!)
+                    push @tags, 'first';
+                }
+                # tag it last
+                push @tags, 'last';
+            }
+        }
+    }
+
+    # tag the new part
+    unshift @tags, 'child';
+    $self->add_taglink($part, @tags);
+    return $part;
+}
+
+sub trychild {
+    my $self = shift;
+    my $partstate = shift;
+    my $identify = shift;
+    my $parttype = shift;
+    my $parameters = shift;
+    my @tags = @_;
+    my %params = ();
+
+    # try to look for the child if it exists already
+    for my $child ($self->children()) {
+        # use the identification function
+        if (!defined $identify || $identify->($child, $parameters)) {
+            # if it's the state we're looking for, just return it
+            if ($child->is_state($partstate)) {
+                return $child;
+            }
+            # assign a link to the others, in case we'll need to create it
+            # this way, it'll be already linked to the others
+            $parameters->{loaded} = $child if ($child->is_loaded());
+            $parameters->{probed} = $child if ($child->is_probed());
+            $parameters->{saved} = $child if ($child->is_saved());
+        }
+    }
+
+    # make a new child
+    return $self->mkchild($parttype, $parameters, @tags);
 }
 
 sub changedpart {
