@@ -104,7 +104,7 @@ override ('changedpart', sub {
 
     ## LOAD
     # read the partition table
-    if ($partstate == ManaTools::Shared::disk_backend::Part->PastState) {
+    if ($partstate == ManaTools::Shared::disk_backend::Part->LoadedState) {
         # only BlockDevices for loading
         return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
         my $pt = $self->_mkparttable($part);
@@ -148,7 +148,8 @@ override ('changedpart', sub {
 
     ## PROBE
     # check in the kernel partition table by reading /sys
-    if ($partstate == ManaTools::Shared::disk_backend::Part->PresentState) {
+    if ($partstate == ManaTools::Shared::disk_backend::Part->CurrentState) {
+        $self->D("$self: called changepart for probing partitiontable on $part");
         # only BlockDevices for loading
         return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
 
