@@ -412,7 +412,9 @@ sub _diff {
 sub diff {
     my $self = shift;
     my $partstate = shift;
+    # get the other part
     my $part = $self->part_state($partstate);
+    return () if (!defined $part);
 
     return $self->_diff($part, $partstate);
 }
