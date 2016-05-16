@@ -368,6 +368,18 @@ sub find_parts {
     return @res;
 }
 
+sub find_part {
+    my $self = shift;
+    my $parttype = shift;
+    my @tags = @_;
+    my $links = $self->links();
+    my @res = ();
+    for my $link (@{$links}) {
+        return $link->part() if ($link->check($self, $parttype, @tags));
+    }
+    return undef;
+}
+
 sub children {
     my $self = shift;
     my @children = $self->find_parts(undef, 'child');
