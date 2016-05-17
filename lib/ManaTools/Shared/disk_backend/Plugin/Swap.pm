@@ -98,7 +98,26 @@ override ('probe', sub {
     <F>;
     while (my $line = <F>) {
         my @fields = split(/[ \t\r\n]+/, $line);
-        my $part = $self->parent->mkpart('Swap', {path => $fields[0], plugin => $self});
+
+        # look or create the part
+        my $part = $self->parent->trypart(ManaTools::Shared::disk_backend::Part->LoadedState, sub {
+            my $part = shift;
+            my $parameters = shift;
+            return ($part->path() eq $parameters->{path});
+        }, 'Swap', {path => $fields[0], plugin => $self, loaded => undef, saved => undef});
+
+        # look for the parent part if not set
+        if (!$part->has_link(undef, 'parent')) {
+            my @stat = stat($fields[0]);
+            if (($stat[2] >> 13) == 3) {
+                my $dev = $stat[6];
+                my $minor = $dev % 256;
+                my $major = int (($dev - $minor) / 256);
+                my @parents = $self->parent->findpartprop(undef, 'dev', $major .':'. $minor);
+                $part->add_taglink($parents[0], 'parent') if (scalar(@parents) > 0);
+            }
+        }
+
         $part->prop('filename', $fields[0]);
         $part->prop('swaptype', $fields[1]);
         $part->prop('size', $fields[2]);
@@ -194,6 +213,49 @@ class_has '+in_restriction' => (
 class_has '+out_restriction' => (
     default => sub {
         return sub {return 0;};
+    }
+);
+
+class_has '+order' => (
+    default => sub {
+        sub {
+            my $self = shift;
+            my $part = shift;
+            return ($self->prop('priority') <=> $part->prop('priority'));
+        }
+    }
+);
+
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->does('ManaTools::Shared::disk_backend::BlockDevice') || $part->does('ManaTools::Shared::disk_backend::FileRole');
+            },
+            # TODO: memory Part?
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return 0;
+            },
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Swap');
+            },
+            previous => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Swap');
+            },
+            next => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Swap');
+            },
+        }
     }
 );
 
