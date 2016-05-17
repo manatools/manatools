@@ -122,7 +122,7 @@ has '+name' => (
 );
 
 override('_iconInitializer', sub {
-    return (File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png'),
+    return (File::ShareDir::dist_file(ManaTools::Shared::distName(), 'images/mageia.png'));
 });
 
 has 'settings' => (
