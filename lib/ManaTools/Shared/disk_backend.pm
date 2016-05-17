@@ -290,7 +290,7 @@ sub mkpart {
     my $parameters = shift;
     my $part = $class->new(%$parameters);
     $part->db($self);
-    push @{$self->parts}, $part;
+    push @{$self->parts()}, $part;
     return $part;
 }
 
@@ -683,6 +683,95 @@ sub findnopart {
 
 #=============================================================
 
+=head2 trypart
+
+=head3 INPUT
+
+    $partstate: PartState
+    $identify: CodeRef
+    $parttype: Str
+    $parameters: HashRef
+
+=head3 OUTPUT
+
+    ManaTools::Shared::disk_backend::Part
+
+=head3 DESCRIPTION
+
+    this method will return the first matching Part or create a Part if not found
+
+=cut
+
+#=============================================================
+sub trypart {
+    my $self = shift;
+    my $partstate = shift;
+    my $identify = shift;
+    my $parttype = shift;
+    my $parameters = shift;
+
+    # walk all parts and try to identify
+    my $part = $self->walkparts($parttype, sub {
+        my $part = shift;
+        my $partstate = shift;
+        my $identify = shift;
+        my $parameters = shift;
+
+        # use the identification function
+        if (!defined $identify || $identify->($part, $parameters)) {
+
+            # if it's the state we're looking for, just return it
+            return 1 if ($part->is_state($partstate));
+
+            # assign a link to the others, in case we'll need to create it
+            # this way, it'll be already linked to the others
+            $parameters->{loaded} = $part if ($part->is_loaded());
+            $parameters->{probed} = $part if ($part->is_probed());
+            $parameters->{saved} = $part if ($part->is_saved());
+        }
+    }, $partstate, $identify, $parameters);
+
+    # create the part if it doesn't exist yet
+    $part = $self->mkpart($parttype, $parameters) if (!defined $part);
+    return $part;
+}
+
+#=============================================================
+
+=head2 walkparts
+
+=head3 INPUT
+
+    $parttype: Str
+    $code: CodeRef
+    ...
+
+=head3 OUTPUT
+
+    a Plugin or undef
+
+=head3 DESCRIPTION
+
+    this method will return the first matching Plugin
+
+=cut
+
+#=============================================================
+sub walkparts {
+    my $self = shift;
+    my $parttype = shift;
+    my $code = shift;
+    my @parameters = @_;
+    for my $part (@{$self->parts()}) {
+        if (!defined $parttype || $part->type() eq $parttype) {
+            return $part if (!defined $code || $code->($part, @parameters));
+        }
+    }
+    return undef;
+}
+
+#=============================================================
+
 =head2 walkplugins
 
 =head3 INPUT
@@ -757,7 +846,7 @@ sub findpartprop {
     my $prop = shift;
     my $value = shift;
 
-    return grep {( !defined($type) || $type eq $_->type() ) && $_->has_prop($prop) && $_->prop($prop) eq $value} @{$self->parts};
+    return grep {(( !defined($type) || $type eq $_->type() ) && $_->has_prop($prop) && ($_->prop($prop) eq $value))} @{$self->parts()};
 }
 
 1;
