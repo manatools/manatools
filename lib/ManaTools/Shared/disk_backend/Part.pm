@@ -499,12 +499,13 @@ sub trychild {
 
     # try to look for the child if it exists already
     for my $child ($self->children()) {
+
         # use the identification function
         if (!defined $identify || $identify->($child, $parameters)) {
+
             # if it's the state we're looking for, just return it
-            if ($child->is_state($partstate)) {
-                return $child;
-            }
+            return $child if ($child->is_state($partstate));
+
             # assign a link to the others, in case we'll need to create it
             # this way, it'll be already linked to the others
             $parameters->{loaded} = $child if ($child->is_loaded());
