@@ -780,7 +780,7 @@ sub _loadCategories {
             );
             $self->D("Load categories: title content is <<%s>>", $title);
             my $icon = $tmp->{icon};
-            if ((substr( $icon, 0, 1) ne '/')) {
+            if (defined($icon) && (substr( $icon, 0, 1) ne '/')) {
                 # icon with relative path?
                 $icon = File::ShareDir::dist_file(ManaTools::Shared::distName(), $tmp->{icon});
             }
