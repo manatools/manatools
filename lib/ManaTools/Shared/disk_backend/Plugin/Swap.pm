@@ -100,7 +100,7 @@ override ('probe', sub {
         my @fields = split(/[ \t\r\n]+/, $line);
 
         # look or create the part
-        my $part = $self->parent->trypart(ManaTools::Shared::disk_backend::Part->LoadedState, sub {
+        my $part = $self->parent->trypart(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
             my $part = shift;
             my $parameters = shift;
             return ($part->path() eq $parameters->{path});
