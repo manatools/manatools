@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-04-28 15:12+0000\n"
+"PO-Revision-Date: 2016-05-18 15:22+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -2046,15 +2046,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
-msgstr ""
+msgstr "El servidor intermediari hauria de ser http://..."
 
 #: lib/ManaTools/Module/Proxy.pm:218
 msgid "Proxy should be http://... or https://..."
-msgstr ""
+msgstr "El servidor intermediari hauria de ser http://... o bé https://..."
 
 #: lib/ManaTools/Module/Proxy.pm:223
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr ""
+msgstr "L'URL hauria de començar amb \"ftp:\" o \"http:\""
 
 #: lib/ManaTools/Module/Proxy.pm:235
 msgid "Proxies configuration"
@@ -2086,19 +2086,19 @@ msgstr "Intermediari per a FTP"
 
 #: lib/ManaTools/Module/Proxy.pm:317
 msgid "No proxy for (comma separated list):"
-msgstr ""
+msgstr "No hi ha servidor intermediari per a (llista separada per comes):"
 
 #: lib/ManaTools/Module/Proxy.pm:352
 msgid "Graphical manager for proxies"
-msgstr ""
+msgstr "Gestor gràfic per a servidors intermediaris"
 
 #: lib/ManaTools/Module/Services.pm:89
 msgid "Services and daemons"
-msgstr ""
+msgstr "Serveis i dimonis"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "Start when requested"
-msgstr ""
+msgstr "Inicia quan el demanin"
 
 #: lib/ManaTools/Module/Services.pm:286
 msgid "running"
@@ -2155,11 +2155,17 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Traductors</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:521
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "S'inicia %s"
 
 #: lib/ManaTools/Module/Services.pm:541
 #, perl-format
@@ -3871,7 +3877,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr ""
+msgstr "Configura servidors intermediaris"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
@@ -3880,7 +3886,7 @@ msgstr "Ajusts del servidor intermediari: per al suport\"%s\""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "Paràmetres globals del servidor intermediari"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
@@ -3892,7 +3898,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
-msgstr ""
+msgstr "Habilita el servidor intermediari"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
@@ -4492,6 +4498,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"No es pot seleccionar el paquet següent:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1473
 #, perl-format
@@ -4500,27 +4509,30 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"No es poden seleccionar els paquets següents:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Some packages are selected."
-msgstr ""
+msgstr "S'han seleccionat alguns paquets."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "Esteu segur que voleu sortir?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1537
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "Error: sembla que %s està muntat només per a lectura."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1541
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "Cal que primer seleccioneu alguns paquets."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "Too many packages are selected"
-msgstr ""
+msgstr "Hi ha massa paquets seleccionats"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1547
 msgid ""
@@ -4540,7 +4552,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1658
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "Espereu, s'estan llistant els paquets..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1671
 msgid "No update"
@@ -4574,11 +4586,11 @@ msgstr "No hi ha descripció disponible per a aquest paquet\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Eina de gestió d'usuaris de Mageia"
 
 #: scripts/mpan~:34 scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "Mode de desenvolupament"
 
 #: scripts/mpan~:40 scripts/mpan:40
 msgid ""
@@ -4588,11 +4600,11 @@ msgstr ""
 
 #: scripts/mpan~:46 scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Títol de la finestra, Nom predeterminat"
 
 #: scripts/mpan~:69 scripts/mpan:69
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== Mode de desenvolupament ACTIVAT =="
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -4641,11 +4653,11 @@ msgstr ""
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "No s'ha trobat l'ordre <%s>!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr ""
+msgstr "ERROR: "
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
@@ -4678,19 +4690,19 @@ msgstr "Gestió de programari"
 
 #: modules/rpmdragora/dragoraUpdate:259
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "Resum"
 
 #: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "Versió"
 
 #: modules/rpmdragora/dragoraUpdate:262 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "Llançament"
 
 #: modules/rpmdragora/dragoraUpdate:263
 msgid "Arch"
@@ -4698,7 +4710,7 @@ msgstr "Arquitectura"
 
 #: modules/rpmdragora/dragoraUpdate:284
 msgid "U&ncheck all"
-msgstr ""
+msgstr "Desmarca-ho tot"
 
 #: modules/rpmdragora/dragoraUpdate:349
 msgid "dragoraUpdate is the Mageia package management tool."
@@ -4731,19 +4743,19 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
-msgstr ""
+msgstr "S'ha interromput la cerca"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "Seleccionat"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
-msgstr ""
+msgstr "No seleccionat"
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
-msgstr ""
+msgstr "No hi ha cap resultat de cerca."
 
 #: modules/rpmdragora/rpmdragora:376
 #, perl-format
@@ -4751,60 +4763,62 @@ msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
 msgstr ""
+"No hi ha resultats de cerca. Potser voleu tornar a la vista «%s» i al filtre "
+"«%s»"
 
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "Seleccionats: %s / Espai de disc disponible: %s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "Paquet"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
-msgstr ""
+msgstr "Arq."
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
-msgstr ""
+msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "No instal·lat"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Mostra %s i només sense arq"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr ""
+msgstr "Tots els paquets, alfabèticament"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr ""
+msgstr "Tots els paquets, per grup"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "Només les fulles, ordenades per data d'instal·lació"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "Tots els paquets, per disponibilitat d'actualització"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "Tots els paquets, per estat de selecció"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr ""
+msgstr "Tots els paquets, per mida"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "Tots els paquets, per dipòsit"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
@@ -4812,7 +4826,7 @@ msgstr "Backports"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "Metapaquets"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
@@ -4820,79 +4834,79 @@ msgstr "Paquets amb interfície gràfica"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr ""
+msgstr "Totes les actualitzacions"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr ""
+msgstr "Actualitzacions de seguretat"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Actualitzacions de correccions d'errors"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "Actualitzacions generals"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
-msgstr ""
+msgstr "en noms"
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "en descripcions"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "en resums"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
-msgstr ""
+msgstr "en noms de fitxers"
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr ""
+msgstr "Reinicialitza"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Aplica"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/_Selecciona les dependències sense preguntar-ho"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "Buida la memòria cau després d'una instal·lació amb èxit"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/_Calcula les actualitzacions a l'arrencada"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Cerca en _noms complets de paquet"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Utilitza expressions _regulars a les cerques"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "/_Reinicia la selecció"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
-msgstr ""
+msgstr "/_Recarrega la llista de paquets"
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "Paràmetres"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
@@ -4900,7 +4914,7 @@ msgstr "Gestor dels &mitjans"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
-msgstr ""
+msgstr "Vista"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
@@ -4919,11 +4933,17 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Traductors</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1209
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdragora ja s'està executant (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
@@ -4986,7 +5006,7 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Executa l'eina d'actualització de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
@@ -5088,7 +5108,7 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Executa l'eina d'instal·lació i eliminació de programari de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
@@ -5098,22 +5118,22 @@ msgstr ""
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Plafó de Mageia"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Categories"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Instal·la i elimina programari"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "Actualitza el sistema"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -5123,7 +5143,7 @@ msgstr "Configura els mitjans per a la instal·lació i l'actualització"
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Xarxa i Internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5140,7 +5160,7 @@ msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Una interfície gràfica per actualitzar paquets"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
