@@ -1,13 +1,13 @@
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
-# Marek Laane <qiilaq69@gmail.com>, 2015.
+# Marek Laane <qiilaq69@gmail.com>, 2015, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2015-08-07 02:42+0300\n"
+"PO-Revision-Date: 2016-05-27 01:01+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <i18n-et@ml.mageia.org>\n"
 "Language: et\n"
@@ -44,12 +44,11 @@ msgid "GPLv2"
 msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:299
-#, fuzzy
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr "mpan on mana-toolsi paneel, mis koondab kõik tööriistad."
+msgstr "mpan on ManaToolsi paneel, mis koondab kõik tööriistad."
 
 #: lib/ManaTools/MainDisplay.pm:300
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -61,6 +60,7 @@ msgid ""
 msgstr ""
 "<h3>Arendajad</h3>\n"
 "                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Tõlkijad</h3>\n"
@@ -107,36 +107,38 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Vigane seadistusfail, %s ei ole xml:lang atribuut, eeldatakse, et see "
+"on string"
 
 #: lib/ManaTools/MainDisplay.pm:636
-#, fuzzy, perl-format
+#, perl-format
 msgid "Configuration file %s is missing"
-msgstr "NTP seadistuse määramine nurjus"
+msgstr "Seadistusfail %s puudub"
 
 #: lib/ManaTools/MainDisplay.pm:641
-#, fuzzy, perl-format
+#, perl-format
 msgid "Reading configuration file %s"
-msgstr "Seadistusfailide uurimine..."
+msgstr "Seadistusfaili %s lugemine"
 
 #: lib/ManaTools/MainDisplay.pm:658
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Seadistuste laadimine: %s sisu on <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Kategooriafaili %s parsimine"
 
 #: lib/ManaTools/MainDisplay.pm:825
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Kategooriate laadimine: tiitli sisu on <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:860
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Kategooriate laadimine: mooduli tiitel on <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -186,19 +188,17 @@ msgstr "Ei"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
-#, fuzzy
 msgid "&Select"
-msgstr "Vali"
+msgstr "&Vali"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
-msgstr ""
+msgstr "<dir> lisakataloog lokaliseerimisstringidega (ainult arendajatele)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
-#, fuzzy
 msgid "Prints this usage information."
-msgstr "Teabe muutmine"
+msgstr "Kasutamisteabe näitamine."
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -258,38 +258,39 @@ msgstr "Loobuda kohandatud reeglitest"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "käivitamine you gtk pluginaga"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "käivitamine yui ncursesi pluginaga"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "käivitamine yui qt pluginaga"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "dialoogide kuvamine täisekraanirežiimis"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "dialoogides ei kasutata aknahalduri piirdeid"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> lisakataloog seadistusfailidega iga mooduli jaoks (nt. "
+"moodulinimi/config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:411
 msgid "&Reset"
 msgstr "Lä&htesta"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:418
-#, fuzzy
 msgid "&Close"
-msgstr "/Sulge"
+msgstr "Sul&ge"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
@@ -1088,9 +1089,8 @@ msgid "Empty log found"
 msgstr "Leiti tühi logi"
 
 #: lib/ManaTools/Module/LogViewer.pm:439
-#, fuzzy
 msgid "manalog - running in user mode"
-msgstr "Töötamine kasutaja õigustega"
+msgstr "manalog - töötamine kasutaja õigustega"
 
 #: lib/ManaTools/Module/LogViewer.pm:440
 msgid ""
@@ -1618,9 +1618,8 @@ msgid "Search:"
 msgstr "Otsing:"
 
 #: lib/ManaTools/Module/Users.pm:2537
-#, fuzzy
 msgid "Apply &filter"
-msgstr "Rakenda filter"
+msgstr "Rakenda &filter"
 
 #: lib/ManaTools/Module/Clock.pm:127
 msgid "Date, Clock & Time Zone Settings"
@@ -1635,7 +1634,7 @@ msgstr ""
 "ning täpsustada kuupäeva ja kellaaega"
 
 #: lib/ManaTools/Module/Clock.pm:218
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1643,9 +1642,9 @@ msgid ""
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
 "<h3>Arendajad</h3>\n"
-"                                            <ul><li>%s</li></ul>\n"
-"                                            <h3>Tõlkijad</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Tõlkijad</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:234
 msgid "Restore data"
@@ -1697,9 +1696,8 @@ msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr "Palun paigaldage haldamiseks NTP teenus, näiteks chrony või ntp"
 
 #: lib/ManaTools/Module/Clock.pm:462
-#, fuzzy
 msgid "Choose &NTP server"
-msgstr "NTP serveri valimine"
+msgstr "&NTP serveri valimine"
 
 #: lib/ManaTools/Module/Clock.pm:478
 msgid "NTP server - DrakClock"
@@ -1710,19 +1708,16 @@ msgid "Choose your NTP server"
 msgstr "NTP serveri valimine"
 
 #: lib/ManaTools/Module/Clock.pm:509
-#, fuzzy
 msgid "&Local NTP server"
-msgstr "Muuda &NTP serverit"
+msgstr "&Kohalik NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:522
-#, fuzzy
 msgid "Set local NTP server"
-msgstr "NTP serveri valimine"
+msgstr "Kohaliku NTP serveri seadistamine"
 
 #: lib/ManaTools/Module/Clock.pm:526
-#, fuzzy
 msgid "Please set your local NTP server"
-msgstr "NTP serveri valimine"
+msgstr "Palun seadistage kohalik NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
 msgid "Current:"
@@ -1757,9 +1752,8 @@ msgid "Is your hardware clock set to GMT?"
 msgstr "Kas arvuti sisekell on seatud GMT ajale?"
 
 #: lib/ManaTools/Module/Hosts.pm:51
-#, fuzzy
 msgid "manahost - manage hosts definitions"
-msgstr "Masinamääratluste haldamine"
+msgstr "manahist - masinamääratluste haldamine"
 
 #: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
 #: lib/ManaTools/Module/Hosts.pm:424
@@ -1838,18 +1832,17 @@ msgstr "Kas tõesti loobuda sellest masinast?"
 
 #: lib/ManaTools/Module/Hosts.pm:499 lib/ManaTools/Module/Firewall.pm:179
 #: lib/ManaTools/Module/DisplayManager.pm:266
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr "Autoriõigus (C) %s: Mandriva"
+msgstr "Autoriõigus (C) %s: Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:501
 msgid "Graphical manager for hosts definitions"
 msgstr "Masinamääratluste graafiline haldur"
 
 #: lib/ManaTools/Module/Firewall.pm:89
-#, fuzzy
 msgid "manawall - Firewall Manager"
-msgstr "manawall: tulemüüri haldur"
+msgstr "manawall - tulemüüri haldur"
 
 #: lib/ManaTools/Module/Firewall.pm:203
 msgid "Port scan detection"
@@ -2003,9 +1996,8 @@ msgstr ""
 "    Mida soovite ette võtta?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
-#, fuzzy
 msgid "manadm - Display Manager"
-msgstr "Kuvahaldur"
+msgstr "manadm - kuvahaldur"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "LightDM (The Light Display Manager)"
@@ -2046,9 +2038,8 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Süsteemi kuvahalduri graafiline seadistamine"
 
 #: lib/ManaTools/Module/Proxy.pm:56
-#, fuzzy
 msgid "manaproxy - Proxy configuration"
-msgstr "Puhverserverite seadistamine"
+msgstr "manaproxy - puhverserverite seadistamine"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2216,12 +2207,11 @@ msgstr "Rohkem ei küsita"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Jah"
 
 #: lib/ManaTools/rpmdragora.pm:362
-#, fuzzy
 msgid "&No"
-msgstr "Ei"
+msgstr "&Ei"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4606,24 +4596,24 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia kasutajate lisamise tööriist"
 
 #: scripts/mpan~:34 scripts/mpan:34
-#, fuzzy
 msgid "Developers mode"
-msgstr "Arendus"
+msgstr "Arendajate režiim"
 
 #: scripts/mpan~:40 scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Rakenduse nimi, kasutatakse logimise identifikaatorina ja "
+"x rakenduse seadistamise kataloogina. Vaikimisi mpan."
 
 #: scripts/mpan~:46 scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Akna tiitel. Vaikimisi nime väärtus"
 
 #: scripts/mpan~:69 scripts/mpan:69
-#, fuzzy
 msgid "== Development mode ON =="
-msgstr "Arendus"
+msgstr "== Arendusrežiim SEES =="
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -4818,7 +4808,7 @@ msgstr "Paigaldamata"
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Ainult %s ja noarch näitamine"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4901,9 +4891,8 @@ msgid "Reset"
 msgstr "Lähtesta"
 
 #: modules/rpmdragora/rpmdragora:656
-#, fuzzy
 msgid "&Apply"
-msgstr "Rakenda"
+msgstr "&Rakenda"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -5036,40 +5025,39 @@ msgstr "Andmekandja %s edukalt lisatud."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Mageia tarkvara uuendamise tööriista käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
-msgstr ""
+msgstr "Mageia uuendamise tööriista rpmdragora käivitamiseks on vaja autentida"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Mageia kuupäeva ja kellaaja seadistamise käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Mageia kuupäeva ja kellaaja seadistamiseks on vaja autentida"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
-#, fuzzy
 msgid "Run Mageia Login Manager Configuration"
-msgstr "manadm: sisselogimishalduri seadistamine"
+msgstr "Mageia sisselogimishalduri seadistamise käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Mageia sisselogimishalduri seadistamiseks on vaja autentida"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Graafilise halduspaneeli lubamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5077,16 +5065,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Programmi manahost käivitamiseks on vaja autentida (kasutaja=$(user), "
+"programm=$(program), käsurida=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia loginäitaja käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia loginäitaja käivitamiseks on vaja autentida"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -5094,39 +5084,38 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Programmi manaproxy käivitamiseks on vaja autentida (kasutaja=$(user), "
+"programm=$(program), käsurida=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
-#, fuzzy
 msgid "Run Mageia Service Configuration"
-msgstr "Puhverserverite seadistamine"
+msgstr "Mageia teenuste seadistamise käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Mageia teenuste seadistamiseks on vaja autentida"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
-#, fuzzy
 msgid "Run Mageia User Manager"
-msgstr "&Tarkvaraallikate haldur"
+msgstr "Mageia kasutajate halduri käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Mageia kasutajate halduri käivitamiseks on vaja autentida"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
-#, fuzzy
 msgid "Run Mageia Firewall Configuration"
-msgstr "Tulemüüri seadistused"
+msgstr "Mageia tulemüüri seadistamise käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Mageia tulemüüri seadistamiseks on vaja autentida"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5134,240 +5123,197 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Programmi apanel käivitamiseks on vaja autentida (kasutaja=$(user), programm="
+"$(program), käsurida=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
-#, fuzzy
 msgid "Run Mageia install and remove software"
-msgstr "See pakett ei ole vaba tarkvara"
+msgstr "Mageia tarkvara paigaldamise ja eemaldamise käivitamine"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Mageia tarkvarahalduri käivitamiseks on vaja autentida"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Mageia uuendused"
+msgstr "Mageia paneel"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategooriad"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Tarkvara paigaldamine ja eemaldamine"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
-#, fuzzy
 msgid "Update your System"
-msgstr "Ainult uuendusallikad"
+msgstr "Süsteemi uuendamine"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Andmeallikate seadistamine tarkvara paigaldamiseks ja uuendamiseks"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Võrk &amp;&amp; internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Algkäivitus"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "rpmdragora uuendused"
+msgstr "rpmdragora - Mageia uuendamine"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Tarkvara uuendamise graafiline kasutajaliides"
 
 #: extras/desktop/manaclock.desktop.in:3
-#, fuzzy
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "Kuupäeva, kellaaja ja ajavööndi seadistamine"
+msgstr "manaclock - kuupäeva, kellaaja ja ajavööndi seadistamine"
 
 #: extras/desktop/manaclock.desktop.in:4
-#, fuzzy
 msgid "ManaTools clock manager"
-msgstr "manahost: masinate haldur"
+msgstr "ManaToolsi kellaaja haldur"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
-#, fuzzy
 msgid "manadm - login configuration manager"
-msgstr "manadm: sisselogimishalduri seadistamine"
+msgstr "manadm - sisselogimishalduri seadistamine"
 
 #: extras/desktop/manadm.desktop.in:4
-#, fuzzy
 msgid "ManaTools login configuration manager"
-msgstr "manadm: sisselogimishalduri seadistamine"
+msgstr "ManaToolsi sisselogimishalduri seadistamine"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
-#, fuzzy
 msgid "manahost - Host and hostname manager"
-msgstr "manahost: masinate haldur"
+msgstr "manahost - masinate ja masinanimede haldur"
 
 #: extras/desktop/manahost.desktop.in:4
-#, fuzzy
 msgid "ManaTools host manager"
-msgstr "manahost: masinate haldur"
+msgstr "ManaToolsi masinate haldur"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr "manalog: journalct logi lugeja"
+msgstr "manalog - journalctl logi näitaja administraatori režiimis"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaToolsi loginäitaja administraatori režiimis"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
-#, fuzzy
 msgid "manaproxy - Proxy configuration manager"
-msgstr "Puhverserverite seadistamine"
+msgstr "manaproxy - puhverserverite haldur"
 
 #: extras/desktop/manaproxy.desktop.in:4
-#, fuzzy
 msgid "ManaTools proxy manager"
-msgstr "manaproxy: puhverserverite haldur"
+msgstr "ManaToolsi puhverserverite haldur"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
-#, fuzzy
 msgid "manaservice - Service configuration manager"
-msgstr "manaservice: teenuste haldur"
+msgstr "manaservice - teenuste haldur"
 
 #: extras/desktop/manaservice.desktop.in:4
-#, fuzzy
 msgid "ManaTools service manager"
-msgstr "manaservice: teenuste haldur"
+msgstr "ManaToolsi teenuste haldur"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
-#, fuzzy
 msgid "manauser - Users and Groups Manager"
-msgstr "manauser: kasutajate haldur"
+msgstr "manauser - kasutajate ja gruppide haldur"
 
 #: extras/desktop/manauser.desktop.in:4
-#, fuzzy
 msgid "ManaTools user manager"
-msgstr "manauser: kasutajate haldur"
+msgstr "ManaToolsi kasutajate haldur"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
-#, fuzzy
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr "manalog: journalct logi lugeja"
+msgstr "manalog - journalctl logi näitaja kasutaja režiimis"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaToolsi loginäitaja kasutaja režiimis"
 
 #: extras/desktop/manawall.desktop.in:3
-#, fuzzy
 msgid "manawall - firewall configuration manager"
-msgstr "manawall: tulemüüri haldur"
+msgstr "manawall - tulemüüri haldur"
 
 #: extras/desktop/manawall.desktop.in:4
-#, fuzzy
 msgid "ManaTools firewall configurator"
-msgstr "Tulemüüri seadistused"
+msgstr "ManaToolsi tulemüüri seadistamine"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaToolsi juhtimispaneel"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaToolsi paneel - rakenduste käivitaja"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Install & Remove Software"
-msgstr "See pakett ei ole vaba tarkvara"
+msgstr "rpmdragora - tarkvara paigaldamine ja eemaldamine"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
+"Tarkvara paigaldamise, eemaldamise ja uuendamise graafiline kasutajaliides"
 
 #~ msgid "Select all"
 #~ msgstr "Vali kõik"
-
-#~ msgid "Exit"
-#~ msgstr "Välju"
-
-#~ msgid "Quit"
-#~ msgstr "Välju"
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "/usr/bin/dragoraUpdate"
-#~ msgstr "rpmdragora uuendused"
-
-#, fuzzy
-#~ msgid "images/rpmdragora/title-update.png"
-#~ msgstr "rpmdragora uuendused"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "Kuvahaldur"
-
-#~ msgid "adminService"
-#~ msgstr "adminService"
 
 #~ msgid ""
 #~ "<h3>Developers</h3>\n"
@@ -5379,3 +5325,12 @@ msgstr ""
 #~ "                                                    <ul><li>%s</li></ul>\n"
 #~ "                                                    <h3>Tõlkijad</h3>\n"
 #~ "                                                    <ul><li>%s</li></ul>"
+
+#~ msgid "adminService"
+#~ msgstr "adminService"
+
+#~ msgid "Exit"
+#~ msgstr "Välju"
+
+#~ msgid "Quit"
+#~ msgstr "Välju"
