@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-03-13 21:27+0100\n"
-"PO-Revision-Date: 2016-05-24 16:52+0000\n"
+"PO-Revision-Date: 2016-06-01 16:58+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -785,6 +785,8 @@ msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
 msgstr ""
+"DBUS és un servei que difon les notificacions d'esdeveniments del sistema i "
+"altres missatges"
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
@@ -1089,7 +1091,7 @@ msgstr "&Desa"
 
 #: lib/ManaTools/Module/LogViewer.pm:327
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "El visualitzador de registres és un visualitzador del diari de systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:328
 #, perl-format
@@ -1395,7 +1397,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:1026
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "S'està posant %s al grup \"users\""
 
 #: lib/ManaTools/Module/Users.pm:1040
 #, perl-format
@@ -1710,11 +1712,12 @@ msgstr "Habilita el Network Time Protocol"
 
 #: lib/ManaTools/Module/Clock.pm:445
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: manca el servei NTP"
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
+"Si us plau, instal·leu un servei NTP com ara chrony o ntp per gestionar"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "Choose &NTP server"
@@ -1890,7 +1893,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:489
 msgid "Interactive Firewall"
-msgstr ""
+msgstr "Tallafoc interactiu"
 
 #: lib/ManaTools/Module/Firewall.pm:493
 msgid ""
@@ -1898,6 +1901,9 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Us podem avisar quan algú accedeixi a un servei o intenti entrar a "
+"l'ordinador.\n"
+"Seleccioneu les activitats de xarxa que cal vigilar. "
 
 #: lib/ManaTools/Module/Firewall.pm:499
 msgid "Use Interactive Firewall"
@@ -1939,6 +1945,9 @@ msgid ""
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
 msgstr ""
+"Podeu introduir ports diferents.\n"
+"Exemples vàlids: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Cerqueu informació a /etc/services."
 
 #: lib/ManaTools/Module/Firewall.pm:894
 msgid "Define miscellaneus ports"
@@ -1950,7 +1959,7 @@ msgstr "Altres ports"
 
 #: lib/ManaTools/Module/Firewall.pm:917
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "Registra els missatges del tallafoc al registre del sistema"
 
 #: lib/ManaTools/Module/Firewall.pm:972
 msgid "Invalid port given"
@@ -1965,6 +1974,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"El port introduït no és vàlid: %s.\n"
+"El format correcte és «port/tcp» o «port/udp», \n"
+"en què el port es troba entre 1 i 65535.\n"
+"\n"
+"També podeu donar intervals de ports (exemple: 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:1012
 msgid ""
@@ -1997,6 +2011,9 @@ msgid ""
 "up.\n"
 "    What do you want to do?"
 msgstr ""
+"La configuració del tallafoc s'ha editat manualment i conté regles\n"
+"que poden entrar en conflicte amb la configuració que s'acaba d'establir.\n"
+"Què voleu fer?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:57
 msgid "manadm - Display Manager"
@@ -2038,11 +2055,11 @@ msgstr "Elecció d'un gestor de pantalla"
 
 #: lib/ManaTools/Module/DisplayManager.pm:268
 msgid "Graphical configurator for system Display Manager"
-msgstr ""
+msgstr "Configurador gràfic per al gestor de pantalla del sistema"
 
 #: lib/ManaTools/Module/Proxy.pm:56
 msgid "manaproxy - Proxy configuration"
-msgstr ""
+msgstr "manaproxy - Configuració de servidor intermediari"
 
 #: lib/ManaTools/Module/Proxy.pm:213
 msgid "Proxy should be http://..."
@@ -2143,6 +2160,9 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva draxservice)."
 msgstr ""
+"L'adminService és l'eina de gestió de serveis i dimonis de Mageia\n"
+"\n"
+"(A partir de la idea original de Mandriva draxservice)."
 
 #: lib/ManaTools/Module/Services.pm:453
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
@@ -3604,6 +3624,8 @@ msgid ""
 "  --version              print this tool's version number\n"
 "                    "
 msgstr ""
+"   --version              imprimeix el número de versió d'aquesta eina\n"
+"                    "
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -4621,47 +4643,47 @@ msgstr "== Mode de desenvolupament ACTIVAT =="
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: lector de registres de journalctl"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: gestor d'usuaris"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: gestor de serveis"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: gestor de la configuració d'entrada"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: gestor de data i hora"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: gestor d'amfitrions"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: plafó admin"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy - gestor de servidor intermediari"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora - gestor d'Instal·lació d'rpm"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: gestor d'actualització d'rpm"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: gestor del tallafoc"
 
 #: scripts/mana:91
 #, perl-format
@@ -4684,15 +4706,15 @@ msgstr ""
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "<odres> vàlides:\n"
 
 #: modules/rpmdragora/dragoraUpdate:70
 msgid "Bug fixing"
-msgstr ""
+msgstr "Correcció d'errors"
 
 #: modules/rpmdragora/dragoraUpdate:72
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "Aquesta és la llista de les actualitzacions de paquets de programari:"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -4727,7 +4749,7 @@ msgstr "Desmarca-ho tot"
 
 #: modules/rpmdragora/dragoraUpdate:349
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate és l'eina de Mageia per a la gestió dels paquets."
 
 #: modules/rpmdragora/dragoraUpdate:350
 #, perl-format
@@ -4737,10 +4759,14 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Desenvolupadors</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Traductors</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:413
 msgid "rpmdragora update"
-msgstr ""
+msgstr "actualització d'rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:414
 msgid ""
@@ -4748,11 +4774,14 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"La llista d'actualitzacions està buida. Això vol dir que no hi ha\n"
+"cap actualització per als paquets instal·lats al vostre \n"
+"ordinador o bé que ja les heu instal·lades totes."
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "no hi ha xml-info disponible per al mitjà «%s»"
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
@@ -4961,6 +4990,7 @@ msgstr "rpmdragora ja s'està executant (pid: %s)"
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
 msgstr ""
+"<url> incorrecta (per a un directori local, cal especificar el camí complet)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4969,6 +4999,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Voleu continuar?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -5014,7 +5047,7 @@ msgstr "El mitjà %s s'ha afegit amb èxit."
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "El mitjà «%s» s'ha afegit amb èxit."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
@@ -5024,7 +5057,7 @@ msgstr "Executa l'eina d'actualització de Mageia"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
-msgstr ""
+msgstr "Cal autenticació per executar l'actualitzador de Mageia rpmdragora"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -5054,7 +5087,7 @@ msgstr ""
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Permet APanel GUI"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5165,11 +5198,11 @@ msgstr "Arrencada"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Actualització de Mageia"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
@@ -5177,127 +5210,128 @@ msgstr "Una interfície gràfica per actualitzar paquets"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - Data, rellotge i configuració del fus horari"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "Gestió del rellotge de ManaTools"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - gestor de la configuració d'entrada"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "Gestor de la configuració d'entrada de "
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - Gestor d'amfitrió i de nom d'amfitrió"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "Gestor d'amfitrió de ManaTools"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
 msgstr ""
+"manalog - Visualitzador de registres de Journalctl, mode d'administrador"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "Visualitzador de registres de ManaTools, mode d'administrador"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - Gestor de configuració de servidor intermediari"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "Gestor de servidor intermediari de ManaTools"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Gestor de configuració de serveis"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "Gestor de serveis de ManaTools"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - Gestor d'usuaris i grups"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "Gestor d'usuaris de ManaTools"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Visualitzador de registres de Journalctl, mode d'usuari"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "Visualitzador de registres de ManaTools, mode d'usuari"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall - Gestor de configuració del tallafoc"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "Gestor de configuració del tallafoc de ManaTools"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Plafó de control de Mageia ManaTools"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "Plafó de ManaTools - llançador d'aplicació"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - Instal·la i elimina programari"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
