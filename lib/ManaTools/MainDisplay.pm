@@ -789,7 +789,7 @@ sub _loadCategories {
             if (!$tmpCat) {
                 $tmpCat = new ManaTools::Category({
                     name => $title,
-                    icon => $icon,
+                    icon => $icon || "",
                 });
             }
             $self->_loadCategory($tmpCat);
