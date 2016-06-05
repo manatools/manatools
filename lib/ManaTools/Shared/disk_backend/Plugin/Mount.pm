@@ -66,6 +66,97 @@ has '+dependencies' => (
 
 #=============================================================
 
+=head2 changedpart
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
+    $partstate: PartState
+
+=head3 OUTPUT
+
+    0 if failed, 1 if success or unneeded
+
+=head3 DESCRIPTION
+
+    this overridden method will load/probe/save a mount point when it's called
+
+=cut
+
+#=============================================================
+override ('changedpart', sub {
+    my $self = shift;
+    my $part = shift;
+    my $partstate = shift;
+    $self->D("$self: called changepart for mount: $part, $partstate");
+
+    ## LOAD
+    # read the partition table
+    if ($partstate == ManaTools::Shared::disk_backend::Part->LoadedState) {
+        # only BlockDevices for loading
+    }
+
+    ## PROBE
+    # check in the kernel partition table by reading /sys
+    if ($partstate == ManaTools::Shared::disk_backend::Part->CurrentState) {
+        $self->D("$self: called changepart for probing partitiontable on $part");
+        # only BlockDevices for loading
+        return 1 if (!$part->does('ManaTools::Shared::disk_backend::Mountable'));
+
+        # TODO: we should look for changes wrt mounts
+        # we should check if this part is mounted or not and change accordingly
+
+        # keep in mind that the probe will have done all mounts already, and made a link to the original device if not the filesystem itself
+        # a filesystem could be mounted several times to different paths
+        # NOTE: this may not be necessary and probe could've already done everything
+
+        # there is no way to differentiate between an in-kernel empty partition table and no partition table
+        # so, we're not making an empty partition table entry for probed state
+        # since there is none, it'll just recreate the partition table (probably with the loaded state settings) anyway
+        #
+        # in any case, if there are no partition entries (in-kernel), we exit early.
+        my @devices = map { $_ =~ s'/size$''r } glob($part->devicepath(). "/*/size");
+        return 1 if (!scalar(@devices));
+
+        # look or make the PartitionTable as a child of the BlockDevice
+        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {plugin => $self, loaded => undef, saved => undef});
+        my @changedparts = ($parttable);
+
+        # find subdevices in /sys/
+        my $prevchild = undef;
+        for my $pf (@devices) {
+            # look or create the child with id based on the filename
+            my $child = $parttable->trychild($partstate, sub {
+                my $self = shift;
+                my $parameters = shift;
+                return ($self->devicepath() =~ s'^.+/''r eq $parameters->{devicepath} =~ s'^.+/''r);
+            },'PartitionElement', {plugin => $self, devicepath => $pf, loaded => undef, saved => undef});
+
+            # add the child to the changedparts
+            push @changedparts, $child;
+        }
+
+        # trigger changedpart on all children for other plugins to load further
+        for my $p (@changedparts) {
+            $p->changedpart($partstate);
+        }
+    }
+
+    ## SAVE
+    # save the partition table
+    if ($partstate == ManaTools::Shared::disk_backend::Part->FutureState) {
+        # in all child parts, find PartitionTable entries and trigger ->save();
+        for my $p ($part->find_parts(undef, 'child')) {
+            # TODO: need to be able to abort during save!!!
+            $p->save();
+        }
+    }
+
+    return 1;
+});
+
+#=============================================================
+
 =head2 probe
 
 =head3 OUTPUT
@@ -86,17 +177,77 @@ override ('probe', sub {
     open F, '</proc/self/mountinfo' or return 0;
     while (my $line = <F>) {
         my @fields = split(/ /, $line);
-        my $part = $self->parent->mkpart('Mount', {path => $fields[4], plugin => $self});
-        $part->prop('options', $fields[5]);
-        $part->prop('dev', $fields[2]);
-        $part->prop('id', $fields[0]);
-        $part->prop('parent', $fields[1]);
-        $part->prop('srcdevpath', $fields[3]);
-        $part->prop('fstype', $fields[8]);
-        $part->prop('srcmount', $fields[9]);
+        ## try to find the filesystem
+        #
+        ## try to find device
+        # if not found, create an UnknownBlockDevice for it
+        my $bd = $self->parent();
+        my $devpart = undef;
+        # TODO: what about --bind mount points
+        # TODO: keep in mind loopbacked files!
+        my @parts = grep { $_->type() ne 'Mount' } $bd->findpartprop(undef, 'dev', $fields[2]);
+        if (scalar(@parts) == 0) {
+            $devpart = $bd->mkpart('UnknownBlockDevice', {plugin => $self, devicepath => $fields[4], loaded => undef, saved => undef});
+            $devpart->prop('dev', $fields[2]);
+        }
+        else {
+            $devpart = $parts[0];
+        }
+
+        ## try to find filesystem
+        # if not found, create an UnknownFS for it
+        $self->D('find dev %s with fstype %s (srcmount %s)', $fields[2], $fields[8], $fields[9]);
+        my $fs = $devpart->trychild(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
+            my $self = shift;
+            my $parameters = shift;
+            my $dev = shift;
+            my $fstype = shift;
+
+            # only filesystems
+            return 0 if !$self->does('ManaTools::Shared::disk_backend::FileSystem');
+            $self->plugin()->D('part is a FileSystem with type %s', $self->prop('fstype'));
+
+            # needs to be this fstype
+            return 0 if ($self->prop('fstype') ne $fields[8]);
+
+            # TODO: need to check srcmount $fields[9] as well
+
+            # if one of the parent matches dev $field[2], then it's ok
+            my @parents = $self->find_parts(undef, 'parent');
+            $self->plugin()->D('FileSystem part has %d parents', scalar(@parents));
+            for my $parent (@parents) {
+                # check state
+                next if !$parent->is_state(ManaTools::Shared::disk_backend::Part->CurrentState);
+                # check dev
+                $self->plugin()->D('parent of part has dev %s', $parent->prop('dev'));
+                return 1 if $parent->prop('dev') eq $fields[2];
+            }
+
+            # not found
+            return 0;
+        }, 'UnknownFS', {plugin => $self, loaded => undef, saved => undef});
+        $fs->prop('fstype', $fields[8]);
+
+        ## TODO: check filesystem and sourcepath options to select the actual parent
+        #
+        ## from this parent, create the mount point
+        # look or create the child with id based on the path
+        my $child = $fs->trychild(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
+            my $self = shift;
+            my $parameters = shift;
+            return ($self->path() eq $parameters->{path});
+        },'Mount', {plugin => $self, path => $fields[4], loaded => undef, saved => undef});
+
+        $child->prop('options', $fields[5]);
+        $child->prop('dev', $fields[2]);
+        $child->prop('id', $fields[0]);
+        $child->prop('parent', $fields[1]);
+        $child->prop('srcdevpath', $fields[3]);
+        $child->prop('fstype', $fields[8]);
+        $child->prop('srcmount', $fields[9]);
 
         # add an unmount action
-        $part->add_action('unmount', 'Unmount', undef, sub {
+        $child->add_action('unmount', 'Unmount', undef, sub {
             my $self = shift;
             print STDERR "Unmount is not implemented...\n";
             return 1;
@@ -107,13 +258,13 @@ override ('probe', sub {
         if ($fields[1] != $fields[0]) {
             # find parent and put into parentmount field
             my @parts = $self->parent->findpartprop('Mount', 'id', $fields[1]);
-            $part->parentmount($parts[0]) if scalar(@parts) > 0;
+            $child->parentmount($parts[0]) if scalar(@parts) > 0;
         }
         # find missing children Mount Part
-        my @parts = $self->parent->findpartprop('Mount', 'parent', $fields[0]);
+        @parts = $self->parent->findpartprop('Mount', 'parent', $fields[0]);
         for my $p (@parts) {
             my $pm = $p->parentmount();
-            $p->parentmount($part) if (!defined $pm);
+            $p->parentmount($child) if (!defined $pm);
         }
 
         ## get the in IO
@@ -141,13 +292,13 @@ override ('probe', sub {
             my $in = shift;
             my $mount = shift;
             return ($plugin->does('ManaTools::Shared::disk_backend::FileSystem') and $plugin->has_type($type) and $plugin->fsprobe($in, $mount));
-        }, $fields[8], $in, $part);
+        }, $fields[8], $in, $child);
 
         if (defined $out) {
-            my $res = $part->in_add($out);
+            my $res = $child->in_add($out);
         }
         else {
-            $part->in_add($in);
+            $child->in_add($in);
         }
 
         # TODO: look up device with this
@@ -248,5 +399,138 @@ class_has '+out_restriction' => (
         return sub {return 0;};
     }
 );
+
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return 0;
+            },
+            parentmount => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Mount');
+            },
+            childmount => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Mount');
+            },
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->does('ManaTools::Shared::disk_backend::FileSystem');
+            },
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->does('ManaTools::Shared::disk_backend::FileRole') || $part->does('ManaTools::Shared::disk_backend::DirectoryRole');
+            },
+        }
+    }
+);
+
+override('_reverse_tag', sub {
+    my $tag = shift;
+    return 'childmount' if ($tag eq 'parentmount');
+    return 'parentmount' if ($tag eq 'childmount');
+    return super;
+});
+
+package ManaTools::Shared::disk_backend::Part::UnknownBlockDevice;
+
+use Moose;
+
+extends 'ManaTools::Shared::disk_backend::Part';
+
+use MooseX::ClassAttribute;
+
+with 'ManaTools::Shared::disk_backend::BlockDevice';
+
+class_has '+type' => (
+    default => 'UnknownBlockDevice'
+);
+
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return 0;
+            },
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return 0;
+            },
+        }
+    }
+);
+
+package ManaTools::Shared::disk_backend::Part::UnknownFS;
+
+use Moose;
+
+extends 'ManaTools::Shared::disk_backend::Part';
+
+use MooseX::ClassAttribute;
+
+with 'ManaTools::Shared::disk_backend::FileSystem';
+
+class_has '+type' => (
+    default => 'UnknownFS'
+);
+
+class_has '+restrictions' => (
+    default => sub {
+        return {
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return 0;
+            },
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->does('ManaTools::Shared::disk_backend::BlockDevice');
+            },
+        }
+    }
+);
+
+#=============================================================
+
+=head2 fsprobe
+
+=head3 INPUT
+
+    $io: ManaTools::Shared::disk_backend::IO | Str
+    $mount: ManaTools::Shared::disk_backend::Part::Mount
+
+=head3 OUTPUT
+
+    ManaTools::Shared::disk_backend::IO or undef
+
+=head3 DESCRIPTION
+
+    this method probes the IO to see if it fits for this
+    filesystem, if it does, create a new Part with this IO as in.
+    also create an IO (linked as the out) and return that one.
+    The resulting one can then be used as an in to eg: a Mount Part.
+
+=cut
+
+#=============================================================
+sub fsprobe {
+    my $self = shift;
+    my $io = shift;
+    my $mount = shift;
+
+    # return $fs to be link as an in IO into $mount Part
+    return undef;
+}
 
 1;
