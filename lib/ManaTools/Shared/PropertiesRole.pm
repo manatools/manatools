@@ -170,7 +170,7 @@ sub prop_from_file {
     open F, '<'. $file or return undef;
     my $value = <F>;
     close F;
-    chomp($value);
+    chomp($value) if defined $value;
     return $self->prop($key, $value);
 }
 
