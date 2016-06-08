@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2016-03-13 21:27+0100\n"
+"POT-Creation-Date: 2016-06-08 23:40+0900\n"
 "PO-Revision-Date: 2016-02-15 09:41+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/MageiaLinux/mageia/"
@@ -25,39 +25,39 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
 
-#: lib/ManaTools/MainDisplay.pm:291 lib/ManaTools/Module/LogViewer.pm:320
-#: lib/ManaTools/Module/Users.pm:2407 lib/ManaTools/Module/Clock.pm:209
-#: lib/ManaTools/Module/Services.pm:444
+#: lib/ManaTools/MainDisplay.pm:247
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2003
-#: modules/rpmdragora/dragoraUpdate:340 modules/rpmdragora/rpmdragora:1088
+#: lib/ManaTools/Module/LogViewer.pm:317 lib/ManaTools/Module/Users.pm:2377
+#: lib/ManaTools/Module/Services.pm:441 lib/ManaTools/Module/Clock.pm:190
+#: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
 "Shiva Huang <shivahuang@gmail.com>\n"
 "You-Cheng Hsieh <yochenhsieh@gmail.com>\n"
 
-#: lib/ManaTools/MainDisplay.pm:297 lib/ManaTools/Module/LogViewer.pm:325
-#: lib/ManaTools/Module/Users.pm:2413 lib/ManaTools/Module/Clock.pm:215
-#: lib/ManaTools/Module/Services.pm:449
+#: lib/ManaTools/MainDisplay.pm:253
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
-#: modules/rpmdragora/dragoraUpdate:347 modules/rpmdragora/rpmdragora:1094
+#: lib/ManaTools/Module/LogViewer.pm:322 lib/ManaTools/Module/Users.pm:2383
+#: lib/ManaTools/Module/Services.pm:446 lib/ManaTools/Module/Clock.pm:196
+#: modules/rpmdragora/dragoraUpdate:355 modules/rpmdragora/rpmdragora:1094
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:298 lib/ManaTools/Module/LogViewer.pm:326
-#: lib/ManaTools/Module/Users.pm:2414 lib/ManaTools/Module/Clock.pm:216
-#: lib/ManaTools/Module/Services.pm:450
+#: lib/ManaTools/MainDisplay.pm:254
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
-#: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1095
+#: lib/ManaTools/Module/LogViewer.pm:323 lib/ManaTools/Module/Users.pm:2384
+#: lib/ManaTools/Module/Services.pm:447 lib/ManaTools/Module/Clock.pm:197
+#: modules/rpmdragora/dragoraUpdate:356 modules/rpmdragora/rpmdragora:1095
 msgid "GPLv2"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:299
+#: lib/ManaTools/MainDisplay.pm:255
 msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:300
+#: lib/ManaTools/MainDisplay.pm:256
 #, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
@@ -69,183 +69,3320 @@ msgid ""
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:425 lib/ManaTools/Module/Users.pm:2463
+#: lib/ManaTools/MainDisplay.pm:381
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
-#: modules/rpmdragora/rpmdragora:703
+#: lib/ManaTools/Module/Users.pm:2433 modules/rpmdragora/rpmdragora:703
 msgid "File"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:426 lib/ManaTools/Module/LogViewer.pm:301
-#: lib/ManaTools/Module/Users.pm:2465 lib/ManaTools/Module/Users.pm:2553
-#: lib/ManaTools/Module/Services.pm:411
+#: lib/ManaTools/MainDisplay.pm:382
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1584
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1704
-#: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:662
+#: lib/ManaTools/Module/LogViewer.pm:298 lib/ManaTools/Module/Users.pm:2435
+#: lib/ManaTools/Module/Users.pm:2523 lib/ManaTools/Module/Services.pm:408
+#: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1209
 msgid "&Quit"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:438 lib/ManaTools/MainDisplay.pm:439
-#: lib/ManaTools/Module/Users.pm:2477
+#: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/MainDisplay.pm:395
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
+#: lib/ManaTools/Module/Users.pm:2447
 msgid "Help"
 msgstr "輔助說明"
 
-#: lib/ManaTools/MainDisplay.pm:440 lib/ManaTools/Shared/GUI/Dialog.pm:409
-#: lib/ManaTools/Module/LogViewer.pm:297 lib/ManaTools/Module/Users.pm:2479
-#: lib/ManaTools/Module/Users.pm:2551 lib/ManaTools/Module/Hosts.pm:450
-#: lib/ManaTools/Module/Firewall.pm:609 lib/ManaTools/Module/Firewall.pm:824
-#: lib/ManaTools/Module/DisplayManager.pm:244
-#: lib/ManaTools/Module/Proxy.pm:328 lib/ManaTools/Module/Services.pm:405
+#: lib/ManaTools/MainDisplay.pm:396
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
-#: modules/rpmdragora/dragoraUpdate:279 modules/rpmdragora/rpmdragora:759
+#: lib/ManaTools/Module/Hosts.pm:447
+#: lib/ManaTools/Module/DisplayManager.pm:241
+#: lib/ManaTools/Module/Firewall.pm:606 lib/ManaTools/Module/Firewall.pm:821
+#: lib/ManaTools/Module/LogViewer.pm:294 lib/ManaTools/Module/Users.pm:2449
+#: lib/ManaTools/Module/Users.pm:2521 lib/ManaTools/Module/Proxy.pm:325
+#: lib/ManaTools/Module/Services.pm:402 lib/ManaTools/Shared/GUI/Dialog.pm:418
+#: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:613
+#: lib/ManaTools/MainDisplay.pm:569
 #, perl-format
 msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:636
+#: lib/ManaTools/MainDisplay.pm:592
 #, perl-format
 msgid "Configuration file %s is missing"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:641
+#: lib/ManaTools/MainDisplay.pm:597
 #, perl-format
 msgid "Reading configuration file %s"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:658
+#: lib/ManaTools/MainDisplay.pm:614
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:814
+#: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
 msgid "Parsing category file %s"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:825
+#: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
 msgstr ""
 
-#: lib/ManaTools/MainDisplay.pm:860
+#: lib/ManaTools/MainDisplay.pm:816
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
 msgstr ""
 
-#: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
-#: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
-#: lib/ManaTools/Shared/GUI.pm:1078 lib/ManaTools/Shared/GUI/Dialog.pm:417
-#: lib/ManaTools/Module/Users.pm:391 lib/ManaTools/Module/Users.pm:637
-#: lib/ManaTools/Module/Users.pm:938 lib/ManaTools/Module/Users.pm:2072
-#: lib/ManaTools/Module/Users.pm:2232 lib/ManaTools/Module/Clock.pm:531
-#: lib/ManaTools/rpmdragora.pm:365 lib/ManaTools/Rpmdragora/rpmnew.pm:254
-#: lib/ManaTools/Rpmdragora/pkg.pm:657 lib/ManaTools/Rpmdragora/pkg.pm:930
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
-#: lib/ManaTools/Rpmdragora/gui.pm:1303
-msgid "&Ok"
+#: lib/ManaTools/Module.pm:108
+#, fuzzy, perl-format
+msgid "%s - Management Tool"
+msgstr "管理"
+
+#: lib/ManaTools/Rpmdragora/init.pm:67
+#, perl-format
+msgid "Usage: %s [OPTION]..."
+msgstr "用法：%s [選項]..."
+
+#: lib/ManaTools/Rpmdragora/init.pm:68
+msgid "  --auto                 assume default answers to questions"
+msgstr "  --auto                 採用預設的回答"
+
+#: lib/ManaTools/Rpmdragora/init.pm:69
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr "  --changelog-first      在描述視窗中先顯示更新資訊再顯示檔案列表"
+
+#: lib/ManaTools/Rpmdragora/init.pm:70
+msgid "  --media=medium1,..     limit to given media"
+msgstr "  --media=medium1,..     限制於給定的媒體"
+
+#: lib/ManaTools/Rpmdragora/init.pm:71
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr "  --merge-all-rpmnew     計畫合併所有找到的 .rpmnew/.rpmsave 檔案"
+
+#: lib/ManaTools/Rpmdragora/init.pm:72
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr "  --mode=MODE            設定模式 (install (預設值)、remove、update)"
+
+#: lib/ManaTools/Rpmdragora/init.pm:73
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr "  --justdb               更新資料庫，但不要修改檔案系統"
+
+#: lib/ManaTools/Rpmdragora/init.pm:74
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr "  --no-confirmation      在升級模式時不詢問第一個確認問題"
+
+#: lib/ManaTools/Rpmdragora/init.pm:75
+msgid "  --no-media-update      don't update media at startup"
+msgstr "  --no-media-update      啟動時不更新媒體"
+
+#: lib/ManaTools/Rpmdragora/init.pm:76
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr "  --no-verify-rpm        不驗證套件簽章"
+
+#: lib/ManaTools/Rpmdragora/init.pm:77
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+"  --parallel=alias,host  在同步管理模式下，使用 \"alias\" 別名群組或 \"host"
+"\" 主機名稱來顯示相依性"
+
+#: lib/ManaTools/Rpmdragora/init.pm:78
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr "  --rpm-root=path        rpm 安裝時使用其他的根目錄"
+
+#: lib/ManaTools/Rpmdragora/init.pm:79
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr "  --urpmi-root          使用另一個根目錄進行 RPM 套件的安裝。"
+
+#: lib/ManaTools/Rpmdragora/init.pm:80
+msgid "  --run-as-root          force to run as root"
+msgstr "  --run-as-root          強制使用 root 來執行"
+
+#: lib/ManaTools/Rpmdragora/init.pm:81
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr "  --search=pkg           搜尋 \"pkg\" "
+
+#: lib/ManaTools/Rpmdragora/init.pm:82
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr "  --test                 只測試這個安裝是否可以正確的完成"
+
+#: lib/ManaTools/Rpmdragora/init.pm:83
+msgid ""
+"  --version              print this tool's version number\n"
+"                    "
 msgstr ""
 
-#: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
-#: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
-#: lib/ManaTools/Shared/GUI/Dialog.pm:416 lib/ManaTools/Module/Users.pm:390
-#: lib/ManaTools/Module/Users.pm:461 lib/ManaTools/Module/Users.pm:552
-#: lib/ManaTools/Module/Users.pm:636 lib/ManaTools/Module/Users.pm:937
-#: lib/ManaTools/Module/Users.pm:2071 lib/ManaTools/Module/Users.pm:2231
-#: lib/ManaTools/Module/Clock.pm:530 lib/ManaTools/Module/Hosts.pm:177
-#: lib/ManaTools/Module/Hosts.pm:261 lib/ManaTools/Module/Hosts.pm:451
-#: lib/ManaTools/Module/Firewall.pm:610 lib/ManaTools/Module/Firewall.pm:825
-#: lib/ManaTools/Module/Firewall.pm:921
-#: lib/ManaTools/Module/DisplayManager.pm:245
-#: lib/ManaTools/Module/Proxy.pm:329 lib/ManaTools/rpmdragora.pm:893
-#: lib/ManaTools/Rpmdragora/pkg.pm:930
+#: lib/ManaTools/Rpmdragora/init.pm:175
+msgid "Running in user mode"
+msgstr "以一般使用者模式執行"
+
+#: lib/ManaTools/Rpmdragora/init.pm:176
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+"您正以一般使用者啟動此程式。\n"
+"您無法對系統進行修改，\n"
+"但是您仍然可以瀏覽現存的資料庫。"
+
+#: lib/ManaTools/Rpmdragora/open_db.pm:100
+#: lib/ManaTools/Rpmdragora/gui.pm:1574
+msgid "Fatal error"
+msgstr "致命的錯誤"
+
+#: lib/ManaTools/Rpmdragora/open_db.pm:101
+#: lib/ManaTools/Rpmdragora/gui.pm:1575 lib/ManaTools/Rpmdragora/pkg.pm:494
+#, perl-format
+msgid "A fatal error occurred: %s."
+msgstr "發生了一個致命的錯誤：%s。"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
+msgid "CD-ROM"
+msgstr "CD-ROM"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
+msgid "FTP"
+msgstr "FTP"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
+msgid "Local"
+msgstr "本地端"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
+msgid "HTTP"
+msgstr "HTTP"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
+msgid "HTTPS"
+msgstr "HTTPS"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
+msgid "NFS"
+msgstr "NFS"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
+msgid "Removable"
+msgstr "可移除媒體"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
+msgid "rsync"
+msgstr "rsync"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
+msgid "Mirror list"
+msgstr "映射站台列表"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
+msgid "Choose media type"
+msgstr "選擇媒體類型"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+"為了保持您的系統的安全與穩定，您必須至少要設定正式的安全性與穩定性更新的來"
+"源。您也可以選擇完整的 Mageia 套件來源，讓您可以取得更多好用的軟體。請選擇您"
+"只要安裝更新的來源，還是要完整的來源。"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
+msgid "Full set of sources"
+msgstr "完整的來源"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
+msgid "Update sources only"
+msgstr "僅更新來源"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
+#, perl-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"這樣會試著安裝您的套件 (%s) 的所有正式的來源。\n"
+"\n"
+"這個動作需要連線到 Mageia 網站以取得鏡射站台列表。\n"
+"請確定您的網路連線沒有問題。\n"
+"\n"
+"可以繼續了嗎？"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
+msgid "Please wait, adding media..."
+msgstr "請稍後，新增媒體中..."
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
+msgid "Browse..."
+msgstr "瀏覽..."
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
+#: lib/ManaTools/Module/Users.pm:728
+msgid "Login:"
+msgstr "登入："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
+#: lib/ManaTools/Module/Users.pm:738 lib/ManaTools/rpmdragora.pm:188
+msgid "Password:"
+msgstr "密碼："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
+msgid "Add a medium"
+msgstr "新增一個媒體"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
+msgid "Adding a medium:"
+msgstr "正在新增一個媒體："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
+msgid "Type of medium:"
+msgstr "媒體類別："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
+msgid "Local files"
+msgstr "本地端檔案"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
+msgid "Medium path:"
+msgstr "媒體路徑："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
+msgid "FTP server"
+msgstr "FTP 伺服器"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:724
+msgid "URL:"
+msgstr "URL:"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
+msgid "RSYNC server"
+msgstr "RSYNC 伺服器"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
+msgid "HTTP server"
+msgstr "HTTP 伺服器"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr "可移除裝置(CD-ROM, DVD, ...)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
+msgid "Path or mount point:"
+msgstr "路徑或掛載點："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
+msgid "Medium name:"
+msgstr "媒體名稱："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
+msgid "Create media for a whole distribution"
+msgstr "建立一個適用於所有散佈套件的媒體"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
+msgid "Tag this medium as an update medium"
+msgstr "標示這個媒體為更新媒介"
+
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:307
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:525
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:767
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
-#: lib/ManaTools/Rpmdragora/gui.pm:1302
+#: lib/ManaTools/Rpmdragora/gui.pm:1302 lib/ManaTools/Rpmdragora/pkg.pm:930
+#: lib/ManaTools/Module/Hosts.pm:174 lib/ManaTools/Module/Hosts.pm:258
+#: lib/ManaTools/Module/Hosts.pm:448
+#: lib/ManaTools/Module/DisplayManager.pm:242
+#: lib/ManaTools/Module/Firewall.pm:607 lib/ManaTools/Module/Firewall.pm:822
+#: lib/ManaTools/Module/Firewall.pm:918 lib/ManaTools/Module/Users.pm:360
+#: lib/ManaTools/Module/Users.pm:431 lib/ManaTools/Module/Users.pm:522
+#: lib/ManaTools/Module/Users.pm:606 lib/ManaTools/Module/Users.pm:907
+#: lib/ManaTools/Module/Users.pm:2044 lib/ManaTools/Module/Users.pm:2204
+#: lib/ManaTools/Module/Proxy.pm:326 lib/ManaTools/Module/Clock.pm:511
+#: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
+#: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
+#: lib/ManaTools/Shared/GUI/Dialog.pm:425 lib/ManaTools/rpmdragora.pm:893
 msgid "&Cancel"
 msgstr ""
 
-#: lib/ManaTools/Shared/GUI.pm:318
-msgid "Yes"
-msgstr "是"
-
-#: lib/ManaTools/Shared/GUI.pm:319
-msgid "No"
-msgstr "否"
-
-#: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
-#: lib/ManaTools/Shared/GUI.pm:924
-msgid "&Select"
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:254 lib/ManaTools/Rpmdragora/gui.pm:1303
+#: lib/ManaTools/Rpmdragora/pkg.pm:657 lib/ManaTools/Rpmdragora/pkg.pm:930
+#: lib/ManaTools/Module/Users.pm:361 lib/ManaTools/Module/Users.pm:607
+#: lib/ManaTools/Module/Users.pm:908 lib/ManaTools/Module/Users.pm:2045
+#: lib/ManaTools/Module/Users.pm:2205 lib/ManaTools/Module/Clock.pm:512
+#: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
+#: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
+#: lib/ManaTools/Shared/GUI.pm:1078 lib/ManaTools/Shared/GUI/Dialog.pm:426
+#: lib/ManaTools/rpmdragora.pm:365
+msgid "&Ok"
 msgstr ""
 
-#: lib/ManaTools/Shared/CommandLine.pm:73
-msgid ""
-"<dir> optional directory containing localization strings (developer only)"
-msgstr ""
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
+msgid "You need to fill up at least the two first entries."
+msgstr "您至少需要輸入前面兩個項目。"
 
-#: lib/ManaTools/Shared/CommandLine.pm:83
-msgid "Prints this usage information."
-msgstr ""
-
-#: lib/ManaTools/Shared/Users.pm:383
-msgid "Name field is empty please provide a name"
-msgstr "名稱欄位是空白的，請提供一個名稱"
-
-#: lib/ManaTools/Shared/Users.pm:388
-msgid ""
-"The name must start with a letter and contain only lower cased latin "
-"letters, numbers, '.', '-' and '_'"
-msgstr ""
-
-#: lib/ManaTools/Shared/Users.pm:391
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
 #, perl-format
-msgid "Name is too long. Maximum length is %d"
+msgid ""
+"There is already a medium called <%s>,\n"
+"do you really want to replace it?"
 msgstr ""
 
-#: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
+msgid "Global options for package installation"
+msgstr "關於套件安裝的全域選項"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
+msgid "Verify RPMs to be installed:"
+msgstr "驗證要安裝的 RPM 套件檔案："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
+msgid "never"
+msgstr "絕不"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
+msgid "always"
+msgstr "總是"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
+msgid "Download program to use:"
+msgstr "要使用的下載程式："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
+msgid "XML meta-data download policy:"
+msgstr "XML meta-data 下載政策："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "Never"
+msgstr "絕不"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "On-demand"
+msgstr "視需求"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "Update-only"
+msgstr "僅更新"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "Always"
+msgstr "總是"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
+msgid "Source Removal"
+msgstr "移除套件來源"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
+#, perl-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr "您確定要移除套件來源 \"%s\" 嗎？"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
+msgid "Are you sure you want to remove the following sources?"
+msgstr "您確定要移除以下來源嗎？"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
+msgid "Please wait, removing medium..."
+msgstr "請稍候，正在移除媒體..."
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
+msgid "Edit a medium"
+msgstr "編輯媒體"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
+#, perl-format
+msgid "Editing medium \"%s\":"
+msgstr "編輯媒體 \"%s\"："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
+msgid "Downloader:"
+msgstr "下載程式："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1642
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2058
+#: lib/ManaTools/Rpmdragora/pkg.pm:292
+msgid "Enabled"
+msgstr "是否啟用？"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2061
+msgid "Updates"
+msgstr "自動更新來源？"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
+#: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
+#: lib/ManaTools/Module/Hosts.pm:449
+#: lib/ManaTools/Module/DisplayManager.pm:243
+#: lib/ManaTools/Module/Firewall.pm:608 lib/ManaTools/Module/Firewall.pm:823
+#: lib/ManaTools/Module/Firewall.pm:919 lib/ManaTools/Module/Proxy.pm:327
+msgid "&OK"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
+msgid "&Proxy..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
+msgid "You need to insert the medium to continue"
+msgstr "您需要放入媒體以便繼續"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr "為了儲存變更，您需要在磁碟機置入該媒體。"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
+msgid "Configure proxies"
+msgstr "設定代理伺服器"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
+#, perl-format
+msgid "Proxy settings for media \"%s\""
+msgstr "媒體 \"%s\" 的代理伺服器設定"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
+msgid "Global proxy settings"
+msgstr "全域代理伺服器設定"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+"如果您需要透過代理伺服器連線，請輸入該主機的名稱與通訊埠號 (語法：<proxyhost "
+"[:port]> 例如 proxy.hinet.net:80)："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
+msgid "Enable proxy"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
+msgid "Proxy hostname:"
+msgstr "代理伺服器主機名稱："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr "您需要指定用於代理伺服器認證的使用者帳號及密碼："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
+msgid "User:"
+msgstr "使用者："
+
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1113
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1186
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2182
+#: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 msgid "Ok"
 msgstr "確定"
 
-#: lib/ManaTools/Shared/Users.pm:819
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
+msgid "Cancel"
+msgstr "取消"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
+msgid "Add a parallel group"
+msgstr "新增同步管理群組"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
+msgid "Edit a parallel group"
+msgstr "編輯同步管理群組"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
+msgid "Add a medium limit"
+msgstr "新增一媒體限定"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
+msgid "Choose a medium to add to the media limit:"
+msgstr "選取要加入媒體限定中的媒體："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
+msgid "Add a host"
+msgstr "新增主機"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr "請輸入要新增的主機名稱或 IP 位址："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
-msgid "You cannot remove user <%s> from their primary group"
+msgid "Editing parallel group \"%s\":"
+msgstr "編輯同步管理群組 \"%s\"："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
+msgid "Group name:"
+msgstr "群組名稱："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
+msgid "Protocol:"
+msgstr "通訊協定："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
+msgid "Media limit:"
+msgstr "媒體限定："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1371
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2162
+msgid "Add"
+msgstr "新增"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1166
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1372
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2152
+msgid "Remove"
+msgstr "移除"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
+msgid "Hosts:"
+msgstr "主機："
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr "設定同步管理 urpmi (分散式執行的 urpmi)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
+#: lib/ManaTools/Module/Users.pm:1814
+msgid "Group"
+msgstr "群組"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
+msgid "Protocol"
+msgstr "通訊協定"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
+msgid "Media limit"
+msgstr "媒體限定"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
+msgid "Command"
+msgstr "指令"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1150
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:148
+#: lib/ManaTools/Rpmdragora/formatting.pm:150
+#: lib/ManaTools/Rpmdragora/gui.pm:1668 lib/ManaTools/Rpmdragora/pkg.pm:127
+#: lib/ManaTools/Rpmdragora/pkg.pm:176 lib/ManaTools/Rpmdragora/pkg.pm:189
+#: lib/ManaTools/Rpmdragora/pkg.pm:208 lib/ManaTools/Rpmdragora/pkg.pm:689
+msgid "(none)"
+msgstr "(無)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
+msgid "Edit..."
+msgstr "編輯"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
+msgid "Add..."
+msgstr "新增..."
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
+msgid "Manage keys for digital signatures of packages"
+msgstr "管理數位套件簽章鑰匙"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2068
+msgid "Medium"
+msgstr "媒體"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
+msgid "Keys"
 msgstr ""
 
-#: lib/ManaTools/Shared/Users.pm:1166
-msgid "Locked"
-msgstr "被鎖住了"
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr "沒有找到名稱，鑰匙不存在於 rpm 鑰匙圈中！"
 
-#: lib/ManaTools/Shared/Users.pm:1166
-msgid "Expired"
-msgstr "過期的"
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
+msgid "Add a key"
+msgstr "新增一把鑰匙"
 
-#: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
+#, perl-format
+msgid "Choose a key to add to the medium %s"
+msgstr "選擇一把要新增到媒體 %s 的鑰匙"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
+msgid "Remove a key"
+msgstr "移除一把鑰匙"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
+#, perl-format
+msgid ""
+"Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
+"of the key: %s)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
+#, perl-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"無法更新媒體，錯誤訊息如下：\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2145
+#: modules/rpmdragora/dragora-urpm-sources.pl:38
+msgid "Configure media"
+msgstr "設定媒體"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
+msgid "Update"
+msgstr "更新"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
+msgid "Add a specific media mirror"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
+msgid "Add a custom medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
+msgid "&Options"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
+msgid "Global options"
+msgstr "全域選項"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
+msgid "Manage keys"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
+msgid "Parallel"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
+msgid "Proxy"
+msgstr "Proxy"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
+#: lib/ManaTools/Module/Users.pm:2446 modules/rpmdragora/dragoraUpdate:286
+#: modules/rpmdragora/rpmdragora:756
+msgid "&Help"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
+#: modules/rpmdragora/rpmdragora:757
+msgid "Manual"
+msgstr "手動"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
+#: lib/ManaTools/Module/Users.pm:2448 modules/rpmdragora/rpmdragora:758
+msgid "Report Bug"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
+msgid "Type"
+msgstr "類型"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2156
+#: lib/ManaTools/Module/Users.pm:2476
+msgid "Edit"
+msgstr "編輯"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
+msgid "Up"
+msgstr "提高"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
+msgid "Down"
+msgstr "降低"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
+#: modules/rpmdragora/rpmdragora:1096
+msgid "Rpmdragora is the Mageia package management tool."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
+#: lib/ManaTools/Module/Services.pm:450
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Translators</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr "此媒體需要更新才能使用。現在要更新嗎？"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
+msgid "/_File"
+msgstr "/檔案 (_F)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
+msgid "/_Update"
+msgstr "/更新 (_U)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
+msgid "<control>U"
+msgstr "<control>U"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "/Add a specific _media mirror"
+msgstr "/新增特定的媒體映射(_m)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "<control>M"
+msgstr "<control>M"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
+msgid "/_Add a custom medium"
+msgstr "/新增自訂媒體 (_A)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
+msgid "<control>A"
+msgstr "<control>A"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
+msgid "/Close"
+msgstr "/關閉"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
+msgid "<control>W"
+msgstr "<control>W"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
+#: modules/rpmdragora/rpmdragora:692 modules/rpmdragora/rpmdragora:694
+#: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
+#: modules/rpmdragora/rpmdragora:698
+msgid "/_Options"
+msgstr "/選項 (_O)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
+msgid "/_Global options"
+msgstr "/全域選項 (_G)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
+msgid "<control>G"
+msgstr "<control>G"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "/Manage _keys"
+msgstr "/管理鑰匙 (_K)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "<control>K"
+msgstr "<control>K"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
+msgid "/_Parallel"
+msgstr "/同步管理 (_P)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
+msgid "<control>P"
+msgstr "<control>P"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
+msgid "/P_roxy"
+msgstr "/代理伺服器 (_R)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
+msgid "<control>R"
+msgstr "<control>R"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
+msgid "/_Help"
+msgstr "/說明 (_H)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
+msgid "/_Report Bug"
+msgstr "/臭蟲報告 (_R)"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
+msgid "/_About..."
+msgstr "/關於 (_A)..."
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
+msgid "Rpmdragora"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
+#, perl-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr "Copyright (C) %s by Mandriva"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
+msgid "Mageia"
+msgstr "Mageia"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2204
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+"套件資料庫被鎖定了。請關閉其它使用到套件資料庫的程式. 您是否\n"
+"在其他工作區有其它的媒體管理程式，或者您正在安裝套件呢？)"
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:207
+msgid "Installation finished"
+msgstr "安裝完成"
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
+msgid "Select a package"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:238
+msgid "Remove new file"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:239
+msgid "Use new file"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:240
+msgid "Do nothing"
+msgstr "不進行任何動作"
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
+msgid "Please wait, searching..."
+msgstr "搜尋中，請稍候..."
+
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
+#: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 msgid "None (installed)"
 msgstr "無(已安裝)"
 
-#: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
+#: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 msgid "Unknown"
 msgstr "未知的"
+
+#: lib/ManaTools/Rpmdragora/formatting.pm:196
+#, perl-format
+msgid "%s of additional disk space will be used."
+msgstr "將使用 %s 額外磁碟空間。"
+
+#: lib/ManaTools/Rpmdragora/formatting.pm:197
+#, perl-format
+msgid "%s of disk space will be freed."
+msgstr "將釋放 %s 磁碟空間。"
+
+#: lib/ManaTools/Rpmdragora/formatting.pm:202
+#, perl-format
+msgid "%s of packages will be retrieved."
+msgstr "將會取回 %s 套件。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:106
+msgid "Search results"
+msgstr "搜尋結果"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:106
+msgid "Search results (none)"
+msgstr "搜尋結果 (無)"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:135 lib/ManaTools/Rpmdragora/icon.pm:196
+#: lib/ManaTools/Rpmdragora/icon.pm:198 lib/ManaTools/Rpmdragora/icon.pm:199
+#: lib/ManaTools/Rpmdragora/icon.pm:200 lib/ManaTools/Rpmdragora/icon.pm:201
+msgid "Graphical Environment"
+msgstr "圖形環境"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:150
+msgid "Security advisory"
+msgstr "安全性建言"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:160
+msgid "No description"
+msgstr "沒有描述"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:174
+msgid "It is <b>not supported</b> by Mageia."
+msgstr "Mageia <b>不支援</b> 這個來源。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:175
+msgid "It may <b>break</b> your system."
+msgstr "它可能會<b>損害</b>您的系統。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:177
+msgid "This package is not free software"
+msgstr "該軟體並非自由軟體"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:180
+msgid "This package contains a new version that was backported."
+msgstr "這個套件有一個較新的版本。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:184
+msgid "This package is a potential candidate for an update."
+msgstr "這個套件是更新檔的測試候選版本。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:189
+msgid "This is an official update which is supported by Mageia."
+msgstr "這是 Mageia 支援的正式更新。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:190
+msgid "This is an unofficial update."
+msgstr "這是非正式的更新。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:194
+msgid "This is an official package supported by Mageia"
+msgstr "這是 Mageia 支援的正式套件。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:205
+msgid "Notice: "
+msgstr "提醒:"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:212
+msgid "Importance: "
+msgstr "重要性："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:213
+msgid "Reason for update: "
+msgstr "更新的原因："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:227
+msgid "Version: "
+msgstr "版本："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:228
+msgid "Currently installed version: "
+msgstr "目前已安裝的版本："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:229
+msgid "Group: "
+msgstr "群組： "
+
+#: lib/ManaTools/Rpmdragora/gui.pm:230
+msgid "Architecture: "
+msgstr "硬體平台："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:231
+msgid "Size: "
+msgstr "大小："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:231
+#, perl-format
+msgid "%s KB"
+msgstr "%s KB"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:232 lib/ManaTools/rpmdragora.pm:698
+msgid "Medium: "
+msgstr "媒體："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:254
+msgid "All dependencies installed."
+msgstr "全部相依的套件都已安裝了。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:272
+msgid "URL: "
+msgstr "URL: "
+
+#: lib/ManaTools/Rpmdragora/gui.pm:334
+msgid "Details:"
+msgstr "細節："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:343
+msgid "Files:"
+msgstr "檔案 (_F)："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:349 lib/ManaTools/Rpmdragora/gui.pm:360
+#: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/pkg.pm:201
+msgid "(Not available)"
+msgstr "(無法使用)"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:357
+msgid "Changelog:"
+msgstr "更新紀錄："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:374
+msgid "New dependencies:"
+msgstr "新的相依性："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:392 lib/ManaTools/Rpmdragora/gui.pm:945
+#: lib/ManaTools/Rpmdragora/gui.pm:949 lib/ManaTools/Rpmdragora/gui.pm:954
+#: lib/ManaTools/Rpmdragora/pkg.pm:940 lib/ManaTools/Rpmdragora/pkg.pm:950
+#: lib/ManaTools/Rpmdragora/pkg.pm:964 lib/ManaTools/Module/Users.pm:418
+#: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
+#: modules/rpmdragora/rpmdragora:1209
+msgid "Warning"
+msgstr "警告"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:394
+#, perl-format
+msgid "The package \"%s\" was found."
+msgstr "找到套件 \"%s\"。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:395
+msgid "However this package is not in the package list."
+msgstr "但是這個套件沒有在套件列表中。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:396
+msgid "You may want to update your urpmi database."
+msgstr "您可能需要更新您的 urpmi 資料庫。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:398
+msgid "Matching packages:"
+msgstr "符合的套件："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:403
+#, perl-format
+msgid "- %s (medium: %s)"
+msgstr "- %s (媒體：%s)"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:945
+#, perl-format
+msgid "Removing package %s would break your system"
+msgstr "移除套件 %s 將會破壞您的系統"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:949
+#, perl-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+"「%s」套件在忽略清單中。\n"
+"您還是要選擇它嗎？"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:954 lib/ManaTools/Rpmdragora/pkg.pm:808
+msgid ""
+"Rpmdragora or one of its priority dependencies needs to be updated first. "
+"Rpmdragora will then restart."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1176
+msgid "More information on package..."
+msgstr "更多該套件的資訊..."
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1178
+msgid "Please choose"
+msgstr "請選擇"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1179
+msgid "The following package is needed:"
+msgstr "需要下列套件："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1179
+msgid "One of the following packages is needed:"
+msgstr "需要下列套件之一："
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1291
+msgid "Select package"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1389
+msgid "Checking dependencies of package..."
+msgstr "正在檢查套件相依性..."
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1394
+msgid "Some additional packages need to be removed"
+msgstr "一些額外的套件必須被移除"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1405
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr "因為套件之間的相依性問題，以下的套件將會一起被移除:"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1410
+msgid "Some packages cannot be removed"
+msgstr "某些套件無法被移除"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1411
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+"移除下面這些套件將會破壞您的系統，抱歉：\n"
+"\n"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1419 lib/ManaTools/Rpmdragora/gui.pm:1490
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+"為了滿足套件相依性，以下的套件將會取消選取以便於能繼續進行:\n"
+" \n"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1443
+msgid "Additional packages needed"
+msgstr "需要額外的套件"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1444
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+"為了滿足套件相依性，以下的套件也必須一併安裝：\n"
+" \n"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1452
+msgid "Conflicting Packages"
+msgstr "互相衝突的套件"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1466
+#, perl-format
+msgid "%s (belongs to the skip list)"
+msgstr "%s (屬於略過的列表)"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1470
+msgid "One package cannot be installed"
+msgstr "一個套件無法安裝"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1470
+msgid "Some packages cannot be installed"
+msgstr "某些套件無法被安裝"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1472
+#, perl-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"抱歉，以下套件無法選取：\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1473
+#, perl-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+"抱歉，以下套件無法選取：\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1489 lib/ManaTools/Rpmdragora/pkg.pm:812
+msgid "Some packages need to be removed"
+msgstr "必須移除某些套件"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1527
+msgid "Some packages are selected."
+msgstr "有些套件已被選取"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1527
+msgid "Do you really want to quit?"
+msgstr "您確定要離開嗎？"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1537
+#, perl-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr "錯誤：%s 似乎被掛載為唯讀模式。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1541
+msgid "You need to select some packages first."
+msgstr "您必須先選擇一些套件。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1546
+msgid "Too many packages are selected"
+msgstr "選取了太多套件"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1547
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+"警告：您似乎於套件安裝中或之後企圖新增大量的套件，\n"
+"導致於您的磁碟空間已經不敷使用； \n"
+"這是非常危險且應該小心考慮的。\n"
+"\n"
+"您確定要安裝全部選取的套件嗎?"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1658
+msgid "Please wait, listing packages..."
+msgstr "排序套件中，請稍候..."
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1671
+msgid "No update"
+msgstr "無更新"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1672
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+"更新的清單是空的。也許是於您系統上安裝的套件沒有可用的更新，\n"
+"或者您已經全部安裝了。"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:366
+msgid "Upgradable"
+msgstr "可供更新"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:520
+msgid "Installed"
+msgstr "已安裝"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
+msgid "Addable"
+msgstr "可供加入"
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1746
+msgid "Description not available for this package\n"
+msgstr "這個套件沒有可用的說明\n"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
+#: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
+msgid "All"
+msgstr "全部"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:42
+msgid "Accessibility"
+msgstr "輔助功能"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
+#: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
+#: lib/ManaTools/Rpmdragora/icon.pm:47
+msgid "Archiving"
+msgstr "歸檔"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:44
+msgid "Backup"
+msgstr "備份"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:45
+msgid "Cd burning"
+msgstr "光碟燒錄"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:46
+msgid "Compression"
+msgstr "壓縮"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
+#: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
+#: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
+msgid "Other"
+msgstr "其他"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
+#: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
+#: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
+#: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
+msgid "Communications"
+msgstr "通訊"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:49
+msgid "Bluetooth"
+msgstr "藍牙"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:50
+msgid "Dial-Up"
+msgstr "撥接"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:51
+msgid "Fax"
+msgstr "傳真"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:52
+msgid "Mobile"
+msgstr "行動"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:53
+msgid "Radio"
+msgstr "廣播"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:54
+msgid "Serial"
+msgstr "串列通訊"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:55
+msgid "Telephony"
+msgstr "電話"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
+msgid "Databases"
+msgstr "資料庫"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
+#: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
+#: lib/ManaTools/Rpmdragora/icon.pm:61 lib/ManaTools/Rpmdragora/icon.pm:62
+#: lib/ManaTools/Rpmdragora/icon.pm:63 lib/ManaTools/Rpmdragora/icon.pm:64
+#: lib/ManaTools/Rpmdragora/icon.pm:65 lib/ManaTools/Rpmdragora/icon.pm:66
+#: lib/ManaTools/Rpmdragora/icon.pm:67 lib/ManaTools/Rpmdragora/icon.pm:68
+#: lib/ManaTools/Rpmdragora/icon.pm:69 lib/ManaTools/Rpmdragora/icon.pm:70
+#: lib/ManaTools/Rpmdragora/icon.pm:71 lib/ManaTools/Rpmdragora/icon.pm:72
+#: lib/ManaTools/Rpmdragora/icon.pm:73 lib/ManaTools/Rpmdragora/icon.pm:74
+#: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
+#: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
+msgid "Development"
+msgstr "開發"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:58
+msgid "Basic"
+msgstr "基本"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:59
+msgid "C"
+msgstr "C"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:60
+msgid "C++"
+msgstr "C++"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:61
+msgid "C#"
+msgstr "C#"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:63
+msgid "Debug"
+msgstr "除錯"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:64
+msgid "Erlang"
+msgstr "Erlang"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:65
+msgid "GNOME and GTK+"
+msgstr "GNOME 與 GTK+"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:66
+msgid "Java"
+msgstr "Java"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:67
+msgid "KDE and Qt"
+msgstr "KDE 與 Qt"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:68
+msgid "Kernel"
+msgstr "核心"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:69
+msgid "OCaml"
+msgstr "OCaml"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:71
+msgid "Perl"
+msgstr "Perl"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:72
+msgid "PHP"
+msgstr "PHP"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:73
+msgid "Python"
+msgstr "Python"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:74
+msgid "Tools"
+msgstr "工具"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
+msgid "X11"
+msgstr "X11"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
+#: lib/ManaTools/Rpmdragora/icon.pm:204
+msgid "Documentation"
+msgstr "文件檔案"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:77
+msgid "Editors"
+msgstr "編輯器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:78
+msgid "Education"
+msgstr "教育"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:79
+msgid "Emulators"
+msgstr "模擬器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:80
+msgid "File tools"
+msgstr "檔案工具"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
+#: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
+#: lib/ManaTools/Rpmdragora/icon.pm:85 lib/ManaTools/Rpmdragora/icon.pm:86
+#: lib/ManaTools/Rpmdragora/icon.pm:87 lib/ManaTools/Rpmdragora/icon.pm:88
+#: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
+#: lib/ManaTools/Rpmdragora/icon.pm:91
+msgid "Games"
+msgstr "遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:82
+msgid "Adventure"
+msgstr "冒險遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:83
+msgid "Arcade"
+msgstr "大型電玩"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:84
+msgid "Boards"
+msgstr "棋盤遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:85
+msgid "Cards"
+msgstr "卡片遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:87
+msgid "Puzzles"
+msgstr "益智遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:88
+msgid "Shooter"
+msgstr "射擊"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:89
+msgid "Simulation"
+msgstr "模擬遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:90
+msgid "Sports"
+msgstr "運動遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:91
+msgid "Strategy"
+msgstr "戰略遊戲"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:92
+msgid "Geography"
+msgstr "地理"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
+#: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
+#: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
+#: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
+msgid "Graphical desktop"
+msgstr "圖形化桌面"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:96
+msgid "Enlightenment"
+msgstr "Enlightenment"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:99
+msgid "GNOME"
+msgstr "GNOME"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:102
+msgid "Icewm"
+msgstr "Icewm"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:105
+msgid "KDE"
+msgstr "KDE"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:109
+msgid "WindowMaker"
+msgstr "WindowMaker"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:112
+msgid "Xfce"
+msgstr "Xfce"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:113 lib/ManaTools/Rpmdragora/icon.pm:114
+#: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:116
+#: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
+#: lib/ManaTools/Rpmdragora/icon.pm:119
+msgid "Graphics"
+msgstr "圖形"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:114
+msgid "3D"
+msgstr "3D"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
+#: lib/ManaTools/Rpmdragora/icon.pm:180
+msgid "Editors and Converters"
+msgstr "編輯和轉檔"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
+#: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
+msgid "Utilities"
+msgstr "工具"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:117
+msgid "Photography"
+msgstr "攝影"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:118
+msgid "Scanning"
+msgstr "掃描"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:119
+msgid "Viewers"
+msgstr "檢視器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:120
+msgid "Monitoring"
+msgstr "監視"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
+#: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
+#: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:126
+#: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
+#: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
+msgid "Networking"
+msgstr "網路"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:122
+msgid "File transfer"
+msgstr "檔案傳輸"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:123
+msgid "IRC"
+msgstr "IRC"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:124
+msgid "Instant messaging"
+msgstr "即時通訊"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
+msgid "Mail"
+msgstr "郵件"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:126
+msgid "News"
+msgstr "新聞群組"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:128
+msgid "Remote access"
+msgstr "遠端存取"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:129
+msgid "WWW"
+msgstr "WWW"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
+#: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
+#: lib/ManaTools/Rpmdragora/icon.pm:134 lib/ManaTools/Rpmdragora/icon.pm:135
+#: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
+#: lib/ManaTools/Rpmdragora/icon.pm:138
+msgid "Office"
+msgstr "辦公軟體"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:131
+msgid "Dictionary"
+msgstr "字典"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:132
+msgid "Finance"
+msgstr "財務"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:133
+msgid "Management"
+msgstr "管理"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:134
+msgid "Organizer"
+msgstr "行事曆"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:136
+msgid "Spreadsheet"
+msgstr "試算表"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:137
+msgid "Suite"
+msgstr "套裝軟體"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:138
+msgid "Word processor"
+msgstr "文字處理"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:139
+msgid "Publishing"
+msgstr "出版"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
+#: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
+#: lib/ManaTools/Rpmdragora/icon.pm:144 lib/ManaTools/Rpmdragora/icon.pm:145
+#: lib/ManaTools/Rpmdragora/icon.pm:146 lib/ManaTools/Rpmdragora/icon.pm:147
+#: lib/ManaTools/Rpmdragora/icon.pm:148
+msgid "Sciences"
+msgstr "科學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:141
+msgid "Astronomy"
+msgstr "天文學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:142
+msgid "Biology"
+msgstr "生物學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:143
+msgid "Chemistry"
+msgstr "化學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:144
+msgid "Computer science"
+msgstr "計算機科學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:145
+msgid "Geosciences"
+msgstr "地球科學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:146
+msgid "Mathematics"
+msgstr "數學"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:148
+msgid "Physics"
+msgstr "物理"
+
+#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
+#. (itstool) path: category/title
+#: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:77
+#: extras/conf/mpan/categories.conf.in:43
+msgid "Security"
+msgstr "安全"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:150
+msgid "Shells"
+msgstr "Shells"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
+#: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
+#: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:156
+msgid "Sound"
+msgstr "音效"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:153
+msgid "Midi"
+msgstr "Midi"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:154
+msgid "Mixers"
+msgstr "混音器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
+msgid "Players"
+msgstr "播放器"
+
+#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
+#. (itstool) path: category/title
+#: lib/ManaTools/Rpmdragora/icon.pm:157 lib/ManaTools/Rpmdragora/icon.pm:158
+#: lib/ManaTools/Rpmdragora/icon.pm:159 lib/ManaTools/Rpmdragora/icon.pm:160
+#: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:162
+#: lib/ManaTools/Rpmdragora/icon.pm:163 lib/ManaTools/Rpmdragora/icon.pm:164
+#: lib/ManaTools/Rpmdragora/icon.pm:165 lib/ManaTools/Rpmdragora/icon.pm:166
+#: lib/ManaTools/Rpmdragora/icon.pm:167 lib/ManaTools/Rpmdragora/icon.pm:168
+#: lib/ManaTools/Rpmdragora/icon.pm:169 lib/ManaTools/Rpmdragora/icon.pm:170
+#: lib/ManaTools/Rpmdragora/icon.pm:171 lib/ManaTools/Rpmdragora/icon.pm:172
+#: lib/ManaTools/Rpmdragora/icon.pm:173 extras/conf/mpan/categories.conf.in:23
+#: extras/conf/mpan/categories.conf.d/manauser.conf.in:4
+#: extras/conf/mpan/categories.conf.d/manaservice.conf.in:4
+msgid "System"
+msgstr "系統"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:158
+msgid "Base"
+msgstr "基本套件"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:159
+msgid "Boot and Init"
+msgstr "開機與 Init 初始"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:160
+msgid "Cluster"
+msgstr "叢集"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
+msgid "Configuration"
+msgstr "設定"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
+#: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
+msgid "Fonts"
+msgstr "字型"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:163
+msgid "True type"
+msgstr "True type"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:164
+msgid "Type1"
+msgstr "Type1"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:165
+msgid "X11 bitmap"
+msgstr "X11 bitmap"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:166
+msgid "Internationalization"
+msgstr "國際化"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:167
+msgid "Kernel and hardware"
+msgstr "核心與硬體"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:168
+msgid "Libraries"
+msgstr "函式庫"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:170
+msgid "Packaging"
+msgstr "包裝"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:171
+msgid "Printing"
+msgstr "列印"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:172
+msgid "Servers"
+msgstr "伺服器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:176
+msgid "Terminals"
+msgstr "終端機"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:177
+msgid "Text tools"
+msgstr "文字工具"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:178
+msgid "Toys"
+msgstr "玩具"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
+#: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
+#: lib/ManaTools/Rpmdragora/icon.pm:183
+msgid "Video"
+msgstr "視訊"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:182
+msgid "Television"
+msgstr "電視"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
+#: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
+#: lib/ManaTools/Rpmdragora/icon.pm:190 lib/ManaTools/Rpmdragora/icon.pm:191
+#: lib/ManaTools/Rpmdragora/icon.pm:192 lib/ManaTools/Rpmdragora/icon.pm:193
+#: lib/ManaTools/Rpmdragora/icon.pm:194 lib/ManaTools/Rpmdragora/icon.pm:195
+msgid "Workstation"
+msgstr "工作站"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:188
+msgid "Console Tools"
+msgstr "Console 工具"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:190
+msgid "Game station"
+msgstr "遊戲平台"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:191
+msgid "Internet station"
+msgstr "網際網路平台"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:192
+msgid "Multimedia station"
+msgstr "多媒體平台"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:193
+msgid "Network Computer (client)"
+msgstr "網路電腦 (客戶端)"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:194
+msgid "Office Workstation"
+msgstr "辦公軟體平台"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:195
+msgid "Scientific Workstation"
+msgstr "科學工作站"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:198
+msgid "GNOME Workstation"
+msgstr "GNOME 工作站"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:199
+msgid "IceWm Desktop"
+msgstr "IceWM 桌面"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:200
+msgid "KDE Workstation"
+msgstr "KDE 工作站"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:201
+msgid "Other Graphical Desktops"
+msgstr "其他圖型桌面軟體"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
+#: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
+#: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
+#: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
+msgid "Server"
+msgstr "伺服器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:206
+msgid "DNS/NIS"
+msgstr "DNS/NIS"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:207
+msgid "Database"
+msgstr "資料庫軟體"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:208
+msgid "Firewall/Router"
+msgstr "防火牆/路由器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:210
+msgid "Mail/Groupware/News"
+msgstr "郵件/群組軟體/新聞"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:211
+msgid "Network Computer server"
+msgstr "網路伺服器"
+
+#: lib/ManaTools/Rpmdragora/icon.pm:212
+msgid "Web/FTP"
+msgstr "Web/FTP"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:141
+#, perl-format
+msgid "Getting information from %s..."
+msgstr "正在由 %s 取得資訊..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:145
+#, perl-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr "正在由 XML meta-data 取得 '%s'..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:149 lib/ManaTools/Rpmdragora/pkg.pm:465
+#: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
+#: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
+#: modules/rpmdragora/rpmdragora:296
+msgid "Please wait"
+msgstr "請稍候"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:162
+#, perl-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr "媒體 \"%s\" 沒有 xml 資訊，套件 %s 只有部份的結果"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:164
+#, perl-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr "媒體 \"%s\" 沒有 xml 資訊，無法傳回套件 %s 的任何結果"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
+#, perl-format
+msgid "Downloading package `%s'..."
+msgstr "正在下載套件 `%s'..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:226
+#, perl-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr "        已經完成 %s%% 共 %s，ETA = %s，速度 = %s"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:227
+#, perl-format
+msgid "        %s%% completed, speed = %s"
+msgstr "        %s%% 完成，速度 = %s"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:267 lib/ManaTools/Rpmdragora/pkg.pm:812
+#: lib/ManaTools/Module/Hosts.pm:481
+msgid "Confirmation"
+msgstr "確認"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:268
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"我需要連線到映射站台以取得最新的更新套件。\n"
+"請確定您能夠正常的連結到網際網路上。\n"
+"\n"
+"您要繼續嗎?"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:286
+msgid "Already existing update media"
+msgstr "更新媒體已存在"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:287
+#, perl-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+"您已經設定好了至少一個更新媒體，但它們現在全部都是停用的。\n"
+"您應該執行軟體套件媒體管理員來啟用至少一個媒體 (選取「%s」欄位)。\n"
+"\n"
+"完成後，請重新啟動「%s」。"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:297
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr "您尚未設定更新媒體來源，因此 MageiaUpdate 無法進行操作。"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:298 lib/ManaTools/rpmdragora.pm:1003
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+"這個動作需要連線到 Mageia 網站以取得鏡射站台列表。\n"
+"請檢查您的網路連線沒有問題。\n"
+"\n"
+"可以繼續了嗎？"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:305
+msgid "How to choose manually your mirror"
+msgstr "如何手動選擇您需要的映射站台"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:306
+#, perl-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+"您也可以手動選擇想要使用的映射站台。要這樣作的話，請開啟軟體\n"
+"套件媒體管理員，然後新增一個「安全性更新」的媒體。\n"
+"\n"
+"完成後，請重新啟動 %s。"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:478
+msgid "Reading updates description"
+msgstr "讀取更新描述"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
+msgid "Please wait, finding available packages..."
+msgstr "請稍候，正在尋找可用的套件..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:489
+msgid "Please wait, listing base packages..."
+msgstr "排序套件中，請稍候..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:494 lib/ManaTools/Rpmdragora/pkg.pm:969
+#: lib/ManaTools/Rpmdragora/pkg.pm:994 lib/ManaTools/rpmdragora.pm:696
+#: lib/ManaTools/rpmdragora.pm:720 lib/ManaTools/rpmdragora.pm:738
+msgid "Error"
+msgstr "錯誤"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:502
+msgid "Please wait, finding installed packages..."
+msgstr "請稍候，正在尋找已安裝的套件..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:630
+msgid "Upgrade information"
+msgstr "升級資訊"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:646
+msgid "These packages come with upgrade information"
+msgstr "這些套件包含了升級資訊"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
+msgid "All requested packages were installed successfully."
+msgstr "已經成功地安裝您要求的全部套件。"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
+msgid "Problem during installation"
+msgstr "安裝時發生問題"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:724 lib/ManaTools/Rpmdragora/pkg.pm:744
+#: lib/ManaTools/Rpmdragora/pkg.pm:957
+#, perl-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+"安裝時發生了以下的錯誤：\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:743
+msgid "Installation failed"
+msgstr "安裝失敗"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:766
+msgid "Checking validity of requested packages..."
+msgstr "正在檢查要求的套件的正確性..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:789
+msgid "Unable to get source packages."
+msgstr "無法取得來源套件。"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:790
+#, perl-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr "無法取得來源套件，抱歉。%s"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:791
+#, perl-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+"\n"
+"\n"
+"錯誤報告：\n"
+"%s"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:809
+msgid "The following package is going to be installed:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:815
+msgid "Remove one package?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:817
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr "需要移除以下套件以便更新其他套件："
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:818
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr "必須移除以下套件以便升級其他套件："
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:822
+msgid "Is it ok to continue?"
+msgstr "您要繼續嗎？"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:833
+msgid "Initializing..."
+msgstr "初始化中..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
+msgid "Orphan packages"
+msgstr "Orphan 套件"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:841
+msgid "The following orphan package will be removed."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
+msgid "Preparing package installation..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
+#, perl-format
+msgid "Installing package `%s' (%d/%d)..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
+#, perl-format
+msgid "Total: %d/%d"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:928
+msgid "Change medium"
+msgstr "變更媒體"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:929
+#, perl-format
+msgid "Please insert the medium named \"%s\""
+msgstr "請置入名為 \"%s\" 的媒體"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:933
+msgid "Verifying package signatures..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:956
+#, perl-format
+msgid "%d installation transactions failed"
+msgstr "有 %d 個安裝業務失敗"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:970
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr "無法回復的錯誤：抱歉，沒有找到可供安裝的套件。"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:973
+msgid "Inspecting configuration files..."
+msgstr "正在查驗組態設定檔..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:981
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+"安裝完成，所有的東西都正確的安裝好了。\n"
+"\n"
+"有些設定檔被建立時以 `.rpmnew' 或 `.rpmsave' 命名，您\n"
+"現在可以檢查一下以確保它正常運作："
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:987
+msgid "Looking for \"README\" files..."
+msgstr "正在尋找 \"README\" 檔..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1025
+#, perl-format
+msgid "RPM transaction %d/%d"
+msgstr "RPM 執行 %d/%d"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1026
+msgid "Unselect all"
+msgstr "全部不選取"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1027
+msgid "Details"
+msgstr "細節"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1072
+msgid "Please wait, removing packages..."
+msgstr "正在移除套件，請稍候..."
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1085
+msgid "Problem during removal"
+msgstr "移除時發生問題"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1086
+#, perl-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+"移除套件時發生問題：\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1093 lib/ManaTools/Module/Services.pm:383
+msgid "Information"
+msgstr "資訊"
+
+#: lib/ManaTools/Module/Hosts.pm:48
+#, fuzzy, perl-format
+msgid "%s - manage hosts definitions"
+msgstr "管理主機定義"
+
+#: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
+#: lib/ManaTools/Module/Hosts.pm:421
+msgid "Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:147
+msgid "Pretty Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:152
+msgid "Static Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:157
+msgid "Chassis"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:162
+msgid "Icon Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:237 lib/ManaTools/Module/Hosts.pm:420
+msgid "IP Address"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:239
+msgid "Host aliases"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:314
+msgid "Add the information"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:348
+msgid "Modify the information"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:394
+msgid "Manage hosts definitions"
+msgstr "管理主機定義"
+
+#: lib/ManaTools/Module/Hosts.pm:422
+msgid "Host Aliases"
+msgstr "主機別名"
+
+#: lib/ManaTools/Module/Hosts.pm:435
+msgid "A&dd"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:436 lib/ManaTools/Module/Users.pm:2342
+msgid "&Edit"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:437
+msgid "&Remove"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:438
+msgid "&Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:481
+msgid "Are you sure to drop this host?"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:496
+#: lib/ManaTools/Module/DisplayManager.pm:263
+#: lib/ManaTools/Module/Firewall.pm:176
+#, perl-format
+msgid "Copyright (C) %s by Matteo Pasotti"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:498
+msgid "Graphical manager for hosts definitions"
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:151
+msgid "no active media found\n"
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:175
+msgid "== Processing "
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:180
+#: lib/ManaTools/Module/PkgDownloader.pm:189
+#: lib/ManaTools/Module/PkgDownloader.pm:199
+#, fuzzy
+msgid "protocol in use: "
+msgstr "通訊協定："
+
+#: lib/ManaTools/Module/PkgDownloader.pm:181
+msgid "trying with "
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:202
+#, fuzzy
+msgid " downloaded successfully\n"
+msgstr "成功安裝後清除下載快取"
+
+#: lib/ManaTools/Module/PkgDownloader.pm:207
+msgid "no packages passed as argument\n"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:54
+#, fuzzy, perl-format
+msgid "%s - Display Manager"
+msgstr "XDM (X 環境登入管理員)"
+
+#: lib/ManaTools/Module/DisplayManager.pm:89
+msgid "LightDM (The Light Display Manager)"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:90
+msgid "GDM (GNOME Display Manager)"
+msgstr "GDM (GNOME 登入管理員)"
+
+#: lib/ManaTools/Module/DisplayManager.pm:91
+msgid "KDM (KDE Display Manager)"
+msgstr "KDM (KDE 登入管理員)"
+
+#: lib/ManaTools/Module/DisplayManager.pm:92
+msgid "XDM (X Display Manager)"
+msgstr "XDM (X 環境登入管理員)"
+
+#: lib/ManaTools/Module/DisplayManager.pm:138
+#: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2404
+#: lib/ManaTools/Module/Proxy.pm:147
+#: modules/rpmdragora/dragora-urpm-addmedia:66
+#: modules/rpmdragora/dragora-urpm-sources.pl:39
+msgid "root privileges required"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:169
+#: lib/ManaTools/Module/Proxy.pm:175
+msgid "X Restart Required"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:169
+#: lib/ManaTools/Module/Proxy.pm:175
+msgid "You need to log out and back in again for changes to take effect"
+msgstr "您必須登出之後重新登入才能讓變動生效"
+
+#: lib/ManaTools/Module/DisplayManager.pm:178
+msgid "Display Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:209
+msgid "Choosing a display manager"
+msgstr "選擇一個登入管理員"
+
+#: lib/ManaTools/Module/DisplayManager.pm:265
+msgid "Graphical configurator for system Display Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:86
+#, perl-format
+msgid "%s - Firewall Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:200
+msgid "Port scan detection"
+msgstr "連接埠掃描偵測"
+
+#: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
+#: lib/ManaTools/Module/Firewall.pm:1008
+msgid "Firewall configuration"
+msgstr "防火牆組態設定"
+
+#: lib/ManaTools/Module/Firewall.pm:416
+msgid ""
+"drakfirewall configurator\n"
+"                    This configures a personal firewall for this Mageia "
+"machine."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:423
+msgid ""
+"drakfirewall configurator\n"
+"Make sure you have configured your Network/Internet access with\n"
+"drakconnect before going any further."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:486
+msgid "Interactive Firewall"
+msgstr "互動式防火牆"
+
+#: lib/ManaTools/Module/Firewall.pm:490
+msgid ""
+"You can be warned when someone accesses to a service or tries to intrude "
+"into your computer.\n"
+"Please select which network activities should be watched."
+msgstr ""
+"您可以在有人連接到某項服務或試圖侵入您的電腦時收到警告。\n"
+"請選擇要監控的網路活動項目。"
+
+#: lib/ManaTools/Module/Firewall.pm:496
+msgid "Use Interactive Firewall"
+msgstr "使用互動式防火牆"
+
+#: lib/ManaTools/Module/Firewall.pm:658
+msgid "Graphical manager for interactive firewall rules"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
+#: lib/ManaTools/Module/Firewall.pm:1097
+msgid "Firewall"
+msgstr "防火牆"
+
+#: lib/ManaTools/Module/Firewall.pm:712
+msgid "Which services would you like to allow the Internet to connect to?"
+msgstr "您要允許網路可連線至何種服務呢？"
+
+#: lib/ManaTools/Module/Firewall.pm:713
+#, perl-format
+msgid "Those settings will be saved for the network profile <b>%s</b>"
+msgstr "這些設定會儲存到網路設定檔 <b>%s</b>"
+
+#: lib/ManaTools/Module/Firewall.pm:714
+msgid "Everything (no firewall)"
+msgstr "全部 (沒有防火牆)"
+
+#: lib/ManaTools/Module/Firewall.pm:820
+msgid "A&dvanced"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:854
+msgid "Graphical manager for firewall rules"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:886
+msgid ""
+"You can enter miscellaneous ports.\n"
+"Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Have a look at /etc/services for information."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:891
+msgid "Define miscellaneus ports"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:906
+msgid "Other ports"
+msgstr "其它通訊埠"
+
+#: lib/ManaTools/Module/Firewall.pm:914
+msgid "Log firewall messages in system logs"
+msgstr "將防火牆訊息記錄到系統日誌中"
+
+#: lib/ManaTools/Module/Firewall.pm:969
+msgid "Invalid port given"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:970
+#, perl-format
+msgid ""
+"Invalid port given: %s.\n"
+"The proper format is \"port/tcp\" or \"port/udp\",\n"
+"where port is between 1 and 65535.\n"
+"\n"
+"You can also give a range of ports (eg: 24300:24350/udp)"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:1009
+msgid ""
+"Please select the interfaces that will be protected by the firewall.\n"
+"\n"
+"All interfaces directly connected to Internet should be selected,\n"
+"while interfaces connected to a local network may be unselected.\n"
+"\n"
+"If you intend to use Mageia Internet Connection sharing,\n"
+"unselect interfaces which will be connected to local network.\n"
+"\n"
+"Which interfaces should be protected?\n"
+msgstr ""
+"請選擇防火牆要保護的介面。\n"
+"\n"
+"所有直接連線到網際網路的網路介面都應該被防火牆保護，\n"
+"而連接到本地端網路的介面則可以考慮不必選取。\n"
+"\n"
+"若您打算使用 Mageia 網際網路連線分享，\n"
+"則請不要選取連線到本地端網路的介面。\n"
+"\n"
+"請選擇要保護哪些介面。\n"
+
+#: lib/ManaTools/Module/Firewall.pm:1098
+msgid ""
+"Your firewall configuration has been manually edited and contains\n"
+"    rules that may conflict with the configuration that has just been set "
+"up.\n"
+"    What do you want to do?"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:81
+#, fuzzy, perl-format
+msgid "%s - Log viewer"
+msgstr "執行 Mageia 記錄檔檢視器"
+
+#: lib/ManaTools/Module/LogViewer.pm:156
+msgid "A tool to monitor your logs"
+msgstr "監察記錄檔的工具"
+
+#: lib/ManaTools/Module/LogViewer.pm:160
+msgid "Matching"
+msgstr "相配的"
+
+#: lib/ManaTools/Module/LogViewer.pm:164
+msgid "but not matching"
+msgstr "但是不相配"
+
+#: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
+msgid "Options"
+msgstr "選項"
+
+#: lib/ManaTools/Module/LogViewer.pm:173
+msgid "Last boot"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:186
+msgid "Since"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:191
+msgid "Until"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:218
+msgid "Select a unit"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:240
+msgid "From priority"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:260
+msgid "To priority"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:278
+msgid "&Find"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:281
+msgid "Log content"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:297
+msgid "&Save"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:324
+msgid "Log viewer is a systemd journal viewer"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:325
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Translators</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:343
+msgid "Empty log found"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:436
+msgid "manalog - running in user mode"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:437
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to read system logs which you do not have rights to,\n"
+"but you may still browse all the others."
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:459
+msgid "Save as.."
+msgstr "另存新檔..."
+
+#: lib/ManaTools/Module/Users.pm:107
+#, perl-format
+msgid "%s - Users Management Tool"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:295
+msgid "User Data"
+msgstr "使用者資料"
+
+#: lib/ManaTools/Module/Users.pm:296
+msgid "Account Info"
+msgstr "帳號資訊"
+
+#: lib/ManaTools/Module/Users.pm:297
+msgid "Password Info"
+msgstr "密碼資訊"
+
+#: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2530
+msgid "Groups"
+msgstr "群組"
+
+#: lib/ManaTools/Module/Users.pm:301
+msgid "Group Data"
+msgstr "群組數據"
+
+#: lib/ManaTools/Module/Users.pm:302
+msgid "Group Users"
+msgstr "群組使用者"
+
+#: lib/ManaTools/Module/Users.pm:336
+msgid "Choose group"
+msgstr "選取群組"
+
+#: lib/ManaTools/Module/Users.pm:344
+msgid "A group with this name already exists.  What would you like to do?"
+msgstr "一個同名的群組已經存在，您要怎麼處理呢？"
+
+#: lib/ManaTools/Module/Users.pm:350
+msgid "Add to the existing group"
+msgstr "新增到已經存在的群組"
+
+#: lib/ManaTools/Module/Users.pm:354
+msgid "Add to the 'users' group"
+msgstr "新增到 'users' 群組"
+
+#: lib/ManaTools/Module/Users.pm:426
+#, perl-format
+msgid "Do you really want to delete the group %s?"
+msgstr "您真的要刪除群組 %s 嗎？"
+
+#: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
+#: lib/ManaTools/Module/Users.pm:2343
+msgid "&Delete"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:452
+#, perl-format
+msgid ""
+"%s is a primary group for user %s\n"
+" Remove the user first"
+msgstr ""
+"%s 是使用者 %s 的主群組\n"
+" 請先移除使用者"
+
+#: lib/ManaTools/Module/Users.pm:459
+#, perl-format
+msgid "Removing group: %s"
+msgstr "移除群組： %s"
+
+#: lib/ManaTools/Module/Users.pm:506
+msgid "Delete files or not?"
+msgstr "是否要刪除檔案？"
+
+#: lib/ManaTools/Module/Users.pm:513
+#, perl-format
+msgid ""
+"Deleting user %s\n"
+"Also perform the following actions\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:516
+#, perl-format
+msgid "Delete Home Directory: %s"
+msgstr "刪除家目錄： %s"
+
+#: lib/ManaTools/Module/Users.pm:518
+#, perl-format
+msgid "Delete Mailbox: /var/spool/mail/%s"
+msgstr "刪除郵件匝：/var/spool/mail/%s"
+
+#: lib/ManaTools/Module/Users.pm:546
+#, perl-format
+msgid "Removing user: %s"
+msgstr "移除使用者： %s"
+
+#: lib/ManaTools/Module/Users.pm:578
+msgid "Create New Group"
+msgstr "建立新的群組"
+
+#: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
+msgid "Group Name:"
+msgstr "群組名稱:"
+
+#: lib/ManaTools/Module/Users.pm:598
+msgid "Specify group ID manually"
+msgstr "手動指定群組 ID"
+
+#: lib/ManaTools/Module/Users.pm:600
+msgid "GID"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:633
+msgid "Group already exists, please choose another Group Name"
+msgstr "群組已經存在，請另外選擇一個群組名稱"
+
+#: lib/ManaTools/Module/Users.pm:641
+#, perl-format
+msgid " Group Gid is < %n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:642
+#, perl-format
+msgid ""
+"Creating a group with a GID less than %d is not recommended.\n"
+" Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:650
+msgid " Group ID is already used "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:651
+msgid ""
+"Creating a group with a non unique GID?\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:663
+#, perl-format
+msgid "Adding group: %s "
+msgstr "正在新增群組： %s "
+
+#: lib/ManaTools/Module/Users.pm:719
+msgid "Full Name:"
+msgstr "全名:"
+
+#: lib/ManaTools/Module/Users.pm:760
+msgid "Confirm Password:"
+msgstr "確認密碼："
+
+#: lib/ManaTools/Module/Users.pm:769
+msgid "Login Shell:"
+msgstr "預設的 Shell:"
+
+#: lib/ManaTools/Module/Users.pm:808
+#, perl-format
+msgid "&Icon (%s)"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:856
+msgid "Create New User"
+msgstr "建立新的使用者"
+
+#: lib/ManaTools/Module/Users.pm:871
+msgid "Create Home Directory"
+msgstr "建立家目錄"
+
+#: lib/ManaTools/Module/Users.pm:875
+msgid "Home Directory:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:884
+msgid "Create a private group for the user"
+msgstr "建立一個私有的群組給使用者"
+
+#: lib/ManaTools/Module/Users.pm:889
+msgid "Specify user ID manually"
+msgstr "手動指定使用者 ID"
+
+#: lib/ManaTools/Module/Users.pm:891
+msgid "UID"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:899
+msgid "Click on icon to change it"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:951
+msgid "User already exists, please choose another User Name"
+msgstr "這個使用者已經存在於系統中，請另外選取一個使用者名稱"
+
+#: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
+msgid "Password Mismatch"
+msgstr "密碼錯誤"
+
+#: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
+msgid ""
+"This password is too simple. \n"
+" Good passwords should be > 6 characters"
+msgstr ""
+"這個密碼太簡單。 \n"
+" 好的密碼應該至少有 6 個字元"
+
+#: lib/ManaTools/Module/Users.pm:967
+#, perl-format
+msgid ""
+"Home directory <%s> already exists.\n"
+"Please uncheck the home creation option, or change the directory path name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:980
+#, perl-format
+msgid "User Uid is < %d"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:981
+#, perl-format
+msgid ""
+"Creating a user with a UID less than %d is not recommended.\n"
+"Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:996
+#, perl-format
+msgid "Putting %s to 'users' group"
+msgstr "放置 %s 到 'users' 群組"
+
+#: lib/ManaTools/Module/Users.pm:1009
+#, perl-format
+msgid "Creating new group: %s"
+msgstr "建立新的群組： %s"
+
+#: lib/ManaTools/Module/Users.pm:1023
+msgid "Adding user: "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1024
+#, perl-format
+msgid "Adding user: %s"
+msgstr "新增使用者： %s"
+
+#: lib/ManaTools/Module/Users.pm:1090
+msgid "User Name"
+msgstr "使用者名稱"
+
+#: lib/ManaTools/Module/Users.pm:1091
+msgid "User ID"
+msgstr "使用者 ID"
+
+#: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
+msgid "Primary Group"
+msgstr "主群組"
+
+#: lib/ManaTools/Module/Users.pm:1093
+msgid "Full Name"
+msgstr "全名"
+
+#: lib/ManaTools/Module/Users.pm:1094
+msgid "Login Shell"
+msgstr "預設的 Shell"
+
+#: lib/ManaTools/Module/Users.pm:1095
+msgid "Home Directory"
+msgstr "家目錄"
+
+#: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
+#: modules/rpmdragora/rpmdragora:478
+msgid "Status"
+msgstr "狀態"
+
+#: lib/ManaTools/Module/Users.pm:1136
+msgid "Group Name"
+msgstr "群組名稱"
+
+#: lib/ManaTools/Module/Users.pm:1137
+msgid "Group ID"
+msgstr "群組 ID"
+
+#: lib/ManaTools/Module/Users.pm:1138
+msgid "Group Members"
+msgstr "群組成員"
+
+#: lib/ManaTools/Module/Users.pm:1552
+msgid "Home:"
+msgstr "家目錄:"
+
+#: lib/ManaTools/Module/Users.pm:1651
+msgid "Enable account expiration"
+msgstr "啟用帳號使用期限"
+
+#: lib/ManaTools/Module/Users.pm:1654
+msgid "Account expires (YYYY-MM-DD):"
+msgstr "帳號可使用至 (YYYY-MM-DD)："
+
+#: lib/ManaTools/Module/Users.pm:1661
+msgid "Lock User Account"
+msgstr "鎖住使用者帳號"
+
+#: lib/ManaTools/Module/Users.pm:1665
+msgid "Click on the icon to change it"
+msgstr "點選圖示以改變它"
+
+#: lib/ManaTools/Module/Users.pm:1695
+msgid "User last changed password on: "
+msgstr "使用者最後改變密碼於 : "
+
+#: lib/ManaTools/Module/Users.pm:1708
+msgid "Enable Password Expiration"
+msgstr "啟用密碼使用期限"
+
+#: lib/ManaTools/Module/Users.pm:1712
+msgid "Days before change allowed:"
+msgstr "允許改變之前的日數 :"
+
+#: lib/ManaTools/Module/Users.pm:1720
+msgid "Days before change required:"
+msgstr "需要改變之前的日數 :"
+
+#: lib/ManaTools/Module/Users.pm:1728
+msgid "Days warning before change:"
+msgstr "改變之前的日數警告 :"
+
+#: lib/ManaTools/Module/Users.pm:1736
+msgid "Days before account inactive:"
+msgstr "帳號凍結之前的日數 :"
+
+#: lib/ManaTools/Module/Users.pm:1765
+msgid "Select the users to join this group:"
+msgstr "選擇要加入此群組的使用者："
+
+#: lib/ManaTools/Module/Users.pm:1769
+msgid "User"
+msgstr "使用者"
+
+#: lib/ManaTools/Module/Users.pm:1810
+msgid "Select groups that the user will be member of:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1916
+msgid "Please select at least one group for the user"
+msgstr "請選擇至少一個群組給此使用者"
+
+#: lib/ManaTools/Module/Users.pm:1942
+msgid ""
+"Please specify Year, Month and Day \n"
+" for Account Expiration "
+msgstr ""
+"請指定年、月與日 \n"
+" 為帳號的使用期限"
+
+#: lib/ManaTools/Module/Users.pm:1958
+msgid "Please fill up all fields in password aging\n"
+msgstr "請再次填入全部密碼欄位\n"
+
+#: lib/ManaTools/Module/Users.pm:1993
+msgid "Strong"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1993
+msgid "Weak"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2006
+msgid "Edit User"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2159 lib/ManaTools/Module/Users.pm:2262
+msgid "Cannot create tab widgets"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2175
+msgid "Edit Group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2340 lib/ManaTools/Module/Users.pm:2466
+msgid "Add User"
+msgstr "新增使用者"
+
+#: lib/ManaTools/Module/Users.pm:2341 lib/ManaTools/Module/Users.pm:2471
+msgid "Add Group"
+msgstr "新增群組"
+
+#: lib/ManaTools/Module/Users.pm:2344
+msgid "Install guest account"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2381
+msgid "manauser"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2385
+msgid ""
+"manauser is a Mageia user management tool \n"
+"(from the original idea of Mandriva userdrake)."
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2386
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Translators</h3>\n"
+"                                    <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2434 lib/ManaTools/Module/Users.pm:2486
+msgid "Refresh"
+msgstr "重新整理"
+
+#: lib/ManaTools/Module/Users.pm:2442
+msgid "Actions"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2481
+msgid "Delete"
+msgstr "刪除"
+
+#: lib/ManaTools/Module/Users.pm:2500
+msgid "Filter system users"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2505
+msgid "Search:"
+msgstr "搜尋："
+
+#: lib/ManaTools/Module/Users.pm:2507
+msgid "Apply &filter"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2526
+msgid "Users"
+msgstr "使用者"
+
+#: lib/ManaTools/Module/Proxy.pm:53
+#, fuzzy, perl-format
+msgid "%s - Proxy configuration"
+msgstr "代理伺服器設定"
+
+#: lib/ManaTools/Module/Proxy.pm:210
+msgid "Proxy should be http://..."
+msgstr "代理伺服器的設定格式必須為 http://..."
+
+#: lib/ManaTools/Module/Proxy.pm:215
+msgid "Proxy should be http://... or https://..."
+msgstr "代理伺服器的設定格式應該是 http://... 或 https://..."
+
+#: lib/ManaTools/Module/Proxy.pm:220
+msgid "URL should begin with 'ftp:' or 'http:'"
+msgstr "URL 應該是以 'ftp:' 或 'http:' 開頭"
+
+#: lib/ManaTools/Module/Proxy.pm:232
+msgid "Proxies configuration"
+msgstr "代理伺服器設定"
+
+#: lib/ManaTools/Module/Proxy.pm:282
+msgid ""
+"Here you can set up your proxies configuration (eg: http://"
+"my_caching_server:8080)"
+msgstr "您可以設定您的代理伺服器 (例如：http://my_caching_server:8080)"
+
+#: lib/ManaTools/Module/Proxy.pm:290
+msgid "HTTP proxy"
+msgstr "HTTP 代理伺服器"
+
+#: lib/ManaTools/Module/Proxy.pm:296
+msgid "Use HTTP proxy for HTTPS connections"
+msgstr "HTTPS 連線也使用 HTTP 代理伺服器"
+
+#: lib/ManaTools/Module/Proxy.pm:302
+msgid "HTTPS proxy"
+msgstr "HTTPS 代理伺服器"
+
+#: lib/ManaTools/Module/Proxy.pm:308
+msgid "FTP proxy"
+msgstr "FTP 代理伺服器"
+
+#: lib/ManaTools/Module/Proxy.pm:314
+msgid "No proxy for (comma separated list):"
+msgstr "以下不使用代理伺服器 (以逗號分隔清單)："
+
+#: lib/ManaTools/Module/Proxy.pm:349
+msgid "Graphical manager for proxies"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:86
+#, fuzzy, perl-format
+msgid "%s - Services and daemons"
+msgstr "服務程式"
+
+#: lib/ManaTools/Module/Services.pm:280
+msgid "Start when requested"
+msgstr "要求時啟動"
+
+#: lib/ManaTools/Module/Services.pm:283
+msgid "running"
+msgstr "執行中"
+
+#: lib/ManaTools/Module/Services.pm:283
+msgid "stopped"
+msgstr "未啟動"
+
+#: lib/ManaTools/Module/Services.pm:362
+msgid "Manage system services by enabling or disabling them"
+msgstr "啟動或停用系統服務"
+
+#: lib/ManaTools/Module/Services.pm:370
+msgid "Service"
+msgstr "服務"
+
+#: lib/ManaTools/Module/Services.pm:372
+msgid "On boot"
+msgstr "開機自動載入"
+
+#: lib/ManaTools/Module/Services.pm:391
+msgid "&Start"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:394
+msgid "S&top"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:407
+msgid "&Refresh"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:448
+msgid ""
+"adminService is the Mageia service and daemon management tool\n"
+"\n"
+"                                                       (from the original "
+"idea of Mandriva draxservice)."
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:518
+#, perl-format
+msgid "Starting %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:538
+#, perl-format
+msgid "Stopping %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:79
+#, fuzzy, perl-format
+msgid "%s - Date, Clock & Time Zone Settings"
+msgstr "日期、時間與時區設定"
+
+#: lib/ManaTools/Module/Clock.pm:198
+msgid ""
+"Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
+"and time"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:199
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Translators</h3>\n"
+"                                              <ul><li>%s</li></ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:215
+msgid "Restore data"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:216
+msgid "Restore date and time only?"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:236 lib/ManaTools/Module/Clock.pm:242
+#: lib/ManaTools/Module/Clock.pm:563 lib/ManaTools/Module/Clock.pm:648
+msgid "not defined"
+msgstr "尚未設定"
+
+#: lib/ManaTools/Module/Clock.pm:270
+msgid "Set local RTC failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:285
+msgid "Set time zone failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:326
+msgid "Set NTP Configuration failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:342
+msgid "Set NTP failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:365
+msgid "Set system time failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:396
+msgid "Setting date and time"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:414
+msgid "Enable Network Time Protocol"
+msgstr "啟用網路時間協定"
+
+#: lib/ManaTools/Module/Clock.pm:426
+msgid "manaclock: NTP service missed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:427
+msgid "Please install a NTP service such as chrony or ntp to manage"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:443
+msgid "Choose &NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:459
+msgid "NTP server - DrakClock"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:460
+msgid "Choose your NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:490
+msgid "&Local NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:503
+msgid "Set local NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:507
+msgid "Please set your local NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:561 lib/ManaTools/Module/Clock.pm:646
+msgid "Current:"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:586
+msgid "TimeZone"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:588
+msgid "Change &Time Zone"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:601 lib/ManaTools/Module/Clock.pm:609
+msgid "Timezone - DrakClock"
+msgstr "時區 - DakClock"
+
+#: lib/ManaTools/Module/Clock.pm:602
+msgid "Failed to retrieve timezone list"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:610
+msgid "Which is your timezone?"
+msgstr "您的時區為何？"
+
+#: lib/ManaTools/Module/Clock.pm:622
+msgid "GMT - manaclock"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:623
+msgid "Is your hardware clock set to GMT?"
+msgstr "硬體時鐘設定為 GMT 時間嗎?"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
@@ -255,38 +3392,13 @@ msgstr "保留自定的規則"
 msgid "Drop custom rules"
 msgstr "丟棄自定的規則"
 
-#: lib/ManaTools/Shared/GUI/CommandLine.pm:87
-msgid "start using yui gtk plugin implementation"
-msgstr ""
-
-#: lib/ManaTools/Shared/GUI/CommandLine.pm:93
-msgid "start using yui ncurses plugin implementation"
-msgstr ""
-
-#: lib/ManaTools/Shared/GUI/CommandLine.pm:99
-msgid "start using yui qt plugin implementation"
-msgstr ""
-
-#: lib/ManaTools/Shared/GUI/CommandLine.pm:105
-msgid "use full screen for dialogs"
-msgstr ""
-
-#: lib/ManaTools/Shared/GUI/CommandLine.pm:111
-msgid "no window manager border for dialogs"
-msgstr ""
-
-#: lib/ManaTools/Shared/GUI/CommandLine.pm:119
+#: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
-"<dir> optional directory containing configuration files for each module (e."
-"g. modulename/config_files)"
+"<dir> optional directory containing localization strings (developer only)"
 msgstr ""
 
-#: lib/ManaTools/Shared/GUI/Dialog.pm:411
-msgid "&Reset"
-msgstr ""
-
-#: lib/ManaTools/Shared/GUI/Dialog.pm:418
-msgid "&Close"
+#: lib/ManaTools/Shared/CommandLine.pm:83
+msgid "Prints this usage information."
 msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
@@ -560,6 +3672,81 @@ msgstr "全部伺服器"
 #: lib/ManaTools/Shared/TimeZone.pm:947
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+
+#: lib/ManaTools/Shared/GUI.pm:318
+msgid "Yes"
+msgstr "是"
+
+#: lib/ManaTools/Shared/GUI.pm:319
+msgid "No"
+msgstr "否"
+
+#: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
+#: lib/ManaTools/Shared/GUI.pm:924
+msgid "&Select"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:87
+msgid "start using yui gtk plugin implementation"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:93
+msgid "start using yui ncurses plugin implementation"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:99
+msgid "start using yui qt plugin implementation"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:105
+msgid "use full screen for dialogs"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:111
+msgid "no window manager border for dialogs"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:119
+msgid ""
+"<dir> optional directory containing configuration files for each module (e."
+"g. modulename/config_files)"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/Dialog.pm:420
+msgid "&Reset"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/Dialog.pm:427
+msgid "&Close"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:383
+msgid "Name field is empty please provide a name"
+msgstr "名稱欄位是空白的，請提供一個名稱"
+
+#: lib/ManaTools/Shared/Users.pm:388
+msgid ""
+"The name must start with a letter and contain only lower cased latin "
+"letters, numbers, '.', '-' and '_'"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:391
+#, perl-format
+msgid "Name is too long. Maximum length is %d"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:819
+#, perl-format
+msgid "You cannot remove user <%s> from their primary group"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:1166
+msgid "Locked"
+msgstr "被鎖住了"
+
+#: lib/ManaTools/Shared/Users.pm:1166
+msgid "Expired"
+msgstr "過期的"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -979,1106 +4166,6 @@ msgstr "啟動 X 字型伺服器。"
 msgid "Starts other deamons on demand."
 msgstr "需要時啟動其他常駐服務。"
 
-#: lib/ManaTools/Module/LogViewer.pm:84
-msgid "Log viewer"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:159
-msgid "A tool to monitor your logs"
-msgstr "監察記錄檔的工具"
-
-#: lib/ManaTools/Module/LogViewer.pm:163
-msgid "Matching"
-msgstr "相配的"
-
-#: lib/ManaTools/Module/LogViewer.pm:167
-msgid "but not matching"
-msgstr "但是不相配"
-
-#: lib/ManaTools/Module/LogViewer.pm:171 modules/rpmdragora/rpmdragora:723
-msgid "Options"
-msgstr "選項"
-
-#: lib/ManaTools/Module/LogViewer.pm:176
-msgid "Last boot"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:189
-msgid "Since"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:194
-msgid "Until"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:221
-msgid "Select a unit"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:243
-msgid "From priority"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:263
-msgid "To priority"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:281
-msgid "&Find"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:284
-msgid "Log content"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:300
-msgid "&Save"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:327
-msgid "Log viewer is a systemd journal viewer"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:328
-#, perl-format
-msgid ""
-"<h3>Developers</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                        <li>%s</li>\n"
-"                                                    </ul>\n"
-"                                                    <h3>Translators</h3>\n"
-"                                                    <ul><li>%s</li></ul>"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:346
-msgid "Empty log found"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:439
-msgid "manalog - running in user mode"
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:440
-msgid ""
-"You are launching this program as a normal user.\n"
-"You will not be able to read system logs which you do not have rights to,\n"
-"but you may still browse all the others."
-msgstr ""
-
-#: lib/ManaTools/Module/LogViewer.pm:462
-msgid "Save as.."
-msgstr "另存新檔..."
-
-#: lib/ManaTools/Module/Users.pm:118
-msgid "manauser - Mageia Users Management Tool"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:325
-msgid "User Data"
-msgstr "使用者資料"
-
-#: lib/ManaTools/Module/Users.pm:326
-msgid "Account Info"
-msgstr "帳號資訊"
-
-#: lib/ManaTools/Module/Users.pm:327
-msgid "Password Info"
-msgstr "密碼資訊"
-
-#: lib/ManaTools/Module/Users.pm:328 lib/ManaTools/Module/Users.pm:1439
-#: lib/ManaTools/Module/Users.pm:2560
-msgid "Groups"
-msgstr "群組"
-
-#: lib/ManaTools/Module/Users.pm:331
-msgid "Group Data"
-msgstr "群組數據"
-
-#: lib/ManaTools/Module/Users.pm:332
-msgid "Group Users"
-msgstr "群組使用者"
-
-#: lib/ManaTools/Module/Users.pm:366
-msgid "Choose group"
-msgstr "選取群組"
-
-#: lib/ManaTools/Module/Users.pm:374
-msgid "A group with this name already exists.  What would you like to do?"
-msgstr "一個同名的群組已經存在，您要怎麼處理呢？"
-
-#: lib/ManaTools/Module/Users.pm:380
-msgid "Add to the existing group"
-msgstr "新增到已經存在的群組"
-
-#: lib/ManaTools/Module/Users.pm:384
-msgid "Add to the 'users' group"
-msgstr "新增到 'users' 群組"
-
-#: lib/ManaTools/Module/Users.pm:448 lib/ManaTools/rpmdragora.pm:854
-#: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
-#: lib/ManaTools/Rpmdragora/pkg.pm:950 lib/ManaTools/Rpmdragora/pkg.pm:964
-#: lib/ManaTools/Rpmdragora/gui.pm:392 lib/ManaTools/Rpmdragora/gui.pm:945
-#: lib/ManaTools/Rpmdragora/gui.pm:949 lib/ManaTools/Rpmdragora/gui.pm:954
-#: modules/rpmdragora/rpmdragora:1209
-msgid "Warning"
-msgstr "警告"
-
-#: lib/ManaTools/Module/Users.pm:456
-#, perl-format
-msgid "Do you really want to delete the group %s?"
-msgstr "您真的要刪除群組 %s 嗎？"
-
-#: lib/ManaTools/Module/Users.pm:462 lib/ManaTools/Module/Users.pm:553
-#: lib/ManaTools/Module/Users.pm:2373
-msgid "&Delete"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:482
-#, perl-format
-msgid ""
-"%s is a primary group for user %s\n"
-" Remove the user first"
-msgstr ""
-"%s 是使用者 %s 的主群組\n"
-" 請先移除使用者"
-
-#: lib/ManaTools/Module/Users.pm:489
-#, perl-format
-msgid "Removing group: %s"
-msgstr "移除群組： %s"
-
-#: lib/ManaTools/Module/Users.pm:536
-msgid "Delete files or not?"
-msgstr "是否要刪除檔案？"
-
-#: lib/ManaTools/Module/Users.pm:543
-#, perl-format
-msgid ""
-"Deleting user %s\n"
-"Also perform the following actions\n"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:546
-#, perl-format
-msgid "Delete Home Directory: %s"
-msgstr "刪除家目錄： %s"
-
-#: lib/ManaTools/Module/Users.pm:548
-#, perl-format
-msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr "刪除郵件匝：/var/spool/mail/%s"
-
-#: lib/ManaTools/Module/Users.pm:576
-#, perl-format
-msgid "Removing user: %s"
-msgstr "移除使用者： %s"
-
-#: lib/ManaTools/Module/Users.pm:608
-msgid "Create New Group"
-msgstr "建立新的群組"
-
-#: lib/ManaTools/Module/Users.pm:618 lib/ManaTools/Module/Users.pm:1655
-msgid "Group Name:"
-msgstr "群組名稱:"
-
-#: lib/ManaTools/Module/Users.pm:628
-msgid "Specify group ID manually"
-msgstr "手動指定群組 ID"
-
-#: lib/ManaTools/Module/Users.pm:630
-msgid "GID"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:663
-msgid "Group already exists, please choose another Group Name"
-msgstr "群組已經存在，請另外選擇一個群組名稱"
-
-#: lib/ManaTools/Module/Users.pm:671
-#, perl-format
-msgid " Group Gid is < %n"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:672
-#, perl-format
-msgid ""
-"Creating a group with a GID less than %d is not recommended.\n"
-" Are you sure you want to do this?\n"
-"\n"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:680
-msgid " Group ID is already used "
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:681
-msgid ""
-"Creating a group with a non unique GID?\n"
-"\n"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:693
-#, perl-format
-msgid "Adding group: %s "
-msgstr "正在新增群組： %s "
-
-#: lib/ManaTools/Module/Users.pm:749
-msgid "Full Name:"
-msgstr "全名:"
-
-#: lib/ManaTools/Module/Users.pm:758
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
-msgid "Login:"
-msgstr "登入："
-
-#: lib/ManaTools/Module/Users.pm:768 lib/ManaTools/rpmdragora.pm:188
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
-msgid "Password:"
-msgstr "密碼："
-
-#: lib/ManaTools/Module/Users.pm:790
-msgid "Confirm Password:"
-msgstr "確認密碼："
-
-#: lib/ManaTools/Module/Users.pm:799
-msgid "Login Shell:"
-msgstr "預設的 Shell:"
-
-#: lib/ManaTools/Module/Users.pm:838
-#, perl-format
-msgid "&Icon (%s)"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:871 lib/ManaTools/Module/Users.pm:2434
-#: lib/ManaTools/Module/DisplayManager.pm:141
-#: lib/ManaTools/Module/Proxy.pm:150
-#: modules/rpmdragora/dragora-urpm-addmedia:66
-#: modules/rpmdragora/dragora-urpm-sources.pl:39
-msgid "root privileges required"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:886
-msgid "Create New User"
-msgstr "建立新的使用者"
-
-#: lib/ManaTools/Module/Users.pm:901
-msgid "Create Home Directory"
-msgstr "建立家目錄"
-
-#: lib/ManaTools/Module/Users.pm:905
-msgid "Home Directory:"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:914
-msgid "Create a private group for the user"
-msgstr "建立一個私有的群組給使用者"
-
-#: lib/ManaTools/Module/Users.pm:919
-msgid "Specify user ID manually"
-msgstr "手動指定使用者 ID"
-
-#: lib/ManaTools/Module/Users.pm:921
-msgid "UID"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:929
-msgid "Click on icon to change it"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:981
-msgid "User already exists, please choose another User Name"
-msgstr "這個使用者已經存在於系統中，請另外選取一個使用者名稱"
-
-#: lib/ManaTools/Module/Users.pm:986 lib/ManaTools/Module/Users.pm:1934
-msgid "Password Mismatch"
-msgstr "密碼錯誤"
-
-#: lib/ManaTools/Module/Users.pm:990 lib/ManaTools/Module/Users.pm:1940
-msgid ""
-"This password is too simple. \n"
-" Good passwords should be > 6 characters"
-msgstr ""
-"這個密碼太簡單。 \n"
-" 好的密碼應該至少有 6 個字元"
-
-#: lib/ManaTools/Module/Users.pm:997
-#, perl-format
-msgid ""
-"Home directory <%s> already exists.\n"
-"Please uncheck the home creation option, or change the directory path name"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:1010
-#, perl-format
-msgid "User Uid is < %d"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:1011
-#, perl-format
-msgid ""
-"Creating a user with a UID less than %d is not recommended.\n"
-"Are you sure you want to do this?\n"
-"\n"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:1026
-#, perl-format
-msgid "Putting %s to 'users' group"
-msgstr "放置 %s 到 'users' 群組"
-
-#: lib/ManaTools/Module/Users.pm:1040
-#, perl-format
-msgid "Creating new group: %s"
-msgstr "建立新的群組： %s"
-
-#: lib/ManaTools/Module/Users.pm:1053
-msgid "Adding user: "
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:1054
-#, perl-format
-msgid "Adding user: %s"
-msgstr "新增使用者： %s"
-
-#: lib/ManaTools/Module/Users.pm:1120
-msgid "User Name"
-msgstr "使用者名稱"
-
-#: lib/ManaTools/Module/Users.pm:1121
-msgid "User ID"
-msgstr "使用者 ID"
-
-#: lib/ManaTools/Module/Users.pm:1122 lib/ManaTools/Module/Users.pm:1869
-msgid "Primary Group"
-msgstr "主群組"
-
-#: lib/ManaTools/Module/Users.pm:1123
-msgid "Full Name"
-msgstr "全名"
-
-#: lib/ManaTools/Module/Users.pm:1124
-msgid "Login Shell"
-msgstr "預設的 Shell"
-
-#: lib/ManaTools/Module/Users.pm:1125
-msgid "Home Directory"
-msgstr "家目錄"
-
-#: lib/ManaTools/Module/Users.pm:1126 lib/ManaTools/Module/Services.pm:374
-#: modules/rpmdragora/rpmdragora:478
-msgid "Status"
-msgstr "狀態"
-
-#: lib/ManaTools/Module/Users.pm:1166
-msgid "Group Name"
-msgstr "群組名稱"
-
-#: lib/ManaTools/Module/Users.pm:1167
-msgid "Group ID"
-msgstr "群組 ID"
-
-#: lib/ManaTools/Module/Users.pm:1168
-msgid "Group Members"
-msgstr "群組成員"
-
-#: lib/ManaTools/Module/Users.pm:1351 lib/ManaTools/Module/Users.pm:2304
-#: lib/ManaTools/Module/Users.pm:2319 lib/ManaTools/Module/Users.pm:2335
-#: lib/ManaTools/Module/Users.pm:2556
-msgid "Users"
-msgstr "使用者"
-
-#: lib/ManaTools/Module/Users.pm:1582
-msgid "Home:"
-msgstr "家目錄:"
-
-#: lib/ManaTools/Module/Users.pm:1681
-msgid "Enable account expiration"
-msgstr "啟用帳號使用期限"
-
-#: lib/ManaTools/Module/Users.pm:1684
-msgid "Account expires (YYYY-MM-DD):"
-msgstr "帳號可使用至 (YYYY-MM-DD)："
-
-#: lib/ManaTools/Module/Users.pm:1691
-msgid "Lock User Account"
-msgstr "鎖住使用者帳號"
-
-#: lib/ManaTools/Module/Users.pm:1695
-msgid "Click on the icon to change it"
-msgstr "點選圖示以改變它"
-
-#: lib/ManaTools/Module/Users.pm:1725
-msgid "User last changed password on: "
-msgstr "使用者最後改變密碼於 : "
-
-#: lib/ManaTools/Module/Users.pm:1738
-msgid "Enable Password Expiration"
-msgstr "啟用密碼使用期限"
-
-#: lib/ManaTools/Module/Users.pm:1742
-msgid "Days before change allowed:"
-msgstr "允許改變之前的日數 :"
-
-#: lib/ManaTools/Module/Users.pm:1750
-msgid "Days before change required:"
-msgstr "需要改變之前的日數 :"
-
-#: lib/ManaTools/Module/Users.pm:1758
-msgid "Days warning before change:"
-msgstr "改變之前的日數警告 :"
-
-#: lib/ManaTools/Module/Users.pm:1766
-msgid "Days before account inactive:"
-msgstr "帳號凍結之前的日數 :"
-
-#: lib/ManaTools/Module/Users.pm:1795
-msgid "Select the users to join this group:"
-msgstr "選擇要加入此群組的使用者："
-
-#: lib/ManaTools/Module/Users.pm:1799
-msgid "User"
-msgstr "使用者"
-
-#: lib/ManaTools/Module/Users.pm:1840
-msgid "Select groups that the user will be member of:"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:1844
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
-msgid "Group"
-msgstr "群組"
-
-#: lib/ManaTools/Module/Users.pm:1946
-msgid "Please select at least one group for the user"
-msgstr "請選擇至少一個群組給此使用者"
-
-#: lib/ManaTools/Module/Users.pm:1969
-msgid ""
-"Please specify Year, Month and Day \n"
-" for Account Expiration "
-msgstr ""
-"請指定年、月與日 \n"
-" 為帳號的使用期限"
-
-#: lib/ManaTools/Module/Users.pm:1985
-msgid "Please fill up all fields in password aging\n"
-msgstr "請再次填入全部密碼欄位\n"
-
-#: lib/ManaTools/Module/Users.pm:2020
-msgid "Strong"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2020
-msgid "Weak"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2033
-msgid "Edit User"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2186 lib/ManaTools/Module/Users.pm:2289
-msgid "Cannot create tab widgets"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2202
-msgid "Edit Group"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2370 lib/ManaTools/Module/Users.pm:2496
-msgid "Add User"
-msgstr "新增使用者"
-
-#: lib/ManaTools/Module/Users.pm:2371 lib/ManaTools/Module/Users.pm:2501
-msgid "Add Group"
-msgstr "新增群組"
-
-#: lib/ManaTools/Module/Users.pm:2372 lib/ManaTools/Module/Hosts.pm:439
-msgid "&Edit"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2374
-msgid "Install guest account"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2411
-msgid "manauser"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2415
-msgid ""
-"manauser is a Mageia user management tool \n"
-"(from the original idea of Mandriva userdrake)."
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2416
-#, perl-format
-msgid ""
-"<h3>Developers</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translators</h3>\n"
-"                                    <ul><li>%s</li></ul>"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2464 lib/ManaTools/Module/Users.pm:2516
-msgid "Refresh"
-msgstr "重新整理"
-
-#: lib/ManaTools/Module/Users.pm:2472
-msgid "Actions"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2476
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
-#: modules/rpmdragora/dragoraUpdate:278 modules/rpmdragora/rpmdragora:756
-msgid "&Help"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2478
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
-#: modules/rpmdragora/rpmdragora:758
-msgid "Report Bug"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2506
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2156
-msgid "Edit"
-msgstr "編輯"
-
-#: lib/ManaTools/Module/Users.pm:2511
-msgid "Delete"
-msgstr "刪除"
-
-#: lib/ManaTools/Module/Users.pm:2530
-msgid "Filter system users"
-msgstr ""
-
-#: lib/ManaTools/Module/Users.pm:2535
-msgid "Search:"
-msgstr "搜尋："
-
-#: lib/ManaTools/Module/Users.pm:2537
-msgid "Apply &filter"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:127
-msgid "Date, Clock & Time Zone Settings"
-msgstr "日期、時間與時區設定"
-
-#: lib/ManaTools/Module/Clock.pm:217
-msgid ""
-"Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
-"and time"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:218
-#, perl-format
-msgid ""
-"<h3>Developers</h3>\n"
-"                                              <ul><li>%s</li></ul>\n"
-"                                              <h3>Translators</h3>\n"
-"                                              <ul><li>%s</li></ul>"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:234
-msgid "Restore data"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:235
-msgid "Restore date and time only?"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:255 lib/ManaTools/Module/Clock.pm:261
-#: lib/ManaTools/Module/Clock.pm:582 lib/ManaTools/Module/Clock.pm:667
-msgid "not defined"
-msgstr "尚未設定"
-
-#: lib/ManaTools/Module/Clock.pm:289
-msgid "Set local RTC failed"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:304
-msgid "Set time zone failed"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:345
-msgid "Set NTP Configuration failed"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:361
-msgid "Set NTP failed"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:384
-msgid "Set system time failed"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:415
-msgid "Setting date and time"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:433
-msgid "Enable Network Time Protocol"
-msgstr "啟用網路時間協定"
-
-#: lib/ManaTools/Module/Clock.pm:445
-msgid "manaclock: NTP service missed"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:446
-msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:462
-msgid "Choose &NTP server"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:478
-msgid "NTP server - DrakClock"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:479
-msgid "Choose your NTP server"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:509
-msgid "&Local NTP server"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:522
-msgid "Set local NTP server"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:526
-msgid "Please set your local NTP server"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:580 lib/ManaTools/Module/Clock.pm:665
-msgid "Current:"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:605
-msgid "TimeZone"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:607
-msgid "Change &Time Zone"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:620 lib/ManaTools/Module/Clock.pm:628
-msgid "Timezone - DrakClock"
-msgstr "時區 - DakClock"
-
-#: lib/ManaTools/Module/Clock.pm:621
-msgid "Failed to retrieve timezone list"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:629
-msgid "Which is your timezone?"
-msgstr "您的時區為何？"
-
-#: lib/ManaTools/Module/Clock.pm:641
-msgid "GMT - manaclock"
-msgstr ""
-
-#: lib/ManaTools/Module/Clock.pm:642
-msgid "Is your hardware clock set to GMT?"
-msgstr "硬體時鐘設定為 GMT 時間嗎?"
-
-#: lib/ManaTools/Module/Hosts.pm:51
-msgid "manahost - manage hosts definitions"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:145 lib/ManaTools/Module/Hosts.pm:241
-#: lib/ManaTools/Module/Hosts.pm:424
-msgid "Hostname"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:150
-msgid "Pretty Hostname"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:155
-msgid "Static Hostname"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:160
-msgid "Chassis"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:165
-msgid "Icon Name"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:178 lib/ManaTools/Module/Hosts.pm:262
-#: lib/ManaTools/Module/Hosts.pm:452 lib/ManaTools/Module/Firewall.pm:611
-#: lib/ManaTools/Module/Firewall.pm:826 lib/ManaTools/Module/Firewall.pm:922
-#: lib/ManaTools/Module/DisplayManager.pm:246
-#: lib/ManaTools/Module/Proxy.pm:330
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
-msgid "&OK"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:240 lib/ManaTools/Module/Hosts.pm:423
-msgid "IP Address"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:242
-msgid "Host aliases"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:317
-msgid "Add the information"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:351
-msgid "Modify the information"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:397
-msgid "Manage hosts definitions"
-msgstr "管理主機定義"
-
-#: lib/ManaTools/Module/Hosts.pm:425
-msgid "Host Aliases"
-msgstr "主機別名"
-
-#: lib/ManaTools/Module/Hosts.pm:438
-msgid "A&dd"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:440
-msgid "&Remove"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:441
-msgid "&Hostname"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:484 lib/ManaTools/Rpmdragora/pkg.pm:267
-#: lib/ManaTools/Rpmdragora/pkg.pm:812
-msgid "Confirmation"
-msgstr "確認"
-
-#: lib/ManaTools/Module/Hosts.pm:484
-msgid "Are you sure to drop this host?"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:499 lib/ManaTools/Module/Firewall.pm:179
-#: lib/ManaTools/Module/DisplayManager.pm:266
-#, perl-format
-msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr ""
-
-#: lib/ManaTools/Module/Hosts.pm:501
-msgid "Graphical manager for hosts definitions"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:89
-msgid "manawall - Firewall Manager"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:203
-msgid "Port scan detection"
-msgstr "連接埠掃描偵測"
-
-#: lib/ManaTools/Module/Firewall.pm:418 lib/ManaTools/Module/Firewall.pm:425
-#: lib/ManaTools/Module/Firewall.pm:1011
-msgid "Firewall configuration"
-msgstr "防火牆組態設定"
-
-#: lib/ManaTools/Module/Firewall.pm:419
-msgid ""
-"drakfirewall configurator\n"
-"                    This configures a personal firewall for this Mageia "
-"machine."
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:426
-msgid ""
-"drakfirewall configurator\n"
-"Make sure you have configured your Network/Internet access with\n"
-"drakconnect before going any further."
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:489
-msgid "Interactive Firewall"
-msgstr "互動式防火牆"
-
-#: lib/ManaTools/Module/Firewall.pm:493
-msgid ""
-"You can be warned when someone accesses to a service or tries to intrude "
-"into your computer.\n"
-"Please select which network activities should be watched."
-msgstr ""
-"您可以在有人連接到某項服務或試圖侵入您的電腦時收到警告。\n"
-"請選擇要監控的網路活動項目。"
-
-#: lib/ManaTools/Module/Firewall.pm:499
-msgid "Use Interactive Firewall"
-msgstr "使用互動式防火牆"
-
-#: lib/ManaTools/Module/Firewall.pm:661
-msgid "Graphical manager for interactive firewall rules"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:708 lib/ManaTools/Module/Firewall.pm:711
-#: lib/ManaTools/Module/Firewall.pm:1100
-msgid "Firewall"
-msgstr "防火牆"
-
-#: lib/ManaTools/Module/Firewall.pm:715
-msgid "Which services would you like to allow the Internet to connect to?"
-msgstr "您要允許網路可連線至何種服務呢？"
-
-#: lib/ManaTools/Module/Firewall.pm:716
-#, perl-format
-msgid "Those settings will be saved for the network profile <b>%s</b>"
-msgstr "這些設定會儲存到網路設定檔 <b>%s</b>"
-
-#: lib/ManaTools/Module/Firewall.pm:717
-msgid "Everything (no firewall)"
-msgstr "全部 (沒有防火牆)"
-
-#: lib/ManaTools/Module/Firewall.pm:823
-msgid "A&dvanced"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:857
-msgid "Graphical manager for firewall rules"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:889
-msgid ""
-"You can enter miscellaneous ports.\n"
-"Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
-"Have a look at /etc/services for information."
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:894
-msgid "Define miscellaneus ports"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:909
-msgid "Other ports"
-msgstr "其它通訊埠"
-
-#: lib/ManaTools/Module/Firewall.pm:917
-msgid "Log firewall messages in system logs"
-msgstr "將防火牆訊息記錄到系統日誌中"
-
-#: lib/ManaTools/Module/Firewall.pm:972
-msgid "Invalid port given"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:973
-#, perl-format
-msgid ""
-"Invalid port given: %s.\n"
-"The proper format is \"port/tcp\" or \"port/udp\",\n"
-"where port is between 1 and 65535.\n"
-"\n"
-"You can also give a range of ports (eg: 24300:24350/udp)"
-msgstr ""
-
-#: lib/ManaTools/Module/Firewall.pm:1012
-msgid ""
-"Please select the interfaces that will be protected by the firewall.\n"
-"\n"
-"All interfaces directly connected to Internet should be selected,\n"
-"while interfaces connected to a local network may be unselected.\n"
-"\n"
-"If you intend to use Mageia Internet Connection sharing,\n"
-"unselect interfaces which will be connected to local network.\n"
-"\n"
-"Which interfaces should be protected?\n"
-msgstr ""
-"請選擇防火牆要保護的介面。\n"
-"\n"
-"所有直接連線到網際網路的網路介面都應該被防火牆保護，\n"
-"而連接到本地端網路的介面則可以考慮不必選取。\n"
-"\n"
-"若您打算使用 Mageia 網際網路連線分享，\n"
-"則請不要選取連線到本地端網路的介面。\n"
-"\n"
-"請選擇要保護哪些介面。\n"
-
-#: lib/ManaTools/Module/Firewall.pm:1101
-msgid ""
-"Your firewall configuration has been manually edited and contains\n"
-"    rules that may conflict with the configuration that has just been set "
-"up.\n"
-"    What do you want to do?"
-msgstr ""
-
-#: lib/ManaTools/Module/DisplayManager.pm:57
-msgid "manadm - Display Manager"
-msgstr ""
-
-#: lib/ManaTools/Module/DisplayManager.pm:92
-msgid "LightDM (The Light Display Manager)"
-msgstr ""
-
-#: lib/ManaTools/Module/DisplayManager.pm:93
-msgid "GDM (GNOME Display Manager)"
-msgstr "GDM (GNOME 登入管理員)"
-
-#: lib/ManaTools/Module/DisplayManager.pm:94
-msgid "KDM (KDE Display Manager)"
-msgstr "KDM (KDE 登入管理員)"
-
-#: lib/ManaTools/Module/DisplayManager.pm:95
-msgid "XDM (X Display Manager)"
-msgstr "XDM (X 環境登入管理員)"
-
-#: lib/ManaTools/Module/DisplayManager.pm:172
-#: lib/ManaTools/Module/Proxy.pm:178
-msgid "X Restart Required"
-msgstr ""
-
-#: lib/ManaTools/Module/DisplayManager.pm:172
-#: lib/ManaTools/Module/Proxy.pm:178
-msgid "You need to log out and back in again for changes to take effect"
-msgstr "您必須登出之後重新登入才能讓變動生效"
-
-#: lib/ManaTools/Module/DisplayManager.pm:181
-msgid "Display Manager"
-msgstr ""
-
-#: lib/ManaTools/Module/DisplayManager.pm:212
-msgid "Choosing a display manager"
-msgstr "選擇一個登入管理員"
-
-#: lib/ManaTools/Module/DisplayManager.pm:268
-msgid "Graphical configurator for system Display Manager"
-msgstr ""
-
-#: lib/ManaTools/Module/Proxy.pm:56
-msgid "manaproxy - Proxy configuration"
-msgstr ""
-
-#: lib/ManaTools/Module/Proxy.pm:213
-msgid "Proxy should be http://..."
-msgstr "代理伺服器的設定格式必須為 http://..."
-
-#: lib/ManaTools/Module/Proxy.pm:218
-msgid "Proxy should be http://... or https://..."
-msgstr "代理伺服器的設定格式應該是 http://... 或 https://..."
-
-#: lib/ManaTools/Module/Proxy.pm:223
-msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr "URL 應該是以 'ftp:' 或 'http:' 開頭"
-
-#: lib/ManaTools/Module/Proxy.pm:235
-msgid "Proxies configuration"
-msgstr "代理伺服器設定"
-
-#: lib/ManaTools/Module/Proxy.pm:285
-msgid ""
-"Here you can set up your proxies configuration (eg: http://"
-"my_caching_server:8080)"
-msgstr "您可以設定您的代理伺服器 (例如：http://my_caching_server:8080)"
-
-#: lib/ManaTools/Module/Proxy.pm:293
-msgid "HTTP proxy"
-msgstr "HTTP 代理伺服器"
-
-#: lib/ManaTools/Module/Proxy.pm:299
-msgid "Use HTTP proxy for HTTPS connections"
-msgstr "HTTPS 連線也使用 HTTP 代理伺服器"
-
-#: lib/ManaTools/Module/Proxy.pm:305
-msgid "HTTPS proxy"
-msgstr "HTTPS 代理伺服器"
-
-#: lib/ManaTools/Module/Proxy.pm:311
-msgid "FTP proxy"
-msgstr "FTP 代理伺服器"
-
-#: lib/ManaTools/Module/Proxy.pm:317
-msgid "No proxy for (comma separated list):"
-msgstr "以下不使用代理伺服器 (以逗號分隔清單)："
-
-#: lib/ManaTools/Module/Proxy.pm:352
-msgid "Graphical manager for proxies"
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:89
-msgid "Services and daemons"
-msgstr "服務程式"
-
-#: lib/ManaTools/Module/Services.pm:283
-msgid "Start when requested"
-msgstr "要求時啟動"
-
-#: lib/ManaTools/Module/Services.pm:286
-msgid "running"
-msgstr "執行中"
-
-#: lib/ManaTools/Module/Services.pm:286
-msgid "stopped"
-msgstr "未啟動"
-
-#: lib/ManaTools/Module/Services.pm:365
-msgid "Manage system services by enabling or disabling them"
-msgstr "啟動或停用系統服務"
-
-#: lib/ManaTools/Module/Services.pm:373
-msgid "Service"
-msgstr "服務"
-
-#: lib/ManaTools/Module/Services.pm:375
-msgid "On boot"
-msgstr "開機自動載入"
-
-#: lib/ManaTools/Module/Services.pm:386 lib/ManaTools/Rpmdragora/pkg.pm:1093
-msgid "Information"
-msgstr "資訊"
-
-#: lib/ManaTools/Module/Services.pm:394
-msgid "&Start"
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:397
-msgid "S&top"
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:410
-msgid "&Refresh"
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:451
-msgid ""
-"adminService is the Mageia service and daemon management tool\n"
-"\n"
-"                                                       (from the original "
-"idea of Mandriva draxservice)."
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:453
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
-#, perl-format
-msgid ""
-"<h3>Developers</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>Translators</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:521
-#, perl-format
-msgid "Starting %s"
-msgstr ""
-
-#: lib/ManaTools/Module/Services.pm:541
-#, perl-format
-msgid "Stopping %s"
-msgstr ""
-
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
 msgstr "軟體升級"
@@ -2127,13 +4214,6 @@ msgstr ""
 msgid "OK"
 msgstr "確定"
 
-#: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
-#: lib/ManaTools/Rpmdragora/pkg.pm:149 lib/ManaTools/Rpmdragora/pkg.pm:465
-#: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
-#: modules/rpmdragora/rpmdragora:296
-msgid "Please wait"
-msgstr "請稍候"
-
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
 msgstr ""
@@ -2154,12 +4234,6 @@ msgstr "厄瓜多"
 msgid "Russia"
 msgstr "俄羅斯"
 
-#: lib/ManaTools/rpmdragora.pm:696 lib/ManaTools/rpmdragora.pm:720
-#: lib/ManaTools/rpmdragora.pm:738 lib/ManaTools/Rpmdragora/pkg.pm:494
-#: lib/ManaTools/Rpmdragora/pkg.pm:969 lib/ManaTools/Rpmdragora/pkg.pm:994
-msgid "Error"
-msgstr "錯誤"
-
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
 #, perl-format
 msgid ""
@@ -2170,10 +4244,6 @@ msgstr ""
 "無法新增媒體，錯誤訊息如下：\n"
 "\n"
 "%s"
-
-#: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
-msgid "Medium: "
-msgstr "媒體："
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
@@ -2280,12 +4350,12 @@ msgstr "更新媒體"
 msgid "Media"
 msgstr ""
 
-#: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:285
+#: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
 msgid "&Select all"
 msgstr ""
 
-#: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:286
+#: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
 msgid "&Update"
 msgstr ""
 
@@ -2313,18 +4383,6 @@ msgstr ""
 "請確定您能夠正常的連結到網際網路上。\n"
 "\n"
 "您要繼續嗎？"
-
-#: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:298
-msgid ""
-"I need to contact the Mageia website to get the mirror list.\n"
-"Please check that your network is currently running.\n"
-"\n"
-"Is it ok to continue?"
-msgstr ""
-"這個動作需要連線到 Mageia 網站以取得鏡射站台列表。\n"
-"請檢查您的網路連線沒有問題。\n"
-"\n"
-"可以繼續了嗎？"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
@@ -2420,2047 +4478,8 @@ msgid ""
 "The help window has been started, it should appear shortly on your desktop."
 msgstr "說明視窗已經啟動，它將馬上出現於您的桌面。"
 
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:148 lib/ManaTools/Rpmdragora/pkg.pm:127
-#: lib/ManaTools/Rpmdragora/pkg.pm:176 lib/ManaTools/Rpmdragora/pkg.pm:189
-#: lib/ManaTools/Rpmdragora/pkg.pm:208 lib/ManaTools/Rpmdragora/pkg.pm:689
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1150
-#: lib/ManaTools/Rpmdragora/formatting.pm:150
-#: lib/ManaTools/Rpmdragora/gui.pm:1668
-msgid "(none)"
-msgstr "(無)"
-
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:207
-msgid "Installation finished"
-msgstr "安裝完成"
-
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
-msgid "Select a package"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:238
-msgid "Remove new file"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:239
-msgid "Use new file"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:240
-msgid "Do nothing"
-msgstr "不進行任何動作"
-
-#: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
-msgid "Please wait, searching..."
-msgstr "搜尋中，請稍候..."
-
-#: lib/ManaTools/Rpmdragora/open_db.pm:100
-#: lib/ManaTools/Rpmdragora/gui.pm:1574
-msgid "Fatal error"
-msgstr "致命的錯誤"
-
-#: lib/ManaTools/Rpmdragora/open_db.pm:101 lib/ManaTools/Rpmdragora/pkg.pm:494
-#: lib/ManaTools/Rpmdragora/gui.pm:1575
-#, perl-format
-msgid "A fatal error occurred: %s."
-msgstr "發生了一個致命的錯誤：%s。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:141
-#, perl-format
-msgid "Getting information from %s..."
-msgstr "正在由 %s 取得資訊..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:145
-#, perl-format
-msgid "Getting '%s' from XML meta-data..."
-msgstr "正在由 XML meta-data 取得 '%s'..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:162
-#, perl-format
-msgid "No xml info for medium \"%s\", only partial result for package %s"
-msgstr "媒體 \"%s\" 沒有 xml 資訊，套件 %s 只有部份的結果"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:164
-#, perl-format
-msgid ""
-"No xml info for medium \"%s\", unable to return any result for package %s"
-msgstr "媒體 \"%s\" 沒有 xml 資訊，無法傳回套件 %s 的任何結果"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:349
-#: lib/ManaTools/Rpmdragora/gui.pm:360 lib/ManaTools/Rpmdragora/gui.pm:364
-msgid "(Not available)"
-msgstr "(無法使用)"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
-#, perl-format
-msgid "Downloading package `%s'..."
-msgstr "正在下載套件 `%s'..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:226
-#, perl-format
-msgid "        %s%% of %s completed, ETA = %s, speed = %s"
-msgstr "        已經完成 %s%% 共 %s，ETA = %s，速度 = %s"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:227
-#, perl-format
-msgid "        %s%% completed, speed = %s"
-msgstr "        %s%% 完成，速度 = %s"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:268
-msgid ""
-"I need to contact the mirror to get latest update packages.\n"
-"Please check that your network is currently running.\n"
-"\n"
-"Is it ok to continue?"
-msgstr ""
-"我需要連線到映射站台以取得最新的更新套件。\n"
-"請確定您能夠正常的連結到網際網路上。\n"
-"\n"
-"您要繼續嗎?"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:286
-msgid "Already existing update media"
-msgstr "更新媒體已存在"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:287
-#, perl-format
-msgid ""
-"You already have at least one update medium configured, but\n"
-"all of them are currently disabled. You should run the Software\n"
-"Media Manager to enable at least one (check it in the \"%s\"\n"
-"column).\n"
-"\n"
-"Then, restart \"%s\"."
-msgstr ""
-"您已經設定好了至少一個更新媒體，但它們現在全部都是停用的。\n"
-"您應該執行軟體套件媒體管理員來啟用至少一個媒體 (選取「%s」欄位)。\n"
-"\n"
-"完成後，請重新啟動「%s」。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:292
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1642
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2058
-msgid "Enabled"
-msgstr "是否啟用？"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:297
-msgid ""
-"You have no configured update media. MageiaUpdate cannot operate without any "
-"update media."
-msgstr "您尚未設定更新媒體來源，因此 MageiaUpdate 無法進行操作。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:305
-msgid "How to choose manually your mirror"
-msgstr "如何手動選擇您需要的映射站台"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:306
-#, perl-format
-msgid ""
-"You may also choose your desired mirror manually: to do so,\n"
-"launch the Software Media Manager, and then add a `Security\n"
-"updates' medium.\n"
-"\n"
-"Then, restart %s."
-msgstr ""
-"您也可以手動選擇想要使用的映射站台。要這樣作的話，請開啟軟體\n"
-"套件媒體管理員，然後新增一個「安全性更新」的媒體。\n"
-"\n"
-"完成後，請重新啟動 %s。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:478
-msgid "Reading updates description"
-msgstr "讀取更新描述"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
-msgid "Please wait, finding available packages..."
-msgstr "請稍候，正在尋找可用的套件..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:489
-msgid "Please wait, listing base packages..."
-msgstr "排序套件中，請稍候..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:502
-msgid "Please wait, finding installed packages..."
-msgstr "請稍候，正在尋找已安裝的套件..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:630
-msgid "Upgrade information"
-msgstr "升級資訊"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:646
-msgid "These packages come with upgrade information"
-msgstr "這些套件包含了升級資訊"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
-msgid "All requested packages were installed successfully."
-msgstr "已經成功地安裝您要求的全部套件。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
-msgid "Problem during installation"
-msgstr "安裝時發生問題"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:724 lib/ManaTools/Rpmdragora/pkg.pm:744
-#: lib/ManaTools/Rpmdragora/pkg.pm:957
-#, perl-format
-msgid ""
-"There was a problem during the installation:\n"
-"\n"
-"%s"
-msgstr ""
-"安裝時發生了以下的錯誤：\n"
-"\n"
-"%s"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:743
-msgid "Installation failed"
-msgstr "安裝失敗"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:766
-msgid "Checking validity of requested packages..."
-msgstr "正在檢查要求的套件的正確性..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:789
-msgid "Unable to get source packages."
-msgstr "無法取得來源套件。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:790
-#, perl-format
-msgid "Unable to get source packages, sorry. %s"
-msgstr "無法取得來源套件，抱歉。%s"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:791
-#, perl-format
-msgid ""
-"\n"
-"\n"
-"Error(s) reported:\n"
-"%s"
-msgstr ""
-"\n"
-"\n"
-"錯誤報告：\n"
-"%s"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:954
-msgid ""
-"Rpmdragora or one of its priority dependencies needs to be updated first. "
-"Rpmdragora will then restart."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:809
-msgid "The following package is going to be installed:"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1489
-msgid "Some packages need to be removed"
-msgstr "必須移除某些套件"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:815
-msgid "Remove one package?"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:817
-msgid "The following package has to be removed for others to be upgraded:"
-msgstr "需要移除以下套件以便更新其他套件："
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:818
-msgid "The following packages have to be removed for others to be upgraded:"
-msgstr "必須移除以下套件以便升級其他套件："
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:822
-msgid "Is it ok to continue?"
-msgstr "您要繼續嗎？"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:833
-msgid "Initializing..."
-msgstr "初始化中..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
-msgid "Orphan packages"
-msgstr "Orphan 套件"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:841
-msgid "The following orphan package will be removed."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
-msgid "Preparing package installation..."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
-#, perl-format
-msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
-#, perl-format
-msgid "Total: %d/%d"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:928
-msgid "Change medium"
-msgstr "變更媒體"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:929
-#, perl-format
-msgid "Please insert the medium named \"%s\""
-msgstr "請置入名為 \"%s\" 的媒體"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:933
-msgid "Verifying package signatures..."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:956
-#, perl-format
-msgid "%d installation transactions failed"
-msgstr "有 %d 個安裝業務失敗"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:970
-msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr "無法回復的錯誤：抱歉，沒有找到可供安裝的套件。"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:973
-msgid "Inspecting configuration files..."
-msgstr "正在查驗組態設定檔..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:981
-msgid ""
-"The installation is finished; everything was installed correctly.\n"
-"\n"
-"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
-"you may now inspect some in order to take actions:"
-msgstr ""
-"安裝完成，所有的東西都正確的安裝好了。\n"
-"\n"
-"有些設定檔被建立時以 `.rpmnew' 或 `.rpmsave' 命名，您\n"
-"現在可以檢查一下以確保它正常運作："
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:987
-msgid "Looking for \"README\" files..."
-msgstr "正在尋找 \"README\" 檔..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:1025
-#, perl-format
-msgid "RPM transaction %d/%d"
-msgstr "RPM 執行 %d/%d"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:1026
-msgid "Unselect all"
-msgstr "全部不選取"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:1027
-msgid "Details"
-msgstr "細節"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:1072
-msgid "Please wait, removing packages..."
-msgstr "正在移除套件，請稍候..."
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:1085
-msgid "Problem during removal"
-msgstr "移除時發生問題"
-
-#: lib/ManaTools/Rpmdragora/pkg.pm:1086
-#, perl-format
-msgid ""
-"There was a problem during the removal of packages:\n"
-"\n"
-"%s"
-msgstr ""
-"移除套件時發生問題：\n"
-"\n"
-"%s"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
-#: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
-msgid "All"
-msgstr "全部"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:42
-msgid "Accessibility"
-msgstr "輔助功能"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
-#: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
-#: lib/ManaTools/Rpmdragora/icon.pm:47
-msgid "Archiving"
-msgstr "歸檔"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:44
-msgid "Backup"
-msgstr "備份"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:45
-msgid "Cd burning"
-msgstr "光碟燒錄"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:46
-msgid "Compression"
-msgstr "壓縮"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
-#: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
-#: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
-msgid "Other"
-msgstr "其他"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
-#: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
-#: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
-#: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
-msgid "Communications"
-msgstr "通訊"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:49
-msgid "Bluetooth"
-msgstr "藍牙"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:50
-msgid "Dial-Up"
-msgstr "撥接"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:51
-msgid "Fax"
-msgstr "傳真"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:52
-msgid "Mobile"
-msgstr "行動"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:53
-msgid "Radio"
-msgstr "廣播"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:54
-msgid "Serial"
-msgstr "串列通訊"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:55
-msgid "Telephony"
-msgstr "電話"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
-msgid "Databases"
-msgstr "資料庫"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
-#: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
-#: lib/ManaTools/Rpmdragora/icon.pm:61 lib/ManaTools/Rpmdragora/icon.pm:62
-#: lib/ManaTools/Rpmdragora/icon.pm:63 lib/ManaTools/Rpmdragora/icon.pm:64
-#: lib/ManaTools/Rpmdragora/icon.pm:65 lib/ManaTools/Rpmdragora/icon.pm:66
-#: lib/ManaTools/Rpmdragora/icon.pm:67 lib/ManaTools/Rpmdragora/icon.pm:68
-#: lib/ManaTools/Rpmdragora/icon.pm:69 lib/ManaTools/Rpmdragora/icon.pm:70
-#: lib/ManaTools/Rpmdragora/icon.pm:71 lib/ManaTools/Rpmdragora/icon.pm:72
-#: lib/ManaTools/Rpmdragora/icon.pm:73 lib/ManaTools/Rpmdragora/icon.pm:74
-#: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
-#: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
-msgid "Development"
-msgstr "開發"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:58
-msgid "Basic"
-msgstr "基本"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:59
-msgid "C"
-msgstr "C"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:60
-msgid "C++"
-msgstr "C++"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:61
-msgid "C#"
-msgstr "C#"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:63
-msgid "Debug"
-msgstr "除錯"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:64
-msgid "Erlang"
-msgstr "Erlang"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:65
-msgid "GNOME and GTK+"
-msgstr "GNOME 與 GTK+"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:66
-msgid "Java"
-msgstr "Java"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:67
-msgid "KDE and Qt"
-msgstr "KDE 與 Qt"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:68
-msgid "Kernel"
-msgstr "核心"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:69
-msgid "OCaml"
-msgstr "OCaml"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:71
-msgid "Perl"
-msgstr "Perl"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:72
-msgid "PHP"
-msgstr "PHP"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:73
-msgid "Python"
-msgstr "Python"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:74
-msgid "Tools"
-msgstr "工具"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
-msgid "X11"
-msgstr "X11"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
-#: lib/ManaTools/Rpmdragora/icon.pm:204
-msgid "Documentation"
-msgstr "文件檔案"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:77
-msgid "Editors"
-msgstr "編輯器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:78
-msgid "Education"
-msgstr "教育"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:79
-msgid "Emulators"
-msgstr "模擬器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:80
-msgid "File tools"
-msgstr "檔案工具"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
-#: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
-#: lib/ManaTools/Rpmdragora/icon.pm:85 lib/ManaTools/Rpmdragora/icon.pm:86
-#: lib/ManaTools/Rpmdragora/icon.pm:87 lib/ManaTools/Rpmdragora/icon.pm:88
-#: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
-#: lib/ManaTools/Rpmdragora/icon.pm:91
-msgid "Games"
-msgstr "遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:82
-msgid "Adventure"
-msgstr "冒險遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:83
-msgid "Arcade"
-msgstr "大型電玩"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:84
-msgid "Boards"
-msgstr "棋盤遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:85
-msgid "Cards"
-msgstr "卡片遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:87
-msgid "Puzzles"
-msgstr "益智遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:88
-msgid "Shooter"
-msgstr "射擊"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:89
-msgid "Simulation"
-msgstr "模擬遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:90
-msgid "Sports"
-msgstr "運動遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:91
-msgid "Strategy"
-msgstr "戰略遊戲"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:92
-msgid "Geography"
-msgstr "地理"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
-#: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
-#: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
-#: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
-msgid "Graphical desktop"
-msgstr "圖形化桌面"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:96
-msgid "Enlightenment"
-msgstr "Enlightenment"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:99
-msgid "GNOME"
-msgstr "GNOME"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:102
-msgid "Icewm"
-msgstr "Icewm"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:105
-msgid "KDE"
-msgstr "KDE"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:109
-msgid "WindowMaker"
-msgstr "WindowMaker"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:112
-msgid "Xfce"
-msgstr "Xfce"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:113 lib/ManaTools/Rpmdragora/icon.pm:114
-#: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:116
-#: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
-#: lib/ManaTools/Rpmdragora/icon.pm:119
-msgid "Graphics"
-msgstr "圖形"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:114
-msgid "3D"
-msgstr "3D"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
-#: lib/ManaTools/Rpmdragora/icon.pm:180
-msgid "Editors and Converters"
-msgstr "編輯和轉檔"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
-#: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
-msgid "Utilities"
-msgstr "工具"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:117
-msgid "Photography"
-msgstr "攝影"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:118
-msgid "Scanning"
-msgstr "掃描"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:119
-msgid "Viewers"
-msgstr "檢視器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:120
-msgid "Monitoring"
-msgstr "監視"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
-#: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
-#: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:126
-#: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
-#: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
-msgid "Networking"
-msgstr "網路"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:122
-msgid "File transfer"
-msgstr "檔案傳輸"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:123
-msgid "IRC"
-msgstr "IRC"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:124
-msgid "Instant messaging"
-msgstr "即時通訊"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
-msgid "Mail"
-msgstr "郵件"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:126
-msgid "News"
-msgstr "新聞群組"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:128
-msgid "Remote access"
-msgstr "遠端存取"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:129
-msgid "WWW"
-msgstr "WWW"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
-#: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
-#: lib/ManaTools/Rpmdragora/icon.pm:134 lib/ManaTools/Rpmdragora/icon.pm:135
-#: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
-#: lib/ManaTools/Rpmdragora/icon.pm:138
-msgid "Office"
-msgstr "辦公軟體"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:131
-msgid "Dictionary"
-msgstr "字典"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:132
-msgid "Finance"
-msgstr "財務"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:133
-msgid "Management"
-msgstr "管理"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:134
-msgid "Organizer"
-msgstr "行事曆"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:136
-msgid "Spreadsheet"
-msgstr "試算表"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:137
-msgid "Suite"
-msgstr "套裝軟體"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:138
-msgid "Word processor"
-msgstr "文字處理"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:139
-msgid "Publishing"
-msgstr "出版"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
-#: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
-#: lib/ManaTools/Rpmdragora/icon.pm:144 lib/ManaTools/Rpmdragora/icon.pm:145
-#: lib/ManaTools/Rpmdragora/icon.pm:146 lib/ManaTools/Rpmdragora/icon.pm:147
-#: lib/ManaTools/Rpmdragora/icon.pm:148
-msgid "Sciences"
-msgstr "科學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:141
-msgid "Astronomy"
-msgstr "天文學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:142
-msgid "Biology"
-msgstr "生物學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:143
-msgid "Chemistry"
-msgstr "化學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:144
-msgid "Computer science"
-msgstr "計算機科學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:145
-msgid "Geosciences"
-msgstr "地球科學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:146
-msgid "Mathematics"
-msgstr "數學"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:148
-msgid "Physics"
-msgstr "物理"
-
-#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
-#. (itstool) path: category/title
-#: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:69
-#: extras/conf/mpan/categories.conf.in:43
-msgid "Security"
-msgstr "安全"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:150
-msgid "Shells"
-msgstr "Shells"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
-#: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
-#: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:156
-msgid "Sound"
-msgstr "音效"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:153
-msgid "Midi"
-msgstr "Midi"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:154
-msgid "Mixers"
-msgstr "混音器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
-msgid "Players"
-msgstr "播放器"
-
-#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
-#. (itstool) path: category/title
-#: lib/ManaTools/Rpmdragora/icon.pm:157 lib/ManaTools/Rpmdragora/icon.pm:158
-#: lib/ManaTools/Rpmdragora/icon.pm:159 lib/ManaTools/Rpmdragora/icon.pm:160
-#: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:162
-#: lib/ManaTools/Rpmdragora/icon.pm:163 lib/ManaTools/Rpmdragora/icon.pm:164
-#: lib/ManaTools/Rpmdragora/icon.pm:165 lib/ManaTools/Rpmdragora/icon.pm:166
-#: lib/ManaTools/Rpmdragora/icon.pm:167 lib/ManaTools/Rpmdragora/icon.pm:168
-#: lib/ManaTools/Rpmdragora/icon.pm:169 lib/ManaTools/Rpmdragora/icon.pm:170
-#: lib/ManaTools/Rpmdragora/icon.pm:171 lib/ManaTools/Rpmdragora/icon.pm:172
-#: lib/ManaTools/Rpmdragora/icon.pm:173
-#: extras/conf/mpan/categories.conf.d/manaservice.conf.in:4
-#: extras/conf/mpan/categories.conf.d/manauser.conf.in:4
-#: extras/conf/mpan/categories.conf.in:23
-msgid "System"
-msgstr "系統"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:158
-msgid "Base"
-msgstr "基本套件"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:159
-msgid "Boot and Init"
-msgstr "開機與 Init 初始"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:160
-msgid "Cluster"
-msgstr "叢集"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
-msgid "Configuration"
-msgstr "設定"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
-#: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
-msgid "Fonts"
-msgstr "字型"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:163
-msgid "True type"
-msgstr "True type"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:164
-msgid "Type1"
-msgstr "Type1"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:165
-msgid "X11 bitmap"
-msgstr "X11 bitmap"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:166
-msgid "Internationalization"
-msgstr "國際化"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:167
-msgid "Kernel and hardware"
-msgstr "核心與硬體"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:168
-msgid "Libraries"
-msgstr "函式庫"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:170
-msgid "Packaging"
-msgstr "包裝"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:171
-msgid "Printing"
-msgstr "列印"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:172
-msgid "Servers"
-msgstr "伺服器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:176
-msgid "Terminals"
-msgstr "終端機"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:177
-msgid "Text tools"
-msgstr "文字工具"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:178
-msgid "Toys"
-msgstr "玩具"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
-#: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
-#: lib/ManaTools/Rpmdragora/icon.pm:183
-msgid "Video"
-msgstr "視訊"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:182
-msgid "Television"
-msgstr "電視"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
-#: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
-#: lib/ManaTools/Rpmdragora/icon.pm:190 lib/ManaTools/Rpmdragora/icon.pm:191
-#: lib/ManaTools/Rpmdragora/icon.pm:192 lib/ManaTools/Rpmdragora/icon.pm:193
-#: lib/ManaTools/Rpmdragora/icon.pm:194 lib/ManaTools/Rpmdragora/icon.pm:195
-msgid "Workstation"
-msgstr "工作站"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:188
-msgid "Console Tools"
-msgstr "Console 工具"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:190
-msgid "Game station"
-msgstr "遊戲平台"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:191
-msgid "Internet station"
-msgstr "網際網路平台"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:192
-msgid "Multimedia station"
-msgstr "多媒體平台"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:193
-msgid "Network Computer (client)"
-msgstr "網路電腦 (客戶端)"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:194
-msgid "Office Workstation"
-msgstr "辦公軟體平台"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:195
-msgid "Scientific Workstation"
-msgstr "科學工作站"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
-#: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
-#: lib/ManaTools/Rpmdragora/icon.pm:201 lib/ManaTools/Rpmdragora/gui.pm:135
-msgid "Graphical Environment"
-msgstr "圖形環境"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:198
-msgid "GNOME Workstation"
-msgstr "GNOME 工作站"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:199
-msgid "IceWm Desktop"
-msgstr "IceWM 桌面"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:200
-msgid "KDE Workstation"
-msgstr "KDE 工作站"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:201
-msgid "Other Graphical Desktops"
-msgstr "其他圖型桌面軟體"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
-#: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
-#: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
-#: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
-msgid "Server"
-msgstr "伺服器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:206
-msgid "DNS/NIS"
-msgstr "DNS/NIS"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:207
-msgid "Database"
-msgstr "資料庫軟體"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:208
-msgid "Firewall/Router"
-msgstr "防火牆/路由器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:210
-msgid "Mail/Groupware/News"
-msgstr "郵件/群組軟體/新聞"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:211
-msgid "Network Computer server"
-msgstr "網路伺服器"
-
-#: lib/ManaTools/Rpmdragora/icon.pm:212
-msgid "Web/FTP"
-msgstr "Web/FTP"
-
-#: lib/ManaTools/Rpmdragora/init.pm:67
-#, perl-format
-msgid "Usage: %s [OPTION]..."
-msgstr "用法：%s [選項]..."
-
-#: lib/ManaTools/Rpmdragora/init.pm:68
-msgid "  --auto                 assume default answers to questions"
-msgstr "  --auto                 採用預設的回答"
-
-#: lib/ManaTools/Rpmdragora/init.pm:69
-msgid ""
-"  --changelog-first      display changelog before filelist in the "
-"description window"
-msgstr "  --changelog-first      在描述視窗中先顯示更新資訊再顯示檔案列表"
-
-#: lib/ManaTools/Rpmdragora/init.pm:70
-msgid "  --media=medium1,..     limit to given media"
-msgstr "  --media=medium1,..     限制於給定的媒體"
-
-#: lib/ManaTools/Rpmdragora/init.pm:71
-msgid ""
-"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
-msgstr "  --merge-all-rpmnew     計畫合併所有找到的 .rpmnew/.rpmsave 檔案"
-
-#: lib/ManaTools/Rpmdragora/init.pm:72
-msgid "  --mode=MODE            set mode (install (default), remove, update)"
-msgstr "  --mode=MODE            設定模式 (install (預設值)、remove、update)"
-
-#: lib/ManaTools/Rpmdragora/init.pm:73
-msgid ""
-"  --justdb               update the database, but do not modify the "
-"filesystem"
-msgstr "  --justdb               更新資料庫，但不要修改檔案系統"
-
-#: lib/ManaTools/Rpmdragora/init.pm:74
-msgid ""
-"  --no-confirmation      don't ask first confirmation question in update mode"
-msgstr "  --no-confirmation      在升級模式時不詢問第一個確認問題"
-
-#: lib/ManaTools/Rpmdragora/init.pm:75
-msgid "  --no-media-update      don't update media at startup"
-msgstr "  --no-media-update      啟動時不更新媒體"
-
-#: lib/ManaTools/Rpmdragora/init.pm:76
-msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr "  --no-verify-rpm        不驗證套件簽章"
-
-#: lib/ManaTools/Rpmdragora/init.pm:77
-msgid ""
-"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
-"\" machine to show needed deps"
-msgstr ""
-"  --parallel=alias,host  在同步管理模式下，使用 \"alias\" 別名群組或 \"host"
-"\" 主機名稱來顯示相依性"
-
-#: lib/ManaTools/Rpmdragora/init.pm:78
-msgid "  --rpm-root=path        use another root for rpm installation"
-msgstr "  --rpm-root=path        rpm 安裝時使用其他的根目錄"
-
-#: lib/ManaTools/Rpmdragora/init.pm:79
-msgid ""
-"  --urpmi-root           use another root for urpmi db & rpm installation"
-msgstr "  --urpmi-root          使用另一個根目錄進行 RPM 套件的安裝。"
-
-#: lib/ManaTools/Rpmdragora/init.pm:80
-msgid "  --run-as-root          force to run as root"
-msgstr "  --run-as-root          強制使用 root 來執行"
-
-#: lib/ManaTools/Rpmdragora/init.pm:81
-msgid "  --search=pkg           run search for \"pkg\""
-msgstr "  --search=pkg           搜尋 \"pkg\" "
-
-#: lib/ManaTools/Rpmdragora/init.pm:82
-msgid ""
-"  --test                 only verify if the installation can be achieved "
-"correctly"
-msgstr "  --test                 只測試這個安裝是否可以正確的完成"
-
-#: lib/ManaTools/Rpmdragora/init.pm:83
-msgid ""
-"  --version              print this tool's version number\n"
-"                    "
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/init.pm:175
-msgid "Running in user mode"
-msgstr "以一般使用者模式執行"
-
-#: lib/ManaTools/Rpmdragora/init.pm:176
-msgid ""
-"You are launching this program as a normal user.\n"
-"You will not be able to perform modifications on the system,\n"
-"but you may still browse the existing database."
-msgstr ""
-"您正以一般使用者啟動此程式。\n"
-"您無法對系統進行修改，\n"
-"但是您仍然可以瀏覽現存的資料庫。"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
-msgid "CD-ROM"
-msgstr "CD-ROM"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
-msgid "FTP"
-msgstr "FTP"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
-msgid "Local"
-msgstr "本地端"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
-msgid "HTTP"
-msgstr "HTTP"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
-msgid "HTTPS"
-msgstr "HTTPS"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
-msgid "NFS"
-msgstr "NFS"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
-msgid "Removable"
-msgstr "可移除媒體"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
-msgid "rsync"
-msgstr "rsync"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
-msgid "Mirror list"
-msgstr "映射站台列表"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
-msgid "Choose media type"
-msgstr "選擇媒體類型"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
-msgid ""
-"In order to keep your system secure and stable, you must at a minimum set "
-"up\n"
-"sources for official security and stability updates. You can also choose to "
-"set\n"
-"up a fuller set of sources which includes the complete official Mageia\n"
-"repositories, giving you access to more software than can fit on the Mageia\n"
-"discs. Please choose whether to configure update sources only, or the full "
-"set\n"
-"of sources."
-msgstr ""
-"為了保持您的系統的安全與穩定，您必須至少要設定正式的安全性與穩定性更新的來"
-"源。您也可以選擇完整的 Mageia 套件來源，讓您可以取得更多好用的軟體。請選擇您"
-"只要安裝更新的來源，還是要完整的來源。"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
-msgid "Full set of sources"
-msgstr "完整的來源"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
-msgid "Update sources only"
-msgstr "僅更新來源"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
-#, perl-format
-msgid ""
-"This will attempt to install all official sources corresponding to your\n"
-"distribution (%s).\n"
-"\n"
-"I need to contact the Mageia website to get the mirror list.\n"
-"Please check that your network is currently running.\n"
-"\n"
-"Is it ok to continue?"
-msgstr ""
-"這樣會試著安裝您的套件 (%s) 的所有正式的來源。\n"
-"\n"
-"這個動作需要連線到 Mageia 網站以取得鏡射站台列表。\n"
-"請確定您的網路連線沒有問題。\n"
-"\n"
-"可以繼續了嗎？"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
-msgid "Please wait, adding media..."
-msgstr "請稍後，新增媒體中..."
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
-msgid "Browse..."
-msgstr "瀏覽..."
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
-msgid "Add a medium"
-msgstr "新增一個媒體"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
-msgid "Adding a medium:"
-msgstr "正在新增一個媒體："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
-msgid "Type of medium:"
-msgstr "媒體類別："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
-msgid "Local files"
-msgstr "本地端檔案"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
-msgid "Medium path:"
-msgstr "媒體路徑："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
-msgid "FTP server"
-msgstr "FTP 伺服器"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:724
-msgid "URL:"
-msgstr "URL:"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
-msgid "RSYNC server"
-msgstr "RSYNC 伺服器"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
-msgid "HTTP server"
-msgstr "HTTP 伺服器"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
-msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr "可移除裝置(CD-ROM, DVD, ...)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
-msgid "Path or mount point:"
-msgstr "路徑或掛載點："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
-msgid "Medium name:"
-msgstr "媒體名稱："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
-msgid "Create media for a whole distribution"
-msgstr "建立一個適用於所有散佈套件的媒體"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
-msgid "Tag this medium as an update medium"
-msgstr "標示這個媒體為更新媒介"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
-msgid "You need to fill up at least the two first entries."
-msgstr "您至少需要輸入前面兩個項目。"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
-#, perl-format
-msgid ""
-"There is already a medium called <%s>,\n"
-"do you really want to replace it?"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
-msgid "Global options for package installation"
-msgstr "關於套件安裝的全域選項"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
-msgid "Verify RPMs to be installed:"
-msgstr "驗證要安裝的 RPM 套件檔案："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
-msgid "never"
-msgstr "絕不"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
-msgid "always"
-msgstr "總是"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
-msgid "Download program to use:"
-msgstr "要使用的下載程式："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
-msgid "XML meta-data download policy:"
-msgstr "XML meta-data 下載政策："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
-msgid "Never"
-msgstr "絕不"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
-msgid "On-demand"
-msgstr "視需求"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
-msgid "Update-only"
-msgstr "僅更新"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
-msgid "Always"
-msgstr "總是"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
-msgid "Source Removal"
-msgstr "移除套件來源"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
-#, perl-format
-msgid "Are you sure you want to remove source \"%s\"?"
-msgstr "您確定要移除套件來源 \"%s\" 嗎？"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
-msgid "Are you sure you want to remove the following sources?"
-msgstr "您確定要移除以下來源嗎？"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
-msgid "Please wait, removing medium..."
-msgstr "請稍候，正在移除媒體..."
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
-msgid "Edit a medium"
-msgstr "編輯媒體"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
-#, perl-format
-msgid "Editing medium \"%s\":"
-msgstr "編輯媒體 \"%s\"："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
-msgid "Downloader:"
-msgstr "下載程式："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2061
-msgid "Updates"
-msgstr "自動更新來源？"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
-msgid "&Proxy..."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
-msgid "You need to insert the medium to continue"
-msgstr "您需要放入媒體以便繼續"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
-msgid ""
-"In order to save the changes, you need to insert the medium in the drive."
-msgstr "為了儲存變更，您需要在磁碟機置入該媒體。"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
-msgid "Configure proxies"
-msgstr "設定代理伺服器"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
-#, perl-format
-msgid "Proxy settings for media \"%s\""
-msgstr "媒體 \"%s\" 的代理伺服器設定"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
-msgid "Global proxy settings"
-msgstr "全域代理伺服器設定"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
-msgid ""
-"If you need a proxy, enter the hostname and an optional port (syntax: "
-"<proxyhost[:port]>):"
-msgstr ""
-"如果您需要透過代理伺服器連線，請輸入該主機的名稱與通訊埠號 (語法：<proxyhost "
-"[:port]> 例如 proxy.hinet.net:80)："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
-msgid "Enable proxy"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
-msgid "Proxy hostname:"
-msgstr "代理伺服器主機名稱："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
-msgid "You may specify a username/password for the proxy authentication:"
-msgstr "您需要指定用於代理伺服器認證的使用者帳號及密碼："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
-msgid "User:"
-msgstr "使用者："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
-msgid "Cancel"
-msgstr "取消"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
-msgid "Add a parallel group"
-msgstr "新增同步管理群組"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
-msgid "Edit a parallel group"
-msgstr "編輯同步管理群組"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
-msgid "Add a medium limit"
-msgstr "新增一媒體限定"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
-msgid "Choose a medium to add to the media limit:"
-msgstr "選取要加入媒體限定中的媒體："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
-msgid "Add a host"
-msgstr "新增主機"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
-msgid "Type in the hostname or IP address of the host to add:"
-msgstr "請輸入要新增的主機名稱或 IP 位址："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
-#, perl-format
-msgid "Editing parallel group \"%s\":"
-msgstr "編輯同步管理群組 \"%s\"："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
-msgid "Group name:"
-msgstr "群組名稱："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
-msgid "Protocol:"
-msgstr "通訊協定："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
-msgid "Media limit:"
-msgstr "媒體限定："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1371
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2162
-msgid "Add"
-msgstr "新增"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1166
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1372
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2152
-msgid "Remove"
-msgstr "移除"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
-msgid "Hosts:"
-msgstr "主機："
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
-msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr "設定同步管理 urpmi (分散式執行的 urpmi)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
-msgid "Protocol"
-msgstr "通訊協定"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
-msgid "Media limit"
-msgstr "媒體限定"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
-msgid "Command"
-msgstr "指令"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
-msgid "Edit..."
-msgstr "編輯"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
-msgid "Add..."
-msgstr "新增..."
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
-msgid "Manage keys for digital signatures of packages"
-msgstr "管理數位套件簽章鑰匙"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2068
-msgid "Medium"
-msgstr "媒體"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
-msgid "Keys"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
-msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr "沒有找到名稱，鑰匙不存在於 rpm 鑰匙圈中！"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
-msgid "Add a key"
-msgstr "新增一把鑰匙"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
-#, perl-format
-msgid "Choose a key to add to the medium %s"
-msgstr "選擇一把要新增到媒體 %s 的鑰匙"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
-msgid "Remove a key"
-msgstr "移除一把鑰匙"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
-#, perl-format
-msgid ""
-"Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
-"of the key: %s)"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
-#, perl-format
-msgid ""
-"Unable to update medium, errors reported:\n"
-"\n"
-"%s"
-msgstr ""
-"無法更新媒體，錯誤訊息如下：\n"
-"\n"
-"%s"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2145
-#: modules/rpmdragora/dragora-urpm-sources.pl:38
-msgid "Configure media"
-msgstr "設定媒體"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
-msgid "Update"
-msgstr "更新"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
-msgid "Add a specific media mirror"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
-msgid "Add a custom medium"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
-msgid "&Options"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
-msgid "Global options"
-msgstr "全域選項"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
-msgid "Manage keys"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
-msgid "Parallel"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
-msgid "Proxy"
-msgstr "Proxy"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
-#: modules/rpmdragora/rpmdragora:757
-msgid "Manual"
-msgstr "手動"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
-msgid "Type"
-msgstr "類型"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
-msgid "Up"
-msgstr "提高"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
-msgid "Down"
-msgstr "降低"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
-#: modules/rpmdragora/rpmdragora:1096
-msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
-msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr "此媒體需要更新才能使用。現在要更新嗎？"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
-msgid "/_File"
-msgstr "/檔案 (_F)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
-msgid "/_Update"
-msgstr "/更新 (_U)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
-msgid "<control>U"
-msgstr "<control>U"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
-msgid "/Add a specific _media mirror"
-msgstr "/新增特定的媒體映射(_m)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
-msgid "<control>M"
-msgstr "<control>M"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
-msgid "/_Add a custom medium"
-msgstr "/新增自訂媒體 (_A)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
-msgid "<control>A"
-msgstr "<control>A"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
-msgid "/Close"
-msgstr "/關閉"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
-msgid "<control>W"
-msgstr "<control>W"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
-#: modules/rpmdragora/rpmdragora:692 modules/rpmdragora/rpmdragora:694
-#: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
-#: modules/rpmdragora/rpmdragora:698
-msgid "/_Options"
-msgstr "/選項 (_O)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
-msgid "/_Global options"
-msgstr "/全域選項 (_G)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
-msgid "<control>G"
-msgstr "<control>G"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
-msgid "/Manage _keys"
-msgstr "/管理鑰匙 (_K)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
-msgid "<control>K"
-msgstr "<control>K"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
-msgid "/_Parallel"
-msgstr "/同步管理 (_P)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
-msgid "<control>P"
-msgstr "<control>P"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
-msgid "/P_roxy"
-msgstr "/代理伺服器 (_R)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
-msgid "<control>R"
-msgstr "<control>R"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
-msgid "/_Help"
-msgstr "/說明 (_H)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
-msgid "/_Report Bug"
-msgstr "/臭蟲報告 (_R)"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
-msgid "/_About..."
-msgstr "/關於 (_A)..."
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
-msgid "Rpmdragora"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
-#, perl-format
-msgid "Copyright (C) %s by Mandriva"
-msgstr "Copyright (C) %s by Mandriva"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
-msgid "Mageia"
-msgstr "Mageia"
-
-#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2204
-msgid ""
-"The Package Database is locked. Please close other applications\n"
-"working with the Package Database. Do you have another media\n"
-"manager on another desktop, or are you currently installing\n"
-"packages as well?"
-msgstr ""
-"套件資料庫被鎖定了。請關閉其它使用到套件資料庫的程式. 您是否\n"
-"在其他工作區有其它的媒體管理程式，或者您正在安裝套件呢？)"
-
-#: lib/ManaTools/Rpmdragora/formatting.pm:196
-#, perl-format
-msgid "%s of additional disk space will be used."
-msgstr "將使用 %s 額外磁碟空間。"
-
-#: lib/ManaTools/Rpmdragora/formatting.pm:197
-#, perl-format
-msgid "%s of disk space will be freed."
-msgstr "將釋放 %s 磁碟空間。"
-
-#: lib/ManaTools/Rpmdragora/formatting.pm:202
-#, perl-format
-msgid "%s of packages will be retrieved."
-msgstr "將會取回 %s 套件。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:106
-msgid "Search results"
-msgstr "搜尋結果"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:106
-msgid "Search results (none)"
-msgstr "搜尋結果 (無)"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:150
-msgid "Security advisory"
-msgstr "安全性建言"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:160
-msgid "No description"
-msgstr "沒有描述"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:174
-msgid "It is <b>not supported</b> by Mageia."
-msgstr "Mageia <b>不支援</b> 這個來源。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:175
-msgid "It may <b>break</b> your system."
-msgstr "它可能會<b>損害</b>您的系統。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:177
-msgid "This package is not free software"
-msgstr "該軟體並非自由軟體"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:180
-msgid "This package contains a new version that was backported."
-msgstr "這個套件有一個較新的版本。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:184
-msgid "This package is a potential candidate for an update."
-msgstr "這個套件是更新檔的測試候選版本。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:189
-msgid "This is an official update which is supported by Mageia."
-msgstr "這是 Mageia 支援的正式更新。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:190
-msgid "This is an unofficial update."
-msgstr "這是非正式的更新。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:194
-msgid "This is an official package supported by Mageia"
-msgstr "這是 Mageia 支援的正式套件。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:205
-msgid "Notice: "
-msgstr "提醒:"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:212
-msgid "Importance: "
-msgstr "重要性："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:213
-msgid "Reason for update: "
-msgstr "更新的原因："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:227
-msgid "Version: "
-msgstr "版本："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:228
-msgid "Currently installed version: "
-msgstr "目前已安裝的版本："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:229
-msgid "Group: "
-msgstr "群組： "
-
-#: lib/ManaTools/Rpmdragora/gui.pm:230
-msgid "Architecture: "
-msgstr "硬體平台："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:231
-msgid "Size: "
-msgstr "大小："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:231
-#, perl-format
-msgid "%s KB"
-msgstr "%s KB"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:254
-msgid "All dependencies installed."
-msgstr "全部相依的套件都已安裝了。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:272
-msgid "URL: "
-msgstr "URL: "
-
-#: lib/ManaTools/Rpmdragora/gui.pm:334
-msgid "Details:"
-msgstr "細節："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:343
-msgid "Files:"
-msgstr "檔案 (_F)："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:357
-msgid "Changelog:"
-msgstr "更新紀錄："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:374
-msgid "New dependencies:"
-msgstr "新的相依性："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:394
-#, perl-format
-msgid "The package \"%s\" was found."
-msgstr "找到套件 \"%s\"。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:395
-msgid "However this package is not in the package list."
-msgstr "但是這個套件沒有在套件列表中。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:396
-msgid "You may want to update your urpmi database."
-msgstr "您可能需要更新您的 urpmi 資料庫。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:398
-msgid "Matching packages:"
-msgstr "符合的套件："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:403
-#, perl-format
-msgid "- %s (medium: %s)"
-msgstr "- %s (媒體：%s)"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:945
-#, perl-format
-msgid "Removing package %s would break your system"
-msgstr "移除套件 %s 將會破壞您的系統"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:949
-#, perl-format
-msgid ""
-"The \"%s\" package is in urpmi skip list.\n"
-"Do you want to select it anyway?"
-msgstr ""
-"「%s」套件在忽略清單中。\n"
-"您還是要選擇它嗎？"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1176
-msgid "More information on package..."
-msgstr "更多該套件的資訊..."
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1178
-msgid "Please choose"
-msgstr "請選擇"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1179
-msgid "The following package is needed:"
-msgstr "需要下列套件："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1179
-msgid "One of the following packages is needed:"
-msgstr "需要下列套件之一："
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1291
-msgid "Select package"
-msgstr ""
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1389
-msgid "Checking dependencies of package..."
-msgstr "正在檢查套件相依性..."
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1394
-msgid "Some additional packages need to be removed"
-msgstr "一些額外的套件必須被移除"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1405
-msgid ""
-"Because of their dependencies, the following package(s) also need to be "
-"removed:"
-msgstr "因為套件之間的相依性問題，以下的套件將會一起被移除:"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1410
-msgid "Some packages cannot be removed"
-msgstr "某些套件無法被移除"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1411
-msgid ""
-"Removing these packages would break your system, sorry:\n"
-"\n"
-msgstr ""
-"移除下面這些套件將會破壞您的系統，抱歉：\n"
-"\n"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1419 lib/ManaTools/Rpmdragora/gui.pm:1490
-msgid ""
-"Because of their dependencies, the following package(s) must be unselected "
-"now:\n"
-"\n"
-msgstr ""
-"為了滿足套件相依性，以下的套件將會取消選取以便於能繼續進行:\n"
-" \n"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1443
-msgid "Additional packages needed"
-msgstr "需要額外的套件"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1444
-msgid ""
-"To satisfy dependencies, the following package(s) also need to be "
-"installed:\n"
-"\n"
-msgstr ""
-"為了滿足套件相依性，以下的套件也必須一併安裝：\n"
-" \n"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1452
-msgid "Conflicting Packages"
-msgstr "互相衝突的套件"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1466
-#, perl-format
-msgid "%s (belongs to the skip list)"
-msgstr "%s (屬於略過的列表)"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1470
-msgid "One package cannot be installed"
-msgstr "一個套件無法安裝"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1470
-msgid "Some packages cannot be installed"
-msgstr "某些套件無法被安裝"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1472
-#, perl-format
-msgid ""
-"Sorry, the following package cannot be selected:\n"
-"\n"
-"%s"
-msgstr ""
-"抱歉，以下套件無法選取：\n"
-"\n"
-"%s"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1473
-#, perl-format
-msgid ""
-"Sorry, the following packages cannot be selected:\n"
-"\n"
-"%s"
-msgstr ""
-"抱歉，以下套件無法選取：\n"
-"\n"
-"%s"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1527
-msgid "Some packages are selected."
-msgstr "有些套件已被選取"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1527
-msgid "Do you really want to quit?"
-msgstr "您確定要離開嗎？"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1537
-#, perl-format
-msgid "Error: %s appears to be mounted read-only."
-msgstr "錯誤：%s 似乎被掛載為唯讀模式。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1541
-msgid "You need to select some packages first."
-msgstr "您必須先選擇一些套件。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1546
-msgid "Too many packages are selected"
-msgstr "選取了太多套件"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1547
-msgid ""
-"Warning: it seems that you are attempting to add so many\n"
-"packages that your filesystem may run out of free diskspace,\n"
-"during or after package installation ; this is particularly\n"
-"dangerous and should be considered with care.\n"
-"\n"
-"Do you really want to install all the selected packages?"
-msgstr ""
-"警告：您似乎於套件安裝中或之後企圖新增大量的套件，\n"
-"導致於您的磁碟空間已經不敷使用； \n"
-"這是非常危險且應該小心考慮的。\n"
-"\n"
-"您確定要安裝全部選取的套件嗎?"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1658
-msgid "Please wait, listing packages..."
-msgstr "排序套件中，請稍候..."
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1671
-msgid "No update"
-msgstr "無更新"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1672
-msgid ""
-"The list of updates is empty. This means that either there is\n"
-"no available update for the packages installed on your computer,\n"
-"or you already installed all of them."
-msgstr ""
-"更新的清單是空的。也許是於您系統上安裝的套件沒有可用的更新，\n"
-"或者您已經全部安裝了。"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:366
-msgid "Upgradable"
-msgstr "可供更新"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:520
-msgid "Installed"
-msgstr "已安裝"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
-msgid "Addable"
-msgstr "可供加入"
-
-#: lib/ManaTools/Rpmdragora/gui.pm:1746
-msgid "Description not available for this package\n"
-msgstr "這個套件沒有可用的說明\n"
-
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
-
-#: scripts/mpan~:34 scripts/mpan:34
-msgid "Developers mode"
-msgstr ""
-
-#: scripts/mpan~:40 scripts/mpan:40
-msgid ""
-"Application name, used for logging identifier and x application "
-"configuration directory. Default mpan"
-msgstr ""
-
-#: scripts/mpan~:46 scripts/mpan:46
-msgid "Window title. Default name value"
-msgstr ""
-
-#: scripts/mpan~:69 scripts/mpan:69
-msgid "== Development mode ON =="
 msgstr ""
 
 #: scripts/mana:39
@@ -4530,50 +4549,77 @@ msgstr ""
 msgid "valid <commands>:\n"
 msgstr ""
 
-#: modules/rpmdragora/dragoraUpdate:70
+#: scripts/mpan:34
+msgid "Developers mode"
+msgstr ""
+
+#: scripts/mpan:40
+msgid ""
+"Application name, used for logging identifier and x application "
+"configuration directory. Default mpan"
+msgstr ""
+
+#: scripts/mpan:46
+msgid "Window title. Default name value"
+msgstr ""
+
+#: scripts/mpan:69
+msgid "== Development mode ON =="
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:421
+msgid "rpmdragora update"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:68
+#, perl-format
+msgid "root privileges required, or run <%s> instead"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
 msgstr ""
 
-#: modules/rpmdragora/dragoraUpdate:72
+#: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
 msgstr "這是套件軟體更新的清單"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
-#: modules/rpmdragora/dragoraUpdate:228 modules/rpmdragora/rpmdragora:424
+#: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1217 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
 msgstr "軟體套件管理程式"
 
-#: modules/rpmdragora/dragoraUpdate:259
+#: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
 msgstr "名稱"
 
-#: modules/rpmdragora/dragoraUpdate:260 modules/rpmdragora/rpmdragora:452
+#: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
 msgstr "摘要"
 
-#: modules/rpmdragora/dragoraUpdate:261 modules/rpmdragora/rpmdragora:455
+#: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
 msgstr "版本"
 
-#: modules/rpmdragora/dragoraUpdate:262 modules/rpmdragora/rpmdragora:459
+#: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
 msgstr "釋出"
 
-#: modules/rpmdragora/dragoraUpdate:263
+#: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
 msgstr "硬體架構"
 
-#: modules/rpmdragora/dragoraUpdate:284
+#: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
 msgstr ""
 
-#: modules/rpmdragora/dragoraUpdate:349
+#: modules/rpmdragora/dragoraUpdate:357
 msgid "dragoraUpdate is the Mageia package management tool."
 msgstr ""
 
-#: modules/rpmdragora/dragoraUpdate:350
+#: modules/rpmdragora/dragoraUpdate:358
 #, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
@@ -4582,11 +4628,7 @@ msgid ""
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
 
-#: modules/rpmdragora/dragoraUpdate:413
-msgid "rpmdragora update"
-msgstr ""
-
-#: modules/rpmdragora/dragoraUpdate:414
+#: modules/rpmdragora/dragoraUpdate:422
 msgid ""
 "The list of updates is empty. This means that either there is no available "
 "update for the packages installed on your computer, or you already installed "
