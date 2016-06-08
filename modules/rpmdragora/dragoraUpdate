@@ -27,6 +27,7 @@
 #
 
 use strict;
+use English;
 use MDK::Common::Func 'any';
 use File::ShareDir ':ALL';
 
@@ -61,7 +62,14 @@ our $w;
 our $statusbar;
 my $loc = ManaTools::rpmdragora::locale();
 
-warn_about_user_mode();
+if ($EUID != 0) {
+    ManaTools::rpmdragora::interactive_msg(
+         $loc->N("rpmdragora update"),
+         $loc->N("root privileges required, or run <%s> instead", "mana update")
+   );
+   exit 0 ;
+}
+
 
 my (%data, $initialized);
 
