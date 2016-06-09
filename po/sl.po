@@ -1,18 +1,24 @@
-# Slovenian translation for ManaTools package.
-# Copyright (C) 2015 Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
 # Filip Komar <filip.komar@gmail.com>, 2015-2016
 msgid ""
 msgstr ""
-"Project-Id-Version: ManaTools\n"
+"Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-03-13 21:29+0100\n"
+"PO-Revision-Date: 2016-06-09 09:20+0000\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
-"Language-Team: Slovenian <lugos-slo@lugos.si>, Translation list <mageia-"
-"i18n@mageia.org>\n"
+"Language-Team: Slovenian (http://www.transifex.com/MageiaLinux/mageia/"
+"language/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -144,9 +150,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Naloži kategorije: naslov modula je <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Upravljanje"
+msgstr "%s - Orodje za upravljanje"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2374,9 +2380,9 @@ msgid "Information"
 msgstr "Podatki"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - upravljajanje definicije gostiteljev"
+msgstr "%s - upravljajanje definicij gostiteljev"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2456,36 +2462,34 @@ msgstr "Grafični upravitelj definicij gostiteljev"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "noben aktiven vir ni najden\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Obdelovanje"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokol:"
+msgstr "Uporabljen protokol:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "poskušanje z"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Po uspešni namestitvi počisti predpomnilnik prenosov"
+msgstr "prenos uspešen\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "noben paket ni bil podan kot argument\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Upravitelj zaslona"
+msgstr "%s - Upravitelj zaslonov"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2534,9 +2538,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafični upravitelj zaslonskih nastavitev"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall: upravitelj požarnega zidu"
+msgstr "%s - upravitelj požarnega zidu"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2689,9 +2693,9 @@ msgstr ""
 "Kaj želite storiti? "
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Pregledovalnik dnevniških datotek"
+msgstr "%s - Pregledovalnik dnevniških datotek"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2789,9 +2793,9 @@ msgid "Save as.."
 msgstr "Shrani kot..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia orodje za upravljanje z uporabniki"
+msgstr "%s - Orodje za upravljanje z uporabniki"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3245,9 +3249,9 @@ msgid "Users"
 msgstr "Uporabniki"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - nastavljanje posredniškega strežnika"
+msgstr "%s - Nastavljanje posredniškega strežnika"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3296,9 +3300,9 @@ msgid "Graphical manager for proxies"
 msgstr "Grafični upravitelj posredniških strežnikov"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Storitve in ozadnji programi"
+msgstr "%s - Storitve in ozadnji programi"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3358,9 +3362,9 @@ msgid "Stopping %s"
 msgstr "Zaustavitev %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Nastavitev ure, datuma in časovnega pasu"
+msgstr "%s - Nastavitev ure, datuma in časovnega pasu"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4745,9 +4749,9 @@ msgid "rpmdragora update"
 msgstr "Posodobitev programa rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "zahtevane so pravice skrbnika"
+msgstr "zahtevane so pravice skrbnika ali namesto tega zagon <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5377,15 +5381,3 @@ msgstr "/usr/share/icons/manarpm.png"
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Grafični vmesnik za nameščanje, odstranjevanje in posodabljanje paketov"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - upravitelj zaslona"
-
-#~ msgid "Select all"
-#~ msgstr "Izberi vse"
-
-#~ msgid "Exit"
-#~ msgstr "Izhod"
-
-#~ msgid "Quit"
-#~ msgstr "Končaj"
