@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-03-13 22:39+0200\n"
+"PO-Revision-Date: 2016-06-09 19:21+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
@@ -146,9 +146,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Завантаження категорій: заголовком модуля є <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Керування"
+msgstr "%s — засіб керування"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2370,9 +2370,9 @@ msgid "Information"
 msgstr "Відомості"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost — налаштувати параметри вузлів"
+msgstr "%s — керування визначеннями вузлів"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2452,36 +2452,34 @@ msgstr "Графічне керування визначеннями вузлі�
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "не знайдено активного сховища пакунків\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Обробка"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Протокол:"
+msgstr "використаний протокол:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "намагаємося за допомогою"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Очистити кеш завантаження після успішного встановлення"
+msgstr " успішно отримано\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "не передано аргумента-пакунка\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Керування входом до системи"
+msgstr "%s — керування дисплеєм"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2530,9 +2528,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Графічний інструмент налаштування засобу керування входом до системи"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall — керування захисним шлюзом"
+msgstr "%s — керування брандмауером"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2687,9 +2685,9 @@ msgstr ""
 "Що робити?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Переглядач журналів"
+msgstr "%s— засіб перегляду журналу"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2787,9 +2785,9 @@ msgid "Save as.."
 msgstr "Зберегти як…"
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser — засіб керування записами користувачів у Mageia"
+msgstr "%s — засіб керування обліковими записами"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3245,9 +3243,9 @@ msgid "Users"
 msgstr "Користувачі"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy — налаштування проксі"
+msgstr "%s — налаштовування проксі"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3298,9 +3296,9 @@ msgid "Graphical manager for proxies"
 msgstr "Графічне керування проксі-серверами"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Сервіси та служби"
+msgstr "%s — фонові і звичайні служби"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3361,9 +3359,9 @@ msgid "Stopping %s"
 msgstr "Зупиняємо %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Параметри дати, часу та часового поясу"
+msgstr "%s — параметри дати, часу та часового поясу"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4772,9 +4770,9 @@ msgid "rpmdragora update"
 msgstr "Оновлення rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "потрібні права доступу користувача root"
+msgstr "потрібні права доступу користувача root або <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
