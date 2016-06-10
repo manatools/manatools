@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -26,13 +26,14 @@
 # Tom Svensson <tom@firstdev.com>, 2000
 # Michael Eklund <willard@null.net>, 2014
 # Yves Brungard, 2016
+# Yves Brungard, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-06-03 05:50+0000\n"
-"Last-Translator: Yves Brungard\n"
+"PO-Revision-Date: 2016-06-10 13:39+0000\n"
+"Last-Translator: Michael Eklund <willard@null.net>\n"
 "Language-Team: Swedish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sv/)\n"
 "Language: sv\n"
@@ -175,9 +176,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Ladda kategorier: modulens titel är <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Hantering"
+msgstr "%s - Hanteringsverktyg"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2395,9 +2396,9 @@ msgid "Information"
 msgstr "Information"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - hantera värdens definitioner"
+msgstr "%s - hantera värdnamnsdefinitioner"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2477,36 +2478,34 @@ msgstr "Grafiskt verktyg för värddefinitioner"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "inget aktivt media hittades\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Bearbetar"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokoll:"
+msgstr "använt protokoll:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "försöker med"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Töm nerladdingscache efter en lyckad installation"
+msgstr "hämtningen lyckades\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "inga paket skickades som argument\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Skärmhanterare"
+msgstr "%s - Fönsterhanterare"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2556,9 +2555,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafiskt konfigurationsverktyg för systemets skärmhanterare"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Hanterare för brandvägg"
+msgstr "%s - Brandväggshanterare"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2711,9 +2710,9 @@ msgstr ""
 "Vad vill du göra?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Loggvisare"
+msgstr "%s - Loggvisare"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2812,9 +2811,9 @@ msgid "Save as.."
 msgstr "Spara som..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manaAnvändare - Mageias verktyg för användarhantering"
+msgstr "%s - Verktyg för användarhantering"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3273,9 +3272,9 @@ msgid "Users"
 msgstr "Användare"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - Konfiguration av proxy-server"
+msgstr "%s - Proxykonfiguration"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3324,9 +3323,9 @@ msgid "Graphical manager for proxies"
 msgstr "Grafisk hanterare för proxy"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Tjänster och demoner"
+msgstr "%s - Tjänster och daemons"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3386,9 +3385,9 @@ msgid "Stopping %s"
 msgstr "Stoppar %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Datum, Tid & Tidszon inställningar"
+msgstr "%s - Datum, klocka och tidszonsinställningar"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4780,9 +4779,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora updatera"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "root-privilegier krävs"
+msgstr "root-privilegier krävs, eller kör <%s> istället"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5417,6 +5416,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Ett grafiskt gränssnitt för installation, borttagning och uppdatering av "
 "paket"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Skärmhanterare"
