@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-04-18 16:02+0000\n"
-"Last-Translator: Luděk Janča <joelp@email.cz>\n"
+"PO-Revision-Date: 2016-06-11 21:18+0000\n"
+"Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cs/)\n"
 "Language: cs\n"
@@ -157,9 +157,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Nahrát skupiny: Název modulu je <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Správa"
+msgstr "%s - nástroj pro správu"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2387,9 +2387,9 @@ msgid "Information"
 msgstr "Informace"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - správa adres a jmen počítačů"
+msgstr "%s - správa adres a jmen počítačů"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2469,36 +2469,34 @@ msgstr "Grafický správce pro určení adres počítačů"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "nenalezena žádná činná média\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Zpracování"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokol:"
+msgstr "používaný protokol:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "zkouší se s"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Smazat dočasnou paměť po úspěšné instalaci"
+msgstr "staženo úspěšně\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "žádné balíčky neprošly jako argument\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Správce obrazovky"
+msgstr "%s - správce obrazovky"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2547,9 +2545,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafické nastavení správce obrazovky"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - správce firewallu"
+msgstr "%s - správce firewallu"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2704,9 +2702,9 @@ msgstr ""
 "Co chcete udělat?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Prohlížeč záznamů"
+msgstr "%s - prohlížeč záznamů"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2804,9 +2802,9 @@ msgid "Save as.."
 msgstr "Uložit jako..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Nástroj pro správu uživatelských účtů Mageia"
+msgstr "%s - nástroj pro správu uživatelských účtů"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3262,9 +3260,9 @@ msgid "Users"
 msgstr "Uživatelé"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - nastavení proxy"
+msgstr "%s - nastavení proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3314,9 +3312,9 @@ msgid "Graphical manager for proxies"
 msgstr "Grafický správce pro proxy"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Služby a démoni"
+msgstr "%s - služby a démoni"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3377,9 +3375,9 @@ msgid "Stopping %s"
 msgstr "Zastavuje se %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Nastavení data, hodin a časové zóny"
+msgstr "%s - nastavení data, hodin a časové zóny"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -3453,7 +3451,7 @@ msgstr "Nainstalujte, prosím, službu NTP, např. chrony nebo ntp k spravován�
 
 #: lib/ManaTools/Module/Clock.pm:443
 msgid "Choose &NTP server"
-msgstr "Vzbrat &NTP server"
+msgstr "Vybrat &NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:459
 msgid "NTP server - DrakClock"
@@ -4761,9 +4759,9 @@ msgid "rpmdragora update"
 msgstr "Aktualizace rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "Jsou potřeba oprávnění správce"
+msgstr "Jsou potřeba oprávnění správce, nebo místo toho spusťte <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5388,6 +5386,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Grafický nástroj pro instalaci, odstranění a aktualizaci balíčků"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - správce obrazovky"
