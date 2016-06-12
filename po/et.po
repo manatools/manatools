@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-05-27 01:01+0300\n"
+"PO-Revision-Date: 2016-06-12 08:23+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <i18n-et@ml.mageia.org>\n"
 "Language: et\n"
@@ -142,9 +142,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Kategooriate laadimine: mooduli tiitel on <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Haldus"
+msgstr "%s - haldustööriist"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2364,9 +2364,9 @@ msgid "Information"
 msgstr "Teave"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahist - masinamääratluste haldamine"
+msgstr "%s - masinamääratluste haldamine"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2446,36 +2446,34 @@ msgstr "Masinamääratluste graafiline haldur"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "aktiivset andmekandjat ei leitud\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Töödeldakse "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokoll:"
+msgstr "kasutatav protokoll: "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "üritatakse järgmisega: "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Allalaadimispuhvri tühjendamine pärast edukat paigaldamist"
+msgstr " edukalt alla laaditud\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "ühtegi paketti pole argumendina antud\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Kuvahaldur"
+msgstr "%s - kuvahaldur"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2524,9 +2522,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Süsteemi kuvahalduri graafiline seadistamine"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - tulemüüri haldur"
+msgstr "%s - tulemüüri haldur"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2680,9 +2678,9 @@ msgstr ""
 "    Mida soovite ette võtta?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Loginäitaja"
+msgstr "%s -.loginäitaja"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2780,9 +2778,9 @@ msgid "Save as.."
 msgstr "Salvesta kui..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia kasutajate haldur"
+msgstr "%s - Mageia kasutajate haldur"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3238,9 +3236,9 @@ msgid "Users"
 msgstr "Kasutajad"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - puhverserverite seadistamine"
+msgstr "%s - puhverserverite seadistamine"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3291,9 +3289,9 @@ msgid "Graphical manager for proxies"
 msgstr "Puhverserverite graafiline haldur"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Teenused ja deemonid"
+msgstr "%s - teenused ja deemonid"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3354,9 +3352,9 @@ msgid "Stopping %s"
 msgstr "Peatatakse %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Kuupäeva, kellaaja ja ajavööndi seadistamine"
+msgstr "%s - kuupäeva, kellaaja ja ajavööndi seadistamine"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4726,9 +4724,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora uuendused"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "vajab administraatori õigusi"
+msgstr "vajab administraatori õigusi või käivitage selle asemel <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
