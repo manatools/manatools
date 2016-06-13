@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-06-01 16:58+0000\n"
+"PO-Revision-Date: 2016-06-13 14:04+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -151,9 +151,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Càrrega de categories: el títol del mòdul és <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Gestió"
+msgstr "%s - Eina de gestió"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2117,6 +2117,11 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Cal contactar amb la rèplica per obtenir les darreres actualitzacions\n"
+"de paquets. \n"
+"Comproveu que teniu accés a la xarxa.\n"
+"\n"
+"Voleu continuar?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
@@ -2155,6 +2160,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Cal accedir al lloc web de Mageia per obtenir la llista de rèpliques.\n"
+"Comproveu que la xarxa estigui activa.\n"
+"\n"
+"Voleu continuar?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
@@ -2383,9 +2392,9 @@ msgid "Information"
 msgstr "Informació"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - gestiona les definicions dels amfitrions"
+msgstr "%s - gestiona les definicions dels amfitrions"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2465,36 +2474,34 @@ msgstr "Gestor gràfic per a les definicions d'amfitrió"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "no s'ha trobat cap mitjà\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Processant "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protocol:"
+msgstr "protocol en ús: "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "s'intenta amb "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Buida la memòria cau després d'una instal·lació amb èxit"
+msgstr " baixat correctament\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "cap paquet passat com a argument\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Gestor de pantalla"
+msgstr "%s - Gestor de pantalla"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2543,9 +2550,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Configurador gràfic per al gestor de pantalla del sistema"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Gestor del tallafoc"
+msgstr "%s - Gestor del tallafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2562,6 +2569,9 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"configurador de drakfirewall\n"
+"\n"
+"Això configura un tallafoc personal per a aquesta màquina Mageia."
 
 #: lib/ManaTools/Module/Firewall.pm:423
 msgid ""
@@ -2569,6 +2579,10 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"Configuració del drakfirewall\n"
+"\n"
+"Assegureu-vos d'haver configurat l'accés a la xarxa local/Internet\n"
+"amb el drakconnect abans de continuar."
 
 #: lib/ManaTools/Module/Firewall.pm:486
 msgid "Interactive Firewall"
@@ -2695,9 +2709,9 @@ msgstr ""
 "Què voleu fer?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Visualitzador de registre"
+msgstr "%s - Visualitzador de registre"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2795,9 +2809,9 @@ msgid "Save as.."
 msgstr "Desa com a..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Eina de gestió d'usuaris de Mageia"
+msgstr "%s - Eina de gestió d'usuaris"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3027,6 +3041,9 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Crear un usuari amb UID menor que %d no està recomanat.\n"
+"Esteu segur de voler fer això?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
@@ -3250,9 +3267,9 @@ msgid "Users"
 msgstr "Usuaris"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - Configuració de servidor intermediari"
+msgstr "%s - Configuració de servidor intermediari"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3303,9 +3320,9 @@ msgid "Graphical manager for proxies"
 msgstr "Gestor gràfic per a servidors intermediaris"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Serveis i dimonis"
+msgstr "%s - Serveis i dimonis"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3365,9 +3382,9 @@ msgid "Stopping %s"
 msgstr "S'està aturant %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Ajusts de la data, del rellotge i del fus horari"
+msgstr "%s - Data, rellotge i configuració del fus horari"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -3508,6 +3525,8 @@ msgstr "Abandona les regles personalitzades"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> directori opcional que conté cadenes de localització (només per a "
+"desenvolupadors)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
@@ -3824,6 +3843,8 @@ msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> directori opcional que conté fitxers de configuració per a cada mòdul "
+"(p.e. nom_del_mòdul/fitxers_de_configuració)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
@@ -3950,6 +3971,13 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"G15Daemon permet als usuaris l'accés a totes les claus extres descodificant-"
+"les i tornant-les al nucli a través del controlador Linux UINPUT. Aquest "
+"controlador s'ha de carregar\n"
+"abans que el g15daemon pugui ser utilitzat per a accés de teclat. També "
+"s'admet LCD G15. Per defecte,\n"
+"amb cap altre client actiu, g15daemon mostrarà un rellotge. Les aplicacions "
+"client i els scripts poden accedir a LCD a través d'una API senzilla."
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -3958,6 +3986,9 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"El GPM afegeix suport de ratolí a aplicacions Linux basades en text, com ara "
+"el Midnight Commander. També permet operacions de tallar i enganxar amb el "
+"ratolí i inclou suport de menús desplegables a la consola."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
@@ -4569,6 +4600,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Hi ha hagut un error mentre es baixava la llista de rèpliques:\n"
+"\n"
+"%s\n"
+"La xarxa o el lloc web potser no estan disponibles.\n"
+"Si us plau, torneu-ho a provar més tard."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -4579,6 +4615,11 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Hi ha hagut un error mentre es baixava la llista de rèpliques:\n"
+"\n"
+"%s\n"
+"La xarxa o el lloc web de Mageia potser no estan disponibles.\n"
+"Si us plau, torneu-ho a provar més tard."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -4713,13 +4754,15 @@ msgstr "ERROR: "
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Ús mana --help | -h        imprimeix aquest missatge d'ajuda.\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Ús mana <ordre> [args...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
@@ -4750,9 +4793,9 @@ msgid "rpmdragora update"
 msgstr "actualització d'rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "calen privilegis d'usuari primari"
+msgstr "calen privilegis d'usuari primari o, si no, executeu <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5137,6 +5180,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Cal autenticació per executar el programa manahost (user=$(usuari), program="
+"$(programa), command_line=$(línia_d'ordres))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5154,6 +5199,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Cal autenticació per executar el programa manaproxy (user=$(usuari), program="
+"$(programa), command_line=$(línia_d'ordres))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5192,6 +5239,8 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Cal autenticació per executar el programa apanel (user=$(usuari), program="
+"$(programa), command_line=$(línia_d'ordres))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
@@ -5201,7 +5250,7 @@ msgstr "Executa l'eina d'instal·lació i eliminació de programari de Mageia"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Cal autenticació per executar el gestor d'rpm de Mageia"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
@@ -5378,6 +5427,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Una interfície gràfica per instal·lar, suprimir i actualitzar paquets"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Gestor de pantalla"
