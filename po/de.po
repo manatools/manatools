@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-05-06 20:32+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2016-06-16 19:12+0000\n"
+"Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
 "Language: de\n"
@@ -157,9 +157,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Kategorien laden: Modultitel ist <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Verwaltung"
+msgstr "%s - Veraltungs-Werkzeug"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2398,9 +2398,9 @@ msgid "Information"
 msgstr "Information"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - Hosts-Definitionen verwalten"
+msgstr "%s - Hosts-Definitionen verwalten"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2480,7 +2480,7 @@ msgstr "Grafische Verwaltung der Hosts-Definitionen"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "kein aktives Medium gefunden\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
@@ -2489,27 +2489,25 @@ msgstr ""
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokoll:"
+msgstr "Protokoll in Verwendung:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
 msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Lösche den Downloadspeicher nach der erfolgreichen Installation"
+msgstr "erfolgreich heruntergeladen\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
 msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Displaymanager"
+msgstr "%s - Displaymanager"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2560,9 +2558,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafische Konfiguration des Display-Managers für das System"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Firewall-Verwaltung"
+msgstr "%s - Firewall-Verwaltung"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2721,9 +2719,9 @@ msgstr ""
 "Was wollen Sie tun?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Protokollbetrachter"
+msgstr "%s - Protokollbetrachter"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2822,9 +2820,9 @@ msgid "Save as.."
 msgstr "Speichern unter.."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia-Benutzerveraltungs-Werkzeug"
+msgstr "%s - Benutzerveraltungs-Werkzeug"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3230,7 +3228,7 @@ msgid ""
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
 "manauser ist ein Mageia Werkzeug zur Benutzerverwaltung\n"
-"(nach der ursprünglichen Idee von Mandrivas userdrake)."
+"(nach der ursprünglichen Idee von Mandriva userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2386
 #, perl-format
@@ -3278,9 +3276,9 @@ msgid "Users"
 msgstr "Benutzer"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - Proxy-Konfiguration"
+msgstr "%s - Proxy-Konfiguration"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3331,9 +3329,9 @@ msgid "Graphical manager for proxies"
 msgstr "Grafische Verwaltung für Proxys"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Dienste und Dämonen"
+msgstr "%s - Dienste und Dämonen"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3378,6 +3376,9 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva draxservice)."
 msgstr ""
+"adminService ist ein Mageia Dienst und Dämon Verwaltungswerkzeug\n"
+"\n"
+"(nach der ursprünglichen Idee von Mandriva draxsserver)."
 
 #: lib/ManaTools/Module/Services.pm:518
 #, perl-format
@@ -3390,9 +3391,9 @@ msgid "Stopping %s"
 msgstr "Stoppe %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Datum, Zeit und Zeitzonen Einstellungen"
+msgstr "%s - Datum, Zeit und Zeitzonen Einstellungen"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4671,7 +4672,7 @@ msgstr ""
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: Journalctl Protokollbetrachter"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
@@ -4761,9 +4762,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "Root-Rechte werden benötigt"
+msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5405,6 +5406,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Eine grafische Benutzerschnittstelle zum Installieren, Entfernen und Updaten "
 "von Paketen"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Displaymanager"
