@@ -26,10 +26,11 @@ use Term::ANSIColor qw(:constants);
 use Moose;
 use Moose::Autobox;
 use ManaTools::Shared::urpmi_backend::DB;
+use ManaTools::Shared qw(trim);
 
 with 'MooseX::Getopt';
 
-extends qw( ManaTools::Module );
+# extends qw( ManaTools::Module );
 
 my $PKG_QUERYMAKER = "urpmq";
 my $QUERY_LISTMEDIA_PARM = "--list-media";
@@ -37,12 +38,6 @@ my $QUERY_LISTURL_PARM = "--list-url";
 my $QUERY_LOOKFORSRPM_PARM = "--sourcerpm";
 my $QUERY_PKG_FULL = "-f";
 my $DLDER = "--wget";
-
-has '+name' => (
-   default => 'urpm-downloader',
-   required => 0,
-   init_arg => undef,
-);
 
 has 'use_wget' => (
    is      => 'rw',
@@ -72,6 +67,7 @@ has 'packagelist' => (
    is   => 'rw',
    isa  => 'Str',
    required => 1,
+   default => sub { return ""; },
 );
 
 has 'packages' => (
@@ -82,8 +78,13 @@ has 'packages' => (
 
 sub process_args {
 	my ($self, $pkglist) = @_;
-	for(split(/\s/,$pkglist)){
-		push @{$self->packages()}, $_;
+	return 0 if(ManaTools::Shared::trim($pkglist)=~m/^$/g);
+	my @items = split(/\s/,$pkglist);
+	if(scalar(@items)>0){
+		for(@items){
+			push @{$self->packages()}, $_;
+		}
+		return 1;
 	}
 }
 
@@ -143,7 +144,10 @@ sub start {
 		}
 	} $rpmbackend->get_active_media($urpm,$self->srpm());
 
-	$self->process_args($self->packagelist());
+	if(!$self->process_args($self->packagelist()))
+	{
+		return 4;
+	}
 
 
 	if(scalar(@media_urls) lt 1)

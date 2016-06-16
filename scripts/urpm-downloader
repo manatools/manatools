@@ -21,7 +21,7 @@ use Modern::Perl '2011';
 use autodie;
 use ManaTools::Module::PkgDownloader;
 
-my $pkgdlManager = ManaTools::Module::PkgDownloader->new_with_options();
+my $pkgdlManager = ManaTools::Module::PkgDownloader->new();
 $pkgdlManager->start();
 
 1;
