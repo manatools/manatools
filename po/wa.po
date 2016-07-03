@@ -1,15 +1,22 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
+# Pablo Saratxaga <pablo@walon.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2015-07-07 15:46+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-06-27 23:15+0000\n"
+"Last-Translator: Pablo Saratxaga <pablo@walon.org>\n"
 "Language-Team: Walloon (http://www.transifex.com/MageiaLinux/mageia/language/"
 "wa/)\n"
 "Language: wa\n"
@@ -25,7 +32,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:441 lib/ManaTools/Module/Clock.pm:190
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
+msgstr "Pablo Saratxaga <pablo@walon.org>\n"
 
 #: lib/ManaTools/MainDisplay.pm:253
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
@@ -34,7 +41,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:355 modules/rpmdragora/rpmdragora:1094
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Copyright © %s li cminålté Mageia"
 
 #: lib/ManaTools/MainDisplay.pm:254
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
@@ -42,7 +49,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:447 lib/ManaTools/Module/Clock.pm:197
 #: modules/rpmdragora/dragoraUpdate:356 modules/rpmdragora/rpmdragora:1095
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:255
 msgid "mpan is the ManaTools panel that collects all the utilities."
@@ -59,12 +66,19 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Ratourneus</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:381
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: lib/ManaTools/Module/Users.pm:2433 modules/rpmdragora/rpmdragora:703
 msgid "File"
-msgstr ""
+msgstr "Fitchî"
 
 #: lib/ManaTools/MainDisplay.pm:382
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
@@ -75,14 +89,14 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1209
 msgid "&Quit"
-msgstr ""
+msgstr "C&witer"
 
 #: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/MainDisplay.pm:395
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 #: lib/ManaTools/Module/Users.pm:2447
 msgid "Help"
-msgstr ""
+msgstr "Aidance"
 
 #: lib/ManaTools/MainDisplay.pm:396
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
@@ -94,7 +108,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:402 lib/ManaTools/Shared/GUI/Dialog.pm:418
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr ""
+msgstr "Å&d fwait"
 
 #: lib/ManaTools/MainDisplay.pm:569
 #, perl-format
@@ -136,12 +150,12 @@ msgstr ""
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "%s - Usteye di manaedjmint"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "Po s' è siervi: %s [TCHUZES]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
@@ -171,6 +185,8 @@ msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb               mete a djoû l' båze di dnêyes, mins sins candjî l' "
+"sistinme di fitchîs"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
@@ -222,7 +238,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
-msgstr ""
+msgstr "Enondé e môde uzeu"
 
 #: lib/ManaTools/Rpmdragora/init.pm:176
 msgid ""
@@ -230,59 +246,62 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"Vos avoz enondé ci programe chal come uzeu normå.\n"
+"Vos n' pôroz nén fé des candjmints do sistinme, mins vos ploz tot l' minme "
+"vey çou k' i gn a el båze di dnêyes."
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
 #: lib/ManaTools/Rpmdragora/gui.pm:1574
 msgid "Fatal error"
-msgstr ""
+msgstr "Aroke moirt"
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:101
 #: lib/ManaTools/Rpmdragora/gui.pm:1575 lib/ManaTools/Rpmdragora/pkg.pm:494
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr ""
+msgstr "I gn a-st avou èn aroke moirt: %s."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr ""
+msgstr "Plake lazer"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
 msgid "Local"
-msgstr ""
+msgstr "Locå"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "Bodjåves"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
-msgstr ""
+msgstr "rsync"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr ""
+msgstr "Djivêye di muroes"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr ""
+msgstr "Tchoezixhoz l' sôre di sopoirt"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -299,11 +318,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
-msgstr ""
+msgstr "Eshonna complet di sopoirts"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Update sources only"
-msgstr ""
+msgstr "Fok les sopoirts di metaedje a djoû"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
 #, perl-format
@@ -316,15 +335,23 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Çoula sayrè d' astaler tos les sopoirts oficirs ki corespondèt a vosse "
+"distribucion (%s).\n"
+"\n"
+"Dj' a mezåjhe di m' raloyî sol waibe da Mageia po prinde li djivêye des "
+"muroes.\n"
+"Verifyîz ki vos estoz bén raloyîs al daegntoele pol moumint, s' i vs plait.\n"
+"\n"
+"C' est bon di continouwer?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr ""
+msgstr "Tårdjîz on pô s' i vs plait, radjoutaedje do sopoirt..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr ""
+msgstr "Foyter..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 #: lib/ManaTools/Module/Users.pm:728
@@ -378,11 +405,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr ""
+msgstr "Bodjåve sopoirt (CD-ROM, DVD, ...)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
-msgstr ""
+msgstr "Tchimin ou pont di montaedje:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
 msgid "Medium name:"
@@ -767,11 +794,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "&Tchuzes"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
-msgstr ""
+msgstr "Tchuzes globåles"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
@@ -779,17 +806,17 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "Paralele"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr ""
+msgstr "Procsi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
 #: lib/ManaTools/Module/Users.pm:2446 modules/rpmdragora/dragoraUpdate:286
 #: modules/rpmdragora/rpmdragora:756
 msgid "&Help"
-msgstr ""
+msgstr "&Aidance"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
@@ -837,12 +864,19 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Ratourneus</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
 msgstr ""
+"Ci sopoirt chal a mezåjhe d' esse metou a djoû pol poleur eployî. El fé?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -850,39 +884,39 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/_File"
-msgstr ""
+msgstr "/_Fitchî"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
-msgstr ""
+msgstr "/Mete a _djoû"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>U"
-msgstr ""
+msgstr "<control>U"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "/Radjouter on _muroe specifike"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>M"
-msgstr ""
+msgstr "<control>M"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_Add a custom medium"
-msgstr ""
+msgstr "/_Radjouter on sopoirt da vosse"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "<control>A"
-msgstr ""
+msgstr "<control>A"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/Close"
-msgstr ""
+msgstr "/Clôre"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "<control>W"
-msgstr ""
+msgstr "<control>W"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
@@ -893,63 +927,63 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
-msgstr ""
+msgstr "/_Tchuzes"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
-msgstr ""
+msgstr "/Tchuzes _globåles"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>G"
-msgstr ""
+msgstr "<control>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/Manage _keys"
-msgstr ""
+msgstr "/Manaedjî les c_lés"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>K"
-msgstr ""
+msgstr "<control>K"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/_Parallel"
-msgstr ""
+msgstr "/_Paralele"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>P"
-msgstr ""
+msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr ""
+msgstr "/P_rocsi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
-msgstr ""
+msgstr "<control>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_Help"
-msgstr ""
+msgstr "/_Aidance"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 msgid "/_Report Bug"
-msgstr ""
+msgstr "/_Rapoirter on bug"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_About..."
-msgstr ""
+msgstr "/Å_d fwait..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
-msgstr ""
+msgstr "Rpmdragora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "Copyright © %s pa Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
 msgid "Mageia"
@@ -1032,39 +1066,39 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
-msgstr ""
+msgstr "Nou discrijhaedje"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "Çoula <b>n' est nén sopoirté</b> pa Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "Çoula pout <b>sketer</b> vosse sistinme."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "Ci pacaedje n' est nén on libe programe."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr ""
+msgstr "Ci pacaedje ci a-st ene nouve modêye k' a stî poirtêye en erî."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "Ci pacaedje ci pôreut esse on candidat po on metaedje a djoû"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "Çoula c' est on metaedje a djoû oficir k' est sopoirté pa Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "Çoula c' est on metaedje a djoû nén oficir."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "Çoula c' est on pacaedje oficir sopoirté pa Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
@@ -1072,40 +1106,40 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
-msgstr ""
+msgstr "Impôrtance: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr ""
+msgstr "Råjhon do metaedje a djoû: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "Modêye: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "Modêye d' astalêye: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr ""
+msgstr "Groupe: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "Årtchitecteure: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
-msgstr ""
+msgstr "Grandeur: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s Ko"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:232 lib/ManaTools/rpmdragora.pm:698
 msgid "Medium: "
-msgstr ""
+msgstr "Sopoirt: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
@@ -1117,11 +1151,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
-msgstr ""
+msgstr "Detays:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:343
 msgid "Files:"
-msgstr ""
+msgstr "Fitchîs:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:349 lib/ManaTools/Rpmdragora/gui.pm:360
 #: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/pkg.pm:201
@@ -1130,11 +1164,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:357
 msgid "Changelog:"
-msgstr ""
+msgstr "Djournå des candjmints:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:374
 msgid "New dependencies:"
-msgstr ""
+msgstr "Novelès aloyances:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:392 lib/ManaTools/Rpmdragora/gui.pm:945
 #: lib/ManaTools/Rpmdragora/gui.pm:949 lib/ManaTools/Rpmdragora/gui.pm:954
@@ -1143,7 +1177,7 @@ msgstr ""
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: modules/rpmdragora/rpmdragora:1209
 msgid "Warning"
-msgstr ""
+msgstr "Adviertixhmint"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 #, perl-format
@@ -1165,7 +1199,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (sopoirt: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:945
 #, perl-format
@@ -1184,6 +1218,8 @@ msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Rpmdragora ou ene di ses prumioûlès aloyances doet esse metou a djoû e "
+"prumî. Rpmdragora si renondrè après çoula."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1176
 msgid "More information on package..."
@@ -1207,7 +1243,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1389
 msgid "Checking dependencies of package..."
-msgstr ""
+msgstr "Verifiaedje des depindinces pol pacaedje..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Some additional packages need to be removed"
@@ -1611,7 +1647,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Aspougneus d' tecse eyet cvierseus"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
@@ -2029,6 +2065,8 @@ msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
+"Vos n' avoz apontyî nou sopoirt di metaedje a djoû, do côp MageiaUpdate ni "
+"såreut nén ovrer."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:298 lib/ManaTools/rpmdragora.pm:1003
 msgid ""
@@ -2143,59 +2181,59 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
-msgstr ""
+msgstr "C' est bon di continouwer?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr ""
+msgstr "Inicialijhaedje..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
-msgstr ""
+msgstr "Pacaedjes ôrfulins"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr ""
+msgstr "Li pacaedje ôrfulin ki shût va esse dizastalé."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
-msgstr ""
+msgstr "Dj' aprestêye l' astalaedje des pacaedjes..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Dj' astale li pacaedje «%s» (%d/%d)..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "Totå: %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Change medium"
-msgstr ""
+msgstr "Candjî di sopoirt"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "Metoz l' sopoirt lomé «%s» dins l' lijheu"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Verifiaedje des sinateures des pacaedjes..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "I gn a-st avou %d transaccions d' astalaedje k' ont fwait berwete"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr ""
+msgstr "Aroke moirt: nou pacaedje n' a stî trové po l' astalaedje."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
-msgstr ""
+msgstr "Dji louke ezès fitchîs d' apontiaedje..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid ""
@@ -2204,15 +2242,20 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"L' astalaedje a fini; tot a stî astalé comifåt.\n"
+"\n"
+"Sacwants fitchîs d' apontiaedje ont stî askepyîs dizo des nos\n"
+"avou « .rpmnew » ou « .rpmsave » come cawete, vos les dvrîz\n"
+"rloukî po decider cwè fé avou zels:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
-msgstr ""
+msgstr "Dji cwir après des fitchîs «README»..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1025
 #, perl-format
 msgid "RPM transaction %d/%d"
-msgstr ""
+msgstr "Transaccion RPM %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1026
 msgid "Unselect all"
@@ -2220,7 +2263,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1027
 msgid "Details"
-msgstr ""
+msgstr "Detays"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
@@ -2240,7 +2283,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1093 lib/ManaTools/Module/Services.pm:383
 msgid "Information"
-msgstr ""
+msgstr "Infôrmåcion"
 
 #: lib/ManaTools/Module/Hosts.pm:48
 #, perl-format
@@ -2270,7 +2313,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:237 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
-msgstr ""
+msgstr "Adresse IP"
 
 #: lib/ManaTools/Module/Hosts.pm:239
 msgid "Host aliases"
@@ -2317,7 +2360,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:176
 #, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr ""
+msgstr "Copyright © %s pa Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
@@ -2352,7 +2395,7 @@ msgstr ""
 #: lib/ManaTools/Module/DisplayManager.pm:54
 #, perl-format
 msgid "%s - Display Manager"
-msgstr ""
+msgstr "%s - Manaedjeu di håynaedje"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2360,15 +2403,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:90
 msgid "GDM (GNOME Display Manager)"
-msgstr ""
+msgstr "GDM (manaedjeu di håynaedje GNOME)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:91
 msgid "KDM (KDE Display Manager)"
-msgstr ""
+msgstr "KDM (manaedjeu di håynaedje KDE)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "XDM (X Display Manager)"
-msgstr ""
+msgstr "XDM (manaedjeu di håynaedje X11)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:138
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2404
@@ -2386,15 +2429,15 @@ msgstr ""
 #: lib/ManaTools/Module/DisplayManager.pm:169
 #: lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
-msgstr ""
+msgstr "Vos vs divoz dislodjî eyet relodjî po les candjmints esse efectifs"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
-msgstr ""
+msgstr "Manaedjeu di håynaedje"
 
 #: lib/ManaTools/Module/DisplayManager.pm:209
 msgid "Choosing a display manager"
-msgstr ""
+msgstr "Tchoezixhant on manaedjeu di håynaedje"
 
 #: lib/ManaTools/Module/DisplayManager.pm:265
 msgid "Graphical configurator for system Display Manager"
@@ -2407,12 +2450,12 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
-msgstr ""
+msgstr "Deteccion di scanaedjes di pôrts"
 
 #: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
 #: lib/ManaTools/Module/Firewall.pm:1008
 msgid "Firewall configuration"
-msgstr ""
+msgstr "Apontiaedje do côpe-feu"
 
 #: lib/ManaTools/Module/Firewall.pm:416
 msgid ""
@@ -2427,10 +2470,13 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"Apontieu di côpe feu drakfirewall\n"
+"Acertinez vs ki vos avoz bén apontyî vosse rantoele eyet l' accès al\n"
+"daegntoele avou drakconnect divant d' aler pus lon."
 
 #: lib/ManaTools/Module/Firewall.pm:486
 msgid "Interactive Firewall"
-msgstr ""
+msgstr "Côpe feu eteractif"
 
 #: lib/ManaTools/Module/Firewall.pm:490
 msgid ""
@@ -2438,10 +2484,13 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Vos ploz esse advierti cwand ene sakî enonde on siervice ou saye di moussî e "
+"vosse copiutrece.\n"
+"Tchoezixhoz li sôre d' activité rantoele ki vos vloz corwaitî s' i vs plait."
 
 #: lib/ManaTools/Module/Firewall.pm:496
 msgid "Use Interactive Firewall"
-msgstr ""
+msgstr "Eployî l' côpe feu eteractif"
 
 #: lib/ManaTools/Module/Firewall.pm:658
 msgid "Graphical manager for interactive firewall rules"
@@ -2450,11 +2499,11 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
 #: lib/ManaTools/Module/Firewall.pm:1097
 msgid "Firewall"
-msgstr ""
+msgstr "Côpe feu"
 
 #: lib/ManaTools/Module/Firewall.pm:712
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "Ké siervices voloz vs k' i soeye accessibe a pårti del daegntoele?"
 
 #: lib/ManaTools/Module/Firewall.pm:713
 #, perl-format
@@ -2463,7 +2512,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:714
 msgid "Everything (no firewall)"
-msgstr ""
+msgstr "Totafwait (nou côpe feu)"
 
 #: lib/ManaTools/Module/Firewall.pm:820
 msgid "A&dvanced"
@@ -2479,6 +2528,9 @@ msgid ""
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
 msgstr ""
+"Vos ploz dner diferins limeros di pôrt. \n"
+"Des egzimpes valides sont: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Loukîz l' fitchî /etc/services po pus d' infôrmåcions."
 
 #: lib/ManaTools/Module/Firewall.pm:891
 msgid "Define miscellaneus ports"
@@ -2486,11 +2538,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:906
 msgid "Other ports"
-msgstr ""
+msgstr "Ôtes pôrts"
 
 #: lib/ManaTools/Module/Firewall.pm:914
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "Mete les messaedjes do côpe-feu dins les djournås sistinme"
 
 #: lib/ManaTools/Module/Firewall.pm:969
 msgid "Invalid port given"
@@ -2505,6 +2557,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"Pôrt nén valide di dné: %s.\n"
+"Li boune cogne c' est «pôrt/tcp» ou «pôrt/udp», \n"
+"avou «pôrt» on limero inte 1 eyet 65535.\n"
+"\n"
+"Vos ploz eto dner ene fortchete di pôrts (eg: 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:1009
 msgid ""
@@ -2534,7 +2591,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "Ene usteye po vey vos fitchîs djournås"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
@@ -2546,19 +2603,19 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "Tchuzes"
 
 #: lib/ManaTools/Module/LogViewer.pm:173
 msgid "Last boot"
-msgstr ""
+msgstr "Dierin enondaedje"
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
-msgstr ""
+msgstr "Dispoy"
 
 #: lib/ManaTools/Module/LogViewer.pm:191
 msgid "Until"
-msgstr ""
+msgstr "Disk' a"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
@@ -2574,7 +2631,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
-msgstr ""
+msgstr "&Trover"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
@@ -2582,7 +2639,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:297
 msgid "&Save"
-msgstr ""
+msgstr "&Schaper"
 
 #: lib/ManaTools/Module/LogViewer.pm:324
 msgid "Log viewer is a systemd journal viewer"
@@ -2598,6 +2655,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Ratourneus</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:343
 msgid "Empty log found"
@@ -2605,7 +2668,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:436
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - enondé e môde uzeu"
 
 #: lib/ManaTools/Module/LogViewer.pm:437
 msgid ""
@@ -2616,62 +2679,62 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:459
 msgid "Save as.."
-msgstr ""
+msgstr "Schaper eyet rlomer..."
 
 #: lib/ManaTools/Module/Users.pm:107
 #, perl-format
 msgid "%s - Users Management Tool"
-msgstr ""
+msgstr "%s - Usteye di manaedjmint des uzeus"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
-msgstr ""
+msgstr "Dinêyes di l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "Informåcion do conte"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
-msgstr ""
+msgstr "Informåcion sol sicret"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2530
 msgid "Groups"
-msgstr ""
+msgstr "Groupes"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "Dinêyes do groupe"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "Uzeus do groupe"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
-msgstr ""
+msgstr "Tchoezi groupe"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "I gn a ddja on groupe di ç' no la.  Cwè voloz vs fé?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Radjouter å groupe k' egzistêye dedja"
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Radjouter å groupe «users»"
 
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Voloz vs vormint disfacer l' groupe %s?"
 
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2343
 msgid "&Delete"
-msgstr ""
+msgstr "&Disfacer"
 
 #: lib/ManaTools/Module/Users.pm:452
 #, perl-format
@@ -2679,15 +2742,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s est l' groupe prumioûle da l' uzeu %s\n"
+" I vs fåt d' aprume oister l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Dji oistêye li groupe: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Disfacer les fitchîs ou nén?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -2695,46 +2760,49 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Dji disface l' uzeu %s\n"
+" Dji fwai eto les accions shuvantes\n"
 
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Disfacer l' ridant måjhon: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "Disfacer l' boesse ås emiles: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Dji oistêye l' uzeu: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "Ahiver on novea groupe"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
-msgstr ""
+msgstr "No do groupe:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Diner al mwin l' idintifiant do groupe"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
 msgstr ""
+"Li groupe egzistêye dedja, tchoezixhoz èn ôte no d' groupe s' i vs plait"
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr " Li GID est < %n"
 
 #: lib/ManaTools/Module/Users.pm:642
 #, perl-format
@@ -2743,6 +2811,9 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Ahiver on groupe avou on GID (idintifiant do groupe) pus ptit ki %d\n"
+"n' est nén ricmandé. Estoz seur del voleur fé?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
@@ -2757,66 +2828,68 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Dji radjoute li groupe: %s "
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
-msgstr ""
+msgstr "No en etir:"
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Acertinaedje do scret:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
-msgstr ""
+msgstr "Shell d' elodjaedje:"
 
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Imådjete (%s)"
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
-msgstr ""
+msgstr "Ahiver on novea uzeu"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Ahiver l' ridant måjhon"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr ""
+msgstr "Ridant måjhon: "
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Ahiver on groupe privé po l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Diner al mwin l' idintifiant di l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Clitchîz so l' imådjete pol candjî"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Ci no egzistêye dedja el sistinme, tchoezixhoz è èn ôte s' i vs plait"
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Les screts n' sont nén les minmes"
 
 #: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Li scret est pår trop simpe. \n"
+" On bon scret doet aveur pus di 6 caracteres"
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -2828,7 +2901,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:980
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "L' UID est < %d"
 
 #: lib/ManaTools/Module/Users.pm:981
 #, perl-format
@@ -2837,148 +2910,155 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Ahiver èn uzeu avou èn UID (idintifiant d' uzeu) pus ptit ki %d\n"
+"n' est nén ricmandé. Estoz seur del voleur fé?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Dji radjoute %s å groupe «users»"
 
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Dj' ahive li novea groupe: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr ""
+msgstr "Dji radjoute l' uzeu:"
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Dji radjoute l' uzeu: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
-msgstr ""
+msgstr "No di l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr ""
+msgstr "ID di l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
-msgstr ""
+msgstr "Prumioûle groupe"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "No en etir"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
-msgstr ""
+msgstr "Shell d' elodjaedje"
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
-msgstr ""
+msgstr "Ridant måjhon"
 
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "Estat"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "No do groupe"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "ID do groupe"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
-msgstr ""
+msgstr "Mimbes do groupe"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
-msgstr ""
+msgstr "Måjhon:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
-msgstr ""
+msgstr "Mete en alaedje l' espiraedje des contes uzeu"
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "Li conte espire li (AAAA-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
-msgstr ""
+msgstr "Bloker l' conte di l' uzeu"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "clitchîz so l' imådjete pol candjî"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
-msgstr ""
+msgstr "L' uzeu candja si scret pol dierin côp li:"
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Mete en alaedje l' espiraedje des screts"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Djoûs dvant d' poleur candjî:"
 
 #: lib/ManaTools/Module/Users.pm:1720
 msgid "Days before change required:"
-msgstr ""
+msgstr "Djoûs dvant di dveur candjî:"
 
 #: lib/ManaTools/Module/Users.pm:1728
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Djoûs d' adviertixhmint divant d' diveur candjî:"
 
 #: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Djoûs dvant ki l' conte soeye djoké:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Tchoezixhoz les uzeus k' iront dins ç' groupe ci:"
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
-msgstr ""
+msgstr "Uzeu"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Tchoezixhoz les groupes ki l' uzeu ndè serè mimbe:"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Tchoezixhoz pol moens on groupe po l' uzeu s' i vs plait"
 
 #: lib/ManaTools/Module/Users.pm:1942
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Dinez l' anêye, li moes eyet l' djoû \n"
+" ki l' conte doet espirer "
 
 #: lib/ManaTools/Module/Users.pm:1958
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "I vs fåt rimpli tos les tchamps po l' espiraedje des screts\n"
 
 #: lib/ManaTools/Module/Users.pm:1993
 msgid "Strong"
-msgstr ""
+msgstr "Foirt"
 
 #: lib/ManaTools/Module/Users.pm:1993
 msgid "Weak"
-msgstr ""
+msgstr "Fwebe"
 
 #: lib/ManaTools/Module/Users.pm:2006
 msgid "Edit User"
 msgstr ""
+"Candjî\n"
+"uzeu"
 
 #: lib/ManaTools/Module/Users.pm:2159 lib/ManaTools/Module/Users.pm:2262
 msgid "Cannot create tab widgets"
@@ -2987,22 +3067,28 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:2175
 msgid "Edit Group"
 msgstr ""
+"Candjî\n"
+"groupe"
 
 #: lib/ManaTools/Module/Users.pm:2340 lib/ManaTools/Module/Users.pm:2466
 msgid "Add User"
 msgstr ""
+"Radjouter\n"
+"uzeu"
 
 #: lib/ManaTools/Module/Users.pm:2341 lib/ManaTools/Module/Users.pm:2471
 msgid "Add Group"
 msgstr ""
+"Radjouter\n"
+"groupe"
 
 #: lib/ManaTools/Module/Users.pm:2344
 msgid "Install guest account"
-msgstr ""
+msgstr "Astaler on conte viziteu"
 
 #: lib/ManaTools/Module/Users.pm:2381
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2385
 msgid ""
@@ -3020,81 +3106,87 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Ratourneus</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Users.pm:2434 lib/ManaTools/Module/Users.pm:2486
 msgid "Refresh"
-msgstr ""
+msgstr "Rafrister"
 
 #: lib/ManaTools/Module/Users.pm:2442
 msgid "Actions"
-msgstr ""
+msgstr "Accions"
 
 #: lib/ManaTools/Module/Users.pm:2481
 msgid "Delete"
-msgstr ""
+msgstr "Disfacer"
 
 #: lib/ManaTools/Module/Users.pm:2500
 msgid "Filter system users"
-msgstr ""
+msgstr "Passete po les uzeus sistinme"
 
 #: lib/ManaTools/Module/Users.pm:2505
 msgid "Search:"
-msgstr ""
+msgstr "Cweri:"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Apply &filter"
-msgstr ""
+msgstr "Mete en alaedje li &passete"
 
 #: lib/ManaTools/Module/Users.pm:2526
 msgid "Users"
-msgstr ""
+msgstr "Uzeus"
 
 #: lib/ManaTools/Module/Proxy.pm:53
 #, perl-format
 msgid "%s - Proxy configuration"
-msgstr ""
+msgstr "%s - Apontiaedje des procsis"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr ""
+msgstr "Li procsi doet esse http://..."
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr ""
+msgstr "Li procsi doet esse http://... oudonbén https://..."
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr ""
+msgstr "Li hårdêye doet cmincî avou «http:» ou «ftp:»"
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
-msgstr ""
+msgstr "Apontiaedje des procsis"
 
 #: lib/ManaTools/Module/Proxy.pm:282
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
-msgstr ""
+msgstr "Chal vos ploz apontyî les procsis (eg: http://sierveu_procsi:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
-msgstr ""
+msgstr "Procsi HTTP"
 
 #: lib/ManaTools/Module/Proxy.pm:296
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr ""
+msgstr "Eployî l' procsi HTTP po les raloyaedjes HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:302
 msgid "HTTPS proxy"
-msgstr ""
+msgstr "Procsi HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:308
 msgid "FTP proxy"
-msgstr ""
+msgstr "Procsi FTP"
 
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
-msgstr ""
+msgstr "Nou procsi po (djivêye separêye pa des comas):"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -3103,43 +3195,43 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:86
 #, perl-format
 msgid "%s - Services and daemons"
-msgstr ""
+msgstr "%s - Siervices et demons"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
-msgstr ""
+msgstr "Enonder al dimande"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "running"
-msgstr ""
+msgstr "en alaedje"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "stopped"
-msgstr ""
+msgstr "djoké"
 
 #: lib/ManaTools/Module/Services.pm:362
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "Manaedjî les siervices do sistinme, les mete en alaedje ou ls essocter"
 
 #: lib/ManaTools/Module/Services.pm:370
 msgid "Service"
-msgstr ""
+msgstr "Siervice"
 
 #: lib/ManaTools/Module/Services.pm:372
 msgid "On boot"
-msgstr ""
+msgstr "A l' enondaedje"
 
 #: lib/ManaTools/Module/Services.pm:391
 msgid "&Start"
-msgstr ""
+msgstr "&Enonder"
 
 #: lib/ManaTools/Module/Services.pm:394
 msgid "S&top"
-msgstr ""
+msgstr "Ares&ter"
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
-msgstr ""
+msgstr "Ra&frister"
 
 #: lib/ManaTools/Module/Services.pm:448
 msgid ""
@@ -3162,7 +3254,7 @@ msgstr ""
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "%s - Apontiaedjes del date, di l' eure eyet del coisse d' eureye"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -3178,6 +3270,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Ratourneus</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore data"
@@ -3190,7 +3286,7 @@ msgstr ""
 #: lib/ManaTools/Module/Clock.pm:236 lib/ManaTools/Module/Clock.pm:242
 #: lib/ManaTools/Module/Clock.pm:563 lib/ManaTools/Module/Clock.pm:648
 msgid "not defined"
-msgstr ""
+msgstr "nén defini"
 
 #: lib/ManaTools/Module/Clock.pm:270
 msgid "Set local RTC failed"
@@ -3218,7 +3314,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:414
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "Mete ene alaedje li protocole d' ôrlodje rantoele"
 
 #: lib/ManaTools/Module/Clock.pm:426
 msgid "manaclock: NTP service missed"
@@ -3258,15 +3354,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:586
 msgid "TimeZone"
-msgstr ""
+msgstr "Coisse d' eureye"
 
 #: lib/ManaTools/Module/Clock.pm:588
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Candjî l' coisse d' &eureye"
 
 #: lib/ManaTools/Module/Clock.pm:601 lib/ManaTools/Module/Clock.pm:609
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Coisse d' eureye - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:602
 msgid "Failed to retrieve timezone list"
@@ -3274,23 +3370,23 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:610
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "Dins kéne coisse d' eureye estoz?"
 
 #: lib/ManaTools/Module/Clock.pm:622
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "Tins univiersel (UTC) - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:623
 msgid "Is your hardware clock set to GMT?"
-msgstr ""
+msgstr "L' ôrlodje di l' éndjolreye est ele metowe e tins universel GMT?"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "Wårder les rîles da vosse"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Leyî toumer les rîles da vosse"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -3308,31 +3404,31 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "Globå"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "Afrike"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "Azeye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "Urope"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "Amerike bijhrece"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "Oceyaneye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "Amerike nonnrece"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
@@ -3400,7 +3496,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "Turkeye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
@@ -3408,15 +3504,15 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
-msgstr ""
+msgstr "Otriche"
 
 #: lib/ManaTools/Shared/TimeZone.pm:408 lib/ManaTools/rpmdragora.pm:578
 msgid "Belarus"
-msgstr ""
+msgstr "Belaruss"
 
 #: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
 msgid "Belgium"
-msgstr ""
+msgstr "Beldjike"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
@@ -3424,7 +3520,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
-msgstr ""
+msgstr "Tchekeye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
@@ -3440,16 +3536,16 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "France"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
-msgstr ""
+msgstr "Almagne"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
 #: lib/ManaTools/rpmdragora.pm:593
 msgid "Greece"
-msgstr ""
+msgstr "Grece"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
@@ -3457,117 +3553,117 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Irlande"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "Itåleye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Litwaneye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Lussimbork"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "Bas Payis"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "Norvedje"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "Pologne"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "Roumaneye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Rûsseye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "Eslovakeye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Esloveneye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "Espagne"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "Suwede"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "Swisse"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Oucrinne"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Rweyåme Uni"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Yougoslaveye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
-msgstr ""
+msgstr "Canada"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Gwatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Mecsike"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "Estats Unis"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "Ostraleye"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Nouve Zelande"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
-msgstr ""
+msgstr "Årdjintene"
 
 #: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
 msgid "Brazil"
-msgstr ""
+msgstr "Braezi"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Tchili"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "Tos les sierveus"
 
 #: lib/ManaTools/Shared/TimeZone.pm:947
 msgid "user does not have the rights to change configuration file, skipped"
@@ -3575,16 +3671,16 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
-msgstr ""
+msgstr "Oyi"
 
 #: lib/ManaTools/Shared/GUI.pm:319
 msgid "No"
-msgstr ""
+msgstr "Neni"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "&Select"
-msgstr ""
+msgstr "&Tchoezi"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
@@ -3618,17 +3714,19 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "&Clôre"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Li tchamp do no est vude, i vs fåt dner on no s' i vs plait"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"Li no d' uzeu doet cmincî avou ene pitite lete shuvowe di seulmint des "
+"ptitès letes, des chifes, li loyeure (-) ou l' sene «sorlignî» (_)"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
@@ -3638,15 +3736,15 @@ msgstr ""
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "Vos n' poloz nén bodjî l' uzeu <%s> foû di s' groupe prumioûle"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Locked"
-msgstr ""
+msgstr "Bloké"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Expired"
-msgstr ""
+msgstr "Espiré"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
@@ -3654,23 +3752,35 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Enonder li sistinme di son ALSA (Advanced Linux Sound Architecture)"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
 msgstr ""
+"Anacron manaedje des comandes a enonder periodicmint.\n"
+"I ravize a «cron» mins po des sistinmes ki n' sont nén en alaedje\n"
+"24e/24e. Anacron si tchedje di s' mete a djoû et d' enonder les tårdjowès\n"
+"comandes cwand l' éndjole est enondêye."
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"apmd sieve a shure l' estat del batreye et a scrire les racsegnmints avou "
+"syslog.\n"
+"I pout eto siervi a clôre l' éndjole cwand c' est ki les batreyes divnèt "
+"flåwes."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"Enonde les cmandes defineyes avou li cmande «at», å moumint ki ça a stî "
+"defini.\n"
+"Sieve eto a enonder des cmandes batch cwand c' est ki l' éndjole n' a nén\n"
+"trop d' ovraedje so les bresses."
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
@@ -3691,6 +3801,12 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"cron est on programe sitandård po Unix.  Il enonde des programes tchoezis\n"
+"pa l' uzeu a des moumints metous pa l' uzeu.  Li cron da Vixie radjoute "
+"sacwants\n"
+"siervice å programe cron tradicionel di Unix, par egzimpe ene meyeuse "
+"såvrité\n"
+"eyet des pus ritchès tchuzes po l' apontiaedje."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
@@ -3707,6 +3823,9 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"FAM est on demon di corwaitaedje di fitchîs. Il est eployî po-z aveur des "
+"rapoirts cwand des fitchîs candjèt.\n"
+"Il est eployî pa GNOME eyet KDE"
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -3727,6 +3846,10 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"Avou GPM vos avoz li sopoirt del sori po les programes Linux e mode tecse,\n"
+"come li «comandeu di meynute» (Midnight Commander, mc). Et vos avoz eto\n"
+"li sopoirt po côper et d' plaker sol conzôle, et sopoirt po des aspitants\n"
+"menus sol conzôle."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
@@ -3737,11 +3860,15 @@ msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"HardDrake fwait ene deteccion di l' éndjolreye, et pout ossu apontyî\n"
+"les noveas/candjîs éndjins."
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
+"Apache est on sierveu HTTP. Il est eployî po siervi des pådjes waibe et des "
+"CGI."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -3752,6 +3879,12 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"Li demon Internet (inetd) est on «super-sierveu» k' enonde ene drigleye\n"
+"d' ôtes siervices k' ont a vey avou Internet cwand c' est k' i gn a "
+"mezåjhe.\n"
+"Metans: telnet, ftp, rsh eyet rlogin.  Si vos n' purdoz nén inetd, nouk di "
+"ces\n"
+"siervices la ni såreut esse enondé."
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -3772,16 +3905,21 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Ci pacaedje chal tchedje li taprece tchoezeye e /etc/sysconfig/keyboard.\n"
+"Çoula pout esse apontyî avou l' usteye kbdconfig.\n"
+"Vos l' dvoz leyî en alaedje pol plupårt des éndjoles."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"Fé otomaticmint des noveles tiestires do nawea dins /boot\n"
+"a pårti di /usr/include/linux/{autoconf,version}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr ""
+msgstr "Deteccion et apontiaedje otomatikes di l' éndjolreye a l' enondaedje."
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
@@ -3792,18 +3930,25 @@ msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"Pa côps linuxconf va fé totès sôres di bouyes å moumint di\n"
+"l' enondaedje po wårder l' apontiaedje do sistinme."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"lpd est li demon d' imprimaedje k' i gn en a mezåjhe po lpr poleur rexhe "
+"comifåt.\n"
+"C' est on sierveu ki manaedje les bouyes po les scrireces."
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Li forveyou sierveu Linux, eployî po fé on sierveu di hôte performance\n"
+"et di hôte disponibilité (high-availability)."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
@@ -3828,6 +3973,8 @@ msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"named (BIND) est on sierveu di nos d' dominne (DNS) eployî po-z aveur les "
+"adresses IP limerikes a pårti des nos des lodjoes."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
@@ -3838,12 +3985,16 @@ msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Monte et dismonte les ponts di montaedje po Network File System (NFS), \n"
+"SMB (Lan Manager/Windows) et NCP (NetWare)."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Enonde ou arestêye totes les eterfaces di rantoele apontieyes po\n"
+"s' mete en alaedje cwand c' est ki l' éndjole s' enonde."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
@@ -3859,12 +4010,20 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"NFS est on protocole populaire po pårtaedjî des fitchîs so les rantoeles TCP/"
+"IP.\n"
+"Ci siervice chal c' est po-z aveur on sierveu NFS, ki est apontyî\n"
+"viè l' fitchî /etc/exports."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS est on protocole populaire po pårtaedjî des fitchîs so les rantoeles TCP/"
+"IP.\n"
+"Ci siervice chal c' est po-z aveur li fonccionålité di blocaedje\n"
+"di fitchîs pa NFS."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
@@ -3875,10 +4034,12 @@ msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Mete otomaticmint en alaedje li coine des tapes limerikes del taprece\n"
+"a l' enondaedje; ossu bén so X11 k' e conzôle."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Sopoirt po les scrireces OKI 4w et copatibes."
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
@@ -3891,6 +4052,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"Li sopoirt PCMCIA c' est po sopoirter des sacwès come des cåtes rantoele\n"
+"ou des modems, avou les poirtåvès copiutreces. I n' srè nén enondé a moens\n"
+"di esse apontyî, adon c' est nén måva del leyî astalé minme so les éndjoles\n"
+"wice k' on n' s' e siervèt nén."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -3899,6 +4064,10 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"Li mapeu d' pôrts manaedje les raloyaedjes RPC, ki sont-st eployîs pa\n"
+"des protocoles come NFS ou NIS. Li sierveu portmap doet esse en alaedje\n"
+"so les éndjoles ki dvèt esse des sierveus po des protocoles ki s' e siervèt "
+"do RPC."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -3909,18 +4078,24 @@ msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"Postfix est ene usteye ki fwait voyaedjî les emiles d' ene éndjole a l' ôte."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Schaper et rprinde l' éntropeye do sistinme, po-z aveur ene askepiance\n"
+"di nombes a l' astcheyance di meyeuse cwålité."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Assinaedje di peur éndjins (raw devices) po les éndjins di sôre blok (come\n"
+"les pårticions des deurès plakes), po des programes come Oracle\n"
+"ou des lijheus d' plakes lazer DVD s' endè siervi"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
@@ -3932,30 +4107,45 @@ msgid ""
 "the RIP protocol. While RIP is widely used on small networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"Li demon routed c' est po-z aveur li tåvlea di routaedje IP esse metou a "
+"djoû\n"
+"otomaticmint viè l' protocole RIP. Li protocole RIP est bråmint eployî avou\n"
+"les ptitès rantoeles, mins des pus complesses rantoeles ont mezåjhe di pus "
+"complesses protocoles."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"Li protocole rstat c' est po les uzeus k' i gn a sor ene rantoele poleur\n"
+"vey des informåcions sol performance d' ene éndjole del rantoele."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"Syslog est ene usteye ki schoûte les diferins demons ki lyi evoyèt des "
+"messaedjes po mete dvins les fitchîs djournå do sistinme. C' est ene bone "
+"idêye di l' aveur todi en alaedje."
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"Li protocole rusers c' est po les uzeus k' i gn a sor ene rantoele poleur\n"
+"idintifyî kî est raloyî so des ôtès éndjoles."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"Li protocole rwho c' est po des lodjoes å lon poleur vey ene djivêye\n"
+"di tos les uzeus ki sont raloyîs so l' éndjole, si l' demon rwho est\n"
+"astalé eyet en alaedje (çoula ravize a finger)."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
@@ -3974,7 +4164,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "Enonder li sistinme di son so voste éndjole"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
@@ -3991,6 +4181,9 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog est ene usteye ki schoûte les diferins demons ki lyi evoyèt\n"
+"des messaedjes po mete dvins les fitchîs djournå do sistinme.\n"
+"C' est ene bone idêye di l' aveur todi en alaedje."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -3998,7 +4191,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "Tcherdjî les mineus po vos éndjins USB."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
@@ -4034,7 +4227,7 @@ msgstr "Oistaedje des pacaedjes di programes"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
-msgstr ""
+msgstr "Metaedje a djoû des pacaedjes di programes"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
@@ -4046,15 +4239,15 @@ msgstr "Nén dmander li côp ki vint"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Oyi"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&Neni"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr ""
+msgstr "Aloyances"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -4112,7 +4305,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
@@ -4198,20 +4391,20 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
 msgid "Update media"
-msgstr ""
+msgstr "Mete a djoû les sopoirts"
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr ""
+msgstr "Sopoirts"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
 msgid "&Select all"
-msgstr ""
+msgstr "&Tchoezi ttafwait"
 
 #: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
 msgid "&Update"
-msgstr ""
+msgstr "&Mete a djoû"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -4394,7 +4587,7 @@ msgstr ""
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr ""
+msgstr "AROKE:"
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
@@ -4443,26 +4636,26 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "Vocial li djivêye des metaedjes a djoû des pacaedjes di programes"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1217 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
-msgstr ""
+msgstr "Manaedjaedje di programes"
 
 #: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
-msgstr ""
+msgstr "No"
 
 #: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "Rascourti"
 
 #: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "Modêye"
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
@@ -4470,15 +4663,16 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
-msgstr ""
+msgstr "Årtch"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
-msgstr ""
+msgstr "&Distchoezi ttafwait"
 
 #: modules/rpmdragora/dragoraUpdate:357
 msgid "dragoraUpdate is the Mageia package management tool."
 msgstr ""
+"dragoraUpdate c' est l' usteye di manaedjaedje des pacaedjes da Mageia."
 
 #: modules/rpmdragora/dragoraUpdate:358
 #, perl-format
@@ -4488,6 +4682,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Ratourneus</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:422
 msgid ""
@@ -4495,27 +4693,30 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"Li djivêye des metaedjes a djoû est vude. Çoula vout dire soeye-t i k' i gn "
+"a nén di metaedjes a djoû po les pacaedjes astalés so vosse copiutrece, "
+"soeye-t i ki vos les avoz ddja tos astalés."
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "pont d' info xml pol sopoirt «%s»"
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
-msgstr ""
+msgstr "Li cweraedje a stî aresté"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "Tchoezis"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
-msgstr ""
+msgstr "Nén tchoezis"
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
-msgstr ""
+msgstr "Cweraedje sins rzultats."
 
 #: modules/rpmdragora/rpmdragora:376
 #, perl-format
@@ -4527,15 +4728,15 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "Tchoezi: %s / Plaece libe sol deure plake: %s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "Pacaedje"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
-msgstr ""
+msgstr "Årtch."
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
@@ -4543,128 +4744,128 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "Nén astalés"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Mostrer seulmint %s et noarch"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr ""
+msgstr "Tos les pacaedjes, relîs alfabeticmint"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr ""
+msgstr "Tos les pacaedjes, pa groupe"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "Rén k' les foyes, reléjhowes pal date d' astalaedje"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "To les pacaedjes, pa disponibilité di metaedjes a djoû"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "Tos les pacaedjes, pa l' estat di tchoezixhaedje"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr ""
+msgstr "Tos les pacaedjes, pa grandeur"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "Tos les pacaedjes, pa sopoirt d' astalaedje"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
-msgstr ""
+msgstr "Poirtaedjes en erî"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "Meta pacaedjes"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
-msgstr ""
+msgstr "Pacaedjes avou eterface grafike"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr ""
+msgstr "Tos les metaedjes a djoû"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr ""
+msgstr "Metaedjes a djoû di såvrité"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Metaedjes a djoû di coridjaedje"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "Metaedjes a djoû djenerås"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
-msgstr ""
+msgstr "ezès nos d' pacaedje"
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "ezès discrijhaedjes"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "ezès rascourtis"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
-msgstr ""
+msgstr "ezès nos d' fitchîs"
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
-msgstr ""
+msgstr "Cweri"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr ""
+msgstr "Rimete"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Mete en ouve"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/Tchoezi les _aloyances sins dmander"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "Netyî l' muchete après èn astalaedje comifåt"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/_Carculer les aloyances a l' enondaedje"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Cweri dins les nos e_tirs des pacaedjes"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Cweri avou des e_rîlêyès ratourneures"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Rifé l' tchuze"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
-msgstr ""
+msgstr "Ritcherdjî l' djivêye des pacaedjes"
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "Apontiaedjes"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
@@ -4672,7 +4873,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
-msgstr ""
+msgstr "Vey"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
@@ -4689,11 +4890,17 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Programeus</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Ratourneus</h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1209
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdragora est dedja en alaedje (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
@@ -4706,6 +4913,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"C' est bon di continouwer?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -4713,6 +4923,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Vos alez radjouter des noveas sopoirts d' astalaedje.\n"
+"Ça vout dire ki vos pôroz astaler des noveas pacaedjes di programes\n"
+"so vosse sistinme a pårti d' ces sopoirts la."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4721,6 +4934,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Vos alez radjouter on novea sopoirt d' astalaedje, «%s».\n"
+"Ça vout dire ki vos pôroz astaler des noveas pacaedjes di programes\n"
+"so vosse sistinme a pårti d' ci sopoirt ci."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4729,20 +4945,23 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"Vos alez radjouter on novea sopoirt d' astalaedje, «%s».\n"
+"Ça vout dire ki vos pôroz astaler des noveas pacaedjes di programes\n"
+"so vosse sistinme a pårti d' ci sopoirt ci."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr ""
+msgstr "Les sopoirts ont stî radjoutés comifåt."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "Les sopoirts %s ont stî radjoutés comifåt."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "Li sopoirt «%s» a stî radjouté comifåt."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
@@ -4808,32 +5027,32 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "Enonder l' apontiaedje des siervices da Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "I vs fåt otintifyî po-z enonder l' apontiaedje des siervices da Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "Enonder l' manaedjeu des uzeus da Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "I vs fåt otintifyî po-z enonder l' manaedjeu des uzeus da Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Enonder l' apontiaedje do côpe-feu da Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "I vs fåt otintifyî po-z enonder l' apontiaedje do côpe-feu da Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4854,56 +5073,55 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Metaedjes a djoû di Mageia"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Categoreyes"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Astaler eyet oister des programes"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "Mete a djoû vosse sistinme"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Apontyî les sopoirts d' astalaedje"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Rantoele locåle &amp;&amp; daegnrece"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Enondaedje"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Metaedjes a djoû di Mageia"
+msgstr "rpmdragora - Metaedjes a djoû di Mageia"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Ene eterface grafike po mete a djoû les pacaedjes"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
 msgstr ""
+"manaclock - Apontiaedjes del date, di l' eure eyet del coisse d' eureye"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
@@ -4911,7 +5129,7 @@ msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
@@ -4923,7 +5141,7 @@ msgstr ""
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
@@ -4935,7 +5153,7 @@ msgstr ""
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
@@ -4947,7 +5165,7 @@ msgstr ""
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
@@ -4959,7 +5177,7 @@ msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
@@ -4971,7 +5189,7 @@ msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
@@ -4983,7 +5201,7 @@ msgstr ""
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
@@ -5003,7 +5221,7 @@ msgstr ""
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
@@ -5015,16 +5233,16 @@ msgstr ""
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - Astaler eyet oister des programes"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Ene eterface grafike po-z astaler, oister et mete a djoû les pacaedjes"
