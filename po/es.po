@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,16 +9,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# motitos, 2015-2016
+# Miguel Ortega, 2015-2016
 # Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
 # Jose Manuel López <joselp@outlook.es>, 2016
+# Miguel Ortega, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-04-07 11:45+0000\n"
-"Last-Translator: Jose Manuel López <joselp@outlook.es>\n"
+"PO-Revision-Date: 2016-07-04 14:21+0000\n"
+"Last-Translator: Miguel Ortega\n"
 "Language-Team: Spanish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "es/)\n"
 "Language: es\n"
@@ -154,9 +155,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Cargar categorías: el tíutlo del módulo es <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Administración"
+msgstr "%s - Herramiento de Administración"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2397,9 +2398,9 @@ msgid "Information"
 msgstr "Información"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - administrar nombres de máquinas"
+msgstr "%s - administrar definiciones de máquinas"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2479,36 +2480,34 @@ msgstr "Administrador gráfico para definiciones de dominios"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "no se encontró ningún medio activo\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Procesando"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protocolo:"
+msgstr "protocolo en uso:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "intentando con"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Borrar la caché de descarga después de una instalación exitosa"
+msgstr "descargado con éxito\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "no se pasaron paquetes como argumento\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Gestor de pantalla"
+msgstr "%s - Administrador de pantallas"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2559,9 +2558,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Configuración gráfica del gestor de pantalla del sistema"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Administrador de cortafuegos"
+msgstr "%s - Administrador de cortafuegos"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2716,9 +2715,9 @@ msgstr ""
 "¿Qué desea hacer?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Visor de registros"
+msgstr "%s - Visor de Logs"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2816,9 +2815,9 @@ msgid "Save as.."
 msgstr "Grabar como.."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Herramienta de administración de usuarios de Mageia"
+msgstr "%s - Herramienta de administración de usuarios"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3274,9 +3273,9 @@ msgid "Users"
 msgstr "Usuarios"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - configuración del proxy"
+msgstr "%s - Configuración de Proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3326,9 +3325,9 @@ msgid "Graphical manager for proxies"
 msgstr "Administrador gráfico de proxies"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Servicios y demonios"
+msgstr "%s - Servicios y demonios"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3389,9 +3388,9 @@ msgid "Stopping %s"
 msgstr "Deteniendo %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Configurar fecha, reloj y hora"
+msgstr "%s - Configuración de fecha. hora y zona horaria"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4802,9 +4801,9 @@ msgid "rpmdragora update"
 msgstr "actualizacion de rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "se necesitan permisos root"
+msgstr "se requieren privilegios root, o ejecutar <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5436,6 +5435,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Una interfaz gráfica para instalar, desinstalar y actualizar paquetes"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Administrador de sesiones"
