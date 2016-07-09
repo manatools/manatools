@@ -1966,7 +1966,12 @@ sub _userEdit_Ok {
         };
     }
 
-    $self->sh_users->modifyUser($userInfo);
+    my $ret = $self->sh_users->modifyUser($userInfo);
+    $DB::single = 1;
+    if (!$ret->{status}) {
+        $self->E("Problem in modifying user %s", $ret->{error});
+        $self->sh_gui->warningMsgBox({text => $ret->{error}} );
+    }
 
 
     defined $userData->{icon_face} and $self->sh_users->addKdmIcon($userData->{username}, $userData->{icon_face});

@@ -827,7 +827,13 @@ sub modifyGroup {
         }
     }
 
-    $self->ctx->GroupModify($groupEnt);
+    eval {
+        $self->ctx->GroupModify($groupEnt);
+    };
+    return {
+        status => 0,
+        error => "$@",
+    } if $@;
 
     return {status => 1,};
 }
@@ -1268,6 +1274,7 @@ sub addUser {
 sub modifyUser {
     my ($self, $userInfo) = @_;
 
+    my $retval = {status => 1,};
     die "user name is mandatory" if !defined($userInfo->{username});
     die "primary group identifier is mandatory" if !defined($userInfo->{gid});
     die "a valid group identifier is mandatory" if $userInfo->{gid} < 0;
@@ -1311,14 +1318,18 @@ sub modifyUser {
         my $m    = $gEnt->MemberName(1,0);
         if (MDK::Common::DataStructure::member($group, @$members)) {
             if (!ManaTools::Shared::inArray($username, $m) && $userInfo->{gid} != $ugid) {
-                eval { $gEnt->MemberName($username, 1) };
-                $self->ctx->GroupModify($gEnt);
+                eval {$gEnt->MemberName($username, 1)};
+                eval {
+                    $self->ctx->GroupModify($gEnt);
+                };
             }
         }
         else {
             if (ManaTools::Shared::inArray($username, $m)) {
-                eval { $gEnt->MemberName($username, 2) };
-                $self->ctx->GroupModify($gEnt);
+                eval {$gEnt->MemberName($username, 2)};
+                eval {
+                    $self->ctx->GroupModify($gEnt);
+                };
             }
         }
     }
@@ -1353,7 +1364,10 @@ sub modifyUser {
     }
 
     $self->ctx->UserSetPass($userEnt, $userInfo->{password}) if defined($userInfo->{password});
-    $self->ctx->UserModify($userEnt);
+    eval {
+        $self->ctx->UserModify($userEnt);
+    };
+    $retval = {status => 0, error => $@ } if ($@);
 
     if ($userInfo->{lockuser}) {
         !$self->ctx->IsLocked($userEnt) and $self->ctx->Lock($userEnt);
@@ -1362,7 +1376,7 @@ sub modifyUser {
         $self->ctx->IsLocked($userEnt) and $self->ctx->UnLock($userEnt);
     }
 
-    return 1;
+    return $retval;
 }
 
 
