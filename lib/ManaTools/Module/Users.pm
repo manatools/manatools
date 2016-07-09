@@ -1967,7 +1967,6 @@ sub _userEdit_Ok {
     }
 
     my $ret = $self->sh_users->modifyUser($userInfo);
-    $DB::single = 1;
     if (!$ret->{status}) {
         $self->E("Problem in modifying user %s", $ret->{error});
         $self->sh_gui->warningMsgBox({text => $ret->{error}} );
