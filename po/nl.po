@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -25,15 +25,15 @@
 # remmy <remco@webconquest.com>, 2011-2013
 # Rob Teng <mandrake.tips@free.fr>, 2004-2005,2008-2009
 # Tom Laermans <tom.laermans@powersource.cx>, 2001
-# Volluta <volluta@tutanota.com>, 2015
+# Volluta <volluta@tutanota.com>, 2015-2016
 # Yuri Chornoivan <yurchor@ukr.net>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-04-15 14:25+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-07-12 15:05+0000\n"
+"Last-Translator: Volluta <volluta@tutanota.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/MageiaLinux/mageia/language/"
 "nl/)\n"
 "Language: nl\n"
@@ -90,6 +90,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Ontwikkelaars</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Vertalers</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:381
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -165,9 +172,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr ""
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Management"
+msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2407,9 +2414,9 @@ msgid "Information"
 msgstr "Informatie"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - hostdefinities beheren"
+msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2493,32 +2500,30 @@ msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Verwerken"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protocol:"
+msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
 msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Alle downloadbuffers wissen na successvolle installatie"
+msgstr "downloaden gelukt\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
 msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Displaybeheer"
+msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2569,9 +2574,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafische configurator van het systeem-displaybeheer"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Firewallbeheerder"
+msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2724,9 +2729,9 @@ msgstr ""
 "Wat wilt u doen?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Log-viewer (Logboekkijker)"
+msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2824,9 +2829,9 @@ msgid "Save as.."
 msgstr "Opslaan als.."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia-Gebruikersbeheertool"
+msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3285,9 +3290,9 @@ msgid "Users"
 msgstr "Gebruikers"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - Proxyconfiguratie"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3338,9 +3343,9 @@ msgid "Graphical manager for proxies"
 msgstr "Grafische proxy's-beheerder"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Diensten en voorzieningen"
+msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3400,9 +3405,9 @@ msgid "Stopping %s"
 msgstr "%s stoppen"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Datum-, klok- & tijdzone-instellingen"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -3488,7 +3493,7 @@ msgstr "Kies uw NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:490
 msgid "&Local NTP server"
-msgstr ""
+msgstr "&Local NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:503
 msgid "Set local NTP server"
@@ -4810,9 +4815,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "root-rechten vereist"
+msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5434,6 +5439,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Een grafische schil voor het installeren, verwijderen en bijwerken van "
 "pakketten"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Displaybeheer"
