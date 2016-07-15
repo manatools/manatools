@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-05-04 09:22+0000\n"
+"PO-Revision-Date: 2016-07-15 08:11+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/MageiaLinux/mageia/language/"
 "eu/)\n"
@@ -150,9 +150,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr ""
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Kudeaketa"
+msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2376,9 +2376,9 @@ msgid "Information"
 msgstr "Informazioa"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - kudeatu ostalarien definizioak"
+msgstr "%s - kudeatu ostalarien definizioak"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2462,32 +2462,30 @@ msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Prozesatzen "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokoloa:"
+msgstr "erabilitako protokoloa:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
 msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Garbitu jaitsiera katxea instalaketa arrakastatsuaren ondoren"
+msgstr "ondo deskargatu dira\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
 msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Pantaila kudeatzailea"
+msgstr "%s - Pantaila Kudeatzailea"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2537,9 +2535,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Grafiko konfiguratzailea sistemaren pantaila kudeatzailearentzat"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Suebaki Kudeatzailea"
+msgstr "%s - Suebaki Kudeatzailea"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2693,9 +2691,9 @@ msgstr ""
 "Zer egin nahi duzu?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Erregistro ikustailea"
+msgstr "%s - Erregistro ikustailea"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2793,9 +2791,9 @@ msgid "Save as.."
 msgstr "Gorde honela.."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia Erabiltzaileen Kudeaketa Tresna"
+msgstr "%s - Erabiltzaileen Kudeaketa Tresna"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3252,9 +3250,9 @@ msgid "Users"
 msgstr "Erabiltzaileak"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - Proxy konfiguraketa"
+msgstr "%s - Proxy configuraketa"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3305,9 +3303,9 @@ msgid "Graphical manager for proxies"
 msgstr "Proxy-entzako kudeatzaile grafikoa"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Zerbitzuak eta daemon-ak"
+msgstr "%s - Zerbitzuak eta daemon-ak"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3367,9 +3365,9 @@ msgid "Stopping %s"
 msgstr "%s Gelditzen"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Data, ordulari eta ordu gune ezarpenak"
+msgstr "%s - Data, Ordulari eta Ordu Gune Ezarpenak"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -3464,7 +3462,7 @@ msgstr "Tokiko NTP zerbitzaria ezarri"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Mesedez tokiko NTP zerbitzaria ezarri"
 
 #: lib/ManaTools/Module/Clock.pm:561 lib/ManaTools/Module/Clock.pm:646
 msgid "Current:"
@@ -4761,9 +4759,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora eguneratu"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "root eskubideak beharrezkoak"
+msgstr "root eskubideak beharrezkoak, edo ordez <%s> exekutatu "
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5110,6 +5108,7 @@ msgstr ""
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Egiztatzea beharrezkoa da rpmdragora Mageia eguneratzailea exekutatzeko"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -5334,11 +5333,11 @@ msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - Users and Groups Manager"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "ManaTools erbiltzaile kudeatzailea"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
@@ -5358,7 +5357,7 @@ msgstr "manawall - suebaki kudeatzaileren konfigurazioa"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "ManaTools suhesi konfiguraketa"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
@@ -5387,6 +5386,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Paketeak instalatu, ezabatu eta eguneratzeko bitarteko grafiko bat"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Pantaila Kudeatzailea"
