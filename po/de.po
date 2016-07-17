@@ -18,8 +18,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-07-13 09:41+0000\n"
-"Last-Translator: psyca\n"
+"PO-Revision-Date: 2016-07-17 09:05+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
 "Language: de\n"
@@ -144,7 +144,7 @@ msgstr "Einstellungen laden: %s Inhalt ist <<%s>>"
 #: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Kategoriendatei %s wird analysiert"
 
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
@@ -2484,7 +2484,7 @@ msgstr "kein aktives Medium gefunden\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Verarbeitung "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
@@ -2494,7 +2494,7 @@ msgstr "Protokoll in Verwendung:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "Wird versucht mit"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
 msgid " downloaded successfully\n"
@@ -2650,7 +2650,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:891
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Verschiedene Ports bestimmen"
 
 #: lib/ManaTools/Module/Firewall.pm:906
 msgid "Other ports"
@@ -2729,7 +2729,7 @@ msgstr "Ein Werkzeug zum Überwachen Ihrer Logdateien"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
-msgstr ""
+msgstr "Übereinstimmung"
 
 #: lib/ManaTools/Module/LogViewer.pm:164
 msgid "but not matching"
@@ -2753,7 +2753,7 @@ msgstr "Bis"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
-msgstr ""
+msgstr "Einheit auswählen"
 
 #: lib/ManaTools/Module/LogViewer.pm:240
 msgid "From priority"
@@ -2777,7 +2777,7 @@ msgstr "&Speichern"
 
 #: lib/ManaTools/Module/LogViewer.pm:324
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Protokollbetrachter ist ein systemd-Journalbetrachter"
 
 #: lib/ManaTools/Module/LogViewer.pm:325
 #, perl-format
@@ -2846,7 +2846,7 @@ msgstr "Gruppendaten"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "Gruppenbenutzer"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
@@ -3057,7 +3057,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr "Nehme %s in die Gruppe „users“ auf"
+msgstr "%s wird in die Gruppe „users“ aufgenommen"
 
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
@@ -3160,7 +3160,7 @@ msgstr "Tage bevor Zugang gesperrt wird:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
-msgstr "Wählen Sie die Benutzer für diese Gruppe:"
+msgstr "Wählen Sie die Benutzer für diese Gruppe aus:"
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
@@ -4674,7 +4674,7 @@ msgstr ""
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Mageia-Werkzeug Benutzer hinzufügen"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -5112,7 +5112,7 @@ msgstr "Medium „%s“ erfolgreich hinzugefügt."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Mageia Aktualisierungs-Softwarewerkzeug starten"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
@@ -5150,7 +5150,7 @@ msgstr ""
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "APanel GUI erlauben"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
