@@ -10,20 +10,39 @@ package ManaTools::Shared::disk_backend::Part;
 =head1 SYNOPSIS
     package ManaTools::Shared::disk_backend::Part::MBR;
 
-    extend 'ManaTools::Shared::disk_backend::Part';
+    extends 'ManaTools::Shared::disk_backend::Part';
 
-    has '+type', required => 0, default => 'MBR';
-    has '+in_restriction', default => sub { my ($self, $io)=@_; return ($self->in_length() < 1 && $io->type == 'disk');};
-    has '+out_restriction', default => sub { my ($self, $io)=@_; return ($self->out_length() < 4 && $io->type == 'partition');};
+    use MooseX::ClassAttribute;
+
+    class_has '+type' => (
+        default => 'MBR',
+    );
+    class_has '+restrictions' => (
+        default => sub {
+            return {
+                sibling => sub {
+                    my $self = shift;
+                    my $part = shift;
+                    return 0;
+                },
+                parent => sub {
+                    my $self = shift;
+                    my $part = shift;
+                    return $part->does('ManaTools::Shared::disk_backend::BlockDevice');
+                },
+            }
+        }
+    );
 
     override('label', sub {
         my $self = shift;
         my $label = super;
-        if ($self->in_length < 1) {
+        my @children = $self->children();
+        if (scalar(@children) < 1) {
             return $label;
         }
-        my @ins = $self->in_list();
-        return $label .= "(". $ins[0]->id() .")";
+        $label .= "(". $child[0]->label() .")";
+        return $label;
     });
 
     1;
@@ -32,9 +51,6 @@ package ManaTools::Shared::disk_backend::Part;
 
     my $mbr = ManaTools::Shared::disk_backend::Part::MBR->new();
     $mbr->label();  // MBR(/dev/sda)
-    $mbr->get_ins();
-    $mbr->get_outs();
-    $mbr->out_add($io);
     my $size = $mbr->prop('size');
     $mbr->prop('size', '20G');
     $mbr->action('format');
@@ -83,8 +99,6 @@ with 'ManaTools::Shared::ActionsRole', 'ManaTools::Shared::PropertiesRole';
 use MooseX::ClassAttribute;
 use Moose::Util::TypeConstraints qw/subtype as where/;
 
-use ManaTools::Shared::disk_backend::IOs;
-
 ## Class DATA
 
 subtype 'PartState'
@@ -124,24 +138,6 @@ class_has 'order' => (
     init_arg => undef,
     isa => 'Maybe[CodeRef]',
     default => undef,
-);
-
-class_has 'in_restriction' => (
-    is => 'ro',
-    init_arg => undef,
-    isa => 'Maybe[CodeRef]',
-    default => sub {
-        sub { return 1; }
-    }
-);
-
-class_has 'out_restriction' => (
-    is => 'ro',
-    init_arg => undef,
-    isa => 'Maybe[CodeRef]',
-    default => sub {
-        sub { return 1; }
-    }
 );
 
 ## Object Variables
@@ -548,46 +544,17 @@ sub diff {
     return $self->_diff($part, $partstate);
 }
 
-has 'ins' => (
-    is => 'ro',
-    isa => 'ManaTools::Shared::disk_backend::IOs',
-    lazy => 1,
-    default => sub {
-        my $self = shift;
-        return ManaTools::Shared::disk_backend::IOs->new(parent => $self, restriction => $self->in_restriction);
-    },
-    handles => {
-        in_length => 'length',
-        in_list => 'list',
-        in_add => 'append'
-    }
-);
-has 'outs' => (
-    is => 'ro',
-    isa => 'ManaTools::Shared::disk_backend::IOs',
-    lazy => 1,
-    default => sub {
-        my $self = shift;
-        return ManaTools::Shared::disk_backend::IOs->new(parent => $self, restriction => $self->out_restriction);
-    },
-    handles => {
-        out_length => 'length',
-        out_list => 'list',
-        out_add => 'append'
-    }
-);
-
 #=============================================================
 
 =head2 label
 
 =head3 OUTPUT
 
-    label of the IO
+    label of the Part
 
 =head3 DESCRIPTION
 
-    this method returns the label for this IO
+    this method returns the label for this Part
 
 =cut
 
@@ -732,73 +699,6 @@ sub check_merge {
     $db->rmpart($self->loaded()) && $self->loaded($self) if !$self->is_loaded() && $self->equal($self->loaded());
     $db->rmpart($self->probed()) && $self->probed($self) if !$self->is_current() && $self->equal($self->probed());
     $db->rmpart($self->saved()) && $self->saved($self) if !$self->to_be_saved() && $self->equal($self->saved());
-}
-
-#=============================================================
-
-=head2 get_ins
-
-=head3 OUTPUT
-
-    array of the in IOs
-
-=head3 DESCRIPTION
-
-    this method returns the in IOs
-
-=cut
-
-#=============================================================
-sub get_ins {
-    my $self = shift;
-
-    return $self->ins->list();
-}
-
-#=============================================================
-
-=head2 get_outs
-
-=head3 OUTPUT
-
-    array of the out IOs
-
-=head3 DESCRIPTION
-
-    this method returns the out IOs
-
-=cut
-
-#=============================================================
-sub get_outs {
-    my $self = shift;
-
-    return $self->outs->list();
-}
-
-#=============================================================
-
-=head2 rmio
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO
-
-=head3 DESCRIPTION
-
-    this method returns removes the IO from the Part
-
-=cut
-
-#=============================================================
-sub rmio {
-    my $self = shift;
-    my $io = shift;
-    my $ins = $self->ins();
-    my $outs = $self->outs();
-    # remove io from ins and outs
-    $ins->remove($io);
-    $outs->remove($io);
 }
 
 #=============================================================

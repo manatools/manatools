@@ -97,51 +97,10 @@ override ('probe', sub {
             }, 'Disk', {plugin => $self, devicepath => $bdfile, loaded => undef, saved => undef});
             # trigger the changedpart
             $p->changedpart(ManaTools::Shared::disk_backend::Part->CurrentState);
-            # create the IO
-            my $io = $self->parent->mkio('Disk', {id => basename($bdfile), devicepath => $bdfile});
-            if (!defined($io) || !$part->out_add($io)) {
-                $err = 1;
-            }
         }
     }
     return $err == 0;
 });
-
-package ManaTools::Shared::disk_backend::IO::Disk;
-
-use Moose;
-
-extends 'ManaTools::Shared::disk_backend::IO';
-
-with 'ManaTools::Shared::disk_backend::BlockDevice';
-
-has '+type' => (
-    default => 'Disk'
-);
-
-has '+devicepath' => (
-    trigger => sub {
-        my $self = shift;
-        my $value = shift;
-        $self->prop_from_file('ro', $value .'/ro');
-        $self->prop_from_file('removable', $value .'/removable');
-        $self->prop_from_file('size', $value .'/size');
-        $self->prop('present', ($self->prop('removable') == 0 || $self->prop('size') > 0) ? 1 : 0);
-        $self->prop_from_file('dev', $value .'/dev');
-        $self->sync_majorminor();
-
-        # additional data
-        my $dpath = $value =~ s,/[^/]+/[^/]+$,,r;
-        $self->prop_from_file('vendor', $dpath .'/vendor');
-        $self->prop_from_file('model', $dpath .'/model');
-        $self->prop_from_file('type', $dpath .'/type');
-    }
-);
-
-sub file {
-    my $self = shift;
-    return '/dev/'. $self->id();
-}
 
 package ManaTools::Shared::disk_backend::Part::Disks;
 
@@ -155,20 +114,21 @@ class_has '+type' => (
     default => 'Disks'
 );
 
-class_has '+in_restriction' => (
+class_has '+restrictions' => (
     default => sub {
-        return sub {return 0;};
-    }
-);
-
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            return ref($io) eq 'ManaTools::Shared::disk_backend::IO::Disk';
-        };
+        return {
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Disk');
+            },
+            parent => sub {
+                return 0;
+            },
+            sibling => sub {
+                return 0;
+            },
+        }
     }
 );
 
@@ -178,7 +138,7 @@ override('label', sub {
     if ($self->out_length() < 1) {
         return $label;
     }
-    return $label .'('. join(',', sort map { $_->id(); } $self->out_list()) .')';
+    return $label .'('. join(',', sort map { $_->label(); } @children) .')';
 });
 
 package ManaTools::Shared::disk_backend::Part::Disk;

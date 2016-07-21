@@ -14,15 +14,9 @@ package ManaTools::Shared::disk_backend;
     my $db_man = ManaTools::Shared::disk_backend->new();
     $db_man->load();
     $db_man->probe();
-    $db_man->findin($io);
-    $db_man->findout($io);
-    $db_man->findnoin();
-    $db_man->findnoout();
     my @parts = $db_man->findpart($type);
-    my @ios = $db_man->findioprop($prop, $value);
     ...
     $db_man->save();
-    $db_man->mkio('Foo', {id => 'foo-id', other => 'value'});
     $db_man->mkpart('Foo', {other => 'value'});
 
 
@@ -169,14 +163,6 @@ has 'plugins' => (
     }
 );
 
-has 'ios' => (
-    is => 'rw',
-    isa =>'HashRef[ManaTools::Shared::disk_backend::IO]',
-    default => sub {
-        return {};
-    }
-);
-
 has 'parts' => (
     is => 'rw',
     isa =>'ArrayRef[ManaTools::Shared::disk_backend::Part]',
@@ -210,63 +196,6 @@ sub _check_dependencies {
         }
     }
     return 1;
-}
-
-#=============================================================
-
-=head2 mkio
-
-=head3 OUTPUT
-
-    ManaTools::Shared::disk_backend::IO subclass
-
-=head3 DESCRIPTION
-
-    this method creates an IO and adds it to the list if it does not already exists, and returns the IO
-
-=cut
-
-#=============================================================
-sub mkio {
-    my $self = shift;
-    my $class = 'ManaTools::Shared::disk_backend::IO::'. shift;
-    my $parameters = shift;
-    defined($parameters->{'id'}) or die('id is a required parameter when creating IO');
-    my $id = $parameters->{'id'};
-    if (!defined($self->ios->{$id})) {
-        $self->ios->{$id} = $class->new(%$parameters);
-        $self->ios->{$id}->db($self);
-        $self->probeio($self->ios->{$id});
-    }
-    return $self->ios->{$id};
-}
-
-#=============================================================
-
-=head2 rmio
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO subclass
-
-=head3 DESCRIPTION
-
-    this method removes a IO and returns the IO
-
-=cut
-
-#=============================================================
-sub rmio {
-    my $self = shift;
-    my $io = shift;
-    my $parts = $self->parts();
-    my $ios = $self->ios();
-    delete $ios->{$io->id()};
-    # walk parts and remove io from ins or outs
-    for my $part (@{$parts}) {
-        $part->rmio($io);
-    }
-    return $io;
 }
 
 #=============================================================
@@ -458,175 +387,6 @@ sub diff {
 
 #=============================================================
 
-=head2 probeio
-
-=head3 OUTPUT
-
-    0 if failed, 1 if success
-
-=head3 DESCRIPTION
-
-    this method will call probeio for all plugins and merge results of the probe
-
-=cut
-
-#=============================================================
-sub probeio {
-    my $self = shift;
-    my $io = shift;
-
-    for my $plugin (@{$self->plugins}) {
-        $plugin->probeio($io);
-    }
-    1;
-}
-
-#=============================================================
-
-=head2 findin
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO
-    $state: ManaTools::Shared::disk_backend::Part::PartState|undef
-
-=head3 OUTPUT
-
-    array of Part
-
-=head3 DESCRIPTION
-
-    this method will return all Part that match on an in IO
-
-=cut
-
-#=============================================================
-sub findin {
-    my $self = shift;
-    my $io = shift;
-    my $state = shift;
-
-    return grep {scalar(grep {$io eq $_} $_->get_ins()) > 0 && (!defined $state || $_->is_state($state))} @{$self->parts};
-}
-
-#=============================================================
-
-=head2 findout
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO
-    $state: ManaTools::Shared::disk_backend::Part::PartState|undef
-
-=head3 OUTPUT
-
-    array of Part
-
-=head3 DESCRIPTION
-
-    this method will return all Part that match on an out IO
-
-=cut
-
-#=============================================================
-sub findout {
-    my $self = shift;
-    my $io = shift;
-    my $state = shift;
-
-    return grep {scalar(grep {$io eq $_} $_->get_outs()) > 0 && (!defined $state || $_->is_state($state))} @{$self->parts};
-}
-
-#=============================================================
-
-=head2 findnoin
-
-=head3 OUTPUT
-
-    array of Part
-
-=head3 DESCRIPTION
-
-    this method will return all Part that have no ins
-
-=cut
-
-#=============================================================
-sub findnoin {
-    my $self = shift;
-    my $io = shift;
-
-    return grep {$_->in_length() == 0} @{$self->parts};
-}
-
-#=============================================================
-
-=head2 findoutnoin
-
-=head3 OUTPUT
-
-    array of Part
-
-=head3 DESCRIPTION
-
-    this method will return all Part that have outs, but no ins
-
-=cut
-
-#=============================================================
-sub findoutnoin {
-    my $self = shift;
-    my $io = shift;
-
-    return grep {$_->in_length() == 0 && $_->out_length() > 0} @{$self->parts};
-}
-
-#=============================================================
-
-=head2 findnoout
-
-=head3 OUTPUT
-
-    array of Part
-
-=head3 DESCRIPTION
-
-    this method will return all Part that have no outs
-
-=cut
-
-#=============================================================
-sub findnoout {
-    my $self = shift;
-    my $io = shift;
-
-    return grep {$_->out_length() == 0} @{$self->parts};
-}
-
-#=============================================================
-
-=head2 findinnoout
-
-=head3 OUTPUT
-
-    array of Part
-
-=head3 DESCRIPTION
-
-    this method will return all Part that have ins, but no outs
-
-=cut
-
-#=============================================================
-sub findinnoout {
-    my $self = shift;
-    my $io = shift;
-
-    return grep {$_->out_length() == 0 && $_->in_length() > 0} @{$self->parts};
-}
-
-#=============================================================
-
 =head2 findpart
 
 =head3 INPUT
@@ -800,29 +560,6 @@ sub walkplugin {
         return $res if ($res);
     }
     return undef;
-}
-
-#=============================================================
-
-=head2 findioprop
-
-=head3 OUTPUT
-
-    array of IO
-
-=head3 DESCRIPTION
-
-    this method will return all IO that matches on a prop value
-
-=cut
-
-#=============================================================
-sub findioprop {
-    my $self = shift;
-    my $prop = shift;
-    my $value = shift;
-
-    return grep {$_->has_prop($prop) && $_->prop($prop) eq $value} values %{$self->ios};
 }
 
 #=============================================================

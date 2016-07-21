@@ -171,7 +171,7 @@ has actionsBox => (
     init_arg => undef,
 );
 
-has ioProperties => (
+has partProperties => (
     is => 'rw',
     isa => 'Maybe[ManaTools::Shared::GUI::Properties]',
     default => undef,
@@ -183,7 +183,7 @@ has ioProperties => (
 
 has selectedItem => (
     is => 'rw',
-    isa => 'Maybe[ManaTools::Shared::disk_backend::IO]',
+    isa => 'Maybe[ManaTools::Shared::disk_backend::Part]',
     default => undef,
     init_arg => undef,
 );
@@ -236,9 +236,8 @@ sub _selectItem {
     return $old unless @_;
 
     my $new = shift;
-    my @parts = $new->findin();
-    while (scalar(@parts) > 0) {
-    }
+    # TODO: find the first child, and then use the first child again
+
     # if $new has children, get the first one instead
     # if $new is an ancestor of $old, we're not gonna change it
     return $self->$orig($new);
@@ -247,9 +246,9 @@ sub _selectItem {
 sub _showSelectedItem {
     my $self = shift;
     my $module = $self->module();
-    my $io = $self->selectedItem();
-    my $ioProperties = $module->ioProperties();
-    $ioProperties->properties($io);
+    my $part = $self->selectedItem();
+    my $partProperties = $module->partProperties();
+    $partProperties->properties($part);
 
     my $propbox = $module->propertiesBox();
     # properties
@@ -267,28 +266,28 @@ sub _rebuildTab {
     my $parent = shift;
     my @items = @_;
     my $tab = ManaTools::Shared::GUI::ExtTab->new(eventHandler => $eventHandler, parentWidget => $container);
-    for my $io (@items) {
-        $tab->addSelectorItem($io->label(), $io, sub {
+    for my $part (@items) {
+        $tab->addSelectorItem($part->label(), $part, sub {
             my $self = shift;# tab
             my $parent = shift;
-            my $io = shift;
+            my $part = shift;
             my $dialog = $self->parentDialog();
             my $module = $dialog->module();
             my $factory = $dialog->factory();
 
             # create content
             my $vbox = $factory->createVBox($parent);
-            $module->_rebuildItem($io, $self->replacepoint(), $vbox);
-            #$self->addWidget($io->label() .': button 1', $factory->createPushButton($vbox, $io->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
-            #$self->addWidget($io->label() .': button 2', $factory->createPushButton($vbox, $io->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
-            #$self->addWidget($io->label() .': button 3', $factory->createPushButton($vbox, $io->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
+            $module->_rebuildItem($part, $self->replacepoint(), $vbox);
+            #$self->addWidget($part->label() .': button 1', $factory->createPushButton($vbox, $part->label() .': button 1'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button1\n"; });
+            #$self->addWidget($part->label() .': button 2', $factory->createPushButton($vbox, $part->label() .': button 2'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button2\n"; });
+            #$self->addWidget($part->label() .': button 3', $factory->createPushButton($vbox, $part->label() .': button 3'), sub { my $backendItem = shift; print STDERR "backendItem: ". $backendItem->label() ."::button3\n"; });
             $factory->createHStretch($vbox);
             #$factory->createVStretch($vbox);
 
             # update the properties
-            my $ioProperties = $module->ioProperties();
-            $ioProperties->properties($io);
-            my $db = $io->db();
+            my $partProperties = $module->partProperties();
+            $partProperties->properties($part);
+            my $db = $part->db();
             my $propbox = $module->propertiesBox();
             my $actionbox = $module->actionsBox();
 
@@ -297,17 +296,17 @@ sub _rebuildTab {
             $actionbox->clear();
 
             # loop all connected parts
-            my @parts = $db->findin($io);
-            for my $part (@parts) {
+            my @children = $part->children();
+            for my $child (@children) {
 
                 # add properties for each part in a frame with label
-                my $frame = $factory->createFrame($propbox->container(), $part->label() ." properties");
+                my $frame = $factory->createFrame($propbox->container(), $child->label() ." properties");
                 my $align = $factory->createLeft($frame);
-                ManaTools::Shared::GUI::Properties->new({eventHandler => $propbox, parentWidget => $align, properties => $part});
+                ManaTools::Shared::GUI::Properties->new({eventHandler => $propbox, parentWidget => $align, properties => $child});
 
                 # add actions for each part in a frame with label
                 $frame = $factory->createFrame($actionbox->container(), $part->label() ." actions");
-                ManaTools::Shared::GUI::ActionList->new({eventHandler => $actionbox, parentWidget => $frame, actions => $part});
+                ManaTools::Shared::GUI::ActionList->new({eventHandler => $actionbox, parentWidget => $frame, actions => $child});
             }
 
             # finalize propbox and actionbox
@@ -315,7 +314,8 @@ sub _rebuildTab {
             $actionbox->finished();
 
             # stretch vertically if no children are there
-            $factory->createVStretch($vbox) if (scalar(@parts) == 0);
+            $factory->createVStretch($vbox) if (scalar(@children) == 0);
+            # TODO: select logically the item (which should also select it's children if needed)
         });
     }
     $tab->finishedSelectorItems();
@@ -397,12 +397,12 @@ sub _rebuildButtonBox {
             $count = $count + 1;
             $start = $i->prop('start');
         }
+        # get the purpose_label()
         # get part type (path)
         my $label = '';
-        my @p = $i->findin();
-        if (scalar(@p) > 0) {
-            $label = join ',', map { ($_->type() eq 'Mount') && $_->prop('path') || $_->type() } @p;
-        }
+        $self->D("$self: $i (". $i->label() .") does PurposeLabelRole: %s", $i->does('ManaTools::Shared::disk_backend::PurposeLabelRole'));
+        $label = $i->purpose_label() if ($i->does('ManaTools::Shared::disk_backend::PurposeLabelRole'));
+        $label = '' if !(defined $label);
         $self->D("$self: add a button SelectorItem to $buttonbox with label $label and backend $i");
         my $item = $buttonbox->addSelectorItem($label, $i, sub {
             my $self = shift;
@@ -469,16 +469,16 @@ sub _rebuildItems {
     my $container = shift;
     for my $i (@{$info}) {
         if ($i->{type} eq 'tab') {
-            return $self->_rebuildTab($eventHandler, $container, $i->{io}, @{$i->{items}});
+            return $self->_rebuildTab($eventHandler, $container, $i->{part}, @{$i->{items}});
         }
         if ($i->{type} eq 'buttonbox') {
-            return $self->_rebuildButtonBox($eventHandler, $container, $i->{io}, @{$i->{items}});
+            return $self->_rebuildButtonBox($eventHandler, $container, $i->{part}, @{$i->{items}});
         }
         if ($i->{type} eq 'list') {
-            return $self->_rebuildList($eventHandler, $container, $i->{io}, @{$i->{items}});
+            return $self->_rebuildList($eventHandler, $container, $i->{part}, @{$i->{items}});
         }
         if ($i->{type} eq 'tree') {
-            return $self->_rebuildTree($eventHandler, $container, $i->{io}, @{$i->{items}});
+            return $self->_rebuildTree($eventHandler, $container, $i->{part}, @{$i->{items}});
         }
     }
     return undef;
@@ -486,23 +486,23 @@ sub _rebuildItems {
 
 sub _expandItem {
     my $self = shift;
-    my $io = shift;
+    my $part = shift;
     my $infos = [];
     my $type = 'list';
     my @items;
 
     # get parts
-    if (defined $io) {
-        @items = $io->findin();
+    if (defined $part) {
+        @items = $part->children();
     }
     else {
         my $backend = $self->backend();
-        @items = $backend->findnoin();
+        @items = $backend->findnopart(undef, 'parent');
     }
 
-    # merge all outs from these Parts
+    # merge all children from these Parts
     for my $p (@items) {
-        push @{$infos}, {io => $io, part => $p, type => ( $p->type() eq 'Disks' ? 'tab' : $p->type() eq 'PartitionTable' ? 'buttonbox' : $type ), items => [sort {$a->label() cmp $b->label()} $p->out_list()]};
+        push @{$infos}, {parent => $part, part => $p, type => ( $p->type() eq 'Disks' ? 'tab' : $p->type() eq 'PartitionTable' ? 'buttonbox' : $type ), items => [sort {$a->label() cmp $b->label()} $p->children()]};
     }
     return $infos;
 }
@@ -655,8 +655,8 @@ sub _adminDiskPanel {
             my $propframe = $factory->createFrame($vbox1, $self->loc->N("&Device properties"));
             my $vbox3 = $factory->createVBox($propframe);
             $align = $factory->createLeft($vbox3);
-            # properties from IO first, and then the applicable Parts
-            $module->ioProperties(ManaTools::Shared::GUI::Properties->new(eventHandler => $self, parentWidget => $align));
+            # properties from the Part first, and then the ancestors
+            $module->partProperties(ManaTools::Shared::GUI::Properties->new(eventHandler => $self, parentWidget => $align));
             $replacepoint = ManaTools::Shared::GUI::ReplacePoint->new(eventHandler => $self, parentWidget => $vbox1);
             $factory->createVStretch($replacepoint->container());
             # don't add children right away
@@ -683,15 +683,15 @@ sub _adminDiskPanel {
             $backend->probe();
 
             ## fill in info
-            # disks has a list of IOs (from Parts without in)
-            # unused has a list of IOs not being an in for a Part
-            # fs has a list of endpoints and in a tree (mount/swap?): ie: Parts without out
+            # disks has a list of Parts without parent
+            # unused has a list of Parts without children, maybe specifically BlockDevices ?
+            # fs has a list of endpoints and in a tree (mount/swap?): ie: Mount parts with no parentmount and all their childmounts
 
             ## start the info structure
             my $info = {
                 disks => $module->_expandItem(),
-                unused => {type => 'list', items => sort {$a->label() cmp $b->label()} grep {scalar($_->findin()) == 0} values %{$backend->ios()}},
-                fs => {type => 'tree', items => []}
+                unused => {type => 'list', items => [sort {$a->label() cmp $b->label()} grep {$_->does('ManaTools::Shared::disk_backend::BlockDevice')} $backend->findnopart(undef, 'child')]},
+                fs => {type => 'tree', items => [grep {!defined($_->parentmount())} $backend->findpart('Mount')]}
             };
 
             ## fs Part should be linked to all the mounts (hierarchial)

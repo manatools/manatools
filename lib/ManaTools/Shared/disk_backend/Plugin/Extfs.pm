@@ -168,83 +168,6 @@ override ('changedpart', sub {
     return 1;
 });
 
-#=============================================================
-
-=head2 fsprobe
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO | Str
-    $mount: ManaTools::Shared::disk_backend::Part::Mount
-
-=head3 OUTPUT
-
-    ManaTools::Shared::disk_backend::IO or undef
-
-=head3 DESCRIPTION
-
-    this method probes the IO to see if it fits for this
-    filesystem, if it does, create a new Part with this IO as in.
-    also create an IO (linked as the out) and return that one.
-    The resulting one can then be used as an in to eg: a Mount Part.
-
-=cut
-
-#=============================================================
-sub fsprobe {
-    my $self = shift;
-    my $io = shift;
-    my $mount = shift;
-
-    # gather fields from dumpe2fs
-    my %fields = $self->tool_fields('dumpe2fs', ':', '-h', '/dev/'. $io->id());
-
-    # get uuid
-    my $uuid = $fields{'Filesystem UUID'};
-
-    return undef if (!defined $uuid || !$uuid);
-
-    # create part
-    # TODO: look or create part
-    my $part = $self->parent->mkpart('Extfs', { uuid => $uuid, plugin => $self});
-    $part->prop('label', $fields{'Filesystem volume name'} =~ s'<none>''r);
-    $part->prop('features', split(' ', $fields{'Filesystem features'}));
-    $part->prop('options', split(' ', $fields{'Default mount options'}));
-    $part->prop('state', $fields{'Filesystem state'});
-    $part->prop('block_size', $fields{'Block size'});
-    $part->prop('block_count', $fields{'Block count'});
-    $part->prop('size', $fields{'Block size'} * $fields{'Block count'});
-
-    # link in the in IO
-    $part->in_add($io);
-
-    # create the out IO and set properties
-    my $fs = $self->parent->mkio('Extfs', {id => $uuid});
-    $fs->prop('label', $fields{'Filesystem volume name'} =~ s'<none>''r);
-    $fs->prop('features', split(' ', $fields{'Filesystem features'}));
-    $fs->prop('options', split(' ', $fields{'Default mount options'}));
-    $fs->prop('state', $fields{'Filesystem state'});
-    $fs->prop('block_size', $fields{'Block size'});
-    $fs->prop('block_count', $fields{'Block count'});
-    $fs->prop('size', $fields{'Block size'} * $fields{'Block count'});
-    $part->out_add($fs);
-
-    # return $fs to be link as an in IO into $mount Part
-    return $fs;
-}
-
-package ManaTools::Shared::disk_backend::IO::Extfs;
-
-use Moose;
-
-extends 'ManaTools::Shared::disk_backend::IO';
-
-with 'ManaTools::Shared::disk_backend::IOFS';
-
-has '+type' => (
-    default => 'Extfs'
-);
-
 package ManaTools::Shared::disk_backend::Part::Extfs;
 
 use Moose;
@@ -267,38 +190,6 @@ has 'uuid' => (
         my $self = shift;
         my $value = shift;
         $self->prop('uuid', $value);
-    }
-);
-
-class_has '+in_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (defined $del && !$del) {
-                return ($self->in_length() > 0);
-            }
-            # multiple device allowed
-            return $io->does('ManaTools::Shared::disk_backend::BlockDevice');
-        };
-    }
-);
-
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (!defined $del) {
-                $del = 0;
-            }
-            if ($del != 0) {
-                return ($self->out_length() > 0);
-            }
-            return ($self->out_length() == 0 && ref($io) eq 'ManaTools::Shared::disk_backend::IO::Extfs');
-        };
     }
 );
 

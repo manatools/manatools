@@ -26,21 +26,6 @@ package ManaTools::Shared::disk_backend::Plugin;
         ...
     });
 
-    override('probeio', sub {
-        ...
-    });
-
-    1;
-
-    package ManaTools::Shared::disk_backend::IO::Bar;
-    use Moose;
-
-    extend 'ManaTools::Shared::disk_backend::IO';
-
-    has '+type', default => 'bar';
-
-    ...
-
     1;
 
     package ManaTools::Shared::disk_backend::Part::Baz;
@@ -49,8 +34,7 @@ package ManaTools::Shared::disk_backend::Plugin;
     extend 'ManaTools::Shared::disk_backend::Part';
 
     has '+type', default => 'baz';
-    has '+in_restriction', default => sub { ... };
-    has '+out_restriction', default => sub { ... };
+    has '+restrictions', default => sub { ... };
 
     ...
 
@@ -177,7 +161,7 @@ sub save {
 
 =head3 DESCRIPTION
 
-    this is a default method for probing IO's and/or Part's, the idea is to override it if needed
+    this is a default method for probing Part's, the idea is to override it if needed
 
 =cut
 
@@ -214,32 +198,6 @@ sub changedpart {
 
 #=============================================================
 
-=head2 loadio
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO
-
-=head3 OUTPUT
-
-    0 if failed, 1 if success
-
-=head3 DESCRIPTION
-
-    this is a default method for loading a Part from a specific IO, the idea is to override it if needed
-
-=cut
-
-#=============================================================
-sub loadio {
-    my $self = shift;
-    my $io = shift;
-
-    1;
-}
-
-#=============================================================
-
 =head2 savepart
 
 =head3 INPUT
@@ -260,32 +218,6 @@ sub loadio {
 sub savepart {
     my $self = shift;
     my $part = shift;
-
-    1;
-}
-
-#=============================================================
-
-=head2 probeio
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO
-
-=head3 OUTPUT
-
-    0 if failed, 1 if success
-
-=head3 DESCRIPTION
-
-    this is a default method for probing specific a specific IO, the idea is to override it if needed
-
-=cut
-
-#=============================================================
-sub probeio {
-    my $self = shift;
-    my $io = shift;
 
     1;
 }

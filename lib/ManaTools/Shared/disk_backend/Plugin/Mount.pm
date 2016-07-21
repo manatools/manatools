@@ -66,6 +66,74 @@ has '+dependencies' => (
 
 #=============================================================
 
+=head2 _makemount
+
+=head3 INPUT
+
+    $parent: Part
+    $partstate: PartState
+    $fields: ArrayRef
+
+=head3 OUTPUT
+
+    Part|undef
+
+=head3 DESCRIPTION
+
+    this function create a mount Part from the parent and set the properties.
+
+=cut
+
+#=============================================================
+sub _makemount {
+    my $self = shift;
+    my $parent = shift;
+    my $partstate = shift;
+    my $fields = shift;
+
+    ## from this parent, create the mount point
+    # look or create the child with id based on the path
+    my $child = $parent->trychild($partstate, sub {
+        my $self = shift;
+        my $parameters = shift;
+        return ($self->path() eq $parameters->{path});
+    },'Mount', {plugin => $self, path => $fields->[4], loaded => undef, saved => undef});
+
+    $child->prop('options', $fields->[5]);
+    $child->prop('dev', $fields->[2]);
+    $child->prop('id', $fields->[0]);
+    $child->prop('parent', $fields->[1]);
+    $child->prop('srcdevpath', $fields->[3]);
+    $child->prop('fstype', $fields->[8]);
+    $child->prop('srcmount', $fields->[9]);
+
+    # add an unmount action
+    $child->add_action('unmount', 'Unmount', undef, sub {
+        my $self = shift;
+        print STDERR "Unmount is not implemented...\n";
+        return 1;
+    });
+
+    ## take care of family
+    # finding parent mount
+    if ($fields->[1] != $fields->[0]) {
+        # find parent and put into parentmount field
+        my @parts = $self->parent->findpartprop('Mount', 'id', $fields->[1]);
+        $child->parentmount($parts[0]) if scalar(@parts) > 0;
+    }
+
+    # find missing children Mount Part
+    my @parts = $self->parent->findpartprop('Mount', 'parent', $fields->[0]);
+    for my $p (@parts) {
+        my $pm = $p->parentmount();
+        $p->parentmount($child) if (!defined $pm);
+    }
+
+    return $child;
+}
+
+#=============================================================
+
 =head2 changedpart
 
 =head3 INPUT
@@ -229,82 +297,11 @@ override ('probe', sub {
         $fs->prop('fstype', $fields[8]);
 
         ## TODO: check filesystem and sourcepath options to select the actual parent
-        #
-        ## from this parent, create the mount point
-        # look or create the child with id based on the path
-        my $child = $fs->trychild(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
-            my $self = shift;
-            my $parameters = shift;
-            return ($self->path() eq $parameters->{path});
-        },'Mount', {plugin => $self, path => $fields[4], loaded => undef, saved => undef});
-
-        $child->prop('options', $fields[5]);
-        $child->prop('dev', $fields[2]);
-        $child->prop('id', $fields[0]);
-        $child->prop('parent', $fields[1]);
-        $child->prop('srcdevpath', $fields[3]);
-        $child->prop('fstype', $fields[8]);
-        $child->prop('srcmount', $fields[9]);
-
-        # add an unmount action
-        $child->add_action('unmount', 'Unmount', undef, sub {
-            my $self = shift;
-            print STDERR "Unmount is not implemented...\n";
-            return 1;
-        });
-
-        ## take care of family
-        # finding parent mount
-        if ($fields[1] != $fields[0]) {
-            # find parent and put into parentmount field
-            my @parts = $self->parent->findpartprop('Mount', 'id', $fields[1]);
-            $child->parentmount($parts[0]) if scalar(@parts) > 0;
-        }
-        # find missing children Mount Part
-        @parts = $self->parent->findpartprop('Mount', 'parent', $fields[0]);
-        for my $p (@parts) {
-            my $pm = $p->parentmount();
-            $p->parentmount($child) if (!defined $pm);
-        }
-
-        ## get the in IO
-        # first, track down the device
-        my $in = undef;
-        my @ios = $self->parent->findioprop('dev', $fields[2]);
-        if (scalar(@ios) > 0) {
-            $in = $ios[0];
-        }
-        else {
-            # if major is 0, it's a non-device mount, try fsprobe with srcmount
-            if ($fields[2] =~ s':.+$''r eq "0") {
-                # just pass on the srcmount string and hope with fsprobe
-                $in = $fields[9];
-            }
-        }
-        # no need to continue trying to parse this one if we can't have an IO
-        continue if (!defined $in);
-
-        ## try to insert filesystem in between, look at fstype
-        # first, check the exact filesystem (if it exists)
-        my $out = $self->parent->walkplugin(sub {
-            my $plugin = shift;
-            my $type = shift;
-            my $in = shift;
-            my $mount = shift;
-            return ($plugin->does('ManaTools::Shared::disk_backend::FileSystem') and $plugin->has_type($type) and $plugin->fsprobe($in, $mount));
-        }, $fields[8], $in, $child);
-
-        if (defined $out) {
-            my $res = $child->in_add($out);
-        }
-        else {
-            $child->in_add($in);
-        }
+        my $child = $self->_makemount($fs, ManaTools::Shared::disk_backend::Part->CurrentState, \@fields);
 
         # TODO: look up device with this
         # TODO: find the end of the options, and store them
         # TODO: also the super options and mount source (may have UUID or whatnot)
-        # TODO: use the filesystem type to connect to the previous IO
     }
 # 3.5   /proc/<pid>/mountinfo - Information about mounts
 # --------------------------------------------------------
@@ -375,29 +372,6 @@ has 'parentmount' => (
     isa => 'Maybe[ManaTools::Shared::disk_backend::Part::Mount]',
     init_arg => undef,
     default => undef,
-);
-
-class_has '+in_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            my $rio = ref($io);
-            return 0 if !defined($rio) || !$rio;
-            if (defined $del && !$del) {
-                return ($self->in_length() > 0);
-            }
-            # only 1 device allowed
-            return $self->in_length() < 1 && ($io->does('ManaTools::Shared::disk_backend::BlockDevice') || $io->does('ManaTools::Shared::disk_backend::IOFS'));
-        };
-    }
-);
-
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {return 0;};
-    }
 );
 
 class_has '+restrictions' => (
@@ -501,36 +475,5 @@ class_has '+restrictions' => (
     }
 );
 
-#=============================================================
-
-=head2 fsprobe
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO | Str
-    $mount: ManaTools::Shared::disk_backend::Part::Mount
-
-=head3 OUTPUT
-
-    ManaTools::Shared::disk_backend::IO or undef
-
-=head3 DESCRIPTION
-
-    this method probes the IO to see if it fits for this
-    filesystem, if it does, create a new Part with this IO as in.
-    also create an IO (linked as the out) and return that one.
-    The resulting one can then be used as an in to eg: a Mount Part.
-
-=cut
-
-#=============================================================
-sub fsprobe {
-    my $self = shift;
-    my $io = shift;
-    my $mount = shift;
-
-    # return $fs to be link as an in IO into $mount Part
-    return undef;
-}
 
 1;

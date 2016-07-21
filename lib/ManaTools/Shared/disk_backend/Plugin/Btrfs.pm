@@ -82,48 +82,71 @@ has 'filesystems' => (
     default => sub { return {};}
 );
 
-sub get_fsdev {
+sub create_subvolume {
     my $self = shift;
-    my $io = shift;
-    my $rio = ref($io);
+    my $part = shift;
+    my $partstate = shift;
+    my $fields = shift;
+    my $quotas = shift;
+    my $subvolumes = shift;
 
-    # if it's a reference, it'll be an object, so return the mm property
-    return $io->prop('mm') if defined($rio) && $rio;
+    # look or create part for btrfsvol
+    my $p = $part->trychild($partstate, sub {
+        my $self = shift;
+        my $parameters = shift;
+        return ($self->uuid() eq $parameters->{uuid});
+    }, 'BtrfsVol', {plugin => $self, fs => $part, mountsourcepath => $fields->{path} =~ s'<FS_TREE>''r, uuid => $fields->{uuid}, loaded => undef, saved => undef});
 
-    my @stat = stat($io);
-    # if it's not a block device, it's no use
-    return undef if (($stat[2] >> 12) != 6);
+    # set properties
+    $p->prop('label', $fields->{path} =~ s'<FS_TREE>/?''r);
+    $p->prop('uuid', $fields->{uuid});
+    $p->prop('parent_uuid', $fields->{parent_uuid});
+    $p->prop('subvolid', $fields->{ID});
+    $p->prop('gen', $fields->{gen});
+    $p->prop('cgen', $fields->{cgen});
+    $p->prop('parent', $fields->{parent});
+    $p->prop('top_level', $fields->{top_level});
 
-    # find the device
-    my $dev = $stat[6];
-    my $minor = $dev % 256;
-    my $major = int (($dev - $minor) / 256);
-    return $major .':'. $minor;
-}
+    # set quota information
+    if (defined($quotas->{'0/'. $fields->{ID}})) {
+        my $item = $quotas->{'0/'. $fields->{ID}};
+        $p->prop('referred', $item->{rfer});
+        $p->prop('exclusive', $item->{excl});
+        $p->prop('quota_referred', $item->{max_rfer});
+        $p->prop('quota_exclusive', $item->{max_excl});
+    }
 
-sub get_subvolumes {
-    my $self = shift;
-    my $io = shift;
-    my $path = shift;
+    # trace parenting and fill in subvolumes in all the BtrfsVol Parts
+    # create missing parents too!
 
-    # get the dev numbering
-    my $mm = $self->get_fsdev($io);
+    $self->D("$self: trigger changepart for BTRFS Volume $p: ". $p->mountsourcepath());
+    $p->changedpart($partstate);
 
-    # no device, get out now
-    return undef if !defined($mm);
+    # if it has a mount point, get readonly state
+    # find Mount child (for subvolumes, might need to check the parent and base the path from there)
+    my $path = $p->find_path($partstate);
+    if (defined($path)) {
+        # if it's mounted, we can get readonly status with properties
+        my %fields = $self->tool_fields('btrfs', '=', 'property', 'get', "'$path'");
+        $p->prop('readonly', $fields{ro} eq 'true');
+    }
 
-    my $fs = $self->filesystems();
-    # no filesystem, get out now
-    return undef if !defined($fs->{$mm});
+    # set up children subvolumes
+    for my $id (keys %{$fields->{subvolumes}}) {
+        if (defined($subvolumes->{$id})) {
+            # TODO: add childvol tag for this one
+            $p->add_taglink($subvolumes->{$id}, 'childsubvol');
+        }
+    }
 
-    # this is the filesystem part
-    my $btrfs = $fs->{$mm};
+    if (defined($subvolumes->{$p->prop('parent')})) {
+        # add a parent link
+        $p->add_taglink($subvolumes->{$p->prop('parent')}, 'parentsubvol');
+    }
 
-    my $vols = $btrfs->subvolumes();
+    $subvolumes->{$p->prop('subvolid')} = $p;
 
-    $vols = $btrfs->refresh($path) if scalar(@{$vols}) == 0;
-
-    return $vols;
+    return $p;
 }
 
 #=============================================================
@@ -153,23 +176,6 @@ override ('probe', sub {
         $part->prop_from_file('used', "$fs/allocation/data/disk_used");
         $part->prop_from_file('total', "$fs/allocation/data/disk_total");
         $part->prop_from_file('flags', "$fs/allocation/data/flags");
-        # create an io for out
-        my $io = $self->parent->mkio('Btrfs', {id => $fs =~ s'^.+/''r});
-        $io->prop('uuid', $fs =~ s'^.+/''r);
-        $part->out_add($io);
-
-        # TODO: find the in devices (create if needed?)
-        for my $df (glob("$fs/devices/*")) {
-            open F, '<'. $df .'/dev';
-            my $value = <F>;
-            close F;
-            chomp($value);
-            my @ios = $self->parent->findioprop('dev', $value);
-            if (scalar(@ios) > 0) {
-                $part->in_add($ios[0]);
-                $fss->{$ios[0]->prop('dev')} = $part;
-            }
-        }
 
         # TODO: find base mount point in order to find volumes
         # TODO: quotas ...? pathbased?
@@ -178,64 +184,6 @@ override ('probe', sub {
 });
 
 #=============================================================
-
-=head2 fsprobe
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO | Str
-    $mount: ManaTools::Shared::disk_backend::Part::Mount
-
-=head3 OUTPUT
-
-    ManaTools::Shared::disk_backend::IO or undef
-
-=head3 DESCRIPTION
-
-    this method probes the IO to see if it fits for this
-    filesystem, if it does, create a new Part with this IO as in.
-    also create an IO (linked as the out) and return that one.
-    The resulting one can then be used as an in to eg: a Mount Part.
-
-=cut
-
-#=============================================================
-sub fsprobe {
-    my $self = shift;
-    my $io = shift;
-    my $mount = shift;
-    my $vols = $self->get_subvolumes($io, $mount->path());
-    # return undef if there are not subvolumes
-    return undef if !defined($vols);
-
-    for my $vol (@{$vols}) {
-        # return when we find the one with the correct srcpath
-        return $vol if ($vol->prop('srcpath') eq $mount->prop('srcdevpath'));
-    }
-    return undef;
-}
-
-package ManaTools::Shared::disk_backend::IO::Btrfs;
-
-use Moose;
-
-extends 'ManaTools::Shared::disk_backend::IO';
-
-has '+type' => (
-    default => 'Btrfs'
-);
-
-package ManaTools::Shared::disk_backend::IO::BtrfsVol;
-
-use Moose;
-
-extends 'ManaTools::Shared::disk_backend::IO';
-
-with 'ManaTools::Shared::disk_backend::IOFS';
-
-has '+type' => (
-    default => 'BtrfsVol'
-);
 
 
 package ManaTools::Shared::disk_backend::Part::Btrfs;
@@ -267,93 +215,6 @@ has 'subvolumes' => (
     init_arg => undef,
     default => sub { return [];},
 );
-
-class_has '+in_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (defined $del && !$del) {
-                return ($self->in_length() > 0);
-            }
-            # multiple device allowed
-            return $io->does('ManaTools::Shared::disk_backend::BlockDevice');
-        };
-    }
-);
-
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (!defined $del) {
-                $del = 0;
-            }
-            if ($del != 0) {
-                return ($self->in_length() > 0);
-            }
-            return ($self->in_length() == 0 && ref($io) eq 'ManaTools::Shared::disk_backend::IO::Btrfs');
-        };
-    }
-);
-
-sub refresh {
-    my $self = shift;
-    my $path = shift;
-    my $subvols = $self->subvolumes();
-
-    # first, clean up all Volume stuff
-    my @parts = $self->db->findpart('BtrfsVol');
-    for my $part (@parts) {
-        $part->unhook();
-    }
-    # loop all BtrfsVol IO and remove safely
-    for my $vol (@{$subvols}) {
-        # this should also unhook from any Part
-        $vol->unhook();
-    }
-    # clear subvols from list
-    @{$subvols} = ();
-
-    # find the IO::Btrfs
-    my @outs = $self->get_outs();
-    if (scalar(@outs) == 0) {
-        # make an IO::Btrfs for this one
-        @outs = ($self->db->mkio('Btrfs', {id => $self->uuid()}));
-    }
-
-    return $subvols if !defined($path) || !$path;
-
-    # btrfs subvolume list / -agcpuq
-    # ID 264 gen 1090157 cgen 255 parent 5 top level 5 parent_uuid - uuid ab6d48f8-6d65-6b43-b792-dd31d93018be path <FS_TREE>/backup-@
-    my @lines = $self->tool_lines('btrfs', 'subvolume', 'list', "'$path'", '-agcpuq');
-    for my $line (@lines) {
-        # top level is 2 strings, so combine them, so that the fields can be nicely splitted
-        my %fields = split(/[ \t\r\n]+/, $line =~ s'top level'top_level'r);
-        # create the volume part
-        my $part = $self->db->mkpart('BtrfsVol', {fs => $self, uuid => $fields{uuid}, plugin => $self->plugin()});
-        # add the IO::Btrfs filesystem
-        $part->in_add($outs[0]);
-        # create a IO::BtrfsVol
-        my $vol = $self->db->mkio('BtrfsVol', {id => $fields{ID}});
-        # TODO: trace parenting and fill in subvolumes in all the BtrfsVol Parts
-        # set properties
-        $vol->prop('srcpath', $fields{path} =~ s'<FS_TREE>''r);
-        $vol->prop('uuid', $fields{uuid});
-        $vol->prop('parent_uuid', $fields{parent_uuid});
-        $vol->prop('gen', $fields{gen});
-        $vol->prop('cgen', $fields{cgen});
-        $vol->prop('parent', $fields{parent});
-        $vol->prop('top_level', $fields{top_level});
-        $part->out_add($vol);
-        push @{$subvols}, $vol;
-    }
-    return $subvols;
-}
-
 
 package ManaTools::Shared::disk_backend::Part::BtrfsVol;
 
@@ -391,39 +252,37 @@ has 'subvolumes' => (
     default => sub { return [];},
 );
 
-class_has '+in_restriction' => (
+class_has '+restrictions' => (
     default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (!defined $del) {
-                $del = 0;
-            }
-            if ($del != 0) {
-                return ($self->in_length() > 0);
-            }
-            return ($self->in_length() == 0 && ref($io) eq 'ManaTools::Shared::disk_backend::IO::Btrfs');
-        };
+        return {
+            sibling => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::BtrfsVol');;
+            },
+            parentsubvol => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::BtrfsVol');
+            },
+            childsubvol => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::BtrfsVol');
+            },
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Btrfs');
+            },
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Mount');
+            },
+        }
     }
 );
 
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (!defined $del) {
-                $del = 0;
-            }
-            if ($del != 0) {
-                return ($self->in_length() > 0);
-            }
-            # multiple device allowed
-            return (ref($io) eq 'ManaTools::Shared::disk_backend::IO::BtrfsVol');
-        };
-    }
-);
 
 1;

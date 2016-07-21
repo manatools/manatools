@@ -158,19 +158,6 @@ override ('probe', sub {
         # TODO: add sibling tags to the other parts
         # TODO: parent that is filerole? if parent is create, we can do the child/first/last thing
 
-        # io stuff
-        my $io = $self->parent->mkio('Disk', {id => basename($loopfile), path => $bdfile, devicepath => $bdfile});
-        if (!defined($io) || !$part->out_add($io)) {
-            $err = 1;
-        }
-        else {
-            $io->prop('sizelimit', $self->_sanitize_string($fields[2]));
-            $io->prop('offset', $self->_sanitize_string($fields[3]));
-            $io->prop('autoclear', $self->_sanitize_string($fields[4]));
-            $io->prop('back-file', $self->_sanitize_string($fields[6]));
-            $io->prop('back-dev', $self->_sanitize_string($fields[7])) if (defined $fields[7]);
-            $io->prop('back-ino', $self->_sanitize_string($fields[8])) if (defined $fields[8]);
-        }
     }
 
     # trigger changed parts
@@ -190,23 +177,6 @@ use MooseX::ClassAttribute;
 
 class_has '+type' => (
     default => 'Loops'
-);
-
-class_has '+in_restriction' => (
-    default => sub {
-        return sub {return 0;};
-    }
-);
-
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            return $io->does('ManaTools::Shared::disk_backend::BlockDevice');
-        };
-    }
 );
 
 package ManaTools::Shared::disk_backend::Part::Loop;

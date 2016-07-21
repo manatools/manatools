@@ -17,7 +17,6 @@ package ManaTools::Shared::disk_backend::FileSystem;
     ...
 
     my $f = Foo->new();
-    my $in = $f->fsprobe($io);
 
 
 =head1 DESCRIPTION
@@ -60,29 +59,6 @@ use Moose::Role;
 
 #=============================================================
 
-=head2 fsprobe
-
-=head3 INPUT
-
-    $io: ManaTools::Shared::disk_backend::IO
-
-=head3 OUTPUT
-
-    ManaTools::Shared::disk_backend::IO or undef
-
-=head3 DESCRIPTION
-
-    this method probes the IO to see if it fits for this
-    filesystem, if it does, create a new Part with this IO as in.
-    also create an IO (linked as the out) and return that one.
-    The resulting one can then be used as an in to eg: a Mount Part.
-
-=cut
-
-#=============================================================
-
-requires 'fsprobe';
-
 has 'fstypes' => (
     is => 'ro',
     isa => 'ArrayRef[Str]',
@@ -123,17 +99,13 @@ sub has_type {
     return 0;
 }
 
-package ManaTools::Shared::disk_backend::IOFS;
-
-use Moose::Role;
-
 package ManaTools::Shared::disk_backend::FileRole;
 
 use Moose::Role;
 
 has 'fs' => (
     is => 'rw',
-    does => 'ManaTools::Shared::disk_backend::IOFS',
+    does => 'ManaTools::Shared::disk_backend::FileSystem',
     required => 1,
 );
 

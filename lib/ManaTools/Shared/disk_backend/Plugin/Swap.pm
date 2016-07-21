@@ -148,25 +148,6 @@ override ('probe', sub {
         $part->prop('uuid', defined($labelfields{'UUID'}) ? $labelfields{'UUID'} : '');
         $part->prop('label', defined($labelfields{'LABEL'}) ? $labelfields{'LABEL'} : '');
 
-        # check first if it's a device, then find the define
-        my @stat = stat($fields[0]);
-        # if device: then...
-        if ($stat[2] >> 12 == 6) {
-            my $dev = $stat[6];
-            my $minor = $dev % 256;
-            my $major = int (($dev - $minor) / 256);
-            my @ios = $self->parent->findioprop('dev', $major .':'. $minor);
-            if (scalar(@ios) > 0) {
-                $part->in_add($ios[0]);
-            }
-            else {
-                # TODO: create the IO ? try to probe parent? or ???
-                # think of XEN where you may have device partition files without an actual disk?
-            }
-        }
-        else {
-            # TODO the in should be the mount point containing the filename
-        }
     }
 # /proc/swaps:
 #
@@ -193,27 +174,6 @@ has 'path' => (
     is => 'rw',
     isa => 'Str',
     required => 1
-);
-
-class_has '+in_restriction' => (
-    default => sub {
-        return sub {
-            my $self = shift;
-            my $io = shift;
-            my $del = shift;
-            if (defined $del && !$del) {
-                return ($self->in_length() > 0);
-            }
-            # only 1 device allowed
-            return $self->in_length() < 1 && ($io->does('ManaTools::Shared::disk_backend::BlockDevice') || $io->does('ManaTools::Shared::disk_backend::FileRole'));
-        };
-    }
-);
-
-class_has '+out_restriction' => (
-    default => sub {
-        return sub {return 0;};
-    }
 );
 
 class_has '+order' => (
