@@ -792,7 +792,7 @@ sub check_part {
     my $part = shift;
     return 1 if (!defined $part);
     if (!ref($part)) {
-        return ($self->parttype() == $part);
+        return ($self->parttype() eq $part);
     }
     return ($self->part() == $part);
 }
