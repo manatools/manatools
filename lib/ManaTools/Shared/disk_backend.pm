@@ -550,7 +550,7 @@ sub walkparts {
 =cut
 
 #=============================================================
-sub walkplugin {
+sub walkplugins {
     my $self = shift;
     my $code = shift;
     my @parameters = @_;
