@@ -364,6 +364,7 @@ sub _rebuildButtonBox {
     my $totalWeight = $maxparts * $minsize;
     # TODO: dependant upon disk types, etc...
     $offset = $alignment;
+    $self->W("$self: parent $parent does not have a size property") if !defined($parent->prop('size'));
     my $totalWidth = $parent->prop('size') - $boundary - $offset; # offset at beginning, boundary at end
     my $start = $offset;
     my $buttonWidths = [];
