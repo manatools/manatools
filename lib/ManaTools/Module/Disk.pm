@@ -228,7 +228,7 @@ sub start {
     $self->_adminDiskPanel();
 }
 
-sub _selectItem {
+sub _selectedItem {
     my $orig = shift;
     my $self = shift;
     my $old = $self->$orig();
