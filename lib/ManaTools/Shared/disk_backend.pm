@@ -541,11 +541,12 @@ sub walkparts {
 
 =head3 OUTPUT
 
-    a Plugin or undef
+    a return value of the code or undef
 
 =head3 DESCRIPTION
 
-    this method will return the first matching Plugin
+    this method will return the first non-zero return value from
+    a code with each Plugin
 
 =cut
 
