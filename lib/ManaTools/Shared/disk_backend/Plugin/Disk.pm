@@ -135,7 +135,8 @@ class_has '+restrictions' => (
 override('label', sub {
     my $self = shift;
     my $label = super;
-    if ($self->out_length() < 1) {
+    my @children = $self->children();
+    if (scalar(@children) < 1) {
         return $label;
     }
     return $label .'('. join(',', sort map { $_->label(); } @children) .')';
