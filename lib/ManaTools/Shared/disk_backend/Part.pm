@@ -381,6 +381,7 @@ sub children {
     my @children = $self->find_parts(undef, 'child');
     return @children if (scalar(@children) == 0 || !defined $children[0]->order());
     my $child = $self->find_part(undef, 'first');
+    return @children if (!defined $child);
     @children = ($child);
     while ($child = $child->find_part(undef, 'next')) {
         push @children, $child;
