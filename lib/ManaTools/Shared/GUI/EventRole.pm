@@ -99,12 +99,12 @@ around 'name' => sub {
     }
     else {
         $name = $self->$orig();
-        $setting = 1 if (!defined $name);
+        $setting = 1 if (!defined $name) && $name ne '';
     }
 
     # return the current name
     # if it's undef, we need to change this...
-    if (!defined $name) {
+    if (!defined $name || $name eq '') {
         # generate a unique Event name
         $name = $self->uniqueName($self->eventHandler());
     }
