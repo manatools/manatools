@@ -60,7 +60,13 @@ extends 'ManaTools::Shared::disk_backend::Plugin';
 with 'ManaTools::Shared::disk_backend::FileSystem';
 
 has '+fstypes' => (
-    default => sub { return ['ext2', 'ext3', 'ext4']; },
+    default => sub {
+        return {
+            'ext2' => 'Extfs',
+            'ext3' => 'Extfs',
+            'ext4' => 'Extfs'
+        };
+    },
 );
 
 has '+dependencies' => (

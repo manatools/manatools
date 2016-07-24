@@ -129,12 +129,24 @@ has 'plugins' => (
     isa => 'ArrayRef[ManaTools::Shared::disk_backend::Plugin]',
     default => sub {
         my $self = shift;
+        my $fs = $self->fs();
         my $plugins = [];
         my @more = ();
         for my $pluginfile (glob((module_path($self->blessed()) =~ s/\.pm$//r ) ."/Plugin/*.pm")) {
             my $pluginclass = "ManaTools::Shared::disk_backend::Plugin::". basename($pluginfile, '.pm');
             require $pluginfile;
             my $plugin = $pluginclass->new(parent => $self);
+
+            # index the fstypes
+            if ($plugin->does('ManaTools::Shared::disk_backend::FileSystem')) {
+                # add all types to link to this plugin
+                my $fstypes = $plugin->fstypes();
+                for my $fstype (keys %{$fstypes}) {
+                    $fs->{$fstype} = $fstypes->{$fstype};
+                }
+            }
+
+            # check dependencies
             if ($self->_check_dependencies($plugins, @{$plugin->dependencies()})) {
                 push @{$plugins}, $plugin;
             }
@@ -168,6 +180,18 @@ has 'parts' => (
     isa =>'ArrayRef[ManaTools::Shared::disk_backend::Part]',
     default => sub {
         return [];
+    }
+);
+
+has 'fs' => (
+    is => 'ro',
+    isa => 'HashRef',
+    traits => ['Hash'],
+    default => sub {
+        return {};
+    },
+    handles => {
+        fstype => 'get',
     }
 );
 

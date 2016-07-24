@@ -60,7 +60,11 @@ extends 'ManaTools::Shared::disk_backend::Plugin';
 with 'ManaTools::Shared::disk_backend::FileSystem';
 
 has '+fstypes' => (
-    default => sub { return ['btrfs'] },
+    default => sub {
+        return {
+            'btrfs' => 'Btrfs',
+        };
+    },
 );
 
 has '+dependencies' => (

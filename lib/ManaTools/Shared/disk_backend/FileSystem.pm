@@ -61,9 +61,11 @@ use Moose::Role;
 
 has 'fstypes' => (
     is => 'ro',
-    isa => 'ArrayRef[Str]',
+    isa => 'HashRef[Str]',
     init_arg => undef,
-    default => sub { return []; },
+    default => sub {
+        return {};
+    },
 );
 
 #=============================================================
@@ -91,7 +93,7 @@ sub has_type {
     my $self = shift;
     my $type = shift;
     my $fstypes = $self->fstypes();
-    for my $t (@{$fstypes}) {
+    for my $t (keys %{$fstypes}) {
         if ($t eq $type) {
             return 1;
         }
