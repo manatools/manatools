@@ -112,7 +112,6 @@ override ('changedpart', sub {
     ## PROBE
     # check in the kernel partition table by reading /sys
     if ($partstate == ManaTools::Shared::disk_backend::Part->CurrentState) {
-        print STDERR "$self: called changepart for probing extfs on $part\n";
         $self->D("$self: called changepart for probing extfs on $part");
         # only BlockDevices for loading
         return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
@@ -120,18 +119,15 @@ override ('changedpart', sub {
         # only devices that are present
         return 1 if ($part->has_prop('present') && !$part->prop('present'));
 
-        print STDERR "$self: called changepart for probing extfs on $part: size ". $part->prop('size') ."\n";
         $self->D("$self: called changepart for probing extfs on $part: size ". $part->prop('size'));
         # only devices with positive size
         return 1 if ($part->prop('size') <= 0);
 
-        print STDERR "$self: called changepart for probing extfs on $part: devicepath /dev/". $part->devicepath() =~ s'^.+/''r ."\n";
         # try with dump2fs if this is actually an extfs filesystem
         my %fields = $self->tool_fields('dumpe2fs', ':', '-h', '/dev/'. $part->devicepath() =~ s'^.+/''r);
 
         # get uuid
         my $uuid = $fields{'Filesystem UUID'};
-        print STDERR "$self: called changepart for probing extfs on $part: uuid ". $uuid ."\n";
 
         # this is probably not an extfs filesystem
         return undef if (!defined $uuid || !$uuid);
@@ -152,6 +148,7 @@ override ('changedpart', sub {
         $p->prop('block_count', $fields{'Block count'});
         $p->prop('size', $fields{'Block size'} * $fields{'Block count'});
 
+        $self->D("$self: created Extfs Part $p, calling changepart now.");
         $p->changedpart($partstate);
     }
 
