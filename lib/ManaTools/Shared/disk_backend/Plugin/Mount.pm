@@ -568,6 +568,11 @@ class_has '+restrictions' => (
                 my $part = shift;
                 return 0;
             },
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->does('ManaTools::Shared::disk_backend::FileSystem');
+            },
         }
     }
 );
@@ -594,12 +599,17 @@ class_has '+restrictions' => (
             sibling => sub {
                 my $self = shift;
                 my $part = shift;
-                return 0;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::UnknownFS');
             },
             parent => sub {
                 my $self = shift;
                 my $part = shift;
                 return $part->does('ManaTools::Shared::disk_backend::BlockDevice');
+            },
+            child => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Mount');
             },
         }
     }
