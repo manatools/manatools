@@ -347,4 +347,85 @@ sub tool_fields {
     return %fields;
 }
 
+#=============================================================
+
+=head2 tool_columns
+
+=head3 INPUT
+
+    $toolname: Str
+    $headers: Bool
+    $ignores: Int
+    $identifier: Int
+    $separator: Str
+    @args: Array[Str]
+
+=head3 OUTPUT
+
+    HashRef[HashRef]|undef
+
+=head3 DESCRIPTION
+
+    this is a default method for executing a tool and getting all the STDOUT
+    in a HASH depending on the separator when it's a column-based output
+
+=cut
+
+#=============================================================
+sub tool_columns {
+    my $self = shift;
+    my $toolname = shift;
+    my $headers = shift;
+    my $ignores = shift;
+    my $identifier = shift;
+    my $separator = shift;
+    my @args = @_;
+    my $fields = {};
+
+    # get lines from tool
+    my @lines = $self->tool_lines($toolname, @args);
+    return $fields if scalar(@lines) < ($ignores + !!$headers);
+    my @headers = ();
+    # get headers
+    my $line = shift(@lines);
+    @headers = split($separator, $line) if $headers;
+    # ignore lines if needed
+    for (my $i = 0; $i < $ignores; $i = $i + 1) {
+        shift(@lines);
+    }
+    # loop the data
+    for my $line (@lines) {
+        my $item = {};
+
+        # split into key & value
+        my @value = split($separator, $line);
+
+        # if no 2 columns, skip this line
+        next if (scalar(@value) < 2);
+
+        my $i = 0;
+        for my $value (@value) {
+            my $key = $i;
+            $key = $headers[$i] if (defined $headers[$i]);
+
+            # trim key & value
+            $key =~ s/^\s+//;
+            $key =~ s/\s+$//;
+            $value =~ s/^\s+//;
+            $value =~ s/\s+$//;
+
+            # need to be the index if key is empty after all
+            $key = $i if ($key eq '');
+
+            # set the field
+            $item->{$key} = $value;
+
+            # next field
+            $i = $i + 1;
+        }
+        $fields->{$item->{$identifier}} = $item if defined($item->{$identifier});
+    }
+    return $fields;
+}
+
 1;
