@@ -364,6 +364,35 @@ sub find_parts {
     return @res;
 }
 
+sub find_closest {
+    my $self = shift;
+    my $partstate = shift;
+    my $identify = shift;
+    my $parttype = shift;
+    my $parameters = shift;
+    my @tags = @_;
+    my @res = ($self);
+    while (scalar(@res) > 0) {
+        my @next = ();
+        for my $p (@res) {
+            my $links = $p->links();
+            for my $link (@{$links}) {
+                if ($link->check($p, $parttype, @tags)) {
+                    if (!defined $identify || $identify->($link->part(), $parameters)) {
+                        # if it's the state we're looking for, just return it
+                        return $link->part() if ($link->part()->is_state($partstate));
+                    }
+
+                    # add it to the next list to be checked
+                    push @next, $link->part();
+                }
+            }
+        }
+        @res = @next;
+    }
+    return undef;
+}
+
 sub find_part {
     my $self = shift;
     my $parttype = shift;
