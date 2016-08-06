@@ -164,6 +164,8 @@ use Moose;
 
 extends 'ManaTools::Shared::disk_backend::Part';
 
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
+
 use MooseX::ClassAttribute;
 
 class_has '+type' => (
@@ -218,5 +220,13 @@ class_has '+restrictions' => (
         }
     }
 );
+
+around('purpose_label', sub {
+    my $orig = shift;
+    my $self = shift;
+    my $partstate = shift;
+
+    return 'SWAP';
+});
 
 1;

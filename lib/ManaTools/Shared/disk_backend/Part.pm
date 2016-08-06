@@ -595,6 +595,11 @@ sub diff {
 sub label {
     my $self = shift;
 
+    my $proplabel = '';
+    $proplabel = $self->prop('label') if $self->has_prop('label');
+
+    return $proplabel if $proplabel ne '';
+
     return $self->type;
 }
 

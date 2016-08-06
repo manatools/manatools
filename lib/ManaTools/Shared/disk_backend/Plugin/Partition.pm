@@ -245,6 +245,7 @@ use Moose;
 extends 'ManaTools::Shared::disk_backend::Part';
 
 with 'ManaTools::Shared::disk_backend::BlockDevice';
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
 
 use MooseX::ClassAttribute;
 
@@ -304,5 +305,14 @@ class_has '+restrictions' => (
         }
     }
 );
+
+override('label', sub {
+    my $self = shift;
+    my $label = super;
+    return $label if $label ne $self->type();
+
+    # get the name from the devicepath
+    return $self->devicepath() =~ s'^.+/''r;
+});
 
 1;

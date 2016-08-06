@@ -186,6 +186,7 @@ use Moose;
 extends 'ManaTools::Shared::disk_backend::Part';
 
 with 'ManaTools::Shared::disk_backend::BlockDevice';
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
 
 use MooseX::ClassAttribute;
 

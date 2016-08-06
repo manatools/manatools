@@ -196,6 +196,8 @@ use Moose;
 
 extends 'ManaTools::Shared::disk_backend::Part';
 
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
+
 use MooseX::ClassAttribute;
 
 class_has '+type' => (
@@ -229,6 +231,7 @@ extends 'ManaTools::Shared::disk_backend::Part';
 use MooseX::ClassAttribute;
 
 with 'ManaTools::Shared::disk_backend::Mountable';
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
 
 sub _get_mount_source {
     my $self = shift;

@@ -463,6 +463,8 @@ use Moose;
 
 extends 'ManaTools::Shared::disk_backend::Part';
 
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
+
 use MooseX::ClassAttribute;
 
 class_has '+type' => (
@@ -526,6 +528,14 @@ override('_reverse_tag', sub {
     return super;
 });
 
+around('purpose_label', sub {
+    my $orig = shift;
+    my $self = shift;
+    my $partstate = shift;
+
+    return $self->path()
+});
+
 package ManaTools::Shared::disk_backend::Part::UnknownBlockDevice;
 
 use Moose;
@@ -535,6 +545,7 @@ extends 'ManaTools::Shared::disk_backend::Part';
 use MooseX::ClassAttribute;
 
 with 'ManaTools::Shared::disk_backend::BlockDevice';
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
 
 class_has '+type' => (
     default => 'UnknownBlockDevice'
@@ -567,6 +578,7 @@ use MooseX::ClassAttribute;
 
 with 'ManaTools::Shared::disk_backend::FileSystem';
 with 'ManaTools::Shared::disk_backend::Mountable';
+with 'ManaTools::Shared::disk_backend::PurposeLabelRole';
 
 class_has '+type' => (
     default => 'UnknownFS'
