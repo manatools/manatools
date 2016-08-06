@@ -57,10 +57,9 @@ use File::Basename;
 
 extends 'ManaTools::Shared::disk_backend::Plugin';
 
-
 has '+dependencies' => (
     default => sub {
-        return ['Partition', 'Loop'];
+        return ['Partition', 'Loop', 'Disk'];
     }
 );
 
