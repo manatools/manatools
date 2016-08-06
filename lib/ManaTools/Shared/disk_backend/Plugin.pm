@@ -327,7 +327,12 @@ sub tool_fields {
     for my $line (@lines) {
 
         # split into key & value
-        my ($key, @value) = split($separator, $line);
+        my @value = split($separator, $line);
+
+        # if not key & value, next line
+        next if (scalar(@value) < 2);
+
+        my $key = shift(@value);
         my $value = join($separator, @value);
 
         # trim key & value
