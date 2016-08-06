@@ -288,5 +288,24 @@ class_has '+restrictions' => (
     }
 );
 
+around('find_path', sub {
+    my $orig = shift;
+    my $self = shift;
+    my $partstate = shift;
+
+    # first try the standard method
+    my $path = $self->$orig($partstate);
+    return $path if (defined $path);
+
+    # subvolumes can check parent subvolumes and add the relative path
+    my @parents = $self->find_parts($partstate, 'parent');
+    for my $parent (@parents) {
+        if ($parent->isa('ManaTools::Shared::disk_backend::Part::BtrfsVol')) {
+            $path = $parent->find_path($partstate);
+            return $path . substr($self->prop('label'), length($parent->prop('label'))) if defined($path);
+        }
+    }
+    return undef;
+});
 
 1;

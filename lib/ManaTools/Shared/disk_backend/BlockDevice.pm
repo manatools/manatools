@@ -190,4 +190,27 @@ sub sync_majorminor {
     }
 }
 
+#=============================================================
+
+=head2 find_path
+
+=head3 DESCRIPTION
+
+    this method finds in descendants the Mount part and gets the path from it
+
+=cut
+
+#=============================================================
+sub find_path {
+    my $self = shift;
+    my $partstate = shift;
+    # finding a path only works if one has a Mount or Mountable child,
+    my @children = $self->children($partstate);
+    for my $child (@children) {
+        return $child->path() if ($child->isa('ManaTools::Shared::disk_backend::Part::Mount'));
+        return $child->find_path($partstate) if ($child->does('ManaTools::Shared::disk_backend::Mountable'));
+    }
+    return undef;
+}
+
 1;
