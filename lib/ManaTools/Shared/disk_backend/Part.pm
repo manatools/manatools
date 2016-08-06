@@ -531,9 +531,11 @@ sub trychild {
 
         # use the identification function
         if (!defined $identify || $identify->($child, $parameters)) {
+            $self->plugin->D('%s: checked identify of child %s', $self, $child);
 
             # if it's the state we're looking for, just return it
             return $child if ($child->is_state($partstate));
+            $self->plugin->D('%s: checked state of child %s', $self, $child);
 
             # assign a link to the others, in case we'll need to create it
             # this way, it'll be already linked to the others
