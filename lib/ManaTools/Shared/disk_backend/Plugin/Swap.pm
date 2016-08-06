@@ -91,6 +91,7 @@ has '+tools' => (
 #=============================================================
 override ('probe', sub {
     my $self = shift;
+    $self->D('probing for swap');
     # check current swaps and create a Swap Part for each one
     # TODO: find the in device (create if needed?)
     open F, '</proc/swaps' or return 0;
@@ -98,6 +99,7 @@ override ('probe', sub {
     <F>;
     while (my $line = <F>) {
         my @fields = split(/[ \t\r\n]+/, $line);
+        $self->D('in swap list, finding %s', $fields[0]);
 
         # look or create the part
         my $part = $self->parent->trypart(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
@@ -105,6 +107,7 @@ override ('probe', sub {
             my $parameters = shift;
             return ($part->path() eq $parameters->{path});
         }, 'Swap', {path => $fields[0], plugin => $self, loaded => undef, saved => undef});
+        $self->D("part $part: finding parent: ");
 
         # look for the parent part if not set
         if (!$part->has_link(undef, 'parent')) {
@@ -115,8 +118,11 @@ override ('probe', sub {
                 my $major = int (($dev - $minor) / 256);
                 my @parents = $self->parent->findpartprop(undef, 'dev', $major .':'. $minor);
                 $part->add_taglink($parents[0], 'parent') if (scalar(@parents) > 0);
+                $self->D("part $part: found a parent: $parents[0] with ". $parents[0]->label());
+                my @children = $parents[0]->children();
             }
         }
+        # TODO: make sure order is correct
 
         $part->prop('filename', $fields[0]);
         $part->prop('swaptype', $fields[1]);
