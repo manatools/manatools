@@ -134,6 +134,120 @@ sub _makemount {
 
 #=============================================================
 
+=head2 findfields
+
+=head3 INPUT
+
+    $code: CodeRef
+    @params: Array
+
+=head3 OUTPUT
+
+    Array|undef
+
+=head3 DESCRIPTION
+
+    this function finds the correct mount fields for a device and returns it.
+
+=cut
+
+#=============================================================
+sub findfields {
+    my $self = shift;
+    my $code = shift;
+    my @params = @_;
+
+    # check the part dev with current mounts
+    open F, '</proc/self/mountinfo' or return 0;
+    while (my $line = <F>) {
+        my $fields = undef;
+        @{$fields} = split(/ /, $line);
+        my $ret = $code->($self, $fields, @params);
+        if ($ret != 0) {
+            close F;
+            return $fields;
+        }
+    }
+    close F;
+    return undef;
+}
+
+#=============================================================
+
+=head2 findpath
+
+=head3 INPUT
+
+    $dev: Str
+    $partstate: PartState
+
+=head3 OUTPUT
+
+    Str|undef
+
+=head3 DESCRIPTION
+
+    this function finds a suitable path for a device and returns it.
+
+=cut
+
+#=============================================================
+sub findpath {
+    my $self = shift;
+    my $dev = shift;
+    my $partstate = shift;
+    my $code = shift;
+    my @params = @_;
+    # TODO: need some more filters
+    $self->D("$self: called findpath for mount: $dev, $partstate");
+
+    ## LOAD
+    if ($partstate == ManaTools::Shared::disk_backend::Part->LoadedState) {
+        # TODO: i donno yet
+        return undef;
+    }
+
+    ## PROBE
+    if ($partstate == ManaTools::Shared::disk_backend::Part->CurrentState) {
+        $self->D("$self: called findpath for probing paths for $dev");
+
+        my $fields = $self->findfields(sub {
+            my $self = shift;
+            my $fields = shift;
+            my $dev = shift;
+            my $code = shift;
+            my @params = @_;
+            # identify first
+            # check device as fallback
+            if (defined $code) {
+                my $ret = $code->($dev, $fields, @params);
+                $self->D("$self: after code execution for $fields->[2] ($fields->[9]), return value is $ret, looking for $dev");
+                if ($ret != 0) {
+                    close F;
+                    return 1;
+                }
+            }
+            elsif ($fields->[2] eq $dev) {
+                close F;
+                return 1;
+            }
+            return 0;
+        }, $dev, $code, @params);
+        return $fields->[4] if defined($fields);
+        return undef;
+    }
+
+    ## SAVE
+    if ($partstate == ManaTools::Shared::disk_backend::Part->FutureState) {
+        # TODO: i donno yet
+        return undef;
+    }
+
+    return undef;
+}
+
+#=============================================================
+
 =head2 changedpart
 
 =head3 INPUT
