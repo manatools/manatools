@@ -228,6 +228,21 @@ extends 'ManaTools::Shared::disk_backend::Part';
 
 use MooseX::ClassAttribute;
 
+with 'ManaTools::Shared::disk_backend::Mountable';
+
+sub _get_mount_source {
+    my $self = shift;
+    my $fs = $self->fs();
+
+    # TODO: multiple parents
+    # get parent partlink (which should be a blockdevice anyway)
+    my $parent = $fs->find_part(undef, 'parent');
+    return undef if (!defined $parent);
+
+    # return parent's devicepath
+    return $parent->devicepath();
+}
+
 class_has '+type' => (
     default => 'BtrfsVol'
 );

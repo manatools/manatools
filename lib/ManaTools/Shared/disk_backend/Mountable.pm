@@ -61,6 +61,39 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose::Role;
 
+requires '_get_mount_source';
+
+has 'mountsource' => (
+    is => 'ro',
+    isa => 'Maybe[Str]',
+);
+
+around 'mountsource' => sub {
+    my $orig = shift;
+    my $self = shift;
+
+    return $self->_get_mount_source();
+};
+
+has 'mountsourcepath' => (
+    is => 'ro',
+    isa => 'Str',
+    default => '/',
+);
+
+sub mountsourcedevice {
+    my $self = shift;
+    my $mountsource = $self->mountsource();
+    my @s = stat($mountsource);
+    # check if found and blockdevice
+    return $mountsource if (scalar(@s) < 7 || ($s[2] >> 12) != 6);
+
+    # get the major and minor
+    my $minor = $s[6] % 256;
+    my $major = int (($s[6] - $minor) / 256);
+    return $major .':'. $minor;
+}
+
 #=============================================================
 
 =head2 find_path

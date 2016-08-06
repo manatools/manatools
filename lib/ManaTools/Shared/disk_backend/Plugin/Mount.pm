@@ -567,6 +567,7 @@ extends 'ManaTools::Shared::disk_backend::Part';
 use MooseX::ClassAttribute;
 
 with 'ManaTools::Shared::disk_backend::FileSystem';
+with 'ManaTools::Shared::disk_backend::Mountable';
 
 class_has '+type' => (
     default => 'UnknownFS'
@@ -589,5 +590,15 @@ class_has '+restrictions' => (
     }
 );
 
+sub _get_mount_source {
+    my $self = shift;
+
+    # get parent partlink (which should be a blockdevice anyway)
+    my $parent = $self->find_part(undef, 'parent');
+    return undef if (!defined $parent);
+
+    # return parent's devicepath
+    return $parent->devicepath();
+}
 
 1;

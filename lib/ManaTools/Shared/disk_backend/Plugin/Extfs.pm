@@ -181,6 +181,17 @@ use MooseX::ClassAttribute;
 
 with 'ManaTools::Shared::disk_backend::Mountable';
 
+sub _get_mount_source {
+    my $self = shift;
+
+    # get parent partlink (which should be a blockdevice anyway)
+    my $parent = $self->find_part(undef, 'parent');
+    return undef if (!defined $parent);
+
+    # return parent's devicepath
+    return $parent->devicepath();
+}
+
 class_has '+type' => (
     default => 'Extfs'
 );
