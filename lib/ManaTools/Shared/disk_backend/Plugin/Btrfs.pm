@@ -303,6 +303,16 @@ class_has '+restrictions' => (
     }
 );
 
+augment('_reverse_tag', sub {
+    my $self = shift;
+    my $tag = shift;
+    my $rtag = inner($tag);
+    return $rtag if (defined($rtag) && $tag ne $rtag);
+    return 'childsubvol' if ($tag eq 'parentsubvol');
+    return 'parentsubvol' if ($tag eq 'childsubvol');
+    return $tag;
+});
+
 around('find_path', sub {
     my $orig = shift;
     my $self = shift;
