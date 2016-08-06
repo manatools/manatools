@@ -269,58 +269,66 @@ override ('changedpart', sub {
     my $self = shift;
     my $part = shift;
     my $partstate = shift;
-    $self->D("$self: called changepart for mount: $part, $partstate");
 
     ## LOAD
-    # read the partition table
     if ($partstate == ManaTools::Shared::disk_backend::Part->LoadedState) {
-        # only BlockDevices for loading
+        # only Mountable parts for loading
+        return 1 if (!$part->does('ManaTools::Shared::disk_backend::Mountable'));
     }
 
     ## PROBE
-    # check in the kernel partition table by reading /sys
     if ($partstate == ManaTools::Shared::disk_backend::Part->CurrentState) {
-        $self->D("$self: called changepart for probing partitiontable on $part");
-        # only BlockDevices for loading
+        $self->D("$self: called changepart for probing mount on $part");
+        # only Mountable parts for probing mount points
         return 1 if (!$part->does('ManaTools::Shared::disk_backend::Mountable'));
+        $self->D("$self: called changepart for probing mount: $part is mountable");
+        $self->D("$self: called changepart for probing mount: $part has device ". $part->mountsourcedevice());
+        $self->D("$self: called changepart for probing mount: $part has srcpath ". $part->mountsourcepath());
 
         # TODO: we should look for changes wrt mounts
         # we should check if this part is mounted or not and change accordingly
 
-        # keep in mind that the probe will have done all mounts already, and made a link to the original device if not the filesystem itself
-        # a filesystem could be mounted several times to different paths
-        # NOTE: this may not be necessary and probe could've already done everything
+        # NOTE: this is needed because in btrfs, it needs to be mounted to check subvolumes,
+        # so the btrfs filesystem and the btrfsvols are there, but no mounts on them
 
-        # there is no way to differentiate between an in-kernel empty partition table and no partition table
-        # so, we're not making an empty partition table entry for probed state
-        # since there is none, it'll just recreate the partition table (probably with the loaded state settings) anyway
-        #
-        # in any case, if there are no partition entries (in-kernel), we exit early.
-        my @devices = map { $_ =~ s'/size$''r } glob($part->devicepath(). "/*/size");
-        return 1 if (!scalar(@devices));
+        # get the ancestor blockdevice to get the device numbers
+        my $p = $part->find_closest($partstate, sub {
+            my $self = shift;
+            my $parameters = shift;
+            return $self->does('ManaTools::Shared::disk_backend::BlockDevice');
+        }, undef, {}, 'parent');
+        return 1 if !(defined $p);
+        my $dev = $p->prop('dev');
+        $self->D("$self: called changepart for probing mount: $part has device $dev");
 
-        # look or make the PartitionTable as a child of the BlockDevice
-        my $parttable = $part->trychild($partstate, undef, 'PartitionTable', {plugin => $self, loaded => undef, saved => undef});
-        my @changedparts = ($parttable);
+        # check with srcpath and actual dev(keep in mind virtual device allocations) and match
+        my $fields = $self->findfields(sub {
+            my $self = shift;
+            my $fields = shift;
+            my $part = shift;
+            my $dev = shift;
+            my $srcdev = $fields->[2];
+            my $srcpath = $fields->[3];
+            my $devtype = $fields->[8];
+            my $devfile = $fields->[9];
+            if ($devfile ne $devtype) {
+                my @s = stat($devfile);
+                if (scalar(@s) > 6) {
+                    my $minor = $s[6] % 256;
+                    my $major = int (($s[6] - $minor) / 256);
+                    $srcdev = $major .':'. $minor;
+                }
+            }
+            return ($srcdev eq $dev && $srcpath eq $part->mountsourcepath());
+        }, $part, $dev);
+        return 1 if !(defined $fields);
+        $self->D("$self: called changepart for probing mount: $part has device $fields->[2] and srcpath $fields->[3] for mount point $fields->[4]");
 
-        # find subdevices in /sys/
-        my $prevchild = undef;
-        for my $pf (@devices) {
-            # look or create the child with id based on the filename
-            my $child = $parttable->trychild($partstate, sub {
-                my $self = shift;
-                my $parameters = shift;
-                return ($self->devicepath() =~ s'^.+/''r eq $parameters->{devicepath} =~ s'^.+/''r);
-            },'PartitionElement', {plugin => $self, devicepath => $pf, loaded => undef, saved => undef});
+        # NOTE: also check with bind mounts! or non-blockdevice mounts from a source that has a blockdevice...
+        # TODO: check for chroots!
+        $p = $self->_makemount($part, $partstate, $fields);
 
-            # add the child to the changedparts
-            push @changedparts, $child;
-        }
-
-        # trigger changedpart on all children for other plugins to load further
-        for my $p (@changedparts) {
-            $p->changedpart($partstate);
-        }
+        $p->changedpart($partstate);
     }
 
     ## SAVE
