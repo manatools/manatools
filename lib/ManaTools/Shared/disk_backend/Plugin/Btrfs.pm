@@ -75,7 +75,10 @@ has '+dependencies' => (
 
 has '+tools' => (
     default => sub {
-        return {'btrfs' => '/usr/sbin/btrfs'};
+        return {
+            'btrfs' => '/usr/sbin/btrfs',
+            'btrfs-show-super' => '/usr/sbin/btrfs-show-super',
+        };
     }
 );
 
@@ -189,6 +192,189 @@ override ('probe', sub {
 
 #=============================================================
 
+=head2 changedpart
+
+=head3 INPUT
+
+    $part: ManaTools::Shared::disk_backend::Part
+    $partstate: PartState
+
+=head3 OUTPUT
+
+    0 if failed, 1 if success or unneeded
+
+=head3 DESCRIPTION
+
+    this overridden method will load/probe/save a partition table when it's called
+
+=cut
+
+#=============================================================
+override ('changedpart', sub {
+    my $self = shift;
+    my $part = shift;
+    my $partstate = shift;
+    $self->D("$self: called changepart for btrfs: $part, $partstate");
+
+    ## LOAD
+    # read the raw disk? or no loading filesystems? or is this more with fstab?
+    if ($partstate == ManaTools::Shared::disk_backend::Part->LoadedState) {
+        # only BlockDevices for loading
+        return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
+        # TODO: fstab handles loading
+    }
+
+    ## PROBE
+    # check in /sys the currently in use btrfs systems --> should be in probe
+    if ($partstate == ManaTools::Shared::disk_backend::Part->CurrentState) {
+        $self->D("$self: called changepart for probing btrfs on $part");
+        if ($part->isa('ManaTools::Shared::disk_backend::Part::Btrfs')) {
+            # get all volumes and create parts for them if they don't exist yet.
+
+            # To get volumes, we need to have the mount path
+            # 1. get the device first
+            # 2. ask mount plugin about the path depending on device
+            # 3. use the path to query volumes
+
+            # get the closest BlockDevice ancestor and get the dev prop
+            my $p = $part->find_closest($partstate, sub {
+                my $self = shift;
+                my $parameters = shift;
+                return $self->does('ManaTools::Shared::disk_backend::BlockDevice');
+            }, undef, {}, 'parent');
+            return 1 if !defined ($p);
+
+            # get the dev property
+            my $dev = $p->prop('dev');
+            return 1 if !defined ($dev);
+
+            # get the Mount plugin from backend!
+            my $db = $self->parent();
+            my $mp = $db->findplugin('Mount');
+
+            # No mount path means no volumes ...
+            return 1 if !defined ($mp);
+
+            # ask mount plugin for the path
+            my $path = $mp->findpath($dev, $partstate, sub {
+                my $dev = shift;
+                my $fields = shift;
+                my $srcdev = $fields->[2];
+                my $devtype = $fields->[8];
+                my $devfile = $fields->[9];
+                if ($devfile ne $devtype) {
+                    my @s = stat($devfile);
+                    if (scalar(@s) > 6) {
+                        my $minor = $s[6] % 256;
+                        my $major = int (($s[6] - $minor) / 256);
+                        $srcdev = $major .':'. $minor;
+                    }
+                }
+                return ($srcdev eq $dev);
+            });
+
+            # We cannot get volumes if it's not mounted!
+            return 1 if !defined ($path);
+
+            # get quota informations for when we need it below
+            # [ ]# btrfs qgroup show '/' -re --raw
+            # qgroupid                 rfer                 excl     max_rfer     max_excl 
+            # --------                 ----                 ----     --------     -------- 
+            # 0/5                    385024                16384         none         none 
+            # 0/264              4589723648            419004416         none         none 
+            # 0/265            144602763264         144602763264         none         none 
+            my $quotas = $self->tool_columns('btrfs', 1, 1, 'qgroupid', '\s+', 'qgroup', 'show', "'$path'", '-re', '--raw');
+
+            # use the btrfs tool with the path to find the subvolumes and sync them with what is here already
+            # this only works on mounted filesystems
+            # [ ]# btrfs subvolume list / -agcpuq
+            # ID 264 gen 1090157 cgen 255 parent 5 top level 5 parent_uuid - uuid ab6d48f8-6d65-6b43-b792-dd31d93018be path <FS_TREE>/backup-@
+            my @lines = $self->tool_lines('btrfs', 'subvolume', 'list', "'$path'", '-agcpuq');
+            my %subvolumes = ();
+            for my $line (@lines) {
+                my $fields = {};
+                # top level is 2 strings, so combine them, so that the fields can be nicely splitted
+                %{$fields} = split(/[ \t\r\n]+/, $line =~ s'top level'top_level'r);
+                $subvolumes{$fields->{ID}} = $fields;
+                $subvolumes{$fields->{ID}}->{subvolumes} = {};
+            }
+
+            # move the subvolumes to their parent if they have it, and list them for later removal
+            for my $id (keys %subvolumes) {
+                if (defined($subvolumes{$subvolumes{$id}->{parent}})) {
+                    $subvolumes{$subvolumes{$id}->{parent}}->{subvolumes}->{$id} = $subvolumes{$id};
+                }
+            }
+
+            # create the parts from the parent btrfs
+            my %subvolparts = ();
+            for my $id (keys %subvolumes) {
+                $self->create_subvolume($part, $partstate, $subvolumes{$id}, $quotas, \%subvolparts);
+            }
+
+            # remove any parts that are not there anymore
+            my @children = $part->children();
+            for my $child (@children) {
+                if (defined ($subvolumes{$child->prop('subvolid')})) {
+                    # TODO: remove it (also from parent and possible children etc...)
+                }
+            }
+            return 1;
+        }
+
+        # only BlockDevices for loading
+        return 1 if (!$part->does('ManaTools::Shared::disk_backend::BlockDevice'));
+
+        # only devices that are present
+        return 1 if ($part->has_prop('present') && !$part->prop('present'));
+
+        $self->D("$self: called changepart for probing btrfs on $part: size ". $part->prop('size'));
+        # only devices with positive size
+        return 1 if ($part->prop('size') <= 0);
+
+        # try with btrfs-show-super if this is actually an btrfs filesystem
+        my %fields = $self->tool_fields('btrfs-show-super', ' ', '/dev/'. $part->devicepath() =~ s'^.+/''r);
+
+        # get uuid
+        my $uuid = $fields{'fsid'};
+        $self->D("$self: called changepart for probing btrfs on $part: uuid ". $uuid) if defined($uuid);
+
+        # this is probably not an btrfs filesystem
+        return undef if (!defined $uuid || !$uuid);
+
+        # look or create part for btrfs
+        my $p = $part->trychild($partstate, sub {
+            my $self = shift;
+            my $parameters = shift;
+            return ($self->uuid() eq $parameters->{uuid});
+        },'Btrfs', {plugin => $self, uuid => $uuid, loaded => undef, saved => undef});
+
+        # extra properties
+        $p->prop('label', $fields{'label'});
+        $p->prop('incompat_flags', $fields{'incompat_flags'});
+        $p->prop('flags', $fields{'flags'});
+        $p->prop('block_size', $fields{'sectorsize'});
+        $p->prop('size', $fields{'total_bytes'});
+        $p->prop('used', $fields{'bytes_used'});
+        $p->prop('generation', $fields{'generation'});
+        $p->prop('root_level', $fields{'root_level'});
+        $p->prop('root_dir', $fields{'root_dir'});
+
+        $p->changedpart($partstate);
+    }
+
+    ## SAVE
+    # save the partition table
+    if ($partstate == ManaTools::Shared::disk_backend::Part->FutureState) {
+        # in all child parts, find PartitionTable entries and trigger ->save();
+        for my $p ($part->find_parts(undef, 'child')) {
+            # TODO: need to be able to abort during save!!!
+            $p->save();
+        }
+    }
+
+    return 1;
+});
 
 package ManaTools::Shared::disk_backend::Part::Btrfs;
 
