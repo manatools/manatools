@@ -189,6 +189,11 @@ class_has '+order' => (
 class_has '+restrictions' => (
     default => sub {
         return {
+            parent => sub {
+                my $self = shift;
+                my $part = shift;
+                return $part->isa('ManaTools::Shared::disk_backend::Part::Disks');
+            },
             sibling => sub {
                 my $self = shift;
                 my $part = shift;
