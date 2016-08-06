@@ -76,7 +76,7 @@ extends 'ManaTools::Shared::disk_backend::Plugin';
 override ('probe', sub {
     my $self = shift;
     my $part = undef;
-    my $err =  0;
+    $self->D('starting probe for %s', $self);
     my @parts = $self->parent->findpart('Disks');
     if (scalar(@parts) > 0) {
         $part = $parts[0];
@@ -95,11 +95,12 @@ override ('probe', sub {
                 my $parameters = shift;
                 return ($part->devicepath() =~ s'^.+/''r eq $parameters->{devicepath} =~ s'^.+/''r);
             }, 'Disk', {plugin => $self, devicepath => $bdfile, loaded => undef, saved => undef});
+
             # trigger the changedpart
             $p->changedpart(ManaTools::Shared::disk_backend::Part->CurrentState);
         }
     }
-    return $err == 0;
+    return 1;
 });
 
 package ManaTools::Shared::disk_backend::Part::Disks;
