@@ -589,6 +589,36 @@ sub walkplugins {
 
 #=============================================================
 
+=head2 findplugin
+
+=head3 INPUT
+
+    $name: Str
+    ...
+
+=head3 OUTPUT
+
+    a Plugin or undef
+
+=head3 DESCRIPTION
+
+    this method will return the first matching Plugin
+
+=cut
+
+#=============================================================
+sub findplugin {
+    my $self = shift;
+    my $name = shift;
+    my $plugins = $self->plugins;
+    for my $plugin (@{$plugins}) {
+        return $plugin if ($plugin->isa('ManaTools::Shared::disk_backend::Plugin::'. $name));
+    }
+    return undef;
+}
+
+#=============================================================
+
 =head2 findpartprop
 
 =head3 OUTPUT
