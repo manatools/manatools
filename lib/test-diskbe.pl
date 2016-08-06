@@ -28,6 +28,13 @@ sub dumppart {
 	for my $p (sort { $a->label() cmp $b->label() } @parts) {
 		dumppart($db_man, $p, $level);
 	}
+	if ($part->type() eq 'BtrfsVol') {
+		my @parts = $db_man->findpartprop('BtrfsVol', 'parent', $part->prop('subvolid'));
+		print sp($level) ."Child Subvolumes:\n" if scalar(@parts) > 0;
+		for my $part (sort { $a->label() cmp $b->label() } @parts) {
+			dumppart($db_man, $part, $level);
+		}
+	}
 	if ($part->type() eq 'Mount') {
 		my @parts = $db_man->findpartprop('Mount', 'parent', $part->prop('id'));
 		print sp($level) ."Child Mounts:\n" if scalar(@parts) > 0;
@@ -42,6 +49,7 @@ my $db_man = ManaTools::Shared::disk_backend->new();
 
 #$db_man->logger->trace(1);
 
+#$db_man->load();
 $db_man->probe();
 
 my $mode = 'disks';
