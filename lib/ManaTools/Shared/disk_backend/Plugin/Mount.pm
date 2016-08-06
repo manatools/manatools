@@ -353,6 +353,8 @@ override ('changedpart', sub {
 #=============================================================
 override ('probe', sub {
     my $self = shift;
+    my $bd = $self->parent();
+    $self->D('starting probe for %s', $self);
     # check current mounts and create a Mount for each one
     # TODO: find the in device (create if needed?)
     open F, '</proc/self/mountinfo' or return 0;
@@ -366,6 +368,7 @@ override ('probe', sub {
         my $devpart = undef;
         # TODO: what about --bind mount points
         # TODO: keep in mind loopbacked files!
+        $self->D('try to find device %s', $fields[2]);
         my @parts = grep { $_->type() ne 'Mount' } $bd->findpartprop(undef, 'dev', $fields[2]);
         if (scalar(@parts) == 0) {
             $devpart = $bd->mkpart('UnknownBlockDevice', {plugin => $self, devicepath => $fields[4], loaded => undef, saved => undef});
@@ -377,19 +380,20 @@ override ('probe', sub {
 
         ## try to find filesystem
         # if not found, create an UnknownFS for it
-        $self->D('find dev %s with fstype %s (srcmount %s)', $fields[2], $fields[8], $fields[9]);
+        $self->D('find fs with dev %s with fstype %s (srcmount %s)', $fields[2], $fields[8], $fields[9]);
         my $fs = $devpart->trychild(ManaTools::Shared::disk_backend::Part->CurrentState, sub {
             my $self = shift;
             my $parameters = shift;
             my $dev = shift;
             my $fstype = shift;
+            $self->plugin()->D('identifying %s', $self);
 
             # only filesystems
-            return 0 if !$self->does('ManaTools::Shared::disk_backend::FileSystem');
-            $self->plugin()->D('part is a FileSystem with type %s', $self->prop('fstype'));
+            return 0 if !$self->does('ManaTools::Shared::disk_backend::Mountable');
+            $self->plugin()->D('part is Mountable with type %s', defined($self->prop('fstype')) ? $self->prop('fstype') : '<unknown>');
 
-            # needs to be this fstype
-            return 0 if ($self->prop('fstype') ne $fields[8]);
+            # fstype does not need to be matched
+            #return 0 if ($self->prop('fstype') ne $fields[8]);
 
             # TODO: need to check srcmount $fields[9] as well
 
