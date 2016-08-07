@@ -99,6 +99,8 @@ with 'ManaTools::Shared::ActionsRole', 'ManaTools::Shared::PropertiesRole';
 use MooseX::ClassAttribute;
 use Moose::Util::TypeConstraints qw/subtype as where/;
 
+use ManaTools::Shared::UserLevel;
+
 ## Class DATA
 
 subtype 'PartState'
@@ -138,6 +140,13 @@ class_has 'order' => (
     init_arg => undef,
     isa => 'Maybe[CodeRef]',
     default => undef,
+);
+
+class_has 'level' => (
+    is => 'ro',
+    init_arg => undef,
+    isa => 'LevelType',
+    default => ManaTools::Shared::UserLevel->beginnerLevel,
 );
 
 ## Object Variables
