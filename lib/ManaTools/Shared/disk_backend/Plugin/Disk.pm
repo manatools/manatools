@@ -112,7 +112,11 @@ extends 'ManaTools::Shared::disk_backend::Part';
 use MooseX::ClassAttribute;
 
 class_has '+type' => (
-    default => 'Disks'
+    default => 'Disks',
+);
+
+class_has '+childVisualization' => (
+    default => ManaTools::Shared::Visualization->tabVisualization,
 );
 
 class_has '+restrictions' => (

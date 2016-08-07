@@ -218,6 +218,10 @@ class_has '+type' => (
     default => 'PartitionTable'
 );
 
+class_has '+childVisualization' => (
+    default => ManaTools::Shared::Visualization->buttonboxVisualization,
+);
+
 class_has '+restrictions' => (
     default => sub {
         return {

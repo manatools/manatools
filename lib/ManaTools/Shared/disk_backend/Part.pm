@@ -100,6 +100,7 @@ use MooseX::ClassAttribute;
 use Moose::Util::TypeConstraints qw/subtype as where/;
 
 use ManaTools::Shared::UserLevel;
+use ManaTools::Shared::Visualization;
 
 ## Class DATA
 
@@ -147,6 +148,12 @@ class_has 'level' => (
     init_arg => undef,
     isa => 'LevelType',
     default => ManaTools::Shared::UserLevel->beginnerLevel,
+);
+
+class_has 'childVisualization' => (
+    is => 'ro',
+    isa => 'Visualization',
+    default => ManaTools::Shared::Visualization->listVisualization,
 );
 
 ## Object Variables
