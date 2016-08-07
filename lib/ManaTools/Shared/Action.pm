@@ -65,8 +65,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
 
 use Moose;
 
-use Moose::Util::TypeConstraints;
-use MooseX::ClassAttribute;
+use ManaTools::Shared::UserLevel;
 
 has 'name' => (
     is => 'ro',
@@ -110,42 +109,17 @@ has 'valid' => (
     }
 );
 
-subtype 'LevelType'
-    => as Int
-    => where {($_ > 0 && $_ <= 3)};
-
 has 'level' => (
     traits => ['Code'],
     is => 'ro',
     isa => 'CodeRef',
     required => 0,
     default => sub {
-        return sub { return 1; };
+        return sub { return ManaTools::Shared::UserLevel->beginnerLevel; };
     },
     handles => {
         is_level => 'execute'
     }
-);
-
-class_has 'beginnerLevel' => (
-    is => 'ro',
-    isa => 'LevelType',
-    init_arg => undef,
-    default => sub {return 1;},
-);
-
-class_has 'advancedLevel' => (
-    is => 'ro',
-    isa => 'LevelType',
-    init_arg => undef,
-    default => sub {return 2;},
-);
-
-class_has 'expertLevel' => (
-    is => 'ro',
-    isa => 'LevelType',
-    init_arg => undef,
-    default => sub {return 3;},
 );
 
 1;

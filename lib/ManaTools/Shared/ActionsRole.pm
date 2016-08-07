@@ -64,6 +64,8 @@ use Moose::Role;
 use MooseX::ClassAttribute;
 use ManaTools::Shared::Action;
 
+use ManaTools::Shared::UserLevel;
+
 class_has 'acts' => (
     is => 'ro',
     init_arg => undef,
@@ -77,7 +79,7 @@ has 'level' => (
     init_arg => undef,
     lazy => 1,
     isa => 'LevelType',
-    default => sub {return ManaTools::Shared::Action->beginnerLevel;}
+    default => sub {return ManaTools::Shared::UserLevel->beginnerLevel;}
 );
 
 #=============================================================
