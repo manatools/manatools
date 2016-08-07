@@ -479,17 +479,17 @@ sub _rebuildItems {
     my $eventHandler = shift;
     my $container = shift;
     for my $i (@{$info}) {
-        if ($i->{type} eq 'tab') {
-            return $self->_rebuildTab($eventHandler, $container, $i->{part}, @{$i->{items}});
-        }
-        if ($i->{type} eq 'buttonbox') {
-            return $self->_rebuildButtonBox($eventHandler, $container, $i->{part}, @{$i->{items}});
-        }
-        if ($i->{type} eq 'list') {
+        if ($i->{visual} eq ManaTools::Shared::Visualization->listVisualization) {
             return $self->_rebuildList($eventHandler, $container, $i->{part}, @{$i->{items}});
         }
-        if ($i->{type} eq 'tree') {
+        if ($i->{visual} eq ManaTools::Shared::Visualization->treeVisualization) {
             return $self->_rebuildTree($eventHandler, $container, $i->{part}, @{$i->{items}});
+        }
+        if ($i->{visual} eq ManaTools::Shared::Visualization->tabVisualization) {
+            return $self->_rebuildTab($eventHandler, $container, $i->{part}, @{$i->{items}});
+        }
+        if ($i->{visual} eq ManaTools::Shared::Visualization->buttonboxVisualization) {
+            return $self->_rebuildButtonBox($eventHandler, $container, $i->{part}, @{$i->{items}});
         }
     }
     return undef;
@@ -499,7 +499,6 @@ sub _expandItem {
     my $self = shift;
     my $part = shift;
     my $infos = [];
-    my $type = 'list';
     my @items;
 
     # get parts
@@ -513,7 +512,7 @@ sub _expandItem {
 
     # merge all children from these Parts
     for my $p (@items) {
-        push @{$infos}, {parent => $part, part => $p, type => ( $p->type() eq 'Disks' ? 'tab' : $p->type() eq 'PartitionTable' ? 'buttonbox' : $type ), items => [sort {$a->label() cmp $b->label()} $p->children()]};
+        push @{$infos}, {parent => $part, part => $p, visual => $p->childVisualization(), items => [sort {$a->label() cmp $b->label()} $p->children()]};
     }
     return $infos;
 }
@@ -701,8 +700,14 @@ sub _adminDiskPanel {
             ## start the info structure
             my $info = {
                 disks => $module->_expandItem(),
-                unused => {type => 'list', items => [sort {$a->label() cmp $b->label()} grep {$_->does('ManaTools::Shared::disk_backend::BlockDevice')} $backend->findnopart(undef, 'child')]},
-                fs => {type => 'tree', items => [grep {!defined($_->parentmount())} $backend->findpart('Mount')]}
+                unused => {
+                    visual => ManaTools::Shared::Visualization->listVisualization,
+                    items => [sort {$a->label() cmp $b->label()} grep {$_->does('ManaTools::Shared::disk_backend::BlockDevice')} $backend->findnopart(undef, 'child')],
+                },
+                fs => {
+                    visual => ManaTools::Shared::Visualization->treeVisualization,
+                    items => [grep {!defined($_->parentmount())} $backend->findpart('Mount')],
+                },
             };
 
             ## fs Part should be linked to all the mounts (hierarchial)
