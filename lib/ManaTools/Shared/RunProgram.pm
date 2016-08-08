@@ -173,7 +173,7 @@ Runs $name with @args parameters. $options is a hash ref that can contains:
 
 =item * B<root>: $name will be chrooted in $root prior to run
 
-=item * B<as_user>: $name will be run as $ENV{USERHELPER_UID} or with the UID of parent process. Implies I<setuid>
+=item * B<as_user>: $name will be run as $ENV{PKEXEC_UID} or with the UID of parent process. Implies I<setuid>
 
 =item * B<sensitive_arguments>: parameters will be hidden in logs (b/c eg there's a password)
 
@@ -214,7 +214,7 @@ sub raw {
     my $home;
     if ($options->{as_user}) {
         my $uid;
-        $uid = $ENV{USERHELPER_UID} && getpwuid($ENV{USERHELPER_UID});
+        $uid = $ENV{PKEXEC_UID} && getpwuid($ENV{PKEXEC_UID});
         $uid ||= _get_parent_uid();
         my ($full_user) = grep { $_->[2] eq $uid } list_passwd();
         $options->{setuid} = getpwnam($full_user->[0]) if $full_user->[0];
