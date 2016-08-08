@@ -1,3 +1,7 @@
+1.1.4 Mon Aug  8 15:21:49 CEST 2016
+	- mga#18288 - used PKEXEC_UID as in rpmdrake
+	- rpmdragora - fixed mga#19136 When no files or Changelog are present 
+		"Not available" is not shown as UTF-8 when translated
 	- manauser - fixed crash in case of shadow lock file problem (github issue 4)
 1.1.3 Thu Jun 16 12:55:52 JST 2016
 	- dragoraUpdate - mga#18643, dragoraUpdate can be run as user only with mana update
