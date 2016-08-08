@@ -334,8 +334,10 @@ sub _format_pkg_simplifiedinfo {
     my $detail_link = format_link(format_field($loc->N("Details:")), $hidden_info{details} );
     if ($options->{details}) {
         my $details = get_details($pkg, $upkg, $installed_version, $raw_medium);
-        utf8::encode($details);
-        $detail_link .= "\n" . $details;
+        if (! utf8::is_utf8($details)) {
+            utf8::encode($details);
+        }
+        $detail_link .= "<br />&nbsp;&nbsp;&nbsp;" . $details;
     }
     push @$s, join("\n", $detail_link, "\n");
 
@@ -347,8 +349,10 @@ sub _format_pkg_simplifiedinfo {
             extract_header($pkg, $urpm, 'files', $installed_version);
         }
         my $files = $pkg->{files} ? files_format($pkg->{files}) : $loc->N("(Not available)");
-        utf8::encode($files);
-        $files_link .= "\n\n" . $files;
+        if (! utf8::is_utf8($files)) {
+            utf8::encode($files);
+        }
+        $files_link .=  "<br />&nbsp;&nbsp;&nbsp;" . $files;
         ManaTools::rpmdragora::remove_wait_msg($wait);
     }
     push @$s, join("\n", $files_link, "\n");
@@ -363,8 +367,9 @@ sub _format_pkg_simplifiedinfo {
             extract_header($pkg, $urpm, 'changelog', $installed_version);
             @changelog = $pkg->{changelog} ? @{$pkg->{changelog}} : ( $loc->N("(Not available)") );
         }
-        utf8::encode(\@changelog);
-
+        if (! utf8::is_utf8(\@changelog)) {
+            utf8::encode(\@changelog);
+        }
         $changelog_link .=  "<br />&nbsp;&nbsp;&nbsp;" . join("<br />&nbsp;&nbsp;&nbsp;", @changelog);
         $changelog_link =~ s|\n||g;
         ManaTools::rpmdragora::remove_wait_msg($wait);
