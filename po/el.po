@@ -1,30 +1,29 @@
 # #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
-# SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Dimitrios Glentadakis <dglent@free.fr>, 2015
-# tsallinia <tsallinia@riseup.net>, 2016
+# Dimitrios Glentadakis <dglent@free.fr>, 2015, 2016.
+# tsallinia <tsallinia@riseup.net>, 2016.
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-05-21 09:08+0000\n"
-"Last-Translator: tsallinia <tsallinia@riseup.net>\n"
-"Language-Team: Greek (http://www.transifex.com/MageiaLinux/mageia/language/"
+"PO-Revision-Date: 2016-08-30 05:11+0200\n"
+"Last-Translator: Dimitrios Glentadakis <dglent@free.fr>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
 "el/)\n"
 "Language: el\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
 
 #: lib/ManaTools/MainDisplay.pm:247
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -57,6 +56,8 @@ msgstr "GPLv2"
 #: lib/ManaTools/MainDisplay.pm:255
 msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr ""
+"Το mpan είναι ο πίνακας ελέγχου των εργαλείων mana όπου συγκεντρώνονται όλα "
+"τα εργαλεία."
 
 #: lib/ManaTools/MainDisplay.pm:256
 #, perl-format
@@ -69,6 +70,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Δημιουργοί</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Μεταφραστές</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:381
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -112,41 +120,43 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Κακοδιατυπωμένο αρχείο διαμόρφωσης· το %s δεν διαθέτει το ιδιοχαρακτηριστικό "
+"xml:lang, εικάζεται ως συμβολοσειρά"
 
 #: lib/ManaTools/MainDisplay.pm:592
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Ελλείπον αρχείο διαμόρφωσης %s"
 
 #: lib/ManaTools/MainDisplay.pm:597
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "Ανάγνωση του αρχείου διαμόρφωσης %s"
 
 #: lib/ManaTools/MainDisplay.pm:614
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Φόρτωση των ρυθμίσεων: το περιεχόμενο του %s είναι <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Ανάλυση του αρχείου κατηγοριών %s"
 
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Φόρτωση των κατηγοριών: το περιεχόμενο του τίτλου είναι <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:816
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Φόρτωση των κατηγοριών: το άρθρωμα του τίτλου είναι <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Διαχείριση"
+msgstr "%s - Εργαλείο διαχείρισης"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2399,9 +2409,9 @@ msgid "Information"
 msgstr "Πληροφορίες"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "Διαχείριση των καθορισμών των υπολογιστών"
+msgstr "%s - Διαχείριση των καθορισμών των υπολογιστών"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2473,7 +2483,7 @@ msgstr "Είστε σίγουρος-η για τη διαγραφή του υπ�
 #: lib/ManaTools/Module/Firewall.pm:176
 #, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr ""
+msgstr "Πνευματικά δικαιώματα (C) %s by Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
@@ -2481,36 +2491,34 @@ msgstr "Γραφικός διαχειριστής για τους καθορισ
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "δεν βρέθηκε ενεργό μέσο\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Επεξεργασία "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Πρωτόκολλο:"
+msgstr "πρωτόκολλο εν χρήσει:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "προσπάθεια με "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Καθαρισμός της λανθάνουσας μνήμης μετά από μια επιτυχημένη εγκατάσταση"
+msgstr " ελήφθη επιτυχώς\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "δεν εισηγήθηκαν πακέτα ως ορίσματα\n "
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Διαχειριστής σύνδεσης"
+msgstr "%s - Διαχειριστής σύνδεσης"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2561,9 +2569,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Εργαλείο γραφικού περιβάλλοντος διαμόρφωσης του διαχειριστή σύνδεσης"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall: διαχειριστής τείχους προστασίας"
+msgstr "%s - Διαχειριστής του τείχους προστασίας"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2725,9 +2733,9 @@ msgstr ""
 "    Τι θέλετε να κάνετε;"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Προβολέας καταγραφών"
+msgstr "%s - Προβολέας καταγραφών"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2808,7 +2816,7 @@ msgstr "Κενό αρχείο καταγραφών "
 
 #: lib/ManaTools/Module/LogViewer.pm:436
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - εκτελείται σε λειτουργία χρήστη"
 
 #: lib/ManaTools/Module/LogViewer.pm:437
 msgid ""
@@ -2826,9 +2834,9 @@ msgid "Save as.."
 msgstr "Αποθήκευση ως..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Εργαλείο διαχείρισης χρηστών Mageia"
+msgstr "%s - Εργαλείο διαχείρισης των χρηστών"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3277,16 +3285,16 @@ msgstr "Αναζήτηση:"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Apply &filter"
-msgstr ""
+msgstr "Εφαρμογή &φίλτρου"
 
 #: lib/ManaTools/Module/Users.pm:2526
 msgid "Users"
 msgstr "Χρήστες"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "Ρυθμίσεις διαμεσολαβητών"
+msgstr "%s - Διαμόρφωση διαμεσολαβητή"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3337,9 +3345,9 @@ msgid "Graphical manager for proxies"
 msgstr "Εργαλείο γραφικού περιβάλλοντος διαχείρισης των διαμεσολαβητών"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Υπηρεσίες και δαίμονες"
+msgstr "%s - Υπηρεσίες και δαίμονες"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3403,9 +3411,9 @@ msgid "Stopping %s"
 msgstr "Τερματισμός του %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Ρυθμίσεις ημερομηνίας, ώρας & ζώνη ώρας"
+msgstr "%s - Ρυθμίσεις ημερομηνίας, ώρας & ωρολογιακής ζώνης"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -3423,6 +3431,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Δημιουργοί</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Μεταφραστές</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore data"
@@ -3477,7 +3489,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:443
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "Επιλογή εξυπηρετητή &NTP"
 
 #: lib/ManaTools/Module/Clock.pm:459
 msgid "NTP server - DrakClock"
@@ -3489,15 +3501,15 @@ msgstr "Επιλέξτε τον εξυπηρετητή σας NTP"
 
 #: lib/ManaTools/Module/Clock.pm:490
 msgid "&Local NTP server"
-msgstr ""
+msgstr "&Τοπικός εξυπηρετητής NTP"
 
 #: lib/ManaTools/Module/Clock.pm:503
 msgid "Set local NTP server"
-msgstr ""
+msgstr "Ορισμός τοπικού εξυπηρετητή NTP"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Παρακαλώ ορίστε τον τοπικό σας εξυπηρετητή NTP"
 
 #: lib/ManaTools/Module/Clock.pm:561 lib/ManaTools/Module/Clock.pm:646
 msgid "Current:"
@@ -3543,10 +3555,12 @@ msgstr "Διαγραφή των προσαρμοσμένων κανόνων"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> προαιρετικός κατάλογος που περιέχει συμβολοσειρές τοπικότητας "
+"(αναπτύσσων μόνο)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "Εμφανίζει αυτήν την οδηγία χρήσης"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
@@ -3833,33 +3847,35 @@ msgstr "Όχι"
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "&Select"
-msgstr ""
+msgstr "&Επιλογή"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "έναρξη χρησιμοποιώντας την ενσωμάτωση του πρόσθετου yui gtk"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "έναρξη χρησιμοποιώντας την ενσωμάτωση του πρόσθετου yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "έναρξη χρησιμοποιώντας την ενσωμάτωση του πρόσθετου yui qt"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "χρήση της πλήρους οθόνης για τους διαλόγους"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "χωρίς περίγραμμα διαλόγων του διαχειριστή παραθύρων"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> προαιρετικός κατάλογος που περιέχει αρχεία διαμόρφωσης του εκάστοτε "
+"αρθρώματος (πχ όνομααρθρωματος/αρχεία_διαμόρφωσης)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
@@ -3867,7 +3883,7 @@ msgstr "&Επαναφορά"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "&Κλείσιμο"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
@@ -4796,30 +4812,32 @@ msgstr "έγκυρες <commands>:\n"
 
 #: scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "Λειτουργία αναπτυσσόντων"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Όνομα της εφαρμογής, που χρησιμοποιείται για το αναγνωριστικό καταγραφών και "
+"του καταλόγου διαμόρφωσης της x εφαρμογής. Εξ ορισμού είναι το mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Τίτλος του παραθύρου. Τιμή του ονόματος εξ ορισμού"
 
 #: scripts/mpan:69
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== Λειτουργία ανάπτυξης ΕΝΕΡΓΗ =="
 
 #: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:421
 msgid "rpmdragora update"
 msgstr "ενημέρωση rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "Απαιτούνται προνόμια διαχειριστή"
+msgstr "Απαιτούνται προνόμια διαχειριστή, ή εκτελέστε <%s> αντί αυτού"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -4941,7 +4959,7 @@ msgstr "Μη εγκατεστημένα"
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Εμφάνιση μόνο των %s και noarch"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -5025,7 +5043,7 @@ msgstr "Επαναφορά"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Εφαρμογή"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -5163,12 +5181,13 @@ msgstr "Επιτυχής προσθήκη του μέσου «%s»."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Εκτέλεση του εργαλείου ενημέρωσης λογισμικού της Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
 msgstr ""
+"Απαιτείται πιστοποίηση για την εκτέλεση της Ενημέρωσης Mageia rpmdragora"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -5199,7 +5218,7 @@ msgstr ""
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "ΝΑ επιτρέπεται το γραφικό περιβάλλον APanel"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5207,6 +5226,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Απαιτείται πιστοποίηση για την εκτέλεση του manahost (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5224,6 +5245,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Απαιτείται πιστοποίηση για την εκτέλεση του manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5264,21 +5287,23 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Απαιτείται πιστοποίηση για την εκτέλεση του apanel (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Εκτέλεση της εγκατάστασης και απεγκατάστασης λογισμικού Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Απαιτείται πιστοποίηση για την εκτέλεση του διαχειριστή rpm Mageia"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Πίνακας ελέγχου Mageia"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -5288,7 +5313,7 @@ msgstr "Κατηγορίες"
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Εγκατάσταση και απεγκατάσταση λογισμικού"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
@@ -5303,7 +5328,7 @@ msgstr "Ρυθμίστε τις πηγές μέσων για εγκατάστα�
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Δίκτυο &amp;&amp; Διαδίκτυο"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5312,140 +5337,143 @@ msgstr "Εκκίνηση"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Ενημέρωση Mageia"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
 msgstr ""
+"Γραφικό περιβάλλον συστήματος υποστήριξης για την ενημέρωση των πακέτων"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
 msgstr ""
+"manaclock - Ρυθμίσεις της ημερομηνίας, της ώρας & της ωρολογιακής ζώνης"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "Διαχειριστής ώρας του ManaTools"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - διαχειριστής διαμόρφωσης της σύνδεσης"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "Διαχειριστής διαμόρφωσης σύνδεσης του ManaTools"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - Διαχειριστής των υπολογιστών και των ονομάτων υπολογιστών"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "Διαχειριστής των υπολογιστών του ManaTools"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Προβολέας καταγραφών Journalctl, σε λειτουργία διαχειριστή"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "Προβολέας καταγραφών του ManaTools, σε λειτουργία διαχειριστή"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - Διαχειριστής διαμόρφωσης του διαμεσολαβητή"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "Διαχειριστής διαμεσολαβητή του ManaTools"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Διαχειριστής διαμόρφωσης των υπηρεσιών"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "Διαχειριστής υπηρεσιών του ManaTools"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - Διαχειριστής χρηστών και ομάδων"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "Διαχειριστής χρηστών του ManaTools"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Προβολέας καταγραφών Journalctl, σε λειτουργία χρήστη"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "Προβολέας καταγραφών του ManaTools, σε λειτουργία χρήστη"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall: Διαχειριστής διαμόρφωσης του τείχους προστασίας"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "Εργαλείο διαμόρφωσης του τείχους προστασίας του ManaTools"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Πίνακας ελέγχου ManaTools της Mageia"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "Πίνακας ελέγχου - εκτελεστής εφαρμογών"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - Εγκατάσταση & απεγκατάσταση λογισμικού"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Μια εφαρμογή για εγκατάσταση, αφαίρεση και ενημέρωση πακέτων"
+
