@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,14 +9,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2015
+# Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>, 2015-2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-03-13 20:35+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-09-14 17:18+0000\n"
+"Last-Translator: Florin Cătălin RUSSEN <cfrussen@yahoo.co.uk>\n"
 "Language-Team: Romanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ro/)\n"
 "Language: ro\n"
@@ -56,7 +56,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:255
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan este panoul ManaTools care colectează toate utilitarele."
 
 #: lib/ManaTools/MainDisplay.pm:256
 #, perl-format
@@ -69,6 +69,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Dezvoltatori</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Traducători</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:381
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -116,37 +123,37 @@ msgstr ""
 #: lib/ManaTools/MainDisplay.pm:592
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Lipsește fișierul de configurare %s"
 
 #: lib/ManaTools/MainDisplay.pm:597
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "Se citește fișierul de configurare %s"
 
 #: lib/ManaTools/MainDisplay.pm:614
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Încărcare parametri: conținutul %s este <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Se analizează fișierul categorie %s"
 
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Încărcare categorii: conținutul titlului este <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:816
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Încărcare categorii: titlul modulului este <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Gestionare"
+msgstr "%s - Unealta de gestionare"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2379,9 +2386,9 @@ msgid "Information"
 msgstr "Informații"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "Gestionați definițiile de gazde"
+msgstr "%s - gestionează definițiile de gazde"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2453,7 +2460,7 @@ msgstr "Sigur doriți să renunțați la această gazdă?"
 #: lib/ManaTools/Module/Firewall.pm:176
 #, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr ""
+msgstr "Drepturi de autor (C) %s Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
@@ -2461,36 +2468,34 @@ msgstr "Gestionar grafic pentru definiții de gazde"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "nu s-a găsit niciun mediu activ\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Procesare"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protocol:"
+msgstr "protocol utilizat:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "se încearcă cu"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Curăță spațiul temporar de descărcare după o instalare reușită"
+msgstr "descărcat cu succes\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "niciun pachet dat ca argument\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Gestionar de ecran"
+msgstr "%s - Gestionar de ecran"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2541,9 +2546,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Configurator grafic pentru gestionarul de ecran al sistemului"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall: gestionar de parafoc"
+msgstr "%s - Gestionar de parafoc"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2696,9 +2701,9 @@ msgstr ""
 "Ce doriți să faceți?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Vizualizator de fișiere jurnal"
+msgstr "%s - Vizualizator de fișiere jurnal"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2798,9 +2803,9 @@ msgid "Save as.."
 msgstr "Salvează ca..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - unealta Mageia pentru gestionarea utilizatorilor"
+msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3260,9 +3265,9 @@ msgid "Users"
 msgstr "Utilizatori"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "Configurare proxy"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3313,9 +3318,9 @@ msgid "Graphical manager for proxies"
 msgstr "Gestionar grafic pentru proxyuri"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Servicii și daemoni"
+msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3376,9 +3381,9 @@ msgid "Stopping %s"
 msgstr "Se oprește %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Parametri de dată, oră și fus orar"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4774,9 +4779,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "privilegii root sînt necesare"
+msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
