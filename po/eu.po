@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-07-15 08:11+0000\n"
+"PO-Revision-Date: 2016-09-25 08:41+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/MageiaLinux/mageia/language/"
 "eu/)\n"
@@ -152,7 +152,7 @@ msgstr ""
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "%s - Kudeaketa Tresna"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2458,7 +2458,7 @@ msgstr "Ostalari definizioen kudeatzaile grafikoa"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "ez da baliabide aktiborik aurkitu\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
@@ -2472,7 +2472,7 @@ msgstr "erabilitako protokoloa:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "-rekin saiatzen"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
 msgid " downloaded successfully\n"
@@ -2480,7 +2480,7 @@ msgstr "ondo deskargatu dira\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "ez da pasatu paketerik argumentu gisa\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
 #, perl-format
@@ -3813,11 +3813,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "erabili elkarrizketetan pantaila osoan"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "ez dago mugarik elkarrizketa kudeatzaile leihoan"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -4883,7 +4883,7 @@ msgstr "Instalatu gabe"
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Erakutsi %s eta noarch soilik"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -5102,7 +5102,7 @@ msgstr "%s euskarria behar bezala gehitu da."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Exekutatu Mageia eguneratze software tresna"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
@@ -5205,12 +5205,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Exekutatu Mageia softwarea instalatu eta kendu"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Autentifikazioa beharrezkoa da Mageia rpm kudeatzailea exekutatzeko"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
@@ -5297,11 +5297,11 @@ msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Journalctl log ikuslea, administratzaile moduac"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools log ikuslea, administratzaile modua"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
@@ -5321,11 +5321,11 @@ msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Zerbitzu konfigurazio kudeatzailea"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "ManaTools zerbitzu kudeatzailea"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
@@ -5345,11 +5345,11 @@ msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Journalctl log ikuslea, erabiltzaile moduac"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools log ikuslea, erabiltzaile modua"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
@@ -5369,7 +5369,7 @@ msgstr "mpan - Mageia ManaTools Kontrol Panela"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools panela - aplikazio abiarazlea"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
