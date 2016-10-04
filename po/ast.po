@@ -1,15 +1,22 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
 #
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
+# enolp <enolp@softastur.org>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2015-07-07 15:46+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2016-10-04 11:55+0000\n"
+"Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ast/)\n"
 "Language: ast\n"
@@ -42,7 +49,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:447 lib/ManaTools/Module/Clock.pm:197
 #: modules/rpmdragora/dragoraUpdate:356 modules/rpmdragora/rpmdragora:1095
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:255
 msgid "mpan is the ManaTools panel that collects all the utilities."
@@ -75,14 +82,14 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1209
 msgid "&Quit"
-msgstr ""
+msgstr "&Colar"
 
 #: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/MainDisplay.pm:395
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 #: lib/ManaTools/Module/Users.pm:2447
 msgid "Help"
-msgstr ""
+msgstr "Ayuda"
 
 #: lib/ManaTools/MainDisplay.pm:396
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
@@ -234,51 +241,51 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
 #: lib/ManaTools/Rpmdragora/gui.pm:1574
 msgid "Fatal error"
-msgstr ""
+msgstr "Fallu fatal"
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:101
 #: lib/ManaTools/Rpmdragora/gui.pm:1575 lib/ManaTools/Rpmdragora/pkg.pm:494
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr ""
+msgstr "Asocedió un fallu fatal: %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
 msgid "Local"
-msgstr ""
+msgstr "Llocal"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "Estrayible"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
-msgstr ""
+msgstr "rsync"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr ""
+msgstr "Llistáu d'espeyos"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
@@ -4817,12 +4824,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "Executar l'alministrador d'usuariu Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "Ríquese l'autenticación pa executar l'alministrador d'usuariu Mageia"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
@@ -4853,9 +4860,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "Anovamientu de Mageia"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4875,7 +4881,7 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr ""
+msgstr "Configurar los sofitos de paquetes pa la instalación y anovamientu"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4885,12 +4891,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "Arranque"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "Anovamientu de Mageia"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -5026,4 +5031,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Un frontal gráficu pa instalar, desaniciar y anovar paquetes"
