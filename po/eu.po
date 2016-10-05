@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-09-28 10:44+0000\n"
+"PO-Revision-Date: 2016-10-02 07:55+0000\n"
 "Last-Translator: Egoitz Rodriguez Obieta <egoitzro@gmail.com>\n"
 "Language-Team: Basque (http://www.transifex.com/MageiaLinux/mageia/language/"
 "eu/)\n"
@@ -144,12 +144,12 @@ msgstr "%s fitxategi kategoria analizatzen"
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Kategoriak kargatu: eduki izenburua <<%s>> da"
 
 #: lib/ManaTools/MainDisplay.pm:816
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Kategoriak kargatu: moduluaren izenburua <<%s>> da"
 
 #: lib/ManaTools/Module.pm:108
 #, perl-format
@@ -3510,6 +3510,7 @@ msgstr "Bota arau pertsonalizatuak"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> aukerako lokalizazio kateak dituen direktorioa (garatzaileak bakarrik)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
@@ -3826,6 +3827,8 @@ msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> aukerako modulu bakoitzerako konfigurazio fitxategiak dituen "
+"direktorioa (adib. modulename/config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
@@ -4747,6 +4750,8 @@ msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Aplikazioa izena, erregistro identifikatzailerako  eta x aplikazioren "
+"konfigurazio direktoriorako erabiltzen da. mpan lehenetsia"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
@@ -5148,6 +5153,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Autentifikazioa beharrezkoa da programa manahost exekutatzeko (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5165,6 +5172,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Autentifikazioa beharrezkoa da programa manaproxy exekutatzeko (user="
+"$(user), program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5203,6 +5212,8 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Autentifikazioa beharrezkoa da programa apanel exekutatzeko (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
