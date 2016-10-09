@@ -319,7 +319,11 @@ sub _adminClockPanel {
                             $self->sh_tz->ntp_program($selectedService->label());
                         }
                         if (!$sameConfig) {
-                            eval { $self->sh_tz->setNTPConfiguration($info->{ntp_servers}) };
+                            my $ntpsrv = {
+                                servers => $info->{ntp_servers},
+                                pool => $info->{pool},
+                            };
+                            eval { $self->sh_tz->setNTPConfiguration($ntpsrv) };
                             my $errors = $@;
                             if ($errors) {
                                 $self->sh_gui->warningMsgBox({
@@ -468,6 +472,7 @@ sub _adminClockPanel {
                         my $pool_match = qr/\.pool\.ntp\.org$/;
                         my $server = $item;
                         $info->{ntp_servers} = [  $server =~ $pool_match  ? (map { "$_.$server" } 0 .. 2) : $server ];
+                        $info->{pool} = $server;
                         $ntpLabel->setValue(join (',', @{$info->{ntp_servers}}));
                     }
                     # fixing elapsed time (dialog is modal)

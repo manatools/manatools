@@ -836,7 +836,7 @@ sub ntpServers {
 
 =head3 OUTPUT
 
-    @servers: arrey of configured server
+    @servers: array of configured server
 
 =head3 DESCRIPTION
 
@@ -856,6 +856,10 @@ sub ntpCurrentServers {
     }
     else {
         @serv = map { MDK::Common::Func::if_(/^\s*server\s+(\S*)/, $1) } MDK::Common::File::cat_($configFile);
+        if (! scalar @serv) {
+            ## TODO manage as servers and pool
+            @serv = map { MDK::Common::Func::if_(/^\s*pool\s+(\S*)/, $1) } MDK::Common::File::cat_($configFile);
+        }
     }
 
     my @s = ();
@@ -927,7 +931,9 @@ sub isNTPRunning {
 
 =head3 INPUT
 
-    $servers: Array reference containing NTP server addresses
+    $NTP_servers: HASH reference containing:
+        servers => Array reference containing NTP server addresses
+        pool    => ntp pool address if any
 
 =head3 DESCRIPTION
 
@@ -939,10 +945,13 @@ sub isNTPRunning {
 
 #=============================================================
 sub setNTPConfiguration {
-    my ($self, $servers) = @_;
+    my ($self, $NTP_servers) = @_;
 
-    my $f =  $self->ntp_configuration_file || $self->getNTPServiceConfig($self->ntp_program);;
+    my $f =  $self->ntp_configuration_file || $self->getNTPServiceConfig($self->ntp_program);
     -f $f or return;
+
+    my $servers = $NTP_servers->{servers};
+    my $pool = [ $NTP_servers->{pool} ];
 
     die  $self->loc->N("user does not have the rights to change configuration file, skipped")
         if (!(-w $f));
@@ -955,10 +964,6 @@ sub setNTPConfiguration {
                 $added = 1;
             }
         } $f;
-        if ($self->ntp_program eq "ntpd") {
-            my $ntp_prefix = $self->ntp_conf_dir;
-                MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @{$servers}));
-        }
     }
     else {
         my $added = 0;
@@ -969,6 +974,14 @@ sub setNTPConfiguration {
                 $added = 1;
             }
         } $f;
+        if ($pool) {
+            MDK::Common::File::substInFile {
+                if (/^#?\s*pool\s+(\S*)/ && $1 ne '127.127.1.0') {
+                    $_ = $added ? "#pool $1\n" : join('', map { "pool $_$servername_config_suffix\n" } @{$pool});
+                    $added = 1;
+                }
+            } $f;
+        }
         if ($self->ntp_program eq "ntpd") {
             my $ntp_prefix = $self->ntp_conf_dir;
                 MDK::Common::File::output_p("$ntp_prefix/step-tickers", join('', map { "$_\n" } @{$servers}));
