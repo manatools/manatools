@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-09-14 05:25+0000\n"
+"PO-Revision-Date: 2016-11-05 09:04+0000\n"
 "Last-Translator: Ivica  Kolić <ikoli@yahoo.com>\n"
 "Language-Team: Croatian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hr/)\n"
@@ -67,6 +67,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Razvijatelji</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Prevoditelji</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:381
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -252,11 +259,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
@@ -265,32 +272,32 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "Uklonjivo"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
-msgstr ""
+msgstr "rsync"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr ""
+msgstr "Lista zrcala"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr ""
+msgstr "Odaberite tip medija"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -328,81 +335,81 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr ""
+msgstr "Molim pričekajte, dodajem medij..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr ""
+msgstr "Pregledaj..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 #: lib/ManaTools/Module/Users.pm:728
 msgid "Login:"
-msgstr ""
+msgstr "Prijava:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
 #: lib/ManaTools/Module/Users.pm:738 lib/ManaTools/rpmdragora.pm:188
 msgid "Password:"
-msgstr ""
+msgstr "Lozinka:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
 msgid "Add a medium"
-msgstr ""
+msgstr "Dodaj medij"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
 msgid "Adding a medium:"
-msgstr ""
+msgstr "Dodajem medij:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
 msgid "Type of medium:"
-msgstr ""
+msgstr "Tip medija:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Local files"
-msgstr ""
+msgstr "Lokalne datoteke"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
-msgstr ""
+msgstr "Putanja medija:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
-msgstr ""
+msgstr "FTP poslužitelj"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:724
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
-msgstr ""
+msgstr "RSYNC poslužitelj"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 msgid "HTTP server"
-msgstr ""
+msgstr "HTTP poslužitelj"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr ""
+msgstr "Uklonjivi uređaj (CD-ROM, DVD, ...)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
-msgstr ""
+msgstr "Putanja ili točka montiranja: "
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
 msgid "Medium name:"
-msgstr ""
+msgstr "Ime medija:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "Napravite medij za cijelu distribuciju"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr ""
+msgstr "Označite ovaj medij kao medij ažuriranja"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:307
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:525
@@ -423,7 +430,7 @@ msgstr ""
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
 #: lib/ManaTools/Shared/GUI/Dialog.pm:425 lib/ManaTools/rpmdragora.pm:893
 msgid "&Cancel"
-msgstr ""
+msgstr "&Otkaži"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
@@ -439,7 +446,7 @@ msgstr ""
 #: lib/ManaTools/Shared/GUI.pm:1078 lib/ManaTools/Shared/GUI/Dialog.pm:426
 #: lib/ManaTools/rpmdragora.pm:365
 msgid "&Ok"
-msgstr ""
+msgstr "&U redu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
@@ -451,10 +458,12 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
+"Ondje je već medij sa imenom <%s>,\n"
+"da li ga stvarno želite zamjeniti?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
-msgstr ""
+msgstr "Globalne opcije instalacije paketa"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
@@ -462,15 +471,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
-msgstr ""
+msgstr "nikad"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "always"
-msgstr ""
+msgstr "uvijek"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr ""
+msgstr "Program za preuzimanje koji se koristi:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
@@ -478,45 +487,45 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
-msgstr ""
+msgstr "Nikada"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
-msgstr ""
+msgstr "Na zahtjev"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr ""
+msgstr "Samo ažuriranje"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
-msgstr ""
+msgstr "Uvijek"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr ""
+msgstr "Uklanjanje izvora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr ""
+msgstr "Da li stvarno želite ukloniti izvor \"%s\"?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr ""
+msgstr "Jeste li sigurni da želite ukloniti slijedeće izvore?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr ""
+msgstr "Molimo pričekajte, ukljanjam medij..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
-msgstr ""
+msgstr "Uredi medij"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
 #, perl-format
 msgid "Editing medium \"%s\":"
-msgstr ""
+msgstr "Uređujem medij \"%s\":"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
@@ -528,14 +537,14 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2058
 #: lib/ManaTools/Rpmdragora/pkg.pm:292
 msgid "Enabled"
-msgstr ""
+msgstr "Omogućeno"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2061
 msgid "Updates"
-msgstr ""
+msgstr "Ažuriranja"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 #: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
@@ -544,33 +553,33 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:608 lib/ManaTools/Module/Firewall.pm:823
 #: lib/ManaTools/Module/Firewall.pm:919 lib/ManaTools/Module/Proxy.pm:327
 msgid "&OK"
-msgstr ""
+msgstr "&U redu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
-msgstr ""
+msgstr "&Proxy..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
-msgstr ""
+msgstr "Trebate umetnuti medij za nastavak"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr ""
+msgstr "Ako želite spremiti promjene, trebate umetnuti medij u pogon."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr ""
+msgstr "Podesi proxy-e"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "Proxy postavke za medij \"%s\""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "Globalne proxy postavke"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
@@ -580,7 +589,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
-msgstr ""
+msgstr "Omogući proxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
@@ -592,7 +601,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
-msgstr ""
+msgstr "Korisnik:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1113
@@ -600,28 +609,28 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2182
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 msgid "Ok"
-msgstr ""
+msgstr "U redu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
 msgid "Cancel"
-msgstr ""
+msgstr "Otkaži"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "Dodaj paralelnu grupu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "Uredi paralelnu grupu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr ""
+msgstr "Dodaj limit mediju"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "Odaberite medij za dodavanje limita mediju:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
@@ -634,19 +643,19 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
 msgid "Editing parallel group \"%s\":"
-msgstr ""
+msgstr "Uređivanje paralelne grupe \"%s\":"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
-msgstr ""
+msgstr "Ime grupe:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokol:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
-msgstr ""
+msgstr "Limit medija:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
@@ -654,7 +663,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2162
 msgid "Add"
-msgstr ""
+msgstr "Dodaj"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
@@ -663,7 +672,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2152
 msgid "Remove"
-msgstr ""
+msgstr "Ukloni"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
 msgid "Hosts:"
@@ -676,19 +685,19 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 #: lib/ManaTools/Module/Users.pm:1814
 msgid "Group"
-msgstr ""
+msgstr "Grupa"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
-msgstr ""
+msgstr "Protokol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "Limit medija"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
-msgstr ""
+msgstr "Naredba"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1150
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:148
@@ -697,15 +706,15 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:176 lib/ManaTools/Rpmdragora/pkg.pm:189
 #: lib/ManaTools/Rpmdragora/pkg.pm:208 lib/ManaTools/Rpmdragora/pkg.pm:689
 msgid "(none)"
-msgstr ""
+msgstr "(nijedan)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
-msgstr ""
+msgstr "Uredi..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
 msgid "Add..."
-msgstr ""
+msgstr "Dodaj..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
@@ -715,11 +724,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2068
 msgid "Medium"
-msgstr ""
+msgstr "Medij"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
-msgstr ""
+msgstr "Ključevi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
@@ -727,16 +736,16 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
-msgstr ""
+msgstr "Dodaj ključ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "Odaberi ključ koje ćete dodati na medij %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
-msgstr ""
+msgstr "Ukloni ključ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
 #, perl-format
@@ -744,6 +753,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Jeste li sigurni da želite maknuti ključ  <br>%s<br> sa medija  %s?<br>(ime "
+"ključa: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -753,37 +764,40 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Nije moguće ažurirati medij, prijavljene greške:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2145
 #: modules/rpmdragora/dragora-urpm-sources.pl:38
 msgid "Configure media"
-msgstr ""
+msgstr "Konfiguriraj medij"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
-msgstr ""
+msgstr "Ažuriraj"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "Dodaj specifično zrcalo medija"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "Dodaj prilagođeni medij"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "&Opcije"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
-msgstr ""
+msgstr "Globalne opcije"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
-msgstr ""
+msgstr "Upravljaj ključevima"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
@@ -791,13 +805,13 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr ""
+msgstr "Proxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
 #: lib/ManaTools/Module/Users.pm:2446 modules/rpmdragora/dragoraUpdate:286
 #: modules/rpmdragora/rpmdragora:756
 msgid "&Help"
-msgstr ""
+msgstr "&Pomoć"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
@@ -812,21 +826,21 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2065
 msgid "Type"
-msgstr ""
+msgstr "Tip"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2156
 #: lib/ManaTools/Module/Users.pm:2476
 msgid "Edit"
-msgstr ""
+msgstr "Uredi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
-msgstr ""
+msgstr "Gore"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
 msgid "Down"
-msgstr ""
+msgstr "Dolje"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
@@ -845,12 +859,19 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Razvijatelji</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Prevoditelji</"
+"h3>\n"
+"                                                       <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr ""
+msgstr "Medij se mora ažurirati da bi bio upotrebljiv. Ažurirati sada?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -858,39 +879,39 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/_File"
-msgstr ""
+msgstr "/_Datoteka"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
-msgstr ""
+msgstr "/_Ažuriranje"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>U"
-msgstr ""
+msgstr "<control>U"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "/Dodaj specifično _zrcalo medija"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>M"
-msgstr ""
+msgstr "<control>M"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_Add a custom medium"
-msgstr ""
+msgstr "/_Dodaj prolagođeni medij"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "<control>A"
-msgstr ""
+msgstr "<control>A"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/Close"
-msgstr ""
+msgstr "/Zatvori"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "<control>W"
-msgstr ""
+msgstr "<control>W"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
@@ -901,23 +922,23 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
-msgstr ""
+msgstr "/_Opcije"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
-msgstr ""
+msgstr "/_Globalne opcije"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>G"
-msgstr ""
+msgstr "<control>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/Manage _keys"
-msgstr ""
+msgstr "/Upravljaj _ključevima"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>K"
-msgstr ""
+msgstr "<control>K"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/_Parallel"
@@ -925,30 +946,30 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>P"
-msgstr ""
+msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr ""
+msgstr "/P_roxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
-msgstr ""
+msgstr "<control>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_Help"
-msgstr ""
+msgstr "/_Pomoć"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 msgid "/_Report Bug"
-msgstr ""
+msgstr "/_Prijavi bug"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_About..."
-msgstr ""
+msgstr "/_O programu..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
@@ -961,7 +982,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1998
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2204
 msgid ""
@@ -973,27 +994,27 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
-msgstr ""
+msgstr "Instalirano"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
 msgid "Select a package"
-msgstr ""
+msgstr "Odaberi paket"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Ukloni novu datoteku"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr ""
+msgstr "Koristi novu datoteku"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
-msgstr ""
+msgstr "Ništa ne čini"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
 msgid "Please wait, searching..."
-msgstr ""
+msgstr "Molim pričekajte, tražim..."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
@@ -1003,17 +1024,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 msgid "Unknown"
-msgstr ""
+msgstr "Napoznato"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "%s dodatnog prostora diska će biti korišteno."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "%s prostora diska će biti oslobođeno."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
@@ -1022,7 +1043,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
-msgstr ""
+msgstr "Rezultati pretraživanja"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results (none)"
@@ -1032,7 +1053,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:198 lib/ManaTools/Rpmdragora/icon.pm:199
 #: lib/ManaTools/Rpmdragora/icon.pm:200 lib/ManaTools/Rpmdragora/icon.pm:201
 msgid "Graphical Environment"
-msgstr ""
+msgstr "Grafičko okružje"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:150
 msgid "Security advisory"
@@ -1040,19 +1061,19 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
-msgstr ""
+msgstr "Bez opisa"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "Nije <b>podržano</b> od strane Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "Može  <b>slomiti</b> vaš sustav."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "Ovaj paket nije slobodan software"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
@@ -1060,60 +1081,60 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "Ovaj paket je potencijalni kandidat za ažuriranje."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "Ovo je službeno ažuriranje koje podržava Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "Ovo je neslužbeno ažuriranje."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "ovo je službeni paket koji podržava Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
-msgstr ""
+msgstr "Bilješka:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
-msgstr ""
+msgstr "Značaj: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr ""
+msgstr "Razlog za ažuriranje:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "Inačica: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "Trenutno instalirana inačica:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr ""
+msgstr "Grupa:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "Arhitektura:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
-msgstr ""
+msgstr "Veličina: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:232 lib/ManaTools/rpmdragora.pm:698
 msgid "Medium: "
-msgstr ""
+msgstr "Medij:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
@@ -1121,28 +1142,28 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
-msgstr ""
+msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
-msgstr ""
+msgstr "Pojedinosti:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:343
 msgid "Files:"
-msgstr ""
+msgstr "Datoteke:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:349 lib/ManaTools/Rpmdragora/gui.pm:360
 #: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/pkg.pm:201
 msgid "(Not available)"
-msgstr ""
+msgstr "(Nije dostupno)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:357
 msgid "Changelog:"
-msgstr ""
+msgstr "Zapisnik promjena:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:374
 msgid "New dependencies:"
-msgstr ""
+msgstr "Nove zavisnosti:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:392 lib/ManaTools/Rpmdragora/gui.pm:945
 #: lib/ManaTools/Rpmdragora/gui.pm:949 lib/ManaTools/Rpmdragora/gui.pm:954
@@ -1151,12 +1172,12 @@ msgstr ""
 #: lib/ManaTools/rpmdragora.pm:854 lib/ManaTools/rpmdragora.pm:1069
 #: modules/rpmdragora/rpmdragora:1209
 msgid "Warning"
-msgstr ""
+msgstr "Upozorenje"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "Paket \"%s\" je nađen."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:395
 msgid "However this package is not in the package list."
@@ -1164,7 +1185,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "You may want to update your urpmi database."
-msgstr ""
+msgstr "Možda želite ažurirati vašu urpmi bazu podataka."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:398
 msgid "Matching packages:"
@@ -1173,12 +1194,12 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (medij: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:945
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "Uklanjanje pakete %s slomilo bi vaš sustav"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:949
 #, perl-format
