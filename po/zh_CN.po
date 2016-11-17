@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,12 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# zwpwjwtz <zwpwjwtz@126.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-05-06 08:19+0000\n"
+"PO-Revision-Date: 2016-11-17 13:20+0000\n"
 "Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_CN/)\n"
@@ -149,9 +150,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "加载编录：模块标题为“%s”"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "管理"
+msgstr "%s - 管理工具"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -1925,7 +1926,7 @@ msgstr "文本工具"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:178
 msgid "Toys"
-msgstr ""
+msgstr "玩具"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
 #: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
@@ -2340,9 +2341,9 @@ msgid "Information"
 msgstr "信息"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - 管理主机定义"
+msgstr "%s - 管理主机定义"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2422,36 +2423,34 @@ msgstr "管理主机配置的图形化工具"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "找不到活动的媒介\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== 处理中"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "协议："
+msgstr "使用的协议："
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "尝试"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "成功安装后清除下载缓存"
+msgstr "下载成功\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "参数中未指定软件包\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "显示管理器"
+msgstr "%s - 显示管理"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2500,9 +2499,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "配置显示管理器的图形化工具"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - 防火墙管理器"
+msgstr "%s - 防火墙管理"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2651,9 +2650,9 @@ msgstr ""
 "您想要怎么处理?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "日志查看器"
+msgstr "%s - 日志查看"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2750,9 +2749,9 @@ msgid "Save as.."
 msgstr "另存为..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia 用户管理工具"
+msgstr "%s - 用户管理工具"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3205,9 +3204,9 @@ msgid "Users"
 msgstr "用户"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - 代理配置管理器"
+msgstr "%s - 代理配置"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3256,9 +3255,9 @@ msgid "Graphical manager for proxies"
 msgstr "配置代理服务器的图形化工具"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "服务与守护进程"
+msgstr "%s - 服务和守护程序"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3319,9 +3318,9 @@ msgid "Stopping %s"
 msgstr "停止 %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "日期、时钟与时区设置"
+msgstr "%s - 日期、时钟和时区设置"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4632,9 +4631,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora 更新"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "需要 root 权限"
+msgstr "需要 root 权限，或请运行 <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5252,6 +5251,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "安装、删除和更新软件包的图形化工具"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm：登录管理器"
