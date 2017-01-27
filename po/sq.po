@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,13 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Ardit Dani <ardit.dani@gmail.com>, 2016
+# Ardit Dani <ardit.dani@gmail.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-03-22 10:13+0000\n"
+"PO-Revision-Date: 2017-01-27 01:39+0000\n"
 "Last-Translator: Ardit Dani <ardit.dani@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/sq/)\n"
@@ -148,9 +148,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr ""
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Menaxhim"
+msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -488,7 +488,7 @@ msgstr "Kurrë"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
-msgstr ""
+msgstr "Në-kërkesë"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
@@ -541,7 +541,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2061
 msgid "Updates"
-msgstr "Azhurnime"
+msgstr "Përditësime"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 #: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
@@ -870,7 +870,7 @@ msgstr "/_Skedarë"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
-msgstr "/_Azhurnim"
+msgstr "/_Përditësime"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>U"
@@ -1337,7 +1337,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1671
 msgid "No update"
-msgstr ""
+msgstr "Asnjë përditësim"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1672
 msgid ""
@@ -1345,7 +1345,7 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
-"Lista e azhurnimeve, është bosh. Kjo do të thotë se ose\n"
+"Lista e përditësimeve, është bosh. Kjo do të thotë se ose\n"
 "nuk ka azhurnime për paketat e instaluara në kompjuterin tuaj,\n"
 "ose ju i keni instaluar më herët ato."
 
@@ -1355,7 +1355,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
-msgstr ""
+msgstr "Instaluar"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
@@ -1363,7 +1363,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1746
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "Përshkrimi nuk është në dispozicion për këtë paketë\n"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
 #: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
@@ -1427,7 +1427,7 @@ msgstr "Radio"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
-msgstr ""
+msgstr "Seri"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Telephony"
@@ -1473,7 +1473,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
@@ -1630,7 +1630,7 @@ msgstr "3D"
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Redaktorët dhe Konvertues"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
@@ -1647,7 +1647,7 @@ msgstr "Skanim"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
-msgstr ""
+msgstr "Shikuesit"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
@@ -1715,15 +1715,15 @@ msgstr "Organizues"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:136
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Fletëllogaritjesh"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
-msgstr ""
+msgstr "Paketë"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
-msgstr ""
+msgstr "Përpunues tekstesh"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:139
 msgid "Publishing"
@@ -1931,7 +1931,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:199
 msgid "IceWm Desktop"
-msgstr ""
+msgstr "Mjedisi IceWm"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:200
 msgid "KDE Workstation"
@@ -2027,10 +2027,14 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Kamë nevojë që të kontaktoni pasqyrën, dhe të pranoni informacione të \n"
+"reja mbi përditësimet. Verifikoni rrjetin dhe funksionimin e tij.\n"
+"\n"
+"A dëshironi të vazhdoni?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
-msgstr ""
+msgstr "Media tashmë ekzistuese për përditësime"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:287
 #, perl-format
@@ -2070,6 +2074,11 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"Ju mund ta zgjidhni cilën do pasqyrë nga ana juaj: për t'ia arritur,\n"
+"nisni Software Sources Manager, dhe shto një burim 'Përditësime i\n"
+"Sigurisë'.\n"
+"\n"
+"Dhe, rinisni %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
@@ -2353,9 +2362,8 @@ msgstr ""
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokoll:"
+msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
@@ -2370,9 +2378,9 @@ msgid "no packages passed as argument\n"
 msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "XDM (X Display Manager)"
+msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2578,7 +2586,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:191
 msgid "Until"
-msgstr ""
+msgstr "Deri në"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
@@ -2586,11 +2594,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:240
 msgid "From priority"
-msgstr ""
+msgstr "Nga prioriteti"
 
 #: lib/ManaTools/Module/LogViewer.pm:260
 msgid "To priority"
-msgstr ""
+msgstr "Në prioritet"
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
@@ -2618,6 +2626,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Zhvillues</h3>\n"
+" <ul><li>%s</li>\n"
+" <li>%s</li>\n"
+" </ul>\n"
+"<h3>Përkthyes</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:343
 msgid "Empty log found"
@@ -2639,9 +2653,9 @@ msgid "Save as.."
 msgstr "Ruaj si.."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manuser - Vegël Qeverisëse për Përdoruesit Mageia"
+msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -2729,11 +2743,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Heq përdorues: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "Krijo Grup T'ri"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
@@ -2777,7 +2791,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Shtim grupi: %s "
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
@@ -2794,11 +2808,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Ikon (%s)"
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
-msgstr ""
+msgstr "Krijo një Përdorues të Ri"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
@@ -2814,7 +2828,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Specifikoje ID e përdoruesit manualisht"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
@@ -2822,11 +2836,11 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Kliko në ikonë për ta ndërruar"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Ky përdorues ekziston, ju lutem zgjidhni një Pëdorues tjetër"
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
@@ -2872,12 +2886,12 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr ""
+msgstr "Shtim përdoruesi:"
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Shtim përdoruesi: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
@@ -3072,9 +3086,9 @@ msgid "Users"
 msgstr "Përdorues"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "Konfigurimi"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3182,9 +3196,9 @@ msgid "Stopping %s"
 msgstr "Ndalim %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Data, Ora & Konfigurimet Kohës me Zona"
+msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4044,7 +4058,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr "Azhurnimi Mageia"
+msgstr "Përditësimi Mageia"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
@@ -4211,7 +4225,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
 msgid "Update media"
-msgstr ""
+msgstr "Përditësimi i medies"
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
@@ -4234,7 +4248,7 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
-"I pa mundur azhurnimi i medium; do të shkëputet automatikisht.\n"
+"I pa mundur përditësimi i medium; do të shkëputet automatikisht.\n"
 "\n"
 "Gabimet:\n"
 "%s"
@@ -4295,7 +4309,7 @@ msgstr ""
 "\n"
 "Mund të jenë shumë arsye; më e shpeshta është\n"
 "mbi të gjitha, arkitektura e procesorit tuaj nuk mundë të\n"
-"përkrahet nga Azhurnimi i Mageia Zyrtar"
+"përkrahet nga Përditësimi i Mageia Zyrtar"
 
 #: lib/ManaTools/rpmdragora.pm:1044
 msgid "Please choose the desired mirror."
@@ -4551,7 +4565,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Shfaq %s dhe jo arch"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4603,7 +4617,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Korrigjimi-gabimeve përditësime"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
@@ -4619,7 +4633,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "në përmbledhjet"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
@@ -4635,7 +4649,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Apliko"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4659,7 +4673,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Rivendos përzgjedhjen"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -4875,12 +4889,12 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "Përditësoni sistemin Tuaj"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr "Konfiguro burimet e medieve për të instalim dhe azhurnim"
+msgstr "Konfiguro burimet e medieve për të instalim dhe përditësimet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4898,7 +4912,7 @@ msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
@@ -4914,7 +4928,7 @@ msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
@@ -4938,7 +4952,7 @@ msgstr ""
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
@@ -4962,7 +4976,7 @@ msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
@@ -5026,7 +5040,7 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
