@@ -10,23 +10,25 @@
 #
 # Translators:
 # Daniel Napora <napcok@gmail.com>, 2016
-# Dominik Grzywak, 2015
-# Szymon Scholz <szymonscholz@gmail.com>, 2016
+# Dominik Adrian Grzywak, 2015
+# Marcin Wyka <padocholik@protonmail.com>, 2016
+# Uzerus <szymonscholz@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-11-14 09:59+0000\n"
-"Last-Translator: Szymon Scholz <szymonscholz@gmail.com>\n"
+"PO-Revision-Date: 2016-11-17 07:53+0000\n"
+"Last-Translator: Marcin Wyka <padocholik@protonmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "pl/)\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
+"%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: lib/ManaTools/MainDisplay.pm:247
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -163,7 +165,7 @@ msgstr "Użycie: %s [OPCJA]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "--automatycznie uznaj domyślne odpowiedzi na pytania"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
@@ -188,43 +190,47 @@ msgstr ""
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
-msgstr ""
+msgstr "--justdb aktualizuje bazę danych, ale nie modyfikuje systemu plików"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
+"--no-confirmation nie pyta za pierwszym razem o potwierdzenie w trybie "
+"aktualizacji"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "--no-media-update nie aktualizuje mediów przy starcie"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "--no-verify-rpm nie weryfikuje podpisów pakietów"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+",,parallel=alias,host działa w trypie równoległym, użyj grupy \"alias\", "
+"użyj maszyny \"host\" aby pokazać wymagane zależności"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
-msgstr ""
+msgstr "--rpm-root=path używa innego roota dla instalacji pakietów rpm"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
-msgstr ""
+msgstr "--urpmi-root używa innego roota dla instalacji db & rpm dla urpmi"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "--run-as-root wymusza uruchomienie jako root"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "--search=pkg szuka \"pkg\""
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
