@@ -13,12 +13,13 @@
 # psyca, 2015-2017
 # psyca, 2015
 # valsu <valsu@hylia.de>, 2015
+# Walter Marek <wm6369@gmx.net>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-02-24 12:00+0000\n"
+"PO-Revision-Date: 2017-03-10 21:15+0000\n"
 "Last-Translator: psyca\n"
 "Language-Team: German (http://www.transifex.com/MageiaLinux/mageia/language/"
 "de/)\n"
@@ -3945,6 +3946,11 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"CRON ist ein Standard UNIX Programm, dass Nutzerspezifische Programme\n"
+"zu regelmäßig geplanten Zeiten startet. \"Vixie cron\" erweitert das "
+"grundlegende\n"
+"\"UNIX Cron\" um einige Funktionen, einschließlich verbesserter \n"
+"Sicherheitsfunktionen und mehrere leistungsfähige Konfigurations-Optionen."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
@@ -4028,6 +4034,12 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"Der Internet Superserver Dienst/Daemon (gemeinhin inetd genannt) startet\n"
+"eine Vielfalt von anderen erforderlichen Internet Services. Er ist zuständig "
+"für\n"
+"den Start von vielen Services, einschließlich Telnet, FTP, RSH und RLOGIN.\n"
+"Ein Ausschalten von inetd schaltet alle Services ab,  für die er zuständig "
+"ist."
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -4079,6 +4091,8 @@ msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"Linuxconf steuert manchmal verschiedene Tasks beim Hochfahren\n"
+"um die Funktionalität der Systemkonfiguration zu gewährleisten."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
@@ -4121,6 +4135,8 @@ msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"named (BIND) ist ein Domain Name Server (DNS) welcher verwendet wird um Host-"
+"Namen in IP Adressen umzuwandeln"
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
@@ -4131,6 +4147,8 @@ msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Ein- und Aushängen aller Network File System (NFS), SMB (Lan\n"
+"Manager/Windows) und NCP (NetWare) Einhängepunkte. "
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
@@ -4164,6 +4182,8 @@ msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS ist ein beliebtes File-Sharing Protokoll für TCP/IP Netzwerke.\n"
+"Dieser Service unterstützt die Funktionalität \"NFS Datei Sperre\". "
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
@@ -4206,6 +4226,9 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"Der Portmapper verwaltet RPC Verbindungen, die von Protokollen wie\n"
+"NFS und NIS verwendet werden. Der Portmap Server muss auf Rechnern\n"
+"laufen, die als Server den RPC Mechanismus verwenden, "
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -4257,6 +4280,8 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"Syslog ist das Werkzeug, dass von vielen Diensten für die Ausgabe von Log "
+"files verwendet wird. Es wird empfohlen, syslog immer laufen zu lassen."
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
@@ -4271,6 +4296,9 @@ msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"Das rwho Protokoll ermöglicht es remote user eine Liste aller in einer "
+"Maschine eingeloggten User, die den rwho Dienst verwenden, zu bekommen "
+"(ähnlich zu finger)"
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
@@ -4312,6 +4340,8 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog ist das Werkzeug, dass von vielen Diensten für die Ausgabe von Log "
+"files verwendet wird. Es wird empfohlen, syslog immer laufen zu lassen."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -4754,6 +4784,8 @@ msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Anwendungsname, wird verwendet als Identifikation fürs Logging und für das "
+"Konfigurationsverzeichnis von x Anwendungen. Standard ist mpan "
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
