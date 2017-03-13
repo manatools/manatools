@@ -78,7 +78,6 @@ WriteMakefile(
                        scripts/manaservice
                        scripts/manauser
                        scripts/manawall
-                       scripts/urpm-downloader
                        modules/contribfinder.py
                        modules/rpmdragora/dragora-urpm-addmedia
                        modules/rpmdragora/dragora-urpm-sources.pl
@@ -113,7 +112,7 @@ PL_FILES = $(shell find lib/ManaTools/ -type f -name "*.pm") \
 ITS_FILES = -i extras/polkit/policy.its \
             -i extras/conf/mpan/categories.its \
             -i extras/conf/mpan/settings.its \
-            -i extras/conf/manawall/manawall.its 
+            -i extras/conf/manawall/manawall.its
 
 # polkit files
 POL_IN_FILES = $(shell find extras/polkit/*.policy.in)
@@ -137,7 +136,7 @@ GOALS = $(PGOAL).pot  $(MOFILES)
 
 locales: $(GOALS)
 
-install_locales: $(MOFILES) 
+install_locales: $(MOFILES)
 	# add translation in policy file
 	for p in $(POL_IN_FILES); do \
 		itstool -j $$p $(ITS_FILES) -o "$${p%.*}" `ls po/*.mo`; \
@@ -165,7 +164,7 @@ $(PGOAL).pot: manatools_perl.pot manapol.pot manaconf.pot manadesktop.pot
 	msgcat po/manatools_perl.pot po/manapol.pot \
 	po/manaconf.pot po/manadesktop.pot > po/$@
 
-manatools_perl.pot: $(PL_FILES)  
+manatools_perl.pot: $(PL_FILES)
 	xgettext --from-code=UTF-8 --language=Perl -D ./ -o po/$@ \
 		--msgid-bugs-address="https://bugs.mageia.org/" \
 		--package-name=$(NAME) --package-version=$(VERSION) \
@@ -180,8 +179,8 @@ manaconf.pot: $(CONF_IN_FILES)
 	itstool -o po/$@ $(ITS_FILES) $(CONF_IN_FILES)
 
 manadesktop.pot: $(DESKTOP_IN_FILES)
-	xgettext $(DESKTOP_IN_FILES) -o po/manadesktop.pot 
-	
+	xgettext $(DESKTOP_IN_FILES) -o po/manadesktop.pot
+
 update_n_merge: $(PGOAL).pot merge
 
 merge:
