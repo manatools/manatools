@@ -1,24 +1,33 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
 # Translators:
-# faradundamarti <faradundamarti@yandex.com>, 2015
-# Fırat Kutlu <firatkutlu@gmail.com>, 2015
-# Atilla ÖNTAŞ <tarakbumba@gmail.com>, 2015, 2016.
+# tarakbumba <tarakbumba@gmail.com>, 2015
+# tarakbumba <tarakbumba@gmail.com>, 2015-2016
+# mahmut özcan <faradundamarti@yandex.com>, 2015
+# Fırat Kutlu <firatkutlu@yandex.com>, 2015
+# tarakbumba <tarakbumba@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-04-03 21:23+0300\n"
-"Last-Translator: Atilla ÖNTAŞ <tarakbumba@gmail.com>\n"
-"Language-Team: Mageia Turkish Translation Team <i18n-tr@ml.mageia.org>\n"
+"PO-Revision-Date: 2017-03-15 13:43+0000\n"
+"Last-Translator: tarakbumba <tarakbumba@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/MageiaLinux/mageia/language/"
+"tr/)\n"
 "Language: tr\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Virtaal 0.7.1\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
 #: lib/ManaTools/MainDisplay.pm:247
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
@@ -148,9 +157,9 @@ msgid "Load categories: module title is <<%s>>"
 msgstr "Kategoriler yükleniyor: modül başlığı <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Management Tool"
-msgstr "Yönetim"
+msgstr "%s - Yönetim Aracı"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -2368,9 +2377,9 @@ msgid "Information"
 msgstr "Bilgi"
 
 #: lib/ManaTools/Module/Hosts.pm:48
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - manage hosts definitions"
-msgstr "manahost - makine tanımlamalarını yönet"
+msgstr "%s - makine tanımlamalarını yönet"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2450,36 +2459,34 @@ msgstr "Makine tanımlamaları için grafiksel yönetici"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "etkin veri ortamı bulunamadı\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== İşleniyor"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
-#, fuzzy
 msgid "protocol in use: "
-msgstr "Protokol:"
+msgstr "kullanımda olan protokol:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
-msgstr ""
+msgstr "şununla deneniyor:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
-#, fuzzy
 msgid " downloaded successfully\n"
-msgstr "Başarılı bir kurulumdan sonra indirme ön belleğini temizle"
+msgstr "başarıyla indirildi\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "argüman olarak hiç paket verilmedi\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Display Manager"
-msgstr "Ekran Yöneticisi"
+msgstr "%s - Ekran Yöneticisi"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
@@ -2530,9 +2537,9 @@ msgid "Graphical configurator for system Display Manager"
 msgstr "Sistem Görüntü Yöneticisi için grafiksel yapılandırıcı"
 
 #: lib/ManaTools/Module/Firewall.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Firewall Manager"
-msgstr "manawall - Güvenlik Duvarı Yöneticisi"
+msgstr "%s - Güvenlik Duvarı Yöneticisi"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2687,9 +2694,9 @@ msgstr ""
 "Ne yapmak istersiniz?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "Günlük görüntüleyici"
+msgstr "%s - Günlük görüntüleyici"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2788,9 +2795,9 @@ msgid "Save as.."
 msgstr "Farklı Kaydet..."
 
 #: lib/ManaTools/Module/Users.pm:107
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Users Management Tool"
-msgstr "manauser - Mageia Kullanıcı Yönetim Aracı"
+msgstr "%s - Kullanıcı Yönetim Aracı"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -3247,9 +3254,9 @@ msgid "Users"
 msgstr "Kullanıcılar"
 
 #: lib/ManaTools/Module/Proxy.pm:53
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Proxy configuration"
-msgstr "manaproxy - Vekil sunucu ayarları"
+msgstr "%s - Vekil Sunucu Yapılandırması"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
@@ -3300,9 +3307,9 @@ msgid "Graphical manager for proxies"
 msgstr "Vekil sunucular için grafiksel yönetici"
 
 #: lib/ManaTools/Module/Services.pm:86
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Services and daemons"
-msgstr "Hizmetler ve artalan süreçleri"
+msgstr "%s - Hizmetler ve artalan süreçleri"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3364,9 +3371,9 @@ msgid "Stopping %s"
 msgstr "%s durduruluyor"
 
 #: lib/ManaTools/Module/Clock.pm:79
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "Tarih, Saat & Zaman Dilimi Ayarları"
+msgstr "%s - Tarih, Saat & Zaman Dilimi Ayarları"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
@@ -4761,9 +4768,9 @@ msgid "rpmdragora update"
 msgstr "rpmdragora güncelleme"
 
 #: modules/rpmdragora/dragoraUpdate:68
-#, fuzzy, perl-format
+#, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr "kök yetkileri gerekli"
+msgstr "kök yetkileri gerekli veya bunun yerine <%s> çalıştırın"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -5397,45 +5404,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Paketleri kurmak, kaldırmak ve güncellemek için grafiksel bir önyüz"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - Ekran Yöneticisi"
-
-#~ msgid "Select all"
-#~ msgstr "Tümünü Seç"
-
-#~ msgid "Exit"
-#~ msgstr "Çıkış"
-
-#~ msgid "Quit"
-#~ msgstr "Çık"
-
-#, fuzzy
-#~ msgid "/usr/bin/rpmdragora"
-#~ msgstr "rpmdragora"
-
-#, fuzzy
-#~ msgid "/usr/bin/dragoraUpdate"
-#~ msgstr "rpmdragora güncelleme"
-
-#, fuzzy
-#~ msgid "images/rpmdragora/title-update.png"
-#~ msgstr "rpmdragora güncelleme"
-
-#, fuzzy
-#~ msgid "ManaTools::Module::DisplayManager"
-#~ msgstr "Ekran Yöneticisi"
-
-#~ msgid "adminService"
-#~ msgstr "adminService"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Translators</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
-#~ msgstr ""
-#~ "<h3>Geliştiriciler</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>\n"
-#~ "                                                    <h3>Çevirmenler</h3>\n"
-#~ "                                                    <ul><li>%s</li></ul>"
