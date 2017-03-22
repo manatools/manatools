@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -9,13 +9,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# scootergrisen, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-03-13 20:35+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2017-03-21 20:55+0000\n"
+"Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
 "Language: da\n"
@@ -322,6 +323,13 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Dette vil forsøge at installere alle de officilelle kilder svarende til din\n"
+"distribution %s\n"
+"\n"
+"Jeg skal kontakte Mageias websted for at hente spejllisten.\n"
+"Kontrollér venligst at dit netværk er startet.\n"
+"\n"
+"Er det OK at fortsætte?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
@@ -598,7 +606,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2182
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
@@ -2014,6 +2022,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Må kontakte spejlet for at hente de seneste opdateringspakker.\n"
+"Kontrollér venligst at dit netværk er startet.\n"
+"\n"
+"Er det OK at fortsætte?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
@@ -2043,6 +2055,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Må kontakte Mageias websted for at hente spejllisten.\n"
+"Kontrollér venligst at dit netværk er startet.\n"
+"\n"
+"Er det OK at fortsætte?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
@@ -2149,7 +2165,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
-msgstr ""
+msgstr "Er det OK at fortsætte?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
@@ -2460,7 +2476,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:712
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "Hvilke tjenester vil du tillade at internettet kan koble op med?"
 
 #: lib/ManaTools/Module/Firewall.pm:713
 #, perl-format
@@ -2705,7 +2721,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Slet hjemmekatalog: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
@@ -2934,19 +2950,19 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Dage før ændring er tilladt:"
 
 #: lib/ManaTools/Module/Users.pm:1720
 msgid "Days before change required:"
-msgstr ""
+msgstr "Dage før ændring er krævet:"
 
 #: lib/ManaTools/Module/Users.pm:1728
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Advarsel gives antal dage før ændring:"
 
 #: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Dage før konto deaktiveres:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
@@ -3664,7 +3680,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "Anacron en periodisk kommando planlægger."
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
@@ -3677,6 +3693,9 @@ msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"Kører planlagte kommandoer med 'at' kommandoen på tiden specificeret da 'at' "
+"blev kørt, og kører batch kommandoer når den gennemsnitlige systembelastning "
+"er lav nok."
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
@@ -3844,12 +3863,16 @@ msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Monterer og afmonterer alle netværks filsystemer (NFS), SMB (LanManager/"
+"Windows) og NCP (NetWare) monterings-stier."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Aktiverer/deaktiverer alle netværks-kort som er konfigureret\n"
+"til at starte ved opstart."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
@@ -3865,12 +3888,17 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"NFS er en populær protokol til fildeling over TCP/IP netværk.\n"
+"Denne tjeneste giver NFS-serverfunktionalitet, som konfigureres gennem /etc/"
+"exports filen."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS er en populær protokol til fildeling over TCP/IP\n"
+"netværk. Denne service giver NFS fillåsnings funktionalitet."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
@@ -3905,6 +3933,9 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"Portmapper håndterer RPC tilslutninger, som bliver brugt af protokoller som "
+"NFS og NIS. Portmap serveren skal køre på maskiner som bruger protokoller "
+"der udnytter RPC mekanismen."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -3950,12 +3981,17 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"Syslog er faciliteten som mange dæmoner bruger til at logge beskeder i "
+"forskellige logfiler.\n"
+"Det er en god idé altid at køre rsyslog."
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"rusers protokollen tillader brugere på et netværk a identificere\n"
+"hvem der er logget på andre maskiner."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
@@ -3967,6 +4003,8 @@ msgstr ""
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
+"SANE (Scanner Access Now Easy) giver adgang til skannere, filmkameraer og "
+"lignende"
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -3997,6 +4035,8 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog er en facilitet som mange dæmoner bruger til log beskeder\n"
+"Det er en god idé altid at køre syslog."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -4064,7 +4104,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
-msgstr "O.k."
+msgstr "OK"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
@@ -4242,7 +4282,7 @@ msgstr ""
 "Jeg skal have adgang til internet for at hente spejllisten.\n"
 "Kontrollér venligst at dit netværk kører i øjeblikket.\n"
 "\n"
-"Er det O.k. at fortsætte?"
+"Er det OK at fortsætte?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
@@ -4710,6 +4750,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Er det OK at fortsætte?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
