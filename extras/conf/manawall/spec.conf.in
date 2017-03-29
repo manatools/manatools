@@ -153,4 +153,12 @@
     <pos>20</pos>
     <hide />
 </server>
+<server>
+    <id>ident</id>
+    <description xml:lang="en">Identification Protocol server (ident)</description>
+    <packages>oidentd nullidentd </packages>
+    <ports>113/tcp</ports>
+    <pos>21</pos>
+    <hide />
+</server>
 </servers>
