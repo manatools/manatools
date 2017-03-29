@@ -3,7 +3,7 @@
 <server>
     <id>www</id>
     <description xml:lang="en">Web Server</description>
-    <packages>apache apache-mod_perl lighttpd nginx</packages>
+    <packages>apache apache-mod_perl lighttpd nginx hiawatha jetty jetty8</packages>
     <ports>80/tcp 443/tcp</ports>
     <pos>1</pos>
 </server>
