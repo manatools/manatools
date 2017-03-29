@@ -3,7 +3,7 @@
 <server>
     <id>www</id>
     <description xml:lang="en">Web Server</description>
-    <packages>apache apache-mod_perl boa lighttpd thttpd</packages>
+    <packages>apache apache-mod_perl lighttpd nginx</packages>
     <ports>80/tcp 443/tcp</ports>
     <pos>1</pos>
 </server>
@@ -24,7 +24,7 @@
 <server>
     <id>ftp</id>
     <description xml:lang="en">FTP server</description>
-    <packages>ftp-server-krb5 wu-ftpd proftpd pure-ftpd</packages>
+    <packages>proftpd pure-ftpd</packages>
     <ports>20/tcp 21/tcp</ports>
     <pos>2</pos>
 </server>
@@ -39,7 +39,7 @@
 <server>
     <id>mail</id>
     <description xml:lang="en">Mail Server</description>
-    <packages>sendmail postfix qmail exim</packages>
+    <packages>sendmail postfix</packages>
     <ports>25/tcp 465/tcp 587/tcp</ports>
     <pos>6</pos>
 </server>
@@ -53,7 +53,7 @@
 <server>
     <id>telnet</id>
     <description xml:lang="en">Telnet server</description>
-    <packages>telnet-server-krb5</packages>
+    <packages>netkit-telnet-server</packages>
     <ports>23/tcp</ports>
     <pos>8</pos>
     <hide />
@@ -61,7 +61,7 @@
 <server>
     <id>nfs</id>
     <description xml:lang="en">NFS Server</description>
-    <packages>nfs-utils nfs-utils-clients</packages>
+    <packages>nfs-utils</packages>
     <ports>111/tcp 111/udp 2049/tcp 2049/udp</ports>
     <pos>9</pos>
     <hide />
@@ -71,14 +71,14 @@
 <server>
     <id>smbserver</id>
     <description xml:lang="en">Windows Files Sharing (CIFS Server)</description>
-    <packages>samba-server swat</packages>
+    <packages>samba swat</packages>
     <ports>137/udp 138/udp 139/tcp 445/tcp 901/tcp 389/tcp</ports>
     <pos>10</pos>
 </server>
 <server>
     <id>bacula</id>
     <description xml:lang="en">Bacula backup</description>
-    <packages>bacula-fd bacula-sd bacula-dir-common</packages>
+    <packages>bacula-fd bacula-sd</packages>
     <ports>9101:9103/tcp</ports>
     <pos>11</pos>
     <hide />
@@ -102,7 +102,7 @@
 <server>
     <id>mysql</id>
     <description xml:lang="en">MySQL server</description>
-    <packages>mysql</packages>
+    <packages>mariadb</packages>
     <ports>3306/tcp 3306/udp</ports>
     <pos>14</pos>
     <hide />
@@ -110,7 +110,7 @@
 <server>
     <id>postgresql</id>
     <description xml:lang="en">PostgreSQL server</description>
-    <packages>postgresql8.2 postgresql8.3</packages>
+    <packages>postgresql9.4 postgresql9.6</packages>
     <ports>5432/tcp 5432/udp</ports>
     <pos>15</pos>
     <hide />
@@ -134,7 +134,7 @@
     <description xml:lang="en">BitTorrent</description>
     <ports>6881:6999/tcp 6881:6999/udp</ports>
     <hide />
-    <packages>bittorrent deluge ktorrent transmission vuze rtorrent ctorrent</packages>
+    <packages>bittorrent deluge ktorrent transmission-common vuze rtorrent</packages>
     <pos>18</pos>
 </server>
 <server>
