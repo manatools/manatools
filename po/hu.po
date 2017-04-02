@@ -1,4 +1,4 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the PACKAGE package.
@@ -16,8 +16,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-03-03 20:54+0000\n"
-"Last-Translator: Csaba Mészáros <pingvin@y2k.hu>\n"
+"PO-Revision-Date: 2017-04-02 14:28+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -2543,9 +2543,9 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:81
-#, fuzzy, perl-format
+#, perl-format
 msgid "%s - Log viewer"
-msgstr "A Mageia Naplók megtekintésének indítása"
+msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -2681,7 +2681,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Valóban törölni szeretné a következő csoportot: %s ?"
 
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2343
@@ -2694,6 +2694,8 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s csoport a %s felhasználó elsődleges csoportja.\n"
+"Először a felhasználót kell törölni"
 
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
@@ -2878,7 +2880,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr ""
+msgstr "Felhasználó azonosító"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
@@ -2911,7 +2913,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
-msgstr ""
+msgstr "Csoport tagok"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
@@ -2931,7 +2933,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "Kattintson az ikonra a megváltoztatásához"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
