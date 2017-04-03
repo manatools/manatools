@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-03-31 20:11+0000\n"
+"PO-Revision-Date: 2017-04-03 15:41+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -32,7 +32,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:441 lib/ManaTools/Module/Clock.pm:190
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
+msgstr "scootergrisen\n"
 
 #: lib/ManaTools/MainDisplay.pm:253
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
@@ -120,17 +120,17 @@ msgstr ""
 #: lib/ManaTools/MainDisplay.pm:592
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Konfigurationsfilen %s mangler"
 
 #: lib/ManaTools/MainDisplay.pm:597
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "Læser konfigurationsfilen %s"
 
 #: lib/ManaTools/MainDisplay.pm:614
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Indlæs indstillinger: %s indhold er <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
@@ -140,22 +140,22 @@ msgstr ""
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Indlæs kategorier: titelindhold er <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:816
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Indlæs kategorier: modulindhold er <<%s>>"
 
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "%s - Håndteringsværktøj"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "Anvendelse: %s [TILVALG]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
@@ -236,7 +236,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
-msgstr ""
+msgstr "Kører i brugertilstand"
 
 #: lib/ManaTools/Rpmdragora/init.pm:176
 msgid ""
@@ -244,6 +244,9 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"Du er ved at starte dette program som en normal bruger.\n"
+"Du vil ikke være i stand til at ændre på systemet,\n"
+"men du kan stadig gennemse den eksisterende database."
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:100
 #: lib/ManaTools/Rpmdragora/gui.pm:1574
@@ -254,7 +257,7 @@ msgstr "Fatal fejl"
 #: lib/ManaTools/Rpmdragora/gui.pm:1575 lib/ManaTools/Rpmdragora/pkg.pm:494
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr ""
+msgstr "Der opstod en fatal fejl: %s."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
@@ -399,7 +402,7 @@ msgstr "HTTP-server"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr ""
+msgstr "Flytbare enheder (CD-ROM, DVD, ...)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
@@ -411,11 +414,11 @@ msgstr "Medienavn:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "Opret medie til en hel distribution"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr ""
+msgstr "Mærk dette medie som et opdateringsmedie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:307
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:525
@@ -471,7 +474,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr ""
+msgstr "Bekræft RPM'er som skal installeres:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
@@ -499,7 +502,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr ""
+msgstr "Kun opdatering"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
@@ -512,15 +515,15 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr ""
+msgstr "Er du sikker på, at du vil fjerne kilden \"%s\"?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr ""
+msgstr "Er du sikker på, at du vil fjerne følgende kilder?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr ""
+msgstr "Vent venligst, fjerner medie..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
@@ -529,11 +532,11 @@ msgstr "Rediger et medie"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
 #, perl-format
 msgid "Editing medium \"%s\":"
-msgstr ""
+msgstr "Redigerer medie \"%s\":"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
-msgstr ""
+msgstr "Downloader:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1642
@@ -583,7 +586,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "Globale proxy-indstillinger"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
@@ -622,19 +625,19 @@ msgstr "Annuller"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "Tilføj en parallel gruppe"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "Rediger en parallel gruppe"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr ""
+msgstr "Tilføj en mediebegrænsning"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "Vælg et medie som skal tilføjes til mediebegrænsningen:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
@@ -647,7 +650,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
 msgid "Editing parallel group \"%s\":"
-msgstr ""
+msgstr "Redigerer parallelgruppe \"%s\":"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
@@ -780,11 +783,11 @@ msgstr "Opdater"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "Tilføj et specifikt mediespejl"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "Tilføj et brugerdefineret medie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
@@ -800,7 +803,7 @@ msgstr "Håndter nøgler"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "Parallel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
@@ -875,11 +878,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
-msgstr ""
+msgstr "/_Opdater"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>U"
-msgstr ""
+msgstr "<control>O"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
@@ -899,7 +902,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/Close"
-msgstr ""
+msgstr "/Luk"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "<control>W"
@@ -918,54 +921,54 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
-msgstr ""
+msgstr "/_Globale valgmuligheder"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>G"
-msgstr ""
+msgstr "<control>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/Manage _keys"
-msgstr ""
+msgstr "/Håndter _nøgler"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>K"
-msgstr ""
+msgstr "<control>N"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/_Parallel"
-msgstr ""
+msgstr "/_Parallel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>P"
-msgstr ""
+msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "/P_roxy"
-msgstr ""
+msgstr "/P_roxy"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1984
 msgid "<control>R"
-msgstr ""
+msgstr "<control>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_Help"
-msgstr ""
+msgstr "/_Hjælp"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 msgid "/_Report Bug"
-msgstr ""
+msgstr "/_Rapportér fejl"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_About..."
-msgstr ""
+msgstr "/_Om..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
-msgstr ""
+msgstr "Rpmdragora"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1994
 #, perl-format
@@ -990,11 +993,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
 msgid "Select a package"
-msgstr ""
+msgstr "Vælg en pakke"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Fjern ny fil"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
@@ -1081,11 +1084,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "Dette er en uofficiel opdatering."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "Dette er en officiel pakke som understøttes af Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
@@ -1105,7 +1108,7 @@ msgstr "Version:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "Nuværende installeret version: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
@@ -1169,7 +1172,7 @@ msgstr "Advarsel"
 #: lib/ManaTools/Rpmdragora/gui.pm:394
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "Pakken \"%s\" blev fundet."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:395
 msgid "However this package is not in the package list."
@@ -1216,11 +1219,11 @@ msgstr "Vælg venligst"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1179
 msgid "The following package is needed:"
-msgstr ""
+msgstr "Den følgende pakke behøves:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1179
 msgid "One of the following packages is needed:"
-msgstr ""
+msgstr "Der er brug for en af de følgende pakker:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1291
 msgid "Select package"
@@ -1228,7 +1231,7 @@ msgstr "Vælg pakke"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1389
 msgid "Checking dependencies of package..."
-msgstr ""
+msgstr "Tjekker afhængigheder for pakke..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Some additional packages need to be removed"
@@ -1353,7 +1356,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
-msgstr ""
+msgstr "Kan opgraderes"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
@@ -1361,11 +1364,11 @@ msgstr "Installeret"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1712 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
-msgstr ""
+msgstr "Kan tilføjes"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1746
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "Beskrivelse ikke tilgængelig for denne pakke\n"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
 #: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
@@ -1673,11 +1676,11 @@ msgstr "IRC"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:124
 msgid "Instant messaging"
-msgstr ""
+msgstr "Chatbeskeder"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
 msgid "Mail"
-msgstr ""
+msgstr "Post"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:126
 msgid "News"
@@ -1814,11 +1817,11 @@ msgstr "System"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:158
 msgid "Base"
-msgstr ""
+msgstr "Base"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
-msgstr ""
+msgstr "Opstart og initialisering"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:160
 msgid "Cluster"
@@ -1835,7 +1838,7 @@ msgstr "Skrifttyper"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:163
 msgid "True type"
-msgstr ""
+msgstr "True type"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:164
 msgid "Type1"
@@ -2005,7 +2008,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr ""
+msgstr "Downloader pakke `%s'..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2036,7 +2039,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
-msgstr ""
+msgstr "Allerede eksisterende opdateringsmedie"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:287
 #, perl-format
@@ -2083,7 +2086,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
-msgstr ""
+msgstr "Læser opdateringsbeskrivelse"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
@@ -2358,7 +2361,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
-msgstr ""
+msgstr "== Behandler"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:180
 #: lib/ManaTools/Module/PkgDownloader.pm:189
@@ -2436,12 +2439,12 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
-msgstr ""
+msgstr "Registrering af portskanning"
 
 #: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
 #: lib/ManaTools/Module/Firewall.pm:1008
 msgid "Firewall configuration"
-msgstr ""
+msgstr "Firewall-konfiguration"
 
 #: lib/ManaTools/Module/Firewall.pm:416
 msgid ""
@@ -2459,7 +2462,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:486
 msgid "Interactive Firewall"
-msgstr ""
+msgstr "Interaktiv firewall"
 
 #: lib/ManaTools/Module/Firewall.pm:490
 msgid ""
@@ -2470,7 +2473,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:496
 msgid "Use Interactive Firewall"
-msgstr ""
+msgstr "Brug interaktiv firewall"
 
 #: lib/ManaTools/Module/Firewall.pm:658
 msgid "Graphical manager for interactive firewall rules"
@@ -2479,7 +2482,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
 #: lib/ManaTools/Module/Firewall.pm:1097
 msgid "Firewall"
-msgstr ""
+msgstr "Firewall"
 
 #: lib/ManaTools/Module/Firewall.pm:712
 msgid "Which services would you like to allow the Internet to connect to?"
@@ -2496,7 +2499,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:820
 msgid "A&dvanced"
-msgstr ""
+msgstr "&Avanceret"
 
 #: lib/ManaTools/Module/Firewall.pm:854
 msgid "Graphical manager for firewall rules"
@@ -2515,7 +2518,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:906
 msgid "Other ports"
-msgstr ""
+msgstr "Andre porte"
 
 #: lib/ManaTools/Module/Firewall.pm:914
 msgid "Log firewall messages in system logs"
@@ -3621,7 +3624,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "start ved brug af yui ncurses-plugin-implementation"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
@@ -4599,7 +4602,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Vis kun %s og noarch"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4707,7 +4710,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Nulstil valget"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -4885,12 +4888,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Kør Mageia-firewall-konfiguration"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Autentifikation kræves for at køre Mageia-firewall-konfiguration"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
