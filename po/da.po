@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-03 15:41+0000\n"
+"PO-Revision-Date: 2017-04-03 19:04+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -116,6 +116,8 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Dårlig konfigurationsfil, %s har ikke xml:lang-attribut, gætter på det er17 "
+"en streng"
 
 #: lib/ManaTools/MainDisplay.pm:592
 #, perl-format
@@ -135,7 +137,7 @@ msgstr "Indlæs indstillinger: %s indhold er <<%s>>"
 #: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Parsing kategorifilen %s"
 
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
@@ -159,17 +161,18 @@ msgstr "Anvendelse: %s [TILVALG]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "  --auto                 brug standardsvar til alle spørgsmål."
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
 "  --changelog-first      display changelog before filelist in the "
 "description window"
 msgstr ""
+"  --changelog-first      vis ændringslog før filliste i beskrivelsesvinduet"
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "  --media=medium1,..     begræns til angivet medie"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
@@ -459,7 +462,7 @@ msgstr "&Ok"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
-msgstr ""
+msgstr "Du skal mindst udfylde de to første poster."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
 #, perl-format
@@ -467,10 +470,12 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
+"Der er allerede et medie kaldet <%s>,\n"
+"vil du virkelig erstatte det?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
-msgstr ""
+msgstr "Globale valgmuligheder for pakkeinstallation"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
@@ -486,11 +491,11 @@ msgstr "altid"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr ""
+msgstr "Download program der skal bruges:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr ""
+msgstr "Strategi til download af XML-metadata:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
@@ -498,7 +503,7 @@ msgstr "Aldrig"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
-msgstr ""
+msgstr "Når det kræves"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
@@ -510,7 +515,7 @@ msgstr "Altid"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr ""
+msgstr "Fjernelse af kilde"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
@@ -568,21 +573,21 @@ msgstr "&Proxy..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
-msgstr ""
+msgstr "Du skal indsætte mediet for at fortsætte"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr ""
+msgstr "For at gemme ændringerne skal du indsætte mediet i drevet."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr ""
+msgstr "Konfigurér proxyer"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "Proxyindstillinger for medie \"%s\""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
@@ -593,6 +598,8 @@ msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
 msgstr ""
+"Hvis du har brug for en proxy, skal du indtaste værtsnavnet og eventuelt en "
+"port (syntaks: <proxyvært[:port]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
@@ -604,7 +611,7 @@ msgstr "Proxy-værtsnavn:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
+msgstr "Du kan angive et brugernavn/adgangskode til autentifikation af proxy:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
@@ -645,7 +652,7 @@ msgstr "Tilføj en vært"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Type in the hostname or IP address of the host to add:"
-msgstr ""
+msgstr "Indtast værtsnavnet eller værtens IP-adresse der skal tilføjes:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
@@ -687,7 +694,7 @@ msgstr "Værter:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr ""
+msgstr "Konfigurér parallel urpmi (distribueret eksekvering af urpmi)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 #: lib/ManaTools/Module/Users.pm:1814
@@ -725,7 +732,7 @@ msgstr "Tilføj..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
-msgstr ""
+msgstr "Administrér nøgler til digitale underskrifter af pakker"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
@@ -739,7 +746,7 @@ msgstr "Nøgler"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr ""
+msgstr "intet navn fundet, nøgle findes ikke i rpm-nøglering!"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
@@ -748,7 +755,7 @@ msgstr "Tilføj en nøgle"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "Vælg en nøgle som skal tilføjes til mediet %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
@@ -769,6 +776,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Kunne ikke opdatere medie, rapporterede fejl:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1968
@@ -866,7 +876,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2092
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr ""
+msgstr "Mediet skal opdateres for at være kunne bruges. Opdater det nu?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
@@ -874,7 +884,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/_File"
-msgstr ""
+msgstr "/_Fil"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/_Update"
@@ -886,19 +896,19 @@ msgstr "<control>O"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "/Tilføj et specifikt _mediespejl"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>M"
-msgstr ""
+msgstr "<control>M"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_Add a custom medium"
-msgstr ""
+msgstr "/_Tilføj et brugerdefineret medie"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "<control>A"
-msgstr ""
+msgstr "<control>T"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "/Close"
@@ -906,7 +916,7 @@ msgstr "/Luk"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 msgid "<control>W"
-msgstr ""
+msgstr "<control>W"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
@@ -917,7 +927,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
-msgstr ""
+msgstr "/_Valgmuligheder"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/_Global options"
@@ -989,7 +999,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
-msgstr ""
+msgstr "Installationen er færdig"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
 msgid "Select a package"
@@ -1029,7 +1039,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "%s diskplads vil blive frigjort."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
@@ -2179,33 +2189,33 @@ msgstr "Er det OK at fortsætte?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr ""
+msgstr "Initialiserer..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
-msgstr ""
+msgstr "Forældreløse pakker"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr ""
+msgstr "Følgende forældreløse pakke vil blive fjernet."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
-msgstr ""
+msgstr "Forbereder pakkeinstallation..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Installerer pakke `%s' (%d/%d)..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "Sammenlagt: %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Change medium"
-msgstr ""
+msgstr "Skift medie"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
@@ -2578,11 +2588,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "Valgmuligheder"
 
 #: lib/ManaTools/Module/LogViewer.pm:173
 msgid "Last boot"
-msgstr ""
+msgstr "Sidst opstart"
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
@@ -2594,7 +2604,7 @@ msgstr "Indtil"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
-msgstr ""
+msgstr "Vælg en enhed"
 
 #: lib/ManaTools/Module/LogViewer.pm:240
 msgid "From priority"
@@ -2633,7 +2643,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:343
 msgid "Empty log found"
-msgstr ""
+msgstr "Tom log fundet"
 
 #: lib/ManaTools/Module/LogViewer.pm:436
 msgid "manalog - running in user mode"
@@ -2673,11 +2683,11 @@ msgstr "Grupper"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "Gruppedata"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "Gruppebrugere"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
@@ -2749,7 +2759,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
-msgstr ""
+msgstr "Gruppenavn:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
@@ -2757,7 +2767,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
@@ -2818,7 +2828,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr ""
+msgstr "Hjemmemappe:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
@@ -2834,7 +2844,7 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Klik på ikonet for at ændre det"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
@@ -2882,16 +2892,16 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr ""
+msgstr "Tilføjer bruger:"
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Tilføjer bruger: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
-msgstr ""
+msgstr "Brugernavn"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
@@ -2899,28 +2909,28 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
-msgstr ""
+msgstr "Primær gruppe"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "Fulde navn"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
-msgstr ""
+msgstr "Login-skal"
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
-msgstr ""
+msgstr "Hjemmemappe"
 
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "Status"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "Gruppenavn"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
@@ -2928,7 +2938,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
-msgstr ""
+msgstr "Gruppemedlemmer"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
@@ -3055,11 +3065,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2434 lib/ManaTools/Module/Users.pm:2486
 msgid "Refresh"
-msgstr ""
+msgstr "Genopfrisk"
 
 #: lib/ManaTools/Module/Users.pm:2442
 msgid "Actions"
-msgstr ""
+msgstr "Handlinger"
 
 #: lib/ManaTools/Module/Users.pm:2481
 msgid "Delete"
@@ -3067,15 +3077,15 @@ msgstr "Slet"
 
 #: lib/ManaTools/Module/Users.pm:2500
 msgid "Filter system users"
-msgstr ""
+msgstr "Filtrér systembrugere"
 
 #: lib/ManaTools/Module/Users.pm:2505
 msgid "Search:"
-msgstr ""
+msgstr "Søg:"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Apply &filter"
-msgstr ""
+msgstr "Anvend &filter"
 
 #: lib/ManaTools/Module/Users.pm:2526
 msgid "Users"
@@ -3184,12 +3194,12 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:518
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "Starter %s"
 
 #: lib/ManaTools/Module/Services.pm:538
 #, perl-format
 msgid "Stopping %s"
-msgstr ""
+msgstr "Stopper %s"
 
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
@@ -3213,16 +3223,16 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore data"
-msgstr ""
+msgstr "Gendan data"
 
 #: lib/ManaTools/Module/Clock.pm:216
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Gendan kun dato og klokkeslæt?"
 
 #: lib/ManaTools/Module/Clock.pm:236 lib/ManaTools/Module/Clock.pm:242
 #: lib/ManaTools/Module/Clock.pm:563 lib/ManaTools/Module/Clock.pm:648
 msgid "not defined"
-msgstr ""
+msgstr "ikke defineret"
 
 #: lib/ManaTools/Module/Clock.pm:270
 msgid "Set local RTC failed"
@@ -3290,11 +3300,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:586
 msgid "TimeZone"
-msgstr ""
+msgstr "Tidszone"
 
 #: lib/ManaTools/Module/Clock.pm:588
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Skift &tidszone"
 
 #: lib/ManaTools/Module/Clock.pm:601 lib/ManaTools/Module/Clock.pm:609
 msgid "Timezone - DrakClock"
@@ -3310,7 +3320,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:622
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:623
 msgid "Is your hardware clock set to GMT?"
@@ -3340,7 +3350,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "Globalt"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
@@ -3372,11 +3382,11 @@ msgstr "Sydafrika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladesh"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
@@ -3384,7 +3394,7 @@ msgstr "Kina"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "Hong Kong"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
@@ -3392,7 +3402,7 @@ msgstr "Indien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
@@ -3412,19 +3422,19 @@ msgstr "Korea"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "Malaysia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "Filippinerne"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "Singapore"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
@@ -3436,7 +3446,7 @@ msgstr "Tyrkiet"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Forenede Arabiske Emirater"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
@@ -3448,15 +3458,15 @@ msgstr "Hviderusland"
 
 #: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
 msgid "Belgium"
-msgstr ""
+msgstr "Belgien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgarien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
-msgstr ""
+msgstr "Tjekkiet"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
@@ -3464,7 +3474,7 @@ msgstr "Danmark"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Estland"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
@@ -3497,11 +3507,11 @@ msgstr "Italien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Litauen"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxemburg"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
@@ -3529,15 +3539,15 @@ msgstr "Rusland"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "Slovakiet"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Slovenien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "Spanien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
@@ -3545,7 +3555,7 @@ msgstr "Sverige"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "Schweiz"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
@@ -3553,11 +3563,11 @@ msgstr "Ukraine"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Storbritannien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Jugoslavien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
@@ -3565,7 +3575,7 @@ msgstr "Canada"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
@@ -3583,7 +3593,7 @@ msgstr "Australien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "New Zealand"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
@@ -4585,11 +4595,11 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "Pakke"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
-msgstr ""
+msgstr "Arkitektur"
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
@@ -4597,7 +4607,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "Ikke installeret"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
@@ -4606,11 +4616,11 @@ msgstr "Vis kun %s og noarch"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr ""
+msgstr "Alle pakker, alfabetisk"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr ""
+msgstr "Alle pakker, efter gruppe"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
@@ -4626,7 +4636,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr ""
+msgstr "Alle pakker, efter størrelse"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
@@ -4638,43 +4648,43 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "Metapakker"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
-msgstr ""
+msgstr "Pakker med GUI"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr ""
+msgstr "Alle opdateringer"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr ""
+msgstr "Sikkerhedsopdateringer"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Fejlretningsopdateringer"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "Generelle opdateringer"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
-msgstr ""
+msgstr "i navne"
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "i beskrivelser"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "i sammendrag"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
-msgstr ""
+msgstr "i filnavne"
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
@@ -4726,7 +4736,7 @@ msgstr "&Mediehåndtering"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
-msgstr ""
+msgstr "Vis"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
@@ -4747,7 +4757,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:1209
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdrake kører allerede (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
