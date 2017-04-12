@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-03 19:04+0000\n"
+"PO-Revision-Date: 2017-04-12 12:53+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -178,64 +178,78 @@ msgstr "  --media=medium1,..     begræns til angivet medie"
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
 msgstr ""
+"  --merge-all-rpmnew     foreslå at sammenlægge alle fundne .rpmnew-/."
+"rpmsave-filer"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=TILSTAND        sæt tilstand (install (standard), remove, update)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb               - opdater databasen, men lav ikke ændringer på "
+"filsystemet"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
+"  --no-confirmation      spørg ikke om det første bekræftelsesspørgsmål i "
+"opdateringssilstand"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      opdater ikke medie ved opstart"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "  --no-verify-rpm        bekræft ikke pakkeunderskrifter"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"  --parallel=alias,vært i paralleltilstand, brug \"alias\"-gruppe, brug "
+"\"vært\"-maskine til at vise nødvendige afhængigheder"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
-msgstr ""
+msgstr "  --rpm-root=sti         brug en anden rod for rpm-installation"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"  --urpmi-root           brug en anden rod til urpmi-db og rpm-installation"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root          gennemtving kørsel som root"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "  --search=pakke         kør søgning efter \"pakke\""
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
 "  --test                 only verify if the installation can be achieved "
 "correctly"
 msgstr ""
+"  --test                 bekræft kun om installationen kan arkiveres korrekt"
 
 #: lib/ManaTools/Rpmdragora/init.pm:83
 msgid ""
 "  --version              print this tool's version number\n"
 "                    "
 msgstr ""
+"  --version              udskriv dette værktøjs versionsnummer\n"
+"\n"
+"                    "
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -316,6 +330,16 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"For at holde dit system sikkert og stabilt skal du opsætte et mindste sæt "
+"af\n"
+"kilder for officielle sikkerheds- og stabilitets-opdateringer. Du kan også\n"
+"vælge at opsætte et mere komplet sæt of kilder, som indeholder de "
+"fuldstændige\n"
+"Mageia-arkiver, og som giver adgang til flere programmer end hvad der kan "
+"være\n"
+"på Mageia-skiverne. Vælg venligst om der skal opsættes kun "
+"opdateringskilder\n"
+"eller det komplette kildesæt."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -767,6 +791,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Er du sikker på, at du vil fjerne nøglen <br>%s<br> fra mediet %s?"
+"<br>(nøglens navn: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2118
@@ -858,7 +884,7 @@ msgstr "Ned"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1996
 #: modules/rpmdragora/rpmdragora:1096
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora er Mageias pakkehåndteringsværktøj."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1734
 #: lib/ManaTools/Module/Services.pm:450
@@ -871,6 +897,12 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Udviklere</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Oversættere</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1833
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1897
@@ -996,6 +1028,9 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"Pakkedatabasen er låst. Luk venligst andre programmer som\n"
+"arbejder med pakkedatabasen. Har du en anden mediehåndtering\n"
+"på en anden maskine, eller installere du pakker i øjeblikket?"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
@@ -1034,7 +1069,7 @@ msgstr "Ukendt"
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "%s mere diskplads vil blive brugt."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
@@ -1044,7 +1079,7 @@ msgstr "%s diskplads vil blive frigjort."
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "%s pakker vil blive hentet."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
@@ -1070,27 +1105,27 @@ msgstr "Ingen beskrivelse"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "Det <b>understøttes ikke</b> af Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "Det kan <b>ødelægge</b> dit system."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "Denne pakke er ikke fri software"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr ""
+msgstr "Denne pakke indeholder en ny version som blev tilbageporteret."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "Denne pakke er en mulig kandidat til en opdatering."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "Dette er en officiel opdatering som understøttes af Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
@@ -1186,25 +1221,25 @@ msgstr "Pakken \"%s\" blev fundet."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:395
 msgid "However this package is not in the package list."
-msgstr ""
+msgstr "Denne pakke er dog ikke i pakkelisten."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:396
 msgid "You may want to update your urpmi database."
-msgstr ""
+msgstr "Du ønsker måske at opdatere din urpmi-database."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:398
 msgid "Matching packages:"
-msgstr ""
+msgstr "Pakker som matcher:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (medie: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:945
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "Hvis pakken %s fjernes vil det ødelægge dit system"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:949
 #, perl-format
@@ -1212,6 +1247,8 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
+"Pakken \"%s\" er i urpmi-opspringslisten.\n"
+"Vil du vælge den alligevel?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:954 lib/ManaTools/Rpmdragora/pkg.pm:808
 msgid ""
@@ -1221,7 +1258,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1176
 msgid "More information on package..."
-msgstr ""
+msgstr "Mere information om pakke..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1178
 msgid "Please choose"
@@ -1245,7 +1282,7 @@ msgstr "Tjekker afhængigheder for pakke..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Some additional packages need to be removed"
-msgstr ""
+msgstr "Yderligere pakker kræver fjernelse"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1405
 msgid ""
@@ -1255,7 +1292,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid "Some packages cannot be removed"
-msgstr ""
+msgstr "Nogle pakker kan ikke fjernes"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1411
 msgid ""
@@ -1272,7 +1309,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1443
 msgid "Additional packages needed"
-msgstr ""
+msgstr "Yderligere pakker behøves"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1444
 msgid ""
@@ -1283,7 +1320,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1452
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "Pakker som er i konflikt"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1466
 #, perl-format
@@ -1320,7 +1357,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Some packages are selected."
-msgstr ""
+msgstr "Nogle pakker er valgt."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Do you really want to quit?"
@@ -1333,11 +1370,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1541
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "Du skal først vælge nogen pakker."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "Too many packages are selected"
-msgstr ""
+msgstr "Der er valgt for mange pakker"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1547
 msgid ""
@@ -1351,7 +1388,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1658
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "Vent venligst, lister pakker..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1671
 msgid "No update"
@@ -2224,7 +2261,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Bekræfter pakkeunderskrifter..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
@@ -2352,7 +2389,7 @@ msgstr "&Værtsnavn"
 
 #: lib/ManaTools/Module/Hosts.pm:481
 msgid "Are you sure to drop this host?"
-msgstr ""
+msgstr "Er du sikker på, at du vil glemme denne vært?"
 
 #: lib/ManaTools/Module/Hosts.pm:496
 #: lib/ManaTools/Module/DisplayManager.pm:263
@@ -2505,7 +2542,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:714
 msgid "Everything (no firewall)"
-msgstr ""
+msgstr "Alt (ingen firewall)"
 
 #: lib/ManaTools/Module/Firewall.pm:820
 msgid "A&dvanced"
@@ -2536,7 +2573,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:969
 msgid "Invalid port given"
-msgstr ""
+msgstr "Ugyldig port givet"
 
 #: lib/ManaTools/Module/Firewall.pm:970
 #, perl-format
@@ -2580,11 +2617,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
-msgstr ""
+msgstr "Matcher"
 
 #: lib/ManaTools/Module/LogViewer.pm:164
 msgid "but not matching"
-msgstr ""
+msgstr "men matcher ikke"
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
@@ -2608,11 +2645,11 @@ msgstr "Vælg en enhed"
 
 #: lib/ManaTools/Module/LogViewer.pm:240
 msgid "From priority"
-msgstr ""
+msgstr "Fra prioritet"
 
 #: lib/ManaTools/Module/LogViewer.pm:260
 msgid "To priority"
-msgstr ""
+msgstr "Til prioritet"
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
@@ -2620,7 +2657,7 @@ msgstr "&Find"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
-msgstr ""
+msgstr "Log indhold"
 
 #: lib/ManaTools/Module/LogViewer.pm:297
 msgid "&Save"
@@ -2647,7 +2684,7 @@ msgstr "Tom log fundet"
 
 #: lib/ManaTools/Module/LogViewer.pm:436
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - kører i brugertilstsand"
 
 #: lib/ManaTools/Module/LogViewer.pm:437
 msgid ""
@@ -2699,16 +2736,16 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Tilføj til den eksisterende gruppe"
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Tilføj til 'users'-gruppen"
 
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Vil du virkelig slette gruppen %s?"
 
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2343
@@ -2725,11 +2762,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Fjerner gruppe: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Slet filer eller ej?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -2751,11 +2788,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Fjerner bruger: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "Opret ny gruppe"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
@@ -2799,7 +2836,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Tilføjer gruppe: %s "
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
@@ -2905,7 +2942,7 @@ msgstr "Brugernavn"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr ""
+msgstr "Bruger-ID"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
@@ -2934,7 +2971,7 @@ msgstr "Gruppenavn"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "Gruppe-ID"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
@@ -2950,15 +2987,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "Kontoen udløber (ÅÅÅÅ-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
-msgstr ""
+msgstr "Lås brugerkonto"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "Klik på ikonet for at ændre den"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
@@ -3044,7 +3081,7 @@ msgstr "Installer gæstekonto"
 
 #: lib/ManaTools/Module/Users.pm:2381
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2385
 msgid ""
@@ -3094,19 +3131,19 @@ msgstr "Brugere"
 #: lib/ManaTools/Module/Proxy.pm:53
 #, perl-format
 msgid "%s - Proxy configuration"
-msgstr ""
+msgstr "%s - Proxy-konfiguration"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr ""
+msgstr "Proxy skal være http://..."
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr ""
+msgstr "Proxy skal være http://... eller https://..."
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr ""
+msgstr "URL skal begynde med 'ftp:' eller 'http:'"
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
@@ -4486,15 +4523,15 @@ msgstr ""
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Vinduestitel. Standardnavnværdi"
 
 #: scripts/mpan:69
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== Udviklertilstand TIL =="
 
 #: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:421
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora opdatering"
 
 #: modules/rpmdragora/dragoraUpdate:68
 #, perl-format
@@ -4503,7 +4540,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
-msgstr ""
+msgstr "Fejlrettelse"
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
@@ -4514,7 +4551,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1217 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
-msgstr ""
+msgstr "Softwarehåndtering"
 
 #: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
@@ -4563,23 +4600,23 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "ingen xml-info tilgængelig for medie \"%s\""
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
-msgstr ""
+msgstr "Søgning afbrudt"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "Valgt"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
-msgstr ""
+msgstr "Ikke valgt"
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
-msgstr ""
+msgstr "Ingen søgeresultater."
 
 #: modules/rpmdragora/rpmdragora:376
 #, perl-format
@@ -4591,7 +4628,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "Valgt: %s/ledig diskplads: %s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
@@ -4603,7 +4640,7 @@ msgstr "Arkitektur"
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
-msgstr ""
+msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
@@ -4708,15 +4745,15 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/_Beregn opdateringer ved opstart"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Søg i _fulde pakkenavne"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Brug _regulære udtryk i søgninger"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
@@ -4724,7 +4761,7 @@ msgstr "Nulstil valget"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
-msgstr ""
+msgstr "Genindlæs pakkelisten"
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
@@ -4753,6 +4790,13 @@ msgid ""
 "h3>\n"
 "                                                        <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Udviklere</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Oversættere</"
+"h3>\n"
+"                                                        <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1209
 #, perl-format
@@ -4963,7 +5007,7 @@ msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
@@ -4971,7 +5015,7 @@ msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - Dato-, ur- og tidazoneindstillinger"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
@@ -4979,7 +5023,7 @@ msgstr ""
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
@@ -4991,7 +5035,7 @@ msgstr ""
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
@@ -5003,7 +5047,7 @@ msgstr ""
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
@@ -5015,7 +5059,7 @@ msgstr ""
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
@@ -5027,7 +5071,7 @@ msgstr ""
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
@@ -5039,7 +5083,7 @@ msgstr ""
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
@@ -5051,7 +5095,7 @@ msgstr ""
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
@@ -5071,7 +5115,7 @@ msgstr ""
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
@@ -5079,19 +5123,19 @@ msgstr ""
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools panel - programstarter"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - Installer og fjern software"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
