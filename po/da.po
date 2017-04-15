@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-12 12:53+0000\n"
+"PO-Revision-Date: 2017-04-14 23:51+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -1255,6 +1255,8 @@ msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Rpmdragora eller en af dens prioritets afhængigheder skal opdateret først. "
+"Rpmdragora vil herefter genstarte."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1176
 msgid "More information on package..."
@@ -1288,7 +1290,7 @@ msgstr "Yderligere pakker kræver fjernelse"
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
-msgstr ""
+msgstr "Pga. af deres afhængigheder, skal følgende pakke(r) fjernes:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid "Some packages cannot be removed"
@@ -1325,15 +1327,15 @@ msgstr "Pakker som er i konflikt"
 #: lib/ManaTools/Rpmdragora/gui.pm:1466
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s (tilhører opspringslisten)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1470
 msgid "One package cannot be installed"
-msgstr ""
+msgstr "En pakke kan ikke installeres"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1470
 msgid "Some packages cannot be installed"
-msgstr ""
+msgstr "Nogle pakker kan ikke installeres"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1472
 #, perl-format
@@ -1342,6 +1344,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Beklager, følgende pakke kan ikke vælges:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1473
 #, perl-format
@@ -1350,10 +1355,13 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Beklager, følgende pakker kan ikke vælges:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1489 lib/ManaTools/Rpmdragora/pkg.pm:812
 msgid "Some packages need to be removed"
-msgstr ""
+msgstr "Nogle pakker skal fjernes"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1527
 msgid "Some packages are selected."
@@ -2155,7 +2163,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:630
 msgid "Upgrade information"
-msgstr ""
+msgstr "Opgraderingsinformation"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:646
 msgid "These packages come with upgrade information"
@@ -2167,7 +2175,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
-msgstr ""
+msgstr "Problem under installationen"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:724 lib/ManaTools/Rpmdragora/pkg.pm:744
 #: lib/ManaTools/Rpmdragora/pkg.pm:957
@@ -2177,10 +2185,13 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Der opstod et problem under installationen:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "Installationen mislykkedes"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -2188,7 +2199,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
-msgstr ""
+msgstr "Kunne ikke hente kildepakker."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:790
 #, perl-format
@@ -2203,6 +2214,10 @@ msgid ""
 "Error(s) reported:\n"
 "%s"
 msgstr ""
+"\n"
+"\n"
+"Fejl rapporteret:\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:809
 msgid "The following package is going to be installed:"
@@ -2210,7 +2225,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
-msgstr ""
+msgstr "Fjern en pakke?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
@@ -2286,12 +2301,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
-msgstr ""
+msgstr "Kigger efter \"README\"-filer..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1025
 #, perl-format
 msgid "RPM transaction %d/%d"
-msgstr ""
+msgstr "RPM-transaktion %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1026
 msgid "Unselect all"
@@ -2303,11 +2318,11 @@ msgstr "Detaljer"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
-msgstr ""
+msgstr "Vent venligst, fjerner pakker..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1085
 msgid "Problem during removal"
-msgstr ""
+msgstr "Problem under fjernelse"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1086
 #, perl-format
@@ -2861,7 +2876,7 @@ msgstr "Opret ny bruger"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Opret hjemmemappe"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
@@ -2889,13 +2904,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Adgangskode passer ikke"
 
 #: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Denne adgangskode er for simpel. \n"
+" Gode adgangskoder bør være mere end 6 tegn langt"
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -3317,11 +3334,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:460
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Vælg din NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:490
 msgid "&Local NTP server"
-msgstr ""
+msgstr "&Lokal NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:503
 msgid "Set local NTP server"
@@ -3333,7 +3350,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:561 lib/ManaTools/Module/Clock.pm:646
 msgid "Current:"
-msgstr ""
+msgstr "Aktuelle:"
 
 #: lib/ManaTools/Module/Clock.pm:586
 msgid "TimeZone"
@@ -3552,7 +3569,7 @@ msgstr "Luxemburg"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "Nederlandene"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
@@ -4157,7 +4174,7 @@ msgstr "&Nej"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr ""
+msgstr "Afhængigheder"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -4215,7 +4232,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
@@ -4466,15 +4483,15 @@ msgstr ""
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: værtshåndtering"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: administratorpanel"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: proxyhåndtering"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
