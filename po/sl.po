@@ -1,18 +1,24 @@
-# Slovenian translation for ManaTools package.
-# Copyright (C) 2015 Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the ManaTools package.
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the PACKAGE package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Filip Komar <filip.komar@gmail.com>, 2015-2016
+# Filip Komar <filip.komar@gmail.com>, 2015-2017
 msgid ""
 msgstr ""
-"Project-Id-Version: ManaTools\n"
+"Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2016-06-11 13:07+0200\n"
+"PO-Revision-Date: 2017-04-15 20:06+0000\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
-"Language-Team: Slovenian <lugos-slo@lugos.si>, Translation list <mageia-"
-"i18n@mageia.org>\n"
+"Language-Team: Slovenian (http://www.transifex.com/MageiaLinux/mageia/"
+"language/sl/)\n"
 "Language: sl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -151,7 +157,7 @@ msgstr "%s - Orodje za upravljanje"
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr "Uporaba: %s [MOŽNOSTI]..."
+msgstr "Uporaba: %s [MOŽNOSTI] …"
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
@@ -365,11 +371,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr "Počakajte. Dodajanje vira ..."
+msgstr "Počakajte. Dodajanje vira …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr "Brskaj ..."
+msgstr "Brskaj …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 #: lib/ManaTools/Module/Users.pm:728
@@ -423,7 +429,7 @@ msgstr "Strežnik HTTP "
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr "Odstranljiv nosilec (CD-ROM, DVD, ...)"
+msgstr "Odstranljiv nosilec (CD-ROM, DVD, …)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
@@ -546,7 +552,7 @@ msgstr "Ali ste prepričani, da želite odstraniti naslednje vire?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr "Počakajte. Odstranjevanje vira ..."
+msgstr "Počakajte. Odstranjevanje vira …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
@@ -587,7 +593,7 @@ msgstr "&V redu"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
-msgstr "&Posredniški strežnik ..."
+msgstr "&Posredniški strežnik …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
@@ -743,11 +749,11 @@ msgstr "(noben)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
-msgstr "Uredi ..."
+msgstr "Uredi …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
 msgid "Add..."
-msgstr "Dodaj ..."
+msgstr "Dodaj …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
@@ -1001,7 +1007,7 @@ msgstr "/_Poročaj o hrošču"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1989
 msgid "/_About..."
-msgstr "/_O ..."
+msgstr "/_O …"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1992
 msgid "Rpmdragora"
@@ -1049,7 +1055,7 @@ msgstr "Ne naredi nič"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
 msgid "Please wait, searching..."
-msgstr "Počakajte. Iskanje ..."
+msgstr "Počakajte. Iskanje …"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
@@ -1256,7 +1262,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1176
 msgid "More information on package..."
-msgstr "Več informacij o paketu ..."
+msgstr "Več informacij o paketu …"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1178
 msgid "Please choose"
@@ -1276,7 +1282,7 @@ msgstr "Izberite paket"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1389
 msgid "Checking dependencies of package..."
-msgstr "Preverjanje odvisnosti za paket ..."
+msgstr "Preverjanje odvisnosti za paket …"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Some additional packages need to be removed"
@@ -1404,7 +1410,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1658
 msgid "Please wait, listing packages..."
-msgstr "Počakajte. Izpisovanje paketov ..."
+msgstr "Počakajte. Izpisovanje paketov …"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1671
 msgid "No update"
@@ -2046,12 +2052,12 @@ msgstr "Splet/FTP"
 #: lib/ManaTools/Rpmdragora/pkg.pm:141
 #, perl-format
 msgid "Getting information from %s..."
-msgstr "Pridobivanje podatkov od %s ..."
+msgstr "Pridobivanje podatkov od %s …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:145
 #, perl-format
 msgid "Getting '%s' from XML meta-data..."
-msgstr "Pridobivanje »%s« iz dodatnih podatkov o paketih ..."
+msgstr "Pridobivanje »%s« iz dodatnih podatkov o paketih …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:149 lib/ManaTools/Rpmdragora/pkg.pm:465
 #: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
@@ -2076,7 +2082,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr "Prenos paketa »%s« ..."
+msgstr "Prenos paketa »%s« …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2173,11 +2179,11 @@ msgstr "Branje opisov posodobitev"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr "Počakajte, poteka iskanje razpoložljivih paketov ..."
+msgstr "Počakajte, poteka iskanje razpoložljivih paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
-msgstr "Počakajte. Izpisovanje osnovnih paketov ..."
+msgstr "Počakajte. Izpisovanje osnovnih paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:494 lib/ManaTools/Rpmdragora/pkg.pm:969
 #: lib/ManaTools/Rpmdragora/pkg.pm:994 lib/ManaTools/rpmdragora.pm:696
@@ -2187,7 +2193,7 @@ msgstr "Napaka"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:502
 msgid "Please wait, finding installed packages..."
-msgstr "Počakajte. Iskanje nameščenih paketov ..."
+msgstr "Počakajte. Iskanje nameščenih paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:630
 msgid "Upgrade information"
@@ -2223,7 +2229,7 @@ msgstr "Namestitev ni uspela"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
-msgstr "Preverjanje veljavnosti zahtevanih paketov ..."
+msgstr "Preverjanje veljavnosti zahtevanih paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
@@ -2270,7 +2276,7 @@ msgstr "Naj nadaljujem?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr "Nastavljam začetne nastavitve ..."
+msgstr "Nastavljam začetne nastavitve …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
@@ -2282,12 +2288,12 @@ msgstr "Naslednji osirotel paket bo odstranjeni."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
-msgstr "Pripravljam namestitev paketov ..."
+msgstr "Pripravljam namestitev paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr "Nameščanje paketa »%s« (%d/%d) ..."
+msgstr "Nameščanje paketa »%s« (%d/%d) …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
@@ -2305,7 +2311,7 @@ msgstr "Vstavite nosilec imenovan »%s«"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr "Preverjanje podpisov paketov..."
+msgstr "Preverjanje podpisov paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
@@ -2319,7 +2325,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
-msgstr "Pregledovanje nastavitvenih datotek ..."
+msgstr "Pregledovanje nastavitvenih datotek …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid ""
@@ -2335,7 +2341,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
-msgstr "Iskanje datotek »README« (preberi me) ..."
+msgstr "Iskanje datotek »README« (preberi me) …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1025
 #, perl-format
@@ -2352,7 +2358,7 @@ msgstr "Podrobnosti"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
-msgstr "Počakajte. Odstranjevanje paketov ..."
+msgstr "Počakajte. Odstranjevanje paketov …"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1085
 msgid "Problem during removal"
@@ -3249,11 +3255,11 @@ msgstr "%s - Nastavljanje posredniškega strežnika"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr "Posredniški strežnik mora imeti obliko http://..."
+msgstr "Posredniški strežnik mora imeti obliko http://…"
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr "Posredniški strežnik mora imeti obliko http://... ali https://..."
+msgstr "Posredniški strežnik mora imeti obliko http://… ali https://…"
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
@@ -4251,7 +4257,7 @@ msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
 "SANE (Scanner Access Now Easy) omogoča dostop do optičnih bralnikov, video "
-"kamer, ..."
+"kamer, …"
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -4414,7 +4420,7 @@ msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
-msgstr "Počakajte. Posodabljanje virov ..."
+msgstr "Počakajte. Posodabljanje virov …"
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
@@ -4440,17 +4446,17 @@ msgstr ""
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "Kopiranje datoteke za vir »%s« ..."
+msgstr "Kopiranje datoteke za vir »%s« …"
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr "Pregled datoteke vira »%s« ..."
+msgstr "Pregled datoteke vira »%s« …"
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr "Pregled oddaljene datoteke vira »%s« ..."
+msgstr "Pregled oddaljene datoteke vira »%s« …"
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
@@ -4468,7 +4474,7 @@ msgstr "%s iz vira %s"
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr "Začenjam prenos »%s« ..."
+msgstr "Začenjam prenos »%s« …"
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -4712,7 +4718,7 @@ msgstr "Uporaba: mana --help | -h        prikaži to sporočilo s pomočjo\n"
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
-msgstr "Uporaba mana <ukaz> [argumenti ...]\n"
+msgstr "Uporaba mana <ukaz> [argumenti …]\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
@@ -5375,15 +5381,3 @@ msgstr "/usr/share/icons/manarpm.png"
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Grafični vmesnik za nameščanje, odstranjevanje in posodabljanje paketov"
-
-#~ msgid "manadm - Display Manager"
-#~ msgstr "manadm - upravitelj zaslona"
-
-#~ msgid "Select all"
-#~ msgstr "Izberi vse"
-
-#~ msgid "Exit"
-#~ msgstr "Izhod"
-
-#~ msgid "Quit"
-#~ msgstr "Končaj"
