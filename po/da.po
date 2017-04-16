@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-14 23:51+0000\n"
+"PO-Revision-Date: 2017-04-16 00:50+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -161,7 +161,7 @@ msgstr "Anvendelse: %s [TILVALG]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr "  --auto                 brug standardsvar til alle spørgsmål."
+msgstr "  --auto                 brug standardsvar til alle spørgsmål"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
@@ -1137,19 +1137,19 @@ msgstr "Dette er en officiel pakke som understøttes af Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
-msgstr "Bemærk:"
+msgstr "Bemærk: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
-msgstr "Vigtighed:"
+msgstr "Vigtighed: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr "Årsag for opdatering:"
+msgstr "Årsag for opdatering: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr "Version:"
+msgstr "Version: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
@@ -1157,15 +1157,15 @@ msgstr "Nuværende installeret version: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr "Gruppe:"
+msgstr "Gruppe: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr "Arkitektur:"
+msgstr "Arkitektur: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
-msgstr "Størrelse:"
+msgstr "Størrelse: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
@@ -1174,7 +1174,7 @@ msgstr "%s KB"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:232 lib/ManaTools/rpmdragora.pm:698
 msgid "Medium: "
-msgstr "Medie:"
+msgstr "Medie: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
@@ -1182,7 +1182,7 @@ msgstr "Alle afhængigheder er installeret."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
-msgstr "URL:"
+msgstr "URL: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
@@ -1301,6 +1301,8 @@ msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
 msgstr ""
+"Beklager, fjernelse af disse pakker vil ødelægge dit system:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1419 lib/ManaTools/Rpmdragora/gui.pm:1490
 msgid ""
@@ -1308,6 +1310,8 @@ msgid ""
 "now:\n"
 "\n"
 msgstr ""
+"Grundet deres afhængigheder skal følgende pakke(r) fravælges nu:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1443
 msgid "Additional packages needed"
@@ -1319,6 +1323,8 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
+"For at opfylde afhængigheder skal følgende pakke(r) også installeres:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1452
 msgid "Conflicting Packages"
@@ -1374,7 +1380,7 @@ msgstr "Vil du virkelig afslutte?"
 #: lib/ManaTools/Rpmdragora/gui.pm:1537
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "Fejl: %s ser ud til at være monteret som kun læsbar."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1541
 msgid "You need to select some packages first."
@@ -1393,6 +1399,12 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"Advarsel: det ser ud til at du prøver på at tilføje så mange\n"
+"pakker at dit filsystem kan løbe tør for ledig diskplads,\n"
+"under eller efter pakkeinstallationen; dette er særdeles\n"
+"farligt og bør overvejes med forsigtighed.\n"
+"\n"
+"Vil du virkelig installere alle de valgte pakker?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1658
 msgid "Please wait, listing packages..."
@@ -1408,6 +1420,9 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"Listen over opdateringer er tom. Dette betyder at der ikke\n"
+"findes nogen tilgængelige opdateringer til pakkerner som er installeret\n"
+"din computer eller at du allerede har installeret allesammen."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1711 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
@@ -2022,7 +2037,7 @@ msgstr "Firewall/router"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr ""
+msgstr "Post/Samarbejde/Nyhedsgruppe"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
@@ -2052,13 +2067,14 @@ msgstr "Vent venligst"
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
-msgstr ""
+msgstr "Ingen xml-info for medie \"%s\", kun delvist resultat for pakken %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:164
 #, perl-format
 msgid ""
 "No xml info for medium \"%s\", unable to return any result for package %s"
 msgstr ""
+"Ingen xml-info for medie \"%s\", kan ikke vise noget resultat for pakken %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
@@ -2069,11 +2085,13 @@ msgstr "Downloader pakke `%s'..."
 #, perl-format
 msgid "        %s%% of %s completed, ETA = %s, speed = %s"
 msgstr ""
+"        %s%% af %s færdiggjort, anslået tilbageværende tid = %s, hastighed = "
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:227
 #, perl-format
 msgid "        %s%% completed, speed = %s"
-msgstr ""
+msgstr "        %s%% færdiggjort, hastighed = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:267 lib/ManaTools/Rpmdragora/pkg.pm:812
 #: lib/ManaTools/Module/Hosts.pm:481
@@ -2106,12 +2124,20 @@ msgid ""
 "\n"
 "Then, restart \"%s\"."
 msgstr ""
+"Du har allerede mindst ét opdateringsmedie konfigureret, men de\n"
+"er alle deaktiveret i øjeblikket. Du bør køre Administration af "
+"softwaremedie\n"
+"for at aktivere mindst ét. (tilvælg det i \"%s\"-kolonnen).\n"
+"\n"
+"Genstart herefter \"%s\"."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:297
 msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
+"Du har ikke noget opdateringsmedie konfigureret. MageiaUpdate kan ikke virke "
+"uden noget opdateringsmedie."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:298 lib/ManaTools/rpmdragora.pm:1003
 msgid ""
@@ -2127,7 +2153,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
-msgstr ""
+msgstr "Sådan vælge du dit spejl manuelt"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:306
 #, perl-format
@@ -2138,6 +2164,11 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"Du kan også vælge dit ønskede spejl manuelt; for at gøre dette skal du "
+"starte Administration af softwaremedie og dernæst tilføje et "
+"'Sikkerhedsopdateringer'-medie.\n"
+"\n"
+"Genstart herefter %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
@@ -2145,11 +2176,11 @@ msgstr "Læser opdateringsbeskrivelse"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr ""
+msgstr "Vent venligst, finder tilgængelige pakker..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
-msgstr ""
+msgstr "Vent venligst, lister basale pakker..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:494 lib/ManaTools/Rpmdragora/pkg.pm:969
 #: lib/ManaTools/Rpmdragora/pkg.pm:994 lib/ManaTools/rpmdragora.pm:696
@@ -2159,7 +2190,7 @@ msgstr "Fejl"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:502
 msgid "Please wait, finding installed packages..."
-msgstr ""
+msgstr "Vent venligst, finder installerede pakker..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:630
 msgid "Upgrade information"
@@ -2167,11 +2198,11 @@ msgstr "Opgraderingsinformation"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:646
 msgid "These packages come with upgrade information"
-msgstr ""
+msgstr "Disse pakker kommer med opgraderingsinformation"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
 msgid "All requested packages were installed successfully."
-msgstr ""
+msgstr "Alle anmodede pakker blev installeret."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
@@ -2195,7 +2226,7 @@ msgstr "Installationen mislykkedes"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
-msgstr ""
+msgstr "Tjekker gyldighed af anmodede pakker..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
@@ -2204,7 +2235,7 @@ msgstr "Kunne ikke hente kildepakker."
 #: lib/ManaTools/Rpmdragora/pkg.pm:790
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr ""
+msgstr "Kan ikke hente kildepakker, beklager. %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:791
 #, perl-format
@@ -2221,7 +2252,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:809
 msgid "The following package is going to be installed:"
-msgstr ""
+msgstr "Følgende pakke vil blive installeret:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
@@ -2229,11 +2260,11 @@ msgstr "Fjern en pakke?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr ""
+msgstr "Følgende pakke skal fjernes for at andre skal kunne opgraderes:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:818
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr ""
+msgstr "Følgende pakker skal fjernes for at andre skal kunne opgraderes:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
@@ -2272,7 +2303,7 @@ msgstr "Skift medie"
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "Indsæt venligst mediet med navnet \"%s\""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
@@ -2281,15 +2312,15 @@ msgstr "Bekræfter pakkeunderskrifter..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "%d installationstransaktioner mislykkedes"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr ""
+msgstr "Uoprettelig fejl: ingen pakke fundet til installation, beklager."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
-msgstr ""
+msgstr "Inspicerer konfigurationsfiler..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid ""
@@ -2298,6 +2329,10 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"Installationen er færdig; alt blev installeret korrekt.\n"
+"\n"
+"Nogen konfigurationsfiler blev oprettet som '.rpmnew' eller '.rpmsave',\n"
+"du kan nu inspicerer nogen for at tage handlinger:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -2331,6 +2366,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Der opstod et problem under fjernelsen af pakker:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1093 lib/ManaTools/Module/Services.pm:383
 msgid "Information"
@@ -2339,7 +2377,7 @@ msgstr "Information"
 #: lib/ManaTools/Module/Hosts.pm:48
 #, perl-format
 msgid "%s - manage hosts definitions"
-msgstr ""
+msgstr "%s - administrér værtsdefinitioner"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
@@ -2348,15 +2386,15 @@ msgstr "Værtsnavn"
 
 #: lib/ManaTools/Module/Hosts.pm:147
 msgid "Pretty Hostname"
-msgstr ""
+msgstr "Smukt værtsnavn"
 
 #: lib/ManaTools/Module/Hosts.pm:152
 msgid "Static Hostname"
-msgstr ""
+msgstr "Statisk værtsnavn"
 
 #: lib/ManaTools/Module/Hosts.pm:157
 msgid "Chassis"
-msgstr ""
+msgstr "Chassis"
 
 #: lib/ManaTools/Module/Hosts.pm:162
 msgid "Icon Name"
@@ -2380,7 +2418,7 @@ msgstr "Rediger informationen"
 
 #: lib/ManaTools/Module/Hosts.pm:394
 msgid "Manage hosts definitions"
-msgstr ""
+msgstr "Håndter værtsdefinitioner"
 
 #: lib/ManaTools/Module/Hosts.pm:422
 msgid "Host Aliases"
@@ -2415,11 +2453,11 @@ msgstr "Ophavsret (C) %s by Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
-msgstr ""
+msgstr "Grafisk håndtering til værtsdefinitioner"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:151
 msgid "no active media found\n"
-msgstr ""
+msgstr "intet aktivt medie fundet\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:175
 msgid "== Processing "
@@ -2429,7 +2467,7 @@ msgstr "== Behandler"
 #: lib/ManaTools/Module/PkgDownloader.pm:189
 #: lib/ManaTools/Module/PkgDownloader.pm:199
 msgid "protocol in use: "
-msgstr "protokol som skal bruges:"
+msgstr "protokol som skal bruges: "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:181
 msgid "trying with "
@@ -2437,32 +2475,32 @@ msgstr "prøver med"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:202
 msgid " downloaded successfully\n"
-msgstr ""
+msgstr "downloadet med succes\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:207
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "ingen pakker videregivet som argument\n"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
 #, perl-format
 msgid "%s - Display Manager"
-msgstr ""
+msgstr "%s - Displayhåndtering"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
-msgstr ""
+msgstr "LightDM (den lette displayhåndtering)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:90
 msgid "GDM (GNOME Display Manager)"
-msgstr ""
+msgstr "GDM (GNOME-displayhåndtering)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:91
 msgid "KDM (KDE Display Manager)"
-msgstr ""
+msgstr "KDM (KDE-displayhåndtering)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "XDM (X Display Manager)"
-msgstr ""
+msgstr "XDM (X-displayhåndtering)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:138
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2404
@@ -2470,34 +2508,34 @@ msgstr ""
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "root-rettigheder kræves"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169
 #: lib/ManaTools/Module/Proxy.pm:175
 msgid "X Restart Required"
-msgstr ""
+msgstr "X kræver genstart"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169
 #: lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
-msgstr ""
+msgstr "Du skal logge ud og ind igen før ændringerne træder i kraft"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
-msgstr ""
+msgstr "Displayhåndtering"
 
 #: lib/ManaTools/Module/DisplayManager.pm:209
 msgid "Choosing a display manager"
-msgstr ""
+msgstr "Vælg en displayhåndtering"
 
 #: lib/ManaTools/Module/DisplayManager.pm:265
 msgid "Graphical configurator for system Display Manager"
-msgstr ""
+msgstr "Grafisk konfiguration til systemets displayhåndtering"
 
 #: lib/ManaTools/Module/Firewall.pm:86
 #, perl-format
 msgid "%s - Firewall Manager"
-msgstr ""
+msgstr "%s - Firewallhåndtering"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -2514,6 +2552,8 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"drakfirewall-konfigurator\n"
+"Den konfigurerer en personlig firewall til denne Mageia-maskine."
 
 #: lib/ManaTools/Module/Firewall.pm:423
 msgid ""
@@ -2521,6 +2561,10 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"drakfirewall-konfiguration\n"
+"\n"
+"Sørg for at du har konfigureret din netværk-/internetforbindelse med\n"
+"drakconnect inden du går videre."
 
 #: lib/ManaTools/Module/Firewall.pm:486
 msgid "Interactive Firewall"
@@ -2532,6 +2576,9 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Du kan blive advaret når nogen tilgår en tjeneste eller prøver at trænge ind "
+"i din computer.\n"
+"Vælg venligst hvilke netværksaktiviteter som skal overvåges."
 
 #: lib/ManaTools/Module/Firewall.pm:496
 msgid "Use Interactive Firewall"
@@ -2539,7 +2586,7 @@ msgstr "Brug interaktiv firewall"
 
 #: lib/ManaTools/Module/Firewall.pm:658
 msgid "Graphical manager for interactive firewall rules"
-msgstr ""
+msgstr "Grafisk håndtering til interaktive firewall-regler"
 
 #: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
 #: lib/ManaTools/Module/Firewall.pm:1097
@@ -2553,7 +2600,7 @@ msgstr "Hvilke tjenester vil du tillade at internettet kan koble op med?"
 #: lib/ManaTools/Module/Firewall.pm:713
 #, perl-format
 msgid "Those settings will be saved for the network profile <b>%s</b>"
-msgstr ""
+msgstr "Disse indstillinger vil blive gemt for netværksprofilen <b>%s</b>"
 
 #: lib/ManaTools/Module/Firewall.pm:714
 msgid "Everything (no firewall)"
@@ -2565,7 +2612,7 @@ msgstr "&Avanceret"
 
 #: lib/ManaTools/Module/Firewall.pm:854
 msgid "Graphical manager for firewall rules"
-msgstr ""
+msgstr "Grafisk håndtering til firewall-regler"
 
 #: lib/ManaTools/Module/Firewall.pm:886
 msgid ""
@@ -2573,10 +2620,13 @@ msgid ""
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
 msgstr ""
+"Du kan angive diverse porte. \n"
+"Gyldige eksempler er: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Se /etc/services for information."
 
 #: lib/ManaTools/Module/Firewall.pm:891
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Definer diverse porte"
 
 #: lib/ManaTools/Module/Firewall.pm:906
 msgid "Other ports"
@@ -2584,7 +2634,7 @@ msgstr "Andre porte"
 
 #: lib/ManaTools/Module/Firewall.pm:914
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "Log firewall-meddelelser i systemlogge"
 
 #: lib/ManaTools/Module/Firewall.pm:969
 msgid "Invalid port given"
@@ -2599,6 +2649,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"Ugyldig port angivet: %s.\n"
+"Det korrekte format er \"port/tcp\" eller \"port/udp\", \n"
+"hvor port er mellem 1 og 65535.\n"
+"\n"
+"Du kan også angive et interval af porte (eksempelvis: 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:1009
 msgid ""
@@ -2612,6 +2667,15 @@ msgid ""
 "\n"
 "Which interfaces should be protected?\n"
 msgstr ""
+"Vælg venligst grænsefladerne som vil blive beskyttet af firewallen.\n"
+"\n"
+"Alle grænseflader som har direkte forbindelse til internet bør tilvælges,\n"
+"mens grænseflader som har forbindelse til et lokale netværk kan fravælges.\n"
+"\n"
+"Hvis du har til hensigt at bruge deling af Mageia internetforbindelse,\n"
+"så fravælg grænseflader som skal have forbindelse til lokalt netværk.\n"
+"\n"
+"Hvilke grænseflader vil du beskytte?\n"
 
 #: lib/ManaTools/Module/Firewall.pm:1098
 msgid ""
@@ -2620,15 +2684,19 @@ msgid ""
 "up.\n"
 "    What do you want to do?"
 msgstr ""
+"Din firewallkonfiguration er blevet ændret manuelt og indeholder\n"
+"regler som kan være i konflikt med konfigurationen som netop er blevet sat "
+"op.\n"
+"Hvad vil du gøre?"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
 #, perl-format
 msgid "%s - Log viewer"
-msgstr ""
+msgstr "%s - Log-fremviser"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "Et værktøj til at overvåge dine logge"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
@@ -2680,7 +2748,7 @@ msgstr "&Gem"
 
 #: lib/ManaTools/Module/LogViewer.pm:324
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Log-fremviser er en systemd journal-fremviser"
 
 #: lib/ManaTools/Module/LogViewer.pm:325
 #, perl-format
@@ -2692,6 +2760,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Udviklere</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Oversættere</h3>\n"
+"                                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:343
 msgid "Empty log found"
@@ -2707,6 +2781,10 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"Du er ved at starte dette program som en normal bruger.\n"
+"Du vil ikke være i stand til at læse systemlogge som du ikke har rettigheder "
+"til,\n"
+"men du vil stadig kunne gennemse alle de andre."
 
 #: lib/ManaTools/Module/LogViewer.pm:459
 msgid "Save as.."
@@ -2715,7 +2793,7 @@ msgstr "Gem som.."
 #: lib/ManaTools/Module/Users.pm:107
 #, perl-format
 msgid "%s - Users Management Tool"
-msgstr ""
+msgstr "%s - Brugerhåndteringsværktøj"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -2747,7 +2825,7 @@ msgstr "Vælg gruppe"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "En gruppe med dette navn findes allerede. Hvad vil du gøre?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
@@ -2773,6 +2851,8 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s er en primær gruppe for bruger %s\n"
+" Fjern brugeren først"
 
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
@@ -2789,6 +2869,8 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Sletter bruger %s\n"
+"Udfør også følgende handlinger\n"
 
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
@@ -2798,7 +2880,7 @@ msgstr "Slet hjemmekatalog: %s"
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "Slet postboks: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
@@ -2815,7 +2897,7 @@ msgstr "Gruppenavn:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Angiv gruppe-id manuelt"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
@@ -2823,12 +2905,12 @@ msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "Gruppe findes allerede, vælg venligst et andet gruppenavn"
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr "Gruppens Gid er mindre end %n"
 
 #: lib/ManaTools/Module/Users.pm:642
 #, perl-format
@@ -2837,16 +2919,21 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Oprettelse af en gruppe med et GID på under %d anbefales ikke.\n"
+" Er du sikker på, at du vil gøre dette?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr ""
+msgstr "Gruppe-id er allerede i brug"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Opretter en gruppe med ikke-unik GID?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
@@ -2884,11 +2971,11 @@ msgstr "Hjemmemappe:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Opret en privat gruppe for brugeren"
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Angiv bruger-id manuelt"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
@@ -2900,7 +2987,7 @@ msgstr "Klik på ikonet for at ændre det"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Brugeren findes allerede, vælg venligst et andet brugernavn"
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
@@ -2920,11 +3007,14 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"Hjemmemappen <%s> findes allerede.\n"
+"Fravælg venligst valgmuligheden for oprettelse af hjem eller skift navnet på "
+"mappestien"
 
 #: lib/ManaTools/Module/Users.pm:980
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "Brugernes Uid er mindre end %d"
 
 #: lib/ManaTools/Module/Users.pm:981
 #, perl-format
@@ -2933,20 +3023,23 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Oprettelse af en bruger med en UID under %d anbefales ikke.\n"
+"Er du sikker på, at du vil gøre dette?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Tilføjer %s til 'users'-gruppen"
 
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Opretter ny gruppe: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr "Tilføjer bruger:"
+msgstr "Tilføjer bruger: "
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
@@ -3000,7 +3093,7 @@ msgstr "Hjem:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
-msgstr ""
+msgstr "Aktivér udløb for konto"
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
@@ -3016,11 +3109,11 @@ msgstr "Klik på ikonet for at ændre den"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
-msgstr ""
+msgstr "Bruger ændrede sidst adgangskode den: "
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Aktivér udløb for adgangskode"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
@@ -3040,7 +3133,7 @@ msgstr "Dage før konto deaktiveres:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Vælg brugere som skal deltage i denne gruppe:"
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
@@ -3048,21 +3141,23 @@ msgstr "Bruger"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Vælg grupperne som brugeren skal være medlem af:"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Vælg venligst mindst én gruppe til brugeren"
 
 #: lib/ManaTools/Module/Users.pm:1942
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Angiv venligst år, måned og dag\n"
+" for udløb af konto "
 
 #: lib/ManaTools/Module/Users.pm:1958
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Udfyld venligst alle felter til forældelse af adgangskoder\n"
 
 #: lib/ManaTools/Module/Users.pm:1993
 msgid "Strong"
@@ -3078,7 +3173,7 @@ msgstr "Rediger bruger"
 
 #: lib/ManaTools/Module/Users.pm:2159 lib/ManaTools/Module/Users.pm:2262
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Kan ikke oprette fanebladswidgets"
 
 #: lib/ManaTools/Module/Users.pm:2175
 msgid "Edit Group"
@@ -3105,6 +3200,8 @@ msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser er et Mageia-brugerhåndteringsværktøj \n"
+"(fra den originale ide i Mandriva userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2386
 #, perl-format
@@ -3116,6 +3213,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Udviklere</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Oversættere</h3>\n"
+"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Users.pm:2434 lib/ManaTools/Module/Users.pm:2486
 msgid "Refresh"
@@ -3164,13 +3267,15 @@ msgstr "URL skal begynde med 'ftp:' eller 'http:'"
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
-msgstr ""
+msgstr "Konfiguration af proxyer"
 
 #: lib/ManaTools/Module/Proxy.pm:282
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
 msgstr ""
+"Her kan du opsætte din proxy-konfiguration (eksempelvis: http://"
+"min_mellemlagringsserver:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
@@ -3178,7 +3283,7 @@ msgstr "HTTP-proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:296
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr ""
+msgstr "Brug HTTP-proxy til HTTPS-forbindelser"
 
 #: lib/ManaTools/Module/Proxy.pm:302
 msgid "HTTPS proxy"
@@ -3190,20 +3295,20 @@ msgstr "FTP-proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
-msgstr ""
+msgstr "Ingen proxy for (kommasepareret liste):"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
-msgstr ""
+msgstr "Grafisk håndtering til proxyer"
 
 #: lib/ManaTools/Module/Services.pm:86
 #, perl-format
 msgid "%s - Services and daemons"
-msgstr ""
+msgstr "%s - Tjenester og dæmoner"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
-msgstr ""
+msgstr "Start når der anmodes om det"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "running"
@@ -3215,7 +3320,7 @@ msgstr "stoppet"
 
 #: lib/ManaTools/Module/Services.pm:362
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "Håndter systemtjenester ved at aktivere eller deaktivere dem"
 
 #: lib/ManaTools/Module/Services.pm:370
 msgid "Service"
@@ -3244,6 +3349,9 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva draxservice)."
 msgstr ""
+"adminService er en Mageia-tjeneste og dæmonhåndteringsværktøj\n"
+"\n"
+"(fra den originale ide i Mandriva draxservice)."
 
 #: lib/ManaTools/Module/Services.pm:518
 #, perl-format
@@ -3258,13 +3366,15 @@ msgstr "Stopper %s"
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "%s - Dato-, klokkeslæt- og tidszoneindstillinger"
 
 #: lib/ManaTools/Module/Clock.pm:198
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Dato-, ur- og tidszoneindstillinger giver mulighed for at opsætte tidszone "
+"og justere dato og klokkeslæt"
 
 #: lib/ManaTools/Module/Clock.pm:199
 #, perl-format
@@ -3274,6 +3384,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Udviklere</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Oversættere</h3>\n"
+"                                              <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore data"
@@ -3290,47 +3404,48 @@ msgstr "ikke defineret"
 
 #: lib/ManaTools/Module/Clock.pm:270
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Sætning af lokal RTC mislykkedes"
 
 #: lib/ManaTools/Module/Clock.pm:285
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Sætning af tidszone mislykkedes"
 
 #: lib/ManaTools/Module/Clock.pm:326
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Sætning af NTP-konfiguration mislykkedes"
 
 #: lib/ManaTools/Module/Clock.pm:342
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Sætning af NTP mislykkedes"
 
 #: lib/ManaTools/Module/Clock.pm:365
 msgid "Set system time failed"
-msgstr ""
+msgstr "Sætning af systemtid mislykkedes"
 
 #: lib/ManaTools/Module/Clock.pm:396
 msgid "Setting date and time"
-msgstr ""
+msgstr "Sætter dato og klokkeslæt"
 
 #: lib/ManaTools/Module/Clock.pm:414
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "Aktivér Network Time Protocol"
 
 #: lib/ManaTools/Module/Clock.pm:426
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: NTP-tjeneste mangler"
 
 #: lib/ManaTools/Module/Clock.pm:427
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
+"Installer venligst en NTP-tjeneste til håndtering, såsom en chrony eller ntp"
 
 #: lib/ManaTools/Module/Clock.pm:443
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "Vælg &NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:459
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "NTP-server - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:460
 msgid "Choose your NTP server"
@@ -3342,11 +3457,11 @@ msgstr "&Lokal NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:503
 msgid "Set local NTP server"
-msgstr ""
+msgstr "Sæt lokal NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Sæt venligst din lokale NTP-server"
 
 #: lib/ManaTools/Module/Clock.pm:561 lib/ManaTools/Module/Clock.pm:646
 msgid "Current:"
@@ -3362,15 +3477,15 @@ msgstr "Skift &tidszone"
 
 #: lib/ManaTools/Module/Clock.pm:601 lib/ManaTools/Module/Clock.pm:609
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Tidszone - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:602
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Kunne ikke hente tidszoneliste"
 
 #: lib/ManaTools/Module/Clock.pm:610
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "Hvilken en er din tidszone?"
 
 #: lib/ManaTools/Module/Clock.pm:622
 msgid "GMT - manaclock"
@@ -3378,29 +3493,29 @@ msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:623
 msgid "Is your hardware clock set to GMT?"
-msgstr ""
+msgstr "Er dit hardware-ur sat til GMT?"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "Behold brugerdefinerede regler"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Drop brugerdefinerede regler"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
-msgstr ""
+msgstr "<dir> valgfri mappe som indeholder lokaliseringsstrenge (kun udvikler)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "Print information om anvendelse."
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:913
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s aktiveret men stoppet - deaktivere den"
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
@@ -3668,6 +3783,8 @@ msgstr "Alle servere"
 #: lib/ManaTools/Shared/TimeZone.pm:947
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"brugeren har ikke rettighederne til at ændre konfigurationsfilen, springer "
+"over"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -3684,7 +3801,7 @@ msgstr "&Vælg"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "start ved brug af yui gtk-plugin-implementation"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
@@ -3692,7 +3809,7 @@ msgstr "start ved brug af yui ncurses-plugin-implementation"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "start ved brug af yui qt-plugin-implementation"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
@@ -3700,13 +3817,15 @@ msgstr "brug fuldskærm til dialoger"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "ingen vindueshåndteringskanter for dialoger"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> valgfri mappe som indeholder konfigurationsfiler for hvert modul "
+"(såsom modulnavn/konfigurationsfiler)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
@@ -3718,23 +3837,25 @@ msgstr "&Luk"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Navnefelt er tomt, opgiv venligst et navn"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"Navnet skal begynde med et bogstav og må kun indeholde små bogstaver, tal , "
+"'.', '-' og '_'"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "Navn er for langt. Maksimale længde er %d"
 
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "Du kan ikke fjerne bruger <%s> fra deres primære gruppe"
 
 #: lib/ManaTools/Shared/Users.pm:1166
 msgid "Locked"
@@ -3746,11 +3867,11 @@ msgstr "Udløbet"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "Lyt efter og udsend ACPI-hændelser fra kernen"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Start ALSA-lydsystemet (Advanced Linux Sound Architecture)"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
@@ -3761,6 +3882,8 @@ msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"apmd bruges til at overvåge batteristatus og logger det via syslog.\n"
+"Den kan også bruges til at lukke maskinen når batteriet er lavt."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
@@ -3773,7 +3896,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi er en ZeroConf-dæmon som implementerer en mDNS-stak"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
@@ -3781,7 +3904,7 @@ msgstr "En NTP klient/server"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "Sæt indstillinger for CPU-frekvens"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -3790,15 +3913,19 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"cron er et standard-UNIX-program der kører brugerspecifikke programmer på "
+"periodiske planlagte tidspunkter. vixie cron tilføjer et antal faciliteter "
+"til den basale UNIX-cron, inklusive bedre sikkerhed og stærkere "
+"konfigurationsmuligheder."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
-msgstr ""
+msgstr "Common UNIX Printing System (CUPS) er et avanceret udskrifts-køsystem"
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "Starter den grafiske displayhåndtering"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -3806,6 +3933,9 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"FAM er en filovervågnings-dæmon. Den bruges til at rapportere når filer "
+"ændres.\n"
+"Den bruges af GNOME og KDE"
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -3818,6 +3948,13 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"G15Daemon giver brugere adgang til alle ekstra taster ved at afkode dem og \n"
+"send dem tilbage til kernen via UINPUT-driveren i Linux. Denne driver skal "
+"være indlæst \n"
+"før g15daemon kan bruges til tastaturadgang. G15 LCD understøttes også. "
+"g15daemon viser som standard et ur, når ingen andre klienter er aktive. "
+"Klientprogrammer og \n"
+"skripter kan få adgang til LCD via en simpel API."
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -3826,21 +3963,28 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"GPM tilføjer understøttelse af mus til tekstbaserede Linux-programmer såsom "
+"Midnight Commander. Den tillader musebaseret kopiér-og-indsæt-handlinger i "
+"konsollen og inkluderer understøttelse af pop op-menuer i konsollen."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr ""
+msgstr "HAL er en dæmon der indsamler og vedligeholder information om hardware"
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"HardDrake kører en søgning efter hardware og kan konfigurerer valgfrit\n"
+"nyt/ændret hardware."
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
+"Apache er en World Wide Web-server.  Den bruges til at leverer HTML-filer og "
+"CGI."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -3851,19 +3995,24 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"Internet superserver-dæmonen (oftest kaldet inetd) starter\n"
+"forskellige internet-tjenester når der er brug for dem. Den er ansvarlig for "
+"at starte mange tjenester inklusive telnet, ftp, rsh og rlogin. Hvis inetd "
+"deaktiveres, så deaktiveres alle de tjenester, den er ansvarlig for."
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
-msgstr ""
+msgstr "Automatiserer en firewall med pakkefiltrering for ip6tables"
 
 #: lib/ManaTools/Shared/Services.pm:272
 msgid "Automates a packet filtering firewall with iptables"
-msgstr ""
+msgstr "Automatiserer en firewall med pakkefiltrering for iptables"
 
 #: lib/ManaTools/Shared/Services.pm:273
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
 msgstr ""
+"Distribuerer IRQ-belastning ligeligt mellem flere CPU'er for forbedret ydelse"
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -3871,66 +4020,81 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Denne pakke indlæser det valgte tastaturkort, som sat i\n"
+"/etc/sysconfig/keyboard. Det kan vælges ved brug af kbdconfig-redskabet.\n"
+"Du bør lade den være slået til på de fleste maskiner."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"Automatisk regenerering af kernehoved i /boot for\n"
+"/usr/include/linux/{autoconf,version}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr ""
+msgstr "automatisk registrering og konfiguration af hardware ved opstart."
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
-msgstr ""
+msgstr "Finjustér systemopførsel for at forlænge batteriets levetide"
 
 #: lib/ManaTools/Shared/Services.pm:281
 msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"Linuxconf vil nogen gange arrangere udførelse af forskellige opgaver\n"
+"ved opstart, for at vedligeholde systemkonfigurationen."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"lpd er printer-dæmonen som er nødvendig for at lpr virker korrekt.\n"
+"Den er grundlæggende en server der håndterer udskriftsopgaver."
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Linux Virtuel Server, brugt til at bygge en server med høj ydelse og\n"
+"høj tilgængelighed."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Overvåger netværket (interaktiv firewall og trådløs)"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
-msgstr ""
+msgstr "Overvågning og administration af software-RAID"
 
 #: lib/ManaTools/Shared/Services.pm:289
 msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
 msgstr ""
+"DBUS er en dæmon som rundsender notifikationer om systemhændelser, og andre "
+"meddelelser."
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
-msgstr ""
+msgstr "Aktiverer MSEC-sikkerhedsstrategi når systemet starter"
 
 #: lib/ManaTools/Shared/Services.pm:291
 msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"named (BIND) er en Domain Name Server (DNS) der bruges til opslag af IP-"
+"adresser for at få værtsnavne."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "Initialiserer logning af netværkskonsol"
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
@@ -3950,11 +4114,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "Kræver at netværket er oppe hvis dette aktiveres"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "Vent på at det hotpluggede netværk kommer op"
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid ""
@@ -3976,21 +4140,23 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
-msgstr ""
+msgstr "Synkroniserer systemets tid ved brug af Network Time Protocol (NTP)."
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Skift automatisk på numlock-tastelås i konsol\n"
+"og Xorg ved opstart."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Understøtter OKI 4w og kompatible winprintere."
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "Tjekker om en partition er tæt på at være fyldt op"
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
@@ -3999,6 +4165,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"PCMCIA-understøttelse er typisk til understøttelse af ting såsom ethernet og "
+"modemer i bærbare.  Den vil ikke blive startet medmindre den er "
+"konfigureret, så det er sikkert at have den installeret på maskiner der ikke "
+"har brug for den."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -4013,29 +4183,35 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
-msgstr ""
+msgstr "Reserverer nogle TCP-porte"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"Postfix er en transport-agent til post, som bruges af programmer der flytter "
+"post fra en maskine til en anden."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Gemmer og gendanner systemets entropipøl for at få en højere kvalitet\n"
+"ved generering af tilfældige tal."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Tildel rå enheder til blokenheder (såsom harddisk-drev-partitioner)\n"
+"til brug af applikationer såsom Oracle eller DVD-afspillere"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
-msgstr ""
+msgstr "Håndtering af navneserverinformation"
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid ""
@@ -4043,12 +4219,17 @@ msgid ""
 "the RIP protocol. While RIP is widely used on small networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"Routed-dæmonen giver mulighed for automatisk IP-rutetabel opdateret via RIP-"
+"protokollen. Mens RIP bruges meget på små netværk, er der brug for en mere "
+"kompleks protokol på komplekse netværk."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"rstat-protokollen giver brugerne på netværket mulighed for at hente\n"
+"ydelsesmetrik fra enhver maskine på netværket."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
@@ -4072,37 +4253,43 @@ msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"rwho-protokollen giver fjern-brugere mulighed for at hente en liste over "
+"alle brugere der er logget ind på en maskine, der kører rwho-dæmonen (minder "
+"om finger)."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
-"SANE (Scanner Access Now Easy) giver adgang til skannere, filmkameraer og "
-"lignende"
+"SANE (Scanner Access Now Easy) giver adgang til skannere, filmkameraer, ..."
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
-msgstr ""
+msgstr "Pakkefiltreringsfirewall"
 
 #: lib/ManaTools/Shared/Services.pm:334
 msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
 msgstr ""
+"SMB/CIFS-protokollen gør det muligt at dele adgang til filer og printere, og "
+"integrerer også med et Windows Server-domæne."
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "Start lydsystemet på din maskine"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
-msgstr ""
+msgstr "lag for taleanalyse"
 
 #: lib/ManaTools/Shared/Services.pm:337
 msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
 msgstr ""
+"Secure Shell er en netværksprotokol som giver mulighed for dataudveksling "
+"over en sikker kanal mellem to computere"
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
@@ -4114,23 +4301,23 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
-msgstr ""
+msgstr "Flytter de genererede vedvarende udev-regler til /etc/udev/rules.d"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "Indlæs driverne til dine usb-enheder."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
-msgstr ""
+msgstr "En letvægts netværkstrafikovervågning"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "Starter X Font-serveren."
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "Starter andre dæmoner efter behov."
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
@@ -4154,7 +4341,7 @@ msgstr "Fjernelse af programpakker"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
-msgstr ""
+msgstr "Softwarepakkeopdatering"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
@@ -4182,7 +4369,7 @@ msgstr "OK"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Britain"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
@@ -4254,7 +4441,7 @@ msgid ""
 msgstr ""
 "Det er umuligt at hente listen med nye pakker fra mediet '%s'.\n"
 "Enten er dette opdateringsmedie fejlkonfigureret - og i så fald bør du \n"
-"bruge Administration af programmedier til at fjerne det og tilføje \n"
+"bruge Administration af softwaremedie til at fjerne det og tilføje \n"
 "det igen for at omkonfigurere det - eller også er det utilgængeligt i \n"
 "øjeblikket, og du bør da prøve igen senere."
 
@@ -4375,6 +4562,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Der opstod en fejl ved download af spejllisten:\n"
+"%s\n"
+"\n"
+"Netværket eller webstedet kan være utilgængeliget.\n"
+"Prøv igen senere."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -4385,6 +4577,11 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Der opstod en fejl ved download af spejllisten:\n"
+"%s\n"
+"\n"
+"Netværket eller Mageias websted kan være utilgængelige.\n"
+"Prøv igen senere."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -4459,27 +4656,27 @@ msgstr ""
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Mageia' værktøj til tilføjelse af brugere"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
-msgstr ""
+msgstr "manalog: journalct log-læser"
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: brugerhåndtering"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: tjenestehåndtering"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: konfiguration af loginhåndtering"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: håndtering af dato/klokkeslæt"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
@@ -4495,15 +4692,15 @@ msgstr "manaproxy: proxyhåndtering"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: rpm-installationshåndtering"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: håndtering af rpm-opdatering"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: firewallhåndtering"
 
 #: scripts/mana:91
 #, perl-format
@@ -4512,31 +4709,36 @@ msgstr "Kommando <%s> ikke fundet!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr "FEJL:"
+msgstr "FEJL: "
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Anvendelse mana --help | -h        print denne hjælpe\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Anvendelse mana <kommando> [argumenter...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "gyldige <kommandoer>:\n"
 
 #: scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "Udviklertilstand"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Programnavn, brugt til at logge identifikator og x-program-"
+"konfigurationsmappe.\n"
+"mpan er standard"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
@@ -4553,7 +4755,7 @@ msgstr "rpmdragora opdatering"
 #: modules/rpmdragora/dragoraUpdate:68
 #, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr ""
+msgstr "root-rettigheder kræves eller kør i stedet <%s>"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -4561,7 +4763,7 @@ msgstr "Fejlrettelse"
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "Her er listen over softwarepakkeopdateringer"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -4596,7 +4798,7 @@ msgstr "&Fravælg alle"
 
 #: modules/rpmdragora/dragoraUpdate:357
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate er Mageias pakkehåndteringsværktøj."
 
 #: modules/rpmdragora/dragoraUpdate:358
 #, perl-format
@@ -4606,6 +4808,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul><li>%s</li></ul>"
 msgstr ""
+"<h3>Udviklere</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Oversættere</h3>\n"
+"                                            <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:422
 msgid ""
@@ -4613,6 +4819,9 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"Listen over opdateringer er tom. Dette betyder enten at der ikke\n"
+"findes nogen tilgængelige opdateringer til de installerede programmer\n"
+"på din computer eller at du allerede har installeret allesammen."
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
@@ -4641,6 +4850,8 @@ msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
 msgstr ""
+"Ingen søgeresultater. Du vil måske skifte til '%s'-visningen og til '%s'-"
+"filtret"
 
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
@@ -4678,15 +4889,15 @@ msgstr "Alle pakker, efter gruppe"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "Kun blade, sorteret efter installationsdato"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "Alle pakker, efter opdateringstilgængelighed"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "Alle pakker, efter valgtilstand"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
@@ -4694,11 +4905,11 @@ msgstr "Alle pakker, efter størrelse"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "Alle pakker, efter mediearkiv"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
-msgstr ""
+msgstr "Tilbageporteringer"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
@@ -4754,11 +4965,11 @@ msgstr "&Anvend"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/_Vælg afhængigheder uden at spørge"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "Ryd mellemlageret af download efter fuldført installation"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
@@ -4822,7 +5033,7 @@ msgstr "rpmdrake kører allerede (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
-msgstr ""
+msgstr "ugyldig <url> (hvis mappen er lokal, så skal stien være absolut)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4841,6 +5052,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Du er ved at tilføje nye pakkemedier.\n"
+"Det betyder at du vil kunne tilføje nye softwarepakker\n"
+"til dit system fra disse nye medier."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4849,6 +5063,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Du er ved at tilføje nye pakkemedier, %s.\n"
+"Det betyder at du vil kunne tilføje nye softwarepakker\n"
+"til dit system fra disse nye medier."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4857,30 +5074,33 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"Du er ved at tilføje et nyt pakkemedie, '%s'.\n"
+"Det betyder at du vil kunne tilføje nye softwarepakker\n"
+"til dit system fra dette nye medie."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr ""
+msgstr "Tilføjelse af medie gennemført."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "Tilføjelse af medie %s gennemført."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "Tilføjelse af medie '%s' gennemført."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Kør Mageia-opdateringssoftwareværktøj"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
-msgstr ""
+msgstr "Der kræves godkendelse for at køre rpmdragora Mageia-opdatering"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -4908,7 +5128,7 @@ msgstr ""
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "Tillad APanel-GUI"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -4916,6 +5136,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Der kræves godkendelse for at køre programmet manahost (bruger=$(user), "
+"program=$(program), kommandolinje=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -4933,6 +5155,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Der kræves godkendelse for at køre programmet manaproxy (bruger=$(user), "
+"program=$(program), kommandolinje=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -4972,21 +5196,23 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Der kræves godkendelse for at køre programmet apanel (bruger=$(user), "
+"program=$(program), kommandolinje=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Kør Mageia-installationsprogram og fjern software"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Der kræves godkendelse for at køre Mageia-rpm-håndtering"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Mageia-panel"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4996,12 +5222,12 @@ msgstr "Kategorier"
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Installer og fjern software"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "Opdatér dit system"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -5011,7 +5237,7 @@ msgstr "Konfigurér mediekilder for installation og opdatering"
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Netværk og internet"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5020,7 +5246,7 @@ msgstr "Opstart"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Mageia-opdatering"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -5028,7 +5254,7 @@ msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "En grafisk brugerflade til opdatering af pakker"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
@@ -5036,7 +5262,7 @@ msgstr "manaclock - Dato-, ur- og tidazoneindstillinger"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "ManaTools ur-håndtering"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
@@ -5044,11 +5270,11 @@ msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - login-konfigurationshåndtering"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "ManaTools login-konfigurationshåndtering"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
@@ -5056,11 +5282,11 @@ msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - Vært- og værtsnavnhåndtering"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "ManaTools værtshåndtering"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
@@ -5068,11 +5294,11 @@ msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Journalctl log-fremviser, administrationstilstand"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools log-fremviser, administrationstilstand"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
@@ -5080,11 +5306,11 @@ msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - Proxy-konfigurationshåndting"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "ManaTools proxyhåndtering"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
@@ -5092,11 +5318,11 @@ msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Tjenestekonfigurationshåndtering"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "ManaTools tjenestehåndtering"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
@@ -5104,11 +5330,11 @@ msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - Bruger- og grupperhåndtering"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "ManaTools brugerhåndtering"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
@@ -5116,19 +5342,19 @@ msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Journalctl log-fremviser, brugertilstand"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools log-fremviser, brugertilstand"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall - firewall-konfigurationshåndting"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "Konfiguration af ManaTools firewall"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
@@ -5136,7 +5362,7 @@ msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools kontrolpanel"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
