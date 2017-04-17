@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-16 00:50+0000\n"
+"PO-Revision-Date: 2017-04-16 20:08+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -137,7 +137,7 @@ msgstr "Indlæs indstillinger: %s indhold er <<%s>>"
 #: lib/ManaTools/MainDisplay.pm:770
 #, perl-format
 msgid "Parsing category file %s"
-msgstr "Parsing kategorifilen %s"
+msgstr "Parser kategorifilen %s"
 
 #: lib/ManaTools/MainDisplay.pm:781
 #, perl-format
@@ -199,7 +199,7 @@ msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
 "  --no-confirmation      spørg ikke om det første bekræftelsesspørgsmål i "
-"opdateringssilstand"
+"opdateringstilstand"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
@@ -360,7 +360,7 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"Dette vil forsøge at installere alle de officilelle kilder svarende til din\n"
+"Dette vil forsøge at installere alle de officielle kilder svarende til din\n"
 "distribution %s\n"
 "\n"
 "Jeg skal kontakte Mageias websted for at hente spejllisten.\n"
@@ -1564,7 +1564,7 @@ msgstr "KDE og Qt"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr "Kernel"
+msgstr "Kerne"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
@@ -1924,7 +1924,7 @@ msgstr "Internationalisering"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:167
 msgid "Kernel and hardware"
-msgstr "Kernel og hardware"
+msgstr "Kerne og hardware"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:168
 msgid "Libraries"
@@ -2037,7 +2037,7 @@ msgstr "Firewall/router"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr "Post/Samarbejde/Nyhedsgruppe"
+msgstr "Post/Groupware/Nyhedsgruppe"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
@@ -2422,7 +2422,7 @@ msgstr "Håndter værtsdefinitioner"
 
 #: lib/ManaTools/Module/Hosts.pm:422
 msgid "Host Aliases"
-msgstr "Værtsaliser"
+msgstr "Værtsaliaser"
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
@@ -2553,7 +2553,8 @@ msgid ""
 "machine."
 msgstr ""
 "drakfirewall-konfigurator\n"
-"Den konfigurerer en personlig firewall til denne Mageia-maskine."
+"                    Den konfigurerer en personlig firewall til denne Mageia-"
+"maskine."
 
 #: lib/ManaTools/Module/Firewall.pm:423
 msgid ""
@@ -2999,7 +3000,7 @@ msgid ""
 " Good passwords should be > 6 characters"
 msgstr ""
 "Denne adgangskode er for simpel. \n"
-" Gode adgangskoder bør være mere end 6 tegn langt"
+" Gode adgangskoder bør være på mere end 6 tegn"
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -3340,7 +3341,7 @@ msgstr "S&top"
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
-msgstr "%Opdater"
+msgstr "&Genindlæs"
 
 #: lib/ManaTools/Module/Services.pm:448
 msgid ""
@@ -3351,7 +3352,8 @@ msgid ""
 msgstr ""
 "adminService er en Mageia-tjeneste og dæmonhåndteringsværktøj\n"
 "\n"
-"(fra den originale ide i Mandriva draxservice)."
+"                                                       (fra den originale "
+"ide i Mandriva draxservice)."
 
 #: lib/ManaTools/Module/Services.pm:518
 #, perl-format
@@ -3535,7 +3537,7 @@ msgstr "Europa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr "Nord amerika"
+msgstr "Nordamerika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
@@ -3543,7 +3545,7 @@ msgstr "Oceanien"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr "Syd amerika"
+msgstr "Sydamerika"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
@@ -3700,7 +3702,7 @@ msgstr "Portugal"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr "Romanien"
+msgstr "Romænien "
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
@@ -3824,8 +3826,8 @@ msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
-"<dir> valgfri mappe som indeholder konfigurationsfiler for hvert modul "
-"(såsom modulnavn/konfigurationsfiler)"
+"<dir> valgfri mappe som indeholder konfigurationsfiler for hvert modul (f."
+"eks. modulnavn/konfigurationsfiler)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
@@ -3983,7 +3985,7 @@ msgstr ""
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
-"Apache er en World Wide Web-server.  Den bruges til at leverer HTML-filer og "
+"Apache er en World Wide Web-server. Den bruges til at leverer HTML-filer og "
 "CGI."
 
 #: lib/ManaTools/Shared/Services.pm:267
@@ -4166,9 +4168,9 @@ msgid ""
 "it installed on machines that do not need it."
 msgstr ""
 "PCMCIA-understøttelse er typisk til understøttelse af ting såsom ethernet og "
-"modemer i bærbare.  Den vil ikke blive startet medmindre den er "
-"konfigureret, så det er sikkert at have den installeret på maskiner der ikke "
-"har brug for den."
+"modemer i bærbare. Den vil ikke blive startet medmindre den er konfigureret, "
+"så det er sikkert at have den installeret på maskiner der ikke har brug for "
+"den."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -4565,7 +4567,7 @@ msgstr ""
 "Der opstod en fejl ved download af spejllisten:\n"
 "%s\n"
 "\n"
-"Netværket eller webstedet kan være utilgængeliget.\n"
+"Netværket eller webstedet kan være utilgængeligt.\n"
 "Prøv igen senere."
 
 #: lib/ManaTools/rpmdragora.pm:1024
