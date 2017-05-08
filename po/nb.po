@@ -14,7 +14,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-30 08:19+0000\n"
+"PO-Revision-Date: 2017-05-04 19:23+0000\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/MageiaLinux/mageia/"
 "language/nb/)\n"
@@ -81,7 +81,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1209
 msgid "&Quit"
-msgstr ""
+msgstr "&Avslutt"
 
 #: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/MainDisplay.pm:395
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
@@ -100,7 +100,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:402 lib/ManaTools/Shared/GUI/Dialog.pm:418
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr ""
+msgstr "&Om"
 
 #: lib/ManaTools/MainDisplay.pm:569
 #, perl-format
@@ -421,7 +421,7 @@ msgstr ""
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
 #: lib/ManaTools/Shared/GUI/Dialog.pm:425 lib/ManaTools/rpmdragora.pm:893
 msgid "&Cancel"
-msgstr ""
+msgstr "&Avbryt"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
@@ -437,7 +437,7 @@ msgstr ""
 #: lib/ManaTools/Shared/GUI.pm:1078 lib/ManaTools/Shared/GUI/Dialog.pm:426
 #: lib/ManaTools/rpmdragora.pm:365
 msgid "&Ok"
-msgstr ""
+msgstr "&OK"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
@@ -773,7 +773,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "&Alternativer"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -795,7 +795,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:2446 modules/rpmdragora/dragoraUpdate:286
 #: modules/rpmdragora/rpmdragora:756
 msgid "&Help"
-msgstr ""
+msgstr "&Hjelp"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
@@ -3145,7 +3145,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
-msgstr ""
+msgstr "%Oppfrisk"
 
 #: lib/ManaTools/Module/Services.pm:448
 msgid ""
@@ -4052,11 +4052,11 @@ msgstr "Ikke spør igjen"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Ja"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&Nei"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4207,7 +4207,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
@@ -4551,7 +4551,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Vis %s og bare noarch "
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4635,7 +4635,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Bruk"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4659,7 +4659,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Resett valg"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -4760,22 +4760,23 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Kjør Mageia Dato og tidskonfigurasjon"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Autentisering kreves for å kjøre Mageia Dato og tidskonfigurasjon"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Kjør Mageia Logg inn hånderer konfigurator"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
 msgstr ""
+"Autentisering kreves for å kjøre MageiaLogg inn håndertings konfigurator"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
@@ -4794,12 +4795,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Kjør Mageia Logg viser "
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Autentisering kreves for å kjøre Mageia Logg viser"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4811,12 +4812,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "Kjør Mageia Tjeneste konfugurator"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Autentisering kreves for å kjøre Mageia Tjenestekonfigurator"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
