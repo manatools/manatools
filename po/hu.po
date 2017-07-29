@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2016-06-08 23:40+0900\n"
-"PO-Revision-Date: 2017-04-07 18:40+0000\n"
+"PO-Revision-Date: 2017-07-28 22:23+0000\n"
 "Last-Translator: Laszlo Espadas <kardiweb@protonmail.ch>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
@@ -106,8 +106,7 @@ msgstr "Súgó"
 
 #: lib/ManaTools/MainDisplay.pm:396
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
-#: lib/ManaTools/Module/Hosts.pm:447
-#: lib/ManaTools/Module/DisplayManager.pm:241
+#: lib/ManaTools/Module/Hosts.pm:447 lib/ManaTools/Module/DisplayManager.pm:241
 #: lib/ManaTools/Module/Firewall.pm:606 lib/ManaTools/Module/Firewall.pm:821
 #: lib/ManaTools/Module/LogViewer.pm:294 lib/ManaTools/Module/Users.pm:2449
 #: lib/ManaTools/Module/Users.pm:2521 lib/ManaTools/Module/Proxy.pm:325
@@ -156,16 +155,16 @@ msgstr "Kategóriák betöltése: modulok <<%s>>"
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "%s - Felügyeleti eszköz"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "Használat: %s [OPTION]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "  --auto                 alapértelmezett választ ad a kérdésekre"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
@@ -251,13 +250,12 @@ msgid ""
 "but you may still browse the existing database."
 msgstr ""
 
-#: lib/ManaTools/Rpmdragora/open_db.pm:100
-#: lib/ManaTools/Rpmdragora/gui.pm:1574
+#: lib/ManaTools/Rpmdragora/open_db.pm:100 lib/ManaTools/Rpmdragora/gui.pm:1574
 msgid "Fatal error"
 msgstr "Végzetes hiba"
 
-#: lib/ManaTools/Rpmdragora/open_db.pm:101
-#: lib/ManaTools/Rpmdragora/gui.pm:1575 lib/ManaTools/Rpmdragora/pkg.pm:494
+#: lib/ManaTools/Rpmdragora/open_db.pm:101 lib/ManaTools/Rpmdragora/gui.pm:1575
+#: lib/ManaTools/Rpmdragora/pkg.pm:494
 #, perl-format
 msgid "A fatal error occurred: %s."
 msgstr ""
@@ -423,8 +421,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1302 lib/ManaTools/Rpmdragora/pkg.pm:930
 #: lib/ManaTools/Module/Hosts.pm:174 lib/ManaTools/Module/Hosts.pm:258
-#: lib/ManaTools/Module/Hosts.pm:448
-#: lib/ManaTools/Module/DisplayManager.pm:242
+#: lib/ManaTools/Module/Hosts.pm:448 lib/ManaTools/Module/DisplayManager.pm:242
 #: lib/ManaTools/Module/Firewall.pm:607 lib/ManaTools/Module/Firewall.pm:822
 #: lib/ManaTools/Module/Firewall.pm:918 lib/ManaTools/Module/Users.pm:360
 #: lib/ManaTools/Module/Users.pm:431 lib/ManaTools/Module/Users.pm:522
@@ -551,8 +548,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 #: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
-#: lib/ManaTools/Module/Hosts.pm:449
-#: lib/ManaTools/Module/DisplayManager.pm:243
+#: lib/ManaTools/Module/Hosts.pm:449 lib/ManaTools/Module/DisplayManager.pm:243
 #: lib/ManaTools/Module/Firewall.pm:608 lib/ManaTools/Module/Firewall.pm:823
 #: lib/ManaTools/Module/Firewall.pm:919 lib/ManaTools/Module/Proxy.pm:327
 msgid "&OK"
@@ -787,7 +783,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "&Lehetőségek"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -1932,7 +1928,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:199
 msgid "IceWm Desktop"
-msgstr ""
+msgstr "IceWm  munkaasztal"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:200
 msgid "KDE Workstation"
@@ -2332,8 +2328,7 @@ msgstr ""
 msgid "Are you sure to drop this host?"
 msgstr ""
 
-#: lib/ManaTools/Module/Hosts.pm:496
-#: lib/ManaTools/Module/DisplayManager.pm:263
+#: lib/ManaTools/Module/Hosts.pm:496 lib/ManaTools/Module/DisplayManager.pm:263
 #: lib/ManaTools/Module/Firewall.pm:176
 #, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
@@ -2390,21 +2385,18 @@ msgstr ""
 msgid "XDM (X Display Manager)"
 msgstr ""
 
-#: lib/ManaTools/Module/DisplayManager.pm:138
-#: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2404
-#: lib/ManaTools/Module/Proxy.pm:147
+#: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Users.pm:841
+#: lib/ManaTools/Module/Users.pm:2404 lib/ManaTools/Module/Proxy.pm:147
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
 msgstr ""
 
-#: lib/ManaTools/Module/DisplayManager.pm:169
-#: lib/ManaTools/Module/Proxy.pm:175
+#: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "X Restart Required"
 msgstr ""
 
-#: lib/ManaTools/Module/DisplayManager.pm:169
-#: lib/ManaTools/Module/Proxy.pm:175
+#: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
 msgstr ""
 
@@ -4099,11 +4091,11 @@ msgstr "Legközelebb ne kérdezze meg"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Igen"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&Nem"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -4679,7 +4671,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Alkalmaz"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4703,7 +4695,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Állítsa vissza a kiválasztást"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
