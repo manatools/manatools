@@ -2,22 +2,22 @@
 # Copyright (C) 2015 Angelo Naselli - Matteo Pasotti
 # This file is distributed under the same license as the manatools package.
 #
-# Yuri Chornoivan <yurchor@ukr.net>, 2015, 2016.
+# Yuri Chornoivan <yurchor@ukr.net>, 2015, 2016, 2017.
 msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-02 18:53+0200\n"
-"PO-Revision-Date: 2016-06-09 19:21+0300\n"
+"PO-Revision-Date: 2017-09-02 20:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
+"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 2.0\n"
 
 #: lib/ManaTools/MainDisplay.pm:247 lib/ManaTools/Module/LogViewer.pm:317
 #: lib/ManaTools/Module/Users.pm:2381 lib/ManaTools/Module/Clock.pm:190
@@ -52,7 +52,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan — панель ManaTools, яка надає доступ до усіх програм комплекту."
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -68,7 +68,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Перекладачі</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -936,7 +936,6 @@ msgid "Nameserver information manager"
 msgstr "Керування відомостями щодо сервера назв"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
@@ -1109,7 +1108,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "Засіб перегляду журналу призначено для перегляду журналу systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1123,7 +1122,7 @@ msgstr ""
 "                                                        <li>%s</li>\n"
 "                                                    </ul>\n"
 "                                                    <h3>Перекладачі</h3>\n"
-"                                                    <ul><li>%s</li></ul>"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1549,9 +1548,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Будь ласка, заповніть всі поля, щоб встановити термін дії пароля\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Вилучаємо користувача: %s"
+msgstr "Проблема під час внесення змін до запису користувача %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1602,7 +1601,7 @@ msgstr ""
 "(на основі початкової ідеї userdrake з Mandriva)."
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1616,7 +1615,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Перекладачі</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1678,7 +1677,7 @@ msgstr ""
 "пояс і скоригувати дату і час"
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1688,7 +1687,7 @@ msgstr ""
 "<h3>Розробники</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Перекладачі</h3>\n"
-"                                              <ul><li>%s</li></ul>"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2221,7 +2220,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2235,7 +2234,7 @@ msgstr ""
 "                                                           <li>%s</li>\n"
 "                                                       </ul>\n"
 "                                                       <h3>Перекладачі</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -4820,7 +4819,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUpdate — програма для керування пакунками Mageia."
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4830,7 +4829,7 @@ msgstr ""
 "<h3>Розробники</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Перекладачі</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
