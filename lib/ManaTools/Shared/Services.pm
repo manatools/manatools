@@ -320,7 +320,7 @@ rawdevices => $self->loc->N_("Assign raw devices to block devices (such as hard 
 partitions), for the use of applications such as Oracle or DVD players"),
 resolvconf => $self->loc->N_("Nameserver information manager"),
 routed => $self->loc->N_("The routed daemon allows for automatic IP router table updated via
-the RIP protocol. While RIP is widely used on small networks, more complex
+the Routing Information Protocol. While RIP is widely used on small networks, more complex
 routing protocols are needed for complex networks."),
 rstatd => $self->loc->N_("The rstat protocol allows users on a network to retrieve
 performance metrics for any machine on that network."),
