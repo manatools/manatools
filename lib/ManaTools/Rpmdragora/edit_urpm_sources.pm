@@ -1722,9 +1722,8 @@ sub mainwindow() {
                 last;
             }
             elsif ($menuLabel eq $helpMenu{ about }->label()) {
-                my $translators = $loc->N("_: Translator(s) name(s) & email(s)\n");
-                $translators =~ s/\</\&lt\;/g;
-                $translators =~ s/\>/\&gt\;/g;
+                my $translators = ManaTools::Shared::i18NTranslators($loc->N("_: Translator(s) name(s) & email(s)\n"));
+
                 my $sh_gui = ManaTools::Shared::GUI->new();
                 $sh_gui->AboutDialog({ name => "Rpmdragora",
                                              version => $VERSION,
@@ -1736,7 +1735,7 @@ sub mainwindow() {
                                                            <li>%s</li>
                                                        </ul>
                                                        <h3>Translators</h3>
-                                                       <ul><li>%s</li></ul>",
+                                                       <ul>%s</ul>",
                                                       "Angelo Naselli &lt;anaselli\@linux.it&gt;",
                                                       "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
                                                       $translators

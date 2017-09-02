@@ -474,5 +474,48 @@ sub help_requested() {
     return 0;
 }
 
+
+#=============================================================
+
+=head2 i18NTranslators
+
+=head3 OUTPUT
+
+    translators: translators list from po file, it is taken 
+         from translation of msgid 
+         "_: Translator(s) name(s) & email(s)\n"
+
+=head3 DESCRIPTION
+
+    a string containing the new formatted list
+
+=cut
+
+#=============================================================
+sub i18NTranslators {
+    my ($translators) = @_;
+
+    $translators =~ s/\</\&lt\;/g;
+    $translators =~ s/\>/\&gt\;/g;
+    my $translators_markup = "";
+    my @translators_list = split("\n", $translators);
+    
+    foreach (@translators_list) {
+        $translators_markup .= "<li>" . $_ . "</li>";
+    }
+    
+#     for (my $i = 0; ; $i++) {
+#         if ($i > 0) {
+#             $translators_markup .= "</li><li>";
+#         }
+#         $translators_markup .= $translators_list[$i];
+#         if ($i == $#translators_list) {
+#             last;
+#         }
+#     }
+
+    return $translators_markup;
+}
+
 1; # End of ManaTools::Shared
 

@@ -187,9 +187,8 @@ sub _adminClockPanel {
                 my $event = shift; ## ManaTools::Shared::GUI::Event
                 my $self = $event->parentDialog()->module(); #this object
 
-                my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
-                $translators =~ s/\</\&lt\;/g;
-                $translators =~ s/\>/\&gt\;/g;
+                my $translators = ManaTools::Shared::i18NTranslators($self->loc->N("_: Translator(s) name(s) & email(s)\n"));
+
                 $self->sh_gui->AboutDialog({
                     name    => $self->name,
                     version => $self->Version(),
@@ -199,7 +198,7 @@ sub _adminClockPanel {
                     authors => $self->loc->N("<h3>Developers</h3>
                                               <ul><li>%s</li></ul>
                                               <h3>Translators</h3>
-                                              <ul><li>%s</li></ul>",
+                                              <ul>%s</ul>",
                                               "Angelo Naselli &lt;anaselli\@linux.it&gt;",
                                               $translators
                     ),

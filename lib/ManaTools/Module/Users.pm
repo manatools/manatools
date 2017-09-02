@@ -2378,9 +2378,7 @@ sub _refreshActions {
 sub _showAboutDialog {
     my $self = shift;
 
-    my $translators = $self->loc->N("_: Translator(s) name(s) & email(s)\n");
-    $translators =~ s/\</\&lt\;/g;
-    $translators =~ s/\>/\&gt\;/g;
+    my $translators = ManaTools::Shared::i18NTranslators($self->loc->N("_: Translator(s) name(s) & email(s)\n"));
     $self->sh_gui->AboutDialog({
         name => $self->loc->N("manauser"),
         version => $self->Version(),
@@ -2392,7 +2390,7 @@ sub _showAboutDialog {
                                         <li>%s</li>
                                     </ul>
                                     <h3>Translators</h3>
-                                    <ul><li>%s</li></ul>",
+                                    <ul>%s</ul>",
                                     "Angelo Naselli &lt;anaselli\@linux.it&gt;",
                                     "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;",
                                     $translators
