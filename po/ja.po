@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,13 +9,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Masanori Kakura <kakurasan@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-02 18:53+0200\n"
-"PO-Revision-Date: 2016-08-14 06:25+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2017-09-03 14:02+0000\n"
+"Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
 "Language: ja\n"
@@ -35,6 +36,7 @@ msgstr ""
 "UTUMI Hirosi <utuhiro78@yahoo.co.jp>\n"
 "Yukiko BANDO <ybando@k6.dion.ne.jp>\n"
 "BALLOON a.k.a. Fu-sen. (Keiichi SHIGA) <balloonakafusen@gmail.com>\n"
+"Masanori Kakura <kakurasan@gmail.com>\n"
 
 #: lib/ManaTools/MainDisplay.pm:251 lib/ManaTools/Module/LogViewer.pm:320
 #: lib/ManaTools/Module/Users.pm:2385 lib/ManaTools/Module/Clock.pm:195
@@ -43,7 +45,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:354 modules/rpmdragora/rpmdragora:1093
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Copyright (C) %s Mageia コミュニティ"
 
 #: lib/ManaTools/MainDisplay.pm:252 lib/ManaTools/Module/LogViewer.pm:321
 #: lib/ManaTools/Module/Users.pm:2386 lib/ManaTools/Module/Clock.pm:196
@@ -51,11 +53,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
 #: modules/rpmdragora/dragoraUpdate:355 modules/rpmdragora/rpmdragora:1094
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:253
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan はすべてのユーティリティを集めた ManaTools パネルです。"
 
 #: lib/ManaTools/MainDisplay.pm:254
 #, perl-format
@@ -73,7 +75,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: modules/rpmdragora/rpmdragora:703
 msgid "File"
-msgstr ""
+msgstr "ファイル"
 
 #: lib/ManaTools/MainDisplay.pm:380 lib/ManaTools/Module/LogViewer.pm:298
 #: lib/ManaTools/Module/Users.pm:2437 lib/ManaTools/Module/Users.pm:2525
@@ -91,7 +93,7 @@ msgstr "終了(&Q)"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2180
 msgid "Help"
-msgstr ""
+msgstr "ヘルプ"
 
 #: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/Shared/GUI/Dialog.pm:418
 #: lib/ManaTools/Module/LogViewer.pm:294 lib/ManaTools/Module/Users.pm:2451
@@ -102,7 +104,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr ""
+msgstr "情報(&A)"
 
 #: lib/ManaTools/MainDisplay.pm:567
 #, perl-format
@@ -110,36 +112,38 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"不正な設定ファイルです。%s には xml:lang 属性がありません。文字列であると推測"
+"します"
 
 #: lib/ManaTools/MainDisplay.pm:590
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "設定ファイル %s がありません"
 
 #: lib/ManaTools/MainDisplay.pm:595
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "設定ファイル %s を読み込み中です"
 
 #: lib/ManaTools/MainDisplay.pm:612
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "設定の読み込み: %s の内容は <<%s>> です"
 
 #: lib/ManaTools/MainDisplay.pm:768
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "カテゴリ ファイル %s を解析中です"
 
 #: lib/ManaTools/MainDisplay.pm:779
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "カテゴリの読み込み: タイトルの内容は <<%s>> です"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "カテゴリのロード: モジュールのタイトルは <<%s>> です"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -155,7 +159,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1308
 msgid "&Ok"
-msgstr ""
+msgstr "OK(&O)"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -176,44 +180,46 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1307
 msgid "&Cancel"
-msgstr ""
+msgstr "キャンセル(&C)"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
-msgstr ""
+msgstr "はい"
 
 #: lib/ManaTools/Shared/GUI.pm:319
 msgid "No"
-msgstr ""
+msgstr "いいえ"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "&Select"
-msgstr ""
+msgstr "選択(&S)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
-msgstr ""
+msgstr "<ディレクトリ> 地域化文字列を含む追加のディレクトリ (開発者用)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "この使用方法の情報を表示します。"
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "名前フィールドが空です・名前を入力してください"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"名前はアルファベットから始まらなければならず、小文字のアルファベット, 数字, "
+"'.', '-' そして '_' のみを含まなければなりません"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "名前が長すぎます。最大長は %d です"
 
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -221,380 +227,387 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1186
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 msgid "Ok"
-msgstr ""
+msgstr "OK"
 
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "ユーザ <%s> をプライマリ グループから削除することはできません"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Locked"
-msgstr ""
+msgstr "ロック状態"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Expired"
-msgstr ""
+msgstr "期限切れ"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
 msgid "None (installed)"
-msgstr ""
+msgstr "なし (インストール済み)"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 msgid "Unknown"
-msgstr ""
+msgstr "不明"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "カスタム ルールを保持する"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "カスタム ルールを破棄する"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "yui の gtk プラグイン実装を用いて開始する"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "yui の ncurses プラグイン実装を用いて開始する"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "yui の qt プラグイン実装を用いて開始する"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "ダイアログを全画面で表示する"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "ダイアログにウィンドウ マネージャの枠を表示しない"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<ディレクトリ> 各モジュール用の設定ファイルを含む追加のディレクトリ (例 "
+"modulename/config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
-msgstr ""
+msgstr "リセット(&R)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "閉じる(&C)"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s が有効になっていますが停止中です - 無効化します"
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "グローバル"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "アフリカ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "アジア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "ヨーロッパ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "北アメリカ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "オセアニア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "南アメリカ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
-msgstr ""
+msgstr "南アフリカ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "タンザニア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "バングラデシュ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
-msgstr ""
+msgstr "中国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "香港"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "インド"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
-msgstr ""
+msgstr "インドネシア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
-msgstr ""
+msgstr "イラン"
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
-msgstr ""
+msgstr "イスラエル"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
 msgid "Japan"
-msgstr ""
+msgstr "日本"
 
 #: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
 msgid "Korea"
-msgstr ""
+msgstr "韓国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "マレーシア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "フィリピン"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "シンガポール"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "台湾"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
-msgstr ""
+msgstr "タイ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "トルコ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "アラブ首長国連邦"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
-msgstr ""
+msgstr "オーストリア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:408 lib/ManaTools/rpmdragora.pm:578
 msgid "Belarus"
-msgstr ""
+msgstr "ベラルーシ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
 msgid "Belgium"
-msgstr ""
+msgstr "ベルギー"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "ブルガリア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
-msgstr ""
+msgstr "チェコ共和国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "デンマーク"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "エストニア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
-msgstr ""
+msgstr "フィンランド"
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "フランス"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
-msgstr ""
+msgstr "ドイツ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
 #: lib/ManaTools/rpmdragora.pm:593
 msgid "Greece"
-msgstr ""
+msgstr "ギリシャ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
-msgstr ""
+msgstr "ハンガリー"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "アイルランド"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "イタリア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "リトアニア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "ルクセンブルク"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "オランダ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "ノルウェー"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "ポーランド"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "ポルトガル"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "ルーマニア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "ロシア連邦"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "スロバキア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "スロベニア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "スペイン"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "スウェーデン"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "スイス"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "ウクライナ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "イギリス"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "ユーゴスラビア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
-msgstr ""
+msgstr "カナダ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "グアテマラ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "メキシコ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "アメリカ合衆国"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "オーストラリア"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "ニュージーランド"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
-msgstr ""
+msgstr "アルゼンチン"
 
 #: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
 msgid "Brazil"
-msgstr ""
+msgstr "ブラジル"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "チリ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "すべてのサーバ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:956
 msgid "user does not have the rights to change configuration file, skipped"
-msgstr ""
+msgstr "ユーザは設定ファイルを変更する権限を持ちません。スキップしました"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "カーネルの ACPI イベントを待機および処理します"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "ALSA (Advanced Linux Sound Architecture) サウンド システムを起動します"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "Anacron は定期的なコマンド スケジューラです。"
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"apmd はバッテリ状態を監視したり syslog に記録したりするのに用いられます。バッ"
+"テリが少ないときにマシンをシャットダウンするのにも使用できます。"
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"at コマンドが以前実行されたときに指定した時刻になった際に同コマンドによってス"
+"ケジュールされたコマンドを実行し、ロード アベレージが十分低いときにバッチ コ"
+"マンドを実行します。"
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi は mDNS スタックを実装した ZeroConf デーモンです"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "NTP クライアント/サーバ"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "CPU 周波数を設定します"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -603,15 +616,20 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"cron は標準的な UNIX プログラムで、ユーザによって指定されたプログラムを定期的"
+"にスケジュールされた回数実行します。vixie cron は標準の UNIX cron に多数の機"
+"能を追加しており、セキュリティ向上などのよりパワフルな設定オプションを含んで"
+"います。"
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
 msgstr ""
+"Common UNIX Printing System (CUPS) は高度なプリンタ スプーリング システムです"
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "グラフィカルなディスプレイ マネージャを起動します"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -619,6 +637,8 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
+"FAM はファイル監視デーモンです。これはファイルが変更されたときに通知を得るの"
+"に用いられます。GNOME と KDE で使用されています。"
 
 #: lib/ManaTools/Shared/Services.pm:255
 msgid ""
@@ -631,6 +651,12 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"G15Daemon はユーザがすべての追加キーを使用できるようにし、これらのキーをデ"
+"コードして linux UINPUT ドライバを通してカーネルへ押し戻すことで動作します。"
+"このドライバは g15daemon がキーボードのアクセスに使用できるようになる前に読み"
+"込まれなければなりません。G15 の LCD もサポートされています。既定では、他のク"
+"ライアントがアクティブでなければ、g15daemon は時計を表示します。クライアント "
+"アプリケーションやスクリプトはシンプルな API で LCD にアクセスできます。"
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -639,21 +665,28 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"GPM は Midnight Commander のようなテキスト ベースの Linux アプリケーションに"
+"マウス サポートを追加します。端末でマウスによるカット・アンド・ペーストの操作"
+"が可能になったり、端末上のポップアップメニューがサポートされたりもします。"
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
-msgstr ""
+msgstr "HAL はハードウェア情報を収集および保持するデーモンです"
 
 #: lib/ManaTools/Shared/Services.pm:264
 msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"HardDrake はハードウェアの検出を行い、任意で新規/変更済みハードウェアを設定し"
+"ます。"
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
 msgstr ""
+"Apache はワールド ワイド ウェブ サーバです。これは HTML ファイルや CGI を供給"
+"するのに用いられます。"
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -664,19 +697,23 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"インターネット スーパーサーバ デーモン(俗に inetd と呼ばれます)は様々な他のイ"
+"ンターネット サービスを必要に応じて起動します。これは telnet, ftp, rsh, そし"
+"て rlogin を含むたくさんのサービスを開始する責任を負うものです。inetd を無効"
+"化すると責任を負うすべてのサービスが無効化されます。"
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
-msgstr ""
+msgstr "ip6tables のパケット フィルタリング ファイアウォールを自動化します"
 
 #: lib/ManaTools/Shared/Services.pm:272
 msgid "Automates a packet filtering firewall with iptables"
-msgstr ""
+msgstr "iptables のパケット フィルタリング ファイアウォールを自動化します"
 
 #: lib/ManaTools/Shared/Services.pm:273
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
-msgstr ""
+msgstr "複数 CPU の IRQ 負荷を均等に割り振ってパフォーマンスを向上させます"
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -684,38 +721,49 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"このパッケージは選択されたキーボード マップをセットとして /etc/sysconfig/"
+"keyboard 内で読み込みます。これは kbdconfig ユーティリティを使用して選択でき"
+"ます。ほとんどのマシンでこれは有効のままにしておくべきです。"
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"/usr/include/linux/{autoconf,version}.h 向けに /boot 内にカーネル ヘッダを自"
+"動再生成します"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr ""
+msgstr "起動時にハードウェアを自動的に検出および設定します。"
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
-msgstr ""
+msgstr "バッテリの寿命を延ばすためにシステムの動作を調整します"
 
 #: lib/ManaTools/Shared/Services.pm:281
 msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"Linuxconf はシステム設定をメンテナンスするために起動時に時々色々な処理を行う"
+"でしょう。"
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"lpd は lpr が正しく動作するために必要な印刷デーモンです。これは基本的には印刷"
+"ジョブをプリンタへ渡すデーモンです。"
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Linux Virtual Server の略で、高パフォーマンスで高可用なサーバを構築するのに用"
+"いられます。"
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
@@ -1462,7 +1510,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
-msgstr ""
+msgstr "再読み込み"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
@@ -2008,7 +2056,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
-msgstr ""
+msgstr "再読み込み(&R)"
 
 #: lib/ManaTools/Module/Services.pm:446
 msgid ""
@@ -2079,11 +2127,11 @@ msgstr "今後は尋ねない"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "はい(&Y)"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "いいえ(&N)"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -2764,27 +2812,27 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
-msgstr ""
+msgstr "ダイヤルアップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:52
 msgid "Mobile"
-msgstr ""
+msgstr "モバイル"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:53
 msgid "Radio"
-msgstr ""
+msgstr "ラジオ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
-msgstr ""
+msgstr "シリアル"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Telephony"
-msgstr ""
+msgstr "テレフォニー"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
@@ -2806,7 +2854,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
@@ -2818,15 +2866,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:61
 msgid "C#"
-msgstr ""
+msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "デバッグ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
@@ -2846,7 +2894,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
@@ -2920,11 +2968,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
-msgstr ""
+msgstr "シューティング"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
-msgstr ""
+msgstr "シミュレータ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
@@ -2978,12 +3026,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
-msgstr ""
+msgstr "3D"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "エディタとコンバータ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
@@ -2992,15 +3040,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
-msgstr ""
+msgstr "写真撮影"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
-msgstr ""
+msgstr "スキャン"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
-msgstr ""
+msgstr "ビューア"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
@@ -3052,31 +3100,31 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
-msgstr ""
+msgstr "辞書"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "財務"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
-msgstr ""
+msgstr "管理"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:134
 msgid "Organizer"
-msgstr ""
+msgstr "整理"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:136
 msgid "Spreadsheet"
-msgstr ""
+msgstr "表計算"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
-msgstr ""
+msgstr "スイート"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
-msgstr ""
+msgstr "ワードプロセッサ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:139
 msgid "Publishing"
@@ -3137,15 +3185,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:153
 msgid "Midi"
-msgstr ""
+msgstr "MIDI"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:154
 msgid "Mixers"
-msgstr ""
+msgstr "ミキサー"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
 msgid "Players"
-msgstr ""
+msgstr "プレーヤ"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -3241,7 +3289,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:182
 msgid "Television"
-msgstr ""
+msgstr "テレビ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
 #: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
@@ -3863,7 +3911,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "オプション(&O)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -3884,7 +3932,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
 msgid "Manual"
-msgstr ""
+msgstr "マニュアル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2064
@@ -4464,7 +4512,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "概要"
 
 #: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
@@ -4554,7 +4602,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "%s と noarch のみを表示"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4622,7 +4670,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "概要"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
@@ -4630,7 +4678,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
-msgstr ""
+msgstr "検索"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
@@ -4638,7 +4686,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "適用(&A)"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4662,7 +4710,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "選択を全て解除"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -4995,39 +5043,39 @@ msgstr ""
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools ログ ビューア, ユーザ モード"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall - ファイアウォール設定マネージャ"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "ManaTools ファイアウォール設定"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
-msgstr ""
+msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools コントロール パネル"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools パネル - アプリケーション ランチャ"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
-msgstr ""
+msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - ソフトウェアのインストールと削除"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
-msgstr ""
+msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
