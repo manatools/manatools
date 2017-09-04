@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-02 18:53+0200\n"
-"PO-Revision-Date: 2017-09-03 14:02+0000\n"
+"PO-Revision-Date: 2017-09-04 14:05+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -70,6 +70,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>開発者</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>翻訳者</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -697,10 +704,10 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
-"インターネット スーパーサーバ デーモン(俗に inetd と呼ばれます)は様々な他のイ"
-"ンターネット サービスを必要に応じて起動します。これは telnet, ftp, rsh, そし"
-"て rlogin を含むたくさんのサービスを開始する責任を負うものです。inetd を無効"
-"化すると責任を負うすべてのサービスが無効化されます。"
+"インターネット スーパーサーバ デーモン (俗に inetd と呼ばれます) は様々な他の"
+"インターネット サービスを必要に応じて起動します。これは telnet, ftp, rsh, そ"
+"して rlogin を含むたくさんのサービスを開始する責任を負うものです。inetd を無"
+"効化すると責任を負うすべてのサービスが無効化されます。"
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -735,7 +742,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr "起動時にハードウェアを自動的に検出および設定します。"
+msgstr "ブート時にハードウェアを自動的に検出および設定します。"
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
@@ -746,8 +753,8 @@ msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
-"Linuxconf はシステム設定をメンテナンスするために起動時に時々色々な処理を行う"
-"でしょう。"
+"Linuxconf はシステム設定をメンテナンスするためにブート時に時々色々な処理を行"
+"うでしょう。"
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
@@ -767,51 +774,57 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "ネットワークを監視します (対話式ファイアウォールと無線)"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
-msgstr ""
+msgstr "ソフトウェア RAID の監視と管理"
 
 #: lib/ManaTools/Shared/Services.pm:289
 msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
-msgstr ""
+msgstr "DBUS はシステム イベントの通知や他のメッセージを送信するデーモンです"
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
-msgstr ""
+msgstr "システム開始時に MSEC セキュリティ ポリシーを適用します"
 
 #: lib/ManaTools/Shared/Services.pm:291
 msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"named (BIND) はホスト名を IP アドレスに名前解決するドメイン ネーム サーバ "
+"(DNS) です。"
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "ネットワーク コンソール ロギングを初期化します"
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"ネットワーク ファイル システム (NFS), SMB (Lan Manager/Windows), NCP "
+"(NetWare) のすべてのマウント ポイントをマウントおよびマウント解除します。"
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"ブート時に開始するように設定されたすべてのネットワーク インターフェースを有効"
+"化/無効化します。"
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "有効化するとネットワークが有効になるように求めます"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "ホットプラグされたネットワークが有効になるのを待機します"
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid ""
@@ -819,30 +832,36 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"NFS は TCP/IP ネットワーク上のファイル共有のための、人気のあるプロトコルで"
+"す。このサービスは NFS サーバ機能を提供しており、/etc/exports ファイルによっ"
+"て設定可能です。"
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS は TCP/IP ネットワーク上のファイル共有のための、人気のあるプロトコルで"
+"す。このサービスは NFS ファイル ロック機能を提供しています。"
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
 msgstr ""
+"ネットワーク タイム プロトコル (NTP) を用いてシステム時刻を同期します。"
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
-msgstr ""
+msgstr "ブート時に numlock キー ロッカーを端末と Xorg で自動的にオンにします。"
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "OKI 4w とその互換 winprinter をサポートします。"
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "パーティションがいっぱいに近くないかをチェックします"
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
@@ -851,6 +870,9 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"PCMCIA サポートは通常ラップトップでイーサネットやモデムのようなものをサポート"
+"します。これは設定されない限りは開始されず、必要のないものがマシンに取り付け"
+"られていても安全です。"
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -859,32 +881,41 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"portmapper は NFS や NIS のようなプロトコルで用いられる RPC 接続を管理しま"
+"す。この portmap サーバは RPC の仕組みを利用しているプロトコルを用いたサーバ "
+"マシンでは動作していなければなりません。"
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
-msgstr ""
+msgstr "幾つかの TCP ポートを予約します"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"Postfix はメール転送エージェントで、メールをマシンから別のマシンへ移動させま"
+"す。"
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"より高品質な乱数を生成するために、システム エントロピー プールの保存と復元を"
+"行います。"
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Oracle や DVD プレーヤのようなアプリケーションの使用向けに、生デバイスをブ"
+"ロック デバイス (ハード ディスクのパーティションなど) へ割り当てます。"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
-msgstr ""
+msgstr "ネームサーバ 情報 マネージャ"
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid ""
@@ -893,24 +924,34 @@ msgid ""
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"routed デーモンは自動 IP ルータ テーブルをルーティング インフォメーション プ"
+"ロトコルを通して更新可能にします。RIP は小規模ネットワークで広く用いられる一"
+"方、複雑なネットワークではより複雑なルーティング プロトコルが必要となります。"
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"rstat プロトコルはネットワーク上のユーザが同ネットワーク上の任意のマシンのパ"
+"フォーマンス メトリックを取得可能にします。"
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"Syslog はたくさんのデーモンがログ メッセージをさまざまなシステム ログ ファイ"
+"ルへ書き込む際に使用される便利なものです。rsyslog は常に動かすのがよいでしょ"
+"う。"
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"rusers プロトコルはネットワーク上のユーザが反応のある別のマシンにログインして"
+"いる人を確認することを可能にします。"
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
@@ -1044,6 +1085,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
+"<h3>開発者</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>翻訳者</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1332,44 +1379,44 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
-msgstr ""
+msgstr "ユーザ名"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr ""
+msgstr "ユーザ ID"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
-msgstr ""
+msgstr "プライマリ グループ"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "フル ネーム"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
-msgstr ""
+msgstr "ログイン シェル"
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
-msgstr ""
+msgstr "ホーム ディレクトリ"
 
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "状態"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "グループ名"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "グループ ID"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
-msgstr ""
+msgstr "グループ メンバ"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
@@ -1507,6 +1554,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>開発者</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>翻訳者</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1573,6 +1626,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
+"<h3>開発者</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>翻訳者</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2077,6 +2134,12 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul>%s</ul>"
 msgstr ""
+"<h3>開発者</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>翻訳者</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -2329,10 +2392,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"ミラーサイトのリストを取得するためにインターネットに接続します。\n"
-"ネットワークが有効になっていることを確認してください。\n"
+"ミラーの一覧を取得するためにインターネットにアクセスする必要があります。\n"
+"ネットワークが動作しているかを確認してください。\n"
 "\n"
-"続けますか？"
+"続行してもよろしいですか?"
 
 #: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:298
 msgid ""
@@ -2341,6 +2404,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"ミラーの一覧を取得するために Mageia の Web サイトに接続する必要があります。\n"
+"ネットワークが動作しているかを確認してください。\n"
+"\n"
+"続行してもよろしいですか?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
@@ -2532,6 +2599,11 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"最新のアップデート パッケージを取得するためにミラーに接続する必要がありま"
+"す。\n"
+"ネットワークが動作しているかを確認してください。\n"
+"\n"
+"続行してもよろしいですか?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
@@ -4254,11 +4326,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1296
 msgid "Select package"
-msgstr ""
+msgstr "パッケージを選択"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Checking dependencies of package..."
-msgstr ""
+msgstr "パッケージの依存関係をチェックしています..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1399
 msgid "Some additional packages need to be removed"
@@ -4289,7 +4361,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "Additional packages needed"
-msgstr ""
+msgstr "追加のパッケージが必要です"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1449
 msgid ""
@@ -4297,23 +4369,25 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
+"依存関係を満たすために、以下のパッケージもインストールされる必要があります:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "パッケージの衝突"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1471
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s (スキップ リストに存在)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "One package cannot be installed"
-msgstr ""
+msgstr "1つのパッケージがインストールできません"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "Some packages cannot be installed"
-msgstr ""
+msgstr "幾つかのパッケージがインストールできません"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1477
 #, perl-format
@@ -4322,6 +4396,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"申し訳ありませんが、以下のパッケージは選択できません:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1478
 #, perl-format
@@ -4330,27 +4407,30 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"申し訳ありませんが、以下のパッケージは選択できません:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Some packages are selected."
-msgstr ""
+msgstr "幾つかのパッケージが選択されています。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "本当に終了しますか?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1542
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "エラー: %s は読み取り専用でマウントされているようです。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "まず幾つかのパッケージを選択する必要があります。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1551
 msgid "Too many packages are selected"
-msgstr ""
+msgstr "選択パッケージが多すぎます"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1552
 msgid ""
@@ -4497,18 +4577,18 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "ソフトウェア パッケージ アップデートの一覧"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1216 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
-msgstr ""
+msgstr "ソフトウェアの管理"
 
 #: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
 #: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
@@ -4516,11 +4596,11 @@ msgstr "概要"
 
 #: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "バージョン"
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "リリース"
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
@@ -4528,11 +4608,11 @@ msgstr "Arch"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
-msgstr ""
+msgstr "すべてのチェックを外す(&N)"
 
 #: modules/rpmdragora/dragoraUpdate:356
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "dragoraUpdate は Mageia のパッケージ管理ツールです。"
 
 #: modules/rpmdragora/dragoraUpdate:357
 #, perl-format
@@ -4542,6 +4622,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul>%s</ul>"
 msgstr ""
+"<h3>開発者</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>翻訳者</h3>\n"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -4549,15 +4633,18 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"アップデートの一覧が空です。これは、このコンピュータにインストールされている"
+"パッケージに対するアップデートが存在しないか、もしくはそれらすべてがインス"
+"トール済みであることを意味します。"
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "メディア \"%s\" は xml-info が利用できません"
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
-msgstr ""
+msgstr "検索は中止されました"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
@@ -4569,7 +4656,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
-msgstr ""
+msgstr "検索結果が空です。"
 
 #: modules/rpmdragora/rpmdragora:376
 #, perl-format
@@ -4577,27 +4664,28 @@ msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
 msgstr ""
+"検索結果が空です。'%s' の表示と '%s' フィルタに切り替えるとよいでしょう"
 
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "選択: %s / ディスクの空き容量: %s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "パッケージ"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
-msgstr ""
+msgstr "Arch."
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
-msgstr ""
+msgstr "インストール"
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "未インストール"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
@@ -4606,67 +4694,67 @@ msgstr "%s と noarch のみを表示"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr ""
+msgstr "全パッケージ, ABC 順"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr ""
+msgstr "全パッケージ, グループ順"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "単独で削除できるパッケージ, インストール順"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "全パッケージ, 更新可能別"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "全パッケージ, 選択順"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr ""
+msgstr "全パッケージ, サイズ順"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "全パッケージ, メディア順"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
-msgstr ""
+msgstr "バックポート"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "メタ パッケージ"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
-msgstr ""
+msgstr "GUI のあるパッケージ"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr ""
+msgstr "すべてのアップデート"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr ""
+msgstr "セキュリティ アップデート"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "バグ修正のアップデート"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "通常のアップデート"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
-msgstr ""
+msgstr "パッケージ名"
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "説明文"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
@@ -4674,7 +4762,7 @@ msgstr "概要"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
-msgstr ""
+msgstr "中のファイル名"
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
@@ -4682,7 +4770,7 @@ msgstr "検索"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr ""
+msgstr "リセット"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
@@ -4690,23 +4778,23 @@ msgstr "適用(&A)"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "依存パッケージを確認なしで選択する"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "正常なインストールの後にダウンロード キャッシュをクリア"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "開始時にアップデートを算定する"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr ""
+msgstr "完全なパッケージ名から検索"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "検索で正規表現を使用する"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
@@ -4714,23 +4802,23 @@ msgstr "選択を全て解除"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
-msgstr ""
+msgstr "パッケージ一覧を再読み込み"
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "設定"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
-msgstr ""
+msgstr "メディア マネージャ(&M)"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
-msgstr ""
+msgstr "表示"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
-msgstr ""
+msgstr "リセットは中止されました (RPM DB が別のプロセスにロックされています)"
 
 #: modules/rpmdragora/rpmdragora:1096
 #, perl-format
@@ -4747,11 +4835,12 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdragora は既に動作中です (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
 msgstr ""
+"不正な <url> (ローカル ディレクトリではパス名は絶対パスでなければなりません)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4760,6 +4849,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"続行してもよろしいですか?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -4767,6 +4859,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"新しいパッケージ メディアを追加しようとしています。\n"
+"これはそれらの新しいメディアから新しいソフトウェア パッケージを\n"
+"追加できるようになることを意味します。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4775,6 +4870,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"新しいパッケージ メディア %s を追加しようとしています。\n"
+"これはそれらの新しいメディアから新しいソフトウェア パッケージを\n"
+"追加できるようになることを意味します。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4783,57 +4881,60 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"新しいパッケージ メディア `%s' を追加しようとしています。\n"
+"これはその新しいメディアから新しいソフトウェア パッケージを\n"
+"追加できるようになることを意味します。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr ""
+msgstr "メディアを正常に追加しました。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "メディア %s を正常に追加しました。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "メディア `%s' を正常に追加しました。"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Mageia アップデート ソフトウェア ツールを実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
-msgstr ""
+msgstr "rpmdragora Mageia アップデータの実行には認証が必要です"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
 msgid "Run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Mageia 日付と時刻の設定を実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaclock.policy.in:12
 msgid "Authentication is required to run Mageia Date and Time Configuration"
-msgstr ""
+msgstr "Mageia 日付と時刻の設定の実行には認証が必要です"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manadm.policy.in:11
 msgid "Run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Mageia ログイン マネージャ設定を実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manadm.policy.in:12
 msgid "Authentication is required to run Mageia Login Manager Configuration"
-msgstr ""
+msgstr "Mageia ログイン マネージャ設定の実行には認証が必要です"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manahost.policy.in:11
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "APanel GUI を許可"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -4841,16 +4942,18 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"プログラム manahost の実行には認証が必要です (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
 msgid "Run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia ログ ビューアを実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manalog.policy.in:12
 msgid "Authentication is required to run Mageia Log Viewer"
-msgstr ""
+msgstr "Mageia ログ ビューアの実行には認証が必要です"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaproxy.policy.in:12
@@ -4858,16 +4961,18 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"プログラム manaproxy の実行には認証が必要です (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
 msgid "Run Mageia Service Configuration"
-msgstr ""
+msgstr "Mageia サービス設定を実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manaservice.policy.in:12
 msgid "Authentication is required to run Mageia Service Configuration"
-msgstr ""
+msgstr "Mageia サービス設定の実行には認証が必要です"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
@@ -4882,12 +4987,12 @@ msgstr "Mageia ユーザ管理ツールの実行には認証が必要です"
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Mageia ファイアウォール設定を実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Mageia ファイアウォール設定の実行には認証が必要です"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -4895,36 +5000,38 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"プログラム apanel の実行には認証が必要です (user=$(user), program="
+"$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Mageia ソフトウェアのインストールと削除を実行"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Mageia rpm マネージャの実行には認証が必要です"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Mageia パネル"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "カテゴリ"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "ソフトウェアのインストールと削除"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "システムをアップデート"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -4934,7 +5041,7 @@ msgstr "インストールとアップデートのためのメディアを設定
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "ネットワーク &amp;&amp; インターネット"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -4943,103 +5050,103 @@ msgstr "起動"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Mageia のアップデート"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
-msgstr ""
+msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "パッケージ更新用のグラフィカル フロント エンド"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - 日付, 時刻 & タイム ゾーン設定"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "ManaTools 時計マネージャ"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
-msgstr ""
+msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - ログイン設定マネージャ"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "ManaTools ログイン設定マネージャ"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
-msgstr ""
+msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost - ホストとホスト名の管理"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "ManaTools ホスト マネージャ"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
-msgstr ""
+msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Journalctl ログ ビューア, 管理者モード"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools ログ ビューア, 管理者モード"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
-msgstr ""
+msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy - プロキシ設定マネージャ"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "ManaTools プロキシ マネージャ"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
-msgstr ""
+msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - サービス設定マネージャ"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "ManaTools サービス マネージャ"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
-msgstr ""
+msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser - ユーザとグループの管理"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "ManaTools ユーザ管理ツール"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
-msgstr ""
+msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Journalctl ログ ビューア, ユーザ モード"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
