@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-02 18:53+0200\n"
-"PO-Revision-Date: 2017-09-04 14:05+0000\n"
+"PO-Revision-Date: 2017-09-05 13:47+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -958,122 +958,133 @@ msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"rwho プロトコルは rwho デーモンの動いているマシンにログインしているユーザの一"
+"覧をリモート ユーザが取得できるようにします (finger に近いです)。"
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
+"SANE (Scanner Access Now Easy) はスキャナやビデオ カメラなどにアクセスできる"
+"ようにします"
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
-msgstr ""
+msgstr "パケット フィルタリング ファイアウォール"
 
 #: lib/ManaTools/Shared/Services.pm:334
 msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
 msgstr ""
+"SMB/CIFS プロトコルはファイルやプリンタへのアクセスを共有できるようにし、"
+"Windows Server ドメインとの統合も行います"
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "このマシンでサウンド システムを起動します"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
-msgstr ""
+msgstr "スピーチ分析用のレイヤー"
 
 #: lib/ManaTools/Shared/Services.pm:337
 msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
 msgstr ""
+"Secure Shell は 2 台のコンピュータ間でデータを安全なチャンネルでやりとりでき"
+"るようにするネットワーク プロトコルです"
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog はたくさんのデーモンがログ メッセージをさまざまなシステム ログ ファイ"
+"ルへ書き込む際に使用される便利なものです。syslog は常に動かすのがよいでしょ"
+"う。"
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
-msgstr ""
+msgstr "生成された永続的な udev のルールを /etc/udev/rules.d へ移動します"
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "usb デバイス用のドライバを読み込みます。"
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
-msgstr ""
+msgstr "軽量なネットワーク トラフィック モニタです"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "X フォント サーバを開始します。"
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "他のデーモンを必要に応じて開始します。"
 
 #: lib/ManaTools/Module/LogViewer.pm:81
 #, perl-format
 msgid "%s - Log viewer"
-msgstr ""
+msgstr "%s - ログ ビューア"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "ログ監視ツール"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
-msgstr ""
+msgstr "以下に一致する"
 
 #: lib/ManaTools/Module/LogViewer.pm:164
 msgid "but not matching"
-msgstr ""
+msgstr "かつ以下に一致しない"
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "オプション"
 
 #: lib/ManaTools/Module/LogViewer.pm:173
 msgid "Last boot"
-msgstr ""
+msgstr "直近のブート"
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
-msgstr ""
+msgstr "期間の開始日時を指定"
 
 #: lib/ManaTools/Module/LogViewer.pm:191
 msgid "Until"
-msgstr ""
+msgstr "期間の終了日時を指定"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
-msgstr ""
+msgstr "ユニットを選択"
 
 #: lib/ManaTools/Module/LogViewer.pm:240
 msgid "From priority"
-msgstr ""
+msgstr "最低優先度を指定"
 
 #: lib/ManaTools/Module/LogViewer.pm:260
 msgid "To priority"
-msgstr ""
+msgstr "最高優先度を指定"
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
-msgstr ""
+msgstr "検索(&F)"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
-msgstr ""
+msgstr "ログの内容"
 
 #: lib/ManaTools/Module/LogViewer.pm:297
 msgid "&Save"
-msgstr ""
+msgstr "保存(&S)"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "ログ ビューアは systemd journal のビューアです"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
 #, perl-format
@@ -1094,11 +1105,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
-msgstr ""
+msgstr "空のログが見つかりました"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - ユーザ モードで動作中"
 
 #: lib/ManaTools/Module/LogViewer.pm:435
 msgid ""
@@ -1106,55 +1117,58 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"一般ユーザとしてこのプログラムを起動しています。\n"
+"読み込み権限のないシステム ログは読み込めませんが、\n"
+"それ以外のログはそれでも参照できます。"
 
 #: lib/ManaTools/Module/LogViewer.pm:457
 msgid "Save as.."
-msgstr ""
+msgstr "名前を付けて保存.."
 
 #: lib/ManaTools/Module/Users.pm:107
 #, perl-format
 msgid "%s - Users Management Tool"
-msgstr ""
+msgstr "%s - ユーザ管理ツール"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
-msgstr ""
+msgstr "ユーザ データ"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "アカウント情報"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
-msgstr ""
+msgstr "パスワード情報"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
 msgid "Groups"
-msgstr ""
+msgstr "グループ"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "グループ データ"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "グループ ユーザ"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
-msgstr ""
+msgstr "グループを選択"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "この名前のグループは既に存在します。どうしますか?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "既存のグループに追加"
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "'users' グループに追加"
 
 #: lib/ManaTools/Module/Users.pm:418 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
@@ -1163,17 +1177,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:954 lib/ManaTools/Rpmdragora/gui.pm:959
 #: modules/rpmdragora/rpmdragora:1208
 msgid "Warning"
-msgstr ""
+msgstr "警告"
 
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "本当にグループ %s を削除しますか?"
 
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "&Delete"
-msgstr ""
+msgstr "削除(&D)"
 
 #: lib/ManaTools/Module/Users.pm:452
 #, perl-format
@@ -1181,15 +1195,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s はユーザ %s のプライマリ グループです\n"
+"先にこのユーザを削除してください"
 
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "グループを削除中: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "ファイルを削除しますか?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -1197,46 +1213,48 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"ユーザ %s を削除中です\n"
+"以下の操作も行います\n"
 
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "ホーム ディレクトリを削除: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "メールボックスを削除: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "ユーザを削除中: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "新しいグループを作成"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
-msgstr ""
+msgstr "グループ名:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "グループ ID を手動で指定する"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "グループは既に存在します。別のグループ名を選択してください"
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr " グループの Gid が %n 未満です"
 
 #: lib/ManaTools/Module/Users.pm:642
 #, perl-format
@@ -1245,98 +1263,105 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"%d 未満の GID のグループを作成するのは推奨できません。\n"
+"本当に作成しますか?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr ""
+msgstr "グループ ID は既に使用されています"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"固有でない GID のグループを作成していませんか?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "グループを追加中: %s "
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
-msgstr ""
+msgstr "フル ネーム:"
 
 #: lib/ManaTools/Module/Users.pm:728
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 msgid "Login:"
-msgstr ""
+msgstr "ログイン名:"
 
 #: lib/ManaTools/Module/Users.pm:738 lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
 msgid "Password:"
-msgstr ""
+msgstr "パスワード:"
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
-msgstr ""
+msgstr "パスワードの確認:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
-msgstr ""
+msgstr "ログイン シェル:"
 
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "アイコン(&I) (%s)"
 
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2406
 #: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Proxy.pm:147
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "root 特権が必要です"
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
-msgstr ""
+msgstr "新しいユーザを作成"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
-msgstr ""
+msgstr "ホーム ディレクトリを作成"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr ""
+msgstr "ホーム ディレクトリ:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "このユーザ専用のグループを作成"
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "ユーザ ID を手動で指定する"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "アイコンをクリックすると変更できます"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "ユーザは既に存在します。別のユーザ名を選択してください"
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
-msgstr ""
+msgstr "パスワードが一致しません"
 
 #: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"このパスワードは単純すぎます。\n"
+"6 文字より長いパスワードがよいでしょう"
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -1344,11 +1369,13 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"ホーム ディレクトリ <%s> は既に存在します。\n"
+"ホーム作成のオプションを外すか、ディレクトリのパス名を変更してください"
 
 #: lib/ManaTools/Module/Users.pm:980
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "ユーザの Uid が %d 未満です"
 
 #: lib/ManaTools/Module/Users.pm:981
 #, perl-format
@@ -1357,25 +1384,28 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"%d 未満の UID のユーザを作成するのは推奨できません。\n"
+"本当に作成しますか?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "%s を 'users' グループに追加中"
 
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "新しいグループを作成中: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr ""
+msgstr "ユーザを追加中: "
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "ユーザを追加中: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
@@ -1420,129 +1450,131 @@ msgstr "グループ メンバ"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
-msgstr ""
+msgstr "ホーム:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
-msgstr ""
+msgstr "アカウントの有効期限を設定する"
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "アカウントの有効期限 (YYYY-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
-msgstr ""
+msgstr "ユーザ アカウントをロック"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "アイコンをクリックすると変更できます"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
-msgstr ""
+msgstr "ユーザの最終パスワード変更日時: "
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "パスワードの有効期限を設定する"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "変更可能になるまでの日数:"
 
 #: lib/ManaTools/Module/Users.pm:1720
 msgid "Days before change required:"
-msgstr ""
+msgstr "変更が要求されるまでの日数:"
 
 #: lib/ManaTools/Module/Users.pm:1728
 msgid "Days warning before change:"
-msgstr ""
+msgstr "変更前に警告する日数:"
 
 #: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "アカウントが無効になるまでの日数:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "このグループに追加するユーザを選択:"
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
-msgstr ""
+msgstr "ユーザ"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "このユーザがメンバとなるグループを選択:"
 
 #: lib/ManaTools/Module/Users.pm:1814
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Group"
-msgstr ""
+msgstr "グループ"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "このユーザ用に最低 1 つのグループを選択してください"
 
 #: lib/ManaTools/Module/Users.pm:1942
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
-msgstr ""
+msgstr "アカウントの有効期限用に年月日を指定してください"
 
 #: lib/ManaTools/Module/Users.pm:1958
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "パスワードの期限についてのすべてのフィールドを埋めてください\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
 #, perl-format
 msgid "Problem in modifying user %s"
-msgstr ""
+msgstr "ユーザ %s の修正時に問題が発生しました"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
-msgstr ""
+msgstr "強"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Weak"
-msgstr ""
+msgstr "弱"
 
 #: lib/ManaTools/Module/Users.pm:2010
 msgid "Edit User"
-msgstr ""
+msgstr "ユーザを編集"
 
 #: lib/ManaTools/Module/Users.pm:2163 lib/ManaTools/Module/Users.pm:2266
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "タブ ウィジェットを作成できません"
 
 #: lib/ManaTools/Module/Users.pm:2179
 msgid "Edit Group"
-msgstr ""
+msgstr "グループを編集"
 
 #: lib/ManaTools/Module/Users.pm:2344 lib/ManaTools/Module/Users.pm:2468
 msgid "Add User"
-msgstr ""
+msgstr "ユーザを追加"
 
 #: lib/ManaTools/Module/Users.pm:2345 lib/ManaTools/Module/Users.pm:2473
 msgid "Add Group"
-msgstr ""
+msgstr "グループを追加"
 
 #: lib/ManaTools/Module/Users.pm:2346 lib/ManaTools/Module/Hosts.pm:436
 msgid "&Edit"
-msgstr ""
+msgstr "編集(&E)"
 
 #: lib/ManaTools/Module/Users.pm:2348
 msgid "Install guest account"
-msgstr ""
+msgstr "ゲスト アカウントをインストール"
 
 #: lib/ManaTools/Module/Users.pm:2383
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2387
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser は Mageia のユーザ管理ツールです \n"
+"(Mandriva の userdrake のアイデアを元にしています)。"
 
 #: lib/ManaTools/Module/Users.pm:2388
 #, perl-format
@@ -1567,7 +1599,7 @@ msgstr "再読み込み"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
-msgstr ""
+msgstr "操作"
 
 #: lib/ManaTools/Module/Users.pm:2448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
@@ -1579,44 +1611,46 @@ msgstr "ヘルプ(&H)"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: modules/rpmdragora/rpmdragora:758
 msgid "Report Bug"
-msgstr ""
+msgstr "バグを報告"
 
 #: lib/ManaTools/Module/Users.pm:2478
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2155
 msgid "Edit"
-msgstr ""
+msgstr "編集"
 
 #: lib/ManaTools/Module/Users.pm:2483
 msgid "Delete"
-msgstr ""
+msgstr "削除"
 
 #: lib/ManaTools/Module/Users.pm:2502
 msgid "Filter system users"
-msgstr ""
+msgstr "システム ユーザをフィルタ"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Search:"
-msgstr ""
+msgstr "検索:"
 
 #: lib/ManaTools/Module/Users.pm:2509
 msgid "Apply &filter"
-msgstr ""
+msgstr "フィルタを適用(&F)"
 
 #: lib/ManaTools/Module/Users.pm:2528
 msgid "Users"
-msgstr ""
+msgstr "ユーザ"
 
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "%s - 日付, 時刻 & タイム ゾーン設定"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"日付, 時刻 & タイム ゾーン設定はタイム ゾーンの設定を可能にし、日付と時刻を調"
+"整します"
 
 #: lib/ManaTools/Module/Clock.pm:198
 #, perl-format
@@ -1633,92 +1667,92 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
-msgstr ""
+msgstr "データの復元"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "日付と時刻のみを復元しますか?"
 
 #: lib/ManaTools/Module/Clock.pm:235 lib/ManaTools/Module/Clock.pm:241
 #: lib/ManaTools/Module/Clock.pm:567 lib/ManaTools/Module/Clock.pm:652
 msgid "not defined"
-msgstr ""
+msgstr "未定義"
 
 #: lib/ManaTools/Module/Clock.pm:269
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "ローカル RTC の設定に失敗しました"
 
 #: lib/ManaTools/Module/Clock.pm:284
 msgid "Set time zone failed"
-msgstr ""
+msgstr "タイム ゾーンの設定に失敗しました"
 
 #: lib/ManaTools/Module/Clock.pm:329
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "NTP の設定に失敗しました"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP failed"
-msgstr ""
+msgstr "NTP の設定に失敗しました"
 
 #: lib/ManaTools/Module/Clock.pm:368
 msgid "Set system time failed"
-msgstr ""
+msgstr "システム時刻の設定に失敗しました"
 
 #: lib/ManaTools/Module/Clock.pm:399
 msgid "Setting date and time"
-msgstr ""
+msgstr "日付と時刻を設定"
 
 #: lib/ManaTools/Module/Clock.pm:417
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "ネットワーク タイム プロトコルを有効にする"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: NTP サービスがありません"
 
 #: lib/ManaTools/Module/Clock.pm:430
 msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr ""
+msgstr "chrony や ntp のような NTP サービスをインストールしてください"
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "NTP サーバを選択(&N)"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "NTP サーバ - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "NTP サーバを選択してください"
 
 #: lib/ManaTools/Module/Clock.pm:494
 msgid "&Local NTP server"
-msgstr ""
+msgstr "ローカル NTP サーバ(&L)"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Set local NTP server"
-msgstr ""
+msgstr "ローカル NTP サーバを設定"
 
 #: lib/ManaTools/Module/Clock.pm:511
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "ローカル NTP サーバを設定してください"
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
-msgstr ""
+msgstr "現在:"
 
 #: lib/ManaTools/Module/Clock.pm:590
 msgid "TimeZone"
-msgstr ""
+msgstr "タイム ゾーン"
 
 #: lib/ManaTools/Module/Clock.pm:592
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "タイム ゾーンを変更(&T)"
 
 #: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "タイム ゾーン - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:606
 msgid "Failed to retrieve timezone list"
@@ -2022,94 +2056,94 @@ msgstr ""
 #: lib/ManaTools/Module/Proxy.pm:53
 #, perl-format
 msgid "%s - Proxy configuration"
-msgstr ""
+msgstr "%s - プロキシ設定"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr ""
+msgstr "プロキシは http://... となるべきです"
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr ""
+msgstr "プロキシは http://... もしくは https://... となるべきです"
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr ""
+msgstr "URL は 'ftp:' もしくは 'http:' で始まるべきです"
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
-msgstr ""
+msgstr "プロキシ設定"
 
 #: lib/ManaTools/Module/Proxy.pm:282
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
-msgstr ""
+msgstr "ここでプロキシを設定できます (例: http://my_caching_server:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
-msgstr ""
+msgstr "HTTP プロキシ"
 
 #: lib/ManaTools/Module/Proxy.pm:296
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr ""
+msgstr "HTTPS 接続に HTTP プロキシを使用"
 
 #: lib/ManaTools/Module/Proxy.pm:302
 msgid "HTTPS proxy"
-msgstr ""
+msgstr "HTTPS プロキシ"
 
 #: lib/ManaTools/Module/Proxy.pm:308
 msgid "FTP proxy"
-msgstr ""
+msgstr "FTP プロキシ"
 
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
-msgstr ""
+msgstr "プロキシなしで接続 (コンマ区切りの一覧):"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
-msgstr ""
+msgstr "グラフィカルなプロキシ マネージャ"
 
 #: lib/ManaTools/Module/Services.pm:86
 #, perl-format
 msgid "%s - Services and daemons"
-msgstr ""
+msgstr "%s - サービスとデーモン"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
-msgstr ""
+msgstr "要求時に開始"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "running"
-msgstr ""
+msgstr "動作中"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "stopped"
-msgstr ""
+msgstr "停止中"
 
 #: lib/ManaTools/Module/Services.pm:362
 msgid "Manage system services by enabling or disabling them"
-msgstr ""
+msgstr "システム サービスを有効化と無効化により管理します"
 
 #: lib/ManaTools/Module/Services.pm:370
 msgid "Service"
-msgstr ""
+msgstr "サービス"
 
 #: lib/ManaTools/Module/Services.pm:372
 msgid "On boot"
-msgstr ""
+msgstr "ブート時に開始"
 
 #: lib/ManaTools/Module/Services.pm:383 lib/ManaTools/Rpmdragora/pkg.pm:1093
 msgid "Information"
-msgstr ""
+msgstr "情報"
 
 #: lib/ManaTools/Module/Services.pm:391
 msgid "&Start"
-msgstr ""
+msgstr "開始(&S)"
 
 #: lib/ManaTools/Module/Services.pm:394
 msgid "S&top"
-msgstr ""
+msgstr "停止(&T)"
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
@@ -2144,17 +2178,17 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "%s を開始中"
 
 #: lib/ManaTools/Module/Services.pm:536
 #, perl-format
 msgid "Stopping %s"
-msgstr ""
+msgstr "%s を停止中"
 
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "%s - 管理ツール"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
@@ -2178,7 +2212,7 @@ msgstr "RPM を削除"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
-msgstr ""
+msgstr "ソフトウェア パッケージ アップデート"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
@@ -2209,11 +2243,11 @@ msgstr "OK"
 #: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
 #: modules/rpmdragora/rpmdragora:296
 msgid "Please wait"
-msgstr ""
+msgstr "お待ちください"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "ブリテン"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
@@ -2235,7 +2269,7 @@ msgstr "ロシア"
 #: lib/ManaTools/rpmdragora.pm:738 lib/ManaTools/Rpmdragora/pkg.pm:494
 #: lib/ManaTools/Rpmdragora/pkg.pm:969 lib/ManaTools/Rpmdragora/pkg.pm:994
 msgid "Error"
-msgstr ""
+msgstr "エラー"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
 #, perl-format
@@ -2250,7 +2284,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
 msgid "Medium: "
-msgstr ""
+msgstr "メディア: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
@@ -2267,13 +2301,13 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"メディアを追加中に問題が発生:\n"
+"メディアを追加中に問題が発生しました:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
