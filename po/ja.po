@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-02 18:53+0200\n"
-"PO-Revision-Date: 2017-09-06 14:09+0000\n"
+"PO-Revision-Date: 2017-09-07 13:33+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -130,7 +130,7 @@ msgstr "設定ファイル %s がありません"
 #: lib/ManaTools/MainDisplay.pm:595
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr "設定ファイル %s を読み込み中です"
+msgstr "設定ファイル %s を読み込んでいます"
 
 #: lib/ManaTools/MainDisplay.pm:612
 #, perl-format
@@ -140,7 +140,7 @@ msgstr "設定の読み込み: %s の内容は <<%s>> です"
 #: lib/ManaTools/MainDisplay.pm:768
 #, perl-format
 msgid "Parsing category file %s"
-msgstr "カテゴリ ファイル %s を解析中です"
+msgstr "カテゴリ ファイル %s を解析しています"
 
 #: lib/ManaTools/MainDisplay.pm:779
 #, perl-format
@@ -1201,7 +1201,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr "グループを削除中: %s"
+msgstr "グループを削除しています: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
@@ -1213,7 +1213,7 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
-"ユーザ %s を削除中です\n"
+"ユーザ %s を削除しています\n"
 "以下の操作も行います\n"
 
 #: lib/ManaTools/Module/Users.pm:516
@@ -1229,7 +1229,7 @@ msgstr "メールボックスを削除: /var/spool/mail/%s"
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr "ユーザを削除中: %s"
+msgstr "ユーザを削除しています: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
@@ -1282,7 +1282,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr "グループを追加中: %s "
+msgstr "グループを追加しています: %s "
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
@@ -1396,16 +1396,16 @@ msgstr "%s を 'users' グループに追加中"
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr "新しいグループを作成中: %s"
+msgstr "新しいグループを作成しています: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr "ユーザを追加中: "
+msgstr "ユーザを追加しています: "
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr "ユーザを追加中: %s"
+msgstr "ユーザを追加しています: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
@@ -2222,11 +2222,11 @@ msgstr "%s - 管理ツール"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
-msgstr "ソフトウェアのアップデート"
+msgstr "ソフトウェアの更新"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr "Mageia アップデート"
+msgstr "Mageia の更新"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
@@ -2238,15 +2238,15 @@ msgstr "ユーザ名:"
 
 #: lib/ManaTools/rpmdragora.pm:274
 msgid "Software Packages Removal"
-msgstr "RPM を削除"
+msgstr "ソフトウェア パッケージの削除"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
-msgstr "ソフトウェア パッケージ アップデート"
+msgstr "ソフトウェア パッケージの更新"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
-msgstr "RPM をインストール"
+msgstr "ソフトウェア パッケージのインストール"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
@@ -2308,7 +2308,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"メディアを追加できません。エラー:\n"
+"メディアを追加できません。エラーの一覧:\n"
 "\n"
 "%s"
 
@@ -2613,7 +2613,7 @@ msgstr "何もしない"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
 msgid "Please wait, searching..."
-msgstr "お待ちください、検索中です..."
+msgstr "お待ちください、検索しています..."
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:100 lib/ManaTools/Rpmdragora/gui.pm:1579
 msgid "Fatal error"
@@ -2628,7 +2628,7 @@ msgstr "重大なエラーが発生しました: %s"
 #: lib/ManaTools/Rpmdragora/pkg.pm:141
 #, perl-format
 msgid "Getting information from %s..."
-msgstr "%s から情報を取得中です..."
+msgstr "%s から情報を取得しています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:145
 #, perl-format
@@ -2658,7 +2658,7 @@ msgstr "(利用できません)"
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr "パッケージ `%s' をダウンロード中です..."
+msgstr "パッケージ `%s' をダウンロードしています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2685,7 +2685,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
-msgstr "アップデート メディアが既に存在しています"
+msgstr "更新メディアが既に存在しています"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:287
 #, perl-format
@@ -2697,7 +2697,7 @@ msgid ""
 "\n"
 "Then, restart \"%s\"."
 msgstr ""
-"少なくとも 1 つのアップデート メディアが設定されていますが、\n"
+"少なくとも 1 つの更新メディアが設定されていますが、\n"
 "現在すべて無効化されています。ソフトウェア メディア マネージャを実行して\n"
 "最低でも 1 つは有効にするべきです (\"%s\" コラム内をチェックしてください)。\n"
 "\n"
@@ -2716,8 +2716,8 @@ msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
-"アップデート メディアが設定されていません。MageiaUpdate はアップデート メディ"
-"アがないと動作できません。"
+"更新メディアが設定されていません。MageiaUpdate は更新メディアがないと動作でき"
+"ません。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
@@ -2809,7 +2809,7 @@ msgid ""
 msgstr ""
 "\n"
 "\n"
-"エラー:\n"
+"エラーの一覧:\n"
 "%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:959
@@ -2848,7 +2848,7 @@ msgstr "続行してもよろしいですか?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr "初期化中です..."
+msgstr "初期化しています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
@@ -2865,7 +2865,7 @@ msgstr "パッケージ情報を用意しています..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr "パッケージ `%s' をインストール中です (%d/%d)..."
+msgstr "パッケージ `%s' をインストールしています (%d/%d)..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
@@ -2879,24 +2879,26 @@ msgstr "メディアを変更"
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "\"%s\" という名前のメディアを挿入してください"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "パッケージの署名を検証しています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "%d のインストール トランザクションに失敗しました"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
 msgstr ""
+"回復不能エラー: インストールするパッケージが見つかりません。申し訳ありませ"
+"ん。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
-msgstr ""
+msgstr "設定ファイルを調べています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:981
 msgid ""
@@ -2905,27 +2907,31 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"インストール処理は完了しました; すべて正常にインストールされました。\n"
+"\n"
+"幾つかの設定ファイルが `.rpmnew' もしくは `.rpmsave' として作成され、\n"
+"行動を取るためにこれらを調べることができます:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
-msgstr ""
+msgstr "\"README\" ファイルを探しています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1025
 #, perl-format
 msgid "RPM transaction %d/%d"
-msgstr ""
+msgstr "RPM トランザクション %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1026
 msgid "Unselect all"
-msgstr ""
+msgstr "すべて選択解除"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1027
 msgid "Details"
-msgstr ""
+msgstr "詳細"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
-msgstr ""
+msgstr "お待ちください、パッケージを削除しています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1085
 msgid "Problem during removal"
@@ -2949,46 +2955,46 @@ msgstr "すべて"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:42
 msgid "Accessibility"
-msgstr ""
+msgstr "アクセシビリティ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
 #: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
 #: lib/ManaTools/Rpmdragora/icon.pm:47
 msgid "Archiving"
-msgstr ""
+msgstr "アーカイバ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:44
 msgid "Backup"
-msgstr ""
+msgstr "バックアップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
-msgstr ""
+msgstr "CD ライター"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
-msgstr ""
+msgstr "圧縮/解凍"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
 msgid "Other"
-msgstr ""
+msgstr "その他"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
 #: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
 #: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
 #: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Communications"
-msgstr ""
+msgstr "通信"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:49
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
-msgstr "ダイヤルアップ"
+msgstr "ダイヤル アップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
@@ -3012,7 +3018,7 @@ msgstr "テレフォニー"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
-msgstr ""
+msgstr "データベース"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
 #: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
@@ -3026,7 +3032,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
 #: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Development"
-msgstr ""
+msgstr "開発"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
@@ -3034,11 +3040,11 @@ msgstr "Basic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:60
 msgid "C++"
-msgstr ""
+msgstr "C++"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:61
 msgid "C#"
@@ -3054,19 +3060,19 @@ msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
-msgstr ""
+msgstr "GNOME と GTK+"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:66
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:67
 msgid "KDE and Qt"
-msgstr ""
+msgstr "KDE と Qt"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr ""
+msgstr "カーネル"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
@@ -3074,44 +3080,44 @@ msgstr "OCaml"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
-msgstr ""
+msgstr "Perl"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:72
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:73
 msgid "Python"
-msgstr ""
+msgstr "Python"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:74
 msgid "Tools"
-msgstr ""
+msgstr "ツール"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
 msgid "X11"
-msgstr ""
+msgstr "X11"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
 #: lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Documentation"
-msgstr ""
+msgstr "ドキュメント"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:77
 msgid "Editors"
-msgstr ""
+msgstr "エディタ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:78
 msgid "Education"
-msgstr ""
+msgstr "教育"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:79
 msgid "Emulators"
-msgstr ""
+msgstr "エミュレータ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:80
 msgid "File tools"
-msgstr ""
+msgstr "ファイル ツール"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
 #: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
@@ -3120,27 +3126,27 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Games"
-msgstr ""
+msgstr "ゲーム"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:82
 msgid "Adventure"
-msgstr ""
+msgstr "アドベンチャー"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:83
 msgid "Arcade"
-msgstr ""
+msgstr "アーケード"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:84
 msgid "Boards"
-msgstr ""
+msgstr "ボード ゲーム"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:85
 msgid "Cards"
-msgstr ""
+msgstr "カード ゲーム"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:87
 msgid "Puzzles"
-msgstr ""
+msgstr "パズル"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
@@ -3152,53 +3158,53 @@ msgstr "シミュレータ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
-msgstr ""
+msgstr "スポーツ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Strategy"
-msgstr ""
+msgstr "戦略ゲーム"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:92
 msgid "Geography"
-msgstr ""
+msgstr "地理"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
 #: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
 #: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
 msgid "Graphical desktop"
-msgstr ""
+msgstr "グラフィカル デスクトップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:96
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:99
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:102
 msgid "Icewm"
-msgstr ""
+msgstr "Icewm"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:105
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:109
 msgid "WindowMaker"
-msgstr ""
+msgstr "WindowMaker"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:112
 msgid "Xfce"
-msgstr ""
+msgstr "Xfce"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:113 lib/ManaTools/Rpmdragora/icon.pm:114
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:116
 #: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Graphics"
-msgstr ""
+msgstr "グラフィックス"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
@@ -3212,7 +3218,7 @@ msgstr "エディタとコンバータ"
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Utilities"
-msgstr ""
+msgstr "ユーティリティ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
@@ -3228,7 +3234,7 @@ msgstr "ビューア"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
-msgstr ""
+msgstr "モニタリング"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
 #: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
@@ -3236,35 +3242,35 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
 #: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
 msgid "Networking"
-msgstr ""
+msgstr "ネットワーキング"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:122
 msgid "File transfer"
-msgstr ""
+msgstr "ファイル転送"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:123
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:124
 msgid "Instant messaging"
-msgstr ""
+msgstr "インスタント メッセージ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
 msgid "Mail"
-msgstr ""
+msgstr "メール"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:126
 msgid "News"
-msgstr ""
+msgstr "ニュース"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:128
 msgid "Remote access"
-msgstr ""
+msgstr "リモート アクセス"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:129
 msgid "WWW"
-msgstr ""
+msgstr "ウェブ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
 #: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
@@ -3272,7 +3278,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Office"
-msgstr ""
+msgstr "オフィス"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
@@ -3300,11 +3306,11 @@ msgstr "スイート"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
-msgstr "ワードプロセッサ"
+msgstr "ワード プロセッサ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:139
 msgid "Publishing"
-msgstr ""
+msgstr "出版"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
 #: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
@@ -3312,52 +3318,52 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:146 lib/ManaTools/Rpmdragora/icon.pm:147
 #: lib/ManaTools/Rpmdragora/icon.pm:148
 msgid "Sciences"
-msgstr ""
+msgstr "科学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:141
 msgid "Astronomy"
-msgstr ""
+msgstr "天文学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:142
 msgid "Biology"
-msgstr ""
+msgstr "生物学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:143
 msgid "Chemistry"
-msgstr ""
+msgstr "化学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:144
 msgid "Computer science"
-msgstr ""
+msgstr "コンピュータ科学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:145
 msgid "Geosciences"
-msgstr ""
+msgstr "地球科学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:146
 msgid "Mathematics"
-msgstr ""
+msgstr "数学"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:148
 msgid "Physics"
-msgstr ""
+msgstr "物理学"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:77
 #: extras/conf/mpan/categories.conf.in:43
 msgid "Security"
-msgstr ""
+msgstr "セキュリティ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:150
 msgid "Shells"
-msgstr ""
+msgstr "シェル"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:156
 msgid "Sound"
-msgstr ""
+msgstr "サウンド"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:153
 msgid "Midi"
@@ -3386,82 +3392,82 @@ msgstr "プレーヤ"
 #: extras/conf/mpan/categories.conf.d/manauser.conf.in:4
 #: extras/conf/mpan/categories.conf.in:23
 msgid "System"
-msgstr ""
+msgstr "システム"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:158
 msgid "Base"
-msgstr ""
+msgstr "ベース"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
-msgstr ""
+msgstr "起動"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:160
 msgid "Cluster"
-msgstr ""
+msgstr "クラスタ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
 msgid "Configuration"
-msgstr ""
+msgstr "設定"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
 #: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
 msgid "Fonts"
-msgstr ""
+msgstr "フォント"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:163
 msgid "True type"
-msgstr ""
+msgstr "True type"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:164
 msgid "Type1"
-msgstr ""
+msgstr "Type1"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:165
 msgid "X11 bitmap"
-msgstr ""
+msgstr "X11 ビットマップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:166
 msgid "Internationalization"
-msgstr ""
+msgstr "国際化"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:167
 msgid "Kernel and hardware"
-msgstr ""
+msgstr "カーネルとハードウェア"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:168
 msgid "Libraries"
-msgstr ""
+msgstr "ライブラリ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:170
 msgid "Packaging"
-msgstr ""
+msgstr "パッケージング"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:171
 msgid "Printing"
-msgstr ""
+msgstr "印刷"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:172
 msgid "Servers"
-msgstr ""
+msgstr "サーバ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:176
 msgid "Terminals"
-msgstr ""
+msgstr "端末"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:177
 msgid "Text tools"
-msgstr ""
+msgstr "テキスト ツール"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:178
 msgid "Toys"
-msgstr ""
+msgstr "おもちゃ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
 #: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
 #: lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Video"
-msgstr ""
+msgstr "動画"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:182
 msgid "Television"
@@ -3473,174 +3479,185 @@ msgstr "テレビ"
 #: lib/ManaTools/Rpmdragora/icon.pm:192 lib/ManaTools/Rpmdragora/icon.pm:193
 #: lib/ManaTools/Rpmdragora/icon.pm:194 lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Workstation"
-msgstr ""
+msgstr "ワークステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:188
 msgid "Console Tools"
-msgstr ""
+msgstr "コンソール ツール"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:190
 msgid "Game station"
-msgstr ""
+msgstr "ゲーム ステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:191
 msgid "Internet station"
-msgstr ""
+msgstr "インターネット ステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:192
 msgid "Multimedia station"
-msgstr ""
+msgstr "マルチメディア ステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:193
 msgid "Network Computer (client)"
-msgstr ""
+msgstr "ネットワーク コンピュータ (クライアント)"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:194
 msgid "Office Workstation"
-msgstr ""
+msgstr "オフィス ワークステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Scientific Workstation"
-msgstr ""
+msgstr "科学ワークステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
 #: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
 #: lib/ManaTools/Rpmdragora/icon.pm:201 lib/ManaTools/Rpmdragora/gui.pm:135
 msgid "Graphical Environment"
-msgstr ""
+msgstr "グラフィカル環境"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:198
 msgid "GNOME Workstation"
-msgstr ""
+msgstr "GNOME ワークステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:199
 msgid "IceWm Desktop"
-msgstr ""
+msgstr "IceWm デスクトップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:200
 msgid "KDE Workstation"
-msgstr ""
+msgstr "KDE ワークステーション"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:201
 msgid "Other Graphical Desktops"
-msgstr ""
+msgstr "その他のグラフィカル デスクトップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
 #: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
 #: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
 #: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Server"
-msgstr ""
+msgstr "サーバ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:206
 msgid "DNS/NIS"
-msgstr ""
+msgstr "DNS/NIS"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:207
 msgid "Database"
-msgstr ""
+msgstr "データベース"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:208
 msgid "Firewall/Router"
-msgstr ""
+msgstr "ファイアウォール/ルータ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr ""
+msgstr "メール/グループウェア/ニュース"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
-msgstr ""
+msgstr "ネットワーク コンピュータ サーバ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Web/FTP"
-msgstr ""
+msgstr "Web/FTP"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr ""
+msgstr "使い方: %s [オプション]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
-msgstr ""
+msgstr "  --auto                 質問に対して既定の選択を行う"
 
 #: lib/ManaTools/Rpmdragora/init.pm:69
 msgid ""
 "  --changelog-first      display changelog before filelist in the "
 "description window"
 msgstr ""
+"  --changelog-first      説明ウィンドウ内で変更履歴をファイル一覧より先に表示"
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "  --media=medium1,..     指定されたメディアのみを使う"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
 msgstr ""
+"  --merge-all-rpmnew     見つかった .rpmnew/.rpmsave ファイルをすべてマージす"
+"る"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=MODE            モードを設定 (install (既定値), remove, update)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb               データベースを更新するが、ファイル システムは変更し"
+"ない"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
-msgstr ""
+msgstr "  --no-confirmation      update モードで最初の確認質問を行わない"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      起動時にメディアを更新しない"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "  --no-verify-rpm        パッケージの署名を確認しない"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"  --parallel=alias,host  \"alias\" グループを用いてパラレル モードで動作し、"
+"必要な依存関係の表示に \"host\" マシンを使用"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
-msgstr ""
+msgstr "  --rpm-root=path        RPM のインストールに別の root を使用"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"  --urpmi-root           urpmi db と RPM のインストールに別の root を使用"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root          root として強制的に実行"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "  --search=pkg           パッケージ \"pkg\" を検索して表示"
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
 "  --test                 only verify if the installation can be achieved "
 "correctly"
-msgstr ""
+msgstr "  --test                 インストールが正常に行えるかの確認のみを行う"
 
 #: lib/ManaTools/Rpmdragora/init.pm:83
 msgid ""
 "  --version              print this tool's version number\n"
 "                    "
 msgstr ""
+"  --version              このツールのバージョンを表示\n"
+"                    "
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
-msgstr ""
+msgstr "ユーザ モードで実行しています"
 
 #: lib/ManaTools/Rpmdragora/init.pm:176
 msgid ""
@@ -3648,48 +3665,51 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"一般ユーザとしてこのプログラムを起動しています。\n"
+"システムに変更を適用することはできませんが、\n"
+"それでも既存のデータベースを参照することはできます。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
-msgstr ""
+msgstr "CD-ROM"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
 msgid "FTP"
-msgstr ""
+msgstr "FTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
 msgid "Local"
-msgstr ""
+msgstr "ローカル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
 msgid "HTTP"
-msgstr ""
+msgstr "HTTP"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
 msgid "HTTPS"
-msgstr ""
+msgstr "HTTPS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "リムーバブル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
-msgstr ""
+msgstr "rsync"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr ""
+msgstr "ミラーの一覧"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr ""
+msgstr "メディアの種類を選択"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -3703,14 +3723,21 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"システムを安全かつ安定に保つために、最低でも公式のセキュリティと安定性の更新"
+"用のソースを設定しなければなりません。\n"
+"公式の完全な Mageia リポジトリを含む完全なソースを設定することを選択すること"
+"も可能で、\n"
+"これは Mageia のインストール ディスク上のソフトウェアよりも適したアクセスを提"
+"供します。\n"
+"更新用のソースのみを設定するか完全なソースを設定するかを選択してください。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
-msgstr ""
+msgstr "完全なソース"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Update sources only"
-msgstr ""
+msgstr "更新用のソースのみ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
 #, perl-format
@@ -3723,78 +3750,85 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"これはあなたのディストリビューション (%s) に対応するすべての公式のソースの\n"
+"インストールを試みます。\n"
+"\n"
+"ミラーの一覧を取得するために Mageia の Web サイトに接続する必要があります。\n"
+"ネットワークが動作しているかを確認してください。\n"
+"\n"
+"続行してもよろしいですか?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr ""
+msgstr "お待ちください、メディアを追加しています..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr ""
+msgstr "参照..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
 msgid "Add a medium"
-msgstr ""
+msgstr "メディアを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
 msgid "Adding a medium:"
-msgstr ""
+msgstr "メディアの追加:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
 msgid "Type of medium:"
-msgstr ""
+msgstr "メディアの種類:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Local files"
-msgstr ""
+msgstr "ローカル ファイル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
-msgstr ""
+msgstr "メディアのパス:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
-msgstr ""
+msgstr "FTP サーバ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:724
 msgid "URL:"
-msgstr ""
+msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
-msgstr ""
+msgstr "RSYNC サーバ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 msgid "HTTP server"
-msgstr ""
+msgstr "HTTP サーバ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr ""
+msgstr "リムーバブル デバイス (CD-ROM, DVD, ...)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
-msgstr ""
+msgstr "パスもしくはマウント ポイント:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
 msgid "Medium name:"
-msgstr ""
+msgstr "メディア名:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "ディストリビューションのすべてのメディアを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr ""
+msgstr "このメディアを更新メディアとして設定"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
-msgstr ""
+msgstr "少なくともはじめの二つの入力欄は埋める必要があります。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
 #, perl-format
@@ -3802,177 +3836,181 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
+"<%s> というメディアは既に存在します。\n"
+"本当にこれを置き換えますか?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
-msgstr ""
+msgstr "パッケージをインストールする際の共通オプション"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr ""
+msgstr "インストールする RPM の署名の検証:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
-msgstr ""
+msgstr "行わない"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "always"
-msgstr ""
+msgstr "常に行う"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr ""
+msgstr "ダウンロードに使用するプログラム:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr ""
+msgstr "XML メタデータのダウンロード ポリシー:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
-msgstr ""
+msgstr "行わない"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
-msgstr ""
+msgstr "必要に応じて行う"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr ""
+msgstr "更新のみ行う"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
-msgstr ""
+msgstr "常に行う"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr ""
+msgstr "ソースの削除"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr ""
+msgstr "ソース \"%s\" を本当に削除しますか?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr ""
+msgstr "以下のソースを本当に削除しますか?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr ""
+msgstr "お待ちください、メディアを削除しています..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
-msgstr ""
+msgstr "メディアを編集"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
 #, perl-format
 msgid "Editing medium \"%s\":"
-msgstr ""
+msgstr "メディア \"%s\" を編集しています:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
-msgstr ""
+msgstr "ダウンローダ:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2060
 msgid "Updates"
-msgstr "アップデート"
+msgstr "更新"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
-msgstr ""
+msgstr "プロキシ(&P)..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
-msgstr ""
+msgstr "続行するにはメディアを挿入する必要があります"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr ""
+msgstr "変更を保存するには、ドライブにメディアを挿入する必要があります。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr ""
+msgstr "プロキシ設定"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "メディア \"%s\" 用のプロキシ設定"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "プロキシの共通設定"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
 msgstr ""
+"プロキシが必要な場合、ホスト名と任意でポートを入力してください (書式: <プロキ"
+"シ ホスト[:ポート]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
-msgstr ""
+msgstr "プロキシを有効にする"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
-msgstr ""
+msgstr "プロキシのホスト名:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
+msgstr "プロキシの認証用にユーザ名/パスワードを指定することができます:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
-msgstr ""
+msgstr "ユーザ:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
 msgid "Cancel"
-msgstr ""
+msgstr "キャンセル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "パラレル グループを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "パラレル グループを編集"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr ""
+msgstr "メディアの制限を追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "メディアの制限に追加するメディアを選択してください:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
-msgstr ""
+msgstr "ホストを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Type in the hostname or IP address of the host to add:"
-msgstr ""
+msgstr "追加するホストのホスト名もしくは IP アドレスを入力してください:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
 #, perl-format
 msgid "Editing parallel group \"%s\":"
-msgstr ""
+msgstr "パラレル グループ \"%s\" を編集しています:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
-msgstr ""
+msgstr "グループ名:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
 msgid "Protocol:"
-msgstr ""
+msgstr "プロトコル:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
-msgstr ""
+msgstr "メディアの制限:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
@@ -3980,7 +4018,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2161
 msgid "Add"
-msgstr ""
+msgstr "追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
@@ -3989,73 +4027,73 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2151
 msgid "Remove"
-msgstr ""
+msgstr "削除"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
 msgid "Hosts:"
-msgstr ""
+msgstr "ホスト:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
 msgid "Configure parallel urpmi (distributed execution of urpmi)"
-msgstr ""
+msgstr "パラレル urpmi を設定 (urpmi の複数マシン実行)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
-msgstr ""
+msgstr "プロトコル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "メディアの制限"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
-msgstr ""
+msgstr "コマンド"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
-msgstr ""
+msgstr "編集..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
 msgid "Add..."
-msgstr ""
+msgstr "追加..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
-msgstr ""
+msgstr "パッケージのデジタル署名用の鍵を管理します"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2067
 msgid "Medium"
-msgstr ""
+msgstr "メディア"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
-msgstr ""
+msgstr "鍵"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
-msgstr ""
+msgstr "名前が見つかりません。RPM キーリング内に鍵が存在しません!"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
 msgid "Add a key"
-msgstr ""
+msgstr "鍵を追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr ""
+msgstr "メディア %s に追加する鍵を選択してください"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
-msgstr ""
+msgstr "鍵を削除"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
 #, perl-format
 msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
-msgstr ""
+msgstr "鍵 <br>%s<br> をメディア %s から本当に削除しますか?<br>(鍵の名前: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2117
@@ -4065,7 +4103,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"メディアを更新できません。エラー:\n"
+"メディアを更新できません。エラーの一覧:\n"
 "\n"
 "%s"
 
@@ -4078,15 +4116,15 @@ msgstr "メディアを設定"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr ""
+msgstr "特定のメディア ミラーを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr ""
+msgstr "カスタム メディアを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
@@ -4094,19 +4132,19 @@ msgstr "オプション(&O)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
-msgstr ""
+msgstr "共通オプション"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
-msgstr ""
+msgstr "鍵を管理"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "パラレル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr ""
+msgstr "プロキシ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
@@ -4116,27 +4154,28 @@ msgstr "マニュアル"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2064
 msgid "Type"
-msgstr ""
+msgstr "種類"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
-msgstr ""
+msgstr "上へ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
 msgid "Down"
-msgstr ""
+msgstr "下へ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1995
 #: modules/rpmdragora/rpmdragora:1095
 msgid "Rpmdragora is the Mageia package management tool."
-msgstr ""
+msgstr "Rpmdragora は Mageia のパッケージ管理ツールです。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1832
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1896
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2091
 msgid "This medium needs to be updated to be usable. Update it now?"
 msgstr ""
+"このメディアは使用可能にするために更新する必要があります。すぐに更新しますか?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1974
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
@@ -4144,39 +4183,39 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_File"
-msgstr ""
+msgstr "ファイル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 msgid "/_Update"
-msgstr ""
+msgstr "更新"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 msgid "<control>U"
-msgstr ""
+msgstr "<control>U"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "/Add a specific _media mirror"
-msgstr ""
+msgstr "特定のメディア ミラーを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
 msgid "<control>M"
-msgstr ""
+msgstr "<control>M"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/_Add a custom medium"
-msgstr ""
+msgstr "カスタム メディアを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>A"
-msgstr ""
+msgstr "<control>A"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/Close"
-msgstr ""
+msgstr "閉じる"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "<control>W"
-msgstr ""
+msgstr "<control>W"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
@@ -4187,54 +4226,54 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
-msgstr ""
+msgstr "オプション"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 msgid "/_Global options"
-msgstr ""
+msgstr "共通オプション"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 msgid "<control>G"
-msgstr ""
+msgstr "<control>G"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "/Manage _keys"
-msgstr ""
+msgstr "鍵を管理"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
 msgid "<control>K"
-msgstr ""
+msgstr "<control>K"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "/_Parallel"
-msgstr ""
+msgstr "パラレル"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
 msgid "<control>P"
-msgstr ""
+msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/P_roxy"
-msgstr ""
+msgstr "プロキシ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>R"
-msgstr ""
+msgstr "<control>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1985
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 msgid "/_Help"
-msgstr ""
+msgstr "ヘルプ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 msgid "/_Report Bug"
-msgstr ""
+msgstr "バグを報告"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 msgid "/_About..."
-msgstr ""
+msgstr "情報..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1991
 msgid "Rpmdragora"
@@ -4243,11 +4282,11 @@ msgstr "Rpmdragora"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1993
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "Copyright (C) %s Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1997
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2203
 msgid ""
@@ -4256,6 +4295,9 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"パッケージ データベースがロックされています。パッケージ データベースを\n"
+"使用している他のアプリケーションを閉じてください。他のメディア マネージャが\n"
+"動作しているか、もしくは現在パッケージをインストール中ではありませんか?"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
@@ -4282,131 +4324,131 @@ msgstr "検索結果 (なし)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:150
 msgid "Security advisory"
-msgstr ""
+msgstr "セキュリティ アドバイザリ"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
-msgstr ""
+msgstr "説明文はありません"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
-msgstr ""
+msgstr "これは Mageia によって<b>サポートされません</b>。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "これはあなたのシステムを<b>破壊する</b>かもしれません。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "このパッケージはフリーソフトウェアではありません"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr ""
+msgstr "このパッケージはバックポートされた新しいバージョンを含んでいます。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "このパッケージはアップデートの潜在的な候補です。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "これは Mageia によってサポートされる公式のアップデートです。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "これは非公式なアップデートです。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "これは Mageia によってサポートされる公式のパッケージです。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
-msgstr ""
+msgstr "お知らせ: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
-msgstr ""
+msgstr "重要度: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr ""
+msgstr "アップデートの理由: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "バージョン: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "インストールされているバージョン: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr ""
+msgstr "グループ: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "アーキテクチャ: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
-msgstr ""
+msgstr "サイズ: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
-msgstr ""
+msgstr "すべての依存パッケージがインストール済みです。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
-msgstr ""
+msgstr "URL: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
-msgstr ""
+msgstr "詳細:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:345
 msgid "Files:"
-msgstr ""
+msgstr "ファイル一覧:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:361
 msgid "Changelog:"
-msgstr ""
+msgstr "変更履歴:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:379
 msgid "New dependencies:"
-msgstr ""
+msgstr "新しい依存パッケージ:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:399
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "パッケージ \"%s\" が見つかりました。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:400
 msgid "However this package is not in the package list."
-msgstr ""
+msgstr "しかしながら、このパッケージはパッケージ一覧にありません。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 msgid "You may want to update your urpmi database."
-msgstr ""
+msgstr "urpmi データベースを更新するとよいでしょう。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 msgid "Matching packages:"
-msgstr ""
+msgstr "一致するパッケージ:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:408
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (メディア: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:950
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "パッケージ %s を削除するとシステムを破壊するでしょう"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:954
 #, perl-format
@@ -4414,22 +4456,24 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
+"The \"%s\" パッケージは urpmi のスキップ リストに存在します。\n"
+"それでも選択しますか?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1181
 msgid "More information on package..."
-msgstr ""
+msgstr "パッケージの詳細情報..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1183
 msgid "Please choose"
-msgstr ""
+msgstr "選択してください"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "The following package is needed:"
-msgstr ""
+msgstr "以下のパッケージが必要です:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "One of the following packages is needed:"
-msgstr ""
+msgstr "以下のパッケージのいずれかが必要です:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1296
 msgid "Select package"
@@ -4441,23 +4485,25 @@ msgstr "パッケージの依存関係をチェックしています..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1399
 msgid "Some additional packages need to be removed"
-msgstr ""
+msgstr "幾つかの追加のパッケージを削除する必要があります"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
-msgstr ""
+msgstr "これらの依存関係によって、以下のパッケージも削除されます:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1415
 msgid "Some packages cannot be removed"
-msgstr ""
+msgstr "幾つかのパッケージが削除できません"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1416
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
 msgstr ""
+"これらのパッケージを削除するとシステムを破壊します。申し訳ありません:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1424 lib/ManaTools/Rpmdragora/gui.pm:1495
 msgid ""
@@ -4465,6 +4511,8 @@ msgid ""
 "now:\n"
 "\n"
 msgstr ""
+"これらの依存関係によって、以下のパッケージの選択は解除しなければなりません:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "Additional packages needed"
@@ -4548,14 +4596,20 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"警告: パッケージのインストール中もしくはインストール後に\n"
+"ファイル システムのディスク空き領域が不足するほどの\n"
+"たくさんのパッケージを追加しようとしているようです;\n"
+"これは特に危険であり、注意して考えるべきです。\n"
+"\n"
+"本当に選択されたすべてのパッケージをインストールしますか?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1663
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "お待ちください、パッケージを一覧しています..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1676
 msgid "No update"
-msgstr ""
+msgstr "更新なし"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1677
 msgid ""
@@ -4563,26 +4617,29 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"アップデートの一覧が空です。これは、このコンピュータにインストールされている"
+"パッケージに対するアップデートが存在しないか、もしくはそれらすべてがインス"
+"トール済みであることを意味します。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
-msgstr ""
+msgstr "更新可能"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
-msgstr ""
+msgstr "インストール済み"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1717 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
-msgstr ""
+msgstr "追加可能"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1751
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "このパッケージ用の説明文は利用できません\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Mageia ユーザ追加ツール"
 
 #: scripts/mana:39
 msgid "manalog: journalct log reader"
@@ -4590,101 +4647,105 @@ msgstr ""
 
 #: scripts/mana:43
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: ユーザ マネージャ"
 
 #: scripts/mana:47
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: サービス マネージャ"
 
 #: scripts/mana:52
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: ログイン マネージャ設定"
 
 #: scripts/mana:56
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: 日付/時刻 マネージャ"
 
 #: scripts/mana:60
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: ホスト マネージャ"
 
 #: scripts/mana:64
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: 管理パネル"
 
 #: scripts/mana:68
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: プロキシ マネージャ"
 
 #: scripts/mana:72
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: rpm インストール マネージャ"
 
 #: scripts/mana:76
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: rpm アップデート マネージャ"
 
 #: scripts/mana:80
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: ファイアウォール マネージャ"
 
 #: scripts/mana:91
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "コマンド <%s> は見つかりません!\n"
 
 #: scripts/mana:103
 msgid "ERROR: "
-msgstr ""
+msgstr "エラー: "
 
 #: scripts/mana:122
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "使い方 mana --help | -h        このヘルプを表示\n"
 
 #: scripts/mana:123
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"使い方 mana <コマンド> [引数...]\n"
+"\n"
 
 #: scripts/mana:124
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "有効な <コマンド>:\n"
 
 #: scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "開発者モード"
 
 #: scripts/mpan:40
 msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"アプリケーション名で、ロギング識別子や X アプリケーション設定ディレクトリに使"
+"用されます。既定値は mpan です"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "ウィンドウ タイトルです。既定値は名前の値です"
 
 #: scripts/mpan:69
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== 開発者モード ON =="
 
 #: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:420
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:68
 #, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr ""
+msgstr "root 特権が必要です。もしくは <%s> を代わりに実行してください"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
-msgstr ""
+msgstr "バグ修正"
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr "ソフトウェア パッケージ アップデートの一覧"
+msgstr "ソフトウェア パッケージ更新の一覧です"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -4755,11 +4816,11 @@ msgstr "検索は中止されました"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "選択"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
-msgstr ""
+msgstr "非選択"
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
@@ -4776,7 +4837,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr "選択: %s / ディスクの空き容量: %s"
+msgstr "選択: %s / ディスクの空き領域: %s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
@@ -4841,19 +4902,19 @@ msgstr "GUI のあるパッケージ"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr "すべてのアップデート"
+msgstr "すべての更新"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr "セキュリティ アップデート"
+msgstr "セキュリティ更新"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr "バグ修正のアップデート"
+msgstr "バグ修正"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr "通常のアップデート"
+msgstr "通常の更新"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
@@ -4942,7 +5003,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr "rpmdragora は既に動作中です (pid: %s)"
+msgstr "rpmdragora は既に動作しています (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
@@ -5148,7 +5209,7 @@ msgstr "インストールとアップデートのためのメディアを設定
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr "ネットワーク &amp;&amp; インターネット"
+msgstr "ネットワークとインターネット"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5157,7 +5218,7 @@ msgstr "起動"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr "rpmdragora - Mageia のアップデート"
+msgstr "rpmdragora - Mageia の更新"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
