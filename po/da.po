@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-02 18:53+0200\n"
-"PO-Revision-Date: 2017-04-17 14:38+0000\n"
+"PO-Revision-Date: 2017-09-07 00:53+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -56,7 +56,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan er ManaTools-panelet som indsamler alle redskaberne."
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -72,7 +72,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Oversættere</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -922,16 +922,12 @@ msgid "Nameserver information manager"
 msgstr "Håndtering af navneserverinformation"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"Routed-dæmonen giver mulighed for automatisk IP-rutetabel opdateret via RIP-"
-"protokollen. Mens RIP bruges meget på små netværk, er der brug for en mere "
-"kompleks protokol på komplekse netværk."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -1091,7 +1087,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "Log-fremviser er en systemd journal-fremviser"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1105,7 +1101,7 @@ msgstr ""
 "                                                        <li>%s</li>\n"
 "                                                    </ul>\n"
 "                                                    <h3>Oversættere</h3>\n"
-"                                                    <ul><li>%s</li></ul>"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1532,9 +1528,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Udfyld venligst alle felter til forældelse af adgangskoder\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Fjerner bruger: %s"
+msgstr "Problem ved ændring af brugeren %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1585,7 +1581,7 @@ msgstr ""
 "(fra den originale ide i Mandriva userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1599,7 +1595,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Oversættere</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1650,7 +1646,7 @@ msgstr "Brugere"
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "%s - Dato-, klokkeslæt- og tidszoneindstillinger"
+msgstr "%s - Dato-, ur- og tidszoneindstillinger"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
@@ -1661,7 +1657,7 @@ msgstr ""
 "og justere dato og klokkeslæt"
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1671,7 +1667,7 @@ msgstr ""
 "<h3>Udviklere</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Oversættere</h3>\n"
-"                                              <ul><li>%s</li></ul>"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -1769,7 +1765,7 @@ msgstr "Kunne ikke hente tidszoneliste"
 
 #: lib/ManaTools/Module/Clock.pm:614
 msgid "Which is your timezone?"
-msgstr "Hvilken en er din tidszone?"
+msgstr "Hvilken tidszone bruge du?"
 
 #: lib/ManaTools/Module/Clock.pm:626
 msgid "GMT - manaclock"
@@ -2205,7 +2201,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2219,7 +2215,7 @@ msgstr ""
 "                                                           <li>%s</li>\n"
 "                                                       </ul>\n"
 "                                                       <h3>Oversættere</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -2238,7 +2234,7 @@ msgstr "%s - Håndteringsværktøj"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
-msgstr "Opdatering af programmel"
+msgstr "Softwareopdatering"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
@@ -4494,7 +4490,7 @@ msgstr "Den følgende pakke behøves:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "One of the following packages is needed:"
-msgstr "Der er brug for en af de følgende pakker:"
+msgstr "Der er brug for en af følgende pakker:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1296
 msgid "Select package"
@@ -4805,7 +4801,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUpdate er Mageias pakkehåndteringsværktøj."
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4815,7 +4811,7 @@ msgstr ""
 "<h3>Udviklere</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Oversættere</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
