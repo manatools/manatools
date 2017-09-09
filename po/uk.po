@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-02 18:53+0200\n"
+"POT-Creation-Date: 2017-09-09 17:27+0200\n"
 "PO-Revision-Date: 2017-09-02 20:02+0200\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<"
-"=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Lokalize 2.0\n"
 
 #: lib/ManaTools/MainDisplay.pm:247 lib/ManaTools/Module/LogViewer.pm:317
@@ -2207,11 +2207,12 @@ msgid "&Refresh"
 msgstr "&Оновити"
 
 #: lib/ManaTools/Module/Services.pm:446
+#, fuzzy
 msgid ""
-"adminService is the Mageia service and daemon management tool\n"
+"manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
-"idea of Mandriva draxservice)."
+"idea of Mandriva drakxservice)."
 msgstr ""
 "adminService — служба і засіб керування фоновими службами Mageia\n"
 "\n"
@@ -4677,64 +4678,65 @@ msgstr "Немає опису для цього пакунка\n"
 msgid "Mageia Add Users Tool"
 msgstr "Засіб додавання користувачів Mageia"
 
-#: scripts/mana:39
-msgid "manalog: journalct log reader"
+#: scripts/mana:40
+#, fuzzy
+msgid "manalog: journalctl log reader"
 msgstr "manalog: засіб для читання журналів journalct"
 
-#: scripts/mana:43
+#: scripts/mana:44
 msgid "manauser: user manager"
 msgstr "manauser: керування записами користувачів"
 
-#: scripts/mana:47
+#: scripts/mana:48
 msgid "manaservice: service manager"
 msgstr "manaservice: керування службами"
 
-#: scripts/mana:52
+#: scripts/mana:53
 msgid "manadm: login manager configuration"
 msgstr "manadm: налаштовування засобу входу до системи"
 
-#: scripts/mana:56
+#: scripts/mana:57
 msgid "manaclock: date/time manager"
 msgstr "manaclock: керування даними дати і часу"
 
-#: scripts/mana:60
+#: scripts/mana:61
 msgid "manahost: hosts manager"
 msgstr "manahost: керування вузлами"
 
-#: scripts/mana:64
+#: scripts/mana:65
 msgid "mpan: admin panel"
 msgstr "mpan: панель адміністрування"
 
-#: scripts/mana:68
+#: scripts/mana:69
 msgid "manaproxy: proxy manager"
 msgstr "manaproxy: керування проксі-сервером"
 
-#: scripts/mana:72
+#: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
 msgstr "rpmdragora: керування встановленням rpm"
 
-#: scripts/mana:76
+#: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
 msgstr "dragoraUpdate: керування оновленням rpm"
 
-#: scripts/mana:80
+#: scripts/mana:81
 msgid "manawall: firewall manager"
 msgstr "manawall: керування захисним шлюзом"
 
-#: scripts/mana:91
+#: scripts/mana:92
 #, perl-format
 msgid "Command <%s> not found!\n"
 msgstr "Команду <%s> не знайдено!\n"
 
-#: scripts/mana:103
+#: scripts/mana:104
 msgid "ERROR: "
 msgstr "ПОМИЛКА: "
 
-#: scripts/mana:122
+#: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
 msgstr "Користування: mana --help | -h        вивести цю довідку\n"
 
-#: scripts/mana:123
+#: scripts/mana:124
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
@@ -4742,7 +4744,7 @@ msgstr ""
 "Користування: mana <команда> [аргументи...]\n"
 "\n"
 
-#: scripts/mana:124
+#: scripts/mana:125
 msgid "valid <commands>:\n"
 msgstr "коректні <команди>:\n"
 
@@ -5025,7 +5027,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Скидання перервано (базу даних RPM заблоковано іншим процесом)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, perl-format
+#, fuzzy, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5033,15 +5035,14 @@ msgid ""
 "                                                        </ul>\n"
 "                                                        <h3>Translators</"
 "h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Розробники</h3>\n"
-"                                                        <ul><li>%s</li>\n"
-"                                                            <li>%s</li>\n"
-"                                                        </ul>\n"
-"                                                        <h3>Перекладачі</"
-"h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Перекладачі</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5409,6 +5410,25 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Графічний інтерфейс для встановлення, вилучення і оновлення пакунків"
+
+#~ msgid ""
+#~ "<h3>Developers</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Translators</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
+#~ msgstr ""
+#~ "<h3>Розробники</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Перекладачі</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
 
 #~ msgid "manadm - Display Manager"
 #~ msgstr "manadm — керування входом до системи"

@@ -17,7 +17,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-02 18:53+0200\n"
+"POT-Creation-Date: 2017-09-09 17:27+0200\n"
 "PO-Revision-Date: 2016-06-11 21:18+0000\n"
 "Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -2191,11 +2191,12 @@ msgid "&Refresh"
 msgstr "&Obnovit"
 
 #: lib/ManaTools/Module/Services.pm:446
+#, fuzzy
 msgid ""
-"adminService is the Mageia service and daemon management tool\n"
+"manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
-"idea of Mandriva draxservice)."
+"idea of Mandriva drakxservice)."
 msgstr ""
 "adminService je nástroj pro správu služeb a démonů Mageii)\n"
 "\n"
@@ -4667,64 +4668,65 @@ msgstr "Popis tohoto balíčku není k dispozici\n"
 msgid "Mageia Add Users Tool"
 msgstr "Nástroj pro přidání uživatelů Mageia"
 
-#: scripts/mana:39
-msgid "manalog: journalct log reader"
+#: scripts/mana:40
+#, fuzzy
+msgid "manalog: journalctl log reader"
 msgstr "manalog: Čtečka záznamů journalct"
 
-#: scripts/mana:43
+#: scripts/mana:44
 msgid "manauser: user manager"
 msgstr "manauser: Správce uživatelů"
 
-#: scripts/mana:47
+#: scripts/mana:48
 msgid "manaservice: service manager"
 msgstr "manaservice: Správce služeb"
 
-#: scripts/mana:52
+#: scripts/mana:53
 msgid "manadm: login manager configuration"
 msgstr "manadm: Nastavení správce přihlášení"
 
-#: scripts/mana:56
+#: scripts/mana:57
 msgid "manaclock: date/time manager"
 msgstr "manaclock: Správce data a času"
 
-#: scripts/mana:60
+#: scripts/mana:61
 msgid "manahost: hosts manager"
 msgstr "manahost: Správce počítačů"
 
-#: scripts/mana:64
+#: scripts/mana:65
 msgid "mpan: admin panel"
 msgstr "mpan: Panel administrátora"
 
-#: scripts/mana:68
+#: scripts/mana:69
 msgid "manaproxy: proxy manager"
 msgstr "manaproxy: Správce proxy"
 
-#: scripts/mana:72
+#: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
 msgstr "rpmdragora: Správce instalace RPM"
 
-#: scripts/mana:76
+#: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
 msgstr "dragoraUpdate: Správce aktualizace RPM"
 
-#: scripts/mana:80
+#: scripts/mana:81
 msgid "manawall: firewall manager"
 msgstr "manawall: Správce firewallu"
 
-#: scripts/mana:91
+#: scripts/mana:92
 #, perl-format
 msgid "Command <%s> not found!\n"
 msgstr "Příkaz <%s> nenalezen!\n"
 
-#: scripts/mana:103
+#: scripts/mana:104
 msgid "ERROR: "
 msgstr "CHYBA:"
 
-#: scripts/mana:122
+#: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
 msgstr "Použití mana --help | -h           - vypíše tuto nápovědu\n"
 
-#: scripts/mana:123
+#: scripts/mana:124
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
@@ -4732,7 +4734,7 @@ msgstr ""
 "Použití mana <command> [args...]\n"
 "\n"
 
-#: scripts/mana:124
+#: scripts/mana:125
 msgid "valid <commands>:\n"
 msgstr "platný <commands>:\n"
 
@@ -5015,7 +5017,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Nastavit znovu přerušené (databáze RPM je zamknuta jiným procesem)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, perl-format
+#, fuzzy, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5023,7 +5025,7 @@ msgid ""
 "                                                        </ul>\n"
 "                                                        <h3>Translators</"
 "h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Vývojáři</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -5388,3 +5390,20 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Grafický nástroj pro instalaci, odstranění a aktualizaci balíčků"
+
+#~ msgid ""
+#~ "<h3>Developers</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Translators</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
+#~ msgstr ""
+#~ "<h3>Vývojáři</h3>\n"
+#~ "                                    <ul><li>%s</li>\n"
+#~ "                                        <li>%s</li>\n"
+#~ "                                    </ul>\n"
+#~ "                                    <h3>Překladatelé</h3>\n"
+#~ "                                    <ul><li>%s</li></ul>"

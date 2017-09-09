@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-02 18:53+0200\n"
+"POT-Creation-Date: 2017-09-09 17:27+0200\n"
 "PO-Revision-Date: 2017-09-06 07:44+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
@@ -2212,11 +2212,12 @@ msgid "&Refresh"
 msgstr "&Refresca"
 
 #: lib/ManaTools/Module/Services.pm:446
+#, fuzzy
 msgid ""
-"adminService is the Mageia service and daemon management tool\n"
+"manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
-"idea of Mandriva draxservice)."
+"idea of Mandriva drakxservice)."
 msgstr ""
 "L'adminService és l'eina de gestió de serveis i dimonis de Mageia\n"
 "\n"
@@ -4703,64 +4704,65 @@ msgstr "No hi ha descripció disponible per a aquest paquet\n"
 msgid "Mageia Add Users Tool"
 msgstr "Eina de gestió d'usuaris de Mageia"
 
-#: scripts/mana:39
-msgid "manalog: journalct log reader"
+#: scripts/mana:40
+#, fuzzy
+msgid "manalog: journalctl log reader"
 msgstr "manalog: lector de registres de journalctl"
 
-#: scripts/mana:43
+#: scripts/mana:44
 msgid "manauser: user manager"
 msgstr "manauser: gestor d'usuaris"
 
-#: scripts/mana:47
+#: scripts/mana:48
 msgid "manaservice: service manager"
 msgstr "manaservice: gestor de serveis"
 
-#: scripts/mana:52
+#: scripts/mana:53
 msgid "manadm: login manager configuration"
 msgstr "manadm: gestor de la configuració d'entrada"
 
-#: scripts/mana:56
+#: scripts/mana:57
 msgid "manaclock: date/time manager"
 msgstr "manaclock: gestor de data i hora"
 
-#: scripts/mana:60
+#: scripts/mana:61
 msgid "manahost: hosts manager"
 msgstr "manahost: gestor d'amfitrions"
 
-#: scripts/mana:64
+#: scripts/mana:65
 msgid "mpan: admin panel"
 msgstr "mpan: plafó admin"
 
-#: scripts/mana:68
+#: scripts/mana:69
 msgid "manaproxy: proxy manager"
 msgstr "manaproxy - gestor de servidor intermediari"
 
-#: scripts/mana:72
+#: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
 msgstr "rpmdragora - gestor d'Instal·lació d'rpm"
 
-#: scripts/mana:76
+#: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
 msgstr "dragoraUpdate: gestor d'actualització d'rpm"
 
-#: scripts/mana:80
+#: scripts/mana:81
 msgid "manawall: firewall manager"
 msgstr "manawall: gestor del tallafoc"
 
-#: scripts/mana:91
+#: scripts/mana:92
 #, perl-format
 msgid "Command <%s> not found!\n"
 msgstr "No s'ha trobat l'ordre <%s>!\n"
 
-#: scripts/mana:103
+#: scripts/mana:104
 msgid "ERROR: "
 msgstr "ERROR: "
 
-#: scripts/mana:122
+#: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
 msgstr "Ús mana --help | -h        imprimeix aquest missatge d'ajuda.\n"
 
-#: scripts/mana:123
+#: scripts/mana:124
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
@@ -4768,7 +4770,7 @@ msgstr ""
 "Ús mana <ordre> [args...]\n"
 "\n"
 
-#: scripts/mana:124
+#: scripts/mana:125
 msgid "valid <commands>:\n"
 msgstr "<odres> vàlides:\n"
 
@@ -5054,7 +5056,7 @@ msgstr ""
 "procés)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, perl-format
+#, fuzzy, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5062,14 +5064,14 @@ msgid ""
 "                                                        </ul>\n"
 "                                                        <h3>Translators</"
 "h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Desenvolupadors</h3>\n"
-"                                                        <ul><li>%s</li>\n"
-"                                                            <li>%s</li>\n"
-"                                                        </ul>\n"
-"                                                        <h3>Traductors</h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Traductors</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5431,3 +5433,22 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Una interfície gràfica per instal·lar, suprimir i actualitzar paquets"
+
+#~ msgid ""
+#~ "<h3>Developers</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Translators</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
+#~ msgstr ""
+#~ "<h3>Desenvolupadors</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Traductors</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"

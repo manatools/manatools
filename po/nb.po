@@ -14,7 +14,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-02 18:53+0200\n"
+"POT-Creation-Date: 2017-09-09 17:27+0200\n"
 "PO-Revision-Date: 2017-06-15 08:51+0000\n"
 "Last-Translator: Karl Morten Ramberg <karl.m.ramberg@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/MageiaLinux/mageia/"
@@ -2184,11 +2184,12 @@ msgid "&Refresh"
 msgstr "%Oppfrisk"
 
 #: lib/ManaTools/Module/Services.pm:446
+#, fuzzy
 msgid ""
-"adminService is the Mageia service and daemon management tool\n"
+"manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
-"idea of Mandriva draxservice)."
+"idea of Mandriva drakxservice)."
 msgstr ""
 "adminService er Mageias  tjeneste og tjener administreringsverktøy\n"
 "(ideen er hentet fra Mandriva draxservice)."
@@ -4640,64 +4641,65 @@ msgstr "Det er ingen tilgjengelig beskrivelse for denne pakka\n"
 msgid "Mageia Add Users Tool"
 msgstr "Brukeradministreringsverktøy for Mageia "
 
-#: scripts/mana:39
-msgid "manalog: journalct log reader"
+#: scripts/mana:40
+#, fuzzy
+msgid "manalog: journalctl log reader"
 msgstr "manalog: journalct logg leser"
 
-#: scripts/mana:43
+#: scripts/mana:44
 msgid "manauser: user manager"
 msgstr "manauser: brukeradministrasjon"
 
-#: scripts/mana:47
+#: scripts/mana:48
 msgid "manaservice: service manager"
 msgstr "manaservice: tjenesteadministrasjon"
 
-#: scripts/mana:52
+#: scripts/mana:53
 msgid "manadm: login manager configuration"
 msgstr "manadmin: Konfigurator for Logg inn håndterer"
 
-#: scripts/mana:56
+#: scripts/mana:57
 msgid "manaclock: date/time manager"
 msgstr "manaclock: dato/klokkesletts administrasjon"
 
-#: scripts/mana:60
+#: scripts/mana:61
 msgid "manahost: hosts manager"
 msgstr "manahost - Vertsnavnadministrasjon"
 
-#: scripts/mana:64
+#: scripts/mana:65
 msgid "mpan: admin panel"
 msgstr "mpan: admin panel"
 
-#: scripts/mana:68
+#: scripts/mana:69
 msgid "manaproxy: proxy manager"
 msgstr "manaproxy - konfigurasjonshåndterer for Mellomtjener"
 
-#: scripts/mana:72
+#: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
 msgstr "rpmdragora - Installer og fjern programvare"
 
-#: scripts/mana:76
+#: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
 msgstr "dragoraUpdate: rpm oppdateringshåndterer"
 
-#: scripts/mana:80
+#: scripts/mana:81
 msgid "manawall: firewall manager"
 msgstr "manawall - brannmur konfigurator"
 
-#: scripts/mana:91
+#: scripts/mana:92
 #, perl-format
 msgid "Command <%s> not found!\n"
 msgstr "Kommando<%s> ikke funnet!\n"
 
-#: scripts/mana:103
+#: scripts/mana:104
 msgid "ERROR: "
 msgstr "FEIL:"
 
-#: scripts/mana:122
+#: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
 msgstr "Bruk av mana --help | -h        skriv ut hjelpeteksten\n"
 
-#: scripts/mana:123
+#: scripts/mana:124
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
@@ -4705,7 +4707,7 @@ msgstr ""
 "Bruk av mana <command> [args...]\n"
 "\n"
 
-#: scripts/mana:124
+#: scripts/mana:125
 msgid "valid <commands>:\n"
 msgstr "gyldig <commands>:\n"
 
@@ -4989,7 +4991,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Gjenopprett avbrutte (RPM DB er låst av en annen prosess)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, perl-format
+#, fuzzy, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -4997,15 +4999,14 @@ msgid ""
 "                                                        </ul>\n"
 "                                                        <h3>Translators</"
 "h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Utviklere</h3>\n"
-"                                                        <ul><li>%s</li>\n"
-"                                                            <li>%s</li>\n"
-"                                                        </ul>\n"
-"                                                        <h3>Oversettere</"
-"h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"<ul><li>%s</li>\n"
+"<li>%s</li>\n"
+"</ul>\n"
+"<h3>Oversettere</h3>\n"
+"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5364,3 +5365,22 @@ msgstr "/usr/share/icons/manarpm.png"
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Grafisk grensesnitt for installering, fjerning og oppdatering av pakker."
+
+#~ msgid ""
+#~ "<h3>Developers</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Translators</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
+#~ msgstr ""
+#~ "<h3>Utviklere</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Oversettere</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"

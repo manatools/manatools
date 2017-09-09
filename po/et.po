@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-02 18:53+0200\n"
+"POT-Creation-Date: 2017-09-09 17:27+0200\n"
 "PO-Revision-Date: 2016-06-12 08:23+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <i18n-et@ml.mageia.org>\n"
@@ -2167,11 +2167,12 @@ msgid "&Refresh"
 msgstr "&Värskenda"
 
 #: lib/ManaTools/Module/Services.pm:446
+#, fuzzy
 msgid ""
-"adminService is the Mageia service and daemon management tool\n"
+"manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
-"idea of Mandriva draxservice)."
+"idea of Mandriva drakxservice)."
 msgstr ""
 "adminService on Mageia teenuste ja deemonite haldur\n"
 "\n"
@@ -4632,64 +4633,65 @@ msgstr "Sellel paketil pole kirjeldust\n"
 msgid "Mageia Add Users Tool"
 msgstr "Mageia kasutajate lisamise tööriist"
 
-#: scripts/mana:39
-msgid "manalog: journalct log reader"
+#: scripts/mana:40
+#, fuzzy
+msgid "manalog: journalctl log reader"
 msgstr "manalog: journalct logi lugeja"
 
-#: scripts/mana:43
+#: scripts/mana:44
 msgid "manauser: user manager"
 msgstr "manauser: kasutajate haldur"
 
-#: scripts/mana:47
+#: scripts/mana:48
 msgid "manaservice: service manager"
 msgstr "manaservice: teenuste haldur"
 
-#: scripts/mana:52
+#: scripts/mana:53
 msgid "manadm: login manager configuration"
 msgstr "manadm: sisselogimishalduri seadistamine"
 
-#: scripts/mana:56
+#: scripts/mana:57
 msgid "manaclock: date/time manager"
 msgstr "manaclock: kuupäeva ja kellaaja haldur"
 
-#: scripts/mana:60
+#: scripts/mana:61
 msgid "manahost: hosts manager"
 msgstr "manahost: masinate haldur"
 
-#: scripts/mana:64
+#: scripts/mana:65
 msgid "mpan: admin panel"
 msgstr "mpan: juhtpaneel"
 
-#: scripts/mana:68
+#: scripts/mana:69
 msgid "manaproxy: proxy manager"
 msgstr "manaproxy: puhverserverite haldur"
 
-#: scripts/mana:72
+#: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
 msgstr "rpmdragora: tarkvarapakettide paigaldamise haldur"
 
-#: scripts/mana:76
+#: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
 msgstr "dragoraUpdate: tarkvarapakettide uuendamise haldur"
 
-#: scripts/mana:80
+#: scripts/mana:81
 msgid "manawall: firewall manager"
 msgstr "manawall: tulemüüri haldur"
 
-#: scripts/mana:91
+#: scripts/mana:92
 #, perl-format
 msgid "Command <%s> not found!\n"
 msgstr "Käsku <%s> ei leitud!\n"
 
-#: scripts/mana:103
+#: scripts/mana:104
 msgid "ERROR: "
 msgstr "TÕRGE: "
 
-#: scripts/mana:122
+#: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
 msgstr "Kasutamine: mana --help | -h        selle abiteate näitamine\n"
 
-#: scripts/mana:123
+#: scripts/mana:124
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
@@ -4697,7 +4699,7 @@ msgstr ""
 "Kasutamine: mana <command> [argumendid...]\n"
 "\n"
 
-#: scripts/mana:124
+#: scripts/mana:125
 msgid "valid <commands>:\n"
 msgstr "kehtivad <käsud>:\n"
 
@@ -4981,7 +4983,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Lähtestamine katkes (RPM-ide andmebaasi on lukustanud teine protsess)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, perl-format
+#, fuzzy, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -4989,14 +4991,14 @@ msgid ""
 "                                                        </ul>\n"
 "                                                        <h3>Translators</"
 "h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Arendajad</h3>\n"
-"                                                        <ul><li>%s</li>\n"
-"                                                            <li>%s</li>\n"
-"                                                        </ul>\n"
-"                                                        <h3>Tõlkijad</h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Tõlkijad</h3>\n"
+"                                                       <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5353,6 +5355,25 @@ msgstr "/usr/share/icons/manarpm.png"
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Tarkvara paigaldamise, eemaldamise ja uuendamise graafiline kasutajaliides"
+
+#~ msgid ""
+#~ "<h3>Developers</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Translators</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
+#~ msgstr ""
+#~ "<h3>Arendajad</h3>\n"
+#~ "                                                        <ul><li>%s</li>\n"
+#~ "                                                            <li>%s</li>\n"
+#~ "                                                        </ul>\n"
+#~ "                                                        <h3>Tõlkijad</"
+#~ "h3>\n"
+#~ "                                                        <ul><li>%s</li></"
+#~ "ul>"
 
 #~ msgid "manadm - Display Manager"
 #~ msgstr "manadm - kuvahaldur"
