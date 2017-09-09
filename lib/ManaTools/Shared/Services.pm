@@ -37,7 +37,7 @@ Angelo Naselli <anaselli@linux.it>
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (C) 2013-2016, Angelo Naselli.
+Copyright (C) 2013-2017, Angelo Naselli.
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License version 2, as

@@ -32,7 +32,7 @@ ManaTools::MainDisplay - class for ManaTools main window
 
 =head1 COPYRIGHT and LICENSE
 
-    Copyright (C) 2012-2016, Angelo Naselli.
+    Copyright (C) 2012-2017, Angelo Naselli.
     Copyright (C) 2012, Steven Tucker.
 
     ManaTools is free software: you can redistribute it and/or modify
