@@ -37,7 +37,7 @@ my $loc        = ManaTools::Shared::Locales->new(
 my %modules = (
         log     => {
             exec  => '/usr/bin/manalog',
-            descr => $loc->N("manalog: journalct log reader"),
+            descr => $loc->N("manalog: journalctl log reader"),
         },
         user    => {
             exec  => '/usr/bin/manauser',
