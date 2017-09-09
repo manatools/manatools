@@ -1029,10 +1029,10 @@ sub ask_browse_tree_given_widgets_for_rpmdragora {
         }
         # name-version-release.arch
         my $lastItem =  $it ?
-            ($it->cell(0)->label() . "-" .
-             $it->cell(2)->label() . "-" .
-             $it->cell(3)->label() . "." .
-             $it->cell(4)->label()) :
+            (($it->cell(0) ? $it->cell(0)->label() : "") . "-" .
+             ($it->cell(2) ? $it->cell(2)->label() : "") . "-" .
+             ($it->cell(3) ? $it->cell(3)->label() : "") . "." .
+             ($it->cell(4) ? $it->cell(4)->label() : "")) :
             "";
 
         $w->{detail_list}->startMultipleChanges();
