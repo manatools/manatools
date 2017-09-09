@@ -22,6 +22,7 @@
 #
 #*****************************************************************************
 
+binmode STDOUT, ':utf8';
 use ManaTools::Privileges;
 use ManaTools::Shared;
 use ManaTools::Shared::Locales;
