@@ -444,7 +444,7 @@ sub _servicePanel {
                          credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2016'),
                          license => $self->loc->N("GPLv2"),
                          description => $self->loc->N("manaservice is the Mageia service and daemon management tool\n
-                                                       (from the original idea of Mandriva drakxservice)."),
+                                                       (from the original idea of Mandriva drakxservices)."),
                          authors => $self->loc->N("<h3>Developers</h3>
                                                     <ul><li>%s</li>
                                                            <li>%s</li>
