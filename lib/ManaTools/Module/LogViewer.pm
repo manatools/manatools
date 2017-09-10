@@ -317,7 +317,7 @@ sub _logViewerPanel {
                 my $translators = ManaTools::Shared::i18NTranslators($self->loc->N("_: Translator(s) name(s) & email(s)\n"));
                 $self->sh_gui->AboutDialog({ name    => $self->name,
                                             version => $self->Version(),
-                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2014'),
+                            credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2017'),
                             license => $self->loc->N("GPLv2"),
                             description => $self->loc->N("Log viewer is a systemd journal viewer"),
                             authors => $self->loc->N("<h3>Developers</h3>

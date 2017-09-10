@@ -192,7 +192,7 @@ sub _adminClockPanel {
                 $self->sh_gui->AboutDialog({
                     name    => $self->name,
                     version => $self->Version(),
-                    credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2016'),
+                    credits => $self->loc->N("Copyright (C) %s Mageia community", '2014-2017'),
                     license => $self->loc->N("GPLv2"),
                     description => $self->loc->N("Date, Clock & Time Zone Settings allows to setup time zone and adjust date and time"),
                     authors => $self->loc->N("<h3>Developers</h3>

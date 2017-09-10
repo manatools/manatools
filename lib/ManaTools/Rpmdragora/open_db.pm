@@ -6,8 +6,8 @@ package ManaTools::Rpmdragora::open_db;
 #  Copyright (c) 2002-2014 Thierry Vignaud <thierry.vignaud@gmail.com>
 #  Copyright (c) 2003, 2004, 2005 MandrakeSoft SA
 #  Copyright (c) 2005-2007 Mandriva SA
-#  Copyright (c) 2012-2016 Matteo Pasotti <matteo.pasotti@gmail.com>
-#  Copyright (c) 2014-2016 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2012-2017 Matteo Pasotti <matteo.pasotti@gmail.com>
+#  Copyright (c) 2014-2017 Angelo Naselli <anaselli@linux.it>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as

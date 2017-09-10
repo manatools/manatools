@@ -1,7 +1,7 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
 #
-#  Copyright (c) 2013-2016 Matteo Pasotti <matteo.pasotti@gmail.com>
+#  Copyright (c) 2013-2017 Matteo Pasotti <matteo.pasotti@gmail.com>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
@@ -260,7 +260,7 @@ sub _manageProxyDialog {
                 $self->sh_gui->AboutDialog({
                     name => $appTitle,
                     version => $self->Version(),
-                    credits => $self->loc->N("Copyright (C) %s by Matteo Pasotti", '2013-2016'),
+                    credits => $self->loc->N("Copyright (C) %s by Matteo Pasotti", '2013-2017'),
                     license => "GPLv2",
                     description => $self->loc->N("Graphical configurator for system Display Manager"),
                     authors => "Matteo Pasotti &lt;matteo.pasotti\@gmail.com&gt;"

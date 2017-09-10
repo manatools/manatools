@@ -116,7 +116,7 @@ Contact authors or Mageia team (http://www.mageia.org/en/contribute/)
 
 # LICENSE AND COPYRIGHT #
 
-Copyright (C) 2012-2016 Angelo Naselli, Matteo Pasotti, Maarten Vanraes
+Copyright (C) 2012-2017 Angelo Naselli, Matteo Pasotti, Maarten Vanraes
 
 This program is free software; you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

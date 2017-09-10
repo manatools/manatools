@@ -1,7 +1,7 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
 #
-#  Copyright (c) 2015-2016 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2015-2017 Angelo Naselli <anaselli@linux.it>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as

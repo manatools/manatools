@@ -2,7 +2,7 @@
 #*****************************************************************************
 #
 #  dragoraUpdate
-#  Copyright (c) 2014-2016 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2014-2017 Angelo Naselli <anaselli@linux.it>
 #
 #  MandrivaUpdate and MageiaUpdate
 #  Copyright (c) 2002 Guillaume Cottenceau
@@ -351,7 +351,7 @@ sub run_treeview_dialog {
                     $sh_gui->AboutDialog({
                         name    => "dragoraUpdate",
                         version => $VERSION,
-                        credits => $loc->N("Copyright (C) %s Mageia community", '2013-2016'),
+                        credits => $loc->N("Copyright (C) %s Mageia community", '2013-2017'),
                         license => $loc->N("GPLv2"),
                         description => $loc->N("dragoraUpdate is the Mageia package management tool."),
                         authors => $loc->N("<h3>Developers</h3>

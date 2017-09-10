@@ -83,14 +83,14 @@ SKIP: {
 
     ok($gui->AboutDialog({ name => "Shared::GUI TABBED",
                     version => $ManaTools::Shared::VERSION,
-                    credits => "Copyright (C) 2014-2016 Angelo Naselli",
+                    credits => "Copyright (C) 2014-2017 Angelo Naselli",
                     license => 'GPLv2',
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
                     }), 'AboutDialog');
 
     ok($gui->AboutDialog({ name => "Shared::GUI CLASSIC",
                     version => $ManaTools::Shared::VERSION,
-                    credits => "Copyright (C) 2014-2016 Angelo Naselli",
+                    credits => "Copyright (C) 2014-2017 Angelo Naselli",
                     license => 'GPLv2',
                     authors => "Angelo Naselli <anaselli\@linux.it>\nMatteo Pasotti <matteo.pasotti\@gmail.com>",
                     dialog_mode => 1,

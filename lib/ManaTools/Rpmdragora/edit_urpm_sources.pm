@@ -5,7 +5,7 @@ package ManaTools::Rpmdragora::edit_urpm_sources;
 #  Copyright (c) 2002 Guillaume Cottenceau
 #  Copyright (c) 2002-2007 Thierry Vignaud <tvignaud@mandriva.com>
 #  Copyright (c) 2002-2007 Mandriva Linux
-#  Copyright (c) 2014-2016 Angelo Naselli <anaselli@linux.it>
+#  Copyright (c) 2014-2017 Angelo Naselli <anaselli@linux.it>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as
@@ -1727,7 +1727,7 @@ sub mainwindow() {
                 my $sh_gui = ManaTools::Shared::GUI->new();
                 $sh_gui->AboutDialog({ name => "Rpmdragora",
                                              version => $VERSION,
-                         credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                         credits => $loc->N("Copyright (C) %s Mageia community", '2013-2017'),
                          license => $loc->N("GPLv2"),
                          description => $loc->N("Rpmdragora is the Mageia package management tool."),
                          authors => $loc->N("<h3>Developers</h3>

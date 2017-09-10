@@ -9,7 +9,7 @@ BEGIN {
 
 ok( my $o = ManaTools::Shared::Locales->new({domain_name => 'manatools'}), 'create');
 is( $o->N_("test"), 'test', 'N_' );
-ok(my $cr = $o->N("Copyright (C) %s Mageia community", '2012-2016'), 'N');
+ok(my $cr = $o->N("Copyright (C) %s Mageia community", '2012-2017'), 'N');
 diag "Copyright string is: < " . ($cr ? $cr : "none") . " >";
 
 done_testing;

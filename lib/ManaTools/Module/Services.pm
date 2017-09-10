@@ -441,7 +441,7 @@ sub _servicePanel {
                 my $translators = ManaTools::Shared::i18NTranslators($self->loc->N("_: Translator(s) name(s) & email(s)\n"));
                 $self->sh_gui->AboutDialog({ name => $self->name,
                                              version => $self->Version(),
-                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2016'),
+                         credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2017'),
                          license => $self->loc->N("GPLv2"),
                          description => $self->loc->N("manaservice is the Mageia service and daemon management tool\n
                                                        (from the original idea of Mandriva drakxservices)."),

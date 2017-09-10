@@ -2382,7 +2382,7 @@ sub _showAboutDialog {
     $self->sh_gui->AboutDialog({
         name => $self->loc->N("manauser"),
         version => $self->Version(),
-        credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2016'),
+        credits => $self->loc->N("Copyright (C) %s Mageia community", '2013-2017'),
         license => $self->loc->N("GPLv2"),
         description => $self->loc->N("manauser is a Mageia user management tool \n(from the original idea of Mandriva userdrake)."),
         authors => $self->loc->N("<h3>Developers</h3>

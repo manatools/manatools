@@ -248,7 +248,7 @@ sub _showAboutDialog {
     my $sh_gui = ManaTools::Shared::GUI->new();
     $sh_gui->AboutDialog({ name => $self->{name},
         version => $self->Version(),
-        credits => $self->loc()->N("Copyright (C) %s Mageia community", '2013-2016'),
+        credits => $self->loc()->N("Copyright (C) %s Mageia community", '2013-2017'),
         license => $self->loc()->N("GPLv2"),
         description => $self->loc()->N("mpan is the ManaTools panel that collects all the utilities."),
         authors => $self->loc()->N("<h3>Developers</h3>

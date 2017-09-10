@@ -1,7 +1,7 @@
 # vim: set et ts=4 sw=4:
 #*****************************************************************************
 #
-#  Copyright (c) 2013-2016 Matteo Pasotti <matteo.pasotti@gmail.com>
+#  Copyright (c) 2013-2017 Matteo Pasotti <matteo.pasotti@gmail.com>
 #
 #  This program is free software; you can redistribute it and/or modify
 #  it under the terms of the GNU General Public License version 2, as

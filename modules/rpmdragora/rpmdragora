@@ -1090,7 +1090,7 @@ print "Menu " . $menuLabel . " chosen\n";
                     my $sh_gui = ManaTools::Shared::GUI->new();
                     $sh_gui->AboutDialog({ name => "Rpmdragora",
                                                 version => $VERSION,
-                            credits => $loc->N("Copyright (C) %s Mageia community", '2013-2014'),
+                            credits => $loc->N("Copyright (C) %s Mageia community", '2013-2017'),
                             license => $loc->N("GPLv2"),
                             description => $loc->N("Rpmdragora is the Mageia package management tool."),
                             authors => $loc->N("<h3>Developers</h3>

@@ -34,7 +34,7 @@ package ManaTools::Shared::urpmi_backend::tools;
 
 =head1 COPYRIGHT and LICENSE
 
-Copyright (c) 2015-2016 Angelo Naselli <anaselli@linux.it>
+Copyright (c) 2015-2017 Angelo Naselli <anaselli@linux.it>
     from Rpmdrake:
      Copyright (c) 2002 Guillaume Cottenceau
      Copyright (c) 2003-2005 MandrakeSoft SA

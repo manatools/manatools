@@ -1,6 +1,6 @@
 # vim: set et ts=4 sw=4:
-#    Copyright 2012-2016 Angelo Naselli <anaselli@linux.it>
-#    Copyright 2013-2016 Matteo Pasotti <matteo.pasotti@gmail.com>
+#    Copyright 2012-2017 Angelo Naselli <anaselli@linux.it>
+#    Copyright 2013-2017 Matteo Pasotti <matteo.pasotti@gmail.com>
 #
 #    This file is part of ManaTools
 #
