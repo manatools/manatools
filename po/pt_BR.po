@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-09 17:27+0200\n"
+"POT-Creation-Date: 2017-09-10 12:55+0200\n"
 "PO-Revision-Date: 2017-06-30 04:54+0000\n"
 "Last-Translator: Michael Ferreira Martins <michaelfm21@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) (http://www.transifex.com/MageiaLinux/"
@@ -2156,6 +2156,11 @@ msgstr "Proxy FTP"
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
 msgstr "Não usar proxy para estes endereços (lista separada por vírgula):"
+
+#: lib/ManaTools/Module/Proxy.pm:347
+#, fuzzy, perl-format
+msgid "Copyright (C) %s"
+msgstr "Copyright (C) %s de Mandriva"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"

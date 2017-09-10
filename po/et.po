@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ManaTools 1.0.1\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
-"POT-Creation-Date: 2017-09-09 17:27+0200\n"
+"POT-Creation-Date: 2017-09-10 12:55+0200\n"
 "PO-Revision-Date: 2016-06-12 08:23+0300\n"
 "Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
 "Language-Team: Estonian <i18n-et@ml.mageia.org>\n"
@@ -2116,6 +2116,11 @@ msgstr "FTP-puhverserver"
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
 msgstr "Puhverserverit ei kasutata (komadega eraldatud loend):"
+
+#: lib/ManaTools/Module/Proxy.pm:347
+#, fuzzy, perl-format
+msgid "Copyright (C) %s"
+msgstr "Autoriõigus (C) %s: Mandriva"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
