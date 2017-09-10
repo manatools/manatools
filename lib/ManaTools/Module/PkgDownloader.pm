@@ -12,7 +12,7 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #
-# Copyright: 2012 - 2016 by Matteo Pasotti <matteo.pasotti@gmail.com>
+# Copyright: 2012-2017 by Matteo Pasotti <matteo.pasotti@gmail.com>
 
 package ManaTools::Module::PkgDownloader;
 
