@@ -21,7 +21,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-09 17:27+0200\n"
-"PO-Revision-Date: 2017-09-04 07:46+0000\n"
+"PO-Revision-Date: 2017-09-09 19:54+0000\n"
 "Last-Translator: Charles Monzat <superboa@hotmail.fr>\n"
 "Language-Team: French (http://www.transifex.com/MageiaLinux/mageia/language/"
 "fr/)\n"
@@ -2237,16 +2237,16 @@ msgid "&Refresh"
 msgstr "Rafraîchir"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservice)."
 msgstr ""
-"adminService est l'outil de gestion des démons de Mageia\n"
+"manaservice est l'outil de gestion des démons de Mageia\n"
 "\n"
-"(concept basé sur le draxservice Mandriva)"
+"                                                       (concept basé sur "
+"« drakxservice » de Mandriva)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
@@ -4725,9 +4725,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Outil d'ajout des utilisateurs Mageia"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog : visionneur de fichier journaux journalct"
+msgstr "manalog : visionneur des journaux de journalctl"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -5075,7 +5074,7 @@ msgstr ""
 "Reset annulé (la base de donnée RPM est verrouillée par un autre processus)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5086,11 +5085,12 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Développeurs</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>Traducteurs</h3>\n"
-"                                                       <ul>%s</ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Traducteurs</"
+"h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5463,20 +5463,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Une interface graphique pour installer, supprimer et mettre à jour les "
 "paquetages"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Développeurs</h3>\n"
-#~ "<ul><li>%s</li>\n"
-#~ "<li>%s</li>\n"
-#~ "</ul>\n"
-#~ "<h3>Traducteurs</h3>\n"
-#~ "<ul><li>%s</li></ul>"
