@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-03 10:22+0000\n"
+"PO-Revision-Date: 2017-09-10 12:36+0000\n"
 "Last-Translator: Filip Komar <filip.komar@gmail.com>\n"
 "Language-Team: Slovenian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/sl/)\n"
@@ -2134,9 +2134,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Brez posredniškega strežnika (naslovi, ločeni z vejicami):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Avtorske pravice (C) %s Mandriva"
+msgstr "Avtorske pravice (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2188,16 +2188,16 @@ msgid "&Refresh"
 msgstr "&Osveži"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminService je Magejino orodje za upravljanje s storitvami in opravili\n"
+"manaservice je Magejino orodje za upravljanje s storitvami in opravili\n"
 "\n"
-"(izhaja iz prvotne ideje Mandrivinega orodja draxservice)."
+"                                                        (izhaja iz prvotne "
+"ideje Mandrivinega orodja drakxservice)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
@@ -4666,9 +4666,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia orodje za dodajanje uporabnikov"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog: branje dnevniških datotek programa journalct"
+msgstr "manalog: branje dnevniških datotek programa journalctl"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -5012,7 +5011,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Ponastavitev je preklicana (drugo opravilo je zaklenilo bazo RPM)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5023,11 +5022,11 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Razvijalci</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>Prevajalci</h3>\n"
-"                                                       <ul>%s</ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Prevajalci</h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5390,20 +5389,3 @@ msgstr "/usr/share/icons/manarpm.png"
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Grafični vmesnik za nameščanje, odstranjevanje in posodabljanje paketov"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Razvojniki</h3>\n"
-#~ "<ul><li>%s</li>\n"
-#~ "<li>%s</li>\n"
-#~ "</ul>\n"
-#~ "<h3>Prevajalci</h3>\n"
-#~ "<ul><li>%s</li></ul>"
