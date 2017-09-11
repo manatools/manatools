@@ -10,12 +10,13 @@
 #
 # Translators:
 # scootergrisen, 2017
+# scootergrisen, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-08 22:21+0000\n"
+"PO-Revision-Date: 2017-09-10 22:40+0000\n"
 "Last-Translator: scootergrisen\n"
 "Language-Team: Danish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "da/)\n"
@@ -2142,9 +2143,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Ingen proxy for (kommasepareret liste):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Ophavsret (C) %s Mandriva"
+msgstr "Ophavsret (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2196,17 +2197,16 @@ msgid "&Refresh"
 msgstr "&Genindlæs"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminService er en Mageia-tjeneste og dæmonhåndteringsværktøj\n"
+"manaservice er Mageias tjeneste- og dæmonhåndteringsværktøj\n"
 "\n"
 "                                                       (fra den originale "
-"ide i Mandriva draxservice)."
+"ide af Mandriva drakxservices)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
@@ -4668,9 +4668,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia' værktøj til tilføjelse af brugere"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog: journalct log-læser"
+msgstr "manalog: journalctl-log-læser"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -5018,7 +5017,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Nulstilling afbrudt (RPM DB er blokeret af en anden proces)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5029,11 +5028,12 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Udviklere</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>Oversættere</h3>\n"
-"                                                       <ul>%s</ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Oversættere</"
+"h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5394,22 +5394,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "En grafisk brugergrænseflade for installering, fjernelse og opdatering af "
 "programpakker."
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Udviklere</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Oversættere</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
