@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-07 13:33+0000\n"
+"PO-Revision-Date: 2017-09-11 14:14+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -1883,7 +1883,7 @@ msgstr "Copyright (C) %s Matteo Pasotti"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
-msgstr "ホスト定義用のグラフィカル マネージャ"
+msgstr "ホスト定義用のグラフィカル マネージャです"
 
 #: lib/ManaTools/Module/Firewall.pm:86
 #, perl-format
@@ -1939,7 +1939,7 @@ msgstr "対話式ファイアウォールを使用"
 
 #: lib/ManaTools/Module/Firewall.pm:658
 msgid "Graphical manager for interactive firewall rules"
-msgstr "対話式ファイアウォールのルール用グラフィカル マネージャ"
+msgstr "対話式ファイアウォールのルール用グラフィカル マネージャです"
 
 #: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
 #: lib/ManaTools/Module/Firewall.pm:1097
@@ -1965,7 +1965,7 @@ msgstr "高度な設定(&D)"
 
 #: lib/ManaTools/Module/Firewall.pm:854
 msgid "Graphical manager for firewall rules"
-msgstr "ファイアウォールのルール用のグラフィカル マネージャ"
+msgstr "ファイアウォールのルール用のグラフィカル マネージャです"
 
 #: lib/ManaTools/Module/Firewall.pm:886
 msgid ""
@@ -2081,7 +2081,7 @@ msgstr "ディスプレイ マネージャを選択"
 
 #: lib/ManaTools/Module/DisplayManager.pm:265
 msgid "Graphical configurator for system Display Manager"
-msgstr "システムのディスプレイ マネージャ用グラフィカル設定ツール"
+msgstr "システムのディスプレイ マネージャ用グラフィカル設定ツールです"
 
 #: lib/ManaTools/Module/Proxy.pm:53
 #, perl-format
@@ -2131,13 +2131,13 @@ msgid "No proxy for (comma separated list):"
 msgstr "プロキシなしで接続 (コンマ区切りの一覧):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Copyright (C) %s Mandriva"
+msgstr "Copyright (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
-msgstr "グラフィカルなプロキシ マネージャ"
+msgstr "グラフィカルなプロキシ マネージャです"
 
 #: lib/ManaTools/Module/Services.pm:86
 #, perl-format
@@ -2185,15 +2185,16 @@ msgid "&Refresh"
 msgstr "再読み込み(&R)"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"manauser は Mageia のユーザ管理ツールです \n"
-"(Mandriva の userdrake のアイデアを元にしています)。"
+"manaservice は Mageia のサービス・デーモンの管理ツールです\n"
+"\n"
+"                                                       (Mandriva の "
+"drakxservices のアイデアを元にしています)。"
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
@@ -4650,9 +4651,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia ユーザ追加ツール"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog - Journalctl ログ ビューア, ユーザ モード"
+msgstr "manalog: journalctl ログ リーダ"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -4998,7 +4998,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "リセットは中止されました (RPM DB が別のプロセスにロックされています)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5009,11 +5009,11 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>開発者</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>翻訳者</h3>\n"
-"                                                       <ul>%s</ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>翻訳者</h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
