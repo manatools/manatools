@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-11 14:14+0000\n"
+"PO-Revision-Date: 2017-09-12 13:56+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -221,7 +221,7 @@ msgid ""
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
 "名前はアルファベットから始まらなければならず、小文字のアルファベット, 数字, "
-"'.', '-' そして '_' のみを含まなければなりません"
+"'.', '-', '_' のみを含まなければなりません"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
@@ -243,7 +243,7 @@ msgstr "ユーザ <%s> をプライマリ グループから削除すること�
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Locked"
-msgstr "ロック状態"
+msgstr "ロック"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Expired"
@@ -705,9 +705,9 @@ msgid ""
 "all of the services it is responsible for."
 msgstr ""
 "インターネット スーパーサーバ デーモン (俗に inetd と呼ばれます) は様々な他の"
-"インターネット サービスを必要に応じて起動します。これは telnet, ftp, rsh, そ"
-"して rlogin を含むたくさんのサービスを開始する責任を負うものです。inetd を無"
-"効化すると責任を負うすべてのサービスが無効化されます。"
+"インターネット サービスを必要に応じて起動します。これは telnet, ftp, rsh, "
+"rlogin を含むたくさんのサービスを開始する責任を負うものです。inetd を無効化す"
+"ると責任を負うすべてのサービスが無効化されます。"
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -1642,14 +1642,14 @@ msgstr "ユーザ"
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "%s - 日付, 時刻 & タイム ゾーン設定"
+msgstr "%s - 日付、時刻とタイム ゾーン設定"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
-"日付, 時刻 & タイム ゾーン設定はタイム ゾーンの設定を可能にし、日付と時刻を調"
+"日付、時刻とタイム ゾーン設定はタイム ゾーンの設定を可能にし、日付と時刻を調"
 "整します"
 
 #: lib/ManaTools/Module/Clock.pm:198
@@ -5245,7 +5245,7 @@ msgstr "パッケージ更新用のグラフィカル フロント エンド"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "manaclock - 日付, 時刻 & タイム ゾーン設定"
+msgstr "manaclock - 日付、時刻とタイム ゾーン設定"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
