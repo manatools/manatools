@@ -10,14 +10,14 @@
 #
 # Translators:
 # Davidmp <medipas@gmail.com>, 2015-2017
-# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2017
+# Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015,2017
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-06 07:44+0000\n"
+"PO-Revision-Date: 2017-09-13 16:22+0000\n"
 "Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -2163,9 +2163,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "No hi ha servidor intermediari per a (llista separada per comes):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Copyright (C) %s per Mandriva"
+msgstr "Copyright (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2217,16 +2217,16 @@ msgid "&Refresh"
 msgstr "&Refresca"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"L'adminService és l'eina de gestió de serveis i dimonis de Mageia\n"
+"El manaservice és l'eina de gestió de serveis i dimonis de Mageia\n"
 "\n"
-"(A partir de la idea original de Mandriva draxservice)."
+"                                                       (de la idea original "
+"de Mandriva drakxservices)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
@@ -4710,7 +4710,6 @@ msgid "Mageia Add Users Tool"
 msgstr "Eina de gestió d'usuaris de Mageia"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
 msgstr "manalog: lector de registres de journalctl"
 
@@ -5061,7 +5060,7 @@ msgstr ""
 "procés)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5072,11 +5071,11 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Desenvolupadors</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>Traductors</h3>\n"
-"                                                       <ul>%s</ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Traductors</h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5438,22 +5437,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Una interfície gràfica per instal·lar, suprimir i actualitzar paquets"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Desenvolupadors</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Traductors</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
