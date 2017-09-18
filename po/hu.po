@@ -13,7 +13,7 @@
 # Balzamon, 2015
 # Ferenc Teknős <teknos.ferenc@gmail.com>, 2017
 # gergo huba <hubasetech@gmail.com>, 2016
-# Laszlo Espadas <kardiweb@protonmail.ch>, 2017
+# Kardos László <kardiweb@protonmail.ch>, 2017
 # root, 2005
 # Tamas Szanto <tszanto@mol.hu>, 2000
 # Zsolt Bölöny <bolony.zsolt@gmail.com>, 2013-2014
@@ -22,8 +22,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-17 18:12+0000\n"
-"Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
+"PO-Revision-Date: 2017-09-18 17:03+0000\n"
+"Last-Translator: Kardos László <kardiweb@protonmail.ch>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -78,6 +78,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Honosítók</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -94,7 +101,7 @@ msgstr "Fájl"
 #: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1208
 msgid "&Quit"
-msgstr "&Kilépés"
+msgstr "Kilépés"
 
 #: lib/ManaTools/MainDisplay.pm:392 lib/ManaTools/MainDisplay.pm:393
 #: lib/ManaTools/Module/Users.pm:2449
@@ -112,7 +119,7 @@ msgstr "Súgó"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr "&Magunkról"
+msgstr "Névjegy"
 
 #: lib/ManaTools/MainDisplay.pm:567
 #, perl-format
@@ -2296,7 +2303,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr ""
+msgstr "Media"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
