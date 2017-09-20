@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-12 13:56+0000\n"
+"PO-Revision-Date: 2017-09-20 13:30+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -1224,7 +1224,7 @@ msgstr "ホーム ディレクトリを削除: %s"
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr "メールボックスを削除: /var/spool/mail/%s"
+msgstr "メール ボックスを削除: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
@@ -1760,7 +1760,7 @@ msgstr "タイム ゾーン一覧の取得に失敗しました"
 
 #: lib/ManaTools/Module/Clock.pm:614
 msgid "Which is your timezone?"
-msgstr "あなたのタイム ゾーンはどれですか?"
+msgstr "最も近い場所はどこですか?"
 
 #: lib/ManaTools/Module/Clock.pm:626
 msgid "GMT - manaclock"
@@ -2158,7 +2158,7 @@ msgstr "停止中"
 
 #: lib/ManaTools/Module/Services.pm:362
 msgid "Manage system services by enabling or disabling them"
-msgstr "システム サービスを有効化と無効化により管理します"
+msgstr "システム サービスの有効・無効を管理"
 
 #: lib/ManaTools/Module/Services.pm:370
 msgid "Service"
@@ -2340,7 +2340,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"メディアを追加中に問題が発生しました:\n"
+"メディアの追加時に問題が発生しました:\n"
 "\n"
 "%s"
 
@@ -2354,7 +2354,7 @@ msgstr "メディアを更新しています。お待ちください..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
-msgstr "パッケージ検索中にエラー発生"
+msgstr "パッケージの取得時にエラーが発生しました"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -2366,9 +2366,9 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
-"メディア %s からパッケージリストを取得できませんでした。\n"
+"メディア %s からパッケージの一覧を取得できませんでした。\n"
 "更新メディアが正しく設定されていないか、現在接続不能になっていると\n"
-"考えられます。前者の場合は、メディアマネージャでいったんメディアを\n"
+"考えられます。前者の場合は、メディア マネージャでいったんメディアを\n"
 "削除し、改めて追加してください。後者の場合は、しばらくたってから\n"
 "やり直してください。"
 
@@ -2575,7 +2575,7 @@ msgstr "ミラーのアドレスを取得しています。お待ちください
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
 msgstr ""
-"Mageia のウェブサイトからミラーのアドレスを取得しています。お待ちください。"
+"Mageia のウェブ サイトからミラーのアドレスを取得しています。お待ちください。"
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
@@ -2589,7 +2589,7 @@ msgstr "ヘルプを裏で起動しました"
 #: lib/ManaTools/rpmdragora.pm:1164
 msgid ""
 "The help window has been started, it should appear shortly on your desktop."
-msgstr "ヘルプウィンドウを起動しました。まもなくデスクトップに表示されます。"
+msgstr "ヘルプ ウィンドウを起動しました。まもなくデスクトップに表示されます。"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:148 lib/ManaTools/Rpmdragora/pkg.pm:127
 #: lib/ManaTools/Rpmdragora/pkg.pm:176 lib/ManaTools/Rpmdragora/pkg.pm:189
@@ -3870,7 +3870,7 @@ msgstr "ダウンロードに使用するプログラム:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr "XML メタデータのダウンロード ポリシー:"
+msgstr "XML メタ データのダウンロード ポリシー:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
@@ -4349,7 +4349,7 @@ msgstr "これはあなたのシステムを<b>破壊する</b>かもしれま�
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr "このパッケージはフリーソフトウェアではありません"
+msgstr "このパッケージはフリー ソフトウェアではありません"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
@@ -5219,7 +5219,7 @@ msgstr "システムをアップデート"
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr "インストールとアップデートのためのメディアを設定"
+msgstr "インストールと更新のためのメディア ソースを設定"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -5370,5 +5370,4 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
-"RPM パッケージのインストール、アンインストール、更新を行うためのグラフィカル"
-"フロントエンド"
+"パッケージのインストール, 削除, 更新を行うためのグラフィカル フロント エンド"
