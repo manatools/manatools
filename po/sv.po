@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -21,7 +21,7 @@
 # Lars Westergren <lars.westergren@home.se>, 2003,2005
 # Magnus Björklöf <bjorklof@nic.fi>, 2003
 # Mattias Dahlberg <voz@home.se>, 2001
-# Michael Eklund <willard@null.net>, 2014-2016
+# Michael Eklund <willard@null.net>, 2014-2017
 # Thomas Backlund <tmb@mageia.org>, 2011
 # Tom Svensson <tom@firstdev.com>, 2000
 # Michael Eklund <willard@null.net>, 2014
@@ -32,7 +32,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2016-06-10 13:39+0000\n"
+"PO-Revision-Date: 2017-09-20 12:21+0000\n"
 "Last-Translator: Michael Eklund <willard@null.net>\n"
 "Language-Team: Swedish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sv/)\n"
@@ -82,7 +82,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan är ManaTools panel som samlar alla verktyg."
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -98,7 +98,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Översättare</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -946,16 +946,12 @@ msgid "Nameserver information manager"
 msgstr "Namnserver informationshanterare"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"Routed-demonen uppdaterar automatiskt IP-routing-tabeller via RIP-\n"
-"protokollet. RIP används mycket på mindre nätverk, men för komplexare\n"
-"nät krävs kraftfullare protokoll."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -1115,7 +1111,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "Loggvisaren är en journal visare från systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1129,7 +1125,7 @@ msgstr ""
 "                                                        <li>%s</li>\n"
 "                                                    </ul>\n"
 "                                                    <h3>Översättare</h3>\n"
-"                                                    <ul><li>%s</li></ul>"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1555,9 +1551,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Fyll i alla fält för lösenordsåldrande\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Tar bort användare: %s"
+msgstr "Problem med att ändra användare %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1612,7 +1608,7 @@ msgstr ""
 "(bygger på den tidigare Mandriva userdrake)."
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1626,7 +1622,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Översättare</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1688,7 +1684,7 @@ msgstr ""
 "datum och tid."
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1696,12 +1692,9 @@ msgid ""
 "                                              <ul>%s</ul>"
 msgstr ""
 "<h3>Utvecklare</h3>\n"
-"\n"
-"<ul><li>%s</li></ul>\n"
-"\n"
-"<h3>Översättare</h3>\n"
-"\n"
-"<ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Översättare</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2169,9 +2162,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Ingen proxy för (kommaseparerad lista):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Kopieringsskydd (C) %s, Mageia"
+msgstr "Copyright (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2223,20 +2216,20 @@ msgid "&Refresh"
 msgstr "&Uppdatera"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminTjänster är Mageias hantering av demoner\n"
+"manaservice är ett verktyg för att hantera Mageias tjänster och daemoner\n"
 "\n"
-"(bygger på den tidigare Mandriva drakservice)"
+"                                                       (en idé från "
+"Mandrivas drakxservices)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2250,7 +2243,7 @@ msgstr ""
 "                                                           <li>%s</li>\n"
 "                                                       </ul>\n"
 "                                                       <h3>Översättare</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -4692,9 +4685,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia-verktyg för användarhantering"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog: journalct loggläsare"
+msgstr "manalog: journalctl logg-läsare"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -4836,7 +4828,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUpdate är Mageias verktyg för pakethantering."
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4846,7 +4838,7 @@ msgstr ""
 "<h3>Utvecklare</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Översättare</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -5042,7 +5034,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Återställning avbruten (RPM-databsen är låst av en annan process)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5053,11 +5045,12 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Utvecklare</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>Översättare</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Översättare</"
+"h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5424,22 +5417,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Ett grafiskt gränssnitt för installation, borttagning och uppdatering av "
 "paket"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Utvecklare</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Översättare</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
