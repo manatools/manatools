@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-20 13:30+0000\n"
+"PO-Revision-Date: 2017-09-23 13:39+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -2375,25 +2375,25 @@ msgstr ""
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "メディア %s 用のファイルをコピー..."
+msgstr "メディア `%s' 用のファイルをコピーしています..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr "メディア %s のファイルを調べています..."
+msgstr "メディア `%s' のファイルを調べています..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr "メディア %s のリモートファイルを調べています..."
+msgstr "メディア `%s' のリモート ファイルを調べています..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
-msgstr "完了しました"
+msgstr " 完了しました。"
 
 #: lib/ManaTools/rpmdragora.pm:826
 msgid " failed!"
-msgstr "失敗しました"
+msgstr " 失敗しました!"
 
 #: lib/ManaTools/rpmdragora.pm:831
 #, perl-format
@@ -2403,7 +2403,7 @@ msgstr "%s (メディア %s)"
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr "%s のダウンロードを開始..."
+msgstr "`%s' のダウンロードを開始しています..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -2411,7 +2411,8 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
-"%s をダウンロード。残り時間:%s\n"
+"`%s' をダウンロードしています\n"
+"残り時間:%s\n"
 "速度:%s"
 
 #: lib/ManaTools/rpmdragora.pm:842
@@ -2419,7 +2420,9 @@ msgstr ""
 msgid ""
 "Download of `%s'\n"
 "speed:%s"
-msgstr "%s をダウンロード。速度:%s"
+msgstr ""
+"`%s' をダウンロードしています\n"
+"速度:%s"
 
 #: lib/ManaTools/rpmdragora.pm:854
 msgid ""
@@ -2642,7 +2645,7 @@ msgstr "%s から情報を取得しています..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:145
 #, perl-format
 msgid "Getting '%s' from XML meta-data..."
-msgstr "XML メタデータから '%s' を取得しています..."
+msgstr "XML メタ データから '%s' を取得しています..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
@@ -2672,7 +2675,7 @@ msgstr "パッケージ `%s' をダウンロードしています..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
 msgid "        %s%% of %s completed, ETA = %s, speed = %s"
-msgstr "        %s%% of %s 完了, 残り時間 = %s, 速度 = %s"
+msgstr "        %s%% / %s 完了, 残り時間 = %s, 速度 = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:227
 #, perl-format
@@ -2865,7 +2868,7 @@ msgstr "不要なパッケージ"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr "以下の不要なパッケージは削除されます。"
+msgstr "以下の不要なパッケージを削除します。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
@@ -3732,13 +3735,12 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
-"システムを安全かつ安定に保つために、最低でも公式のセキュリティと安定性の更新"
-"用のソースを設定しなければなりません。\n"
-"公式の完全な Mageia リポジトリを含む完全なソースを設定することを選択すること"
-"も可能で、\n"
-"これは Mageia のインストール ディスク上のソフトウェアよりも適したアクセスを提"
-"供します。\n"
-"更新用のソースのみを設定するか完全なソースを設定するかを選択してください。"
+"あなたのシステムの安全性と安定性を保つためには、少なくとも公式の\n"
+"セキュリティ更新と重要な修正を提供する更新ソースを設定し\n"
+"なければなりません。また、Mageia の公式リポジトリ全体を含む完全\n"
+"なソースを設定することもできます。こちらを選択すると、Mageia の\n"
+"CD や DVD に入りきらないソフトウェアにもアクセスできるようになります。\n"
+"どちらを設定するか選択してください。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -3746,7 +3748,7 @@ msgstr "完全なソース"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Update sources only"
-msgstr "更新用のソースのみ"
+msgstr "更新ソースのみ"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
 #, perl-format
@@ -3759,13 +3761,13 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"これはあなたのディストリビューション (%s) に対応するすべての公式のソースの\n"
-"インストールを試みます。\n"
+"お使いのディストリビューション (%s) に対応する公式ソースを\n"
+"インストールします。\n"
 "\n"
-"ミラーの一覧を取得するために Mageia の Web サイトに接続する必要があります。\n"
-"ネットワークが動作しているかを確認してください。\n"
+"Mageia のウェブ サイトに接続してミラーの一覧を取得します。\n"
+"ネットワークが有効になっていることを確認してください。\n"
 "\n"
-"続行してもよろしいですか?"
+"続けますか?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
@@ -3837,7 +3839,7 @@ msgstr "このメディアを更新メディアとして設定"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
-msgstr "少なくともはじめの二つの入力欄は埋める必要があります。"
+msgstr "少なくとも最初の二つの項目は入力してください。"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
 #, perl-format
@@ -4129,7 +4131,7 @@ msgstr "更新"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
-msgstr "特定のメディア ミラーを追加"
+msgstr "ミラーの一覧からメディアを追加"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
@@ -4381,7 +4383,7 @@ msgstr "重要度: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr "アップデートの理由: "
+msgstr "更新の理由: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
@@ -4389,7 +4391,7 @@ msgstr "バージョン: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr "インストールされているバージョン: "
+msgstr "インストール済みのバージョン: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
@@ -4447,7 +4449,7 @@ msgstr "urpmi データベースを更新するとよいでしょう。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 msgid "Matching packages:"
-msgstr "一致するパッケージ:"
+msgstr "マッチするパッケージ:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:408
 #, perl-format
@@ -4500,11 +4502,11 @@ msgstr "幾つかの追加のパッケージを削除する必要があります
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
-msgstr "これらの依存関係によって、以下のパッケージも削除されます:"
+msgstr "依存関係を満たすために、以下のパッケージも削除します:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1415
 msgid "Some packages cannot be removed"
-msgstr "幾つかのパッケージが削除できません"
+msgstr "削除できないパッケージがあります"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1416
 msgid ""
@@ -4538,20 +4540,20 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
 msgid "Conflicting Packages"
-msgstr "パッケージの衝突"
+msgstr "衝突するパッケージ"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1471
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr "%s (スキップ リストに存在)"
+msgstr "%s (スキップ リストに含まれています)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "One package cannot be installed"
-msgstr "1つのパッケージがインストールできません"
+msgstr "インストールできないパッケージがあります"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "Some packages cannot be installed"
-msgstr "幾つかのパッケージがインストールできません"
+msgstr "インストールできないパッケージがあります"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1477
 #, perl-format
@@ -4605,12 +4607,11 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
-"警告: パッケージのインストール中もしくはインストール後に\n"
-"ファイル システムのディスク空き領域が不足するほどの\n"
-"たくさんのパッケージを追加しようとしているようです;\n"
-"これは特に危険であり、注意して考えるべきです。\n"
+"警告: 追加するパッケージが多すぎて、インストール中に\n"
+"または後でディスクの容量が足りなくなるかもしれません。\n"
+"これは非常に危険なので、慎重に考えてください。\n"
 "\n"
-"本当に選択されたすべてのパッケージをインストールしますか?"
+"選択したパッケージをすべてインストールしますか?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1663
 msgid "Please wait, listing packages..."
@@ -4626,9 +4627,9 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
-"アップデートの一覧が空です。これは、このコンピュータにインストールされている"
-"パッケージに対するアップデートが存在しないか、もしくはそれらすべてがインス"
-"トール済みであることを意味します。"
+"更新の一覧が空です。これは、このコンピュータにインストールされているパッケー"
+"ジに対する更新が存在しないか、もしくはそれらすべてがインストール済みであるこ"
+"とを意味します。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
@@ -4963,7 +4964,7 @@ msgstr "正常なインストールの後にダウンロード キャッシュ�
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr "開始時にアップデートを算定する"
+msgstr "開始時に更新を算定する"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
