@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-06 17:31+0000\n"
+"PO-Revision-Date: 2017-09-24 12:21+0000\n"
 "Last-Translator: dragnadh <dragnadh@gmail.com>\n"
 "Language-Team: Dutch (http://www.transifex.com/MageiaLinux/mageia/language/"
 "nl/)\n"
@@ -2191,9 +2191,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Geen proxy voor (kommagescheiden lijst):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Copyright © %s, Mandriva"
+msgstr "Auteursrecht (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -4736,9 +4736,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia's addusertool"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog: journalct-logboeklezer"
+msgstr "manalog: journalct logboeklezer"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -5085,7 +5084,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Reset afgebroken (de RPM database is in gebruik door een ander proces)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5096,11 +5095,16 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Ontwikkelaars</h3>\n"
-"                                                      <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                      </ul>\n"
-"                                                      <h3>Vertalers</h3>\n"
-"                                                      <ul>%s</ul>"
+"                                                                           <ul><li>"
+"%s</li>\n"
+"                                                                                <li>"
+"%s</li>\n"
+"                                                                            </"
+"ul>\n"
+"                                                                            <h3>Vertalers</"
+"h3>\n"
+"                                                                            <ul>"
+"%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5460,20 +5464,3 @@ msgid "A graphical front end for installing, removing and updating packages"
 msgstr ""
 "Een grafische schil voor het installeren, verwijderen en bijwerken van "
 "pakketten"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Ontwikkelaars</h3>\n"
-#~ "<ul><li>%s</li>\n"
-#~ "<li>%s</li>\n"
-#~ "</ul>\n"
-#~ "<h3>Vertalers</h3>\n"
-#~ "<ul><li>%s</li></ul>"
