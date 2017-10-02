@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-23 13:39+0000\n"
+"PO-Revision-Date: 2017-10-02 14:03+0000\n"
 "Last-Translator: Masanori Kakura <kakurasan@gmail.com>\n"
 "Language-Team: Japanese (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ja/)\n"
@@ -243,7 +243,7 @@ msgstr "ユーザ <%s> をプライマリ グループから削除すること�
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Locked"
-msgstr "ロック"
+msgstr "ロック中"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Expired"
@@ -1132,15 +1132,15 @@ msgstr "%s - ユーザ管理ツール"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
-msgstr "ユーザ データ"
+msgstr "ユーザのデータ"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr "アカウント情報"
+msgstr "アカウントの情報"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
-msgstr "パスワード情報"
+msgstr "パスワードの情報"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
 msgid "Groups"
@@ -1148,11 +1148,11 @@ msgstr "グループ"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr "グループ データ"
+msgstr "グループのデータ"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr "グループ ユーザ"
+msgstr "グループのユーザ"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
@@ -1301,7 +1301,7 @@ msgstr "パスワード:"
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
-msgstr "パスワードの確認:"
+msgstr "パスワードを確認:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
@@ -1337,7 +1337,7 @@ msgstr "このユーザ専用のグループを作成"
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr "ユーザ ID を手動で指定する"
+msgstr "ユーザ ID を手動で指定"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
@@ -1478,19 +1478,19 @@ msgstr "パスワードの有効期限を設定する"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
-msgstr "変更可能になるまでの日数:"
+msgstr "変更を許可するまでの日数:"
 
 #: lib/ManaTools/Module/Users.pm:1720
 msgid "Days before change required:"
-msgstr "変更が要求されるまでの日数:"
+msgstr "変更を要求するまでの日数:"
 
 #: lib/ManaTools/Module/Users.pm:1728
 msgid "Days warning before change:"
-msgstr "変更前に警告する日数:"
+msgstr "変更を要求する何日前に警告するか:"
 
 #: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before account inactive:"
-msgstr "アカウントが無効になるまでの日数:"
+msgstr "アカウントを無効にするまでの日数:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
@@ -2829,8 +2829,8 @@ msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
-"Rpmdragora もしくはその上位の依存パッケージを先にアップデートする必要がありま"
-"す。Rpmdragora はその後再起動します。"
+"Rpmdragora もしくはそれが依存するパッケージを先に更新する必要があります。"
+"Rpmdragora はその後再起動します。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:809
 msgid "The following package is going to be installed:"
@@ -2919,10 +2919,10 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
-"インストール処理は完了しました; すべて正常にインストールされました。\n"
+"インストールが完了しました; すべて正常にインストールされました。\n"
 "\n"
-"幾つかの設定ファイルが `.rpmnew' もしくは `.rpmsave' として作成され、\n"
-"行動を取るためにこれらを調べることができます:"
+"`.rpmnew' または `.rpmsave' という設定ファイルを生成しました。\n"
+"内容を確認して使用する設定ファイルを選択することができます:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -2981,7 +2981,7 @@ msgstr "バックアップ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
-msgstr "CD ライター"
+msgstr "CD 書き込み"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
@@ -4535,7 +4535,7 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
-"依存関係を満たすために、以下のパッケージもインストールされる必要があります:\n"
+"依存関係を満たすために、以下のパッケージもインストールする必要があります:\n"
 "\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
