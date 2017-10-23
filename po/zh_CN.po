@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,13 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# zwpwjwtz <zwpwjwtz@126.com>, 2016
+# zwpwjwtz <zwpwjwtz@126.com>, 2016-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2016-12-13 02:38+0000\n"
+"PO-Revision-Date: 2017-10-22 13:41+0000\n"
 "Last-Translator: zwpwjwtz <zwpwjwtz@126.com>\n"
 "Language-Team: Chinese (China) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_CN/)\n"
@@ -58,7 +58,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan 是集成了各类工具的 ManaTools 管理器。"
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -69,12 +69,12 @@ msgid ""
 "                                    <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>译者</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"    <ul><li>%s</li>\n"
+"        <li>%s</li>\n"
+"        <li>%s</li>\n"
+"    </ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -877,15 +877,14 @@ msgid "Nameserver information manager"
 msgstr "域名服务器信息管理器"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"路由守护进程允许通过 RIP 协议自动更新 IP 路由表。RIP 被广泛用于小型网络，\n"
-"而更大的网络则需要更复制的路由协议。"
+"后台服务 routed 允许通过 RIP 协议自动更新的 IP 路由表。在小型网络上广泛的\n"
+"采用 RIP，然而在更复杂的网络上需要更复杂的路由协议。"
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -1034,7 +1033,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "Log viewer 是一个 systemd 日志查看器"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1044,11 +1043,11 @@ msgid ""
 "                                                    <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                        <li>%s</li>\n"
-"                                                    </ul>\n"
-"                                                    <h3>翻译者</h3>\n"
-"                                                    <ul><li>%s</li></ul>"
+"    <ul><li>%s</li>\n"
+"        <li>%s</li>\n"
+"    </ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1470,9 +1469,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "请填写密码过期设置中的所有字段\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "移除用户：%s"
+msgstr "修改用户%s时出现问题"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1523,7 +1522,7 @@ msgstr ""
 "（类似 Mandriva 中的 userdrake）。"
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1533,11 +1532,11 @@ msgid ""
 "                                    <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>翻译者</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"    <ul><li>%s</li>\n"
+"        <li>%s</li>\n"
+"     </ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul> "
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1597,7 +1596,7 @@ msgid ""
 msgstr "日期、时钟与时区设置允许用户设置时区并调整时间"
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1605,9 +1604,9 @@ msgid ""
 "                                              <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                              <ul><li>%s</li></ul>\n"
-"                                              <h3>翻译者</h3>\n"
-"                                              <ul><li>%s</li></ul>"
+"    <ul><li>%s</li></ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2069,9 +2068,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "以下地址不使用代理（用逗号分隔）："
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "版权所有 (C) %s Mandriva"
+msgstr "版权所有 (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2123,21 +2122,20 @@ msgid "&Refresh"
 msgstr "刷新(&R)"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminService 是 Mageia 的服务/守护进程管理工具\n"
+"manaservice 是 Mageia 的服务/守护进程管理工具\n"
 "\n"
 "                                                       （类似 Mandriva 的 "
-"draxservice）。"
+"drakxservices）。"
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2147,11 +2145,11 @@ msgid ""
 "                                                       <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>翻译者</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
+"    <ul><li>%s</li>\n"
+"        <li>%s</li>\n"
+"    </ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -4548,7 +4546,6 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia 用户添加工具"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
 msgstr "manalog：Journalctl 日志查看器"
 
@@ -4688,7 +4685,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUpdate 是 Mageia 的软件包管理工具。"
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4696,9 +4693,9 @@ msgid ""
 "                                            <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                            <ul><li>%s</li></ul>\n"
-"                                            <h3>翻译者</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"    <ul><li>%s</li></ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -4892,7 +4889,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "已终止重置（RPM 数据库被其他进程锁定）"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -4903,11 +4900,11 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>开发者</h3>\n"
-"                                                    <ul><li>%s</li>\n"
-"                                                           <li>%s</li>\n"
-"                                                       </ul>\n"
-"                                                       <h3>翻译者</h3>\n"
-"                                                       <ul><li>%s</li></ul>"
+"    <ul><li>%s</li>\n"
+"        <li>%s</li>\n"
+"    </ul>\n"
+"    <h3>翻译</h3>\n"
+"    <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5260,21 +5257,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "安装、删除和更新软件包的图形化工具"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>开发者</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>翻译者</h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
