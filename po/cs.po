@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,16 +9,17 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# fri, 2015
 # Jiří Vírava <appukonrad@gmail.com>, 2015-2016
 # Luděk Janča <joelp@email.cz>, 2016
 # fri, 2015
-# fri, 2015-2016
+# fri, 2015-2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2016-06-11 21:18+0000\n"
+"PO-Revision-Date: 2017-10-31 10:51+0000\n"
 "Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cs/)\n"
@@ -63,7 +64,7 @@ msgstr ""
 "nástroje."
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -923,17 +924,16 @@ msgid "Nameserver information manager"
 msgstr "Správce informací o jmenných serverech"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"Démon routed umožňuje automaticky obnovovat směrovací tabulku (router "
-"table)\n"
+"Směrovací démon (routed) umožňuje automaticky obnovovat směrovací tabulku "
+"(router table)\n"
 "pro IP adresy. K tomu používá protokol RIP. Zatímco RIP je běžně používán\n"
-"v malých sítích, pro složitější sítě je zapotřebí složitější protokoly."
+"v malých sítích, pro složitější sítě jsou zapotřebí složitější protokoly."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -1094,7 +1094,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "Prohlížeč záznamů je prohlížečem zápisů systemd"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1108,7 +1108,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Překladatelé</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1534,9 +1534,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Pro vypršení hesla vyplňte, prosím, všechna pole\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Odebírá se uživatel: %s"
+msgstr "Potíže při změně uživatele: %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1587,7 +1587,7 @@ msgstr ""
 "(z původní myšlenky userdrake Mandrivy)."
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1601,7 +1601,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Překladatelé</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1663,7 +1663,7 @@ msgstr ""
 "datum a čas"
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1671,9 +1671,9 @@ msgid ""
 "                                              <ul>%s</ul>"
 msgstr ""
 "<h3>Vývojáři</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Překladatelé</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Překladatelé</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2142,9 +2142,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Bez proxy na (čárkami oddělený seznam):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Autorské právo (C) %s Mandriva"
+msgstr "Autorské právo (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2196,21 +2196,20 @@ msgid "&Refresh"
 msgstr "&Obnovit"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminService je nástroj pro správu služeb a démonů Mageii)\n"
+"manaservice je nástroj pro správu služeb a démonů Mageii\n"
 "\n"
 "                                                       (z původní myšlenky "
-"draxservice Mandrivy)."
+"Mandrivy"
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2224,7 +2223,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Překladatelé</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -4674,7 +4673,6 @@ msgid "Mageia Add Users Tool"
 msgstr "Nástroj pro přidání uživatelů Mageia"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
 msgstr "manalog: Čtečka záznamů journalct"
 
@@ -4816,7 +4814,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUpdate je nástroj pro správu balíčků Mageia"
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4826,7 +4824,7 @@ msgstr ""
 "<h3>Vývojáři</h3>\n"
 "                                                    <ul><li>%s</li></ul>\n"
 "                                                    <h3>Překladatelé</h3>\n"
-"                                                    <ul><li>%s</li></ul>"
+"                                                    <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -5022,7 +5020,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr "Nastavit znovu přerušené (databáze RPM je zamknuta jiným procesem)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5037,7 +5035,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Překladatelé</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5395,20 +5393,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Grafický nástroj pro instalaci, odstranění a aktualizaci balíčků"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Vývojáři</h3>\n"
-#~ "                                    <ul><li>%s</li>\n"
-#~ "                                        <li>%s</li>\n"
-#~ "                                    </ul>\n"
-#~ "                                    <h3>Překladatelé</h3>\n"
-#~ "                                    <ul><li>%s</li></ul>"
