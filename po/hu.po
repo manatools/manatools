@@ -24,8 +24,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-10-29 14:55+0000\n"
-"Last-Translator: Kardos László <lacesz@ox.io>\n"
+"PO-Revision-Date: 2017-10-31 16:33+0000\n"
+"Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -885,7 +885,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
-msgstr ""
+msgstr "Névszerver információ kezelő"
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid ""
@@ -977,11 +977,11 @@ msgstr ""
 #: lib/ManaTools/Module/LogViewer.pm:81
 #, perl-format
 msgid "%s - Log viewer"
-msgstr ""
+msgstr "%s - Napló megjelenítő"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "A naplófájl megjelenítésére szolgáló eszköz"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
@@ -993,11 +993,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "Beállítások"
 
 #: lib/ManaTools/Module/LogViewer.pm:173
 msgid "Last boot"
-msgstr ""
+msgstr "Utolsó boot"
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
@@ -1021,7 +1021,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
-msgstr ""
+msgstr "Keresés"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
@@ -1029,7 +1029,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:297
 msgid "&Save"
-msgstr ""
+msgstr "Mentés"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "Log viewer is a systemd journal viewer"
@@ -1045,6 +1045,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Honosítók</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1063,40 +1069,40 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:457
 msgid "Save as.."
-msgstr ""
+msgstr "Mentés másként.."
 
 #: lib/ManaTools/Module/Users.pm:107
 #, perl-format
 msgid "%s - Users Management Tool"
-msgstr ""
+msgstr "%s - Felhasználó kezelő eszköz"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
-msgstr ""
+msgstr "Felhasználói adatok"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "Fiók információk"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
-msgstr ""
+msgstr "Jelszó információ"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
 msgid "Groups"
-msgstr ""
+msgstr "Csoportok"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "Csoport adatok"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "Csoport felhasználók"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
-msgstr ""
+msgstr "Csoport kiválasztás"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
@@ -1127,7 +1133,7 @@ msgstr "Valóban törölni szeretné a következő csoportot: %s ?"
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "&Delete"
-msgstr ""
+msgstr "Törlés"
 
 #: lib/ManaTools/Module/Users.pm:452
 #, perl-format
@@ -1141,11 +1147,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Csoport törlés: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Törli a fájlokat vagy nem?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -1157,25 +1163,25 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Home könyvtár törlése: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "E-mailek törlése: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Felhasználók törlése: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "Új csoport létrehozás"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
-msgstr ""
+msgstr "Csoport név:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
@@ -1183,7 +1189,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
@@ -1219,7 +1225,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
-msgstr ""
+msgstr "Teljes név:"
 
 #: lib/ManaTools/Module/Users.pm:728
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
@@ -1234,7 +1240,7 @@ msgstr "Jelszó:"
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Jelszó megerősítés:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
@@ -1243,26 +1249,26 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "Ikon (%s)"
 
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2406
 #: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Proxy.pm:147
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "root jogosultság szükséges"
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
-msgstr ""
+msgstr "Új felhasználó létrehozása"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Home könyvtár létrehozása"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr ""
+msgstr "Home könyvtár:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
@@ -1274,7 +1280,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
@@ -1322,20 +1328,20 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Új csoport létrehozás: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr ""
+msgstr "Felhasználó hozzáadás:"
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Felhasználó hozzáadás: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
-msgstr ""
+msgstr "Felhasználónév"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
@@ -1343,11 +1349,11 @@ msgstr "Felhasználó azonosító"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
-msgstr ""
+msgstr "Elsődleges csoport"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "Teljes név"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
@@ -1355,20 +1361,20 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
-msgstr ""
+msgstr "Home könyvtár"
 
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "Állapot"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "Csoport név"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "Csoport ID"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
@@ -1376,7 +1382,7 @@ msgstr "Csoport tagok"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
-msgstr ""
+msgstr "Home:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
@@ -1424,7 +1430,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
-msgstr ""
+msgstr "Felhasználó"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
@@ -1433,7 +1439,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:1814
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Group"
-msgstr ""
+msgstr "Csoport"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
@@ -1460,11 +1466,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Weak"
-msgstr ""
+msgstr "Hét"
 
 #: lib/ManaTools/Module/Users.pm:2010
 msgid "Edit User"
-msgstr ""
+msgstr "Felhasználó szerkesztés"
 
 #: lib/ManaTools/Module/Users.pm:2163 lib/ManaTools/Module/Users.pm:2266
 msgid "Cannot create tab widgets"
@@ -1472,27 +1478,27 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2179
 msgid "Edit Group"
-msgstr ""
+msgstr "Csoport szerkesztés"
 
 #: lib/ManaTools/Module/Users.pm:2344 lib/ManaTools/Module/Users.pm:2468
 msgid "Add User"
-msgstr ""
+msgstr "Felhasználó hozzáadás"
 
 #: lib/ManaTools/Module/Users.pm:2345 lib/ManaTools/Module/Users.pm:2473
 msgid "Add Group"
-msgstr ""
+msgstr "Csoport hozzáadás"
 
 #: lib/ManaTools/Module/Users.pm:2346 lib/ManaTools/Module/Hosts.pm:436
 msgid "&Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: lib/ManaTools/Module/Users.pm:2348
 msgid "Install guest account"
-msgstr ""
+msgstr "Vendég fiók telepítése"
 
 #: lib/ManaTools/Module/Users.pm:2383
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2387
 msgid ""
@@ -1510,14 +1516,20 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Honosítók</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
-msgstr ""
+msgstr "Frissítés"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
-msgstr ""
+msgstr "Műveletek"
 
 #: lib/ManaTools/Module/Users.pm:2448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
@@ -1529,17 +1541,17 @@ msgstr "&Súgó"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: modules/rpmdragora/rpmdragora:758
 msgid "Report Bug"
-msgstr ""
+msgstr "Hibajelentés"
 
 #: lib/ManaTools/Module/Users.pm:2478
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2155
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: lib/ManaTools/Module/Users.pm:2483
 msgid "Delete"
-msgstr ""
+msgstr "Törlés"
 
 #: lib/ManaTools/Module/Users.pm:2502
 msgid "Filter system users"
@@ -1547,15 +1559,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Search:"
-msgstr ""
+msgstr "Keresés:"
 
 #: lib/ManaTools/Module/Users.pm:2509
 msgid "Apply &filter"
-msgstr ""
+msgstr "Szűrő alkalmaz"
 
 #: lib/ManaTools/Module/Users.pm:2528
 msgid "Users"
-msgstr ""
+msgstr "Felhasználók"
 
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
@@ -1576,6 +1588,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Honosítók</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -4113,7 +4129,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
-msgstr ""
+msgstr "Nincs leírás"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:174
 msgid "It is <b>not supported</b> by Mageia."
@@ -4125,7 +4141,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "Ez a csomag nem szabad szoftver"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
@@ -4141,7 +4157,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "Ez egy nemhivatalos frissítés."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
@@ -4149,7 +4165,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
-msgstr ""
+msgstr "Notice: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
@@ -4161,52 +4177,52 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "Verzió:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "Jelenlegi telepített verzió:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr ""
+msgstr "Csoport:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "Architektúra:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
-msgstr ""
+msgstr "Méret:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 #, perl-format
 msgid "%s KB"
-msgstr ""
+msgstr "%s KB"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
-msgstr ""
+msgstr "Összes függőségek telepítve lettek."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
-msgstr ""
+msgstr "Hivatkozás:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
-msgstr ""
+msgstr "Részletek:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:345
 msgid "Files:"
-msgstr ""
+msgstr "Fájlok:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:361
 msgid "Changelog:"
-msgstr ""
+msgstr "Változásnapló:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:379
 msgid "New dependencies:"
-msgstr ""
+msgstr "Új függőségek:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:399
 #, perl-format
@@ -4223,12 +4239,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 msgid "Matching packages:"
-msgstr ""
+msgstr "Ütköző csomagok:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:408
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (adatforrás: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:950
 #, perl-format
@@ -4248,7 +4264,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1183
 msgid "Please choose"
-msgstr ""
+msgstr "Kérjük válasszon"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "The following package is needed:"
@@ -4260,7 +4276,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1296
 msgid "Select package"
-msgstr ""
+msgstr "Csomag kiválasztás"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Checking dependencies of package..."
@@ -4374,7 +4390,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1676
 msgid "No update"
-msgstr ""
+msgstr "Nincs frissítés"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1677
 msgid ""
@@ -4385,43 +4401,43 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
-msgstr ""
+msgstr "Frissíthető"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
-msgstr ""
+msgstr "Telepítve"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1717 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
-msgstr ""
+msgstr "Hozzáadható"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1751
 msgid "Description not available for this package\n"
-msgstr ""
+msgstr "A csomag leírása nem elérhető\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
-msgstr ""
+msgstr "Mageia felhasználó hozzáadás eszköz"
 
 #: scripts/mana:40
 msgid "manalog: journalctl log reader"
-msgstr ""
+msgstr "manalog: journalctl napló olvasó"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
-msgstr ""
+msgstr "manauser: felhasználókezelő"
 
 #: scripts/mana:48
 msgid "manaservice: service manager"
-msgstr ""
+msgstr "manaservice: szolgáltatáskezelő"
 
 #: scripts/mana:53
 msgid "manadm: login manager configuration"
-msgstr ""
+msgstr "manadm: bejelentkezéskezelő beállítások"
 
 #: scripts/mana:57
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: dátum/idő kezelő"
 
 #: scripts/mana:61
 msgid "manahost: hosts manager"
@@ -4429,32 +4445,32 @@ msgstr ""
 
 #: scripts/mana:65
 msgid "mpan: admin panel"
-msgstr ""
+msgstr "mpan: adminisztrációs panel"
 
 #: scripts/mana:69
 msgid "manaproxy: proxy manager"
-msgstr ""
+msgstr "manaproxy: proxykezelő "
 
 #: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
-msgstr ""
+msgstr "rpmdragora: rpm telepítéskezelő"
 
 #: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
-msgstr ""
+msgstr "dragoraUpdate: rpm frissítéskezelő"
 
 #: scripts/mana:81
 msgid "manawall: firewall manager"
-msgstr ""
+msgstr "manawall: tűzfalkezelő"
 
 #: scripts/mana:92
 #, perl-format
 msgid "Command <%s> not found!\n"
-msgstr ""
+msgstr "A parancs <%s> nem található!\n"
 
 #: scripts/mana:104
 msgid "ERROR: "
-msgstr ""
+msgstr "HIBA:"
 
 #: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
@@ -4468,11 +4484,11 @@ msgstr ""
 
 #: scripts/mana:125
 msgid "valid <commands>:\n"
-msgstr ""
+msgstr "érvényes <commands>:\n"
 
 #: scripts/mpan:34
 msgid "Developers mode"
-msgstr ""
+msgstr "Fejlesztői mód"
 
 #: scripts/mpan:40
 msgid ""
@@ -4486,11 +4502,11 @@ msgstr ""
 
 #: scripts/mpan:69
 msgid "== Development mode ON =="
-msgstr ""
+msgstr "== Fejlesztői mode BE =="
 
 #: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:420
 msgid "rpmdragora update"
-msgstr ""
+msgstr "rpmdragora update"
 
 #: modules/rpmdragora/dragoraUpdate:68
 #, perl-format
@@ -4499,7 +4515,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
-msgstr ""
+msgstr "Hibajavítás"
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
@@ -4514,27 +4530,27 @@ msgstr "Szoftverkezelés"
 
 #: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "Összefoglalás"
 
 #: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "Verzió"
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "Kiadás"
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
-msgstr ""
+msgstr "Architektúra"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
-msgstr ""
+msgstr "Minden kiválasztás törlése"
 
 #: modules/rpmdragora/dragoraUpdate:356
 msgid "dragoraUpdate is the Mageia package management tool."
@@ -4548,6 +4564,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Honosítók</h3>\n"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -4567,15 +4587,15 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "Kiválasztva"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
-msgstr ""
+msgstr "Nincs kiválasztva"
 
 #: modules/rpmdragora/rpmdragora:375
 msgid "No search results."
-msgstr ""
+msgstr "Nincs eredmény."
 
 #: modules/rpmdragora/rpmdragora:376
 #, perl-format
@@ -4587,15 +4607,15 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
 msgid "Selected: %s / Free disk space: %s"
-msgstr ""
+msgstr "Kiválasztva: %s / Szabad lemezterület: %s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "Csomag"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
-msgstr ""
+msgstr "Architektúra"
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
@@ -4603,7 +4623,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "Nincs telepítve"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
@@ -4612,7 +4632,7 @@ msgstr "%s noarch csomagok megjelenítése"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr ""
+msgstr "Összes csomag, ABC sorrendben"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
@@ -4632,7 +4652,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr ""
+msgstr "Összes csomag, méret szerint"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
@@ -4644,43 +4664,43 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "Meta csomagok"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
-msgstr ""
+msgstr "Csomagok felülettel"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
-msgstr ""
+msgstr "Minden frissítés"
 
 #: modules/rpmdragora/rpmdragora:557
 msgid "Security updates"
-msgstr ""
+msgstr "Biztonsági frissítések"
 
 #: modules/rpmdragora/rpmdragora:558
 msgid "Bugfixes updates"
-msgstr ""
+msgstr "Hibajavító  frissítések"
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "Általános frissítések"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
-msgstr ""
+msgstr "a nevekben"
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "a leírásokban"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "az összefoglalókban"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
-msgstr ""
+msgstr "a fájlnevekben"
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
@@ -4688,7 +4708,7 @@ msgstr "Keresés:"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr ""
+msgstr "Törlés"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
@@ -4724,11 +4744,11 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
-msgstr ""
+msgstr "Media kezelő"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
@@ -4749,11 +4769,17 @@ msgid ""
 "h3>\n"
 "                                                        <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Honosítók</h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
 msgid "rpmdragora is already running (pid: %s)"
-msgstr ""
+msgstr "rpmdragora fut (pid: %s)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
