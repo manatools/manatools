@@ -13,9 +13,9 @@
 # Balzamon, 2015
 # Ferenc Teknős <teknos.ferenc@gmail.com>, 2017
 # gergo huba <hubasetech@gmail.com>, 2016
-# Kardos László <lacesz@ox.io>, 2017
-# Kardos László <lacesz@ox.io>, 2017
-# Kardos László <lacesz@ox.io>, 2017
+# Laszlo Espadas, 2017
+# Laszlo Espadas, 2017
+# Laszlo Espadas, 2017
 # root, 2005
 # Tamas Szanto <tszanto@mol.hu>, 2000
 # Zsolt Bölöny <bolony.zsolt@gmail.com>, 2013-2014
@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-04 18:54+0000\n"
+"PO-Revision-Date: 2017-11-11 11:26+0000\n"
 "Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
@@ -300,6 +300,8 @@ msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir>opcionális könyvtár, amely minden modulhoz konfigurációs fájlokat "
+"tartalmaz (például modulnév / config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
@@ -583,7 +585,7 @@ msgstr "A felhasználó nem rendelkezik a változtatás jogával. "
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "Listázza ki  és küldje el az ACPI eseményeket a rendszermagból"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
@@ -726,6 +728,8 @@ msgstr "iptables - Automatikus csomagszűrő tűzfal iptables alapokon"
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
 msgstr ""
+"Egyenletesen osztja el  az IRQ terhelést több processzoron keresztül a jobb "
+"teljesítmény  elérése érdekében"
 
 #: lib/ManaTools/Shared/Services.pm:274
 msgid ""
@@ -1407,7 +1411,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "Fiók lejárati idő (YYYY-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
@@ -1423,7 +1427,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Jelszó lejárat engedélyezése"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
@@ -1475,11 +1479,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:1971
 #, perl-format
 msgid "Problem in modifying user %s"
-msgstr ""
+msgstr "Hiba lépett fel a felhasználó módosítása közben: %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
-msgstr ""
+msgstr "Erős"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Weak"
@@ -1522,6 +1526,8 @@ msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser egy Mageia felhasználó kezelő eszköz \n"
+"(a Mandriva userdrake eredeti elképzeléséből)."
 
 #: lib/ManaTools/Module/Users.pm:2388
 #, perl-format
@@ -1572,7 +1578,7 @@ msgstr "Törlés"
 
 #: lib/ManaTools/Module/Users.pm:2502
 msgid "Filter system users"
-msgstr ""
+msgstr "Rendszerfelhasználók szűrése"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Search:"
@@ -1589,7 +1595,7 @@ msgstr "Felhasználók"
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "%s - Dátum, Óra & Időzóna beállítások"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
@@ -1612,16 +1618,16 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
-msgstr ""
+msgstr "Dátum visszaállítás"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Visszaállítja a dátumot és az időt?"
 
 #: lib/ManaTools/Module/Clock.pm:235 lib/ManaTools/Module/Clock.pm:241
 #: lib/ManaTools/Module/Clock.pm:567 lib/ManaTools/Module/Clock.pm:652
 msgid "not defined"
-msgstr ""
+msgstr "nem meghatározott"
 
 #: lib/ManaTools/Module/Clock.pm:269
 msgid "Set local RTC failed"
@@ -1629,11 +1635,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:284
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Érvénytelen kiválasztott időzóna"
 
 #: lib/ManaTools/Module/Clock.pm:329
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Érvénytelen kiválasztott NTP beállítás"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP failed"
