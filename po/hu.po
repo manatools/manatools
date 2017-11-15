@@ -24,7 +24,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-11 11:26+0000\n"
+"PO-Revision-Date: 2017-11-14 19:17+0000\n"
 "Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
@@ -737,6 +737,9 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Ez a csomag betölti a kijelölt billentyűzet térképet a beállított módon\n"
+"/ etc / sysconfig /keyboard .Ez a kbdconfig segédprogrammal választható ki.\n"
+"A legtöbb gépen  ezt bekapcsolva kell hagyni."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
@@ -810,30 +813,37 @@ msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"named (BIND) egy Domain Name Server (DNS), amely a gazdanevek IP-címekre "
+"történő feloldására szolgál."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "Inicializálja a hálózati konzol naplózását"
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Az összes hálózati fájlrendszer (NFS), az SMB (Lan\n"
+"Manager / Windows) és az NCP (NetWare) csatolási pontokat rögzíti és "
+"csatolja."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Aktiválja / deaktiválja az összes indított hálózati interfészt\n"
+"induláskor."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "Ha engedélyezve van, a hálózat felépítése szükséges"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "Várja meg, hogy a hotplugged hálózat fel legyen állítva"
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid ""
@@ -841,30 +851,38 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"Az NFS népszerű protokoll a fájlmegosztásra az összes TCP / IP hálózaton.\n"
+"Ez a szolgáltatás az NFS-kiszolgáló funkcióját biztosítja, amelyet a\n"
+"/ etc / export fájl határoz meg."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"Az NFS népszerű protokoll a fájlmegosztásra a TCP / IP-n keresztül\n"
+"a hálózatokon."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
 msgstr ""
+"A rendszer időtartamának szinkronizálása a Network Time Protocolon (NTP)"
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Automatikusan kapcsolja be a számbillentyűzetet a konzol alatt\n"
+"és a Xorgra  váltáskor . "
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Támogatja az OKI 4w  kompatibilis tintapatronokat."
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "Ellenőrzi, hogy a partíció közel megtelt e"
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
@@ -873,6 +891,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"A PCMCIA támogatás általában olyan dolgokat támogat, mint az ethernet és a\n"
+"modemek, laptopok.Nem indul el, hacsak nincs konfigurálva, így biztonságban "
+"lehet\n"
+"olyan gépeken telepítve, amelyek nem igénylik."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -881,28 +903,41 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"A portmapper kezeli az RPC kapcsolatokat, amelyeket az\n"
+" olyan protokollok használnak, mint az NFS és a NIS.A portmapnak  "
+"kiszolgáló  gépen kell futnia\n"
+"amelyek az RPC mechanizmust használó protokollok  kiszolgálójaként működnek."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
-msgstr ""
+msgstr "Biztosít néhány TCP portot"
 
 #: lib/ManaTools/Shared/Services.pm:316
 msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"A Postfix egy levélszállítási ügynök, vagyis egy  program, amely az e-"
+"maileket egyik gépről a másikra mozgatja."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Menti és visszaállítja a rendszer entrópia tárolóját, így jobb "
+"véletlenszerű\n"
+"szám generálható."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Hozzárendelése nyers eszközöket blokkeszközökhöz (például merevlemez-"
+"meghajtó\n"
+"partíciók), olyan alkalmazások használatához, mint az Oracle vagy DVD "
+"lejátszók"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
@@ -915,24 +950,35 @@ msgid ""
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"A routed  démon lehetővé teszi az automatikus IP útválasztó tábla "
+"frissítését\n"
+"a RIP-el.Bár a RIP-t széles körben használják kis hálózatokon, összetettebb\n"
+" útválasztási protokollok szűkségesek az összetettebb hálózatokhoz."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"Az RSTAT protokoll segítségével a felhasználók a hálózaton letölthetik \n"
+"a teljesítménymutatókat  az adott hálózat bármelyik gépén."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
 "Syslog is the facility by which many daemons use to log messages to various "
 "system log files.  It is a good idea to always run rsyslog."
 msgstr ""
+"A Syslog az az eszköz, amellyel számos démon használ különböző naplófájlok "
+"naplózására. Jó ötlet az rsyslog futtatása."
 
 #: lib/ManaTools/Shared/Services.pm:328
 msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"Az rusers protokoll segítségével a felhasználókat a hálózaton lehet "
+"azonosítani, hogy\n"
+", a válaszoló gépeken ki jelentkezett be."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
