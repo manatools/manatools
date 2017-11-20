@@ -11,6 +11,7 @@
 # Translators:
 # Balzamon, 2015
 # Balzamon, 2015
+# Egy G <takacsgergely.soundman@gmail.com>, 2017
 # Ferenc Teknős <teknos.ferenc@gmail.com>, 2017
 # gergo huba <hubasetech@gmail.com>, 2016
 # Laszlo Espadas, 2017
@@ -25,8 +26,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-18 13:25+0000\n"
-"Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
+"PO-Revision-Date: 2017-11-19 23:45+0000\n"
+"Last-Translator: Egy G <takacsgergely.soundman@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -1039,11 +1040,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "Töltse be az illesztő programot az usb meghajtójáról."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
-msgstr ""
+msgstr "Pehelysúlyu hálózat figyelő program."
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
@@ -1112,7 +1113,7 @@ msgstr "Mentés"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Naplózás figyelő  másképp a rendszer naplózását tudja megnézni."
 
 #: lib/ManaTools/Module/LogViewer.pm:323
 #, perl-format
@@ -1145,6 +1146,9 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"A program normál felhasználó módba fut.\n"
+"Nem tudja elolvasni azokat a rendszer naplókat amihez nincs jogosultsága,\n"
+"de a többi naplózás végig olvashatja.."
 
 #: lib/ManaTools/Module/LogViewer.pm:457
 msgid "Save as.."
@@ -1185,11 +1189,11 @@ msgstr "Csoport kiválasztás"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Már egy ilyen névvel van egy csoport. Most mit szeretne csinálni?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Adja hozzá a meglévő csoporthoz."
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
@@ -1351,11 +1355,11 @@ msgstr "Home könyvtár:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Készítsen magán csoportot a felhasználó számára."
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Manuálisan adja meg a felhasználói azonsítót."
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
@@ -1363,15 +1367,15 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "A változtatáshoz kattintson az ikonra."
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "A felhasználónév már létezik, kérem válaszon másik felhasználó nevet."
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Nem egyeznek a jelszavak,"
 
 #: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
 msgid ""
@@ -1513,7 +1517,7 @@ msgstr "Felhasználó"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Válaszon a csoportok közül aminek a felhasználó a tagja lesz."
 
 #: lib/ManaTools/Module/Users.pm:1814
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
@@ -1522,17 +1526,17 @@ msgstr "Csoport"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Kérjük a felhasználónak válaszon egy csoportot."
 
 #: lib/ManaTools/Module/Users.pm:1942
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
-msgstr ""
+msgstr "Kérjük adja meg ÉV, Hónap, Nap formájába, hogy a fiók mikor járjon le."
 
 #: lib/ManaTools/Module/Users.pm:1958
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Kérjük töltse ki az elöregedett jelszó miatt a következő sorokat.\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
 #, perl-format
@@ -1659,7 +1663,7 @@ msgstr "%s - Dátum, Óra & Időzóna beállítások"
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
-msgstr ""
+msgstr "Dátum, Idő és Idő Zóna beállítások lehetővé teszik, hoy "
 
 #: lib/ManaTools/Module/Clock.pm:198
 #, perl-format
@@ -1701,127 +1705,128 @@ msgstr "Érvénytelen kiválasztott NTP beállítás"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Az NTP -t beállítása sikertelen."
 
 #: lib/ManaTools/Module/Clock.pm:368
 msgid "Set system time failed"
-msgstr ""
+msgstr "Az idő beállítása sikertelen."
 
 #: lib/ManaTools/Module/Clock.pm:399
 msgid "Setting date and time"
-msgstr ""
+msgstr "Dátum és idő beállítás."
 
 #: lib/ManaTools/Module/Clock.pm:417
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "Engedélyezi a Hálózati Idő protokollt."
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaidő: Az NTP szolgáltatás hiányzott."
 
 #: lib/ManaTools/Module/Clock.pm:430
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
+"Kérem telepítse az NTP szolgáltatást az ntp és a chrony kezelés érdekébe."
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "Válassza az &NTP szolgáltatót."
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "NTP server - Sötét Idők"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Válasza ki az NTP szerverét."
 
 #: lib/ManaTools/Module/Clock.pm:494
 msgid "&Local NTP server"
-msgstr ""
+msgstr "&Helyi NTP szerver."
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Set local NTP server"
-msgstr ""
+msgstr "Válaszon helyi NTP szervert."
 
 #: lib/ManaTools/Module/Clock.pm:511
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Kérem állítsa be a helyi NTP szerverét."
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
-msgstr ""
+msgstr "Jelenlegi:"
 
 #: lib/ManaTools/Module/Clock.pm:590
 msgid "TimeZone"
-msgstr ""
+msgstr "Idő zóna."
 
 #: lib/ManaTools/Module/Clock.pm:592
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Változtasson &Időzónát"
 
 #: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Idő Zóna - Sötét idők."
 
 #: lib/ManaTools/Module/Clock.pm:606
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Nem sikerült lekérni az idő zónák listáját."
 
 #: lib/ManaTools/Module/Clock.pm:614
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "Ez az ön időzónája?"
 
 #: lib/ManaTools/Module/Clock.pm:626
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaidő"
 
 #: lib/ManaTools/Module/Clock.pm:627
 msgid "Is your hardware clock set to GMT?"
-msgstr ""
+msgstr "GMT beálítás van a hardver óráján."
 
 #: lib/ManaTools/Module/PkgDownloader.pm:155
 msgid "no active media found\n"
-msgstr ""
+msgstr "nem található aktív media.\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:179
 msgid "== Processing "
-msgstr ""
+msgstr "== Folyamat"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:184
 #: lib/ManaTools/Module/PkgDownloader.pm:193
 #: lib/ManaTools/Module/PkgDownloader.pm:203
 msgid "protocol in use: "
-msgstr ""
+msgstr "használatban lévő protokol:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:185
 msgid "trying with "
-msgstr ""
+msgstr "próbálja újra"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:206
 msgid " downloaded successfully\n"
-msgstr ""
+msgstr "A letöltés sikerült.\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:211
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "nem található egyező csomag argumentumként\n"
 
 #: lib/ManaTools/Module/Hosts.pm:48
 #, perl-format
 msgid "%s - manage hosts definitions"
-msgstr ""
+msgstr "%s - kezelje a host definiciót."
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
 msgid "Hostname"
-msgstr ""
+msgstr "Host név."
 
 #: lib/ManaTools/Module/Hosts.pm:147
 msgid "Pretty Hostname"
-msgstr ""
+msgstr "Pretty Host név."
 
 #: lib/ManaTools/Module/Hosts.pm:152
 msgid "Static Hostname"
-msgstr ""
+msgstr "Statikus Host név."
 
 #: lib/ManaTools/Module/Hosts.pm:157
 msgid "Chassis"
