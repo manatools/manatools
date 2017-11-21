@@ -26,8 +26,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-19 23:45+0000\n"
-"Last-Translator: Egy G <takacsgergely.soundman@gmail.com>\n"
+"PO-Revision-Date: 2017-11-21 10:40+0000\n"
+"Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -1044,7 +1044,7 @@ msgstr "Töltse be az illesztő programot az usb meghajtójáról."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
-msgstr "Pehelysúlyu hálózat figyelő program."
+msgstr "Pehelysúlyú hálózat figyelő program."
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
@@ -1113,7 +1113,7 @@ msgstr "Mentés"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "Log viewer is a systemd journal viewer"
-msgstr "Naplózás figyelő  másképp a rendszer naplózását tudja megnézni."
+msgstr "Naplózás figyelő rendszer  a systemd naplózását tudja megnézni."
 
 #: lib/ManaTools/Module/LogViewer.pm:323
 #, perl-format
@@ -1663,7 +1663,7 @@ msgstr "%s - Dátum, Óra & Időzóna beállítások"
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
-msgstr "Dátum, Idő és Idő Zóna beállítások lehetővé teszik, hoy "
+msgstr "Dátum, Idő és Idő Zóna beállítások lehetővé teszik, hogy "
 
 #: lib/ManaTools/Module/Clock.pm:198
 #, perl-format
@@ -1705,7 +1705,7 @@ msgstr "Érvénytelen kiválasztott NTP beállítás"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP failed"
-msgstr "Az NTP -t beállítása sikertelen."
+msgstr "Az NTP beállítása sikertelen."
 
 #: lib/ManaTools/Module/Clock.pm:368
 msgid "Set system time failed"
@@ -1726,15 +1726,15 @@ msgstr "manaidő: Az NTP szolgáltatás hiányzott."
 #: lib/ManaTools/Module/Clock.pm:430
 msgid "Please install a NTP service such as chrony or ntp to manage"
 msgstr ""
-"Kérem telepítse az NTP szolgáltatást az ntp és a chrony kezelés érdekébe."
+"Kérem telepítse az NTP szolgáltatást az ntp és a chrony kezelés érdekében."
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr "Válassza az &NTP szolgáltatót."
+msgstr "Válasszon az &NTP szolgáltatót."
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
-msgstr "NTP server - Sötét Idők"
+msgstr "NTP server - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
@@ -1766,7 +1766,7 @@ msgstr "Változtasson &Időzónát"
 
 #: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
 msgid "Timezone - DrakClock"
-msgstr "Idő Zóna - Sötét idők."
+msgstr "Idő Zóna -DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:606
 msgid "Failed to retrieve timezone list"
@@ -1786,7 +1786,7 @@ msgstr "GMT beálítás van a hardver óráján."
 
 #: lib/ManaTools/Module/PkgDownloader.pm:155
 msgid "no active media found\n"
-msgstr "nem található aktív media.\n"
+msgstr "nem található aktív média.\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:179
 msgid "== Processing "
