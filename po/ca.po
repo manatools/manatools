@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-09-13 16:22+0000\n"
-"Last-Translator: Davidmp <medipas@gmail.com>\n"
+"PO-Revision-Date: 2017-11-24 16:50+0000\n"
+"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -269,19 +269,19 @@ msgstr "Abandona les regles personalitzades"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr "inicia usant la implementació de connector yui gtk"
+msgstr "inicia utilitzant la implementació de connector yui gtk"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr "inicia usant la implementació de connector yui ncurses"
+msgstr "inicia utilitzant la implementació de connector yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr "inicia usant la implementació de connector yui qt"
+msgstr "inicia utilitzant la implementació de connector yui qt"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr "usa la pantalla completa per als diàlegs"
+msgstr "utilitza la pantalla completa per als diàlegs"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
@@ -648,8 +648,8 @@ msgid ""
 "change.\n"
 "It is used by GNOME and KDE"
 msgstr ""
-"FAM és un dimoni de monitoratge de fitxers. És usat per tenir informes quan "
-"els fitxers canvien\n"
+"FAM és un dimoni de monitoratge de fitxers. És utilitzat per tenir informes "
+"quan els fitxers canvien\n"
 "S'utilitza a GNOME i KDE"
 
 #: lib/ManaTools/Shared/Services.pm:255
@@ -783,7 +783,7 @@ msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
-"El Servidor Virtual de Linux (LVS) s'usa per construir un servidor de \n"
+"El Servidor Virtual de Linux (LVS) s'utilitza per construir un servidor de \n"
 "gran capacitat i robustesa."
 
 #: lib/ManaTools/Shared/Services.pm:287
@@ -1353,7 +1353,7 @@ msgstr "Crea el directori de l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr "Directori de l'usuari"
+msgstr "Directori de l'usuari:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
@@ -2575,7 +2575,7 @@ msgstr ""
 "No puc trobar cap rèplica adient.\n"
 "\n"
 "Hi pot haver unes quantes raons per a aquest problema. El cas més\n"
-"freqüent és que l'arquitectura del vostre processador no té suport a\n"
+"freqüent és que l'arquitectura del vostre processador no té suport\n"
 "a les actualitzacions oficials de Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1044
@@ -2589,8 +2589,8 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
-"El mitjà \"%s\", usat per a les actualitzacions, no coincideix amb la versió "
-"de %s que esteu executant (%s).\n"
+"El mitjà \"%s\", utilitzat per a les actualitzacions, no coincideix amb la "
+"versió de %s que esteu executant (%s).\n"
 "S'inhabilitarà."
 
 #: lib/ManaTools/rpmdragora.pm:1074
@@ -2600,8 +2600,8 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"El mitjà \"%s\", usat per a les actualitzacions, no coincideix amb la versió "
-"de Magfeia que esteu executant (%s).\n"
+"El mitjà \"%s\", utilitzat per a les actualitzacions, no coincideix amb la "
+"versió de Magfeia que esteu executant (%s).\n"
 "S'inhabilitarà."
 
 #: lib/ManaTools/rpmdragora.pm:1104
@@ -2653,7 +2653,7 @@ msgstr "Suprimeix un paquet nou"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr "Usa un fitxer nou"
+msgstr "Utilitza un fitxer nou"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
@@ -3675,20 +3675,21 @@ msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
-"  --parallel=alias,host  sigues en mode paral·lel, usa el grup \"alias\", "
-"usa la màquina \"host\" per mostrar les dependències necessàries"
+"  --parallel=alias,host  sigues en mode paral·lel, utilitza el grup \"alias"
+"\", utilitza la màquina \"host\" per mostrar les dependències necessàries"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
 msgstr ""
-"  --rpm-root=path        usa una altra arrel per a la instal·lació de rpm"
+"  --rpm-root=path        utilitza una altra arrel per a la instal·lació de "
+"rpm"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
-"  --urpmi-root   usa una altra arrel per a la instal·lació de la base de "
-"dades urpmi i rpm."
+"  --urpmi-root   utilitza una altra arrel per a la instal·lació de la base "
+"de dades urpmi i rpm."
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
@@ -4370,7 +4371,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr "s'utilitzarà %s d'espai de disc addicional."
+msgstr "S'utilitzaran %s d'espai de disc addicional."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
