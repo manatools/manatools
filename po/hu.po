@@ -27,8 +27,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-25 17:43+0000\n"
-"Last-Translator: MaoHUN <peter.norbert.istvan@gmail.com>\n"
+"PO-Revision-Date: 2017-11-25 18:20+0000\n"
+"Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -4610,10 +4610,15 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
+"Figyelmeztetés: úgy tűnik, hogy a telepítésre kijelölt csomagok\n"
+"nem fognak elférni a fájlrendszerben, vagy pedig nem marad szabad\n"
+"hely a telepítés után. Ez veszélyes lehet, ezért átgondolandó.\n"
+"\n"
+"Biztos abban, hogy telepíteni kívánja az összes kijelölt csomagot?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1663
 msgid "Please wait, listing packages..."
-msgstr ""
+msgstr "A csomagok listázása folyamatban..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1676
 msgid "No update"
@@ -4625,6 +4630,9 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
+"A frissítési lista üres. Ez azt jelenti, hogy vagy nincsen az Ön\n"
+"gépére telepített csomagokhoz frissítés, vagy pedig már telepítve\n"
+"lett az összes."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
@@ -4668,7 +4676,7 @@ msgstr "manaclock: dátum/idő kezelő"
 
 #: scripts/mana:61
 msgid "manahost: hosts manager"
-msgstr ""
+msgstr "manahost: gépek menedzser"
 
 #: scripts/mana:65
 msgid "mpan: admin panel"
@@ -4810,7 +4818,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
-msgstr ""
+msgstr "Keresés félbeszakítva"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
@@ -4887,7 +4895,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
-msgstr ""
+msgstr "Visszaportolt szoftver"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
@@ -5045,17 +5053,17 @@ msgstr ""
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
-msgstr ""
+msgstr "Az adatforrás sikeresen hozzáadva."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "A következő adatforrások felvétele megtörtént: \"%s\"."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "A(z) \"%s\" adatforrás felvétele megtörtént."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
