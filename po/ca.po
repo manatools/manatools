@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-24 16:50+0000\n"
+"PO-Revision-Date: 2017-11-25 10:25+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -34,7 +34,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2002
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr "La traducció del Mageia es fa per mitjà de www.transifex.com\n"
+msgstr "Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 
 #: lib/ManaTools/MainDisplay.pm:251 lib/ManaTools/Module/LogViewer.pm:320
 #: lib/ManaTools/Module/Users.pm:2385 lib/ManaTools/Module/Clock.pm:195
@@ -578,7 +578,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr "Escolta i despatxa els esdeveniments ACPI del nucli"
+msgstr "Escolta i despatxa els esdeveniments ACPI del kernel"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
@@ -664,7 +664,7 @@ msgid ""
 "scripts can access the LCD via a simple API."
 msgstr ""
 "G15Daemon permet als usuaris l'accés a totes les claus extres descodificant-"
-"les i tornant-les al nucli a través del controlador Linux UINPUT. Aquest "
+"les i tornant-les al kernel a través del controlador Linux UINPUT. Aquest "
 "controlador s'ha de carregar\n"
 "abans que el g15daemon pugui ser utilitzat per a accés de teclat. També "
 "s'admet LCD G15. Per defecte,\n"
@@ -730,7 +730,7 @@ msgstr "Automatitza el tallafoc del filtratge d'un paquet amb iptables"
 msgid ""
 "Evenly distributes IRQ load across multiple CPUs for enhanced performance"
 msgstr ""
-"Distribueix uniformement la càrrega IRQ entre les múltiples CPU per a una "
+"Distribueix uniformement la càrrega IRQ entre les diverses CPU per a una "
 "millora del rendiment"
 
 #: lib/ManaTools/Shared/Services.pm:274
@@ -749,7 +749,7 @@ msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
-"Regeneració automàtica del capçal de nucli a /boot per a\n"
+"Regeneració automàtica de la capçalera del kernel a /boot per a\n"
 "/usr/include/linux/{autoconf,versió}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
@@ -1273,7 +1273,7 @@ msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
-msgstr "El grup ja existeix, si us plau, trieu un altre nom de grup"
+msgstr "El grup ja existeix, trieu un altre nom de grup"
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
@@ -1369,7 +1369,7 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr "Cliqueu a la icona per a canviar-ho"
+msgstr "Feu clic a la icona per a canviar-ho"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
@@ -1394,8 +1394,8 @@ msgid ""
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
 "El directori d'usuari <%s> ja existeix.\n"
-"Si us plau, desmarqueu l'opció de la creació del directori d'usuari o "
-"canvieu-ne el nom del camí."
+"Desmarqueu l'opció de la creació del directori d'usuari o canvieu-ne el nom "
+"del camí."
 
 #: lib/ManaTools/Module/Users.pm:980
 #, perl-format
@@ -1491,7 +1491,7 @@ msgstr "Bloqueja el compte d'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr "Cliqueu a la icona per a canviar-ho"
+msgstr "Feu clic a la icona per a canviar-ho"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
@@ -1739,8 +1739,7 @@ msgstr "manaclock: manca el servei NTP"
 
 #: lib/ManaTools/Module/Clock.pm:430
 msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr ""
-"Si us plau, instal·leu un servei NTP com ara chrony o ntp per gestionar"
+msgstr "Instal·leu un servei NTP com ara chrony o ntp per gestionar"
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
@@ -1764,7 +1763,7 @@ msgstr "Configura un servidor NTP local"
 
 #: lib/ManaTools/Module/Clock.pm:511
 msgid "Please set your local NTP server"
-msgstr "Si us plau, configureu un servidor NTP local"
+msgstr "Configureu un servidor NTP local"
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
@@ -2272,8 +2271,7 @@ msgstr "Actualització de Mageia"
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
 msgstr ""
-"Si us plau, introduïu les vostres credencials per accedir al servidor "
-"intermediari\n"
+"Introduïu les vostres credencials per accedir al servidor intermediari\n"
 
 #: lib/ManaTools/rpmdragora.pm:188
 msgid "User name:"
@@ -2351,21 +2349,21 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"No s'ha pogut afegir el suport, els errors són:\n"
+"No s'ha pogut afegir el mitjà, els errors són:\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
 msgid "Medium: "
-msgstr "Suport: "
+msgstr "Mitjà: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr "No s'ha pogut crear el suport."
+msgstr "No s'ha pogut crear el mitjà."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr "Fallada en afegir una font"
+msgstr "Error en afegir un origen"
 
 #: lib/ManaTools/rpmdragora.pm:726
 #, perl-format
@@ -2374,7 +2372,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Hi ha hagut un problema en afegir el suport:\n"
+"Hi ha hagut un problema en afegir el mitjà:\n"
 "\n"
 "%s"
 
@@ -2384,7 +2382,7 @@ msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
-msgstr "Espereu, s'estan actualitzant els suports..."
+msgstr "Espereu, s'estan actualitzant els mitjans..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
@@ -2403,23 +2401,23 @@ msgstr ""
 "És impossible recuperar la llista de nous paquets del mitjà \n"
 "\"%s\". O bé aquest mitjà d'actualització està mal configurat,\n"
 "i en aquest cas hauríeu d'utilitzar el programari d'administració de\n"
-"mitjans per eliminar-lo i tornar a afegir-lo per tal de reconfigurar-lo,\n"
+"mitjans per eliminar-lo i tornar a afegir-lo per reconfigurar-lo,\n"
 "o bé ara és inaccessible i ho hauríeu de tornar a provar més tard."
 
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
 msgid "Copying file for medium `%s'..."
-msgstr "S'està copiant el fitxer per al suport «%s»..."
+msgstr "S'està copiant el fitxer per al mitjà «%s»..."
 
 #: lib/ManaTools/rpmdragora.pm:815
 #, perl-format
 msgid "Examining file of medium `%s'..."
-msgstr "S'està examinant el fitxer del suport «%s»..."
+msgstr "S'està examinant el fitxer del mitjà «%s»..."
 
 #: lib/ManaTools/rpmdragora.pm:818
 #, perl-format
 msgid "Examining remote file of medium `%s'..."
-msgstr "S'està examinant el fitxer remot del suport «%s»..."
+msgstr "S'està examinant el fitxer remot del mitjà «%s»..."
 
 #: lib/ManaTools/rpmdragora.pm:822
 msgid " done."
@@ -2432,7 +2430,7 @@ msgstr " ha fallat!"
 #: lib/ManaTools/rpmdragora.pm:831
 #, perl-format
 msgid "%s from medium %s"
-msgstr "%s des del suport %s"
+msgstr "%s des del mitjà %s"
 
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
@@ -2466,11 +2464,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
 msgid "Update media"
-msgstr "Actualitza els suports"
+msgstr "Actualitza els mitjans"
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr "Suport"
+msgstr "Mitjà"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
@@ -2489,7 +2487,7 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
-"No s'ha pogut actualitzar el suport; es deshabilitarà automàticament.\n"
+"No s'ha pogut actualitzar el mitjà; s'inhabilitarà automàticament.\n"
 "\n"
 "Errors:\n"
 "%s"
@@ -2554,7 +2552,7 @@ msgstr ""
 "\n"
 "%s\n"
 "La xarxa o el lloc web de Mageia potser no estan disponibles.\n"
-"Si us plau, torneu-ho a provar més tard."
+"Torneu-ho a provar més tard."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -2814,7 +2812,7 @@ msgstr "Aquests paquets vénen amb informació d'actualització"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
 msgid "All requested packages were installed successfully."
-msgstr "Tots els paquets demanats s'han instal·lat correctament."
+msgstr "S'han instal·lat correctament tots els paquets sol·licitats."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
@@ -2838,7 +2836,7 @@ msgstr "La instal·lació ha fallat"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
-msgstr "S'està comprovant la validesa dels paquets demanats..."
+msgstr "S'està comprovant la validesa dels paquets sol·licitats..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
@@ -3121,7 +3119,7 @@ msgstr "KDE i Qt"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr "Nucli"
+msgstr "Kernel"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
@@ -3462,7 +3460,7 @@ msgstr "Configuració"
 #: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
 #: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
 msgid "Fonts"
-msgstr "Tipus de lletra"
+msgstr "Lletres"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:163
 msgid "True type"
@@ -3482,7 +3480,7 @@ msgstr "Internacionalització"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:167
 msgid "Kernel and hardware"
-msgstr "Nucli i maquinari"
+msgstr "Kernel i maquinari"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:168
 msgid "Libraries"
@@ -3769,7 +3767,7 @@ msgstr "Llista de rèpliques"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr "Escolliu un tipus de suport"
+msgstr "Escolliu un tipus de mitjà"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -3783,16 +3781,16 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
-"Per tal de mantenir el sistema segur i estable, heu d'establir com a mínim "
-"fonts\n"
-"per a actualitzacions oficials de seguretat i estabilitat. També podeu optar "
-"per establir\n"
-"un conjunt més complet de fonts que inclogui tots els dipòsits oficials "
+"Per mantenir el sistema segur i estable, heu d'establir com a mínim els "
+"orígens\n"
+"per a les actualitzacions oficials de seguretat i d'estabilitat. També podeu "
+"optar per establir\n"
+"un conjunt més complet d'orígens que inclogui tots els dipòsits oficials "
 "Mageia,\n"
-"fet que us dóna accés a més programes dels que caben als discos de Mageia.\n"
-"Si us plau, escolliu si voleu configurar només les fonts d'actualització o "
+"fet que us dóna accés a més programes dels que caben als discs de Mageia.\n"
+"Si us plau, escolliu si voleu configurar només els orígens d'actualització o "
 "el conjunt\n"
-"complet de fonts."
+"d'orígens complet."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -3824,7 +3822,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr "Si us plau, espereu; s'estan afegint mitjans..."
+msgstr "Espereu; s'estan afegint mitjans..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
@@ -3832,15 +3830,15 @@ msgstr "Explora..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
 msgid "Add a medium"
-msgstr "Afegeix un suport"
+msgstr "Afegeix un mitjà"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
 msgid "Adding a medium:"
-msgstr "Afegir un suport:"
+msgstr "Afegir un mitjà:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
 msgid "Type of medium:"
-msgstr "Tipus de suport:"
+msgstr "Tipus de mitjà:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Local files"
@@ -3848,7 +3846,7 @@ msgstr "Fitxers locals"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
-msgstr "Camí del suport:"
+msgstr "Camí del mitjà:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
@@ -3887,7 +3885,7 @@ msgstr "Crea el mitjà per a una distribució completa"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr "Marca aquest suport com a suport d'actualització"
+msgstr "Marca aquest mitjà com a mitjà d'actualització"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
@@ -3899,7 +3897,7 @@ msgid ""
 "There is already a medium called <%s>,\n"
 "do you really want to replace it?"
 msgstr ""
-"Ja hi ha un suport amb el nom  <%s>,\n"
+"Ja hi ha un mitjà amb el nom  <%s>,\n"
 "realment el voleu substituir?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
@@ -3908,7 +3906,7 @@ msgstr "Opcions globals per a la instal·lació de paquets"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr "Verifiqueu els RPM que s'instal·laran:"
+msgstr "Verifica els RPM que s'han d'instal·lar:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
@@ -3924,7 +3922,7 @@ msgstr "Baixa el programa a utilitzar:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr "Política de baixada de metadades XML:"
+msgstr "Política de baixada de les metadades XML:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
@@ -3985,12 +3983,12 @@ msgstr "&Servidor intermediari..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
 msgid "You need to insert the medium to continue"
-msgstr "Heu d'inserir el suport per continuar"
+msgstr "Heu d'inserir el mitjà per continuar"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr "Per desar els canvis heu d'inserir el suport al dispositiu."
+msgstr "Per desar els canvis heu d'inserir el mitjà al dispositiu."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
@@ -3999,7 +3997,7 @@ msgstr "Configura servidors intermediaris"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr "Ajusts del servidor intermediari: per al suport\"%s\""
+msgstr "Ajusts del servidor intermediari: per al mitjà \"%s\""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
@@ -4046,7 +4044,7 @@ msgstr "Edita un grup paral·lel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
-msgstr "Afegeix la limitació d'un suport"
+msgstr "Afegeix la limitació d'un mitjà"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
@@ -4108,7 +4106,7 @@ msgstr "Protocol"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr "Límit del suport"
+msgstr "Límit del mitjà"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
@@ -4130,7 +4128,7 @@ msgstr "Gestiona claus per a signatures digitals de paquets"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2067
 msgid "Medium"
-msgstr "Suport"
+msgstr "Mitjà"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
@@ -4147,7 +4145,7 @@ msgstr "Afegeix una clau"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr "Escolliu una clau per afegir al suport %s"
+msgstr "Escolliu una clau per afegir al mitjà %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
@@ -4159,7 +4157,7 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
-"Esteu segur que voleu eliminar la clau %s del suport %s?\n"
+"Esteu segur que voleu eliminar la clau %s del mitjà %s?\n"
 "<br>(nom de la clau: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
@@ -4170,7 +4168,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"No s'ha pogut posar al dia el suport, errors obtinguts:\n"
+"No s'ha pogut posar al dia el mitjà, errors obtinguts:\n"
 "\n"
 "%s"
 
@@ -4191,7 +4189,7 @@ msgstr "Afegeix una rèplica específica"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
 msgid "Add a custom medium"
-msgstr "Afegeix un suport personalitzat"
+msgstr "Afegeix un mitjà personalitzat"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
@@ -4242,8 +4240,8 @@ msgstr "Rpmdragora és l'eina de Mageia per a la gestió dels paquets."
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2091
 msgid "This medium needs to be updated to be usable. Update it now?"
 msgstr ""
-"Cal posar al dia aquest suport per a poder-lo utilitzar. Voleu actualitzar-"
-"lo ara?"
+"Cal posar al dia aquest mitjà per a poder-lo utilitzar. Voleu actualitzar-lo "
+"ara?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1974
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
@@ -4271,7 +4269,7 @@ msgstr "<control>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "/_Add a custom medium"
-msgstr "/_Afegeix un suport personalitzat"
+msgstr "/_Afegeix un mitjà personalitzat"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 msgid "<control>A"
@@ -4363,7 +4361,7 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
-"La base de dades de paquets està bloquejada. Si us plau, tanqueu\n"
+"La base de dades de paquets està bloquejada. Tanqueu\n"
 "les altres aplicacions que estiguin treballant amb la base de dades\n"
 "de paquets. Teniu algun altre gestor de mitjans en un altre escriptori\n"
 "o també esteu instal·lant paquets?"
@@ -4430,7 +4428,7 @@ msgstr "Aquesta és una actualització no oficial."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr "Aquest és un paquet oficial admès per Mageia"
+msgstr "Aquest és un paquet oficial amb suport de Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
@@ -4487,7 +4485,7 @@ msgstr "Fitxers:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:361
 msgid "Changelog:"
-msgstr "Historial de canvis:"
+msgstr "Registre de canvis:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:379
 msgid "New dependencies:"
@@ -4513,7 +4511,7 @@ msgstr "Paquets coincidents:"
 #: lib/ManaTools/Rpmdragora/gui.pm:408
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr "- %s (suport: %s)"
+msgstr "- %s (mitjà: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:950
 #, perl-format
@@ -4595,6 +4593,7 @@ msgid ""
 "\n"
 msgstr ""
 "Per satisfer les dependències, cal instal·lar també els paquets següents:\n"
+"\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
 msgid "Conflicting Packages"
