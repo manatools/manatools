@@ -26,7 +26,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-22 09:41+0000\n"
+"PO-Revision-Date: 2017-11-25 13:25+0000\n"
 "Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
@@ -1065,11 +1065,11 @@ msgstr "A naplófájl megjelenítésére szolgáló eszköz"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
-msgstr ""
+msgstr "Egyezés"
 
 #: lib/ManaTools/Module/LogViewer.pm:164
 msgid "but not matching"
-msgstr ""
+msgstr "nem találtunk egyezést"
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
@@ -1081,7 +1081,7 @@ msgstr "Utolsó boot"
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
-msgstr ""
+msgstr "Óta"
 
 #: lib/ManaTools/Module/LogViewer.pm:191
 msgid "Until"
@@ -1134,7 +1134,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
-msgstr ""
+msgstr "Üres napló található"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid "manalog - running in user mode"
@@ -1197,7 +1197,7 @@ msgstr "Adja hozzá a meglévő csoporthoz."
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Hozzá adás az 'users'  csoporthoz"
 
 #: lib/ManaTools/Module/Users.pm:418 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
@@ -1242,6 +1242,8 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Felhasználó törlése%s\n"
+"Végezze el a következő műveleteket is\n"
 
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
@@ -1268,7 +1270,7 @@ msgstr "Csoport név:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Csoportazonosító megadása kézzel"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
@@ -1276,12 +1278,12 @@ msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "A csoport már létezik, kérjük, válasszon másik csoportnevet"
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr "A Gid csoport <%n"
 
 #: lib/ManaTools/Module/Users.pm:642
 #, perl-format
@@ -1290,21 +1292,27 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"GID-értékkel rendelkező csoport %dlétrehozása kevesebb, mint amennyire nem "
+"ajánlott.\n"
+"Biztosan meg akarja csinálni?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr ""
+msgstr "A csoport azonosítója már használatban van"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Csoport létrehozása nem egyedi GID-vel?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Csoport hozzáadása:%s"
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
@@ -1327,7 +1335,7 @@ msgstr "Jelszó megerősítés:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
-msgstr ""
+msgstr "Bejelentkezési parancssor"
 
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
