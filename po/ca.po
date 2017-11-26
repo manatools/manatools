@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-26 10:33+0000\n"
+"PO-Revision-Date: 2017-11-26 18:34+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -297,7 +297,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
-msgstr "&Reinicialitza"
+msgstr "&Restableix"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
@@ -900,9 +900,9 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
-"portmapper gestiona les connexions RPC, que s'usen per\n"
-"protocols com ara l'NFS i el NIS. El servidor portmap s'ha d'estar\n"
-"executant en ordinadors que actuen com a servidors per a protocols que\n"
+"portmapper gestiona les connexions RPC, que són utilitzades pels\n"
+"protocols com ara NFS i NIS. El servidor portmap ha d'estar\n"
+"en execució als ordinadors que actuen com a servidors per als protocols que\n"
 "utilitzen el mecanisme RPC."
 
 #: lib/ManaTools/Shared/Services.pm:315
@@ -946,11 +946,11 @@ msgid ""
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"El dimoni encaminat permet que la taula d'encaminadors IP automàtics\n"
-"s'actualitzi mitjançant el protocol RIP (Routing Information Protocol). "
-"Mentre que el RIP s'utilitza àmpliament en xarxes petites, les xarxes "
-"complexes\n"
-"necessiten protocols d'encaminament més complexos."
+"El dimoni routed permet que s'actualitzi automàticament la taula "
+"d'encaminadors IP\n"
+"mitjançant RIP (Routing Information Protocol). Mentre que RIP s'utilitza "
+"àmpliament en xarxes petites,\n"
+"les xarxes complexes necessiten protocols d'encaminament més complexos."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -974,8 +974,8 @@ msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
-"El protocol rusers permet que els usuaris d'una xarxa identifiquin\n"
-"qui està connectat en altres ordinadors de la mateixa xarxa."
+"El protocol rusers permet als usuaris en una xarxa identificar\n"
+"qui està connectat en altres màquines que responen."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
@@ -2099,7 +2099,7 @@ msgstr "Cal reiniciar l'X"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
-msgstr "Heu de sortir i tornar a entrar per tal que els canvis tinguin efecte"
+msgstr "Heu de sortir i tornar a entrar perquè els canvis tinguin efecte"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
@@ -2144,23 +2144,23 @@ msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
-msgstr "Intermediari per a HTTP"
+msgstr "Servidor intermediari HTTP"
 
 #: lib/ManaTools/Module/Proxy.pm:296
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr "Utilitza el servidor intermediari HTTP per a connexions HTTPS"
+msgstr "Utilitza el servidor intermediari HTTP per a les connexions HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:302
 msgid "HTTPS proxy"
-msgstr "Intermediari per a HTTPS"
+msgstr "Servidor intermediari HTTPS"
 
 #: lib/ManaTools/Module/Proxy.pm:308
 msgid "FTP proxy"
-msgstr "Intermediari per a FTP"
+msgstr "Servidor intermediari FTP"
 
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
-msgstr "No hi ha servidor intermediari per a (llista separada per comes):"
+msgstr "Sense servidor intermediari per (llista separada per comes):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
 #, perl-format
@@ -3612,7 +3612,7 @@ msgstr "Web/FTP"
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
 msgid "Usage: %s [OPTION]..."
-msgstr "Sintaxi: %s [OPCIÓ]..."
+msgstr "Ús: %s [OPCIÓ]..."
 
 #: lib/ManaTools/Rpmdragora/init.pm:68
 msgid "  --auto                 assume default answers to questions"
@@ -3846,7 +3846,7 @@ msgstr "Fitxers locals"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Medium path:"
-msgstr "Camí del mitjà:"
+msgstr "Camí al mitjà:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
@@ -5007,7 +5007,7 @@ msgstr "Cerca"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr "Reinicialitza"
+msgstr "Restableix"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
