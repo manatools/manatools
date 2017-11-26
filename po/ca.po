@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-25 10:25+0000\n"
+"PO-Revision-Date: 2017-11-26 10:28+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -858,7 +858,7 @@ msgid ""
 "networks. This service provides NFS file locking functionality."
 msgstr ""
 "L'NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
-"Aquest servei proporciona la funcionalitat de blocatge de fitxer NFS."
+"Aquest servei proporciona la funcionalitat de bloqueig de fitxers NFS."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
@@ -990,7 +990,8 @@ msgstr ""
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
-"SANE (Scanner Access Now Easy) permet l'accés a escàners, càmeres de vídeo..."
+"SANE (Scanner Access Now Easy) permet l'accés a escàners, càmeres de vídeo. "
+"etc."
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -1265,7 +1266,7 @@ msgstr "Nom del grup:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr "Especifica manualment l'id. del grup"
+msgstr "Especifica manualment l'id. de grup"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
@@ -1278,7 +1279,7 @@ msgstr "El grup ja existeix, trieu un altre nom de grup"
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr " El Gid del grup és < %n"
+msgstr " El GID del grup és < %n"
 
 #: lib/ManaTools/Module/Users.pm:642
 #, perl-format
@@ -1293,7 +1294,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr "Aquest ID de grup ja està en ús"
+msgstr "Aquest id. de grup ja està en ús"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
@@ -1329,7 +1330,7 @@ msgstr "Confirmeu la contrasenya:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
-msgstr "Intèrpret d'ordres per a l'entrada:"
+msgstr "Shell d'inici de sessió:"
 
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
@@ -1369,7 +1370,7 @@ msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr "Feu clic a la icona per a canviar-ho"
+msgstr "Feu clic a la icona per canviar-la"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
@@ -1400,7 +1401,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:980
 #, perl-format
 msgid "User Uid is < %d"
-msgstr "L'Uid d'usuari és < %d"
+msgstr "L'UID d'usuari és < %d"
 
 #: lib/ManaTools/Module/Users.pm:981
 #, perl-format
@@ -1438,7 +1439,7 @@ msgstr "Nom d'usuari:"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr "ID d'usuari"
+msgstr "Id. d'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
@@ -1450,7 +1451,7 @@ msgstr "Nom complet"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
-msgstr "Intèrpret d'ordres per a l'entrada"
+msgstr "Shell d'inici de sessió"
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
@@ -1467,7 +1468,7 @@ msgstr "Nom del grup"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr "ID de grup"
+msgstr "Id. de grup"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
@@ -1479,7 +1480,7 @@ msgstr "Directori de l'usuari:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
-msgstr "Habilita el venciment de comptes"
+msgstr "Habilita el venciment del compte"
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
@@ -1491,7 +1492,7 @@ msgstr "Bloqueja el compte d'usuari"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr "Feu clic a la icona per a canviar-ho"
+msgstr "Feu clic a la icona per canviar-la"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
@@ -1499,7 +1500,7 @@ msgstr "L'últim canvi de contrasenya fet per l'usuari: "
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr "Habilita el venciment de contrasenyes"
+msgstr "Habilita el venciment de la contrasenya"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
@@ -1589,7 +1590,7 @@ msgstr "&Edita"
 
 #: lib/ManaTools/Module/Users.pm:2348
 msgid "Install guest account"
-msgstr "Instal·la el compte del convidat"
+msgstr "Instal·la el compte de convidat"
 
 #: lib/ManaTools/Module/Users.pm:2383
 msgid "manauser"
@@ -1669,7 +1670,7 @@ msgstr "Usuaris"
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "%s - Ajusts de la data, del rellotge i de la zona horària"
+msgstr "%s - Paràmetres de la data, del rellotge i de la zona horària"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
@@ -1863,7 +1864,7 @@ msgstr "Adreça IP"
 
 #: lib/ManaTools/Module/Hosts.pm:239
 msgid "Host aliases"
-msgstr "Àlies dels amfitrions"
+msgstr "Àlies de l'amfitrió"
 
 #: lib/ManaTools/Module/Hosts.pm:314
 msgid "Add the information"
@@ -1879,7 +1880,7 @@ msgstr "Gestiona les definicions dels amfitrions"
 
 #: lib/ManaTools/Module/Hosts.pm:422
 msgid "Host Aliases"
-msgstr "Àlies dels amfitrions"
+msgstr "Àlies de l'amfitrió"
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
@@ -2138,8 +2139,8 @@ msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
 msgstr ""
-"Aquí podeu establir la configuració dels servidors intermediaris (per "
-"exemple: http://servidor_intermediari:8080)"
+"Aquí podeu preparar la configuració dels servidors intermediaris (p. ex.: "
+"http://servidor_intermediari:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
@@ -2886,8 +2887,7 @@ msgstr "Cal esborrar el següent paquet perquè se'n puguin instal·lar d'altres
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:818
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr ""
-"Els paquets següents s'han d'eliminar per poder actualitzar-ne uns altres:"
+msgstr "El paquet següent s'ha d'eliminar perquè altres s'actualitzin:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
@@ -3404,7 +3404,7 @@ msgstr "Seguretat"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:150
 msgid "Shells"
-msgstr "Intèrprets d'ordres"
+msgstr "Shells"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
@@ -4145,7 +4145,7 @@ msgstr "Afegeix una clau"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
 #, perl-format
 msgid "Choose a key to add to the medium %s"
-msgstr "Escolliu una clau per afegir al mitjà %s"
+msgstr "Escolliu una clau per afegir-la al mitjà %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
@@ -4177,7 +4177,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2144
 #: modules/rpmdragora/dragora-urpm-sources.pl:38
 msgid "Configure media"
-msgstr "Configura el mitjà"
+msgstr "Configura els mitjans"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
@@ -4502,7 +4502,7 @@ msgstr "Tanmateix, aquest paquet no és a la llista de paquets."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 msgid "You may want to update your urpmi database."
-msgstr "Potser voldríeu actualitzar la vostra base de dades urpmi."
+msgstr "És possible que vulgueu actualitzar la vostra base de dades d'urpmi."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 msgid "Matching packages:"
@@ -5311,7 +5311,7 @@ msgstr "Una interfície gràfica per actualitzar paquets"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr "manaclock - Ajusts de la data, del rellotge i de la zona horària"
+msgstr "manaclock - Paràmetres de la data, del rellotge i de la zona horària"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
