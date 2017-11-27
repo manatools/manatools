@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-26 18:34+0000\n"
+"PO-Revision-Date: 2017-11-27 08:24+0000\n"
 "Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
@@ -669,7 +669,7 @@ msgstr ""
 "abans que el g15daemon pugui ser utilitzat per a accés de teclat. També "
 "s'admet LCD G15. Per defecte,\n"
 "amb cap altre client actiu, g15daemon mostrarà un rellotge. Les aplicacions "
-"client i els scripts poden accedir a LCD a través d'una API senzilla."
+"i scripts clients poden accedir a LCD a través d'una API senzilla."
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -848,7 +848,7 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
-"L'NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
+"NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
 "Aquest servei proporciona la funcionalitat del servidor NFS, que es\n"
 "configura mitjançant el fitxer /etc/exports."
 
@@ -857,7 +857,7 @@ msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
-"L'NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
+"NFS és un protocol popular de compartició de fitxers en xarxes TCP/IP.\n"
 "Aquest servei proporciona la funcionalitat de bloqueig de fitxers NFS."
 
 #: lib/ManaTools/Shared/Services.pm:304
@@ -958,7 +958,7 @@ msgid ""
 "performance metrics for any machine on that network."
 msgstr ""
 "El protocol rstat permet que els usuaris d'una xarxa recuperin\n"
-"mesures de rendiment de qualsevol ordinador de la mateixa xarxa."
+"les mètriques de rendiment per a qualsevol màquina d'aquesta xarxa."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
@@ -990,7 +990,7 @@ msgstr ""
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
-"SANE (Scanner Access Now Easy) permet l'accés a escàners, càmeres de vídeo. "
+"SANE (Scanner Access Now Easy) permet l'accés a escàners, càmeres de vídeo, "
 "etc."
 
 #: lib/ManaTools/Shared/Services.pm:333
@@ -2095,7 +2095,7 @@ msgstr "XDM (El gestor de pantalla X)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "X Restart Required"
-msgstr "Cal reiniciar l'X"
+msgstr "Cal reiniciar les X"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
@@ -4743,11 +4743,11 @@ msgstr "manaproxy - gestor de servidor intermediari"
 
 #: scripts/mana:73
 msgid "rpmdragora: rpm install manager"
-msgstr "rpmdragora - gestor d'Instal·lació d'rpm"
+msgstr "rpmdragora - gestor d'instal·lació dels rpm"
 
 #: scripts/mana:77
 msgid "dragoraUpdate: rpm update manager"
-msgstr "dragoraUpdate: gestor d'actualització d'rpm"
+msgstr "dragoraUpdate - gestor d'actualització dels rpm"
 
 #: scripts/mana:81
 msgid "manawall: firewall manager"
@@ -4800,7 +4800,7 @@ msgstr "== Mode de desenvolupament ACTIVAT =="
 
 #: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:420
 msgid "rpmdragora update"
-msgstr "actualització d'rpmdragora"
+msgstr "actualització de rpmdragora"
 
 #: modules/rpmdragora/dragoraUpdate:68
 #, perl-format
@@ -5260,7 +5260,7 @@ msgstr "Executa l'eina d'instal·lació i eliminació de programari de Mageia"
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr "Cal autenticació per executar el gestor d'rpm de Mageia"
+msgstr "Cal autenticació per executar el gestor de rpm de Mageia"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
