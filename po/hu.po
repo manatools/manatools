@@ -14,11 +14,12 @@
 # Egy G <takacsgergely.soundman@gmail.com>, 2017
 # Ferenc Teknős <teknos.ferenc@gmail.com>, 2017
 # gergo huba <hubasetech@gmail.com>, 2016
+# István Norbert Péter <peter.norbert.istvan@gmail.com>, 2017
 # Laszlo Espadas, 2017
 # Laszlo Espadas, 2017
 # Laszlo Espadas, 2017
 # Laszlo Espadas, 2017
-# MaoHUN <peter.norbert.istvan@gmail.com>, 2017
+# István Norbert Péter <peter.norbert.istvan@gmail.com>, 2017
 # root, 2005
 # Tamas Szanto <tszanto@mol.hu>, 2000
 # Zsolt Bölöny <bolony.zsolt@gmail.com>, 2013-2014
@@ -27,7 +28,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-27 18:48+0000\n"
+"PO-Revision-Date: 2017-11-29 21:01+0000\n"
 "Last-Translator: Ferenc Teknős <teknos.ferenc@gmail.com>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
@@ -1846,7 +1847,7 @@ msgstr "Statikus Host név."
 
 #: lib/ManaTools/Module/Hosts.pm:157
 msgid "Chassis"
-msgstr ""
+msgstr "Gépház"
 
 #: lib/ManaTools/Module/Hosts.pm:162
 msgid "Icon Name"
@@ -3631,60 +3632,72 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=MODE            üzemmód beállítása (install (telepítés - ez az\n"
+"                         alapértelmezett), remove (eltávolítás), update\n"
+"                         (frissítés))"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb               az adatbázis legyen frissítve, de a fájlrendszer\n"
+"                         ne legyen módosítva"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
+"  --no-confirmation      frissítési üzemmódban ne legyen megerősítéskérés"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      adatforrás ne legyen frissítve indításkor"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr ""
+msgstr "  --no-verify-rpm        csomagaláírások ellenőrzésének elhagyása"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
 "  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
 "\" machine to show needed deps"
 msgstr ""
+"  --parallel=csop,gép    párhuzamos módban a megadott csoport és gép "
+"használata a szükséges függőségek megjelenítéséhez"
 
 #: lib/ManaTools/Rpmdragora/init.pm:78
 msgid "  --rpm-root=path        use another root for rpm installation"
-msgstr ""
+msgstr "  --rpm-root=útvonal     más gyökér használata az RPM-telepítéshez"
 
 #: lib/ManaTools/Rpmdragora/init.pm:79
 msgid ""
 "  --urpmi-root           use another root for urpmi db & rpm installation"
 msgstr ""
+"  --urpmi-root           más gyökér használata az Urpmi-adatbázishoz és az\n"
+"                         RPM-csomagtelepítéshez"
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root          rendszergazdaként (root) való futtatás"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
-msgstr ""
+msgstr "  --search=csomag        keresés indítása a megadott csomagra"
 
 #: lib/ManaTools/Rpmdragora/init.pm:82
 msgid ""
 "  --test                 only verify if the installation can be achieved "
 "correctly"
 msgstr ""
+"  --test                 csak ellenőrzés, hogy a telepítendő csomag "
+"sértetlen-e"
 
 #: lib/ManaTools/Rpmdragora/init.pm:83
 msgid ""
 "  --version              print this tool's version number\n"
 "                    "
-msgstr ""
+msgstr "--version kiírja ennek a programnak a verzió számát"
 
 #: lib/ManaTools/Rpmdragora/init.pm:175
 msgid "Running in user mode"
@@ -3696,6 +3709,9 @@ msgid ""
 "You will not be able to perform modifications on the system,\n"
 "but you may still browse the existing database."
 msgstr ""
+"A programot normál felhasználóként indítja.\n"
+"Módosításokat nem fog tudni végrehajtani a rendszeren,\n"
+"viszont böngészheti a meglevő adatbázist."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
 msgid "CD-ROM"
@@ -3751,6 +3767,16 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"A rendszer biztonságának és stabilitásának megőrzése végett, egy minimális, "
+"a\n"
+" biztonsági és stabilitási frissítéseket tartalmazó adatforrást ki kell "
+"választani, - amely\n"
+" kiegészíti az ön lemezeit. A másik lehetőség, hogy a teljes és hivatalos\n"
+" Mageia csomagösszeállítás alapján végzi a frissítéseket. Ezzel mindig\n"
+" a legfrissebb csomagokhoz juthat hozzá, mintha csak a telepítési lemezeket\n"
+" használná. Kérjük válasszon, hogy csak frissítési adatforrásokat, vagy a "
+"teljes\n"
+" adatforrásokat szeretné használni."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -3771,6 +3797,12 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"A disztribúciónak (%s) megfelelő összes hivatalos forrás telepítése.\n"
+"\n"
+"A tükörkiszolgálók listájának letöltéséhez most kapcsolódni kell\n"
+"a Mageia weboldalához. Ellenőrizze, hogy a hálózat elérhető-e.\n"
+"\n"
+"Kívánja folytatni?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
@@ -4110,6 +4142,8 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
+"Biztosan el kívánja távolítani a(z) <br>%s<br> kulcsot az adatforrásból%s? "
+"<br>(kulcs neve:%s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2117
@@ -4715,13 +4749,15 @@ msgstr "HIBA:"
 
 #: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
-msgstr ""
+msgstr "Használja a mana --help | -h hogy kiirassa a súgót\n"
 
 #: scripts/mana:124
 msgid ""
 "Usage mana <command> [args...]\n"
 "\n"
 msgstr ""
+"Használja a mana <command> [változók...]\n"
+"\n"
 
 #: scripts/mana:125
 msgid "valid <commands>:\n"
@@ -4736,10 +4772,12 @@ msgid ""
 "Application name, used for logging identifier and x application "
 "configuration directory. Default mpan"
 msgstr ""
+"Alkalmazás neve, amelyet az azonosító és az x alkalmazás konfigurációs "
+"könyvtár naplózására használnak. Alapértelmezett mpan"
 
 #: scripts/mpan:46
 msgid "Window title. Default name value"
-msgstr ""
+msgstr "Ablak címe. Alapértelmezett névérték"
 
 #: scripts/mpan:69
 msgid "== Development mode ON =="
@@ -4752,7 +4790,7 @@ msgstr "rpmdragora update"
 #: modules/rpmdragora/dragoraUpdate:68
 #, perl-format
 msgid "root privileges required, or run <%s> instead"
-msgstr ""
+msgstr "root jogosultság szükséges , vagy futtatás <%s> heyett"
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
@@ -4760,7 +4798,7 @@ msgstr "Hibajavítás"
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "A szoftvercsomag-frissítések listája"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -4795,7 +4833,7 @@ msgstr "Minden kiválasztás törlése"
 
 #: modules/rpmdragora/dragoraUpdate:356
 msgid "dragoraUpdate is the Mageia package management tool."
-msgstr ""
+msgstr "Az dragoraUpdate a Mageia csomagkezelője. "
 
 #: modules/rpmdragora/dragoraUpdate:357
 #, perl-format
@@ -4816,11 +4854,14 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
+"A frissítési lista üres. Ez azt jelenti, hogy vagy nincsen az Ön\n"
+"számítógépre telepített csomagokhoz frissítés, vagy pedig már telepítvelett "
+"az összes."
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "A \"%s\" adatforráshoz nem tartozik xml-info"
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
@@ -4844,6 +4885,8 @@ msgid ""
 "No search results. You may want to switch to the '%s' view and to the '%s' "
 "filter"
 msgstr ""
+"Nincs keresési eredmény. Lehetnek találatok, ha átvált a '%s' nézetre vagy "
+"tágabbra veszi a '%s' feltételt"
 
 #: modules/rpmdragora/rpmdragora:405
 #, perl-format
@@ -4860,7 +4903,7 @@ msgstr "Architektúra"
 
 #: modules/rpmdragora/rpmdragora:469
 msgid "ToInst"
-msgstr ""
+msgstr "ToInst"
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
@@ -4877,19 +4920,19 @@ msgstr "Összes csomag, ABC sorrendben"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr ""
+msgstr "Az összes csomag, csoport szerint"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
-msgstr ""
+msgstr "A más által nem igényeltek, telepítési dátum szerint"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr ""
+msgstr "Az összes csomag, frissítés elérhetősége alapján"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr ""
+msgstr "Az összes csomag, kijelölési állapot szerint"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
@@ -4897,7 +4940,7 @@ msgstr "Összes csomag, méret szerint"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr ""
+msgstr "Az összes csomag, adatforrás alapján"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
@@ -4957,23 +5000,23 @@ msgstr "&Alkalmaz"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
-msgstr ""
+msgstr "/Függőségek kijelölése kérde_zés nélkül"
 
 #: modules/rpmdragora/rpmdragora:695
 msgid "Clear download cache after successful install"
-msgstr ""
+msgstr "Letöltési tároló tisztítása sikeres telepítés után"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr ""
+msgstr "/_Frissítések ütemezése a rendszerindításhoz"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr ""
+msgstr "Keresés a csomagok _teljes csomagnevek között"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
-msgstr ""
+msgstr "Használjon _reguláris kifejezést a kereséshez"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
@@ -4981,7 +5024,7 @@ msgstr "Állítsa vissza a kiválasztást"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
-msgstr ""
+msgstr "A csomaglista újraolvasása"
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
@@ -4997,7 +5040,7 @@ msgstr "Megtekint"
 
 #: modules/rpmdragora/rpmdragora:1065
 msgid "Reset aborted (RPM DB is locked by another process)"
-msgstr ""
+msgstr "Az újraindítás megszakadt (PRM DB zárolt egy másik processz által)"
 
 #: modules/rpmdragora/rpmdragora:1096
 #, perl-format
@@ -5025,6 +5068,7 @@ msgstr "rpmdragora fut (pid: %s)"
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
 msgstr ""
+"helytelen <url> (helyi könyvtár esetén az útvonalnak abszolútnak kell lennie)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -5033,6 +5077,9 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"%s\n"
+"\n"
+"Kívánja folytatni?"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:133
 msgid ""
@@ -5040,6 +5087,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Új csomag-adatforrások felvételére készül.\n"
+"A felvételt követően ezekből az adatforrásokból\n"
+"szoftvercsomagokat tud majd telepíteni a számítógépére."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -5048,6 +5098,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
+"Új csomag-adatforrások %s felvételére készül.\n"
+"A felvételt követően ezekből az adatforrásokból\n"
+"szoftvercsomagokat tud majd telepíteni a gépre."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -5056,6 +5109,9 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
+"Egy új csomag-adatforrás `%s' felvételére készül.\n"
+"A felvételt követően ebből az adatforrásból\n"
+"szoftvercsomagokat tud majd telepíteni a gépre."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
@@ -5074,12 +5130,12 @@ msgstr "A(z) \"%s\" adatforrás felvétele megtörtént."
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
 msgid "Run Mageia update software tool"
-msgstr ""
+msgstr "Futtassa a Mafeia frissíő szoftver eszközt"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:12
 msgid "Authentication is required to run rpmdragora Mageia updater"
-msgstr ""
+msgstr "Azonosítás szükséges a rpmdragora Mageia frissítő futtatásához"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaclock.policy.in:11
@@ -5107,7 +5163,7 @@ msgstr ""
 #: extras/polkit/org.mageia.manaproxy.policy.in:11
 #: extras/polkit/org.mageia.mpan.policy.in:11
 msgid "Allow APanel GUI"
-msgstr ""
+msgstr "engedélyezés APanel GUI"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manahost.policy.in:12
@@ -5115,6 +5171,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Azonosítás szükséges ahoz, hogy futtassa a manahost programot (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5132,6 +5190,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Azonosítás szükséges ahoz, hogy futtassa a manaproxy programot (user="
+"$(user), program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5169,36 +5229,39 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+" 95% match\n"
+"Azonosítás szükséges ahoz, hogy futtassa a apanel programot (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Futtassa a Mageia telepítő és eltávolító programot"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Azonosítás szükséges, hogy futtassa a Mageia rpm menedzsert"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
 msgid "Mageia Panel"
-msgstr ""
+msgstr "Mageia Panel"
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategóriák"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr ""
+msgstr "Szoftver telepítése és törlése"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
 msgid "Update your System"
-msgstr ""
+msgstr "A rendszer frissítése"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
@@ -5208,7 +5271,7 @@ msgstr "Csomagforrások beállítása telepítéshez és frissítéshez"
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
 msgid "Network &amp;&amp; Internet"
-msgstr ""
+msgstr "Hálózat és internet "
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
@@ -5217,7 +5280,7 @@ msgstr "Rendszerindítás"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
 msgid "rpmdragora - Mageia Update"
-msgstr ""
+msgstr "rpmdragora - Mageia Frissítés"
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -5225,15 +5288,15 @@ msgstr "/usr/share/icons/manaupdate.png"
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "Grafikus felület csomagok frissítése"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - Dátum, Idő és Időzóna beállítások"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "ManaTools óra menedzser"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
@@ -5241,11 +5304,11 @@ msgstr "/usr/share/icons/manaclock.png"
 
 #: extras/desktop/manadm.desktop.in:3
 msgid "manadm - login configuration manager"
-msgstr ""
+msgstr "manadm - login configuration manager"
 
 #: extras/desktop/manadm.desktop.in:4
 msgid "ManaTools login configuration manager"
-msgstr ""
+msgstr "ManaTools bejelentkezési konfigurációs kezelő"
 
 #: extras/desktop/manadm.desktop.in:6
 msgid "/usr/share/icons/manadm.png"
@@ -5253,11 +5316,11 @@ msgstr "/usr/share/icons/manadm.png"
 
 #: extras/desktop/manahost.desktop.in:3
 msgid "manahost - Host and hostname manager"
-msgstr ""
+msgstr "manahost  - Gép és gépnevek kezelése"
 
 #: extras/desktop/manahost.desktop.in:4
 msgid "ManaTools host manager"
-msgstr ""
+msgstr "ManaTools gép menedzser"
 
 #: extras/desktop/manahost.desktop.in:6
 msgid "/usr/share/icons/manahost.png"
@@ -5265,11 +5328,11 @@ msgstr "/usr/share/icons/manahost.png"
 
 #: extras/desktop/manalog.desktop.in:3
 msgid "manalog - Journalctl log viewer, administrator mode"
-msgstr ""
+msgstr "manalog - Journalctl  eseménynapló, administrátor mód"
 
 #: extras/desktop/manalog.desktop.in:4
 msgid "ManaTools log viewer, administrator mode"
-msgstr ""
+msgstr "ManaTools eseménynapló, administrátor mód"
 
 #: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
 msgid "/usr/share/icons/manalog.png"
@@ -5277,11 +5340,11 @@ msgstr "/usr/share/icons/manalog.png"
 
 #: extras/desktop/manaproxy.desktop.in:3
 msgid "manaproxy - Proxy configuration manager"
-msgstr ""
+msgstr "manaproxy  - Proxy konfigurációs menedzser"
 
 #: extras/desktop/manaproxy.desktop.in:4
 msgid "ManaTools proxy manager"
-msgstr ""
+msgstr "ManaTools konfigurációs menedzser"
 
 #: extras/desktop/manaproxy.desktop.in:6
 msgid "/usr/share/icons/manaproxy.png"
@@ -5289,11 +5352,11 @@ msgstr "/usr/share/icons/manaproxy.png"
 
 #: extras/desktop/manaservice.desktop.in:3
 msgid "manaservice - Service configuration manager"
-msgstr ""
+msgstr "manaservice - Szolgáltatás(ok) konfigurációs menedzser"
 
 #: extras/desktop/manaservice.desktop.in:4
 msgid "ManaTools service manager"
-msgstr ""
+msgstr "ManaTools szolgáltatás menedzser"
 
 #: extras/desktop/manaservice.desktop.in:6
 msgid "/usr/share/icons/manaservice.png"
@@ -5301,11 +5364,11 @@ msgstr "/usr/share/icons/manaservice.png"
 
 #: extras/desktop/manauser.desktop.in:3
 msgid "manauser - Users and Groups Manager"
-msgstr ""
+msgstr "manauser  - Felhasználók és csoportok kezelése"
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "ManaTools felhasználók kezelése"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
@@ -5313,19 +5376,19 @@ msgstr "/usr/share/icons/manauser.png"
 
 #: extras/desktop/manauserlog.desktop.in:3
 msgid "manalog - Journalctl log viewer, user mode"
-msgstr ""
+msgstr "manalog - Journalctl eseménynapló, felhasználó mód"
 
 #: extras/desktop/manauserlog.desktop.in:4
 msgid "ManaTools log viewer, user mode"
-msgstr ""
+msgstr "ManaTools  eseménynapló, felhasználó mód"
 
 #: extras/desktop/manawall.desktop.in:3
 msgid "manawall - firewall configuration manager"
-msgstr ""
+msgstr "manawall  - Tűzfal beállítások"
 
 #: extras/desktop/manawall.desktop.in:4
 msgid "ManaTools firewall configurator"
-msgstr ""
+msgstr "ManaTools tűzfal konfigurátor"
 
 #: extras/desktop/manawall.desktop.in:6
 msgid "/usr/share/icons/manawall.png"
@@ -5333,11 +5396,11 @@ msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - Mageia ManaTools Vezérlő panel"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
-msgstr ""
+msgstr "ManaTools panel -  alkalmazásindító"
 
 #: extras/desktop/mpan.desktop.in:6
 msgid "/usr/share/icons/mpan.png"
@@ -5345,7 +5408,7 @@ msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr ""
+msgstr "rpmdragora - Szoftver telepítése és eltávolítása "
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
