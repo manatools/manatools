@@ -9,22 +9,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Balzamon, 2015
-# Balzamon, 2015
-# Ferenc Teknős <teknos.ferenc@gmail.com>, 2017
+# Miklos Horvath <hmiki@blackpantheros.eu>, 2017
+# Charles Barcza <charles.barcza@blackpantheros.eu>, 2017
 # gergo huba <hubasetech@gmail.com>, 2016
-# Kardos László <kardiweb@protonmail.ch>, 2017
-# Kardos László <kardiweb@protonmail.ch>, 2017
+# Balzamon, 2015
+# Zsolt Bölöny <bolony.zsolt@gmail.com>, 2013-2014
 # root, 2005
 # Tamas Szanto <tszanto@mol.hu>, 2000
-# Zsolt Bölöny <bolony.zsolt@gmail.com>, 2013-2014
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-10-04 10:45+0000\n"
-"Last-Translator: Kardos László <kardiweb@protonmail.ch>\n"
+"PO-Revision-Date: 2017-12-12 23:26+0100\n"
+"Last-Translator: Miklos Horvath <hmiki@blackpantheros.eu>\n"
 "Language-Team: Hungarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/hu/)\n"
 "Language: hu\n"
@@ -32,6 +30,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 1.8.12\n"
 
 #: lib/ManaTools/MainDisplay.pm:247 lib/ManaTools/Module/LogViewer.pm:317
 #: lib/ManaTools/Module/Users.pm:2381 lib/ManaTools/Module/Clock.pm:190
@@ -40,9 +39,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2002
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
-"_: ()Mageia() Hungarian Translator(s)\n"
-"i18n-hu@ml.mageia.org\n"
+msgstr "_: Fordítók neve és email címe\n"
 
 #: lib/ManaTools/MainDisplay.pm:251 lib/ManaTools/Module/LogViewer.pm:320
 #: lib/ManaTools/Module/Users.pm:2385 lib/ManaTools/Module/Clock.pm:195
@@ -210,6 +207,8 @@ msgstr "&Kijelölés"
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> opcionális könyvtár, lokalizációs stringeket tartalmaz (csak "
+"fejlesztőknek)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
@@ -730,16 +729,23 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Ez a csomag tölti be a billentyűzetkiosztást, ami a\n"
+"/etc/sysconfig/keyboard-ban állítható be. A beállítás megváltoztatható\n"
+"a kbdconfig programmal. Ezt bekapcsolva kell hagyni a legtöbb rendszeren."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"A kernel fejlécének automatikus újragenerálása a /boot-ban a\n"
+"/usr/include/linux/{autoconf,version}.h alapján"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
 msgstr ""
+"A hardvereszközök automatikus felderítése és beállítása a rendszer "
+"indulásakor."
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
@@ -750,18 +756,25 @@ msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"A Linuxconf elvégez bizonyos feladatokat a rendszer indításakor,\n"
+"hogy a beállítások konzisztensek maradjanak."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"Az lpd nyomtatószolgáltatás szükséges az lpr helyes működéséhez. Az lpd\n"
+"alapjában véve egy nyomtatókiszolgáló, amely elrendezi a nyomtatásokat\n"
+"a különböző nyomtatók között."
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Linux Virtual Server, nagyteljesítményű, nagy rendelkezésre állású\n"
+"kiszolgáló kialakításához használható."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
@@ -776,6 +789,8 @@ msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
 msgstr ""
+"A DBUS szolgáltatás értesítéseket küld rendszereseményekről, továbbá egyéb\n"
+"üzeneteket közvetít."
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
@@ -786,6 +801,8 @@ msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"A named (BIND) egy DNS, azaz tartománynév kiszolgáló, ennek segítségével\n"
+"feleltetik meg a gépek az IP címeket és a gépneveket."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
@@ -796,12 +813,17 @@ msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Fel- illetve lecsatolja (mount-olja illetve unmount-olja) a különböző\n"
+"hálózati fájlrendszereket, mint például az NFS, az SMB\n"
+"(LAN Manager/Windows) és az NCP (NetWare)."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Aktiválja vagy deaktiválja a rendszerindításnál automatikusan induló\n"
+"hálózati csatolókat."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
@@ -817,26 +839,34 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"Az NFS egy népszerű, TCP/IP hálózaton használatos fájlmegosztási protokoll.\n"
+"Ez a szolgáltatás egy NFS kiszolgáló; beállítása a /etc/exports\n"
+"fájllal történik."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"Az NFS egy népszerű, TCP/IP hálózaton használatos fájlmegosztási protokoll.\n"
+"Ez a szolgáltatás az NFS fájlzárolást biztosítja."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
 msgstr ""
+"Szinkronizálja a rendszeridőt az NTP (Network Time Protocol) használatával."
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"A NumLock automatikus bekapcsolása rendszerindításkor a konzolon és az\n"
+"Xorg rendszerben."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Az OKI 4w és az azzal kompatibilis windowsos nyomtatók támogatása."
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
@@ -849,6 +879,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"A PCMCIA támogatásra általában azoknak a laptop használóknak van\n"
+"szükségük, akik PCMCIA szabványú modemet vagy hálózati kártyát használnak.\n"
+"A szolgáltatás nem indul el, ha nincs beállítva, tehát nyugodtan fel lehet\n"
+"telepíteni olyan gépre is, ahol nincs rá szükség."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
@@ -857,6 +891,10 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"A portmapper kezeli az RPC kapcsolatokat - ezekre többek között az\n"
+"NFS-nek és a NIS-nek van szüksége. A portmap szervernek futnia kell\n"
+"azokon a gépeken, amelyek az RPC mechanizmust használó protokollokhoz\n"
+"kapcsolódó szolgáltatást nyújtanak."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -867,12 +905,16 @@ msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"A Postfix egy levéltovábbító (MTA) program, amely a leveleket továbbítja\n"
+"a különböző gépek között."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Elmenti és visszaállítja a rendszer entrópia tárolóját, így jobb\n"
+"véletlenszámokat lehet generálni."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
@@ -897,6 +939,8 @@ msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"Az rstat protokoll segítségével a felhasználók információt kaphatnak a\n"
+"(lokális) hálózaton működő gépekről."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
@@ -909,17 +953,24 @@ msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"Az rusers protokoll segítségével a felhasználók lekérdezhetik, hogy melyik\n"
+"gépre ki van bejelentkezve."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"Az rwho protokoll segítségével távoli felhasználók kaphatnak egy listát\n"
+"az rwho szolgáltatást futtató gép aktuális felhasználóiról (olyan, mint a\n"
+"finger)."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
 "SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
 msgstr ""
+"A SANE (Scanner Access Now Easy) hozzáférést biztosít lapolvasókhoz, "
+"videokamerákhoz és egyéb eszközökhöz."
 
 #: lib/ManaTools/Shared/Services.pm:333
 msgid "Packet filtering firewall"
@@ -930,10 +981,12 @@ msgid ""
 "The SMB/CIFS protocol enables to share access to files & printers and also "
 "integrates with a Windows Server domain"
 msgstr ""
+"Az SMB/CIFS protokoll lehetővé teszi fájlok és nyomtatók megosztását, "
+"továbbá képes integrálódni windowsos kiszolgálók tartományaiba."
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "A gép hangrendszerének elindítása"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
@@ -944,12 +997,16 @@ msgid ""
 "Secure Shell is a network protocol that allows data to be exchanged over a "
 "secure channel between two computers"
 msgstr ""
+"Az SSH (Secure Shell) hálózati protokoll biztonságos csatornán való "
+"adatcserét tesz lehetővé két számítógép közt."
 
 #: lib/ManaTools/Shared/Services.pm:338
 msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"A syslog-on keresztül naplóznak a szolgáltatások különböző naplófájlokba.\n"
+"A syslog használata mindig ajánlott."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -957,7 +1014,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "Az USB eszközök meghajtóinak betöltése."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
@@ -965,11 +1022,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr ""
+msgstr "Elindítja az X grafikus rendszer betűkészlet kiszolgálóját."
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
-msgstr ""
+msgstr "Igény esetén elindít más szolgáltatásokat."
 
 #: lib/ManaTools/Module/LogViewer.pm:81
 #, perl-format
@@ -978,15 +1035,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "Naplófigyelő"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
-msgstr ""
+msgstr "Ezzel egyező"
 
 #: lib/ManaTools/Module/LogViewer.pm:164
 msgid "but not matching"
-msgstr ""
+msgstr "de ezzel nem egyező"
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
@@ -998,11 +1055,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
-msgstr ""
+msgstr "Kezdet"
 
 #: lib/ManaTools/Module/LogViewer.pm:191
 msgid "Until"
-msgstr ""
+msgstr "Eddig"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
@@ -1018,7 +1075,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
-msgstr ""
+msgstr "&Keresés"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
@@ -1026,7 +1083,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:297
 msgid "&Save"
-msgstr ""
+msgstr "M&entés"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "Log viewer is a systemd journal viewer"
@@ -1069,43 +1126,43 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
-msgstr ""
+msgstr "Felhasználói adatok"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "A felhasználó jellemzői"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
-msgstr ""
+msgstr "A jelszó jellemzői"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
 msgid "Groups"
-msgstr ""
+msgstr "Groups"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "A csoport adatai"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "A csoport felhasználói"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
-msgstr ""
+msgstr "Válasszon csoportot"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Már létezik ilyen nevű csoport. Mit szeretne tenni?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Hozzáadás a már létező csoporthoz"
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Hozzáadás a 'users' nevű csoporthoz"
 
 #: lib/ManaTools/Module/Users.pm:418 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
@@ -1138,11 +1195,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "%s csoport eltávolítása"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Törlésre kerüljenek a fájlok?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -1154,37 +1211,37 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Saját könyvtár törlése: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr ""
+msgstr "Postaláda törlése: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "%s felhasználó eltávolítása"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "Új csoport létrehozása"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
-msgstr ""
+msgstr "Csoportnév:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "A csoportazonosító megadása"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "Ilyen nevű csoport már létezik, válasszon más nevet."
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
@@ -1212,7 +1269,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "%s csoport felvétele"
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
@@ -1231,11 +1288,11 @@ msgstr "Jelszó:"
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Jelszó (még egyszer):"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
-msgstr ""
+msgstr "Parancsértelmező:"
 
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
@@ -1251,11 +1308,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
-msgstr ""
+msgstr "Új felhasználó létrehozása"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Saját könyvtár létrehozása"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
@@ -1263,15 +1320,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Privát csoport létrehozása a felhasználóhoz"
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "A felhasználóazonosító megadása"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
@@ -1279,17 +1336,19 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Már létezik ilyen nevű felhasználó, válasszon más nevet."
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
-msgstr ""
+msgstr "A jelszavak nem egyeznek meg"
 
 #: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"A megadott jelszó túlságosan egyszerű. \n"
+" Legalább 7 karakter hosszú jelszót érdemes választani."
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -1314,12 +1373,12 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "%s hozzáadása a 'users' nevű csoporthoz"
 
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Új csoport létrehozása: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
@@ -1328,11 +1387,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "%s felhasználó felvétele"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
-msgstr ""
+msgstr "Név"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
@@ -1340,32 +1399,32 @@ msgstr "Felhasználó azonosító"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
-msgstr ""
+msgstr "Elsődleges csoport"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "Teljes név"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
-msgstr ""
+msgstr "Bejelentkezési parancsértelmező"
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
-msgstr ""
+msgstr "Saját könyvtár"
 
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "Státus"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "Csoportnév"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "Csoportazonosító"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
@@ -1373,19 +1432,19 @@ msgstr "Csoport tagok"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
-msgstr ""
+msgstr "Home:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
-msgstr ""
+msgstr "A felhasználónevek lejárásának bekapcsolása"
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "A lejárás dátuma (ÉÉÉÉ-HH-NN):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
-msgstr ""
+msgstr "A felhasználónév zárolása"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
@@ -1393,109 +1452,113 @@ msgstr "Kattintson az ikonra a megváltoztatásához"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
-msgstr ""
+msgstr "A legutóbbi jelszóváltoztatás dátuma: "
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "A jelszó lejárásának bekapcsolása"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Jelszómódosítás legkorábban ennyi nap múlva:"
 
 #: lib/ManaTools/Module/Users.pm:1720
 msgid "Days before change required:"
-msgstr ""
+msgstr "Jelszómódosítás legkésőbb ennyi nap múlva:"
 
 #: lib/ManaTools/Module/Users.pm:1728
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Figyelmeztetés a jelszómódosításra ennyi nappal korábban:"
 
 #: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "A felhasználónév letiltása ennyi nap elteltével:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Válassza ki, mely felhasználókat szeretné a csoporthoz adni:"
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
-msgstr ""
+msgstr "Felhasználó"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Válaszd ki a csoportot ahová a felhasználó tartozni fog:"
 
 #: lib/ManaTools/Module/Users.pm:1814
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Group"
-msgstr ""
+msgstr "Csoport"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Legalább egy csoportot ki kell választani"
 
 #: lib/ManaTools/Module/Users.pm:1942
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Adja meg a felhasználónév lejárásának dátumát\n"
+" (év, hónap, nap) "
 
 #: lib/ManaTools/Module/Users.pm:1958
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "A lejárattal kapcsolatos összes mezőt ki kell tölteni\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
 #, perl-format
 msgid "Problem in modifying user %s"
-msgstr ""
+msgstr "Probléma a %s felhasználó módosításával"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
-msgstr ""
+msgstr "Erős"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Weak"
-msgstr ""
+msgstr "Gyenge"
 
 #: lib/ManaTools/Module/Users.pm:2010
 msgid "Edit User"
-msgstr ""
+msgstr "Felhasználó szerkesztése"
 
 #: lib/ManaTools/Module/Users.pm:2163 lib/ManaTools/Module/Users.pm:2266
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Nem lehet tab widgeteket készíteni"
 
 #: lib/ManaTools/Module/Users.pm:2179
 msgid "Edit Group"
-msgstr ""
+msgstr "Módosítás"
 
 #: lib/ManaTools/Module/Users.pm:2344 lib/ManaTools/Module/Users.pm:2468
 msgid "Add User"
-msgstr ""
+msgstr "Felvétel"
 
 #: lib/ManaTools/Module/Users.pm:2345 lib/ManaTools/Module/Users.pm:2473
 msgid "Add Group"
-msgstr ""
+msgstr "Csoport hozzáadása"
 
 #: lib/ManaTools/Module/Users.pm:2346 lib/ManaTools/Module/Hosts.pm:436
 msgid "&Edit"
-msgstr ""
+msgstr "Sz&erkesztés"
 
 #: lib/ManaTools/Module/Users.pm:2348
 msgid "Install guest account"
-msgstr ""
+msgstr "Vendég fiók telepítése"
 
 #: lib/ManaTools/Module/Users.pm:2383
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2387
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser egy Mageia felhasználó-kezelő eszköz\n"
+"(a mandriva userdrake eredeti ötelete alapján)."
 
 #: lib/ManaTools/Module/Users.pm:2388
 #, perl-format
@@ -1507,14 +1570,20 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Fordítók</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
-msgstr ""
+msgstr "Frissítés"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
-msgstr ""
+msgstr "Műveletek"
 
 #: lib/ManaTools/Module/Users.pm:2448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
@@ -1526,25 +1595,25 @@ msgstr "&Súgó"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: modules/rpmdragora/rpmdragora:758
 msgid "Report Bug"
-msgstr ""
+msgstr "Hiba bejelentése"
 
 #: lib/ManaTools/Module/Users.pm:2478
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2155
 msgid "Edit"
-msgstr ""
+msgstr "Szerkesztés"
 
 #: lib/ManaTools/Module/Users.pm:2483
 msgid "Delete"
-msgstr ""
+msgstr "Törölve"
 
 #: lib/ManaTools/Module/Users.pm:2502
 msgid "Filter system users"
-msgstr ""
+msgstr "Rendszer felhasználók szűrése"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Search:"
-msgstr ""
+msgstr "Keresés:"
 
 #: lib/ManaTools/Module/Users.pm:2509
 msgid "Apply &filter"
@@ -1552,12 +1621,12 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2528
 msgid "Users"
-msgstr ""
+msgstr "Felhasználók"
 
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "%s - Dátum, Óra és Időzóna beállítások"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
@@ -1573,95 +1642,99 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
+"<h3>Fejlesztők</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Fordítók</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
-msgstr ""
+msgstr "Adatok visszaállítása"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Csak a dátum és idő visszaállítása?"
 
 #: lib/ManaTools/Module/Clock.pm:235 lib/ManaTools/Module/Clock.pm:241
 #: lib/ManaTools/Module/Clock.pm:567 lib/ManaTools/Module/Clock.pm:652
 msgid "not defined"
-msgstr ""
+msgstr "nincs beállítva"
 
 #: lib/ManaTools/Module/Clock.pm:269
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Helyi RTC beállítása sikertelen"
 
 #: lib/ManaTools/Module/Clock.pm:284
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Lehyi időzóna beállítása sikertelen"
 
 #: lib/ManaTools/Module/Clock.pm:329
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "NTP beállítása sikertelen"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP failed"
-msgstr ""
+msgstr "NTP beállítása sikertelen"
 
 #: lib/ManaTools/Module/Clock.pm:368
 msgid "Set system time failed"
-msgstr ""
+msgstr "Rendszeridő beállítása sikertelen"
 
 #: lib/ManaTools/Module/Clock.pm:399
 msgid "Setting date and time"
-msgstr ""
+msgstr "Dátum és idő beállítása sikertelen"
 
 #: lib/ManaTools/Module/Clock.pm:417
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "Hálózati időprotokoll (NTP) bekapcsolása"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: NTP szolgáltatás hiányzik"
 
 #: lib/ManaTools/Module/Clock.pm:430
 msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr ""
+msgstr "Kérlek telepíts egy NTP szolgáltatást mint a chrony agy ntp"
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "Válassz &NTP szervert"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "NTP szerver - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Válaszd ki az NTP szervered"
 
 #: lib/ManaTools/Module/Clock.pm:494
 msgid "&Local NTP server"
-msgstr ""
+msgstr "He&lyi NTP szerver"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Set local NTP server"
-msgstr ""
+msgstr "Helyi NTP szerver beállítása"
 
 #: lib/ManaTools/Module/Clock.pm:511
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Kérlek állítsd be a helyi NTP szervered"
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
-msgstr ""
+msgstr "A jelenlegi:"
 
 #: lib/ManaTools/Module/Clock.pm:590
 msgid "TimeZone"
-msgstr ""
+msgstr "Időzóna"
 
 #: lib/ManaTools/Module/Clock.pm:592
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Időzóna beállítása"
 
 #: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Időzóna - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:606
 msgid "Failed to retrieve timezone list"
@@ -1669,7 +1742,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:614
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "Melyik időzónát választja?"
 
 #: lib/ManaTools/Module/Clock.pm:626
 msgid "GMT - manaclock"
@@ -1677,7 +1750,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:627
 msgid "Is your hardware clock set to GMT?"
-msgstr ""
+msgstr "A gép órája GMT-időt mutat?"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:155
 msgid "no active media found\n"
@@ -1713,7 +1786,7 @@ msgstr ""
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
 msgid "Hostname"
-msgstr ""
+msgstr "Gépnév"
 
 #: lib/ManaTools/Module/Hosts.pm:147
 msgid "Pretty Hostname"
@@ -1729,7 +1802,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:162
 msgid "Icon Name"
-msgstr ""
+msgstr "Ikonnév"
 
 #: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
 #: lib/ManaTools/Module/Hosts.pm:449 lib/ManaTools/Module/Firewall.pm:608
@@ -1761,15 +1834,15 @@ msgstr "Gépdefiníciók kezelése"
 
 #: lib/ManaTools/Module/Hosts.pm:422
 msgid "Host Aliases"
-msgstr ""
+msgstr "Gép-álnevek"
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
-msgstr ""
+msgstr "Hozzáadás"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
-msgstr ""
+msgstr "Elt&ávolítás"
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "&Hostname"
@@ -1801,12 +1874,12 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
-msgstr ""
+msgstr "Portszkenelés figyelése"
 
 #: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
 #: lib/ManaTools/Module/Firewall.pm:1008
 msgid "Firewall configuration"
-msgstr ""
+msgstr "Tűzfalbeállítás"
 
 #: lib/ManaTools/Module/Firewall.pm:416
 msgid ""
@@ -1824,7 +1897,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:486
 msgid "Interactive Firewall"
-msgstr ""
+msgstr "Interaktív tűzfal"
 
 #: lib/ManaTools/Module/Firewall.pm:490
 msgid ""
@@ -1832,10 +1905,13 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Ön figyelmeztetést kaphat, amikor valaki hozzáférést kezdeményez egy "
+"szolgáltatáshoz vagy megpróbál behatolni a számítógépbe.\n"
+"Válassza ki, mely hálózati tevékenységek legyenek figyelve."
 
 #: lib/ManaTools/Module/Firewall.pm:496
 msgid "Use Interactive Firewall"
-msgstr ""
+msgstr "Interaktív tűzfal használata"
 
 #: lib/ManaTools/Module/Firewall.pm:658
 msgid "Graphical manager for interactive firewall rules"
@@ -1848,7 +1924,7 @@ msgstr "Tűzfal"
 
 #: lib/ManaTools/Module/Firewall.pm:712
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "A gép mely szolgáltatásai legyenek elérhetők az internet felől?"
 
 #: lib/ManaTools/Module/Firewall.pm:713
 #, perl-format
@@ -1857,7 +1933,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:714
 msgid "Everything (no firewall)"
-msgstr ""
+msgstr "Minden (nincs tűzfal)"
 
 #: lib/ManaTools/Module/Firewall.pm:820
 msgid "A&dvanced"
@@ -1880,11 +1956,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:906
 msgid "Other ports"
-msgstr ""
+msgstr "Egyéb portok"
 
 #: lib/ManaTools/Module/Firewall.pm:914
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "A tűzfal üzeneteinek naplózása a rendszernaplókban"
 
 #: lib/ManaTools/Module/Firewall.pm:969
 msgid "Invalid port given"
@@ -1932,15 +2008,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:90
 msgid "GDM (GNOME Display Manager)"
-msgstr ""
+msgstr "GDM (GNOME bejelentkezéskezelő)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:91
 msgid "KDM (KDE Display Manager)"
-msgstr ""
+msgstr "KDM (KDE bejelentkezéskezelő)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "XDM (X Display Manager)"
-msgstr ""
+msgstr "XDM (X bejelentkezéskezelő)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "X Restart Required"
@@ -1948,7 +2024,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
-msgstr ""
+msgstr "A módosítások érvénybe lépéséhez ki kell lépni, majd ismét belépni"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
@@ -1956,7 +2032,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:209
 msgid "Choosing a display manager"
-msgstr ""
+msgstr "Bejelentkezéskezelő kiválasztása"
 
 #: lib/ManaTools/Module/DisplayManager.pm:265
 msgid "Graphical configurator for system Display Manager"
@@ -1969,45 +2045,47 @@ msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr ""
+msgstr "A proxy ilyen kell, hogy legyen: http://..."
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr ""
+msgstr "A proxy ilyen kell, hogy legyen: http://... vagy https://..."
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr ""
+msgstr "Az URL-nek ftp: vagy http: kezdetűnek kell lenni"
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
-msgstr ""
+msgstr "Proxy-beállítások"
 
 #: lib/ManaTools/Module/Proxy.pm:282
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
 msgstr ""
+"Itt módosíthatja a proxy-beállításokat (példa: http://"
+"helyi_gyorstárazó_kiszolgáló:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
-msgstr ""
+msgstr "HTTP-proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:296
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr ""
+msgstr "A HTTP-proxy használata a HTTPS-kapcsolatokhoz"
 
 #: lib/ManaTools/Module/Proxy.pm:302
 msgid "HTTPS proxy"
-msgstr ""
+msgstr "HTTPS-proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:308
 msgid "FTP proxy"
-msgstr ""
+msgstr "FTP-proxy"
 
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
-msgstr ""
+msgstr "Ne legyen proxy ezekhez (vesszővel elválasztott lista):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
 #, perl-format
@@ -2025,15 +2103,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
-msgstr ""
+msgstr "Indítás kérésre"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "running"
-msgstr ""
+msgstr "fut"
 
 #: lib/ManaTools/Module/Services.pm:283
 msgid "stopped"
-msgstr ""
+msgstr "leállítva"
 
 #: lib/ManaTools/Module/Services.pm:362
 msgid "Manage system services by enabling or disabling them"
@@ -2041,23 +2119,23 @@ msgstr "Rendszer szolgáltatások kezelése, azok be- illetve kikapcsolása"
 
 #: lib/ManaTools/Module/Services.pm:370
 msgid "Service"
-msgstr ""
+msgstr "Szolgáltatás"
 
 #: lib/ManaTools/Module/Services.pm:372
 msgid "On boot"
-msgstr ""
+msgstr "Rendszerindításkor"
 
 #: lib/ManaTools/Module/Services.pm:383 lib/ManaTools/Rpmdragora/pkg.pm:1093
 msgid "Information"
-msgstr ""
+msgstr "Információ"
 
 #: lib/ManaTools/Module/Services.pm:391
 msgid "&Start"
-msgstr ""
+msgstr "&Indítás"
 
 #: lib/ManaTools/Module/Services.pm:394
 msgid "S&top"
-msgstr ""
+msgstr "Leállí&tás"
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
@@ -2086,7 +2164,7 @@ msgstr ""
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "%s indítása"
 
 #: lib/ManaTools/Module/Services.pm:536
 #, perl-format
@@ -2310,7 +2388,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
 msgid "&Update"
-msgstr ""
+msgstr "Ha &régebbi"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -2451,7 +2529,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:150
 #: lib/ManaTools/Rpmdragora/gui.pm:1673
 msgid "(none)"
-msgstr ""
+msgstr "(nincs)"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
@@ -2471,7 +2549,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
-msgstr ""
+msgstr "Nincs teendő"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
 msgid "Please wait, searching..."
@@ -2516,17 +2594,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr ""
+msgstr "A(z) '%s' csomag letöltése folyik..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
 msgid "        %s%% of %s completed, ETA = %s, speed = %s"
-msgstr ""
+msgstr "        %s%% megvan, összesen: %s, hátralevő: %s, sebesség: %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:227
 #, perl-format
 msgid "        %s%% completed, speed = %s"
-msgstr ""
+msgstr "        %s%% megvan, sebesség: %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:268
 msgid ""
@@ -2557,7 +2635,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2057
 msgid "Enabled"
-msgstr ""
+msgstr "Engedélyezve"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:297
 msgid ""
@@ -2622,7 +2700,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "A telepítés hibával ért véget."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -2678,7 +2756,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr ""
+msgstr "Inicializálás..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
@@ -2686,7 +2764,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr ""
+msgstr "Az következő árva csomag el lesz távolítva."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
@@ -2709,7 +2787,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "Kérem helyezze be a(z) \"%s\" nevű adathordozót"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
@@ -2751,7 +2829,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1027
 msgid "Details"
-msgstr ""
+msgstr "Részletek"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
@@ -2772,21 +2850,21 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
 #: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
 msgid "All"
-msgstr ""
+msgstr "mindegyik"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:42
 msgid "Accessibility"
-msgstr ""
+msgstr "Akadálymentesítés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
 #: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
 #: lib/ManaTools/Rpmdragora/icon.pm:47
 msgid "Archiving"
-msgstr ""
+msgstr "Archiválás"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:44
 msgid "Backup"
-msgstr ""
+msgstr "Mentés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
@@ -2794,7 +2872,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
-msgstr ""
+msgstr "Tömörítés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
@@ -2807,11 +2885,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
 #: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Communications"
-msgstr ""
+msgstr "Kommunikáció"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:49
 msgid "Bluetooth"
-msgstr ""
+msgstr "Bluetooth"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
@@ -2819,15 +2897,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
-msgstr ""
+msgstr "Fax"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:52
 msgid "Mobile"
-msgstr ""
+msgstr "Mobil"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:53
 msgid "Radio"
-msgstr ""
+msgstr "Rádió"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
@@ -2839,7 +2917,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
-msgstr ""
+msgstr "Adatbázisok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
 #: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
@@ -2853,31 +2931,31 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
 #: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Development"
-msgstr ""
+msgstr "Fejlesztőeszközök"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr ""
+msgstr "Alap"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
-msgstr ""
+msgstr "C"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:60
 msgid "C++"
-msgstr ""
+msgstr "C++"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:61
 msgid "C#"
-msgstr ""
+msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "Hibakeresés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
@@ -2885,7 +2963,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:66
 msgid "Java"
-msgstr ""
+msgstr "Java"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:67
 msgid "KDE and Qt"
@@ -2893,7 +2971,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr ""
+msgstr "Rendszermag"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
@@ -2901,19 +2979,19 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
-msgstr ""
+msgstr "Perl"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:72
 msgid "PHP"
-msgstr ""
+msgstr "PHP"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:73
 msgid "Python"
-msgstr ""
+msgstr "Python"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:74
 msgid "Tools"
-msgstr ""
+msgstr "Eszközök"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
 msgid "X11"
@@ -2922,19 +3000,19 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
 #: lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Documentation"
-msgstr ""
+msgstr "Dokumentáció"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:77
 msgid "Editors"
-msgstr ""
+msgstr "Szövegszerkesztők"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:78
 msgid "Education"
-msgstr ""
+msgstr "Oktatás"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:79
 msgid "Emulators"
-msgstr ""
+msgstr "Emulátorok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:80
 msgid "File tools"
@@ -2947,27 +3025,27 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Games"
-msgstr ""
+msgstr "Játékok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:82
 msgid "Adventure"
-msgstr ""
+msgstr "Kalandjátékok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:83
 msgid "Arcade"
-msgstr ""
+msgstr "Ügyességi játékok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:84
 msgid "Boards"
-msgstr ""
+msgstr "Táblás játékok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:85
 msgid "Cards"
-msgstr ""
+msgstr "Kártyajátékok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:87
 msgid "Puzzles"
-msgstr ""
+msgstr "Logikai játékok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
@@ -2975,19 +3053,19 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
-msgstr ""
+msgstr "Szimuláció"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
-msgstr ""
+msgstr "Sport"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Strategy"
-msgstr ""
+msgstr "Stratégia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:92
 msgid "Geography"
-msgstr ""
+msgstr "Földrajz"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
 #: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
@@ -2998,11 +3076,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:96
 msgid "Enlightenment"
-msgstr ""
+msgstr "Enlightenment"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:99
 msgid "GNOME"
-msgstr ""
+msgstr "GNOME"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:102
 msgid "Icewm"
@@ -3010,7 +3088,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:105
 msgid "KDE"
-msgstr ""
+msgstr "KDE"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:109
 msgid "WindowMaker"
@@ -3025,7 +3103,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Graphics"
-msgstr ""
+msgstr "Grafika"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
@@ -3039,7 +3117,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Utilities"
-msgstr ""
+msgstr "Segédprogramok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
@@ -3047,7 +3125,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
-msgstr ""
+msgstr "Keresés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
@@ -3055,7 +3133,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
-msgstr ""
+msgstr "Monitorozás"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
 #: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
@@ -3063,27 +3141,27 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
 #: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
 msgid "Networking"
-msgstr ""
+msgstr "Hálózat"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:122
 msgid "File transfer"
-msgstr ""
+msgstr "Fájlátvitel"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:123
 msgid "IRC"
-msgstr ""
+msgstr "IRC"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:124
 msgid "Instant messaging"
-msgstr ""
+msgstr "Azonnali üzenetküldő"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
 msgid "Mail"
-msgstr ""
+msgstr "E-mail"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:126
 msgid "News"
-msgstr ""
+msgstr "Hírek"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:128
 msgid "Remote access"
@@ -3091,7 +3169,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:129
 msgid "WWW"
-msgstr ""
+msgstr "WWW"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
 #: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
@@ -3099,27 +3177,27 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Office"
-msgstr ""
+msgstr "Iroda"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
-msgstr ""
+msgstr "Szótár"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "Pénzügyek"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
-msgstr ""
+msgstr "Kezelés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:134
 msgid "Organizer"
-msgstr ""
+msgstr "Szervező"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:136
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Táblázatkezelő"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
@@ -3131,7 +3209,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:139
 msgid "Publishing"
-msgstr ""
+msgstr "Kiadványkészítés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
 #: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
@@ -3139,19 +3217,19 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:146 lib/ManaTools/Rpmdragora/icon.pm:147
 #: lib/ManaTools/Rpmdragora/icon.pm:148
 msgid "Sciences"
-msgstr ""
+msgstr "Tudományok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:141
 msgid "Astronomy"
-msgstr ""
+msgstr "Csillagászat"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:142
 msgid "Biology"
-msgstr ""
+msgstr "Biológia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:143
 msgid "Chemistry"
-msgstr ""
+msgstr "Kémia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:144
 msgid "Computer science"
@@ -3159,17 +3237,16 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:145
 msgid "Geosciences"
-msgstr ""
+msgstr "Földrajz"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:146
 msgid "Mathematics"
-msgstr ""
+msgstr "Matematika"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:148
 msgid "Physics"
-msgstr ""
+msgstr "Fizika"
 
-#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:77
 #: extras/conf/mpan/categories.conf.in:43
@@ -3178,13 +3255,13 @@ msgstr "Biztonság"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:150
 msgid "Shells"
-msgstr ""
+msgstr "Parancsértelmezők"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:156
 msgid "Sound"
-msgstr ""
+msgstr "Hang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:153
 msgid "Midi"
@@ -3192,13 +3269,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:154
 msgid "Mixers"
-msgstr ""
+msgstr "Keverők"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
 msgid "Players"
-msgstr ""
+msgstr "Játékosok"
 
-#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: lib/ManaTools/Rpmdragora/icon.pm:157 lib/ManaTools/Rpmdragora/icon.pm:158
 #: lib/ManaTools/Rpmdragora/icon.pm:159 lib/ManaTools/Rpmdragora/icon.pm:160
@@ -3217,7 +3293,7 @@ msgstr "Rendszer"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:158
 msgid "Base"
-msgstr ""
+msgstr "Alap"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
@@ -3229,7 +3305,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
 msgid "Configuration"
-msgstr ""
+msgstr "Beállítás"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
 #: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
@@ -3250,7 +3326,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:166
 msgid "Internationalization"
-msgstr ""
+msgstr "Honosítás"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:167
 msgid "Kernel and hardware"
@@ -3258,7 +3334,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:168
 msgid "Libraries"
-msgstr ""
+msgstr "Programkönyvtárak"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:170
 msgid "Packaging"
@@ -3266,33 +3342,33 @@ msgstr "Csomagkészítés"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:171
 msgid "Printing"
-msgstr ""
+msgstr "Nyomtatás"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:172
 msgid "Servers"
-msgstr ""
+msgstr "Kiszolgálók"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:176
 msgid "Terminals"
-msgstr ""
+msgstr "Terminálok"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:177
 msgid "Text tools"
-msgstr ""
+msgstr "Szövegkezelő eszközök"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:178
 msgid "Toys"
-msgstr ""
+msgstr "Mütyürkék"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
 #: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
 #: lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Video"
-msgstr ""
+msgstr "Videó"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:182
 msgid "Television"
-msgstr ""
+msgstr "Televízió"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
 #: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
@@ -3357,7 +3433,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
 #: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Server"
-msgstr ""
+msgstr "Kiszolgáló"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:206
 msgid "DNS/NIS"
@@ -3365,7 +3441,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:207
 msgid "Database"
-msgstr ""
+msgstr "Adatbázis"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:208
 msgid "Firewall/Router"
@@ -3504,7 +3580,7 @@ msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "Eltávolítható"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
@@ -3554,11 +3630,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr ""
+msgstr "Adatforrások felvétele..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
-msgstr ""
+msgstr "Tallózás…"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
 msgid "Add a medium"
@@ -3656,7 +3732,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
-msgstr ""
+msgstr "Soha"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "On-demand"
@@ -3668,7 +3744,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
-msgstr ""
+msgstr "Mindig"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
@@ -3705,7 +3781,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2060
 msgid "Updates"
-msgstr ""
+msgstr "Frissítések"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
@@ -3753,7 +3829,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
-msgstr ""
+msgstr "Felhasználó:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
@@ -3791,11 +3867,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
 msgid "Group name:"
-msgstr ""
+msgstr "Csoport neve:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
 msgid "Protocol:"
-msgstr ""
+msgstr "Protokoll:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
@@ -3807,7 +3883,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2161
 msgid "Add"
-msgstr ""
+msgstr "Felvétel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
@@ -3828,7 +3904,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Protocol"
-msgstr ""
+msgstr "Protokoll"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
@@ -3836,7 +3912,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
-msgstr ""
+msgstr "Parancs:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
@@ -3844,7 +3920,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
 msgid "Add..."
-msgstr ""
+msgstr "Hozzáadás..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
@@ -3854,11 +3930,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2067
 msgid "Medium"
-msgstr ""
+msgstr "Közepes"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
-msgstr ""
+msgstr "Gombok"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
 msgid "no name found, key doesn't exist in rpm keyring!"
@@ -3926,7 +4002,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
 msgid "Parallel"
-msgstr ""
+msgstr "Párhuzamos"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
@@ -3935,7 +4011,7 @@ msgstr "Proxy"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
 msgid "Manual"
-msgstr ""
+msgstr "Kézi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2064
@@ -3944,11 +4020,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
-msgstr ""
+msgstr "Fel"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
 msgid "Down"
-msgstr ""
+msgstr "Le"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1995
@@ -3968,7 +4044,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
 msgid "/_File"
-msgstr ""
+msgstr "/_Fájl"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 msgid "/_Update"
@@ -4011,7 +4087,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
 #: modules/rpmdragora/rpmdragora:698
 msgid "/_Options"
-msgstr ""
+msgstr "/Beá_llítások"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
 msgid "/_Global options"
@@ -4050,15 +4126,15 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 msgid "/_Help"
-msgstr ""
+msgstr "/_Segítség"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
 msgid "/_Report Bug"
-msgstr ""
+msgstr "/_Hibabejelentés"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 msgid "/_About..."
-msgstr ""
+msgstr "/_Névjegy..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1991
 msgid "Rpmdragora"
@@ -4067,7 +4143,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1993
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "Copyright (C) %s, Mandriva"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1997
 msgid "Mageia"
@@ -4084,21 +4160,21 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "További %s lemezhely lesz használva."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
 msgid "%s of disk space will be freed."
-msgstr ""
+msgstr "%s lemezhely fel lesz szabadítva."
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "%s csomag lesz beszerezve."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
-msgstr ""
+msgstr "Keresési eredmények"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results (none)"
@@ -4158,7 +4234,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "Verzió:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
@@ -4166,11 +4242,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
-msgstr ""
+msgstr "Csoport: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "Architektúra:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
@@ -4191,15 +4267,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
-msgstr ""
+msgstr "Részletek:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:345
 msgid "Files:"
-msgstr ""
+msgstr "Fájlok:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:361
 msgid "Changelog:"
-msgstr ""
+msgstr "Változási napló:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:379
 msgid "New dependencies:"
@@ -4253,11 +4329,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "One of the following packages is needed:"
-msgstr ""
+msgstr "A következő csomagok valamelyikére szükség van:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1296
 msgid "Select package"
-msgstr ""
+msgstr "Csomag kiválasztása"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Checking dependencies of package..."
@@ -4303,7 +4379,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "Ütköző csomagok"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1471
 #, perl-format
@@ -4340,7 +4416,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "Biztosan ki szeretne lépni?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1542
 #, perl-format
@@ -4386,11 +4462,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:520
 msgid "Installed"
-msgstr ""
+msgstr "Telepítve"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1717 modules/rpmdragora/rpmdragora:366
 msgid "Addable"
-msgstr ""
+msgstr "Hozzáadható"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1751
 msgid "Description not available for this package\n"
@@ -4451,7 +4527,7 @@ msgstr ""
 
 #: scripts/mana:104
 msgid "ERROR: "
-msgstr ""
+msgstr "HIBA:  "
 
 #: scripts/mana:123
 msgid "Usage mana --help | -h        print this help\n"
@@ -4496,13 +4572,12 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:78
 msgid "Bug fixing"
-msgstr ""
+msgstr "Hibajavítás"
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
 msgstr ""
 
-#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
 #: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1216 extras/conf/mpan/categories.conf.in:4
@@ -4511,23 +4586,23 @@ msgstr "Szoftverkezelés"
 
 #: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
-msgstr ""
+msgstr "Név"
 
 #: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "Összegzés"
 
 #: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "Verziószám"
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "Kibocsátás"
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
-msgstr ""
+msgstr "Architektúra"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
@@ -4556,7 +4631,7 @@ msgstr ""
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
 msgid "no xml-info available for medium \"%s\""
-msgstr ""
+msgstr "a(z) \"%s\" adatforrás listafájlja nem elérhető"
 
 #: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
 msgid "Search aborted"
@@ -4564,7 +4639,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Selected"
-msgstr ""
+msgstr "Kijelölve"
 
 #: modules/rpmdragora/rpmdragora:368
 msgid "Not selected"
@@ -4588,7 +4663,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr ""
+msgstr "Csomag"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
@@ -4600,7 +4675,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "Nincs telepítve"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
@@ -4661,7 +4736,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:559
 msgid "General updates"
-msgstr ""
+msgstr "Általános frissítés"
 
 #: modules/rpmdragora/rpmdragora:608
 msgid "in names"
@@ -4685,7 +4760,7 @@ msgstr "Keresés:"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
-msgstr ""
+msgstr "Visszaállítás"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
@@ -4721,7 +4796,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "Beállítások"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
@@ -4755,6 +4830,7 @@ msgstr ""
 #: modules/rpmdragora/dragora-urpm-addmedia:115
 msgid "bad <url> (for local directory, the path must be absolute)"
 msgstr ""
+"helytelen <url> (helyi könyvtár esetén az útvonalnak abszolútnak kell lennie)"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:129
 #, perl-format
@@ -4918,7 +4994,7 @@ msgstr ""
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
 msgid "Categories"
-msgstr ""
+msgstr "Kategóriák"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
