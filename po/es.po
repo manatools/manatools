@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -12,13 +12,15 @@
 # Miguel Ortega, 2015-2016
 # Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
 # Jose Manuel López <inactive+rocholc@transifex.com>, 2016
+# Jose Manuel López <inactive+rocholc@transifex.com>, 2016
 # Miguel Ortega, 2016
+# Miguel Ortega, 2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-03-14 06:18+0000\n"
+"PO-Revision-Date: 2018-01-07 09:53+0000\n"
 "Last-Translator: Miguel Ortega\n"
 "Language-Team: Spanish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "es/)\n"
@@ -62,7 +64,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan es el panel de mana-tools que contiene todas las utilidades. "
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -72,13 +74,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
-"<h3>Desarrolladores</h3> \n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul> \n"
-"<h3>Traductores</h3>\n"
-" <ul><li>%s</li></ul>"
+"<h3>Desarroladores</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Traductores</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -947,19 +949,15 @@ msgid "Nameserver information manager"
 msgstr "Administración de información de servidor de nombres"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"El demonio routed permite actualizar automáticamente las tablas de "
-"enrutamiento IP\n"
-"gracias al protocolo RIP. Mientras que RIP se usa bastante en redes "
-"pequeñas,\n"
-"para redes más complejas, se necesitan protocolos de enrutamiento más "
-"complejos."
+"El demonio routed permite que la tabla de IP del router se actualice vía el "
+"\"Routing Information Protocol\". Dicho protocolo se usa para redes "
+"pequeñas, mientras que otros más complejos se usan en redes grandes."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -1120,7 +1118,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "El visor de registros (log viewer) es un visor del systemd journal"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1130,11 +1128,11 @@ msgid ""
 "                                                    <ul>%s</ul>"
 msgstr ""
 "<h3>Desarrolladores</h3>\n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul>\n"
-"<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Traductores</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1560,9 +1558,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Por favor llene todos los campos de caducidad de la contraseña\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Eliminando usuario: %s"
+msgstr "Problemas modificando usuario %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1613,7 +1611,7 @@ msgstr ""
 "(idea original userdrake de Mandriva)"
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1623,11 +1621,11 @@ msgid ""
 "                                    <ul>%s</ul>"
 msgstr ""
 "<h3>Desarrolladores</h3>\n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul>\n"
-"<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Traductores</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1689,7 +1687,7 @@ msgstr ""
 "geográfica, fecha y hora."
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1697,9 +1695,9 @@ msgid ""
 "                                              <ul>%s</ul>"
 msgstr ""
 "<h3>Desarrolladores</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Traductores</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2170,9 +2168,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Sin proxy para (lista separada por comas):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Derechos reservados (C) %s por Mandriva"
+msgstr "Copyright (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2224,21 +2222,20 @@ msgid "&Refresh"
 msgstr "&Refrescar"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminService es la herramienta de administración de servicios y demonios de "
+"manaservice es la herramienta de administración de servicios y demonios de "
 "Mageia\n"
 "\n"
-"(idea orignial draxservice de Mandriva)."
+"(proviene de drakxservices de Mandriva)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2248,11 +2245,11 @@ msgid ""
 "                                                       <ul>%s</ul>"
 msgstr ""
 "<h3>Desarrolladores</h3>\n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul>\n"
-"<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Traductores</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -4718,9 +4715,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Herramienta de Mageia para añadir usuarios"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog: lector de registros journalct"
+msgstr "manalog: lector de ficheros log journalctl"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -4859,7 +4855,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUdate is la herramienta Mageia de administración de paquetes."
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4867,9 +4863,9 @@ msgid ""
 "                                            <ul>%s</ul>"
 msgstr ""
 "<h3>Desarrolladores</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Traductores</h3>\n"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -5067,7 +5063,7 @@ msgstr ""
 "Reinicio abortado (la base de datos RPM está bloqueada por otro proceso)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5078,11 +5074,12 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Desarrolladores</h3>\n"
-"<ul><li>%s</li>\n"
-"<li>%s</li>\n"
-"</ul>\n"
-"<h3>Traductores</h3>\n"
-"<ul><li>%s</li></ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Traductores</"
+"h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5445,20 +5442,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Una interfaz gráfica para instalar, desinstalar y actualizar paquetes"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Desarrolladores</h3>\n"
-#~ "<ul><li>%s</li>\n"
-#~ "<li>%s</li>\n"
-#~ "</ul>\n"
-#~ "<h3>Traductores</h3>\n"
-#~ "<ul><li>%s</li></ul>"
