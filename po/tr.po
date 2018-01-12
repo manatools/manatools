@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -13,13 +13,15 @@
 # tarakbumba <tarakbumba@gmail.com>, 2015-2016
 # mahmut özcan <faradundamarti@yandex.com>, 2015
 # Fırat Kutlu <firatkutlu@yandex.com>, 2015
-# tarakbumba <tarakbumba@gmail.com>, 2017
+# Fırat Kutlu <firatkutlu@yandex.com>, 2015
+# mahmut özcan <faradundamarti@yandex.com>, 2015
+# tarakbumba <tarakbumba@gmail.com>, 2015,2017-2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-03-15 13:43+0000\n"
+"PO-Revision-Date: 2018-01-11 22:13+0000\n"
 "Last-Translator: tarakbumba <tarakbumba@gmail.com>\n"
 "Language-Team: Turkish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "tr/)\n"
@@ -63,7 +65,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan tüm yardımcı programları bir araya toplayan ManaTools panelidir."
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -940,16 +942,17 @@ msgid "Nameserver information manager"
 msgstr "SunucuAdı bilgi yöneticisi"
 
 #: lib/ManaTools/Shared/Services.pm:322
-#, fuzzy
 msgid ""
 "The routed daemon allows for automatic IP router table updated via\n"
 "the Routing Information Protocol. While RIP is widely used on small "
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"routed artsureci otomatik IP router tablosunun RIP protokolü tarafından\n"
-"yenilenmesine izin verir. RIP genelde küçük ağlarda kullanılır, daha büyük\n"
-"ağlarda daha karmaşık routing protokollerine ihtiyaç vardır."
+"routed artsureci otomatik IP yönlendirici tablosunun Yönlendirme Bilgisi "
+"Protokolü\n"
+"protokolü tarafından yenilenmesine izin verir. RIP genelde küçük ağlarda "
+"kullanılır, daha büyük\n"
+"ağlarda daha karmaşık yönlendirme protokollerine ihtiyaç vardır."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
@@ -1108,7 +1111,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr "Günlük görüntüleyici bir systemd journal görüntüleyicisidir"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1118,12 +1121,11 @@ msgid ""
 "                                                    <ul>%s</ul>"
 msgstr ""
 "<h3>Geliştiriciler</h3>\n"
-"                                                        <ul><li>%s</li>\n"
-"                                                            <li>%s</li>\n"
-"                                                        </ul>\n"
-"                                                        <h3>Çevirmenler</"
-"h3>\n"
-"                                                        <ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Çevirmenler</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1550,9 +1552,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Lütfen şifre bölümündeki tüm bilgileri doldurunuz\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Kaldırılan kullanıcı: %s"
+msgstr "Kullanıcı %s düzenlenirken sorun oluştu"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1603,7 +1605,7 @@ msgstr ""
 "(Mandriva userdrake özgün fikrinden esinlenilmiştir)."
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1617,7 +1619,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Çevirmenler</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1679,7 +1681,7 @@ msgstr ""
 "ayarlamanızı sağlar"
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
@@ -1689,7 +1691,7 @@ msgstr ""
 "<h3>Geliştiriciler</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Çevirmenler</h3>\n"
-"                                              <ul><li>%s</li></ul>"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -2161,9 +2163,9 @@ msgid "No proxy for (comma separated list):"
 msgstr "Şunun için vekil sunucu yok (virgülle ayrılmış liste):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Tüm Hakları Saklıdır (C) %s Mandriva"
+msgstr "Copyright (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2216,21 +2218,20 @@ msgid "&Refresh"
 msgstr "&Yenile"
 
 #: lib/ManaTools/Module/Services.pm:446
-#, fuzzy
 msgid ""
 "manaservice is the Mageia service and daemon management tool\n"
 "\n"
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
-"adminService Mageia' nın hizmet ve art süreç yönetim aracıdır\n"
+"manaservice Mageia' nın hizmet ve art süreç yönetim aracıdır\n"
 "\n"
-"                                                       (Mandriva draxservice "
-"özgün fikrinden alınmıştır)."
+"                                                       (Mandriva "
+"draxservices özgün fikrinden alınmıştır)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2240,11 +2241,11 @@ msgid ""
 "                                                       <ul>%s</ul>"
 msgstr ""
 "<h3>Geliştiriciler</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Çevirmenler</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Çevirmenler</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -4683,9 +4684,8 @@ msgid "Mageia Add Users Tool"
 msgstr "Mageia Kullanıcıları Ekleme Aracı"
 
 #: scripts/mana:40
-#, fuzzy
 msgid "manalog: journalctl log reader"
-msgstr "manalog: journalct günlük kaydı okuyucu"
+msgstr "manalog: journalctl günlük kaydı okuyucusu"
 
 #: scripts/mana:44
 msgid "manauser: user manager"
@@ -4825,7 +4825,7 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr "dragoraUpdate Mageia paket yönetim aracıdır"
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
@@ -4835,7 +4835,7 @@ msgstr ""
 "<h3>Geliştiriciler</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Çevirmenler</h3>\n"
-"                                            <ul><li>%s</li></ul>"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -5033,7 +5033,7 @@ msgstr ""
 "kilitlendi)"
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -5044,11 +5044,12 @@ msgid ""
 "                                                        <ul>%s</ul>"
 msgstr ""
 "<h3>Geliştiriciler</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Çevirmenler</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Çevirmenler</"
+"h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5412,22 +5413,3 @@ msgstr "/usr/share/icons/manarpm.png"
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
 msgstr "Paketleri kurmak, kaldırmak ve güncellemek için grafiksel bir önyüz"
-
-#~ msgid ""
-#~ "<h3>Developers</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Translators</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
-#~ msgstr ""
-#~ "<h3>Geliştiriciler</h3>\n"
-#~ "                                                        <ul><li>%s</li>\n"
-#~ "                                                            <li>%s</li>\n"
-#~ "                                                        </ul>\n"
-#~ "                                                        <h3>Çevirmenler</"
-#~ "h3>\n"
-#~ "                                                        <ul><li>%s</li></"
-#~ "ul>"
