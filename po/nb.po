@@ -9,15 +9,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Karl Morten Ramberg <karl.m.ramberg@gmail.com>, 2017
+# Karl Morten Ramberg <karl.m.ramberg@gmail.com>, 2017-2018
 # kekePower <smelror@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-11-09 19:31+0000\n"
-"Last-Translator: kekePower <smelror@gmail.com>\n"
+"PO-Revision-Date: 2018-02-15 00:42+0000\n"
+"Last-Translator: Karl Morten Ramberg <karl.m.ramberg@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/MageiaLinux/mageia/"
 "language/nb/)\n"
 "Language: nb\n"
@@ -575,7 +575,7 @@ msgstr "Chile"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr "Alle tjenere"
+msgstr "Alle serverne"
 
 #: lib/ManaTools/Shared/TimeZone.pm:956
 msgid "user does not have the rights to change configuration file, skipped"
@@ -616,7 +616,7 @@ msgstr "Avahi er en ZeroConf-tjeneste som implementerer en mDNS-stabel"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr "NTP-tjener"
+msgstr "NTP-server"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
@@ -697,7 +697,7 @@ msgstr ""
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
-msgstr "Apache er en vevtjener."
+msgstr "Apache er en webserver."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -918,7 +918,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
-msgstr "Informasjonbehandler for navnetjener"
+msgstr "Informasjonbehandler for navneserver"
 
 #: lib/ManaTools/Shared/Services.pm:322
 msgid ""
@@ -927,7 +927,7 @@ msgid ""
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
-"Tjeneren routed tillater at IP router-tabellen blir automatisk oppdatert "
+"Serveren routed tillater at IP router-tabellen blir automatisk oppdatert "
 "via\n"
 "Routing Information Protocol. Mens RIP er mye brukt på små nettverk vil mere "
 "komplekse nettverk\n"
@@ -1022,7 +1022,7 @@ msgstr "Lettvekts overvåkingsprogram for nettverktrafikk"
 
 #: lib/ManaTools/Shared/Services.pm:343
 msgid "Starts the X Font Server."
-msgstr "Starter X-skrifttjeneren."
+msgstr "Starter X-skriftserveren"
 
 #: lib/ManaTools/Shared/Services.pm:344
 msgid "Starts other deamons on demand."
@@ -1727,19 +1727,19 @@ msgstr "NTP tjener DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
-msgstr "Velg en NTP tjener"
+msgstr "Velg en NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:494
 msgid "&Local NTP server"
-msgstr "&Lokal NTP tjener"
+msgstr "&Lokal NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Set local NTP server"
-msgstr "Angi en lokal NTP tjener"
+msgstr "Angi en lokal NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:511
 msgid "Please set your local NTP server"
-msgstr "Vennligst velg en lokal NTP tjener"
+msgstr "Vennligst velg en lokal NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
@@ -1811,7 +1811,7 @@ msgstr "Vertsnavn "
 
 #: lib/ManaTools/Module/Hosts.pm:147
 msgid "Pretty Hostname"
-msgstr "Mellomtjenervertsnavn:"
+msgstr "Proxyserver vertsnavn:"
 
 #: lib/ManaTools/Module/Hosts.pm:152
 msgid "Static Hostname"
@@ -2090,15 +2090,15 @@ msgstr "Grafisk konfigurator for skjermhåndereren"
 #: lib/ManaTools/Module/Proxy.pm:53
 #, perl-format
 msgid "%s - Proxy configuration"
-msgstr "%s - Mellomtjener oppsett"
+msgstr "%s - Proxy konfigurasjon"
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr "Mellomtjeneren bør være http://..."
+msgstr "Proxyserveren bør være http://..."
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr "Mellomtjeneren bør være http:// eller https://..."
+msgstr "Proxyserveren bør være http:// eller https://..."
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
@@ -2106,34 +2106,34 @@ msgstr "URLen bør begynne med «ftp:» eller «http:»"
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
-msgstr "Oppsett av mellomtjener"
+msgstr "Oppsett av proxyserver"
 
 #: lib/ManaTools/Module/Proxy.pm:282
 msgid ""
 "Here you can set up your proxies configuration (eg: http://"
 "my_caching_server:8080)"
 msgstr ""
-"Her kan du sette opp mellomtjenere (feks: http://min_mellomtjener:8080)"
+"Her kan du sette opp proxyservere (feks: http://my_caching_server:8080)"
 
 #: lib/ManaTools/Module/Proxy.pm:290
 msgid "HTTP proxy"
-msgstr "HTTP-mellomtjener"
+msgstr "HTTP-proxyserver"
 
 #: lib/ManaTools/Module/Proxy.pm:296
 msgid "Use HTTP proxy for HTTPS connections"
-msgstr "Bruk HTTP-mellomtjener for HTTPS-tilkoblinger"
+msgstr "Bruk HTTP-proxyserver for HTTPS-tilkoblinger"
 
 #: lib/ManaTools/Module/Proxy.pm:302
 msgid "HTTPS proxy"
-msgstr "HTTPS-mellomtjener"
+msgstr "HTTPS-proxyserver"
 
 #: lib/ManaTools/Module/Proxy.pm:308
 msgid "FTP proxy"
-msgstr "FTP-mellomtjener"
+msgstr "FTP-proxyserver"
 
 #: lib/ManaTools/Module/Proxy.pm:314
 msgid "No proxy for (comma separated list):"
-msgstr "Ingen mellomtjener for (kommaseparert liste):"
+msgstr "Ingen proxyserver for (kommaseparert liste):"
 
 #: lib/ManaTools/Module/Proxy.pm:347
 #, perl-format
@@ -2147,7 +2147,7 @@ msgstr "Grafisk håndterer for interaktive brannmurregler"
 #: lib/ManaTools/Module/Services.pm:86
 #, perl-format
 msgid "%s - Services and daemons"
-msgstr "%s - Tjenester og tjenere"
+msgstr "%s - Tjenester og servere"
 
 #: lib/ManaTools/Module/Services.pm:280
 msgid "Start when requested"
@@ -3455,7 +3455,7 @@ msgstr "Utskrift"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:172
 msgid "Servers"
-msgstr "Tjenere"
+msgstr "Servere"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:176
 msgid "Terminals"
@@ -3542,7 +3542,7 @@ msgstr "Andre grafiske skrivebord"
 #: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
 #: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Server"
-msgstr "Tjener"
+msgstr "Server"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:206
 msgid "DNS/NIS"
@@ -3934,37 +3934,36 @@ msgstr "For å kunne lagre endringene må du sette inn et medie i stasjonen."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
-msgstr "Sett opp mellomtjenere"
+msgstr "Sett opp proxyservere"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr "Mellomtjeneroppsett for mediet «%s»"
+msgstr "Proxyserveroppsett for mediet «%s»"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr "Globalt oppsett for mellomtjener"
+msgstr "Globalt oppsett for proxyservere"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
 "If you need a proxy, enter the hostname and an optional port (syntax: "
 "<proxyhost[:port]>):"
 msgstr ""
-"Hvis du trenger en mellomtjener, skriv inn vertsnavnet og en port (syntaks: "
-"<mellomtjener-vert[:port]>):"
+"Hvis du trenger en proxyserver, skriv inn vertsnavnet og en port (syntaks: "
+"<proxyserver-vert[:port]>):"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
 msgid "Enable proxy"
-msgstr "Aktiver mellomtjener"
+msgstr "Aktiver proxyserver"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
 msgid "Proxy hostname:"
-msgstr "Mellomtjenervertsnavn:"
+msgstr "Proxyserver vertsnavn:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
 msgid "You may specify a username/password for the proxy authentication:"
-msgstr ""
-"Du kan angi et brukernavn/passord for autentisering til mellomtjeneren:"
+msgstr "Du kan angi et brukernavn/passord for autentisering mot proxyserveren:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
@@ -4150,7 +4149,7 @@ msgstr "Parallell"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr "Mellomtjener"
+msgstr "Proxyserver"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
@@ -4259,7 +4258,7 @@ msgstr "<control>P"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "/P_roxy"
-msgstr "/Mellomtjener"
+msgstr "/Proxyserver"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>R"
@@ -4350,11 +4349,11 @@ msgstr "Denne pakka er ikke fri programvare"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr "Denne pakka inneholder en ny versjon som ble tilbakeportet."
+msgstr "Denne pakken inneholder en ny versjon som ble tilbakeportet."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr "Denne pakka er en mulig kandidat for en oppdatering."
+msgstr "Denne pakken er en mulig kandidat for en oppdatering."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
@@ -4436,7 +4435,7 @@ msgstr "Fant pakka «%s»."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:400
 msgid "However this package is not in the package list."
-msgstr "Denne pakka er i midlertidig ikke i pakkelista."
+msgstr "Denne pakken er i midlertidig ikke i pakkelista."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 msgid "You may want to update your urpmi database."
@@ -4475,7 +4474,7 @@ msgstr "Velg"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "The following package is needed:"
-msgstr "Den følgende pakka er nødvendig:"
+msgstr "Den følgende pakke er nødvendig:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "One of the following packages is needed:"
@@ -4487,7 +4486,7 @@ msgstr "Velg en pakke."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Checking dependencies of package..."
-msgstr "Sjekker avhengighetene til pakka …"
+msgstr "Sjekker avhengighetene til pakken …"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1399
 msgid "Some additional packages need to be removed"
@@ -4558,7 +4557,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"Denne pakka kan ikke velges:\n"
+"Denne pakken kan ikke velges:\n"
 "\n"
 "%s"
 
@@ -4624,9 +4623,9 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
-"Lista over oppdateringer er tom. Dette betyr enten at det ikke er\n"
+"Listen over oppdateringer er tom. Dette betyr enten at det ikke er\n"
 "noen tilgjengelige oppdateringer for pakkene som er installert på\n"
-"maskina, eller at de allerede er installert."
+"maskinen, eller at de allerede er installert."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
 msgid "Upgradable"
