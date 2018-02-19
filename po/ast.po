@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,13 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# enolp <enolp@softastur.org>, 2016
+# enolp <enolp@softastur.org>, 2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2016-10-04 11:55+0000\n"
+"PO-Revision-Date: 2018-02-19 02:34+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ast/)\n"
@@ -41,7 +41,7 @@ msgstr "enolp <enolp@softastur.org>\n"
 #: modules/rpmdragora/dragoraUpdate:354 modules/rpmdragora/rpmdragora:1093
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Copyright (C) %s la comunidá de Mageia"
 
 #: lib/ManaTools/MainDisplay.pm:252 lib/ManaTools/Module/LogViewer.pm:321
 #: lib/ManaTools/Module/Users.pm:2386 lib/ManaTools/Module/Clock.pm:196
@@ -53,7 +53,7 @@ msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:253
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan ye'l panel de ManaTools qu'atropa toles utilidaes."
 
 #: lib/ManaTools/MainDisplay.pm:254
 #, perl-format
@@ -66,12 +66,19 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Desendolcadores</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Traductores</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: modules/rpmdragora/rpmdragora:703
 msgid "File"
-msgstr ""
+msgstr "Ficheru"
 
 #: lib/ManaTools/MainDisplay.pm:380 lib/ManaTools/Module/LogViewer.pm:298
 #: lib/ManaTools/Module/Users.pm:2437 lib/ManaTools/Module/Users.pm:2525
@@ -112,12 +119,12 @@ msgstr ""
 #: lib/ManaTools/MainDisplay.pm:590
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Falta'l ficheru de configuración de %s"
 
 #: lib/ManaTools/MainDisplay.pm:595
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "Lleendo'l ficheru de configuración %s"
 
 #: lib/ManaTools/MainDisplay.pm:612
 #, perl-format
@@ -293,270 +300,272 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "Global"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "África"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "Asia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "Europa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "América del Norte"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "Oceanía"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "América del Sur"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
-msgstr ""
+msgstr "África del Sur"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "Tanzania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "Bangladex"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
-msgstr ""
+msgstr "China"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "Ḥong Kong"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "India"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
-msgstr ""
+msgstr "Indonesia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
-msgstr ""
+msgstr "Irán"
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
-msgstr ""
+msgstr "Israel"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
 msgid "Japan"
-msgstr ""
+msgstr "Xapón"
 
 #: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
 msgid "Korea"
-msgstr ""
+msgstr "Corea"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "Malasia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "Les Filipines"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "Singapur"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "Taiwan"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
-msgstr ""
+msgstr "Tailandia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "Turquía"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Emiratos Árabes Xuníos"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
-msgstr ""
+msgstr "Austria"
 
 #: lib/ManaTools/Shared/TimeZone.pm:408 lib/ManaTools/rpmdragora.pm:578
 msgid "Belarus"
-msgstr ""
+msgstr "Bielorrusia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
 msgid "Belgium"
-msgstr ""
+msgstr "Bélxica"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bulgaria"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
-msgstr ""
+msgstr "Chequia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "Dinamarca"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Estonia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
-msgstr ""
+msgstr "Finlandia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "Francia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
-msgstr ""
+msgstr "Alemaña"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
 #: lib/ManaTools/rpmdragora.pm:593
 msgid "Greece"
-msgstr ""
+msgstr "Grecia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
-msgstr ""
+msgstr "Hungría"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Irlanda"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "Italia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Lituania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luxemburgu"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "Países Baxos"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "Noruega"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "Polonia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "Portugal"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "Rumanía"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Federación Rusa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "Eslovaquia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Eslovenia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "España"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "Suecia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "Suazilandia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Ucraína"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Reinu Xuníu"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Yugoslavia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
-msgstr ""
+msgstr "Canadá"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Guatemala"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Méxicu"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "Estaos Xuníos"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "Australia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Nueva Zelanda"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
-msgstr ""
+msgstr "Arxentina"
 
 #: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
 msgid "Brazil"
-msgstr ""
+msgstr "Brasil"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Chile"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "Tolos sirvidores"
 
 #: lib/ManaTools/Shared/TimeZone.pm:956
 msgid "user does not have the rights to change configuration file, skipped"
 msgstr ""
+"l'usuariu nun tien los drechos pa camudar el ficheru de configuración, "
+"saltóse"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
