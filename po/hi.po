@@ -1,15 +1,22 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Panwar108 <caspian7pena@gmail.com>, 2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2015-07-07 15:46+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2018-06-08 15:05+0000\n"
+"Last-Translator: Panwar108 <caspian7pena@gmail.com>\n"
 "Language-Team: Hindi (http://www.transifex.com/MageiaLinux/mageia/language/"
 "hi/)\n"
 "Language: hi\n"
@@ -82,7 +89,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2180
 msgid "Help"
-msgstr ""
+msgstr "मदद"
 
 #: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/Shared/GUI/Dialog.pm:418
 #: lib/ManaTools/Module/LogViewer.pm:294 lib/ManaTools/Module/Users.pm:2451
@@ -334,7 +341,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "भारत"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
@@ -1170,7 +1177,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
 msgid "Password:"
-msgstr ""
+msgstr "कूटशब्द : "
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
@@ -1453,7 +1460,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
-msgstr ""
+msgstr "रिफ्रेश करें"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
@@ -2569,7 +2576,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "इंस्टॉल विफल रहा"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -3700,12 +3707,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
 msgid "User:"
-msgstr ""
+msgstr "उपयोक्ता :"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
 msgid "Cancel"
-msgstr ""
+msgstr "रद्द करें"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
@@ -4018,7 +4025,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1997
 msgid "Mageia"
-msgstr ""
+msgstr "Mageia"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2203
 msgid ""
@@ -4474,7 +4481,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
-msgstr ""
+msgstr "स्थापत्य"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
@@ -4628,7 +4635,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
-msgstr ""
+msgstr "खोजना"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
@@ -4822,12 +4829,12 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "मेजीआ के खाते प्रबंधक को शुरू करें"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "मेजीआ के खाते प्रबंधक को शुरू करने के लिए उच्चतम अधिकार की ज़रुरत है"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
@@ -4858,9 +4865,8 @@ msgstr ""
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
-#, fuzzy
 msgid "Mageia Panel"
-msgstr "मैनड्रिव लिनक्स अपडेट"
+msgstr ""
 
 #. (itstool) path: settings/category_title
 #: extras/conf/mpan/settings.conf.in:6
@@ -4890,12 +4896,11 @@ msgstr ""
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:50
 msgid "Boot"
-msgstr ""
+msgstr "बूट"
 
 #: extras/desktop/dragoraupdate.desktop.in:3
-#, fuzzy
 msgid "rpmdragora - Mageia Update"
-msgstr "मैनड्रिव लिनक्स अपडेट"
+msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:4
 msgid "/usr/share/icons/manaupdate.png"
@@ -5031,4 +5036,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "पैकेजों को इंस्टॉल करने, हटाने व अपडेट करने हेतु एक ग्राफिकल माध्यम"
