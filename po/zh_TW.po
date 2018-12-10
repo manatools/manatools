@@ -10,14 +10,14 @@
 #
 # Translators:
 # Cheng-Chia Tseng <pswo10680@gmail.com>, 2018
-# You-Cheng Hsieh <yochenhsieh@gmail.com>, 2013,2015
+# You-Cheng Hsieh <yochenhsieh@gmail.com>, 2013,2015,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2018-04-08 03:15+0000\n"
-"Last-Translator: Cheng-Chia Tseng <pswo10680@gmail.com>\n"
+"PO-Revision-Date: 2018-12-10 05:47+0000\n"
+"Last-Translator: You-Cheng Hsieh <yochenhsieh@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_TW/)\n"
 "Language: zh_TW\n"
@@ -85,7 +85,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1208
 msgid "&Quit"
-msgstr "&退出"
+msgstr "退出(&Q)"
 
 #: lib/ManaTools/MainDisplay.pm:392 lib/ManaTools/MainDisplay.pm:393
 #: lib/ManaTools/Module/Users.pm:2449
@@ -103,7 +103,7 @@ msgstr "輔助說明"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr "&關於"
+msgstr "關於(&A)"
 
 #: lib/ManaTools/MainDisplay.pm:567
 #, perl-format
@@ -156,7 +156,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1308
 msgid "&Ok"
-msgstr ""
+msgstr "好的(&O)"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -177,7 +177,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1307
 msgid "&Cancel"
-msgstr ""
+msgstr "取消(&C)"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -261,7 +261,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "開始使用 yui ncurses 附加元件實​​現"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
@@ -269,7 +269,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "對話框使用全螢幕"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
@@ -287,7 +287,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "關閉(&C)"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
 #, perl-format
@@ -1531,7 +1531,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
 #: modules/rpmdragora/dragoraUpdate:286 modules/rpmdragora/rpmdragora:756
 msgid "&Help"
-msgstr "&幫助"
+msgstr "說明(&H)"
 
 #: lib/ManaTools/Module/Users.pm:2450
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
@@ -2083,7 +2083,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:407
 msgid "&Refresh"
-msgstr "&刷新"
+msgstr "重新整理(&R)"
 
 #: lib/ManaTools/Module/Services.pm:446
 msgid ""
@@ -2154,11 +2154,11 @@ msgstr "下一次不用詢問我"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "是的(&Y)"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "不是(&N)"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -3978,7 +3978,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "選項(&O)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -4693,7 +4693,7 @@ msgstr "未安裝"
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "只顯示 %s 與未限制架構"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4777,7 +4777,7 @@ msgstr "重設"
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "套用(&A)"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4801,7 +4801,7 @@ msgstr "使用正規表示式搜尋 (_R)"
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "重設選擇項目"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
