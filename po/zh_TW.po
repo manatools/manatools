@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2018-12-10 05:47+0000\n"
+"PO-Revision-Date: 2018-12-11 01:29+0000\n"
 "Last-Translator: You-Cheng Hsieh <yochenhsieh@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) (http://www.transifex.com/MageiaLinux/mageia/"
 "language/zh_TW/)\n"
@@ -2138,15 +2138,15 @@ msgstr "用戶名稱："
 
 #: lib/ManaTools/rpmdragora.pm:274
 msgid "Software Packages Removal"
-msgstr "軟體包移除"
+msgstr "軟體套件移除"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
-msgstr "軟體包更新"
+msgstr "軟體套件更新"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
-msgstr "軟體包安裝"
+msgstr "軟體套件安裝"
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
@@ -2245,7 +2245,7 @@ msgstr "請稍候，更新媒體中..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
-msgstr "接收軟體包時發生錯誤"
+msgstr "接收軟體套件時發生錯誤"
 
 #: lib/ManaTools/rpmdragora.pm:784
 #, perl-format
@@ -2257,7 +2257,7 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
-"無法由媒體 `%s' 中取得新軟體包的列表。可能是因為這個更新媒體設定錯誤，\n"
+"無法由媒體 `%s' 中取得新軟體套件的列表。可能是因為這個更新媒體設定錯誤，\n"
 "您必須使用「軟體媒體管理員」來移除並重新加入這個媒體來重新設定；或者\n"
 "是因為這個媒體現在無法聯繫上，請您稍待一會再試試看。"
 
@@ -2517,13 +2517,13 @@ msgstr "正在由 XML meta-data 取得 '%s'..."
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
 msgid "No xml info for medium \"%s\", only partial result for package %s"
-msgstr "媒體 \"%s\" 沒有 xml 資訊，%s 軟體包只有部份的結果"
+msgstr "媒體 \"%s\" 沒有 xml 資訊，%s 軟體套件只有部份的結果"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:164
 #, perl-format
 msgid ""
 "No xml info for medium \"%s\", unable to return any result for package %s"
-msgstr "媒體 \"%s\" 沒有 xml 資訊，無法傳回 %s 軟體包的任何結果"
+msgstr "媒體 \"%s\" 沒有 xml 資訊，無法傳回 %s 軟體套件的任何結果"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:351
 #: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/gui.pm:368
@@ -2533,7 +2533,7 @@ msgstr "(無法使用)"
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr "正在下載軟體包 `%s'..."
+msgstr "正在下載軟體套件 `%s'..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2552,7 +2552,7 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
-"我需要連線到鏡像站以取得最新的更新軟體包。\n"
+"我需要連線到鏡像站以取得最新的更新軟體套件。\n"
 "請確定您能夠正常的連結到網際網路上。\n"
 "\n"
 "您要繼續嗎？"
@@ -2614,15 +2614,15 @@ msgstr "讀取更新描述"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr "請稍候，正在尋找可用的軟體包..."
+msgstr "請稍候，正在尋找可用的軟體套件..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
-msgstr "排序軟體包中，請稍候..."
+msgstr "排序軟體套件中，請稍候..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:502
 msgid "Please wait, finding installed packages..."
-msgstr "請稍候，正在尋找已安裝的軟體包..."
+msgstr "請稍候，正在尋找已安裝的軟體套件..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:630
 msgid "Upgrade information"
@@ -2630,11 +2630,11 @@ msgstr "升級資訊"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:646
 msgid "These packages come with upgrade information"
-msgstr "這些軟體包包含了升級資訊"
+msgstr "這些軟體套件包含了升級資訊"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
 msgid "All requested packages were installed successfully."
-msgstr "已經成功地安裝您要求的全部軟體包。"
+msgstr "已經成功地安裝您要求的全部軟體套件。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
@@ -2658,16 +2658,16 @@ msgstr "安裝失敗"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
-msgstr "正在檢查要求的軟體包的正確性..."
+msgstr "正在檢查要求的軟體套件的正確性..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
-msgstr "無法取得來源軟體包。"
+msgstr "無法取得來源軟體套件。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:790
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr "無法取得來源軟體包，抱歉。%s"
+msgstr "無法取得來源軟體套件，抱歉。%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:791
 #, perl-format
@@ -2694,7 +2694,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1494
 msgid "Some packages need to be removed"
-msgstr "必須移除某些軟體包"
+msgstr "必須移除某些軟體套件"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
@@ -2702,11 +2702,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr "需要移除以下軟體包以便升級其他軟體包："
+msgstr "需要移除以下軟體套件以便升級其他軟體套件："
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:818
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr "必須移除以下軟體包以便升級其他軟體包："
+msgstr "必須移除以下軟體套件以便升級其他軟體套件："
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
@@ -2718,7 +2718,7 @@ msgstr "初始化中..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
-msgstr "孤兒軟體包"
+msgstr "孤兒軟體套件"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
@@ -2749,7 +2749,7 @@ msgstr "請置入名為 \"%s\" 的媒體"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr "核對軟體包簽章..."
+msgstr "核對軟體套件簽章..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
@@ -2758,7 +2758,7 @@ msgstr "有 %d 個安裝業務失敗"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr "無法回復的錯誤：抱歉，沒有找到可供安裝的軟體包。"
+msgstr "無法回復的錯誤：抱歉，沒有找到可供安裝的軟體套件。"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
@@ -2795,7 +2795,7 @@ msgstr "細節"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
-msgstr "正在移除軟體包，請稍候..."
+msgstr "正在移除軟體套件，請稍候..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1085
 msgid "Problem during removal"
@@ -2808,7 +2808,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"移除軟體包時發生問題：\n"
+"移除軟體套件時發生問題：\n"
 "\n"
 "%s"
 
@@ -3471,7 +3471,7 @@ msgstr "  --no-media-update      啟動時不更新媒體"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
-msgstr "  --no-verify-rpm        不驗證軟體包簽章"
+msgstr "  --no-verify-rpm        不驗證軟體套件簽章"
 
 #: lib/ManaTools/Rpmdragora/init.pm:77
 msgid ""
@@ -3676,7 +3676,7 @@ msgstr "建立一個適用於所有散布版的媒體"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
-msgstr "標示這個媒體為更新媒介"
+msgstr "標示這個媒體為更新媒體"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
 msgid "You need to fill up at least the two first entries."
@@ -3691,7 +3691,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
 msgid "Global options for package installation"
-msgstr "關於軟體包安裝的全域選項"
+msgstr "關於軟體套件安裝的全域選項"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
@@ -3909,7 +3909,7 @@ msgstr "新增..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
 msgid "Manage keys for digital signatures of packages"
-msgstr "管理軟體包的數位簽章鑰匙"
+msgstr "管理軟體套件的數位簽章鑰匙"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
@@ -4144,8 +4144,8 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
-"軟體包資料庫被鎖定了。請關閉其它使用到軟體包資料庫的程式. 您是否\n"
-"在其他工作區有其它的媒體管理程式，或者您正在安裝軟體包呢？)"
+"軟體套件資料庫被鎖定了。請關閉其它使用到軟體套件資料庫的程式. 您是否\n"
+"在其他工作區有其它的媒體管理程式，或者您正在安裝軟體套件呢？)"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
@@ -4160,7 +4160,7 @@ msgstr "將釋放 %s 磁碟空間。"
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr "將會取回 %s 軟體包。"
+msgstr "將會取回 %s 軟體套件。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
@@ -4192,11 +4192,11 @@ msgstr "該軟體並非自由軟體"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr "這個軟體包有一個較新的版本。"
+msgstr "這個軟體套件有一個較新的版本。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr "這個軟體包是更新檔的測試候選版本。"
+msgstr "這個軟體套件是更新檔的測試候選版本。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
@@ -4208,7 +4208,7 @@ msgstr "這是非正式的更新。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr "這是 Mageia 支援的正式軟體包。"
+msgstr "這是 Mageia 支援的正式軟體套件。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
@@ -4274,11 +4274,11 @@ msgstr "新的相依性："
 #: lib/ManaTools/Rpmdragora/gui.pm:399
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr "找到軟體包 \"%s\"。"
+msgstr "找到軟體套件 \"%s\"。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:400
 msgid "However this package is not in the package list."
-msgstr "但是這個軟體包沒有在軟體包列表中。"
+msgstr "但是這個軟體套件沒有在軟體套件列表中。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 msgid "You may want to update your urpmi database."
@@ -4286,7 +4286,7 @@ msgstr "您可能需要更新您的 urpmi 資料庫。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 msgid "Matching packages:"
-msgstr "符合的軟體包："
+msgstr "符合的軟體套件："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:408
 #, perl-format
@@ -4296,7 +4296,7 @@ msgstr "- %s (媒體：%s)"
 #: lib/ManaTools/Rpmdragora/gui.pm:950
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr "移除軟體包 %s 將會破壞您的系統"
+msgstr "移除軟體套件 %s 將會破壞您的系統"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:954
 #, perl-format
@@ -4304,12 +4304,12 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
-"「%s」軟體包在 urpmi 忽略清單中。\n"
+"「%s」軟體套件在 urpmi 忽略清單中。\n"
 "您還是要選擇它嗎？"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1181
 msgid "More information on package..."
-msgstr "更多該軟體包的資訊..."
+msgstr "更多該軟體套件的資訊..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1183
 msgid "Please choose"
@@ -4317,11 +4317,11 @@ msgstr "請選擇"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "The following package is needed:"
-msgstr "需要下列軟體包："
+msgstr "需要下列軟體套件："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "One of the following packages is needed:"
-msgstr "需要下列軟體包之一："
+msgstr "需要下列軟體套件之一："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1296
 msgid "Select package"
@@ -4329,28 +4329,28 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Checking dependencies of package..."
-msgstr "正在檢查軟體包依賴關係..."
+msgstr "正在檢查軟體套件依賴關係..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1399
 msgid "Some additional packages need to be removed"
-msgstr "有一些額外的軟體包必須移除"
+msgstr "有一些額外的軟體套件必須移除"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
-msgstr "因為軟體包之間的相依性問題，以下的軟體包將一併移除："
+msgstr "因為軟體套件之間的相依性問題，以下的軟體套件將一併移除："
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1415
 msgid "Some packages cannot be removed"
-msgstr "某些軟體包無法被移除"
+msgstr "某些軟體套件無法被移除"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1416
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
 msgstr ""
-"移除下面這些軟體包將破壞您的系統，抱歉：\n"
+"移除下面這些軟體套件將破壞您的系統，抱歉：\n"
 "\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1424 lib/ManaTools/Rpmdragora/gui.pm:1495
@@ -4359,12 +4359,12 @@ msgid ""
 "now:\n"
 "\n"
 msgstr ""
-"為了滿足軟體包相依性，以下的軟體包將取消選取以便繼續：\n"
+"為了滿足軟體套件相依性，以下的軟體套件將取消選取以便繼續：\n"
 "\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1448
 msgid "Additional packages needed"
-msgstr "需要額外的軟體包"
+msgstr "需要額外的軟體套件"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1449
 msgid ""
@@ -4372,12 +4372,12 @@ msgid ""
 "installed:\n"
 "\n"
 msgstr ""
-"為了滿足軟體包相依性，以下的軟體包也必須一併安裝：\n"
+"為了滿足軟體套件相依性，以下的軟體套件也必須一併安裝：\n"
 " \n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
 msgid "Conflicting Packages"
-msgstr "互相衝突的軟體包"
+msgstr "互相衝突的軟體套件"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1471
 #, perl-format
@@ -4386,11 +4386,11 @@ msgstr "%s (屬於略過的列表)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "One package cannot be installed"
-msgstr "有一個軟體包無法安裝"
+msgstr "有一個軟體套件無法安裝"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "Some packages cannot be installed"
-msgstr "有一些軟體包無法安裝"
+msgstr "有一些軟體套件無法安裝"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1477
 #, perl-format
@@ -4399,7 +4399,7 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"抱歉，以下軟體包無法選取：\n"
+"抱歉，以下軟體套件無法選取：\n"
 "\n"
 "%s"
 
@@ -4410,13 +4410,13 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
-"抱歉，以下軟體包無法選取：\n"
+"抱歉，以下軟體套件無法選取：\n"
 "\n"
 "%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Some packages are selected."
-msgstr "有些軟體包已被選取。"
+msgstr "有些軟體套件已被選取。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Do you really want to quit?"
@@ -4429,11 +4429,11 @@ msgstr "錯誤：%s 似乎被掛載為唯讀模式。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "You need to select some packages first."
-msgstr "您必須先選擇一些軟體包。"
+msgstr "您必須先選擇一些軟體套件。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1551
 msgid "Too many packages are selected"
-msgstr "選取了太多軟體包"
+msgstr "選取了太多軟體套件"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1552
 msgid ""
@@ -4444,16 +4444,16 @@ msgid ""
 "\n"
 "Do you really want to install all the selected packages?"
 msgstr ""
-"警告：您似乎於軟體包安裝途中或\n"
-"之後試圖加入大量軟體包，導致\n"
+"警告：您似乎於軟體套件安裝途中或\n"
+"之後試圖加入大量軟體套件，導致\n"
 "您的磁碟空間已經不敷使用； 這\n"
 "非常危險且應該仔細考慮。\n"
 "\n"
-"您確定要安裝選取的全部軟體包嗎？"
+"您確定要安裝選取的全部軟體套件嗎？"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1663
 msgid "Please wait, listing packages..."
-msgstr "排序軟體包中，請稍候..."
+msgstr "排序軟體套件中，請稍候..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1676
 msgid "No update"
@@ -4465,7 +4465,7 @@ msgid ""
 "no available update for the packages installed on your computer,\n"
 "or you already installed all of them."
 msgstr ""
-"更新的清單是空的。也許是於您系統上安裝的軟體包沒有可用的更新，\n"
+"更新的清單是空的。也許是於您系統上安裝的軟體套件沒有可用的更新，\n"
 "或者您已經全部安裝了。"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
@@ -4482,7 +4482,7 @@ msgstr "可供加入"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1751
 msgid "Description not available for this package\n"
-msgstr "這個軟體包沒有可用的說明\n"
+msgstr "這個軟體套件沒有可用的說明\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
@@ -4588,7 +4588,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr "這是軟體包更新的清單"
+msgstr "這是軟體套件更新的清單"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -4676,7 +4676,7 @@ msgstr "已選擇：%s / 可用磁碟空間：%s"
 
 #: modules/rpmdragora/rpmdragora:448
 msgid "Package"
-msgstr "軟體包"
+msgstr "軟體套件"
 
 #: modules/rpmdragora/rpmdragora:465
 msgid "Arch."
@@ -4697,11 +4697,11 @@ msgstr "只顯示 %s 與未限制架構"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
-msgstr "所有軟體包，依照字母順序排列"
+msgstr "所有軟體套件，依照字母順序排列"
 
 #: modules/rpmdragora/rpmdragora:543
 msgid "All packages, by group"
-msgstr "所有軟體包，依照群組分類"
+msgstr "所有軟體套件，依照群組分類"
 
 #: modules/rpmdragora/rpmdragora:544
 msgid "Leaves only, sorted by install date"
@@ -4709,19 +4709,19 @@ msgstr "不分類，僅依安裝時間排序"
 
 #: modules/rpmdragora/rpmdragora:545
 msgid "All packages, by update availability"
-msgstr "全部軟體包，依可供更新分類"
+msgstr "全部軟體套件，依可供更新分類"
 
 #: modules/rpmdragora/rpmdragora:546
 msgid "All packages, by selection state"
-msgstr "全部軟體包，依選取狀態分類"
+msgstr "全部軟體套件，依選取狀態分類"
 
 #: modules/rpmdragora/rpmdragora:547
 msgid "All packages, by size"
-msgstr "所有軟體包，依大小排序"
+msgstr "所有軟體套件，依大小排序"
 
 #: modules/rpmdragora/rpmdragora:548
 msgid "All packages, by medium repository"
-msgstr "全部軟體包，依媒體庫分類"
+msgstr "全部軟體套件，依媒體庫分類"
 
 #: modules/rpmdragora/rpmdragora:553
 msgid "Backports"
@@ -4729,11 +4729,11 @@ msgstr "Backports"
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr "統理軟體包"
+msgstr "統理軟體套件"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
-msgstr "有 GUI 的軟體包"
+msgstr "有 GUI 的軟體套件"
 
 #: modules/rpmdragora/rpmdragora:556
 msgid "All updates"
@@ -4793,7 +4793,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
-msgstr "搜尋完整軟體包名稱(_F)"
+msgstr "搜尋完整軟體套件名稱(_F)"
 
 #: modules/rpmdragora/rpmdragora:698
 msgid "Use _regular expressions in searches"
@@ -4861,8 +4861,8 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
-"您正要新增新的軟體包媒體。\n"
-"那表示您將可以由新的媒體安裝新的軟體包到您的系統上。"
+"您正要新增新的軟體套件媒體。\n"
+"那表示您將可以由新的媒體安裝新的軟體套件到您的系統上。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:137
 #, perl-format
@@ -4871,8 +4871,8 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from these new media."
 msgstr ""
-"您正要新增新的軟體包媒體 %s。\n"
-"那表示您將可以由新的媒體安裝新的軟體包到您的系統上。"
+"您正要新增新的軟體套件媒體 %s。\n"
+"那表示您將可以由新的媒體安裝新的軟體套件到您的系統上。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:140
 #, perl-format
@@ -4881,8 +4881,8 @@ msgid ""
 "That means you will be able to add new software packages\n"
 "to your system from that new medium."
 msgstr ""
-"您正要新增一個新的軟體包媒體 `%s'。\n"
-"那表示您將可以由這個新的媒體安裝新的軟體包到您的系統上。"
+"您正要新增一個新的軟體套件媒體 `%s'。\n"
+"那表示您將可以由這個新的媒體安裝新的軟體套件到您的系統上。"
 
 #: modules/rpmdragora/dragora-urpm-addmedia:164
 msgid "Successfully added media."
@@ -5179,4 +5179,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr "安裝、移除與更新軟體包的圖形化前端介面"
+msgstr "安裝、移除與更新軟體套件的圖形化前端介面"
