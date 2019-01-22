@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -9,13 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Ardit Dani <ardit.dani@gmail.com>, 2016-2017
+# Ardit Dani <ardit.dani@gmail.com>, 2016-2017,2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-02-21 12:49+0000\n"
+"PO-Revision-Date: 2019-01-22 01:07+0000\n"
 "Last-Translator: Ardit Dani <ardit.dani@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/sq/)\n"
@@ -56,7 +56,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr ""
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -66,13 +66,6 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Përkthyes</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -992,7 +985,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1001,12 +994,6 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-" <ul><li>%s</li>\n"
-" <li>%s</li>\n"
-" </ul>\n"
-"<h3>Përkthyes</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1412,9 +1399,9 @@ msgid "Please fill up all fields in password aging\n"
 msgstr "Ju lutemi mbushni të gjitha fushat e fjalëkalim përsëri\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
-#, fuzzy, perl-format
+#, perl-format
 msgid "Problem in modifying user %s"
-msgstr "Heq përdorues: %s"
+msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
@@ -1463,7 +1450,7 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1472,13 +1459,6 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Përkthyes</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1538,17 +1518,13 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Përkthyes</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -1820,7 +1796,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
 #: lib/ManaTools/Module/Firewall.pm:1097
 msgid "Firewall"
-msgstr ""
+msgstr "Muri mbrojtës"
 
 #: lib/ManaTools/Module/Firewall.pm:712
 msgid "Which services would you like to allow the Internet to connect to?"
@@ -1986,9 +1962,9 @@ msgid "No proxy for (comma separated list):"
 msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Drejtat e Autorit (C) %s Komuniteti Mageia"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2049,7 +2025,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2058,12 +2034,6 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-" <ul><li>%s</li>\n"
-" <li>%s</li>\n"
-" </ul>\n"
-"<h3>Përkthyes</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -3878,7 +3848,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
-msgstr "Azhurnim"
+msgstr "Përditëso"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
@@ -4517,17 +4487,13 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Translators</h3>\n"
 "                                            <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-"<ul><li>%s</li></ul>\n"
-"<h3>Përkthyes</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -4719,7 +4685,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr ""
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -4729,12 +4695,6 @@ msgid ""
 "h3>\n"
 "                                                        <ul>%s</ul>"
 msgstr ""
-"<h3>Zhvillues</h3>\n"
-" <ul><li>%s</li>\n"
-" <li>%s</li>\n"
-" </ul>\n"
-"<h3>Përkthyes</h3>\n"
-"<ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
@@ -5073,4 +5033,4 @@ msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Një instalim grafik, heqjen dhe përditësimin e paketave"
