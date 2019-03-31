@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2019-03-09 13:41+0000\n"
+"PO-Revision-Date: 2019-03-31 00:02+0000\n"
 "Last-Translator: Ardit Dani <ardit.dani@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/sq/)\n"
@@ -66,6 +66,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Zhvillues</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Përkthyes</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -108,6 +115,8 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Skedar i konfigurimit të keq, %s nuk ka atribute xml:lang, duke menduar se "
+"është një varg"
 
 #: lib/ManaTools/MainDisplay.pm:590
 #, perl-format
@@ -2155,7 +2164,7 @@ msgstr "Pamundur krijimi i medium."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
-msgstr ""
+msgstr "Dështimi kur shton mjedisin"
 
 #: lib/ManaTools/rpmdragora.pm:726
 #, perl-format
@@ -4676,7 +4685,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:720
 msgid "Settings"
-msgstr ""
+msgstr "Cilësimet"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
