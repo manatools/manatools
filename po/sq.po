@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2019-04-01 22:31+0000\n"
+"PO-Revision-Date: 2019-04-04 01:07+0000\n"
 "Last-Translator: Ardit Dani <ardit.dani@gmail.com>\n"
 "Language-Team: Albanian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/sq/)\n"
@@ -289,7 +289,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
-msgstr ""
+msgstr "&Rivendos"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
@@ -597,7 +597,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "Një NTP klient/server"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
@@ -1003,6 +1003,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Zhvillues</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Përkthyes</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1030,11 +1036,11 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
-msgstr ""
+msgstr "Informacioni Përdoruesit"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "Informacioni Llogarisë"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
@@ -1046,7 +1052,7 @@ msgstr "Grupet"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "Informacioni Grupit"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
@@ -1075,7 +1081,7 @@ msgstr "Shto në 'përdoruesit' grup"
 #: lib/ManaTools/Rpmdragora/gui.pm:954 lib/ManaTools/Rpmdragora/gui.pm:959
 #: modules/rpmdragora/rpmdragora:1208
 msgid "Warning"
-msgstr ""
+msgstr "Kujdes"
 
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
@@ -1097,11 +1103,11 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Heqje grupi: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Fshi skedarët ose jo?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -1123,7 +1129,7 @@ msgstr ""
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr "Heq përdorues: %s"
+msgstr "Heqje përdoruesi: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
@@ -1160,7 +1166,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr ""
+msgstr "ID-ja e Grupit është në përdorim"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
@@ -2475,12 +2481,12 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
 msgid "        %s%% of %s completed, ETA = %s, speed = %s"
-msgstr ""
+msgstr "        %s%% of %s përfunduar, ETA = %s, shpejtësi= %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:227
 #, perl-format
 msgid "        %s%% completed, speed = %s"
-msgstr ""
+msgstr "        %s%% përfunduar, shpejtësi = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:268
 msgid ""
@@ -3370,31 +3376,39 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "  --media=medium1,..     limit për të dhënë media"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
 "  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
 msgstr ""
+"  --merge-all-rpmnew     propozoni të bashkoni të gjithë skedarët e gjetur ."
+"rpmnew/.rpmsave"
 
 #: lib/ManaTools/Rpmdragora/init.pm:72
 msgid "  --mode=MODE            set mode (install (default), remove, update)"
 msgstr ""
+"  --mode=MODE            cakto modalitetin (instalo (parazgjedhur), hiq, "
+"përditëso)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:73
 msgid ""
 "  --justdb               update the database, but do not modify the "
 "filesystem"
 msgstr ""
+"  --justdb               përditësoni bazën e të dhënave, por mos e "
+"modifikoni skedarët e sistemit"
 
 #: lib/ManaTools/Rpmdragora/init.pm:74
 msgid ""
 "  --no-confirmation      don't ask first confirmation question in update mode"
 msgstr ""
+"  --no-confirmation      mos pyetni konfirmimin e parë në modalitetin e "
+"përditësimit"
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      mos përditëso media gjatë fillimit"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
@@ -3478,7 +3492,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
-msgstr ""
+msgstr "rsync"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
@@ -3507,7 +3521,7 @@ msgstr "Seri e plotë burimesh"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Update sources only"
-msgstr ""
+msgstr "Përditëso burimet vetëm"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
 #, perl-format
@@ -3563,7 +3577,7 @@ msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
-msgstr ""
+msgstr "RSYNC server"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 msgid "HTTP server"
@@ -3571,7 +3585,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
-msgstr ""
+msgstr "Pajisja të lëvizshme (CD-ROM, DVD, ...)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
 msgid "Path or mount point:"
@@ -3583,7 +3597,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "Krijo media për të gjithë shpërndarjen "
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
@@ -3606,7 +3620,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
 msgid "Verify RPMs to be installed:"
-msgstr ""
+msgstr "Verifiko RPMs për tu instaluar"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
 msgid "never"
@@ -3618,11 +3632,11 @@ msgstr "përherë"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
 msgid "Download program to use:"
-msgstr ""
+msgstr "Shkarkoni programin për t'u përdorur:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr ""
+msgstr "XML meta-data politikat e shkarkimit:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
@@ -3634,7 +3648,7 @@ msgstr "Në-kërkesë"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Update-only"
-msgstr ""
+msgstr "Vetëm-përditësime"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Always"
@@ -3642,16 +3656,16 @@ msgstr "Përherë"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr ""
+msgstr "Heqja Burimeve"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr ""
+msgstr "Jeni i sigurt që doni të hiqni burimin \"%s\"?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr ""
+msgstr "Jeni i sigurt se doni të hiqni burimet e mëposhtme?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
@@ -3668,7 +3682,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
 msgid "Downloader:"
-msgstr ""
+msgstr "Shkarkues:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
@@ -3697,11 +3711,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "Cilësimet proxy për media \"%s\""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
-msgstr ""
+msgstr "Cilësimet e proxy globale"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
 msgid ""
@@ -3864,6 +3878,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Nuk mund të përditësohet medium, raportohen gabime:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1967
@@ -3932,7 +3949,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1896
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2091
 msgid "This medium needs to be updated to be usable. Update it now?"
-msgstr ""
+msgstr "Ky medium duhet të përditësohet për t'u përdorur. Përditëso tani?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1974
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
@@ -4015,7 +4032,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
 msgid "<control>R"
-msgstr ""
+msgstr "<control>R"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1985
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
@@ -4078,7 +4095,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:150
 msgid "Security advisory"
-msgstr ""
+msgstr "Këshillim për sigurinë"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:160
 msgid "No description"
@@ -4090,35 +4107,35 @@ msgstr "Nuk <b>mbështetet</b> nga Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:175
 msgid "It may <b>break</b> your system."
-msgstr ""
+msgstr "Mund të <b>thyej</b> sistemin tuaj."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr ""
+msgstr "Kjo paketë nuk është program falas"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
-msgstr ""
+msgstr "Kjo paketë përmban një version të ri që u rikthye."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:184
 msgid "This package is a potential candidate for an update."
-msgstr ""
+msgstr "Kjo paketë është një kandidat potencial për një përditësim."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:189
 msgid "This is an official update which is supported by Mageia."
-msgstr ""
+msgstr "Ky është një përditësim zyrtar i cili mbështetet nga Mageia."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:190
 msgid "This is an unofficial update."
-msgstr ""
+msgstr "Ky është një përditësim jozyrtar."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:194
 msgid "This is an official package supported by Mageia"
-msgstr ""
+msgstr "Kjo është një paketë zyrtare e mbështetur nga Mageia"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:205
 msgid "Notice: "
-msgstr ""
+msgstr "Njoftim:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
@@ -4155,7 +4172,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
-msgstr ""
+msgstr "Të gjitha varësitë janë të instaluara."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
@@ -4175,34 +4192,34 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:379
 msgid "New dependencies:"
-msgstr ""
+msgstr "Varësi të reja:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:399
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "Paketa \"%s\" u gjet."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:400
 msgid "However this package is not in the package list."
-msgstr ""
+msgstr "Megjithatë kjo paketë nuk është në listën e paketave."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:401
 msgid "You may want to update your urpmi database."
-msgstr ""
+msgstr "Ju mund të dëshironi të përditësoni bazën e të dhënave tuaja urpmi."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:403
 msgid "Matching packages:"
-msgstr ""
+msgstr "Paketat përkatëse:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:408
 #, perl-format
 msgid "- %s (medium: %s)"
-msgstr ""
+msgstr "- %s (medium: %s)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:950
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr ""
+msgstr "Heqja e paketës %s do të prishë sistemin tuaj"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:954
 #, perl-format
@@ -4210,6 +4227,8 @@ msgid ""
 "The \"%s\" package is in urpmi skip list.\n"
 "Do you want to select it anyway?"
 msgstr ""
+"Paketa \"%s\" është në listën e kalimit të urpmi.\n"
+"A dëshironi ta zgjidhni atë gjithsesi?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1181
 msgid "More information on package..."
@@ -4221,7 +4240,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "The following package is needed:"
-msgstr ""
+msgstr "Paketa e mëposhtme është e nevojshme:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1184
 msgid "One of the following packages is needed:"
@@ -4233,7 +4252,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1394
 msgid "Checking dependencies of package..."
-msgstr ""
+msgstr "Kontrollimi i varësive të paketës..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1399
 msgid "Some additional packages need to be removed"
@@ -4275,16 +4294,16 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1457
 msgid "Conflicting Packages"
-msgstr ""
+msgstr "Paketat Konflikte"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1471
 #, perl-format
 msgid "%s (belongs to the skip list)"
-msgstr ""
+msgstr "%s (i takon listës së kalimit)"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "One package cannot be installed"
-msgstr ""
+msgstr "Një paketë nuk mund të instalohet"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1475
 msgid "Some packages cannot be installed"
@@ -4297,6 +4316,9 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Na vjen keq, paketa e mëposhtme nuk mund të zgjidhet:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1478
 #, perl-format
@@ -4305,19 +4327,22 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Na vjen keq, paketat e mëposhtme nuk mund të zgjidhen:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Some packages are selected."
-msgstr ""
+msgstr "Disa paketa janë përzgjedhur."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Do you really want to quit?"
-msgstr ""
+msgstr "Vërtetë doni të dilni?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1542
 #, perl-format
 msgid "Error: %s appears to be mounted read-only."
-msgstr ""
+msgstr "Gabim: %s duket të jetë montuar vetëm për lexim."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "You need to select some packages first."
@@ -4475,7 +4500,7 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:80
 msgid "Here is the list of software package updates"
-msgstr ""
+msgstr "Këtu është lista e përditësimeve të paketës së programeve"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
