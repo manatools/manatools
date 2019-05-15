@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.2)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -11,15 +11,17 @@
 # Translators:
 # Daniel Napora <napcok@gmail.com>, 2016
 # Dominik Adrian Grzywak, 2015
-# Marcin Wyka <padocholik@protonmail.com>, 2016
-# Uzerus <szymonscholz@gmail.com>, 2016
+# Dominik Adrian Grzywak, 2015
+# 19dfbe18b1f1701109eac80852037241, 2016
+# Szymon Scholz <szymonscholz@gmail.com>, 2016,2019
+# Szymon Scholz <szymonscholz@gmail.com>, 2016
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2016-11-17 07:53+0000\n"
-"Last-Translator: Marcin Wyka <padocholik@protonmail.com>\n"
+"PO-Revision-Date: 2019-05-15 15:48+0000\n"
+"Last-Translator: Szymon Scholz <szymonscholz@gmail.com>\n"
 "Language-Team: Polish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "pl/)\n"
 "Language: pl\n"
@@ -27,7 +29,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=4; plural=(n==1 ? 0 : (n%10>=2 && n%10<=4) && (n"
-"%100<12 || n%100>=14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
+"%100<12 || n%100>14) ? 1 : n!=1 && (n%10>=0 && n%10<=1) || (n%10>=5 && n"
 "%10<=9) || (n%100>=12 && n%100<=14) ? 2 : 3);\n"
 
 #: lib/ManaTools/MainDisplay.pm:247 lib/ManaTools/Module/LogViewer.pm:317
@@ -65,7 +67,7 @@ msgid "mpan is the ManaTools panel that collects all the utilities."
 msgstr "mpan to panel ManaTools który zawiera wszystkie narzędzia ."
 
 #: lib/ManaTools/MainDisplay.pm:254
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -81,7 +83,7 @@ msgstr ""
 "                                        <li>%s</li>\n"
 "                                    </ul>\n"
 "                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -204,7 +206,7 @@ msgstr "Nie"
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "&Select"
-msgstr ""
+msgstr "&Wybierz"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
@@ -217,7 +219,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Pole nazwy jest puste, podaj nazwę"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
@@ -228,7 +230,7 @@ msgstr ""
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "Nazwa jest zbyt długa. Maksymalna długość to %d"
 
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -263,11 +265,11 @@ msgstr "Nieznany"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "Zachowaj niestandardowe reguły"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Porzuć niestandardowe reguły"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
@@ -275,7 +277,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "rozpocznij przy użyciu wtyczki yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
@@ -283,7 +285,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "użyj pełnego ekranu dla okien dialogowych"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
@@ -301,7 +303,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "&Zamknij"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
 #, perl-format
@@ -314,27 +316,27 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "Afryka"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "Azja"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "Europa"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "Północna Ameryka"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "Oceania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "Południowa Ameryka"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
@@ -354,7 +356,7 @@ msgstr "Chiny"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "Hong Kong"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
@@ -406,7 +408,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Zjednoczone Emiraty Arabskie"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
@@ -422,7 +424,7 @@ msgstr "Belgia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "Bułgaria"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
@@ -434,7 +436,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Estonia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
@@ -459,7 +461,7 @@ msgstr "Węgry"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Irlandia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
@@ -471,7 +473,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Luksemburg"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
@@ -495,7 +497,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Federacja Rosyjska"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
@@ -519,15 +521,15 @@ msgstr "Szwajcaria"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Ukraina"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Wielka Brytania"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Jugosławia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
@@ -539,7 +541,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Meksyk"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
@@ -549,11 +551,11 @@ msgstr "Stany Zjednoczone"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "Australia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Nowa Zelandia"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
@@ -569,7 +571,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "Wszystkie serwery"
 
 #: lib/ManaTools/Shared/TimeZone.pm:956
 msgid "user does not have the rights to change configuration file, skipped"
@@ -605,7 +607,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "Klient/serwer NTP"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
@@ -1002,7 +1004,7 @@ msgid "Log viewer is a systemd journal viewer"
 msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:323
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -1011,13 +1013,6 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
-"<h3>Deweloperzy</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1472,7 +1467,7 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2388
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                    <ul><li>%s</li>\n"
@@ -1481,13 +1476,6 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
-"<h3>Deweloperzy</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1547,20 +1535,13 @@ msgid ""
 msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:198
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                              <ul><li>%s</li></ul>\n"
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
-"<h3>Deweloperzy</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -1998,9 +1979,9 @@ msgid "No proxy for (comma separated list):"
 msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:347
-#, fuzzy, perl-format
+#, perl-format
 msgid "Copyright (C) %s"
-msgstr "Copyright (C) %s społeczność Mageia"
+msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2037,7 +2018,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:383 lib/ManaTools/Rpmdragora/pkg.pm:1093
 msgid "Information"
-msgstr ""
+msgstr "Dana"
 
 #: lib/ManaTools/Module/Services.pm:391
 msgid "&Start"
@@ -2061,7 +2042,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                    <ul><li>%s</li>\n"
@@ -2070,13 +2051,6 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul>%s</ul>"
 msgstr ""
-"<h3>Deweloperzy</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -2127,11 +2101,11 @@ msgstr "Nie pytaj mnie ponownie"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Tak"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&Nie"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -3957,7 +3931,7 @@ msgstr "Pośrednik"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
 msgid "Manual"
-msgstr ""
+msgstr "Podręcznik obsługi"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2064
@@ -4543,15 +4517,15 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
 msgid "Summary"
-msgstr ""
+msgstr "Krótki opis"
 
 #: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
 msgid "Version"
-msgstr ""
+msgstr "Wydanie programu"
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "Wydanie systemu"
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
@@ -4566,20 +4540,13 @@ msgid "dragoraUpdate is the Mageia package management tool."
 msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:357
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                            <ul><li>%s</li></ul>\n"
 "                                            <h3>Translators</h3>\n"
 "                                            <ul>%s</ul>"
 msgstr ""
-"<h3>Deweloperzy</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -4635,12 +4602,12 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "Niewgrane"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Tylko %s i noarch"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4704,11 +4671,11 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:609
 msgid "in descriptions"
-msgstr ""
+msgstr "w długich opisach"
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "w krótkich opisach"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
@@ -4724,7 +4691,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "Z&astosuj"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4748,7 +4715,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Wyzeruj wybór"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -4771,7 +4738,7 @@ msgid "Reset aborted (RPM DB is locked by another process)"
 msgstr ""
 
 #: modules/rpmdragora/rpmdragora:1096
-#, fuzzy, perl-format
+#, perl-format
 msgid ""
 "<h3>Developers</h3>\n"
 "                                                        <ul><li>%s</li>\n"
@@ -4781,13 +4748,6 @@ msgid ""
 "h3>\n"
 "                                                        <ul>%s</ul>"
 msgstr ""
-"<h3>Deweloperzy</h3>\n"
-"                                    <ul><li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                        <li>%s</li>\n"
-"                                    </ul>\n"
-"                                    <h3>Translatorzy</h3>\n"
-"                                    <ul><li>%s</li></ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
