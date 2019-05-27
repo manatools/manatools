@@ -9,7 +9,7 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Davidmp <medipas@gmail.com>, 2015-2018
+# Davidmp <medipas@gmail.com>, 2015-2019
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015,2017-2018
 # Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>, 2015
 msgid ""
@@ -17,8 +17,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2018-09-02 15:58+0000\n"
-"Last-Translator: Robert Antoni Buj Gelonch <rbuj@fedoraproject.org>\n"
+"PO-Revision-Date: 2019-05-27 15:06+0000\n"
+"Last-Translator: Davidmp <medipas@gmail.com>\n"
 "Language-Team: Catalan (http://www.transifex.com/MageiaLinux/mageia/language/"
 "ca/)\n"
 "Language: ca\n"
@@ -241,7 +241,7 @@ msgstr "D'acord"
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr "No podeu eliminar l'usuari <%s> del seu grup primari"
+msgstr "No podeu suprimir l'usuari <%s> del grup primari"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Locked"
@@ -1209,7 +1209,7 @@ msgstr "Avís"
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr "Realment voleu eliminar el grup %s?"
+msgstr "Realment voleu suprimir el grup %s?"
 
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2347
@@ -1223,16 +1223,16 @@ msgid ""
 " Remove the user first"
 msgstr ""
 "%s és un grup primari per a l'usuari %s\n"
-"Primer elimineu l'usuari"
+"Primer suprimiu l'usuari"
 
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr "S'elimina el grup: %s"
+msgstr "Se suprimeix el grup: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr "Voleu eliminar els fitxers o no?"
+msgstr "Suprimeixo els fitxers o no?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -1240,23 +1240,23 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
-"S'elimina l'usuari %s\n"
+"Se suprimeix l'usuari %s\n"
 "Fes també les accions següents:\n"
 
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr "Elimina el directori personal: %s"
+msgstr "Suprimeix el directori personal: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
 msgid "Delete Mailbox: /var/spool/mail/%s"
-msgstr "Elimina mailbox: /var/spool/mail/%s"
+msgstr "Suprimeix la bústia: /var/spool/mail/%s"
 
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr "S'elimina l'usuari: %s"
+msgstr "Se suprimeix l'usuari: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
@@ -1413,7 +1413,7 @@ msgid ""
 "\n"
 msgstr ""
 "Crear un usuari amb UID menor que %d no està recomanat.\n"
-"Esteu segur de voler fer això?\n"
+"Segur que voleu fer això?\n"
 "\n"
 
 #: lib/ManaTools/Module/Users.pm:996
@@ -1651,7 +1651,7 @@ msgstr "Edita"
 
 #: lib/ManaTools/Module/Users.pm:2483
 msgid "Delete"
-msgstr "Elimina"
+msgstr "Suprimeix"
 
 #: lib/ManaTools/Module/Users.pm:2502
 msgid "Filter system users"
@@ -1890,7 +1890,7 @@ msgstr "&Afegeix"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
-msgstr "&Elimina"
+msgstr "Sup&rimeix"
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "&Hostname"
@@ -1903,7 +1903,7 @@ msgstr "Confirmació"
 
 #: lib/ManaTools/Module/Hosts.pm:481
 msgid "Are you sure to drop this host?"
-msgstr "Esteu segur que voleu deixar aquest amfitrió?"
+msgstr "Segur que voleu deixar aquest amfitrió?"
 
 #: lib/ManaTools/Module/Hosts.pm:496 lib/ManaTools/Module/Firewall.pm:176
 #: lib/ManaTools/Module/DisplayManager.pm:263
@@ -2282,7 +2282,7 @@ msgstr "Nom d'usuari:"
 
 #: lib/ManaTools/rpmdragora.pm:274
 msgid "Software Packages Removal"
-msgstr "Eliminació de paquets de programari"
+msgstr "Supressió de paquets de programari"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
@@ -2401,10 +2401,10 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
-"És impossible recuperar la llista de nous paquets del mitjà \n"
+"És impossible recuperar la llista de paquets nous del mitjà \n"
 "\"%s\". O bé aquest mitjà d'actualització està mal configurat,\n"
 "i en aquest cas hauríeu d'utilitzar el programari d'administració de\n"
-"mitjans per eliminar-lo i tornar a afegir-lo per reconfigurar-lo,\n"
+"mitjans per suprimir-lo i tornar a afegir-lo per reconfigurar-lo,\n"
 "o bé ara és inaccessible i ho hauríeu de tornar a provar més tard."
 
 #: lib/ManaTools/rpmdragora.pm:812
@@ -2650,7 +2650,7 @@ msgstr "Seleccioneu un paquet"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr "Elimina el fitxer nou"
+msgstr "Suprimeix el fitxer nou"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
@@ -2877,19 +2877,19 @@ msgstr "S'instal·larà el paquet següent:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1494
 msgid "Some packages need to be removed"
-msgstr "Cal eliminar alguns paquets"
+msgstr "Cal suprimir alguns paquets"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
-msgstr "S'elimina un paquet?"
+msgstr "Suprimeixo un paquet?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
-msgstr "Cal esborrar el següent paquet perquè se'n puguin instal·lar d'altres:"
+msgstr "Cal suprimir el paquet següent perquè se'n puguin instal·lar d'altres:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:818
 msgid "The following packages have to be removed for others to be upgraded:"
-msgstr "Els paquets següents s'han d'eliminar per actualitzar-ne uns altres:"
+msgstr "Els paquets següents s'han de suprimir per actualitzar-ne uns altres:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:822
 msgid "Is it ok to continue?"
@@ -2905,7 +2905,7 @@ msgstr "Paquets orfes"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr "S'eliminarà el paquet orfe següent:"
+msgstr "Se suprimirà el paquet orfe següent:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
@@ -2980,7 +2980,7 @@ msgstr "Detalls"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1072
 msgid "Please wait, removing packages..."
-msgstr "Espereu, s'estan eliminant paquets..."
+msgstr "Espereu, s'estan suprimint paquets..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:1085
 msgid "Problem during removal"
@@ -3789,7 +3789,7 @@ msgstr ""
 "optar per establir\n"
 "un conjunt més complet d'orígens que inclogui tots els dipòsits oficials "
 "Mageia,\n"
-"fet que us dóna accés a més programes dels que caben als discs de Mageia.\n"
+"fet que us dona accés a més programes dels que caben als discs de Mageia.\n"
 "Si us plau, escolliu si voleu configurar només els orígens d'actualització o "
 "el conjunt\n"
 "d'orígens complet."
@@ -3944,20 +3944,20 @@ msgstr "Sempre"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
 msgid "Source Removal"
-msgstr "Eliminació dels orígens"
+msgstr "Supressió d'orígens"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
 #, perl-format
 msgid "Are you sure you want to remove source \"%s\"?"
-msgstr "Esteu segur que voleu eliminar l'origen «%s»?"
+msgstr "Segur que voleu suprimir l'origen «%s»?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
 msgid "Are you sure you want to remove the following sources?"
-msgstr "Esteu segur de voler esborrar els orígens següents?"
+msgstr "Segur de voler suprimir els orígens següents?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
 msgid "Please wait, removing medium..."
-msgstr "Espereu, s'està esborrant el mitjà..."
+msgstr "Espereu, s'està suprimint el mitjà..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
 msgid "Edit a medium"
@@ -4092,7 +4092,7 @@ msgstr "Afegeix"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2151
 msgid "Remove"
-msgstr "Elimina"
+msgstr "Suprimeix"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
 msgid "Hosts:"
@@ -4151,7 +4151,7 @@ msgstr "Escolliu una clau per afegir-la al mitjà %s"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
 msgid "Remove a key"
-msgstr "Elimina una clau"
+msgstr "Suprimeix una clau"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
 #, perl-format
@@ -4159,7 +4159,7 @@ msgid ""
 "Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
 "of the key: %s)"
 msgstr ""
-"Esteu segur que voleu eliminar la clau %s del mitjà %s?\n"
+"Segur que voleu suprimir la clau %s del mitjà %s?\n"
 "<br>(nom de la clau: %s)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
@@ -4518,7 +4518,7 @@ msgstr "- %s (mitjà: %s)"
 #: lib/ManaTools/Rpmdragora/gui.pm:950
 #, perl-format
 msgid "Removing package %s would break your system"
-msgstr "L'eliminació del paquet %s faria malbé el sistema"
+msgstr "La supressió del paquet %s faria malbé el sistema"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:954
 #, perl-format
@@ -4527,7 +4527,7 @@ msgid ""
 "Do you want to select it anyway?"
 msgstr ""
 "El paquet «%s» és a la llista d'omissions d'urpmi.\n"
-"Voleu seleccionar-lo igualment?"
+"Voleu seleccionar-lo tanmateix?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1181
 msgid "More information on package..."
@@ -4555,24 +4555,23 @@ msgstr "S'estan comprovant les dependències del paquet..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1399
 msgid "Some additional packages need to be removed"
-msgstr "Cal esborrar alguns paquets addicionals"
+msgstr "Cal suprimir alguns paquets addicionals"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1410
 msgid ""
 "Because of their dependencies, the following package(s) also need to be "
 "removed:"
-msgstr ""
-"A causa de les dependències, cal eliminar també el(s) paquet(s) següents:"
+msgstr "A causa de les dependències, cal suprimir també els paquets següents:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1415
 msgid "Some packages cannot be removed"
-msgstr "Alguns paquets no es poden esborrar"
+msgstr "Alguns paquets no es poden suprimir"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1416
 msgid ""
 "Removing these packages would break your system, sorry:\n"
 "\n"
-msgstr "Eliminar els paquets següents faria malbé el sistema:\n"
+msgstr "Suprimir els paquets següents faria malbé el sistema:\n"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1424 lib/ManaTools/Rpmdragora/gui.pm:1495
 msgid ""
@@ -4642,7 +4641,7 @@ msgstr "S'han seleccionat alguns paquets."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1532
 msgid "Do you really want to quit?"
-msgstr "Esteu segur que voleu sortir?"
+msgstr "Segur que voleu sortir?"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1542
 #, perl-format
@@ -5256,7 +5255,7 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr "Executa l'eina d'instal·lació i eliminació de programari de Mageia"
+msgstr "Executa l'eina d'instal·lació i supressió de programari de Mageia"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
@@ -5276,7 +5275,7 @@ msgstr "Categories"
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:7
 msgid "Install and Remove Software"
-msgstr "Instal·la i elimina programari"
+msgstr "Instal·la i suprimeix programari"
 
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:12
@@ -5429,7 +5428,7 @@ msgstr "/usr/share/icons/mpan.png"
 
 #: extras/desktop/rpmdragora.desktop.in:3
 msgid "rpmdragora - Install & Remove Software"
-msgstr "rpmdragora - Instal·la i elimina programari"
+msgstr "rpmdragora - Instal·la i suprimeix programari"
 
 #: extras/desktop/rpmdragora.desktop.in:4
 msgid "/usr/share/icons/manarpm.png"
@@ -5437,4 +5436,4 @@ msgstr "/usr/share/icons/manarpm.png"
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr "Una interfície gràfica per instal·lar, eliminar i actualitzar paquets"
+msgstr "Una interfície gràfica per instal·lar, suprimir i actualitzar paquets"
