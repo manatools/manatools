@@ -1,7 +1,7 @@
-# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.1)  #-#-#-#-#
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
 # Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
-# This file is distributed under the same license as the PACKAGE package.
+# This file is distributed under the same license as the ManaTools package.
 #
 # #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
 # SOME DESCRIPTIVE TITLE.
@@ -14,8 +14,8 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2016-04-16 21:21+0000\n"
-"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"PO-Revision-Date: 2018-09-09 11:45+0000\n"
+"Last-Translator: Georgi Georgiev <georgiev_1994@abv.bg>\n"
 "Language-Team: Bulgarian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/bg/)\n"
 "Language: bg\n"
@@ -83,14 +83,14 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
 #: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1208
 msgid "&Quit"
-msgstr ""
+msgstr "&Затвори"
 
 #: lib/ManaTools/MainDisplay.pm:392 lib/ManaTools/MainDisplay.pm:393
 #: lib/ManaTools/Module/Users.pm:2449
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2180
 msgid "Help"
-msgstr ""
+msgstr "Помощ"
 
 #: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/Shared/GUI/Dialog.pm:418
 #: lib/ManaTools/Module/LogViewer.pm:294 lib/ManaTools/Module/Users.pm:2451
@@ -101,7 +101,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
 #: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
 msgid "&About"
-msgstr ""
+msgstr "&Относно"
 
 #: lib/ManaTools/MainDisplay.pm:567
 #, perl-format
@@ -154,7 +154,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1308
 msgid "&Ok"
-msgstr ""
+msgstr "&Ок"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -175,7 +175,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1307
 msgid "&Cancel"
-msgstr ""
+msgstr "&Отказ"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -243,7 +243,7 @@ msgstr ""
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 msgid "Unknown"
-msgstr ""
+msgstr "Неизвестно"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
@@ -259,7 +259,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr ""
+msgstr "използване на приставката yui ncurses"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
@@ -267,7 +267,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
-msgstr ""
+msgstr "режим на цял екран за диалоговите прозорци"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
@@ -285,7 +285,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "&Затвори"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
 #, perl-format
@@ -1467,7 +1467,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
-msgstr ""
+msgstr "Опресни"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
@@ -1477,7 +1477,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
 #: modules/rpmdragora/dragoraUpdate:286 modules/rpmdragora/rpmdragora:756
 msgid "&Help"
-msgstr ""
+msgstr "&Помощ"
 
 #: lib/ManaTools/Module/Users.pm:2450
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
@@ -2089,11 +2089,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&Да"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&Не"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -2519,7 +2519,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2057
 msgid "Enabled"
-msgstr ""
+msgstr "Разрешено"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:297
 msgid ""
@@ -2547,7 +2547,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr ""
+msgstr "Моля изчакайте, намиране на налични пакети..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
@@ -2584,7 +2584,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "Инсталацията се провали"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -2738,7 +2738,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:42
 msgid "Accessibility"
-msgstr ""
+msgstr "Достъпност"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
 #: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
@@ -2748,11 +2748,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:44
 msgid "Backup"
-msgstr ""
+msgstr "Резервно копие"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
-msgstr ""
+msgstr "Изпичане на CD"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
@@ -2762,7 +2762,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
 msgid "Other"
-msgstr ""
+msgstr "Други"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
 #: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
@@ -2777,7 +2777,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
-msgstr ""
+msgstr "Dial-Up"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
@@ -2785,23 +2785,23 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:52
 msgid "Mobile"
-msgstr ""
+msgstr "Mobile"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:53
 msgid "Radio"
-msgstr ""
+msgstr "Радио"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
-msgstr ""
+msgstr "Serial"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Telephony"
-msgstr ""
+msgstr "Телефония"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
 msgid "Databases"
-msgstr ""
+msgstr "Бази данни"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
 #: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
@@ -2819,7 +2819,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
@@ -2831,15 +2831,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:61
 msgid "C#"
-msgstr ""
+msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "Отстраняване на грешки"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
@@ -2859,7 +2859,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
@@ -2900,7 +2900,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:80
 msgid "File tools"
-msgstr ""
+msgstr "Файлови инструменти"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
 #: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
@@ -2933,19 +2933,19 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:88
 msgid "Shooter"
-msgstr ""
+msgstr "Стрелби"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
-msgstr ""
+msgstr "Симулации"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
-msgstr ""
+msgstr "Спорт"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:91
 msgid "Strategy"
-msgstr ""
+msgstr "Стратегия"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:92
 msgid "Geography"
@@ -2956,7 +2956,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
 msgid "Graphical desktop"
-msgstr ""
+msgstr "Графичен десктоп"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:96
 msgid "Enlightenment"
@@ -2991,29 +2991,29 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
-msgstr ""
+msgstr "3Д"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "Редактори и конвертори"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
 msgid "Utilities"
-msgstr ""
+msgstr "Комунални услуги"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
-msgstr ""
+msgstr "Фотография"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
-msgstr ""
+msgstr "Сканиране"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
-msgstr ""
+msgstr "Преглед"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
@@ -3029,7 +3029,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:122
 msgid "File transfer"
-msgstr ""
+msgstr "Файлов трансфер"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:123
 msgid "IRC"
@@ -3037,7 +3037,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:124
 msgid "Instant messaging"
-msgstr ""
+msgstr "Мигновени съобщения"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
 msgid "Mail"
@@ -3065,35 +3065,35 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
-msgstr ""
+msgstr "Речник"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "Финанси"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
-msgstr ""
+msgstr "Управление"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:134
 msgid "Organizer"
-msgstr ""
+msgstr "Организатор"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:136
 msgid "Spreadsheet"
-msgstr ""
+msgstr "Електронна таблица"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
-msgstr ""
+msgstr "Комплект"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
-msgstr ""
+msgstr "Електронен документ"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:139
 msgid "Publishing"
-msgstr ""
+msgstr "Издателска дейност"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
 #: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
@@ -3121,7 +3121,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:145
 msgid "Geosciences"
-msgstr ""
+msgstr "Геонауки"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:146
 msgid "Mathematics"
@@ -3140,7 +3140,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:150
 msgid "Shells"
-msgstr ""
+msgstr "Shells"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
@@ -3150,15 +3150,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:153
 msgid "Midi"
-msgstr ""
+msgstr "Midi"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:154
 msgid "Mixers"
-msgstr ""
+msgstr "Звукови миксери"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
 msgid "Players"
-msgstr ""
+msgstr "Плейъри"
 
 #. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
 #. (itstool) path: category/title
@@ -3179,11 +3179,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:158
 msgid "Base"
-msgstr ""
+msgstr "Базов"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:159
 msgid "Boot and Init"
-msgstr ""
+msgstr "Начално зареждане"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:160
 msgid "Cluster"
@@ -3191,7 +3191,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
 msgid "Configuration"
-msgstr ""
+msgstr "Конфигурация"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
 #: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
@@ -3208,7 +3208,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:165
 msgid "X11 bitmap"
-msgstr ""
+msgstr "Х11 bitmap"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:166
 msgid "Internationalization"
@@ -3254,7 +3254,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:182
 msgid "Television"
-msgstr ""
+msgstr "Телевизия"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
 #: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
@@ -3300,11 +3300,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:198
 msgid "GNOME Workstation"
-msgstr ""
+msgstr "GNOME работна станция"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:199
 msgid "IceWm Desktop"
-msgstr ""
+msgstr "IceWm Десктоп"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:200
 msgid "KDE Workstation"
@@ -3312,7 +3312,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:201
 msgid "Other Graphical Desktops"
-msgstr ""
+msgstr "Други графични десктопи"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
 #: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
@@ -3327,23 +3327,23 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:207
 msgid "Database"
-msgstr ""
+msgstr "База данни"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:208
 msgid "Firewall/Router"
-msgstr ""
+msgstr "Защитна стена/Рутер"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr ""
+msgstr "Е-Поща/Софтуер за работни групи/Новини"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
-msgstr ""
+msgstr "Мрежов компютърен сървър"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:212
 msgid "Web/FTP"
-msgstr ""
+msgstr "Web/FTP"
 
 #: lib/ManaTools/Rpmdragora/init.pm:67
 #, perl-format
@@ -3474,7 +3474,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
 msgid "Mirror list"
-msgstr ""
+msgstr "Списък с огледални сървъри"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
@@ -3667,7 +3667,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2060
 msgid "Updates"
-msgstr ""
+msgstr "Обновявания"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
 msgid "&Proxy..."
@@ -3769,7 +3769,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2161
 msgid "Add"
-msgstr ""
+msgstr "Добави"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
@@ -3864,7 +3864,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
-msgstr ""
+msgstr "Обнови"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
 msgid "Add a specific media mirror"
@@ -3876,7 +3876,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "&Опции"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -4485,11 +4485,11 @@ msgstr ""
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr ""
+msgstr "Издание"
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
-msgstr ""
+msgstr "Арх"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
@@ -4562,12 +4562,12 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:521
 msgid "Not installed"
-msgstr ""
+msgstr "Не е инсталирано"
 
 #: modules/rpmdragora/rpmdragora:528
 #, perl-format
 msgid "Show %s and noarch only"
-msgstr ""
+msgstr "Покажи само %s и без определена архитектура"
 
 #: modules/rpmdragora/rpmdragora:542
 msgid "All packages, alphabetical"
@@ -4635,7 +4635,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:610
 msgid "in summaries"
-msgstr ""
+msgstr "в обобщенията"
 
 #: modules/rpmdragora/rpmdragora:611
 msgid "in file names"
@@ -4651,7 +4651,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "&Приложи"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4675,7 +4675,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "Нулирай избора"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -5045,4 +5045,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr ""
+msgstr "Графична среда за инсталиране, премахване и обновяване на пакети"
