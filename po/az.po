@@ -1,0 +1,5028 @@
+# #-#-#-#-#  manatools_perl.pot (ManaTools 1.1.7)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR Angelo Naselli - Matteo Pasotti
+# This file is distributed under the same license as the ManaTools package.
+#
+# #-#-#-#-#  manadesktop.pot (PACKAGE VERSION)  #-#-#-#-#
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+msgid ""
+msgstr ""
+"Project-Id-Version: Mageia\n"
+"Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
+"POT-Creation-Date: 2017-09-10 12:55+0200\n"
+"PO-Revision-Date: 2017-09-22 11:18+0000\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Azerbaijani (http://www.transifex.com/MageiaLinux/mageia/"
+"language/az/)\n"
+"Language: az\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: lib/ManaTools/MainDisplay.pm:247 lib/ManaTools/Module/LogViewer.pm:317
+#: lib/ManaTools/Module/Users.pm:2381 lib/ManaTools/Module/Clock.pm:190
+#: lib/ManaTools/Module/Services.pm:441
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1725
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2002
+#: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
+msgid "_: Translator(s) name(s) & email(s)\n"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:251 lib/ManaTools/Module/LogViewer.pm:320
+#: lib/ManaTools/Module/Users.pm:2385 lib/ManaTools/Module/Clock.pm:195
+#: lib/ManaTools/Module/Services.pm:444
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1730
+#: modules/rpmdragora/dragoraUpdate:354 modules/rpmdragora/rpmdragora:1093
+#, perl-format
+msgid "Copyright (C) %s Mageia community"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:252 lib/ManaTools/Module/LogViewer.pm:321
+#: lib/ManaTools/Module/Users.pm:2386 lib/ManaTools/Module/Clock.pm:196
+#: lib/ManaTools/Module/Services.pm:445
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
+#: modules/rpmdragora/dragoraUpdate:355 modules/rpmdragora/rpmdragora:1094
+msgid "GPLv2"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:253
+msgid "mpan is the ManaTools panel that collects all the utilities."
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:254
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Translators</h3>\n"
+"                                    <ul>%s</ul>"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
+#: modules/rpmdragora/rpmdragora:703
+msgid "File"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:380 lib/ManaTools/Module/LogViewer.pm:298
+#: lib/ManaTools/Module/Users.pm:2437 lib/ManaTools/Module/Users.pm:2525
+#: lib/ManaTools/Module/Services.pm:408
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1379
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1584
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1704
+#: modules/rpmdragora/dragoraUpdate:295 modules/rpmdragora/rpmdragora:662
+#: modules/rpmdragora/rpmdragora:707 modules/rpmdragora/rpmdragora:1208
+msgid "&Quit"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:392 lib/ManaTools/MainDisplay.pm:393
+#: lib/ManaTools/Module/Users.pm:2449
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1699
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2180
+msgid "Help"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:394 lib/ManaTools/Shared/GUI/Dialog.pm:418
+#: lib/ManaTools/Module/LogViewer.pm:294 lib/ManaTools/Module/Users.pm:2451
+#: lib/ManaTools/Module/Users.pm:2523 lib/ManaTools/Module/Hosts.pm:447
+#: lib/ManaTools/Module/Firewall.pm:606 lib/ManaTools/Module/Firewall.pm:821
+#: lib/ManaTools/Module/DisplayManager.pm:241 lib/ManaTools/Module/Proxy.pm:325
+#: lib/ManaTools/Module/Services.pm:402
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1610
+#: modules/rpmdragora/dragoraUpdate:287 modules/rpmdragora/rpmdragora:759
+msgid "&About"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:567
+#, perl-format
+msgid ""
+"Bad configuration file, %s has not xml:lang attribute, guessing it is a "
+"string"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:590
+#, perl-format
+msgid "Configuration file %s is missing"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:595
+#, perl-format
+msgid "Reading configuration file %s"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:612
+#, perl-format
+msgid "Load settings: %s content is <<%s>>"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:768
+#, perl-format
+msgid "Parsing category file %s"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:779
+#, perl-format
+msgid "Load categories: title content is <<%s>>"
+msgstr ""
+
+#: lib/ManaTools/MainDisplay.pm:814
+#, perl-format
+msgid "Load categories: module title is <<%s>>"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
+#: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
+#: lib/ManaTools/Shared/GUI.pm:1078 lib/ManaTools/Shared/GUI/Dialog.pm:426
+#: lib/ManaTools/Module/Users.pm:361 lib/ManaTools/Module/Users.pm:607
+#: lib/ManaTools/Module/Users.pm:908 lib/ManaTools/Module/Users.pm:2049
+#: lib/ManaTools/Module/Users.pm:2209 lib/ManaTools/Module/Clock.pm:516
+#: lib/ManaTools/rpmdragora.pm:365 lib/ManaTools/Rpmdragora/rpmnew.pm:254
+#: lib/ManaTools/Rpmdragora/pkg.pm:657 lib/ManaTools/Rpmdragora/pkg.pm:930
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:309
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:527
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
+#: lib/ManaTools/Rpmdragora/gui.pm:1308
+msgid "&Ok"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
+#: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
+#: lib/ManaTools/Shared/GUI/Dialog.pm:425 lib/ManaTools/Module/Users.pm:360
+#: lib/ManaTools/Module/Users.pm:431 lib/ManaTools/Module/Users.pm:522
+#: lib/ManaTools/Module/Users.pm:606 lib/ManaTools/Module/Users.pm:907
+#: lib/ManaTools/Module/Users.pm:2048 lib/ManaTools/Module/Users.pm:2208
+#: lib/ManaTools/Module/Clock.pm:515 lib/ManaTools/Module/Hosts.pm:174
+#: lib/ManaTools/Module/Hosts.pm:258 lib/ManaTools/Module/Hosts.pm:448
+#: lib/ManaTools/Module/Firewall.pm:607 lib/ManaTools/Module/Firewall.pm:822
+#: lib/ManaTools/Module/Firewall.pm:918
+#: lib/ManaTools/Module/DisplayManager.pm:242 lib/ManaTools/Module/Proxy.pm:326
+#: lib/ManaTools/rpmdragora.pm:893 lib/ManaTools/Rpmdragora/pkg.pm:930
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:307
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:525
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:767
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:811
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
+#: lib/ManaTools/Rpmdragora/gui.pm:1307
+msgid "&Cancel"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI.pm:318
+msgid "Yes"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI.pm:319
+msgid "No"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
+#: lib/ManaTools/Shared/GUI.pm:924
+msgid "&Select"
+msgstr ""
+
+#: lib/ManaTools/Shared/CommandLine.pm:73
+msgid ""
+"<dir> optional directory containing localization strings (developer only)"
+msgstr ""
+
+#: lib/ManaTools/Shared/CommandLine.pm:83
+msgid "Prints this usage information."
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:383
+msgid "Name field is empty please provide a name"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:388
+msgid ""
+"The name must start with a letter and contain only lower cased latin "
+"letters, numbers, '.', '-' and '_'"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:391
+#, perl-format
+msgid "Name is too long. Maximum length is %d"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1113
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1186
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
+msgid "Ok"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:819
+#, perl-format
+msgid "You cannot remove user <%s> from their primary group"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:1172
+msgid "Locked"
+msgstr ""
+
+#: lib/ManaTools/Shared/Users.pm:1172
+msgid "Expired"
+msgstr ""
+
+#: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
+#: lib/ManaTools/Rpmdragora/formatting.pm:126
+msgid "None (installed)"
+msgstr ""
+
+#: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
+#: lib/ManaTools/Rpmdragora/formatting.pm:127
+msgid "Unknown"
+msgstr ""
+
+#: lib/ManaTools/Shared/Shorewall.pm:189
+msgid "Keep custom rules"
+msgstr ""
+
+#: lib/ManaTools/Shared/Shorewall.pm:190
+msgid "Drop custom rules"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:87
+msgid "start using yui gtk plugin implementation"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:93
+msgid "start using yui ncurses plugin implementation"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:99
+msgid "start using yui qt plugin implementation"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:105
+msgid "use full screen for dialogs"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:111
+msgid "no window manager border for dialogs"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/CommandLine.pm:119
+msgid ""
+"<dir> optional directory containing configuration files for each module (e."
+"g. modulename/config_files)"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/Dialog.pm:420
+msgid "&Reset"
+msgstr ""
+
+#: lib/ManaTools/Shared/GUI/Dialog.pm:427
+msgid "&Close"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
+#, perl-format
+msgid "%s enabled but stopped - disabling it"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:374
+msgid "Global"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:377
+msgid "Africa"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:378
+msgid "Asia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:379
+msgid "Europe"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:380
+msgid "North America"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:381
+msgid "Oceania"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:382
+msgid "South America"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
+msgid "South Africa"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:386
+msgid "Tanzania"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:389
+msgid "Bangladesh"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
+msgid "China"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:391
+msgid "Hong Kong"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:392
+msgid "India"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
+msgid "Indonesia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:394
+msgid "Iran"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
+msgid "Israel"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
+msgid "Japan"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
+msgid "Korea"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:398
+msgid "Malaysia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:399
+msgid "Philippines"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
+msgid "Singapore"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
+msgid "Taiwan"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
+msgid "Thailand"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:403
+msgid "Turkey"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:404
+msgid "United Arab Emirates"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
+msgid "Austria"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:408 lib/ManaTools/rpmdragora.pm:578
+msgid "Belarus"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
+msgid "Belgium"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:410
+msgid "Bulgaria"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
+msgid "Czech Republic"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:412
+msgid "Denmark"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:413
+msgid "Estonia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
+msgid "Finland"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
+msgid "France"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
+msgid "Germany"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
+#: lib/ManaTools/rpmdragora.pm:593
+msgid "Greece"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
+msgid "Hungary"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:419
+msgid "Ireland"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
+msgid "Italy"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:421
+msgid "Lithuania"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:422
+msgid "Luxembourg"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
+msgid "Netherlands"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
+msgid "Norway"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
+msgid "Poland"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
+msgid "Portugal"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:427
+msgid "Romania"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:428
+msgid "Russian Federation"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
+msgid "Slovakia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:430
+msgid "Slovenia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
+msgid "Spain"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
+msgid "Sweden"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
+msgid "Switzerland"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:434
+msgid "Ukraine"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:435
+msgid "United Kingdom"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:436
+msgid "Yugoslavia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
+msgid "Canada"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:440
+msgid "Guatemala"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:441
+msgid "Mexico"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
+#: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
+#: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
+msgid "United States"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
+msgid "Australia"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:446
+msgid "New Zealand"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
+msgid "Argentina"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
+msgid "Brazil"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:451
+msgid "Chile"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
+msgid "All servers"
+msgstr ""
+
+#: lib/ManaTools/Shared/TimeZone.pm:956
+msgid "user does not have the rights to change configuration file, skipped"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:238
+msgid "Listen and dispatch ACPI events from the kernel"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:239
+msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:240
+msgid "Anacron is a periodic command scheduler."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:241
+msgid ""
+"apmd is used for monitoring battery status and logging it via syslog.\n"
+"It can also be used for shutting down the machine when the battery is low."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:243
+msgid ""
+"Runs commands scheduled by the at command at the time specified when\n"
+"at was run, and runs batch commands when the load average is low enough."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:245
+msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:246
+msgid "An NTP client/server"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:247
+msgid "Set CPU frequency settings"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:248
+msgid ""
+"cron is a standard UNIX program that runs user-specified programs\n"
+"at periodic scheduled times. vixie cron adds a number of features to the "
+"basic\n"
+"UNIX cron, including better security and more powerful configuration options."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:251
+msgid ""
+"Common UNIX Printing System (CUPS) is an advanced printer spooling system"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:252
+msgid "Launches the graphical display manager"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:253
+msgid ""
+"FAM is a file monitoring daemon. It is used to get reports when files "
+"change.\n"
+"It is used by GNOME and KDE"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:255
+msgid ""
+"G15Daemon allows users access to all extra keys by decoding them and\n"
+"pushing them back into the kernel via the linux UINPUT driver. This driver "
+"must be loaded\n"
+"before g15daemon can be used for keyboard access. The G15 LCD is also "
+"supported. By default,\n"
+"with no other clients active, g15daemon will display a clock. Client "
+"applications and\n"
+"scripts can access the LCD via a simple API."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:260
+msgid ""
+"GPM adds mouse support to text-based Linux applications such the\n"
+"Midnight Commander. It also allows mouse-based console cut-and-paste "
+"operations,\n"
+"and includes support for pop-up menus on the console."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:263
+msgid "HAL is a daemon that collects and maintains information about hardware"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:264
+msgid ""
+"HardDrake runs a hardware probe, and optionally configures\n"
+"new/changed hardware."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:266
+msgid ""
+"Apache is a World Wide Web server. It is used to serve HTML files and CGI."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:267
+msgid ""
+"The internet superserver daemon (commonly called inetd) starts a\n"
+"variety of other internet services as needed. It is responsible for "
+"starting\n"
+"many services, including telnet, ftp, rsh, and rlogin. Disabling inetd "
+"disables\n"
+"all of the services it is responsible for."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:271
+msgid "Automates a packet filtering firewall with ip6tables"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:272
+msgid "Automates a packet filtering firewall with iptables"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:273
+msgid ""
+"Evenly distributes IRQ load across multiple CPUs for enhanced performance"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:274
+msgid ""
+"This package loads the selected keyboard map as set in\n"
+"/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
+"You should leave this enabled for most machines."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:277
+msgid ""
+"Automatic regeneration of kernel header in /boot for\n"
+"/usr/include/linux/{autoconf,version}.h"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:279
+msgid "Automatic detection and configuration of hardware at boot."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:280
+msgid "Tweaks system behavior to extend battery life"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:281
+msgid ""
+"Linuxconf will sometimes arrange to perform various tasks\n"
+"at boot-time to maintain the system configuration."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:283
+msgid ""
+"lpd is the print daemon required for lpr to work properly. It is\n"
+"basically a server that arbitrates print jobs to printer(s)."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:285
+msgid ""
+"Linux Virtual Server, used to build a high-performance and highly\n"
+"available server."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:287
+msgid "Monitors the network (Interactive Firewall and wireless)"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:288
+msgid "Software RAID monitoring and management"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:289
+msgid ""
+"DBUS is a daemon which broadcasts notifications of system events and other "
+"messages"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:290
+msgid "Enables MSEC security policy on system startup"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:291
+msgid ""
+"named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
+"names to IP addresses."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:292
+msgid "Initializes network console logging"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:293
+msgid ""
+"Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
+"Manager/Windows), and NCP (NetWare) mount points."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:295
+msgid ""
+"Activates/Deactivates all network interfaces configured to start\n"
+"at boot time."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:297
+msgid "Requires network to be up if enabled"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:298
+msgid "Wait for the hotplugged network to be up"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:299
+msgid ""
+"NFS is a popular protocol for file sharing across TCP/IP networks.\n"
+"This service provides NFS server functionality, which is configured via the\n"
+"/etc/exports file."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:302
+msgid ""
+"NFS is a popular protocol for file sharing across TCP/IP\n"
+"networks. This service provides NFS file locking functionality."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:304
+msgid "Synchronizes system time using the Network Time Protocol (NTP)"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:305
+msgid ""
+"Automatically switch on numlock key locker under console\n"
+"and Xorg at boot."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:307
+msgid "Support the OKI 4w and compatible winprinters."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:308
+msgid "Checks if a partition is close to full up"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:309
+msgid ""
+"PCMCIA support is usually to support things like ethernet and\n"
+"modems in laptops.  It will not get started unless configured so it is safe "
+"to have\n"
+"it installed on machines that do not need it."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:312
+msgid ""
+"The portmapper manages RPC connections, which are used by\n"
+"protocols such as NFS and NIS. The portmap server must be running on "
+"machines\n"
+"which act as servers for protocols which make use of the RPC mechanism."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:315
+msgid "Reserves some TCP ports"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:316
+msgid ""
+"Postfix is a Mail Transport Agent, which is the program that moves mail from "
+"one machine to another."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:317
+msgid ""
+"Saves and restores system entropy pool for higher quality random\n"
+"number generation."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:319
+msgid ""
+"Assign raw devices to block devices (such as hard disk drive\n"
+"partitions), for the use of applications such as Oracle or DVD players"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:321
+msgid "Nameserver information manager"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:322
+msgid ""
+"The routed daemon allows for automatic IP router table updated via\n"
+"the Routing Information Protocol. While RIP is widely used on small "
+"networks, more complex\n"
+"routing protocols are needed for complex networks."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:325
+msgid ""
+"The rstat protocol allows users on a network to retrieve\n"
+"performance metrics for any machine on that network."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:327
+msgid ""
+"Syslog is the facility by which many daemons use to log messages to various "
+"system log files.  It is a good idea to always run rsyslog."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:328
+msgid ""
+"The rusers protocol allows users on a network to identify who is\n"
+"logged in on other responding machines."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:330
+msgid ""
+"The rwho protocol lets remote users get a list of all of the users\n"
+"logged into a machine running the rwho daemon (similar to finger)."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:332
+msgid ""
+"SANE (Scanner Access Now Easy) enables to access scanners, video cameras, ..."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:333
+msgid "Packet filtering firewall"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:334
+msgid ""
+"The SMB/CIFS protocol enables to share access to files & printers and also "
+"integrates with a Windows Server domain"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:335
+msgid "Launch the sound system on your machine"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:336
+msgid "layer for speech analysis"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:337
+msgid ""
+"Secure Shell is a network protocol that allows data to be exchanged over a "
+"secure channel between two computers"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:338
+msgid ""
+"Syslog is the facility by which many daemons use to log messages\n"
+"to various system log files.  It is a good idea to always run syslog."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:340
+msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:341
+msgid "Load the drivers for your usb devices."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:342
+msgid "A lightweight network traffic monitor"
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:343
+msgid "Starts the X Font Server."
+msgstr ""
+
+#: lib/ManaTools/Shared/Services.pm:344
+msgid "Starts other deamons on demand."
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:81
+#, perl-format
+msgid "%s - Log viewer"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:156
+msgid "A tool to monitor your logs"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:160
+msgid "Matching"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:164
+msgid "but not matching"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
+msgid "Options"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:173
+msgid "Last boot"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:186
+msgid "Since"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:191
+msgid "Until"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:218
+msgid "Select a unit"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:240
+msgid "From priority"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:260
+msgid "To priority"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:278
+msgid "&Find"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:281
+msgid "Log content"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:297
+msgid "&Save"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:322
+msgid "Log viewer is a systemd journal viewer"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:323
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Translators</h3>\n"
+"                                                    <ul>%s</ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:341
+msgid "Empty log found"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:434
+msgid "manalog - running in user mode"
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:435
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to read system logs which you do not have rights to,\n"
+"but you may still browse all the others."
+msgstr ""
+
+#: lib/ManaTools/Module/LogViewer.pm:457
+msgid "Save as.."
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:107
+#, perl-format
+msgid "%s - Users Management Tool"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:295
+msgid "User Data"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:296
+msgid "Account Info"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:297
+msgid "Password Info"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
+msgid "Groups"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:301
+msgid "Group Data"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:302
+msgid "Group Users"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:336
+msgid "Choose group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:344
+msgid "A group with this name already exists.  What would you like to do?"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:350
+msgid "Add to the existing group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:354
+msgid "Add to the 'users' group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:418 lib/ManaTools/rpmdragora.pm:854
+#: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
+#: lib/ManaTools/Rpmdragora/pkg.pm:950 lib/ManaTools/Rpmdragora/pkg.pm:964
+#: lib/ManaTools/Rpmdragora/gui.pm:397 lib/ManaTools/Rpmdragora/gui.pm:950
+#: lib/ManaTools/Rpmdragora/gui.pm:954 lib/ManaTools/Rpmdragora/gui.pm:959
+#: modules/rpmdragora/rpmdragora:1208
+msgid "Warning"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:426
+#, perl-format
+msgid "Do you really want to delete the group %s?"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
+#: lib/ManaTools/Module/Users.pm:2347
+msgid "&Delete"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:452
+#, perl-format
+msgid ""
+"%s is a primary group for user %s\n"
+" Remove the user first"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:459
+#, perl-format
+msgid "Removing group: %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:506
+msgid "Delete files or not?"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:513
+#, perl-format
+msgid ""
+"Deleting user %s\n"
+"Also perform the following actions\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:516
+#, perl-format
+msgid "Delete Home Directory: %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:518
+#, perl-format
+msgid "Delete Mailbox: /var/spool/mail/%s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:546
+#, perl-format
+msgid "Removing user: %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:578
+msgid "Create New Group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
+msgid "Group Name:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:598
+msgid "Specify group ID manually"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:600
+msgid "GID"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:633
+msgid "Group already exists, please choose another Group Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:641
+#, perl-format
+msgid " Group Gid is < %n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:642
+#, perl-format
+msgid ""
+"Creating a group with a GID less than %d is not recommended.\n"
+" Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:650
+msgid " Group ID is already used "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:651
+msgid ""
+"Creating a group with a non unique GID?\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:663
+#, perl-format
+msgid "Adding group: %s "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:719
+msgid "Full Name:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:728
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
+msgid "Login:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:738 lib/ManaTools/rpmdragora.pm:188
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
+msgid "Password:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:760
+msgid "Confirm Password:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:769
+msgid "Login Shell:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:808
+#, perl-format
+msgid "&Icon (%s)"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2406
+#: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Proxy.pm:147
+#: modules/rpmdragora/dragora-urpm-addmedia:66
+#: modules/rpmdragora/dragora-urpm-sources.pl:39
+msgid "root privileges required"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:856
+msgid "Create New User"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:871
+msgid "Create Home Directory"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:875
+msgid "Home Directory:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:884
+msgid "Create a private group for the user"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:889
+msgid "Specify user ID manually"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:891
+msgid "UID"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:899
+msgid "Click on icon to change it"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:951
+msgid "User already exists, please choose another User Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
+msgid "Password Mismatch"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
+msgid ""
+"This password is too simple. \n"
+" Good passwords should be > 6 characters"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:967
+#, perl-format
+msgid ""
+"Home directory <%s> already exists.\n"
+"Please uncheck the home creation option, or change the directory path name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:980
+#, perl-format
+msgid "User Uid is < %d"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:981
+#, perl-format
+msgid ""
+"Creating a user with a UID less than %d is not recommended.\n"
+"Are you sure you want to do this?\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:996
+#, perl-format
+msgid "Putting %s to 'users' group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1009
+#, perl-format
+msgid "Creating new group: %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1023
+msgid "Adding user: "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1024
+#, perl-format
+msgid "Adding user: %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1090
+msgid "User Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1091
+msgid "User ID"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
+msgid "Primary Group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1093
+msgid "Full Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1094
+msgid "Login Shell"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1095
+msgid "Home Directory"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
+#: modules/rpmdragora/rpmdragora:478
+msgid "Status"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1136
+msgid "Group Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1137
+msgid "Group ID"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1138
+msgid "Group Members"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1552
+msgid "Home:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1651
+msgid "Enable account expiration"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1654
+msgid "Account expires (YYYY-MM-DD):"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1661
+msgid "Lock User Account"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1665
+msgid "Click on the icon to change it"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1695
+msgid "User last changed password on: "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1708
+msgid "Enable Password Expiration"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1712
+msgid "Days before change allowed:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1720
+msgid "Days before change required:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1728
+msgid "Days warning before change:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1736
+msgid "Days before account inactive:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1765
+msgid "Select the users to join this group:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1769
+msgid "User"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1810
+msgid "Select groups that the user will be member of:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1814
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
+msgid "Group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1916
+msgid "Please select at least one group for the user"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1942
+msgid ""
+"Please specify Year, Month and Day \n"
+" for Account Expiration "
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1958
+msgid "Please fill up all fields in password aging\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1971
+#, perl-format
+msgid "Problem in modifying user %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1997
+msgid "Strong"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:1997
+msgid "Weak"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2010
+msgid "Edit User"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2163 lib/ManaTools/Module/Users.pm:2266
+msgid "Cannot create tab widgets"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2179
+msgid "Edit Group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2344 lib/ManaTools/Module/Users.pm:2468
+msgid "Add User"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2345 lib/ManaTools/Module/Users.pm:2473
+msgid "Add Group"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2346 lib/ManaTools/Module/Hosts.pm:436
+msgid "&Edit"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2348
+msgid "Install guest account"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2383
+msgid "manauser"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2387
+msgid ""
+"manauser is a Mageia user management tool \n"
+"(from the original idea of Mandriva userdrake)."
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2388
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Translators</h3>\n"
+"                                    <ul>%s</ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
+msgid "Refresh"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2444
+msgid "Actions"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2448
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
+#: modules/rpmdragora/dragoraUpdate:286 modules/rpmdragora/rpmdragora:756
+msgid "&Help"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2450
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
+#: modules/rpmdragora/rpmdragora:758
+msgid "Report Bug"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2478
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2155
+msgid "Edit"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2483
+msgid "Delete"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2502
+msgid "Filter system users"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2507
+msgid "Search:"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2509
+msgid "Apply &filter"
+msgstr ""
+
+#: lib/ManaTools/Module/Users.pm:2528
+msgid "Users"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:79
+#, perl-format
+msgid "%s - Date, Clock & Time Zone Settings"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:197
+msgid ""
+"Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
+"and time"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:198
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Translators</h3>\n"
+"                                              <ul>%s</ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:214
+msgid "Restore data"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:215
+msgid "Restore date and time only?"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:235 lib/ManaTools/Module/Clock.pm:241
+#: lib/ManaTools/Module/Clock.pm:567 lib/ManaTools/Module/Clock.pm:652
+msgid "not defined"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:269
+msgid "Set local RTC failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:284
+msgid "Set time zone failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:329
+msgid "Set NTP Configuration failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:345
+msgid "Set NTP failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:368
+msgid "Set system time failed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:399
+msgid "Setting date and time"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:417
+msgid "Enable Network Time Protocol"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:429
+msgid "manaclock: NTP service missed"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:430
+msgid "Please install a NTP service such as chrony or ntp to manage"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:446
+msgid "Choose &NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:462
+msgid "NTP server - DrakClock"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:463
+msgid "Choose your NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:494
+msgid "&Local NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:507
+msgid "Set local NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:511
+msgid "Please set your local NTP server"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
+msgid "Current:"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:590
+msgid "TimeZone"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:592
+msgid "Change &Time Zone"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
+msgid "Timezone - DrakClock"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:606
+msgid "Failed to retrieve timezone list"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:614
+msgid "Which is your timezone?"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:626
+msgid "GMT - manaclock"
+msgstr ""
+
+#: lib/ManaTools/Module/Clock.pm:627
+msgid "Is your hardware clock set to GMT?"
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:155
+msgid "no active media found\n"
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:179
+msgid "== Processing "
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:184
+#: lib/ManaTools/Module/PkgDownloader.pm:193
+#: lib/ManaTools/Module/PkgDownloader.pm:203
+msgid "protocol in use: "
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:185
+msgid "trying with "
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:206
+msgid " downloaded successfully\n"
+msgstr ""
+
+#: lib/ManaTools/Module/PkgDownloader.pm:211
+msgid "no packages passed as argument\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:48
+#, perl-format
+msgid "%s - manage hosts definitions"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
+#: lib/ManaTools/Module/Hosts.pm:421
+msgid "Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:147
+msgid "Pretty Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:152
+msgid "Static Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:157
+msgid "Chassis"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:162
+msgid "Icon Name"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
+#: lib/ManaTools/Module/Hosts.pm:449 lib/ManaTools/Module/Firewall.pm:608
+#: lib/ManaTools/Module/Firewall.pm:823 lib/ManaTools/Module/Firewall.pm:919
+#: lib/ManaTools/Module/DisplayManager.pm:243 lib/ManaTools/Module/Proxy.pm:327
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
+msgid "&OK"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:237 lib/ManaTools/Module/Hosts.pm:420
+msgid "IP Address"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:239
+msgid "Host aliases"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:314
+msgid "Add the information"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:348
+msgid "Modify the information"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:394
+msgid "Manage hosts definitions"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:422
+msgid "Host Aliases"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:435
+msgid "A&dd"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:437
+msgid "&Remove"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:438
+msgid "&Hostname"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:481 lib/ManaTools/Rpmdragora/pkg.pm:267
+#: lib/ManaTools/Rpmdragora/pkg.pm:812
+msgid "Confirmation"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:481
+msgid "Are you sure to drop this host?"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:496 lib/ManaTools/Module/Firewall.pm:176
+#: lib/ManaTools/Module/DisplayManager.pm:263
+#, perl-format
+msgid "Copyright (C) %s by Matteo Pasotti"
+msgstr ""
+
+#: lib/ManaTools/Module/Hosts.pm:498
+msgid "Graphical manager for hosts definitions"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:86
+#, perl-format
+msgid "%s - Firewall Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:200
+msgid "Port scan detection"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
+#: lib/ManaTools/Module/Firewall.pm:1008
+msgid "Firewall configuration"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:416
+msgid ""
+"drakfirewall configurator\n"
+"                    This configures a personal firewall for this Mageia "
+"machine."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:423
+msgid ""
+"drakfirewall configurator\n"
+"Make sure you have configured your Network/Internet access with\n"
+"drakconnect before going any further."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:486
+msgid "Interactive Firewall"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:490
+msgid ""
+"You can be warned when someone accesses to a service or tries to intrude "
+"into your computer.\n"
+"Please select which network activities should be watched."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:496
+msgid "Use Interactive Firewall"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:658
+msgid "Graphical manager for interactive firewall rules"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
+#: lib/ManaTools/Module/Firewall.pm:1097
+msgid "Firewall"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:712
+msgid "Which services would you like to allow the Internet to connect to?"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:713
+#, perl-format
+msgid "Those settings will be saved for the network profile <b>%s</b>"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:714
+msgid "Everything (no firewall)"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:820
+msgid "A&dvanced"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:854
+msgid "Graphical manager for firewall rules"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:886
+msgid ""
+"You can enter miscellaneous ports.\n"
+"Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Have a look at /etc/services for information."
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:891
+msgid "Define miscellaneus ports"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:906
+msgid "Other ports"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:914
+msgid "Log firewall messages in system logs"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:969
+msgid "Invalid port given"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:970
+#, perl-format
+msgid ""
+"Invalid port given: %s.\n"
+"The proper format is \"port/tcp\" or \"port/udp\",\n"
+"where port is between 1 and 65535.\n"
+"\n"
+"You can also give a range of ports (eg: 24300:24350/udp)"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:1009
+msgid ""
+"Please select the interfaces that will be protected by the firewall.\n"
+"\n"
+"All interfaces directly connected to Internet should be selected,\n"
+"while interfaces connected to a local network may be unselected.\n"
+"\n"
+"If you intend to use Mageia Internet Connection sharing,\n"
+"unselect interfaces which will be connected to local network.\n"
+"\n"
+"Which interfaces should be protected?\n"
+msgstr ""
+
+#: lib/ManaTools/Module/Firewall.pm:1098
+msgid ""
+"Your firewall configuration has been manually edited and contains\n"
+"    rules that may conflict with the configuration that has just been set "
+"up.\n"
+"    What do you want to do?"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:54
+#, perl-format
+msgid "%s - Display Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:89
+msgid "LightDM (The Light Display Manager)"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:90
+msgid "GDM (GNOME Display Manager)"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:91
+msgid "KDM (KDE Display Manager)"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:92
+msgid "XDM (X Display Manager)"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
+msgid "X Restart Required"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
+msgid "You need to log out and back in again for changes to take effect"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:178
+msgid "Display Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:209
+msgid "Choosing a display manager"
+msgstr ""
+
+#: lib/ManaTools/Module/DisplayManager.pm:265
+msgid "Graphical configurator for system Display Manager"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:53
+#, perl-format
+msgid "%s - Proxy configuration"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:210
+msgid "Proxy should be http://..."
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:215
+msgid "Proxy should be http://... or https://..."
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:220
+msgid "URL should begin with 'ftp:' or 'http:'"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:232
+msgid "Proxies configuration"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:282
+msgid ""
+"Here you can set up your proxies configuration (eg: http://"
+"my_caching_server:8080)"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:290
+msgid "HTTP proxy"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:296
+msgid "Use HTTP proxy for HTTPS connections"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:302
+msgid "HTTPS proxy"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:308
+msgid "FTP proxy"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:314
+msgid "No proxy for (comma separated list):"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:347
+#, perl-format
+msgid "Copyright (C) %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Proxy.pm:349
+msgid "Graphical manager for proxies"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:86
+#, perl-format
+msgid "%s - Services and daemons"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:280
+msgid "Start when requested"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:283
+msgid "running"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:283
+msgid "stopped"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:362
+msgid "Manage system services by enabling or disabling them"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:370
+msgid "Service"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:372
+msgid "On boot"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:383 lib/ManaTools/Rpmdragora/pkg.pm:1093
+msgid "Information"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:391
+msgid "&Start"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:394
+msgid "S&top"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:407
+msgid "&Refresh"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:446
+msgid ""
+"manaservice is the Mageia service and daemon management tool\n"
+"\n"
+"                                                       (from the original "
+"idea of Mandriva drakxservices)."
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:448
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Translators</h3>\n"
+"                                                       <ul>%s</ul>"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:516
+#, perl-format
+msgid "Starting %s"
+msgstr ""
+
+#: lib/ManaTools/Module/Services.pm:536
+#, perl-format
+msgid "Stopping %s"
+msgstr ""
+
+#: lib/ManaTools/Module.pm:108
+#, perl-format
+msgid "%s - Management Tool"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:161
+msgid "Software Update"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:161
+msgid "Mageia Update"
+msgstr "Mageia Update"
+
+#: lib/ManaTools/rpmdragora.pm:187
+msgid "Please enter your credentials for accessing proxy\n"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:188
+msgid "User name:"
+msgstr "İstifadəçi adı:"
+
+#: lib/ManaTools/rpmdragora.pm:274
+msgid "Software Packages Removal"
+msgstr "Proqram Tə'minatlarının Silinməsi"
+
+#: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
+msgid "Software Packages Update"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:276
+msgid "Software Packages Installation"
+msgstr "Proqram Tə'minatlarının Qurulması"
+
+#: lib/ManaTools/rpmdragora.pm:353
+msgid "Do not ask me next time"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:361
+msgid "&Yes"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:362
+msgid "&No"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:411
+msgid "Dependencies"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:424
+msgid "OK"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:461 lib/ManaTools/rpmdragora.pm:1120
+#: lib/ManaTools/Rpmdragora/pkg.pm:149 lib/ManaTools/Rpmdragora/pkg.pm:465
+#: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
+#: modules/rpmdragora/rpmdragora:296
+msgid "Please wait"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:581
+msgid "Britain"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:584
+msgid "Costa Rica"
+msgstr "Kosta Rika"
+
+#: lib/ManaTools/rpmdragora.pm:587
+msgid "Danmark"
+msgstr "Danimarka"
+
+#: lib/ManaTools/rpmdragora.pm:588
+msgid "Ecuador"
+msgstr "Ekvador"
+
+#: lib/ManaTools/rpmdragora.pm:604
+msgid "Russia"
+msgstr "Rusiya"
+
+#: lib/ManaTools/rpmdragora.pm:696 lib/ManaTools/rpmdragora.pm:720
+#: lib/ManaTools/rpmdragora.pm:738 lib/ManaTools/Rpmdragora/pkg.pm:494
+#: lib/ManaTools/Rpmdragora/pkg.pm:969 lib/ManaTools/Rpmdragora/pkg.pm:994
+msgid "Error"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
+#, perl-format
+msgid ""
+"Unable to add medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+"Medium əlavə edilə bilmədi, xətalar bunlardır:\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
+msgid "Medium: "
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:720
+msgid "Unable to create medium."
+msgstr "Mediyum yaradıla bilmir."
+
+#: lib/ManaTools/rpmdragora.pm:725
+msgid "Failure when adding medium"
+msgstr "Medium əlavə etmə xətası"
+
+#: lib/ManaTools/rpmdragora.pm:726
+#, perl-format
+msgid ""
+"There was a problem adding medium:\n"
+"\n"
+"%s"
+msgstr ""
+"Medium əlavəsi əsnasında xəta yarandı:\n"
+"\n"
+"%s"
+
+#: lib/ManaTools/rpmdragora.pm:754
+msgid "rpmdragora"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:760
+msgid "Please wait, updating media..."
+msgstr "Xahiş edirik gözləyin, mediya yenilənir..."
+
+#: lib/ManaTools/rpmdragora.pm:783
+msgid "Error retrieving packages"
+msgstr "Paketlər alına bilmədi"
+
+#: lib/ManaTools/rpmdragora.pm:784
+#, perl-format
+msgid ""
+"It's impossible to retrieve the list of new packages from the media\n"
+"`%s'. Either this update media is misconfigured, and in this case\n"
+"you should use the Software Media Manager to remove it and re-add it in "
+"order\n"
+"to reconfigure it, either it is currently unreachable and you should retry\n"
+"later."
+msgstr ""
+"`%s' mediadan yeni paketlərin siyahısı alına bilmir.\n"
+"Xahiş edirik, Media İdrəçisindən səhv medianı silib yenidən  əlavə edin."
+
+#: lib/ManaTools/rpmdragora.pm:812
+#, perl-format
+msgid "Copying file for medium `%s'..."
+msgstr "`%s' mediyumu üçün köçürülür..."
+
+#: lib/ManaTools/rpmdragora.pm:815
+#, perl-format
+msgid "Examining file of medium `%s'..."
+msgstr "Mediyumun `%s' faylı yoxlanılır..."
+
+#: lib/ManaTools/rpmdragora.pm:818
+#, perl-format
+msgid "Examining remote file of medium `%s'..."
+msgstr "Mediyumun uzaqdakı`%s' faylı yoxlanır..."
+
+#: lib/ManaTools/rpmdragora.pm:822
+msgid " done."
+msgstr " bitdi."
+
+#: lib/ManaTools/rpmdragora.pm:826
+msgid " failed!"
+msgstr "bacarılmadı!"
+
+#: lib/ManaTools/rpmdragora.pm:831
+#, perl-format
+msgid "%s from medium %s"
+msgstr "%2$s mənbəsindən %1$s"
+
+#: lib/ManaTools/rpmdragora.pm:835
+#, perl-format
+msgid "Starting download of `%s'..."
+msgstr "`%s' endirilməyə başlanır..."
+
+#: lib/ManaTools/rpmdragora.pm:839
+#, perl-format
+msgid ""
+"Download of `%s'\n"
+"time to go:%s, speed:%s"
+msgstr ""
+"`%s' endirilir\n"
+"qalan vaxt:%s, sür'ət:%s"
+
+#: lib/ManaTools/rpmdragora.pm:842
+#, perl-format
+msgid ""
+"Download of `%s'\n"
+"speed:%s"
+msgstr ""
+"`%s' endirilir\n"
+"sür'ət:%s"
+
+#: lib/ManaTools/rpmdragora.pm:854
+msgid ""
+"No active medium found. You must enable some media to be able to update them."
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
+msgid "Update media"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:875
+msgid "Media"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
+#: modules/rpmdragora/rpmdragora:653
+msgid "&Select all"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
+msgid "&Update"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:974
+#, perl-format
+msgid ""
+"Unable to update medium; it will be automatically disabled.\n"
+"\n"
+"Errors:\n"
+"%s"
+msgstr ""
+"Mediyum yenilənə bilmədi; o avtomatik olaraq qeyri-fəallaşdırılacaq.\n"
+"\n"
+"Xətalar:\n"
+"%s"
+
+#: lib/ManaTools/rpmdragora.pm:999
+msgid ""
+"I need to access internet to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1003 lib/ManaTools/Rpmdragora/pkg.pm:298
+msgid ""
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
+msgid "Mirror choice"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1019
+msgid "Error during download"
+msgstr "Endirmə əsnasında xəta"
+
+#: lib/ManaTools/rpmdragora.pm:1021
+#, perl-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"%s\n"
+"\n"
+"The network, or the website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1024
+#, perl-format
+msgid ""
+"There was an error downloading the mirror list:\n"
+"%s\n"
+"\n"
+"The network, or the Mageia website, may be unavailable.\n"
+"Please try again later."
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1031
+msgid "No mirror"
+msgstr "Əkssiz"
+
+#: lib/ManaTools/rpmdragora.pm:1033
+msgid "I can't find any suitable mirror."
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1034
+msgid ""
+"I can't find any suitable mirror.\n"
+"\n"
+"There can be many reasons for this problem; the most frequent is\n"
+"the case when the architecture of your processor is not supported\n"
+"by Mageia Official Updates."
+msgstr ""
+"Düzgün əks tapıla bilmir.\n"
+"\n"
+"Bunun birdən çox səbəbi ola bilər; ən çox təkrarlanı\n"
+"isə CPU'nun quruluşunun Mageia Rəsmi Yeniləmələri\n"
+"tərəfindən dəstəklənməməsidir."
+
+#: lib/ManaTools/rpmdragora.pm:1044
+msgid "Please choose the desired mirror."
+msgstr "Xahiş edirik uyğun əksi seçin."
+
+#: lib/ManaTools/rpmdragora.pm:1071
+#, perl-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of %s you're "
+"running (%s).\n"
+"It will be disabled."
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1074
+#, perl-format
+msgid ""
+"Your medium `%s', used for updates, does not match the version of Mageia "
+"you're running (%s).\n"
+"It will be disabled."
+msgstr ""
+"yeniləmələr üçün işlətdiyiniz `%s' mediumu, Mageia buraxılışınız ilə (%s) "
+"uyğun gəlmi.\n"
+"O indi qeyri-fəallaşdırılacaqdır."
+
+#: lib/ManaTools/rpmdragora.pm:1104
+msgid "Please wait, downloading mirror addresses."
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1105
+msgid "Please wait, downloading mirror addresses from the Mageia website."
+msgstr ""
+"Xahiş edirik gözləyin, Mageia veb saytından əkslərin ünvanları endirilir."
+
+#: lib/ManaTools/rpmdragora.pm:1127
+#, perl-format
+msgid "retrieval of [%s] failed"
+msgstr ""
+
+#: lib/ManaTools/rpmdragora.pm:1163
+msgid "Help launched in background"
+msgstr "Yardım arxa planda başladı"
+
+#: lib/ManaTools/rpmdragora.pm:1164
+msgid ""
+"The help window has been started, it should appear shortly on your desktop."
+msgstr "Yardım pəncərəsi başladılıb, yaxın vaxtda masa üstünüzdə göstəriləcək."
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:148 lib/ManaTools/Rpmdragora/pkg.pm:127
+#: lib/ManaTools/Rpmdragora/pkg.pm:176 lib/ManaTools/Rpmdragora/pkg.pm:189
+#: lib/ManaTools/Rpmdragora/pkg.pm:208 lib/ManaTools/Rpmdragora/pkg.pm:689
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1150
+#: lib/ManaTools/Rpmdragora/formatting.pm:150
+#: lib/ManaTools/Rpmdragora/gui.pm:1673
+msgid "(none)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:207
+msgid "Installation finished"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
+msgid "Select a package"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:238
+msgid "Remove new file"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:239
+msgid "Use new file"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:240
+msgid "Do nothing"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
+msgid "Please wait, searching..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/open_db.pm:100 lib/ManaTools/Rpmdragora/gui.pm:1579
+msgid "Fatal error"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/open_db.pm:101 lib/ManaTools/Rpmdragora/pkg.pm:494
+#: lib/ManaTools/Rpmdragora/gui.pm:1580
+#, perl-format
+msgid "A fatal error occurred: %s."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:141
+#, perl-format
+msgid "Getting information from %s..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:145
+#, perl-format
+msgid "Getting '%s' from XML meta-data..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:162
+#, perl-format
+msgid "No xml info for medium \"%s\", only partial result for package %s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:164
+#, perl-format
+msgid ""
+"No xml info for medium \"%s\", unable to return any result for package %s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:351
+#: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/gui.pm:368
+msgid "(Not available)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
+#, perl-format
+msgid "Downloading package `%s'..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:226
+#, perl-format
+msgid "        %s%% of %s completed, ETA = %s, speed = %s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:227
+#, perl-format
+msgid "        %s%% completed, speed = %s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:268
+msgid ""
+"I need to contact the mirror to get latest update packages.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:286
+msgid "Already existing update media"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:287
+#, perl-format
+msgid ""
+"You already have at least one update medium configured, but\n"
+"all of them are currently disabled. You should run the Software\n"
+"Media Manager to enable at least one (check it in the \"%s\"\n"
+"column).\n"
+"\n"
+"Then, restart \"%s\"."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:292
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1642
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2057
+msgid "Enabled"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:297
+msgid ""
+"You have no configured update media. MageiaUpdate cannot operate without any "
+"update media."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:305
+msgid "How to choose manually your mirror"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:306
+#, perl-format
+msgid ""
+"You may also choose your desired mirror manually: to do so,\n"
+"launch the Software Media Manager, and then add a `Security\n"
+"updates' medium.\n"
+"\n"
+"Then, restart %s."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:478
+msgid "Reading updates description"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
+msgid "Please wait, finding available packages..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:489
+msgid "Please wait, listing base packages..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:502
+msgid "Please wait, finding installed packages..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:630
+msgid "Upgrade information"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:646
+msgid "These packages come with upgrade information"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
+msgid "All requested packages were installed successfully."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
+msgid "Problem during installation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:724 lib/ManaTools/Rpmdragora/pkg.pm:744
+#: lib/ManaTools/Rpmdragora/pkg.pm:957
+#, perl-format
+msgid ""
+"There was a problem during the installation:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:743
+msgid "Installation failed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:766
+msgid "Checking validity of requested packages..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:789
+msgid "Unable to get source packages."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:790
+#, perl-format
+msgid "Unable to get source packages, sorry. %s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:791
+#, perl-format
+msgid ""
+"\n"
+"\n"
+"Error(s) reported:\n"
+"%s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:959
+msgid ""
+"Rpmdragora or one of its priority dependencies needs to be updated first. "
+"Rpmdragora will then restart."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:809
+msgid "The following package is going to be installed:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1494
+msgid "Some packages need to be removed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:815
+msgid "Remove one package?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:817
+msgid "The following package has to be removed for others to be upgraded:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:818
+msgid "The following packages have to be removed for others to be upgraded:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:822
+msgid "Is it ok to continue?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:833
+msgid "Initializing..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
+msgid "Orphan packages"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:841
+msgid "The following orphan package will be removed."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
+msgid "Preparing package installation..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
+#, perl-format
+msgid "Installing package `%s' (%d/%d)..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
+#, perl-format
+msgid "Total: %d/%d"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:928
+msgid "Change medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:929
+#, perl-format
+msgid "Please insert the medium named \"%s\""
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:933
+msgid "Verifying package signatures..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:956
+#, perl-format
+msgid "%d installation transactions failed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:970
+msgid "Unrecoverable error: no package found for installation, sorry."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:973
+msgid "Inspecting configuration files..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:981
+msgid ""
+"The installation is finished; everything was installed correctly.\n"
+"\n"
+"Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
+"you may now inspect some in order to take actions:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:987
+msgid "Looking for \"README\" files..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1025
+#, perl-format
+msgid "RPM transaction %d/%d"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1026
+msgid "Unselect all"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1027
+msgid "Details"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1072
+msgid "Please wait, removing packages..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1085
+msgid "Problem during removal"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/pkg.pm:1086
+#, perl-format
+msgid ""
+"There was a problem during the removal of packages:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:41 modules/rpmdragora/rpmdragora:377
+#: modules/rpmdragora/rpmdragora:519 modules/rpmdragora/rpmdragora:552
+msgid "All"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:42
+msgid "Accessibility"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
+#: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
+#: lib/ManaTools/Rpmdragora/icon.pm:47
+msgid "Archiving"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:44
+msgid "Backup"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:45
+msgid "Cd burning"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:46
+msgid "Compression"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
+#: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
+#: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
+msgid "Other"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
+#: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
+#: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
+#: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
+msgid "Communications"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:49
+msgid "Bluetooth"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:50
+msgid "Dial-Up"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:51
+msgid "Fax"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:52
+msgid "Mobile"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:53
+msgid "Radio"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:54
+msgid "Serial"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:55
+msgid "Telephony"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:56 lib/ManaTools/Rpmdragora/icon.pm:62
+msgid "Databases"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:57 lib/ManaTools/Rpmdragora/icon.pm:58
+#: lib/ManaTools/Rpmdragora/icon.pm:59 lib/ManaTools/Rpmdragora/icon.pm:60
+#: lib/ManaTools/Rpmdragora/icon.pm:61 lib/ManaTools/Rpmdragora/icon.pm:62
+#: lib/ManaTools/Rpmdragora/icon.pm:63 lib/ManaTools/Rpmdragora/icon.pm:64
+#: lib/ManaTools/Rpmdragora/icon.pm:65 lib/ManaTools/Rpmdragora/icon.pm:66
+#: lib/ManaTools/Rpmdragora/icon.pm:67 lib/ManaTools/Rpmdragora/icon.pm:68
+#: lib/ManaTools/Rpmdragora/icon.pm:69 lib/ManaTools/Rpmdragora/icon.pm:70
+#: lib/ManaTools/Rpmdragora/icon.pm:71 lib/ManaTools/Rpmdragora/icon.pm:72
+#: lib/ManaTools/Rpmdragora/icon.pm:73 lib/ManaTools/Rpmdragora/icon.pm:74
+#: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
+#: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
+msgid "Development"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:58
+msgid "Basic"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:59
+msgid "C"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:60
+msgid "C++"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:61
+msgid "C#"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:63
+msgid "Debug"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:64
+msgid "Erlang"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:65
+msgid "GNOME and GTK+"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:66
+msgid "Java"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:67
+msgid "KDE and Qt"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:68
+msgid "Kernel"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:69
+msgid "OCaml"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:71
+msgid "Perl"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:72
+msgid "PHP"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:73
+msgid "Python"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:74
+msgid "Tools"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:175
+msgid "X11"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
+#: lib/ManaTools/Rpmdragora/icon.pm:204
+msgid "Documentation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:77
+msgid "Editors"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:78
+msgid "Education"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:79
+msgid "Emulators"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:80
+msgid "File tools"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
+#: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
+#: lib/ManaTools/Rpmdragora/icon.pm:85 lib/ManaTools/Rpmdragora/icon.pm:86
+#: lib/ManaTools/Rpmdragora/icon.pm:87 lib/ManaTools/Rpmdragora/icon.pm:88
+#: lib/ManaTools/Rpmdragora/icon.pm:89 lib/ManaTools/Rpmdragora/icon.pm:90
+#: lib/ManaTools/Rpmdragora/icon.pm:91
+msgid "Games"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:82
+msgid "Adventure"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:83
+msgid "Arcade"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:84
+msgid "Boards"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:85
+msgid "Cards"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:87
+msgid "Puzzles"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:88
+msgid "Shooter"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:89
+msgid "Simulation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:90
+msgid "Sports"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:91
+msgid "Strategy"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:92
+msgid "Geography"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:93 lib/ManaTools/Rpmdragora/icon.pm:94
+#: lib/ManaTools/Rpmdragora/icon.pm:97 lib/ManaTools/Rpmdragora/icon.pm:100
+#: lib/ManaTools/Rpmdragora/icon.pm:103 lib/ManaTools/Rpmdragora/icon.pm:106
+#: lib/ManaTools/Rpmdragora/icon.pm:107 lib/ManaTools/Rpmdragora/icon.pm:110
+msgid "Graphical desktop"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:96
+msgid "Enlightenment"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:99
+msgid "GNOME"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:102
+msgid "Icewm"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:105
+msgid "KDE"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:109
+msgid "WindowMaker"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:112
+msgid "Xfce"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:113 lib/ManaTools/Rpmdragora/icon.pm:114
+#: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:116
+#: lib/ManaTools/Rpmdragora/icon.pm:117 lib/ManaTools/Rpmdragora/icon.pm:118
+#: lib/ManaTools/Rpmdragora/icon.pm:119
+msgid "Graphics"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:114
+msgid "3D"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
+#: lib/ManaTools/Rpmdragora/icon.pm:180
+msgid "Editors and Converters"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
+#: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
+msgid "Utilities"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:117
+msgid "Photography"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:118
+msgid "Scanning"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:119
+msgid "Viewers"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:120
+msgid "Monitoring"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
+#: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
+#: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:126
+#: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:128
+#: lib/ManaTools/Rpmdragora/icon.pm:129 lib/ManaTools/Rpmdragora/icon.pm:169
+msgid "Networking"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:122
+msgid "File transfer"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:123
+msgid "IRC"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:124
+msgid "Instant messaging"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:125 lib/ManaTools/Rpmdragora/icon.pm:209
+msgid "Mail"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:126
+msgid "News"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:128
+msgid "Remote access"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:129
+msgid "WWW"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:130 lib/ManaTools/Rpmdragora/icon.pm:131
+#: lib/ManaTools/Rpmdragora/icon.pm:132 lib/ManaTools/Rpmdragora/icon.pm:133
+#: lib/ManaTools/Rpmdragora/icon.pm:134 lib/ManaTools/Rpmdragora/icon.pm:135
+#: lib/ManaTools/Rpmdragora/icon.pm:136 lib/ManaTools/Rpmdragora/icon.pm:137
+#: lib/ManaTools/Rpmdragora/icon.pm:138
+msgid "Office"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:131
+msgid "Dictionary"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:132
+msgid "Finance"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:133
+msgid "Management"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:134
+msgid "Organizer"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:136
+msgid "Spreadsheet"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:137
+msgid "Suite"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:138
+msgid "Word processor"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:139
+msgid "Publishing"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:140 lib/ManaTools/Rpmdragora/icon.pm:141
+#: lib/ManaTools/Rpmdragora/icon.pm:142 lib/ManaTools/Rpmdragora/icon.pm:143
+#: lib/ManaTools/Rpmdragora/icon.pm:144 lib/ManaTools/Rpmdragora/icon.pm:145
+#: lib/ManaTools/Rpmdragora/icon.pm:146 lib/ManaTools/Rpmdragora/icon.pm:147
+#: lib/ManaTools/Rpmdragora/icon.pm:148
+msgid "Sciences"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:141
+msgid "Astronomy"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:142
+msgid "Biology"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:143
+msgid "Chemistry"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:144
+msgid "Computer science"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:145
+msgid "Geosciences"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:146
+msgid "Mathematics"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:148
+msgid "Physics"
+msgstr ""
+
+#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
+#. (itstool) path: category/title
+#: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:77
+#: extras/conf/mpan/categories.conf.in:43
+msgid "Security"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:150
+msgid "Shells"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:151 lib/ManaTools/Rpmdragora/icon.pm:152
+#: lib/ManaTools/Rpmdragora/icon.pm:153 lib/ManaTools/Rpmdragora/icon.pm:154
+#: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:156
+msgid "Sound"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:153
+msgid "Midi"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:154
+msgid "Mixers"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
+msgid "Players"
+msgstr ""
+
+#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
+#. (itstool) path: category/title
+#: lib/ManaTools/Rpmdragora/icon.pm:157 lib/ManaTools/Rpmdragora/icon.pm:158
+#: lib/ManaTools/Rpmdragora/icon.pm:159 lib/ManaTools/Rpmdragora/icon.pm:160
+#: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:162
+#: lib/ManaTools/Rpmdragora/icon.pm:163 lib/ManaTools/Rpmdragora/icon.pm:164
+#: lib/ManaTools/Rpmdragora/icon.pm:165 lib/ManaTools/Rpmdragora/icon.pm:166
+#: lib/ManaTools/Rpmdragora/icon.pm:167 lib/ManaTools/Rpmdragora/icon.pm:168
+#: lib/ManaTools/Rpmdragora/icon.pm:169 lib/ManaTools/Rpmdragora/icon.pm:170
+#: lib/ManaTools/Rpmdragora/icon.pm:171 lib/ManaTools/Rpmdragora/icon.pm:172
+#: lib/ManaTools/Rpmdragora/icon.pm:173
+#: extras/conf/mpan/categories.conf.d/manaservice.conf.in:4
+#: extras/conf/mpan/categories.conf.d/manauser.conf.in:4
+#: extras/conf/mpan/categories.conf.in:23
+msgid "System"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:158
+msgid "Base"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:159
+msgid "Boot and Init"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:160
+msgid "Cluster"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:161 lib/ManaTools/Rpmdragora/icon.pm:187
+msgid "Configuration"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:162 lib/ManaTools/Rpmdragora/icon.pm:163
+#: lib/ManaTools/Rpmdragora/icon.pm:164 lib/ManaTools/Rpmdragora/icon.pm:165
+msgid "Fonts"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:163
+msgid "True type"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:164
+msgid "Type1"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:165
+msgid "X11 bitmap"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:166
+msgid "Internationalization"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:167
+msgid "Kernel and hardware"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:168
+msgid "Libraries"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:170
+msgid "Packaging"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:171
+msgid "Printing"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:172
+msgid "Servers"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:176
+msgid "Terminals"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:177
+msgid "Text tools"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:178
+msgid "Toys"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:179 lib/ManaTools/Rpmdragora/icon.pm:180
+#: lib/ManaTools/Rpmdragora/icon.pm:181 lib/ManaTools/Rpmdragora/icon.pm:182
+#: lib/ManaTools/Rpmdragora/icon.pm:183
+msgid "Video"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:182
+msgid "Television"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
+#: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
+#: lib/ManaTools/Rpmdragora/icon.pm:190 lib/ManaTools/Rpmdragora/icon.pm:191
+#: lib/ManaTools/Rpmdragora/icon.pm:192 lib/ManaTools/Rpmdragora/icon.pm:193
+#: lib/ManaTools/Rpmdragora/icon.pm:194 lib/ManaTools/Rpmdragora/icon.pm:195
+msgid "Workstation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:188
+msgid "Console Tools"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:190
+msgid "Game station"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:191
+msgid "Internet station"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:192
+msgid "Multimedia station"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:193
+msgid "Network Computer (client)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:194
+msgid "Office Workstation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:195
+msgid "Scientific Workstation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
+#: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
+#: lib/ManaTools/Rpmdragora/icon.pm:201 lib/ManaTools/Rpmdragora/gui.pm:135
+msgid "Graphical Environment"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:198
+msgid "GNOME Workstation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:199
+msgid "IceWm Desktop"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:200
+msgid "KDE Workstation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:201
+msgid "Other Graphical Desktops"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:205 lib/ManaTools/Rpmdragora/icon.pm:206
+#: lib/ManaTools/Rpmdragora/icon.pm:207 lib/ManaTools/Rpmdragora/icon.pm:208
+#: lib/ManaTools/Rpmdragora/icon.pm:209 lib/ManaTools/Rpmdragora/icon.pm:210
+#: lib/ManaTools/Rpmdragora/icon.pm:211 lib/ManaTools/Rpmdragora/icon.pm:212
+msgid "Server"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:206
+msgid "DNS/NIS"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:207
+msgid "Database"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:208
+msgid "Firewall/Router"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:210
+msgid "Mail/Groupware/News"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:211
+msgid "Network Computer server"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/icon.pm:212
+msgid "Web/FTP"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:67
+#, perl-format
+msgid "Usage: %s [OPTION]..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:68
+msgid "  --auto                 assume default answers to questions"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:69
+msgid ""
+"  --changelog-first      display changelog before filelist in the "
+"description window"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:70
+msgid "  --media=medium1,..     limit to given media"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:71
+msgid ""
+"  --merge-all-rpmnew     propose to merge all .rpmnew/.rpmsave files found"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:72
+msgid "  --mode=MODE            set mode (install (default), remove, update)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:73
+msgid ""
+"  --justdb               update the database, but do not modify the "
+"filesystem"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:74
+msgid ""
+"  --no-confirmation      don't ask first confirmation question in update mode"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:75
+msgid "  --no-media-update      don't update media at startup"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:76
+msgid "  --no-verify-rpm        don't verify package signatures"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:77
+msgid ""
+"  --parallel=alias,host  be in parallel mode, use \"alias\" group, use \"host"
+"\" machine to show needed deps"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:78
+msgid "  --rpm-root=path        use another root for rpm installation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:79
+msgid ""
+"  --urpmi-root           use another root for urpmi db & rpm installation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:80
+msgid "  --run-as-root          force to run as root"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:81
+msgid "  --search=pkg           run search for \"pkg\""
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:82
+msgid ""
+"  --test                 only verify if the installation can be achieved "
+"correctly"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:83
+msgid ""
+"  --version              print this tool's version number\n"
+"                    "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:175
+msgid "Running in user mode"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/init.pm:176
+msgid ""
+"You are launching this program as a normal user.\n"
+"You will not be able to perform modifications on the system,\n"
+"but you may still browse the existing database."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:73
+msgid "CD-ROM"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:74
+msgid "FTP"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:75
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:85
+msgid "Local"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:76
+msgid "HTTP"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:77
+msgid "HTTPS"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
+msgid "NFS"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
+msgid "Removable"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
+msgid "rsync"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:83
+msgid "Mirror list"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
+msgid "Choose media type"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
+msgid ""
+"In order to keep your system secure and stable, you must at a minimum set "
+"up\n"
+"sources for official security and stability updates. You can also choose to "
+"set\n"
+"up a fuller set of sources which includes the complete official Mageia\n"
+"repositories, giving you access to more software than can fit on the Mageia\n"
+"discs. Please choose whether to configure update sources only, or the full "
+"set\n"
+"of sources."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
+msgid "Full set of sources"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
+msgid "Update sources only"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:147
+#, perl-format
+msgid ""
+"This will attempt to install all official sources corresponding to your\n"
+"distribution (%s).\n"
+"\n"
+"I need to contact the Mageia website to get the mirror list.\n"
+"Please check that your network is currently running.\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
+msgid "Please wait, adding media..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
+msgid "Browse..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:239
+msgid "Add a medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:250
+msgid "Adding a medium:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
+msgid "Type of medium:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
+msgid "Local files"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
+msgid "Medium path:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
+msgid "FTP server"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:724
+msgid "URL:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
+msgid "RSYNC server"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
+msgid "HTTP server"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
+msgid "Removable device (CD-ROM, DVD, ...)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:265
+msgid "Path or mount point:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:283
+msgid "Medium name:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
+msgid "Create media for a whole distribution"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
+msgid "Tag this medium as an update medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:344
+msgid "You need to fill up at least the two first entries."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:347
+#, perl-format
+msgid ""
+"There is already a medium called <%s>,\n"
+"do you really want to replace it?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:425
+msgid "Global options for package installation"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:435
+msgid "Verify RPMs to be installed:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
+msgid "never"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:439
+msgid "always"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:457
+msgid "Download program to use:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
+msgid "XML meta-data download policy:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "Never"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "On-demand"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "Update-only"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
+msgid "Always"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:609
+msgid "Source Removal"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:611
+#, perl-format
+msgid "Are you sure you want to remove source \"%s\"?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:612
+msgid "Are you sure you want to remove the following sources?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:617
+msgid "Please wait, removing medium..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:710
+msgid "Edit a medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:719
+#, perl-format
+msgid "Editing medium \"%s\":"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:731
+msgid "Downloader:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:762
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1643
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1670
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2060
+msgid "Updates"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:771
+msgid "&Proxy..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:809
+msgid "You need to insert the medium to continue"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
+msgid ""
+"In order to save the changes, you need to insert the medium in the drive."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
+msgid "Configure proxies"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
+#, perl-format
+msgid "Proxy settings for media \"%s\""
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
+msgid "Global proxy settings"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:895
+msgid ""
+"If you need a proxy, enter the hostname and an optional port (syntax: "
+"<proxyhost[:port]>):"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:901
+msgid "Enable proxy"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:905
+msgid "Proxy hostname:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:910
+msgid "You may specify a username/password for the proxy authentication:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:918
+msgid "User:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1018
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1120
+msgid "Cancel"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
+msgid "Add a parallel group"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
+msgid "Edit a parallel group"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
+msgid "Add a medium limit"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
+msgid "Choose a medium to add to the media limit:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
+msgid "Add a host"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
+msgid "Type in the hostname or IP address of the host to add:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1083
+#, perl-format
+msgid "Editing parallel group \"%s\":"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1087
+msgid "Group name:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
+msgid "Protocol:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
+msgid "Media limit:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1371
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1664
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2161
+msgid "Add"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1096
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1105
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1166
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1372
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1662
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2151
+msgid "Remove"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1099
+msgid "Hosts:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1135
+msgid "Configure parallel urpmi (distributed execution of urpmi)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
+msgid "Protocol"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
+msgid "Media limit"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
+msgid "Command"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
+msgid "Edit..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1178
+msgid "Add..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1198
+msgid "Manage keys for digital signatures of packages"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1224
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2067
+msgid "Medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
+msgid "Keys"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1273
+msgid "no name found, key doesn't exist in rpm keyring!"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1319
+msgid "Add a key"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1320
+#, perl-format
+msgid "Choose a key to add to the medium %s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1343
+msgid "Remove a key"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1344
+#, perl-format
+msgid ""
+"Are you sure you want to remove the key <br>%s<br> from medium %s?<br>(name "
+"of the key: %s)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1451
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2117
+#, perl-format
+msgid ""
+"Unable to update medium, errors reported:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1563
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1967
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2144
+#: modules/rpmdragora/dragora-urpm-sources.pl:38
+msgid "Configure media"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
+msgid "Update"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1582
+msgid "Add a specific media mirror"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1583
+msgid "Add a custom medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
+msgid "&Options"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
+msgid "Global options"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
+msgid "Manage keys"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1597
+msgid "Parallel"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
+msgid "Proxy"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
+#: modules/rpmdragora/rpmdragora:757
+msgid "Manual"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1644
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2064
+msgid "Type"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
+msgid "Up"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
+msgid "Down"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1732
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1995
+#: modules/rpmdragora/rpmdragora:1095
+msgid "Rpmdragora is the Mageia package management tool."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1832
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1896
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2091
+msgid "This medium needs to be updated to be usable. Update it now?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1974
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
+msgid "/_File"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
+msgid "/_Update"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
+msgid "<control>U"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
+msgid "/Add a specific _media mirror"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1976
+msgid "<control>M"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "/_Add a custom medium"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1977
+msgid "<control>A"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
+msgid "/Close"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1978
+msgid "<control>W"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1979
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
+#: modules/rpmdragora/rpmdragora:692 modules/rpmdragora/rpmdragora:694
+#: modules/rpmdragora/rpmdragora:696 modules/rpmdragora/rpmdragora:697
+#: modules/rpmdragora/rpmdragora:698
+msgid "/_Options"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
+msgid "/_Global options"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1980
+msgid "<control>G"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
+msgid "/Manage _keys"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1981
+msgid "<control>K"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "/_Parallel"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1982
+msgid "<control>P"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
+msgid "/P_roxy"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1983
+msgid "<control>R"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1985
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1987
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
+msgid "/_Help"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1986
+msgid "/_Report Bug"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
+msgid "/_About..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1991
+msgid "Rpmdragora"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1993
+#, perl-format
+msgid "Copyright (C) %s by Mandriva"
+msgstr "Müəllif Hüquqları (C) %s Mandriva tərfindən qorunur"
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1997
+msgid "Mageia"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2203
+msgid ""
+"The Package Database is locked. Please close other applications\n"
+"working with the Package Database. Do you have another media\n"
+"manager on another desktop, or are you currently installing\n"
+"packages as well?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/formatting.pm:196
+#, perl-format
+msgid "%s of additional disk space will be used."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/formatting.pm:197
+#, perl-format
+msgid "%s of disk space will be freed."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/formatting.pm:202
+#, perl-format
+msgid "%s of packages will be retrieved."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:106
+msgid "Search results"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:106
+msgid "Search results (none)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:150
+msgid "Security advisory"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:160
+msgid "No description"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:174
+msgid "It is <b>not supported</b> by Mageia."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:175
+msgid "It may <b>break</b> your system."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:177
+msgid "This package is not free software"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:180
+msgid "This package contains a new version that was backported."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:184
+msgid "This package is a potential candidate for an update."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:189
+msgid "This is an official update which is supported by Mageia."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:190
+msgid "This is an unofficial update."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:194
+msgid "This is an official package supported by Mageia"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:205
+msgid "Notice: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:212
+msgid "Importance: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:213
+msgid "Reason for update: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:227
+msgid "Version: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:228
+msgid "Currently installed version: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:229
+msgid "Group: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:230
+msgid "Architecture: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:231
+msgid "Size: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:231
+#, perl-format
+msgid "%s KB"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:254
+msgid "All dependencies installed."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:272
+msgid "URL: "
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:334
+msgid "Details:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:345
+msgid "Files:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:361
+msgid "Changelog:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:379
+msgid "New dependencies:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:399
+#, perl-format
+msgid "The package \"%s\" was found."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:400
+msgid "However this package is not in the package list."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:401
+msgid "You may want to update your urpmi database."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:403
+msgid "Matching packages:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:408
+#, perl-format
+msgid "- %s (medium: %s)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:950
+#, perl-format
+msgid "Removing package %s would break your system"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:954
+#, perl-format
+msgid ""
+"The \"%s\" package is in urpmi skip list.\n"
+"Do you want to select it anyway?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1181
+msgid "More information on package..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1183
+msgid "Please choose"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1184
+msgid "The following package is needed:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1184
+msgid "One of the following packages is needed:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1296
+msgid "Select package"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1394
+msgid "Checking dependencies of package..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1399
+msgid "Some additional packages need to be removed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1410
+msgid ""
+"Because of their dependencies, the following package(s) also need to be "
+"removed:"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1415
+msgid "Some packages cannot be removed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1416
+msgid ""
+"Removing these packages would break your system, sorry:\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1424 lib/ManaTools/Rpmdragora/gui.pm:1495
+msgid ""
+"Because of their dependencies, the following package(s) must be unselected "
+"now:\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1448
+msgid "Additional packages needed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1449
+msgid ""
+"To satisfy dependencies, the following package(s) also need to be "
+"installed:\n"
+"\n"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1457
+msgid "Conflicting Packages"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1471
+#, perl-format
+msgid "%s (belongs to the skip list)"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1475
+msgid "One package cannot be installed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1475
+msgid "Some packages cannot be installed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1477
+#, perl-format
+msgid ""
+"Sorry, the following package cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1478
+#, perl-format
+msgid ""
+"Sorry, the following packages cannot be selected:\n"
+"\n"
+"%s"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1532
+msgid "Some packages are selected."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1532
+msgid "Do you really want to quit?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1542
+#, perl-format
+msgid "Error: %s appears to be mounted read-only."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1546
+msgid "You need to select some packages first."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1551
+msgid "Too many packages are selected"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1552
+msgid ""
+"Warning: it seems that you are attempting to add so many\n"
+"packages that your filesystem may run out of free diskspace,\n"
+"during or after package installation ; this is particularly\n"
+"dangerous and should be considered with care.\n"
+"\n"
+"Do you really want to install all the selected packages?"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1663
+msgid "Please wait, listing packages..."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1676
+msgid "No update"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1677
+msgid ""
+"The list of updates is empty. This means that either there is\n"
+"no available update for the packages installed on your computer,\n"
+"or you already installed all of them."
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:366
+msgid "Upgradable"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1716 modules/rpmdragora/rpmdragora:520
+msgid "Installed"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1717 modules/rpmdragora/rpmdragora:366
+msgid "Addable"
+msgstr ""
+
+#: lib/ManaTools/Rpmdragora/gui.pm:1751
+msgid "Description not available for this package\n"
+msgstr ""
+
+#: scripts/manaadduser:31
+msgid "Mageia Add Users Tool"
+msgstr ""
+
+#: scripts/mana:40
+msgid "manalog: journalctl log reader"
+msgstr ""
+
+#: scripts/mana:44
+msgid "manauser: user manager"
+msgstr ""
+
+#: scripts/mana:48
+msgid "manaservice: service manager"
+msgstr ""
+
+#: scripts/mana:53
+msgid "manadm: login manager configuration"
+msgstr ""
+
+#: scripts/mana:57
+msgid "manaclock: date/time manager"
+msgstr ""
+
+#: scripts/mana:61
+msgid "manahost: hosts manager"
+msgstr ""
+
+#: scripts/mana:65
+msgid "mpan: admin panel"
+msgstr ""
+
+#: scripts/mana:69
+msgid "manaproxy: proxy manager"
+msgstr ""
+
+#: scripts/mana:73
+msgid "rpmdragora: rpm install manager"
+msgstr ""
+
+#: scripts/mana:77
+msgid "dragoraUpdate: rpm update manager"
+msgstr ""
+
+#: scripts/mana:81
+msgid "manawall: firewall manager"
+msgstr ""
+
+#: scripts/mana:92
+#, perl-format
+msgid "Command <%s> not found!\n"
+msgstr ""
+
+#: scripts/mana:104
+msgid "ERROR: "
+msgstr ""
+
+#: scripts/mana:123
+msgid "Usage mana --help | -h        print this help\n"
+msgstr ""
+
+#: scripts/mana:124
+msgid ""
+"Usage mana <command> [args...]\n"
+"\n"
+msgstr ""
+
+#: scripts/mana:125
+msgid "valid <commands>:\n"
+msgstr ""
+
+#: scripts/mpan:34
+msgid "Developers mode"
+msgstr ""
+
+#: scripts/mpan:40
+msgid ""
+"Application name, used for logging identifier and x application "
+"configuration directory. Default mpan"
+msgstr ""
+
+#: scripts/mpan:46
+msgid "Window title. Default name value"
+msgstr ""
+
+#: scripts/mpan:69
+msgid "== Development mode ON =="
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:67 modules/rpmdragora/dragoraUpdate:420
+msgid "rpmdragora update"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:68
+#, perl-format
+msgid "root privileges required, or run <%s> instead"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:78
+msgid "Bug fixing"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:80
+msgid "Here is the list of software package updates"
+msgstr ""
+
+#. #-#-#-#-#  manaconf.pot (PACKAGE VERSION)  #-#-#-#-#
+#. (itstool) path: category/title
+#: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
+#: modules/rpmdragora/rpmdragora:1216 extras/conf/mpan/categories.conf.in:4
+msgid "Software Management"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:267
+msgid "Name"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:268 modules/rpmdragora/rpmdragora:452
+msgid "Summary"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:269 modules/rpmdragora/rpmdragora:455
+msgid "Version"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
+msgid "Release"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:271
+msgid "Arch"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:292
+msgid "U&ncheck all"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:356
+msgid "dragoraUpdate is the Mageia package management tool."
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:357
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>Translators</h3>\n"
+"                                            <ul>%s</ul>"
+msgstr ""
+
+#: modules/rpmdragora/dragoraUpdate:421
+msgid ""
+"The list of updates is empty. This means that either there is no available "
+"update for the packages installed on your computer, or you already installed "
+"all of them."
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:306
+#, perl-format
+msgid "no xml-info available for medium \"%s\""
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:322 modules/rpmdragora/rpmdragora:349
+msgid "Search aborted"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:368
+msgid "Selected"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:368
+msgid "Not selected"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:375
+msgid "No search results."
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:376
+#, perl-format
+msgid ""
+"No search results. You may want to switch to the '%s' view and to the '%s' "
+"filter"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:405
+#, perl-format
+msgid "Selected: %s / Free disk space: %s"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:448
+msgid "Package"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:465
+msgid "Arch."
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:469
+msgid "ToInst"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:521
+msgid "Not installed"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:528
+#, perl-format
+msgid "Show %s and noarch only"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:542
+msgid "All packages, alphabetical"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:543
+msgid "All packages, by group"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:544
+msgid "Leaves only, sorted by install date"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:545
+msgid "All packages, by update availability"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:546
+msgid "All packages, by selection state"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:547
+msgid "All packages, by size"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:548
+msgid "All packages, by medium repository"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:553
+msgid "Backports"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:554
+msgid "Meta packages"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:555
+msgid "Packages with GUI"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:556
+msgid "All updates"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:557
+msgid "Security updates"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:558
+msgid "Bugfixes updates"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:559
+msgid "General updates"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:608
+msgid "in names"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:609
+msgid "in descriptions"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:610
+msgid "in summaries"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:611
+msgid "in file names"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:630
+msgid "Search"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:636
+msgid "Reset"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:656
+msgid "&Apply"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:692
+msgid "/_Select dependencies without asking"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:695
+msgid "Clear download cache after successful install"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:696
+msgid "/_Compute updates on startup"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:697
+msgid "Search in _full package names"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:698
+msgid "Use _regular expressions in searches"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:705
+msgid "Reset the selection"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:706
+msgid "Reload the packages list"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:720
+msgid "Settings"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:722
+msgid "&Media Manager"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:752
+msgid "View"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:1065
+msgid "Reset aborted (RPM DB is locked by another process)"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:1096
+#, perl-format
+msgid ""
+"<h3>Developers</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>Translators</"
+"h3>\n"
+"                                                        <ul>%s</ul>"
+msgstr ""
+
+#: modules/rpmdragora/rpmdragora:1208
+#, perl-format
+msgid "rpmdragora is already running (pid: %s)"
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:115
+msgid "bad <url> (for local directory, the path must be absolute)"
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:129
+#, perl-format
+msgid ""
+"%s\n"
+"\n"
+"Is it ok to continue?"
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:133
+msgid ""
+"You are about to add new package media.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:137
+#, perl-format
+msgid ""
+"You are about to add new package medium, %s.\n"
+"That means you will be able to add new software packages\n"
+"to your system from these new media."
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:140
+#, perl-format
+msgid ""
+"You are about to add a new package medium, `%s'.\n"
+"That means you will be able to add new software packages\n"
+"to your system from that new medium."
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:164
+msgid "Successfully added media."
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:166
+#, perl-format
+msgid "Successfully added media %s."
+msgstr ""
+
+#: modules/rpmdragora/dragora-urpm-addmedia:167
+#, perl-format
+msgid "Successfully added medium `%s'."
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.dragoraupdate.policy.in:11
+msgid "Run Mageia update software tool"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.dragoraupdate.policy.in:12
+msgid "Authentication is required to run rpmdragora Mageia updater"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manaclock.policy.in:11
+msgid "Run Mageia Date and Time Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manaclock.policy.in:12
+msgid "Authentication is required to run Mageia Date and Time Configuration"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manadm.policy.in:11
+msgid "Run Mageia Login Manager Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manadm.policy.in:12
+msgid "Authentication is required to run Mageia Login Manager Configuration"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manahost.policy.in:11
+#: extras/polkit/org.mageia.manaproxy.policy.in:11
+#: extras/polkit/org.mageia.mpan.policy.in:11
+msgid "Allow APanel GUI"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manahost.policy.in:12
+msgid ""
+"Authentication is required to run the program manahost (user=$(user), "
+"program=$(program), command_line=$(command_line))"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manalog.policy.in:11
+msgid "Run Mageia Log Viewer"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manalog.policy.in:12
+msgid "Authentication is required to run Mageia Log Viewer"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manaproxy.policy.in:12
+msgid ""
+"Authentication is required to run the program manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line))"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manaservice.policy.in:11
+msgid "Run Mageia Service Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manaservice.policy.in:12
+msgid "Authentication is required to run Mageia Service Configuration"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manauser.policy.in:11
+msgid "Run Mageia User Manager"
+msgstr "Mageia İstifadəçilərin İdarə Vasitəsini işə sal"
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manauser.policy.in:12
+msgid "Authentication is required to run Mageia User Manager"
+msgstr ""
+"İstifadəçilərin İdarə Vasitəsinə daxil olmaq üçün Autentifikasiyaya ehtiyac "
+"var"
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.manawall.policy.in:11
+msgid "Run Mageia Firewall Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.manawall.policy.in:12
+msgid "Authentication is required to run Mageia Firewall Configuration"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.mpan.policy.in:12
+msgid ""
+"Authentication is required to run the program apanel (user=$(user), program="
+"$(program), command_line=$(command_line))"
+msgstr ""
+
+#. (itstool) path: action/description
+#: extras/polkit/org.mageia.rpmdragora.policy.in:11
+msgid "Run Mageia install and remove software"
+msgstr ""
+
+#. (itstool) path: action/message
+#: extras/polkit/org.mageia.rpmdragora.policy.in:12
+msgid "Authentication is required to run Mageia rpm manager"
+msgstr ""
+
+#. (itstool) path: settings/title
+#: extras/conf/mpan/settings.conf.in:3
+msgid "Mageia Panel"
+msgstr ""
+
+#. (itstool) path: settings/category_title
+#: extras/conf/mpan/settings.conf.in:6
+msgid "Categories"
+msgstr ""
+
+#. (itstool) path: module/title
+#: extras/conf/mpan/categories.conf.in:7
+msgid "Install and Remove Software"
+msgstr ""
+
+#. (itstool) path: module/title
+#: extras/conf/mpan/categories.conf.in:12
+msgid "Update your System"
+msgstr ""
+
+#. (itstool) path: module/title
+#: extras/conf/mpan/categories.conf.in:17
+msgid "Configure media sources for install and update"
+msgstr ""
+
+#. (itstool) path: category/title
+#: extras/conf/mpan/categories.conf.in:33
+msgid "Network &amp;&amp; Internet"
+msgstr ""
+
+#. (itstool) path: category/title
+#: extras/conf/mpan/categories.conf.in:50
+msgid "Boot"
+msgstr "Açılış"
+
+#: extras/desktop/dragoraupdate.desktop.in:3
+msgid "rpmdragora - Mageia Update"
+msgstr ""
+
+#: extras/desktop/dragoraupdate.desktop.in:4
+msgid "/usr/share/icons/manaupdate.png"
+msgstr ""
+
+#: extras/desktop/dragoraupdate.desktop.in:6
+msgid "A graphical front end for updating packages"
+msgstr ""
+
+#: extras/desktop/manaclock.desktop.in:3
+msgid "manaclock - Date, Clock & Time Zone Settings"
+msgstr ""
+
+#: extras/desktop/manaclock.desktop.in:4
+msgid "ManaTools clock manager"
+msgstr ""
+
+#: extras/desktop/manaclock.desktop.in:6
+msgid "/usr/share/icons/manaclock.png"
+msgstr ""
+
+#: extras/desktop/manadm.desktop.in:3
+msgid "manadm - login configuration manager"
+msgstr ""
+
+#: extras/desktop/manadm.desktop.in:4
+msgid "ManaTools login configuration manager"
+msgstr ""
+
+#: extras/desktop/manadm.desktop.in:6
+msgid "/usr/share/icons/manadm.png"
+msgstr ""
+
+#: extras/desktop/manahost.desktop.in:3
+msgid "manahost - Host and hostname manager"
+msgstr ""
+
+#: extras/desktop/manahost.desktop.in:4
+msgid "ManaTools host manager"
+msgstr ""
+
+#: extras/desktop/manahost.desktop.in:6
+msgid "/usr/share/icons/manahost.png"
+msgstr ""
+
+#: extras/desktop/manalog.desktop.in:3
+msgid "manalog - Journalctl log viewer, administrator mode"
+msgstr ""
+
+#: extras/desktop/manalog.desktop.in:4
+msgid "ManaTools log viewer, administrator mode"
+msgstr ""
+
+#: extras/desktop/manalog.desktop.in:6 extras/desktop/manauserlog.desktop.in:6
+msgid "/usr/share/icons/manalog.png"
+msgstr ""
+
+#: extras/desktop/manaproxy.desktop.in:3
+msgid "manaproxy - Proxy configuration manager"
+msgstr ""
+
+#: extras/desktop/manaproxy.desktop.in:4
+msgid "ManaTools proxy manager"
+msgstr ""
+
+#: extras/desktop/manaproxy.desktop.in:6
+msgid "/usr/share/icons/manaproxy.png"
+msgstr ""
+
+#: extras/desktop/manaservice.desktop.in:3
+msgid "manaservice - Service configuration manager"
+msgstr ""
+
+#: extras/desktop/manaservice.desktop.in:4
+msgid "ManaTools service manager"
+msgstr ""
+
+#: extras/desktop/manaservice.desktop.in:6
+msgid "/usr/share/icons/manaservice.png"
+msgstr ""
+
+#: extras/desktop/manauser.desktop.in:3
+msgid "manauser - Users and Groups Manager"
+msgstr ""
+
+#: extras/desktop/manauser.desktop.in:4
+msgid "ManaTools user manager"
+msgstr ""
+
+#: extras/desktop/manauser.desktop.in:6
+msgid "/usr/share/icons/manauser.png"
+msgstr ""
+
+#: extras/desktop/manauserlog.desktop.in:3
+msgid "manalog - Journalctl log viewer, user mode"
+msgstr ""
+
+#: extras/desktop/manauserlog.desktop.in:4
+msgid "ManaTools log viewer, user mode"
+msgstr ""
+
+#: extras/desktop/manawall.desktop.in:3
+msgid "manawall - firewall configuration manager"
+msgstr ""
+
+#: extras/desktop/manawall.desktop.in:4
+msgid "ManaTools firewall configurator"
+msgstr ""
+
+#: extras/desktop/manawall.desktop.in:6
+msgid "/usr/share/icons/manawall.png"
+msgstr ""
+
+#: extras/desktop/mpan.desktop.in:3
+msgid "mpan - Mageia ManaTools Control Panel"
+msgstr ""
+
+#: extras/desktop/mpan.desktop.in:4
+msgid "ManaTools panel - application launcher"
+msgstr ""
+
+#: extras/desktop/mpan.desktop.in:6
+msgid "/usr/share/icons/mpan.png"
+msgstr ""
+
+#: extras/desktop/rpmdragora.desktop.in:3
+msgid "rpmdragora - Install & Remove Software"
+msgstr ""
+
+#: extras/desktop/rpmdragora.desktop.in:4
+msgid "/usr/share/icons/manarpm.png"
+msgstr ""
+
+#: extras/desktop/rpmdragora.desktop.in:6
+msgid "A graphical front end for installing, removing and updating packages"
+msgstr ""
