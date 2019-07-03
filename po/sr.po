@@ -9,12 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# tomaja <toma.jankovic@gmail.com>, 2019
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2019-06-29 11:06+0000\n"
+"PO-Revision-Date: 2019-07-03 07:54+0000\n"
 "Last-Translator: tomaja <toma.jankovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sr/)\n"
@@ -32,7 +33,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2002
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
-msgstr ""
+msgstr "Toma Jankovic <tomaja@linuxo.org>\n"
 
 #: lib/ManaTools/MainDisplay.pm:251 lib/ManaTools/Module/LogViewer.pm:320
 #: lib/ManaTools/Module/Users.pm:2385 lib/ManaTools/Module/Clock.pm:195
@@ -41,7 +42,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:354 modules/rpmdragora/rpmdragora:1093
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr ""
+msgstr "Ауторска права (C) %s Mageia заједница"
 
 #: lib/ManaTools/MainDisplay.pm:252 lib/ManaTools/Module/LogViewer.pm:321
 #: lib/ManaTools/Module/Users.pm:2386 lib/ManaTools/Module/Clock.pm:196
@@ -49,11 +50,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1731
 #: modules/rpmdragora/dragoraUpdate:355 modules/rpmdragora/rpmdragora:1094
 msgid "GPLv2"
-msgstr ""
+msgstr "GPLv2"
 
 #: lib/ManaTools/MainDisplay.pm:253
 msgid "mpan is the ManaTools panel that collects all the utilities."
-msgstr ""
+msgstr "mpan је панел за ManaTools који окупља све алате."
 
 #: lib/ManaTools/MainDisplay.pm:254
 #, perl-format
@@ -66,12 +67,19 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Програмери</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Преводиоци</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
 #: modules/rpmdragora/rpmdragora:703
 msgid "File"
-msgstr ""
+msgstr "Фајл"
 
 #: lib/ManaTools/MainDisplay.pm:380 lib/ManaTools/Module/LogViewer.pm:298
 #: lib/ManaTools/Module/Users.pm:2437 lib/ManaTools/Module/Users.pm:2525
@@ -108,36 +116,38 @@ msgid ""
 "Bad configuration file, %s has not xml:lang attribute, guessing it is a "
 "string"
 msgstr ""
+"Лош конфигурациони фајл, %s нема not xml:lang атрибута, претпостављам је да "
+"је стринг у питању"
 
 #: lib/ManaTools/MainDisplay.pm:590
 #, perl-format
 msgid "Configuration file %s is missing"
-msgstr ""
+msgstr "Недостаје %s конфигурациони фајл"
 
 #: lib/ManaTools/MainDisplay.pm:595
 #, perl-format
 msgid "Reading configuration file %s"
-msgstr ""
+msgstr "Учитавам конфигурациони фајл %s"
 
 #: lib/ManaTools/MainDisplay.pm:612
 #, perl-format
 msgid "Load settings: %s content is <<%s>>"
-msgstr ""
+msgstr "Учитавам подешавања: %s садржај је <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:768
 #, perl-format
 msgid "Parsing category file %s"
-msgstr ""
+msgstr "Парсирам фајл за категорије %s"
 
 #: lib/ManaTools/MainDisplay.pm:779
 #, perl-format
 msgid "Load categories: title content is <<%s>>"
-msgstr ""
+msgstr "Учитавам категорије: наслов садржаја је <<%s>>"
 
 #: lib/ManaTools/MainDisplay.pm:814
 #, perl-format
 msgid "Load categories: module title is <<%s>>"
-msgstr ""
+msgstr "Учитавам категорије: наслов модула је <<%s>>"
 
 #: lib/ManaTools/Shared/GUI.pm:125 lib/ManaTools/Shared/GUI.pm:171
 #: lib/ManaTools/Shared/GUI.pm:215 lib/ManaTools/Shared/GUI.pm:265
@@ -178,40 +188,44 @@ msgstr "&Поништи"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
-msgstr ""
+msgstr "Да"
 
 #: lib/ManaTools/Shared/GUI.pm:319
 msgid "No"
-msgstr ""
+msgstr "Не"
 
 #: lib/ManaTools/Shared/GUI.pm:499 lib/ManaTools/Shared/GUI.pm:617
 #: lib/ManaTools/Shared/GUI.pm:924
 msgid "&Select"
-msgstr ""
+msgstr "&Изабари"
 
 #: lib/ManaTools/Shared/CommandLine.pm:73
 msgid ""
 "<dir> optional directory containing localization strings (developer only)"
 msgstr ""
+"<dir> опциони директоријум који садржи стрингове за локализацију (само за "
+"девелопере)"
 
 #: lib/ManaTools/Shared/CommandLine.pm:83
 msgid "Prints this usage information."
-msgstr ""
+msgstr "Исписује ове информације о коришћењу. "
 
 #: lib/ManaTools/Shared/Users.pm:383
 msgid "Name field is empty please provide a name"
-msgstr ""
+msgstr "Име поља је празно, упишите име"
 
 #: lib/ManaTools/Shared/Users.pm:388
 msgid ""
 "The name must start with a letter and contain only lower cased latin "
 "letters, numbers, '.', '-' and '_'"
 msgstr ""
+"Име мора започети са словом и може садржати само мала латинична слова, "
+"бројеве, '.', '-' и '_'"
 
 #: lib/ManaTools/Shared/Users.pm:391
 #, perl-format
 msgid "Name is too long. Maximum length is %d"
-msgstr ""
+msgstr "Име је предугачко. Максимална дужина је %d"
 
 #: lib/ManaTools/Shared/Users.pm:393 lib/ManaTools/rpmdragora.pm:179
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1017
@@ -219,20 +233,20 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1186
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2181
 msgid "Ok"
-msgstr ""
+msgstr "У реду"
 
 #: lib/ManaTools/Shared/Users.pm:819
 #, perl-format
 msgid "You cannot remove user <%s> from their primary group"
-msgstr ""
+msgstr "Не можете уклонити корисника <%s> из његове основне групе"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Locked"
-msgstr ""
+msgstr "Закључано"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Expired"
-msgstr ""
+msgstr "Истекло"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
@@ -242,19 +256,19 @@ msgstr "Нема(инсталирано)"
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:371
 #: lib/ManaTools/Rpmdragora/formatting.pm:127
 msgid "Unknown"
-msgstr ""
+msgstr "Непознато"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "Сачувај произвољна правила"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "Уклони произвољна правила"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr ""
+msgstr "почни да користиш yui gtk имплементацију додатка"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
@@ -262,7 +276,7 @@ msgstr "покрени коришћење имплементације yui ncurs
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr ""
+msgstr "почни да користиш yui qt имплементацију додатка"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
@@ -270,17 +284,19 @@ msgstr "користи цео екран за дијалоге"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr ""
+msgstr "без ивица менаџера прозора за дијалоге"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
 "<dir> optional directory containing configuration files for each module (e."
 "g. modulename/config_files)"
 msgstr ""
+"<dir> опциони директоријум који садржи конфигурационе фајлове за сваки модул "
+"(нпр. modulename/config_files)"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:420
 msgid "&Reset"
-msgstr ""
+msgstr "&Ресетуј"
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
@@ -289,270 +305,270 @@ msgstr "&Затвори"
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
 #, perl-format
 msgid "%s enabled but stopped - disabling it"
-msgstr ""
+msgstr "%s укључено али заустављено - искључујем га"
 
 #: lib/ManaTools/Shared/TimeZone.pm:374
 msgid "Global"
-msgstr ""
+msgstr "Глобално"
 
 #: lib/ManaTools/Shared/TimeZone.pm:377
 msgid "Africa"
-msgstr ""
+msgstr "Африка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:378
 msgid "Asia"
-msgstr ""
+msgstr "Азија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:379
 msgid "Europe"
-msgstr ""
+msgstr "Европа"
 
 #: lib/ManaTools/Shared/TimeZone.pm:380
 msgid "North America"
-msgstr ""
+msgstr "Северна Америка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:381
 msgid "Oceania"
-msgstr ""
+msgstr "Океанија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:382
 msgid "South America"
-msgstr ""
+msgstr "Јужна Америја"
 
 #: lib/ManaTools/Shared/TimeZone.pm:385 lib/ManaTools/rpmdragora.pm:608
 msgid "South Africa"
-msgstr ""
+msgstr "Јужна Африка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:386
 msgid "Tanzania"
-msgstr ""
+msgstr "Танзанија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:389
 msgid "Bangladesh"
-msgstr ""
+msgstr "Бангладеш"
 
 #: lib/ManaTools/Shared/TimeZone.pm:390 lib/ManaTools/rpmdragora.pm:613
 msgid "China"
-msgstr ""
+msgstr "Кина"
 
 #: lib/ManaTools/Shared/TimeZone.pm:391
 msgid "Hong Kong"
-msgstr ""
+msgstr "Хонг Конг"
 
 #: lib/ManaTools/Shared/TimeZone.pm:392
 msgid "India"
-msgstr ""
+msgstr "Индија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:393 lib/ManaTools/rpmdragora.pm:595
 msgid "Indonesia"
-msgstr ""
+msgstr "Индонезија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:394
 msgid "Iran"
-msgstr ""
+msgstr "Иран"
 
 #: lib/ManaTools/Shared/TimeZone.pm:395 lib/ManaTools/rpmdragora.pm:596
 msgid "Israel"
-msgstr ""
+msgstr "Израел"
 
 #: lib/ManaTools/Shared/TimeZone.pm:396 lib/ManaTools/rpmdragora.pm:598
 msgid "Japan"
-msgstr ""
+msgstr "Јапан"
 
 #: lib/ManaTools/Shared/TimeZone.pm:397 lib/ManaTools/rpmdragora.pm:599
 msgid "Korea"
-msgstr ""
+msgstr "Кореја"
 
 #: lib/ManaTools/Shared/TimeZone.pm:398
 msgid "Malaysia"
-msgstr ""
+msgstr "Малезија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:399
 msgid "Philippines"
-msgstr ""
+msgstr "Филипини"
 
 #: lib/ManaTools/Shared/TimeZone.pm:400 lib/ManaTools/rpmdragora.pm:606
 msgid "Singapore"
-msgstr ""
+msgstr "Сингапур"
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "Тајван"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
-msgstr ""
+msgstr "Тајланд"
 
 #: lib/ManaTools/Shared/TimeZone.pm:403
 msgid "Turkey"
-msgstr ""
+msgstr "Турска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:404
 msgid "United Arab Emirates"
-msgstr ""
+msgstr "Уједињени Арапски Емирати"
 
 #: lib/ManaTools/Shared/TimeZone.pm:407 lib/ManaTools/rpmdragora.pm:576
 msgid "Austria"
-msgstr ""
+msgstr "Аустрија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:408 lib/ManaTools/rpmdragora.pm:578
 msgid "Belarus"
-msgstr ""
+msgstr "Белорусија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:409 lib/ManaTools/rpmdragora.pm:579
 msgid "Belgium"
-msgstr ""
+msgstr "Белгија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:410
 msgid "Bulgaria"
-msgstr ""
+msgstr "Бугарска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:411 lib/ManaTools/rpmdragora.pm:585
 msgid "Czech Republic"
-msgstr ""
+msgstr "Чешка Република"
 
 #: lib/ManaTools/Shared/TimeZone.pm:412
 msgid "Denmark"
-msgstr ""
+msgstr "Данска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:413
 msgid "Estonia"
-msgstr ""
+msgstr "Естонија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:414 lib/ManaTools/rpmdragora.pm:591
 msgid "Finland"
-msgstr ""
+msgstr "Финска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr ""
+msgstr "Француска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
-msgstr ""
+msgstr "Немачка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:417 lib/ManaTools/rpmdragora.pm:589
 #: lib/ManaTools/rpmdragora.pm:593
 msgid "Greece"
-msgstr ""
+msgstr "Грчка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:418 lib/ManaTools/rpmdragora.pm:594
 msgid "Hungary"
-msgstr ""
+msgstr "Мађарска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:419
 msgid "Ireland"
-msgstr ""
+msgstr "Ирска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:420 lib/ManaTools/rpmdragora.pm:597
 msgid "Italy"
-msgstr ""
+msgstr "Италија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:421
 msgid "Lithuania"
-msgstr ""
+msgstr "Литванија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:422
 msgid "Luxembourg"
-msgstr ""
+msgstr "Луксембург"
 
 #: lib/ManaTools/Shared/TimeZone.pm:423 lib/ManaTools/rpmdragora.pm:600
 msgid "Netherlands"
-msgstr ""
+msgstr "Холандија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:424 lib/ManaTools/rpmdragora.pm:601
 msgid "Norway"
-msgstr ""
+msgstr "Норвешка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:425 lib/ManaTools/rpmdragora.pm:602
 msgid "Poland"
-msgstr ""
+msgstr "Пољска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:426 lib/ManaTools/rpmdragora.pm:603
 msgid "Portugal"
-msgstr ""
+msgstr "Португал"
 
 #: lib/ManaTools/Shared/TimeZone.pm:427
 msgid "Romania"
-msgstr ""
+msgstr "Румунија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:428
 msgid "Russian Federation"
-msgstr ""
+msgstr "Руска Федерација"
 
 #: lib/ManaTools/Shared/TimeZone.pm:429 lib/ManaTools/rpmdragora.pm:607
 msgid "Slovakia"
-msgstr ""
+msgstr "Словачка"
 
 #: lib/ManaTools/Shared/TimeZone.pm:430
 msgid "Slovenia"
-msgstr ""
+msgstr "Словенија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:431 lib/ManaTools/rpmdragora.pm:590
 msgid "Spain"
-msgstr ""
+msgstr "Шпанија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:432 lib/ManaTools/rpmdragora.pm:605
 msgid "Sweden"
-msgstr ""
+msgstr "Шведска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "Швајцарска"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
-msgstr ""
+msgstr "Украјина"
 
 #: lib/ManaTools/Shared/TimeZone.pm:435
 msgid "United Kingdom"
-msgstr ""
+msgstr "Уједињено Краљевство"
 
 #: lib/ManaTools/Shared/TimeZone.pm:436
 msgid "Yugoslavia"
-msgstr ""
+msgstr "Југославија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
-msgstr ""
+msgstr "Канада"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
-msgstr ""
+msgstr "Гватемала"
 
 #: lib/ManaTools/Shared/TimeZone.pm:441
 msgid "Mexico"
-msgstr ""
+msgstr "Мексико"
 
 #: lib/ManaTools/Shared/TimeZone.pm:442 lib/ManaTools/rpmdragora.pm:614
 #: lib/ManaTools/rpmdragora.pm:615 lib/ManaTools/rpmdragora.pm:616
 #: lib/ManaTools/rpmdragora.pm:617 lib/ManaTools/rpmdragora.pm:618
 msgid "United States"
-msgstr ""
+msgstr "Сједињене Државе"
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "Аустралија"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
-msgstr ""
+msgstr "Нови Зеланд"
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
-msgstr ""
+msgstr "Аргетина"
 
 #: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
 msgid "Brazil"
-msgstr ""
+msgstr "Бразил"
 
 #: lib/ManaTools/Shared/TimeZone.pm:451
 msgid "Chile"
-msgstr ""
+msgstr "Чиле"
 
 #: lib/ManaTools/Shared/TimeZone.pm:803 lib/ManaTools/Shared/TimeZone.pm:804
 msgid "All servers"
-msgstr ""
+msgstr "Сви сервери"
 
 #: lib/ManaTools/Shared/TimeZone.pm:956
 msgid "user does not have the rights to change configuration file, skipped"
@@ -938,51 +954,51 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:164
 msgid "but not matching"
-msgstr ""
+msgstr "али без поклапања"
 
 #: lib/ManaTools/Module/LogViewer.pm:168 modules/rpmdragora/rpmdragora:723
 msgid "Options"
-msgstr ""
+msgstr "Опције"
 
 #: lib/ManaTools/Module/LogViewer.pm:173
 msgid "Last boot"
-msgstr ""
+msgstr "Последње подизање система"
 
 #: lib/ManaTools/Module/LogViewer.pm:186
 msgid "Since"
-msgstr ""
+msgstr "Од"
 
 #: lib/ManaTools/Module/LogViewer.pm:191
 msgid "Until"
-msgstr ""
+msgstr "Све док"
 
 #: lib/ManaTools/Module/LogViewer.pm:218
 msgid "Select a unit"
-msgstr ""
+msgstr "Изаберите јединицу"
 
 #: lib/ManaTools/Module/LogViewer.pm:240
 msgid "From priority"
-msgstr ""
+msgstr "Од приоритета"
 
 #: lib/ManaTools/Module/LogViewer.pm:260
 msgid "To priority"
-msgstr ""
+msgstr "До приоритета"
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
-msgstr ""
+msgstr "&Нађи"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
-msgstr ""
+msgstr "Лог садржаја"
 
 #: lib/ManaTools/Module/LogViewer.pm:297
 msgid "&Save"
-msgstr ""
+msgstr "&Сачувај"
 
 #: lib/ManaTools/Module/LogViewer.pm:322
 msgid "Log viewer is a systemd journal viewer"
-msgstr ""
+msgstr "Прегледник логова је systemd journal прегледник"
 
 #: lib/ManaTools/Module/LogViewer.pm:323
 #, perl-format
@@ -994,14 +1010,20 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Девелопери</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>Преводиоци</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
-msgstr ""
+msgstr "Пронађен празан лог"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid "manalog - running in user mode"
-msgstr ""
+msgstr "manalog - ради у корисничком моду"
 
 #: lib/ManaTools/Module/LogViewer.pm:435
 msgid ""
@@ -1009,15 +1031,19 @@ msgid ""
 "You will not be able to read system logs which you do not have rights to,\n"
 "but you may still browse all the others."
 msgstr ""
+"Покренули сте овај програм као обичан корисник.\n"
+"Нећете бити у могућности да прочитате системске логове за које немате "
+"овлашћења,\n"
+"али ћете моћи да прегледате све остале."
 
 #: lib/ManaTools/Module/LogViewer.pm:457
 msgid "Save as.."
-msgstr ""
+msgstr "Сачувај као.."
 
 #: lib/ManaTools/Module/Users.pm:107
 #, perl-format
 msgid "%s - Users Management Tool"
-msgstr ""
+msgstr "%s - Алат за управљање корисницима"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -1025,7 +1051,7 @@ msgstr "Кориснички подаци"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "Инфо о Налогу"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
@@ -1033,31 +1059,31 @@ msgstr "Инфо о лозинци"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
 msgid "Groups"
-msgstr ""
+msgstr "Групе"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "Подаци о групама"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
-msgstr ""
+msgstr "Корисици Група"
 
 #: lib/ManaTools/Module/Users.pm:336
 msgid "Choose group"
-msgstr ""
+msgstr "Изаберите групу"
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr ""
+msgstr "Група са овим именом већ постоји. Шта желите да урадите?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "Додај у постојећу групу"
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
-msgstr ""
+msgstr "Додај у 'корисничку' групу"
 
 #: lib/ManaTools/Module/Users.pm:418 lib/ManaTools/rpmdragora.pm:854
 #: lib/ManaTools/rpmdragora.pm:1069 lib/ManaTools/Rpmdragora/pkg.pm:940
@@ -1066,17 +1092,17 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:954 lib/ManaTools/Rpmdragora/gui.pm:959
 #: modules/rpmdragora/rpmdragora:1208
 msgid "Warning"
-msgstr ""
+msgstr "Упозорење"
 
 #: lib/ManaTools/Module/Users.pm:426
 #, perl-format
 msgid "Do you really want to delete the group %s?"
-msgstr ""
+msgstr "Да ли заиста желите да обришете групу %s?"
 
 #: lib/ManaTools/Module/Users.pm:432 lib/ManaTools/Module/Users.pm:523
 #: lib/ManaTools/Module/Users.pm:2347
 msgid "&Delete"
-msgstr ""
+msgstr "&Обриши"
 
 #: lib/ManaTools/Module/Users.pm:452
 #, perl-format
@@ -1084,15 +1110,17 @@ msgid ""
 "%s is a primary group for user %s\n"
 " Remove the user first"
 msgstr ""
+"%s је примарна група корисника %s\n"
+" Прво уклони корисника"
 
 #: lib/ManaTools/Module/Users.pm:459
 #, perl-format
 msgid "Removing group: %s"
-msgstr ""
+msgstr "Уклањам групу: %s"
 
 #: lib/ManaTools/Module/Users.pm:506
 msgid "Delete files or not?"
-msgstr ""
+msgstr "Обриши фајлове или не?"
 
 #: lib/ManaTools/Module/Users.pm:513
 #, perl-format
@@ -1100,11 +1128,13 @@ msgid ""
 "Deleting user %s\n"
 "Also perform the following actions\n"
 msgstr ""
+"Бришем корисника %s\n"
+"Такође изводим следеће акције\n"
 
 #: lib/ManaTools/Module/Users.pm:516
 #, perl-format
 msgid "Delete Home Directory: %s"
-msgstr ""
+msgstr "Обриши Home Директоријум: %s"
 
 #: lib/ManaTools/Module/Users.pm:518
 #, perl-format
@@ -1114,32 +1144,32 @@ msgstr "Бриши Mailbox :/var/spool/mail/%s"
 #: lib/ManaTools/Module/Users.pm:546
 #, perl-format
 msgid "Removing user: %s"
-msgstr ""
+msgstr "Уклањам корисника: %s"
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "Креирам Нову Групу"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
-msgstr ""
+msgstr "Име Групе:"
 
 #: lib/ManaTools/Module/Users.pm:598
 msgid "Specify group ID manually"
-msgstr ""
+msgstr "Ручно одреди ID групе"
 
 #: lib/ManaTools/Module/Users.pm:600
 msgid "GID"
-msgstr ""
+msgstr "GID"
 
 #: lib/ManaTools/Module/Users.pm:633
 msgid "Group already exists, please choose another Group Name"
-msgstr ""
+msgstr "Група већ постоји, изаберите друго име за Групу"
 
 #: lib/ManaTools/Module/Users.pm:641
 #, perl-format
 msgid " Group Gid is < %n"
-msgstr ""
+msgstr "Gid Групе је < %n"
 
 #: lib/ManaTools/Module/Users.pm:642
 #, perl-format
@@ -1148,40 +1178,45 @@ msgid ""
 " Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Креирање GID-а за групу мањим од %d није препоручљиво.\n"
+" Да ли сте сигурно да желите то да урадите?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr ""
+msgstr "ID Групе је већ у употреби"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
 "Creating a group with a non unique GID?\n"
 "\n"
 msgstr ""
+"Креирање групе са не-јединственим GID-ом?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:663
 #, perl-format
 msgid "Adding group: %s "
-msgstr ""
+msgstr "Додајем групу: %s "
 
 #: lib/ManaTools/Module/Users.pm:719
 msgid "Full Name:"
-msgstr ""
+msgstr "Пуно име:"
 
 #: lib/ManaTools/Module/Users.pm:728
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:211
 msgid "Login:"
-msgstr ""
+msgstr "Пријава:"
 
 #: lib/ManaTools/Module/Users.pm:738 lib/ManaTools/rpmdragora.pm:188
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:218
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:927
 msgid "Password:"
-msgstr ""
+msgstr "Лозинка:"
 
 #: lib/ManaTools/Module/Users.pm:760
 msgid "Confirm Password:"
-msgstr ""
+msgstr "Потврди лозинку:"
 
 #: lib/ManaTools/Module/Users.pm:769
 msgid "Login Shell:"
@@ -1190,56 +1225,58 @@ msgstr "Шкољка за логовање:"
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&Иконица (%s)"
 
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2406
 #: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Proxy.pm:147
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "потребне су root овлашћења"
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
-msgstr ""
+msgstr "Креирај новог Корисника"
 
 #: lib/ManaTools/Module/Users.pm:871
 msgid "Create Home Directory"
-msgstr ""
+msgstr "Креирај Home Директоријум"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr ""
+msgstr "Home Директоријум:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
-msgstr ""
+msgstr "Креирај приватну групу за корисника"
 
 #: lib/ManaTools/Module/Users.pm:889
 msgid "Specify user ID manually"
-msgstr ""
+msgstr "Ручно одреди корисников ID"
 
 #: lib/ManaTools/Module/Users.pm:891
 msgid "UID"
-msgstr ""
+msgstr "UID"
 
 #: lib/ManaTools/Module/Users.pm:899
 msgid "Click on icon to change it"
-msgstr ""
+msgstr "Кликни на иконицу да би је променио"
 
 #: lib/ManaTools/Module/Users.pm:951
 msgid "User already exists, please choose another User Name"
-msgstr ""
+msgstr "Корисник већ постоји, изаберите друго Корисничко име"
 
 #: lib/ManaTools/Module/Users.pm:956 lib/ManaTools/Module/Users.pm:1904
 msgid "Password Mismatch"
-msgstr ""
+msgstr "Непоклапање Лозинки"
 
 #: lib/ManaTools/Module/Users.pm:960 lib/ManaTools/Module/Users.pm:1910
 msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"Лозинка је превише једниставна.\n"
+"Добре лозинке би требале да имају > 6 карактера"
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -1247,11 +1284,13 @@ msgid ""
 "Home directory <%s> already exists.\n"
 "Please uncheck the home creation option, or change the directory path name"
 msgstr ""
+"Home директоријум <%s> већ постоји.\n"
+"Деселектујте опцију за креирање home-a, или промените путању директоријума"
 
 #: lib/ManaTools/Module/Users.pm:980
 #, perl-format
 msgid "User Uid is < %d"
-msgstr ""
+msgstr "Корисников Uid је < %d"
 
 #: lib/ManaTools/Module/Users.pm:981
 #, perl-format
@@ -1260,192 +1299,199 @@ msgid ""
 "Are you sure you want to do this?\n"
 "\n"
 msgstr ""
+"Креирање корисника са UID-ом мањим од %d није препоручљиво.\n"
+"Да ли сте сигурни да желите ово да урадитеAre you sure you want to do this?\n"
+"\n"
 
 #: lib/ManaTools/Module/Users.pm:996
 #, perl-format
 msgid "Putting %s to 'users' group"
-msgstr ""
+msgstr "Стављам %s у 'корисничку' групу"
 
 #: lib/ManaTools/Module/Users.pm:1009
 #, perl-format
 msgid "Creating new group: %s"
-msgstr ""
+msgstr "Креирам нову групу: %s"
 
 #: lib/ManaTools/Module/Users.pm:1023
 msgid "Adding user: "
-msgstr ""
+msgstr "Додајем корисника:"
 
 #: lib/ManaTools/Module/Users.pm:1024
 #, perl-format
 msgid "Adding user: %s"
-msgstr ""
+msgstr "Додајем корисника: %s"
 
 #: lib/ManaTools/Module/Users.pm:1090
 msgid "User Name"
-msgstr ""
+msgstr "Корисничко Име"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr ""
+msgstr "Корисников ID"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
-msgstr ""
+msgstr "Примарна Група"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "Пуно Име"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
-msgstr ""
+msgstr "Терминал за Пријаву"
 
 #: lib/ManaTools/Module/Users.pm:1095
 msgid "Home Directory"
-msgstr ""
+msgstr "Home Директоријум"
 
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "Статус"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "Име Групе"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "ID Групе"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
-msgstr ""
+msgstr "Чланови Групе"
 
 #: lib/ManaTools/Module/Users.pm:1552
 msgid "Home:"
-msgstr ""
+msgstr "Home:"
 
 #: lib/ManaTools/Module/Users.pm:1651
 msgid "Enable account expiration"
-msgstr ""
+msgstr "Омогући истицање налога"
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr ""
+msgstr "Налог истиче (YYYY-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
-msgstr ""
+msgstr "Закључај Кориснички Налог"
 
 #: lib/ManaTools/Module/Users.pm:1665
 msgid "Click on the icon to change it"
-msgstr ""
+msgstr "Кликни на иконицу да би је изменио"
 
 #: lib/ManaTools/Module/Users.pm:1695
 msgid "User last changed password on: "
-msgstr ""
+msgstr "Корисник је последњи пут променио лозинку:"
 
 #: lib/ManaTools/Module/Users.pm:1708
 msgid "Enable Password Expiration"
-msgstr ""
+msgstr "Омогући истицање Лозинке"
 
 #: lib/ManaTools/Module/Users.pm:1712
 msgid "Days before change allowed:"
-msgstr ""
+msgstr "Дана пре него је промена дозвољена:"
 
 #: lib/ManaTools/Module/Users.pm:1720
 msgid "Days before change required:"
-msgstr ""
+msgstr "Дана пре него је промена потребна:"
 
 #: lib/ManaTools/Module/Users.pm:1728
 msgid "Days warning before change:"
-msgstr ""
+msgstr "Дана за упозорење пре промене:"
 
 #: lib/ManaTools/Module/Users.pm:1736
 msgid "Days before account inactive:"
-msgstr ""
+msgstr "Дана пре деактивирања налога:"
 
 #: lib/ManaTools/Module/Users.pm:1765
 msgid "Select the users to join this group:"
-msgstr ""
+msgstr "Изабери кориснике за прикључење овој групи:"
 
 #: lib/ManaTools/Module/Users.pm:1769
 msgid "User"
-msgstr ""
+msgstr "Корисник"
 
 #: lib/ManaTools/Module/Users.pm:1810
 msgid "Select groups that the user will be member of:"
-msgstr ""
+msgstr "Изаберите групе у којима ће корисник бити члан:"
 
 #: lib/ManaTools/Module/Users.pm:1814
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Group"
-msgstr ""
+msgstr "Група"
 
 #: lib/ManaTools/Module/Users.pm:1916
 msgid "Please select at least one group for the user"
-msgstr ""
+msgstr "Изаберите бар једну групу за корисника"
 
 #: lib/ManaTools/Module/Users.pm:1942
 msgid ""
 "Please specify Year, Month and Day \n"
 " for Account Expiration "
 msgstr ""
+"Одредите Годину, Месец и Дан\n"
+"за деактивирање Налога"
 
 #: lib/ManaTools/Module/Users.pm:1958
 msgid "Please fill up all fields in password aging\n"
-msgstr ""
+msgstr "Попуните сва поља у датуму лозинце\n"
 
 #: lib/ManaTools/Module/Users.pm:1971
 #, perl-format
 msgid "Problem in modifying user %s"
-msgstr ""
+msgstr "Проблем у измени корисника %s"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Strong"
-msgstr ""
+msgstr "Јака"
 
 #: lib/ManaTools/Module/Users.pm:1997
 msgid "Weak"
-msgstr ""
+msgstr "Слаба"
 
 #: lib/ManaTools/Module/Users.pm:2010
 msgid "Edit User"
-msgstr ""
+msgstr "Уреди корисника"
 
 #: lib/ManaTools/Module/Users.pm:2163 lib/ManaTools/Module/Users.pm:2266
 msgid "Cannot create tab widgets"
-msgstr ""
+msgstr "Не могу да креирам таб виџете"
 
 #: lib/ManaTools/Module/Users.pm:2179
 msgid "Edit Group"
-msgstr ""
+msgstr "Уреди Групу"
 
 #: lib/ManaTools/Module/Users.pm:2344 lib/ManaTools/Module/Users.pm:2468
 msgid "Add User"
-msgstr ""
+msgstr "Додај корисника"
 
 #: lib/ManaTools/Module/Users.pm:2345 lib/ManaTools/Module/Users.pm:2473
 msgid "Add Group"
-msgstr ""
+msgstr "Додај групу"
 
 #: lib/ManaTools/Module/Users.pm:2346 lib/ManaTools/Module/Hosts.pm:436
 msgid "&Edit"
-msgstr ""
+msgstr "&Уреди"
 
 #: lib/ManaTools/Module/Users.pm:2348
 msgid "Install guest account"
-msgstr ""
+msgstr "Инсталирај гостујући налог"
 
 #: lib/ManaTools/Module/Users.pm:2383
 msgid "manauser"
-msgstr ""
+msgstr "manauser"
 
 #: lib/ManaTools/Module/Users.pm:2387
 msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
+"manauser је Mageia алаз за управљање корисницима \n"
+"(из оргиналне идеје Mandriva userdrake-а)."
 
 #: lib/ManaTools/Module/Users.pm:2388
 #, perl-format
@@ -1457,6 +1503,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>Девелопери</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>Преводиоци</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1464,7 +1516,7 @@ msgstr "Освежи"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
-msgstr ""
+msgstr "Акције"
 
 #: lib/ManaTools/Module/Users.pm:2448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1607
@@ -1476,44 +1528,46 @@ msgstr "&Помоћ"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1609
 #: modules/rpmdragora/rpmdragora:758
 msgid "Report Bug"
-msgstr ""
+msgstr "Пријава Грешке"
 
 #: lib/ManaTools/Module/Users.pm:2478
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1663
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2155
 msgid "Edit"
-msgstr ""
+msgstr "Уреди"
 
 #: lib/ManaTools/Module/Users.pm:2483
 msgid "Delete"
-msgstr ""
+msgstr "Обриши"
 
 #: lib/ManaTools/Module/Users.pm:2502
 msgid "Filter system users"
-msgstr ""
+msgstr "Филтрирај системске кориснике"
 
 #: lib/ManaTools/Module/Users.pm:2507
 msgid "Search:"
-msgstr ""
+msgstr "Тражи:"
 
 #: lib/ManaTools/Module/Users.pm:2509
 msgid "Apply &filter"
-msgstr ""
+msgstr "Примени &филтер"
 
 #: lib/ManaTools/Module/Users.pm:2528
 msgid "Users"
-msgstr ""
+msgstr "Корисници"
 
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "%s - Подешавање Датума, Часовника & Временске Зоне"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"Опције Датума, Часовника & Временске Зоне омогућава да се подеси временска "
+"зона, датум и време."
 
 #: lib/ManaTools/Module/Clock.pm:198
 #, perl-format
@@ -1523,163 +1577,167 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
+"<h3>Девелопери</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>Преводиоци</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
-msgstr ""
+msgstr "Поврати податке"
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "Поврати само датум и време?"
 
 #: lib/ManaTools/Module/Clock.pm:235 lib/ManaTools/Module/Clock.pm:241
 #: lib/ManaTools/Module/Clock.pm:567 lib/ManaTools/Module/Clock.pm:652
 msgid "not defined"
-msgstr ""
+msgstr "није дефинисано"
 
 #: lib/ManaTools/Module/Clock.pm:269
 msgid "Set local RTC failed"
-msgstr ""
+msgstr "Није успело постављање локалног RTC-a"
 
 #: lib/ManaTools/Module/Clock.pm:284
 msgid "Set time zone failed"
-msgstr ""
+msgstr "Није успело постављање временске зоне"
 
 #: lib/ManaTools/Module/Clock.pm:329
 msgid "Set NTP Configuration failed"
-msgstr ""
+msgstr "Није успело постављање NTP конфигурације"
 
 #: lib/ManaTools/Module/Clock.pm:345
 msgid "Set NTP failed"
-msgstr ""
+msgstr "Није успело постављање NTP-a"
 
 #: lib/ManaTools/Module/Clock.pm:368
 msgid "Set system time failed"
-msgstr ""
+msgstr "Није успело постављање времена на систему"
 
 #: lib/ManaTools/Module/Clock.pm:399
 msgid "Setting date and time"
-msgstr ""
+msgstr "Опције датум и време"
 
 #: lib/ManaTools/Module/Clock.pm:417
 msgid "Enable Network Time Protocol"
-msgstr ""
+msgstr "Омогући Network Time Protocol"
 
 #: lib/ManaTools/Module/Clock.pm:429
 msgid "manaclock: NTP service missed"
-msgstr ""
+msgstr "manaclock: недостаје NTP сервис"
 
 #: lib/ManaTools/Module/Clock.pm:430
 msgid "Please install a NTP service such as chrony or ntp to manage"
-msgstr ""
+msgstr "Инсталирајте NTP сервис као што је chrony или ntp ради подешавања"
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "Изабери &NTP сервер"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
-msgstr ""
+msgstr "NTP сервер - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
-msgstr ""
+msgstr "Изаберите свој NTP сервер"
 
 #: lib/ManaTools/Module/Clock.pm:494
 msgid "&Local NTP server"
-msgstr ""
+msgstr "&Локални NTP сервер"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Set local NTP server"
-msgstr ""
+msgstr "Постави локални NTP сервер"
 
 #: lib/ManaTools/Module/Clock.pm:511
 msgid "Please set your local NTP server"
-msgstr ""
+msgstr "Поставите свој локални NTP сервер"
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
-msgstr ""
+msgstr "Тренутно:"
 
 #: lib/ManaTools/Module/Clock.pm:590
 msgid "TimeZone"
-msgstr ""
+msgstr "Временска Зона"
 
 #: lib/ManaTools/Module/Clock.pm:592
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "Промени &Временску Зону"
 
 #: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
 msgid "Timezone - DrakClock"
-msgstr ""
+msgstr "Временска Зона - DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:606
 msgid "Failed to retrieve timezone list"
-msgstr ""
+msgstr "Није успело добављање листе временских зона"
 
 #: lib/ManaTools/Module/Clock.pm:614
 msgid "Which is your timezone?"
-msgstr ""
+msgstr "Која је ваша временска зона?"
 
 #: lib/ManaTools/Module/Clock.pm:626
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:627
 msgid "Is your hardware clock set to GMT?"
-msgstr ""
+msgstr "Да ли је ваш хардверски сат постављен на GMT?"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:155
 msgid "no active media found\n"
-msgstr ""
+msgstr "није пронађен активни медиј\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:179
 msgid "== Processing "
-msgstr ""
+msgstr "== Процесирам "
 
 #: lib/ManaTools/Module/PkgDownloader.pm:184
 #: lib/ManaTools/Module/PkgDownloader.pm:193
 #: lib/ManaTools/Module/PkgDownloader.pm:203
 msgid "protocol in use: "
-msgstr ""
+msgstr "протокол у употреби:"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:185
 msgid "trying with "
-msgstr ""
+msgstr "покушавам са"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:206
 msgid " downloaded successfully\n"
-msgstr ""
+msgstr "успешно преузето\n"
 
 #: lib/ManaTools/Module/PkgDownloader.pm:211
 msgid "no packages passed as argument\n"
-msgstr ""
+msgstr "нема пакета прослеђених као аргумент\n"
 
 #: lib/ManaTools/Module/Hosts.pm:48
 #, perl-format
 msgid "%s - manage hosts definitions"
-msgstr ""
+msgstr "%s - управљање hosts дефиницијама"
 
 #: lib/ManaTools/Module/Hosts.pm:142 lib/ManaTools/Module/Hosts.pm:238
 #: lib/ManaTools/Module/Hosts.pm:421
 msgid "Hostname"
-msgstr ""
+msgstr "Hostname"
 
 #: lib/ManaTools/Module/Hosts.pm:147
 msgid "Pretty Hostname"
-msgstr ""
+msgstr "Лепи Hostname"
 
 #: lib/ManaTools/Module/Hosts.pm:152
 msgid "Static Hostname"
-msgstr ""
+msgstr "Статични Hostname"
 
 #: lib/ManaTools/Module/Hosts.pm:157
 msgid "Chassis"
-msgstr ""
+msgstr "Chassis"
 
 #: lib/ManaTools/Module/Hosts.pm:162
 msgid "Icon Name"
-msgstr ""
+msgstr "Име иконице"
 
 #: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
 #: lib/ManaTools/Module/Hosts.pm:449 lib/ManaTools/Module/Firewall.pm:608
@@ -1687,23 +1745,23 @@ msgstr ""
 #: lib/ManaTools/Module/DisplayManager.pm:243 lib/ManaTools/Module/Proxy.pm:327
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:769
 msgid "&OK"
-msgstr ""
+msgstr "&У реду"
 
 #: lib/ManaTools/Module/Hosts.pm:237 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
-msgstr ""
+msgstr "IP Адреса"
 
 #: lib/ManaTools/Module/Hosts.pm:239
 msgid "Host aliases"
-msgstr ""
+msgstr "Host алијаси"
 
 #: lib/ManaTools/Module/Hosts.pm:314
 msgid "Add the information"
-msgstr ""
+msgstr "Додај информацију"
 
 #: lib/ManaTools/Module/Hosts.pm:348
 msgid "Modify the information"
-msgstr ""
+msgstr "Измени информацију"
 
 #: lib/ManaTools/Module/Hosts.pm:394
 msgid "Manage hosts definitions"
@@ -1711,52 +1769,52 @@ msgstr "Управљајте дефиницијама Домаћина"
 
 #: lib/ManaTools/Module/Hosts.pm:422
 msgid "Host Aliases"
-msgstr ""
+msgstr "Host Алијаси"
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
-msgstr ""
+msgstr "Д&одај"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
-msgstr ""
+msgstr "&Уклони"
 
 #: lib/ManaTools/Module/Hosts.pm:438
 msgid "&Hostname"
-msgstr ""
+msgstr "&Hostname"
 
 #: lib/ManaTools/Module/Hosts.pm:481 lib/ManaTools/Rpmdragora/pkg.pm:267
 #: lib/ManaTools/Rpmdragora/pkg.pm:812
 msgid "Confirmation"
-msgstr ""
+msgstr "Потврда"
 
 #: lib/ManaTools/Module/Hosts.pm:481
 msgid "Are you sure to drop this host?"
-msgstr ""
+msgstr "Да ли сте сигурни да желите да уклоните овај host?"
 
 #: lib/ManaTools/Module/Hosts.pm:496 lib/ManaTools/Module/Firewall.pm:176
 #: lib/ManaTools/Module/DisplayManager.pm:263
 #, perl-format
 msgid "Copyright (C) %s by Matteo Pasotti"
-msgstr ""
+msgstr "Власничка права (C) %s Матео Пасоти"
 
 #: lib/ManaTools/Module/Hosts.pm:498
 msgid "Graphical manager for hosts definitions"
-msgstr ""
+msgstr "Графички менаџер за hosts дефиниције "
 
 #: lib/ManaTools/Module/Firewall.pm:86
 #, perl-format
 msgid "%s - Firewall Manager"
-msgstr ""
+msgstr "%s - Менаџер Заштитног Зида"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
-msgstr ""
+msgstr "Детекција скенирања портова"
 
 #: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
 #: lib/ManaTools/Module/Firewall.pm:1008
 msgid "Firewall configuration"
-msgstr ""
+msgstr "Подешавање Заштитног Зида"
 
 #: lib/ManaTools/Module/Firewall.pm:416
 msgid ""
@@ -2411,7 +2469,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
-msgstr ""
+msgstr "Инсталација завршена"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
 msgid "Select a package"
@@ -2476,7 +2534,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr ""
+msgstr "Преузимам пакет `%s'..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
