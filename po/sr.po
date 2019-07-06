@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2019-07-03 07:54+0000\n"
+"PO-Revision-Date: 2019-07-06 13:40+0000\n"
 "Last-Translator: tomaja <toma.jankovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sr/)\n"
@@ -572,43 +572,49 @@ msgstr "Сви сервери"
 
 #: lib/ManaTools/Shared/TimeZone.pm:956
 msgid "user does not have the rights to change configuration file, skipped"
-msgstr ""
+msgstr "корисни нема овлашћења да мења конфигурациони фајл, прескочено"
 
 #: lib/ManaTools/Shared/Services.pm:238
 msgid "Listen and dispatch ACPI events from the kernel"
-msgstr ""
+msgstr "Прати и шаље ACPI догађаје из кернела"
 
 #: lib/ManaTools/Shared/Services.pm:239
 msgid "Launch the ALSA (Advanced Linux Sound Architecture) sound system"
-msgstr ""
+msgstr "Покреће ALSA (Напредна Линукс Архитектура за Звук) систем звука"
 
 #: lib/ManaTools/Shared/Services.pm:240
 msgid "Anacron is a periodic command scheduler."
-msgstr ""
+msgstr "Anacron је програматор за периодично извршење команди."
 
 #: lib/ManaTools/Shared/Services.pm:241
 msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"apmd се користи за праћење статуса батерија и његово бележење преко syslog-"
+"а.\n"
+"Такође се може користити за гашење машине када се батерија испразни."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
 "Runs commands scheduled by the at command at the time specified when\n"
 "at was run, and runs batch commands when the load average is low enough."
 msgstr ""
+"Покреће команде заказане at командом у време које је одређено покретањем at "
+"команде, као и batch  команде кад је оптерећеност\n"
+"система мала."
 
 #: lib/ManaTools/Shared/Services.pm:245
 msgid "Avahi is a ZeroConf daemon which implements an mDNS stack"
-msgstr ""
+msgstr "Avahi је ZeroConf демон који имплементира mDNS групу"
 
 #: lib/ManaTools/Shared/Services.pm:246
 msgid "An NTP client/server"
-msgstr ""
+msgstr "NTP клијент/сервер"
 
 #: lib/ManaTools/Shared/Services.pm:247
 msgid "Set CPU frequency settings"
-msgstr ""
+msgstr "Поешавање опција фреквениције Процесора"
 
 #: lib/ManaTools/Shared/Services.pm:248
 msgid ""
@@ -617,15 +623,20 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
+"cron је стандардни ЈУНИКС програм који покреће програме дефинисане од стране "
+"кориснике у заказано време. vixie cron додаје одређени број нових могућности "
+"у односу на основни\n"
+"ЈУНИКС cron, укључујући бољу сигурност и моћније опције за подешавање."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
 "Common UNIX Printing System (CUPS) is an advanced printer spooling system"
 msgstr ""
+"Стандардни ЈУНИКС систем за штампање (CUPS) је напредни систем за штампање"
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "Покреће менаџер за графички приказ"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -711,73 +722,86 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
-msgstr ""
+msgstr "Подешава понашање система да би продужио трајање батерије"
 
 #: lib/ManaTools/Shared/Services.pm:281
 msgid ""
 "Linuxconf will sometimes arrange to perform various tasks\n"
 "at boot-time to maintain the system configuration."
 msgstr ""
+"Linuxconf ће понекада управљати извођењем различитих задатака\n"
+"при покретању система ради одржавања конфигурације система`."
 
 #: lib/ManaTools/Shared/Services.pm:283
 msgid ""
 "lpd is the print daemon required for lpr to work properly. It is\n"
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
+"lpd је демон за штампање потребан lpr-у да би радио исправно Он је у основи\n"
+"сервер који прслеђује послове за штампу штампачи(има)."
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
 "Linux Virtual Server, used to build a high-performance and highly\n"
 "available server."
 msgstr ""
+"Виртуелни Линукс Сервер, који се користи за краирање брзих и поузданих "
+"сервера."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
-msgstr ""
+msgstr "Прати мрежу (Интерактивни Заштитни зид и бежични нет)"
 
 #: lib/ManaTools/Shared/Services.pm:288
 msgid "Software RAID monitoring and management"
-msgstr ""
+msgstr "Праћење и управљање софтверским RAID-ом"
 
 #: lib/ManaTools/Shared/Services.pm:289
 msgid ""
 "DBUS is a daemon which broadcasts notifications of system events and other "
 "messages"
 msgstr ""
+"DBUS је демон који емитује обавештења о системским догађајима и друге поруке"
 
 #: lib/ManaTools/Shared/Services.pm:290
 msgid "Enables MSEC security policy on system startup"
-msgstr ""
+msgstr "Омогућава сигурносна MSEC правила при подизању система"
 
 #: lib/ManaTools/Shared/Services.pm:291
 msgid ""
 "named (BIND) is a Domain Name Server (DNS) that is used to resolve host "
 "names to IP addresses."
 msgstr ""
+"Назван као (BIND) је Domain Name Server (DNS) који се користи за даје host "
+"име IP адреси."
 
 #: lib/ManaTools/Shared/Services.pm:292
 msgid "Initializes network console logging"
-msgstr ""
+msgstr "Покреће бележење мрежне конзоле"
 
 #: lib/ManaTools/Shared/Services.pm:293
 msgid ""
 "Mounts and unmounts all Network File System (NFS), SMB (Lan\n"
 "Manager/Windows), and NCP (NetWare) mount points."
 msgstr ""
+"Монтира и демонтира све Мрежне фајл системе  (NFS), SMB (Lan\n"
+"Manager/Windows), и NCP (NetWare) тачке монтирања."
 
 #: lib/ManaTools/Shared/Services.pm:295
 msgid ""
 "Activates/Deactivates all network interfaces configured to start\n"
 "at boot time."
 msgstr ""
+"Активира/Деактивира све мрежне интерфејсе подешене за покретање\n"
+"при подизању система."
 
 #: lib/ManaTools/Shared/Services.pm:297
 msgid "Requires network to be up if enabled"
-msgstr ""
+msgstr "Захтева мрежу да би се подигао уколико је омогућен"
 
 #: lib/ManaTools/Shared/Services.pm:298
 msgid "Wait for the hotplugged network to be up"
-msgstr ""
+msgstr "Чека аутоматску конекцију да би се подигао"
 
 #: lib/ManaTools/Shared/Services.pm:299
 msgid ""
@@ -785,16 +809,22 @@ msgid ""
 "This service provides NFS server functionality, which is configured via the\n"
 "/etc/exports file."
 msgstr ""
+"NFS је популаран протокол за дељење фајлова преко TCP/IP мрежа.\n"
+"Овај сервис омогућава NFS функционалност сервера, који се подешава преко\n"
+"/etc/exports фајла."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
 "NFS is a popular protocol for file sharing across TCP/IP\n"
 "networks. This service provides NFS file locking functionality."
 msgstr ""
+"NFS је популаран протокол за дељење фајлова преко TCP/IP мрежа.\n"
+"Овај сервис омогућава NFS функционалност закључавања фајлова."
 
 #: lib/ManaTools/Shared/Services.pm:304
 msgid "Synchronizes system time using the Network Time Protocol (NTP)"
 msgstr ""
+"Синхронизује системско време коришћењем Мрежног протокола за време (NTP)"
 
 #: lib/ManaTools/Shared/Services.pm:305
 msgid ""
@@ -804,11 +834,11 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
-msgstr ""
+msgstr "Подржава OKI 4w и компатибилне windows штампаче."
 
 #: lib/ManaTools/Shared/Services.pm:308
 msgid "Checks if a partition is close to full up"
-msgstr ""
+msgstr "Проверава да ли су партиције близу попуњености"
 
 #: lib/ManaTools/Shared/Services.pm:309
 msgid ""
@@ -817,6 +847,10 @@ msgid ""
 "to have\n"
 "it installed on machines that do not need it."
 msgstr ""
+"Подршка за PCMCIA је обично за уређаје као што су мрежне картице\n"
+"и модеми у лаптоповима. Они неће бити покренути осим ако нису подешени па је "
+"тако безбедно\n"
+"држати их у машинама којима нису потребни."
 
 #: lib/ManaTools/Shared/Services.pm:312
 msgid ""
