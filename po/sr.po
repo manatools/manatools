@@ -15,7 +15,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2019-07-30 12:53+0000\n"
+"PO-Revision-Date: 2019-07-30 18:07+0000\n"
 "Last-Translator: tomaja <toma.jankovic@gmail.com>\n"
 "Language-Team: Serbian (http://www.transifex.com/MageiaLinux/mageia/language/"
 "sr/)\n"
@@ -659,6 +659,15 @@ msgid ""
 "applications and\n"
 "scripts can access the LCD via a simple API."
 msgstr ""
+"G15Демон омогућава корисницима приступ свим додатним тастерима њиховим "
+"декодирањем и\n"
+"враћањем назад у кернел преко линукс UINPUT драјвера. Овај драјвер мора бити "
+"учитан\n"
+"пре него што би g15 демон мога бити коришћен за приступ тастатури. G15 LCD "
+"је такође подржан. Подразумевано,\n"
+"без других активних клијената, g15демон ће приказати часовник. Клијентске "
+"апликације и \n"
+"скрипте могу приступити LCD-у пре једноставног API-ја."
 
 #: lib/ManaTools/Shared/Services.pm:260
 msgid ""
@@ -667,6 +676,9 @@ msgid ""
 "operations,\n"
 "and includes support for pop-up menus on the console."
 msgstr ""
+"GPM даје подршку за миша за тексулано-базиране Линукс апликације као што је\n"
+"Midnight Commander. Исто тако даје подршку исеци-и-копирај операцијама у "
+"конзоли а укључчује и подршку за  pop-up меније на  конзоли."
 
 #: lib/ManaTools/Shared/Services.pm:263
 msgid "HAL is a daemon that collects and maintains information about hardware"
@@ -677,11 +689,13 @@ msgid ""
 "HardDrake runs a hardware probe, and optionally configures\n"
 "new/changed hardware."
 msgstr ""
+"HardDrake покреће испитивање харедвера, и по потреби \n"
+"подешава нови/измењени хардвер."
 
 #: lib/ManaTools/Shared/Services.pm:266
 msgid ""
 "Apache is a World Wide Web server. It is used to serve HTML files and CGI."
-msgstr ""
+msgstr "Apache је  WWW сервер. Он се користи да опслужује HTML фајлове и CGI."
 
 #: lib/ManaTools/Shared/Services.pm:267
 msgid ""
@@ -692,6 +706,11 @@ msgid ""
 "disables\n"
 "all of the services it is responsible for."
 msgstr ""
+"Интернет супер сервер демон (познат као inetd) покреће \n"
+"разне интернет сервисе. Он је одговоран за покретање \n"
+"многих сервиса, укључујући telnet, ftp, rsh, и rlogin. Искључујући га, "
+"искључујете и сервисе \n"
+"за које је он одговоран."
 
 #: lib/ManaTools/Shared/Services.pm:271
 msgid "Automates a packet filtering firewall with ip6tables"
@@ -714,16 +733,22 @@ msgid ""
 "/etc/sysconfig/keyboard.  This can be selected using the kbdconfig utility.\n"
 "You should leave this enabled for most machines."
 msgstr ""
+"Овај пакет учитава одабрану мапу тастатуре како је подешено \n"
+"у  /etc/sysconfig/keyboard. Ово се може изабрати коришћењем kbdconfig "
+"алатке.\n"
+"Ову опција треба оставити укљученом на већини машина."
 
 #: lib/ManaTools/Shared/Services.pm:277
 msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"Аутоматска регенерација кернеловог заглавља у /boot за\n"
+"/usr/include/linux/{autoconf,version}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
-msgstr ""
+msgstr "Аутоматска детекција и подешавање хадвера при покретању система."
 
 #: lib/ManaTools/Shared/Services.pm:280
 msgid "Tweaks system behavior to extend battery life"
@@ -836,6 +861,8 @@ msgid ""
 "Automatically switch on numlock key locker under console\n"
 "and Xorg at boot."
 msgstr ""
+"Аутоматски укључује закључавање numlock тастере под конзолом\n"
+"и у Xorg-у при стартању."
 
 #: lib/ManaTools/Shared/Services.pm:307
 msgid "Support the OKI 4w and compatible winprinters."
@@ -864,6 +891,10 @@ msgid ""
 "machines\n"
 "which act as servers for protocols which make use of the RPC mechanism."
 msgstr ""
+"Мапер портова управља RPC конекцијама, које се користе\n"
+"као протоколи попут NFS-а и NIS-а. Портмап сервер мора бити покренут на "
+"машинама\n"
+"које раде као сервери за протоколе који користе RPC механизам."
 
 #: lib/ManaTools/Shared/Services.pm:315
 msgid "Reserves some TCP ports"
@@ -874,18 +905,24 @@ msgid ""
 "Postfix is a Mail Transport Agent, which is the program that moves mail from "
 "one machine to another."
 msgstr ""
+"Postfix је Агент за транспорт поште, односно програм који премешта пошту са "
+"једне машине на другу."
 
 #: lib/ManaTools/Shared/Services.pm:317
 msgid ""
 "Saves and restores system entropy pool for higher quality random\n"
 "number generation."
 msgstr ""
+"Чува и обнавља системски entropy pool за већи квалитет генерисања\n"
+"случајних бројева."
 
 #: lib/ManaTools/Shared/Services.pm:319
 msgid ""
 "Assign raw devices to block devices (such as hard disk drive\n"
 "partitions), for the use of applications such as Oracle or DVD players"
 msgstr ""
+"Додељује raw урећаје за блок урећаје (као што су хард диск\n"
+"партиције), за коришћење апликације попут је Oracle или DVD плејери"
 
 #: lib/ManaTools/Shared/Services.pm:321
 msgid "Nameserver information manager"
@@ -898,12 +935,17 @@ msgid ""
 "networks, more complex\n"
 "routing protocols are needed for complex networks."
 msgstr ""
+"Routed демон дозвољава аутоматско IP рутер update-овање табле преко\n"
+"RIP протокола. Док се RIP доста корисити на малим мрежама, комплекснији \n"
+"routing протоколи су потребни за комплексне мреже."
 
 #: lib/ManaTools/Shared/Services.pm:325
 msgid ""
 "The rstat protocol allows users on a network to retrieve\n"
 "performance metrics for any machine on that network."
 msgstr ""
+"rstat протокол дозвољава корисницима на мрежи да омогуће\n"
+"мерење перформанси за било коју машину на тој  мрежи."
 
 #: lib/ManaTools/Shared/Services.pm:327
 msgid ""
@@ -918,12 +960,16 @@ msgid ""
 "The rusers protocol allows users on a network to identify who is\n"
 "logged in on other responding machines."
 msgstr ""
+"rusers протокол омогућава корисницима на мрежи да открију ко је\n"
+"улогован на другим одговарајућим машинама."
 
 #: lib/ManaTools/Shared/Services.pm:330
 msgid ""
 "The rwho protocol lets remote users get a list of all of the users\n"
 "logged into a machine running the rwho daemon (similar to finger)."
 msgstr ""
+"rwho протокол омогућава удаљеним корисницима да добију листу свих корисника\n"
+"улогованих на систем са покренутим rwho демоном (слично finger-у)."
 
 #: lib/ManaTools/Shared/Services.pm:332
 msgid ""
@@ -946,7 +992,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr ""
+msgstr "Покреће систем за звук на вашој машини"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
@@ -965,6 +1011,8 @@ msgid ""
 "Syslog is the facility by which many daemons use to log messages\n"
 "to various system log files.  It is a good idea to always run syslog."
 msgstr ""
+"Syslog је објекат помоћу кога многи демони бележе поруке\n"
+"у разним системским лог фајловима. Добра је идеја имати увек покренут syslog."
 
 #: lib/ManaTools/Shared/Services.pm:340
 msgid "Moves the generated persistent udev rules to /etc/udev/rules.d"
@@ -972,7 +1020,7 @@ msgstr "Премешта креирана стална udev правила у /e
 
 #: lib/ManaTools/Shared/Services.pm:341
 msgid "Load the drivers for your usb devices."
-msgstr ""
+msgstr "Учитава драјвере за ваше usb уређаје."
 
 #: lib/ManaTools/Shared/Services.pm:342
 msgid "A lightweight network traffic monitor"
@@ -989,11 +1037,11 @@ msgstr "Покреће друге демоне по захтеву."
 #: lib/ManaTools/Module/LogViewer.pm:81
 #, perl-format
 msgid "%s - Log viewer"
-msgstr ""
+msgstr "%s - Прегледник дневника"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "Алат за праћење ваших дневника"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
@@ -1869,6 +1917,8 @@ msgid ""
 "                    This configures a personal firewall for this Mageia "
 "machine."
 msgstr ""
+"drakfirewall конфигуратор\n"
+"                    Ово подешава ваш лични заштитни зид за ову Mageia машину."
 
 #: lib/ManaTools/Module/Firewall.pm:423
 msgid ""
@@ -1876,10 +1926,13 @@ msgid ""
 "Make sure you have configured your Network/Internet access with\n"
 "drakconnect before going any further."
 msgstr ""
+"drakfirewall конфигуратор\n"
+"Будите сигурни да сте подесили ваш Мрежни/Интернет приступ са\n"
+"drakconnect-ом пре него што наставите."
 
 #: lib/ManaTools/Module/Firewall.pm:486
 msgid "Interactive Firewall"
-msgstr ""
+msgstr "Интерактивни заштитни зид"
 
 #: lib/ManaTools/Module/Firewall.pm:490
 msgid ""
@@ -1887,14 +1940,17 @@ msgid ""
 "into your computer.\n"
 "Please select which network activities should be watched."
 msgstr ""
+"Требало би да будете упозорени када неко приступи сервису или покуша да "
+"продре у ваш рачунар.\n"
+"Изаберите које мреже активности треба надгледати."
 
 #: lib/ManaTools/Module/Firewall.pm:496
 msgid "Use Interactive Firewall"
-msgstr ""
+msgstr "Користи Интерактивни Заштитни зид"
 
 #: lib/ManaTools/Module/Firewall.pm:658
 msgid "Graphical manager for interactive firewall rules"
-msgstr ""
+msgstr "Графички менаџер за правила интерактивног заштиног зида"
 
 #: lib/ManaTools/Module/Firewall.pm:705 lib/ManaTools/Module/Firewall.pm:708
 #: lib/ManaTools/Module/Firewall.pm:1097
@@ -1903,24 +1959,24 @@ msgstr "Заштитни зид"
 
 #: lib/ManaTools/Module/Firewall.pm:712
 msgid "Which services would you like to allow the Internet to connect to?"
-msgstr ""
+msgstr "Којим сервисима би волели да дозволите повезивање на Интернет?"
 
 #: lib/ManaTools/Module/Firewall.pm:713
 #, perl-format
 msgid "Those settings will be saved for the network profile <b>%s</b>"
-msgstr ""
+msgstr "Та подешавања ће бити сачувана за мрежни профил <b>%s</b>"
 
 #: lib/ManaTools/Module/Firewall.pm:714
 msgid "Everything (no firewall)"
-msgstr ""
+msgstr "Све (без заштитног зида)"
 
 #: lib/ManaTools/Module/Firewall.pm:820
 msgid "A&dvanced"
-msgstr ""
+msgstr "Н&апредно"
 
 #: lib/ManaTools/Module/Firewall.pm:854
 msgid "Graphical manager for firewall rules"
-msgstr ""
+msgstr "Графички менаџер за правила заштитног зида"
 
 #: lib/ManaTools/Module/Firewall.pm:886
 msgid ""
@@ -1928,22 +1984,25 @@ msgid ""
 "Valid examples are: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
 "Have a look at /etc/services for information."
 msgstr ""
+"Можете унети различите портове. \n"
+"Исправни примери су: 139/tcp 139/udp 600:610/tcp 600:610/udp.\n"
+"Погледајте /etc/services за информације."
 
 #: lib/ManaTools/Module/Firewall.pm:891
 msgid "Define miscellaneus ports"
-msgstr ""
+msgstr "Дефиниши различите портове"
 
 #: lib/ManaTools/Module/Firewall.pm:906
 msgid "Other ports"
-msgstr ""
+msgstr "Остали портови "
 
 #: lib/ManaTools/Module/Firewall.pm:914
 msgid "Log firewall messages in system logs"
-msgstr ""
+msgstr "Бележи поруке заштитног зида у системски дневник"
 
 #: lib/ManaTools/Module/Firewall.pm:969
 msgid "Invalid port given"
-msgstr ""
+msgstr "Дат је погрешан порт"
 
 #: lib/ManaTools/Module/Firewall.pm:970
 #, perl-format
@@ -1954,6 +2013,11 @@ msgid ""
 "\n"
 "You can also give a range of ports (eg: 24300:24350/udp)"
 msgstr ""
+"Дат је погрешан порт: %s.\n"
+"Правилан формат је \"port/tcp\" or \"port/udp\",\n"
+"где је порт између 1 и 65535.\n"
+"\n"
+"Такође можете ради распон портова (нпр: 24300:24350/udp)"
 
 #: lib/ManaTools/Module/Firewall.pm:1009
 msgid ""
@@ -1967,6 +2031,15 @@ msgid ""
 "\n"
 "Which interfaces should be protected?\n"
 msgstr ""
+"Изаберите интерфејс који ће бити заштићен заштитним зидом.\n"
+"\n"
+"Сви интерфејси директно повезани на Интернет би требао да буду изабрани,\n"
+"док би интерфејси повезани на локалну мрежу требало да буду деселектовани.\n"
+"\n"
+"If you intend to use Mageia Internet Connection sharing,\n"
+"unselect interfaces which will be connected to local network.\n"
+"\n"
+"Which interfaces should be protected?\n"
 
 #: lib/ManaTools/Module/Firewall.pm:1098
 msgid ""
@@ -1975,6 +2048,10 @@ msgid ""
 "up.\n"
 "    What do you want to do?"
 msgstr ""
+"Ваша конфигурација заштитног зида је ручно измењена и садржи\n"
+"    правила која могу бити у сукобу са конфигурацијом која је управо "
+"постављена.\n"
+"    Шта желите да урадите?"
 
 #: lib/ManaTools/Module/DisplayManager.pm:54
 #, perl-format
@@ -2127,6 +2204,10 @@ msgid ""
 "                                                       (from the original "
 "idea of Mandriva drakxservices)."
 msgstr ""
+"manaservice је Mageia алат за управљање сервисима и демонима\n"
+"\n"
+"                                                       (настао из оргиналне "
+"идеје Mandriva drakxservices-а)."
 
 #: lib/ManaTools/Module/Services.pm:448
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1733
@@ -2139,21 +2220,27 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul>%s</ul>"
 msgstr ""
+"<h3>Девелопери</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>Преводиоци</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
 msgid "Starting %s"
-msgstr ""
+msgstr "Покрећем %s"
 
 #: lib/ManaTools/Module/Services.pm:536
 #, perl-format
 msgid "Stopping %s"
-msgstr ""
+msgstr "Заустављам %s"
 
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "%s - Алат за управљање"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
@@ -2177,7 +2264,7 @@ msgstr "Уклањање софтверских пакета пакета"
 
 #: lib/ManaTools/rpmdragora.pm:275 modules/rpmdragora/rpmdragora:424
 msgid "Software Packages Update"
-msgstr ""
+msgstr "Надоградња софтверских пакета"
 
 #: lib/ManaTools/rpmdragora.pm:276
 msgid "Software Packages Installation"
@@ -2197,7 +2284,7 @@ msgstr "&Не"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
-msgstr ""
+msgstr "Зависности"
 
 #: lib/ManaTools/rpmdragora.pm:424
 msgid "OK"
@@ -2208,11 +2295,11 @@ msgstr "У реду"
 #: lib/ManaTools/Rpmdragora/pkg.pm:832 lib/ManaTools/Rpmdragora/pkg.pm:1051
 #: modules/rpmdragora/rpmdragora:296
 msgid "Please wait"
-msgstr ""
+msgstr "Сачекајте"
 
 #: lib/ManaTools/rpmdragora.pm:581
 msgid "Britain"
-msgstr ""
+msgstr "Британија"
 
 #: lib/ManaTools/rpmdragora.pm:584
 msgid "Costa Rica"
@@ -2234,7 +2321,7 @@ msgstr "Русија"
 #: lib/ManaTools/rpmdragora.pm:738 lib/ManaTools/Rpmdragora/pkg.pm:494
 #: lib/ManaTools/Rpmdragora/pkg.pm:969 lib/ManaTools/Rpmdragora/pkg.pm:994
 msgid "Error"
-msgstr ""
+msgstr "Грешка"
 
 #: lib/ManaTools/rpmdragora.pm:697 lib/ManaTools/rpmdragora.pm:708
 #, perl-format
@@ -2249,7 +2336,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
 msgid "Medium: "
-msgstr ""
+msgstr "Медиј:"
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
@@ -2272,7 +2359,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:754
 msgid "rpmdragora"
-msgstr ""
+msgstr "rpmdragora"
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
@@ -2358,7 +2445,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
 msgid "Update media"
-msgstr ""
+msgstr "Медиј за надоградњу"
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
@@ -2367,11 +2454,11 @@ msgstr "Медиј"
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
 msgid "&Select all"
-msgstr ""
+msgstr "&Изаберите све"
 
 #: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
 msgid "&Update"
-msgstr ""
+msgstr "&Надоградња"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -2405,6 +2492,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Морам да контактирам Mageia веб сајт да би добио-ла листу мирора.\n"
+"Проверите да ли је ваша конекција фукционална.\n"
+"\n"
+"Да ли је У реду да наставим?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
@@ -2423,6 +2514,11 @@ msgid ""
 "The network, or the website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Појавила се грешка током преузимања листе мирора:\n"
+"%s\n"
+"\n"
+"Интернет, или веб сајт можда нису тренутно доступни.\n"
+"Покушајте поново касније."
 
 #: lib/ManaTools/rpmdragora.pm:1024
 #, perl-format
@@ -2433,6 +2529,11 @@ msgid ""
 "The network, or the Mageia website, may be unavailable.\n"
 "Please try again later."
 msgstr ""
+"Појавила се грешка током преузимања листе мирора:\n"
+"%s\n"
+"\n"
+"Интернет, или Mageia веб сајт можда нису тренутно доступни.\n"
+"Покушајте поново касније."
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
@@ -2514,7 +2615,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:150
 #: lib/ManaTools/Rpmdragora/gui.pm:1673
 msgid "(none)"
-msgstr ""
+msgstr "(ниједан)"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:207
 msgid "Installation finished"
@@ -2522,33 +2623,33 @@ msgstr "Инсталација завршена"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:228 lib/ManaTools/Rpmdragora/pkg.pm:647
 msgid "Select a package"
-msgstr ""
+msgstr "Изаберите пакет"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "Уклони нови фајл"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr ""
+msgstr "Користи нови фајл"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
-msgstr ""
+msgstr "Не ради ништа"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:357 modules/rpmdragora/rpmdragora:251
 msgid "Please wait, searching..."
-msgstr ""
+msgstr "Сачекајте, претражујем..."
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:100 lib/ManaTools/Rpmdragora/gui.pm:1579
 msgid "Fatal error"
-msgstr ""
+msgstr "Фатална грешка"
 
 #: lib/ManaTools/Rpmdragora/open_db.pm:101 lib/ManaTools/Rpmdragora/pkg.pm:494
 #: lib/ManaTools/Rpmdragora/gui.pm:1580
 #, perl-format
 msgid "A fatal error occurred: %s."
-msgstr ""
+msgstr "Појавила се фатална грешка: %s."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:141
 #, perl-format
@@ -2578,7 +2679,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:351
 #: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/gui.pm:368
 msgid "(Not available)"
-msgstr ""
+msgstr "(Није доступно)"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
@@ -2602,10 +2703,14 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"Морам да контактирам мирор да би добавио најновије надоградње за пакете.\n"
+"Проверите да ли је ваша мрежа и конекција у функцији.\n"
+"\n"
+"Да ли је у реду да наставим?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
-msgstr ""
+msgstr "Већ постојећи медиј за надоградњу-ажурирање"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:287
 #, perl-format
@@ -2642,7 +2747,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
-msgstr ""
+msgstr "Како ручно изабрати свој мирор"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:306
 #, perl-format
@@ -2653,38 +2758,43 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"Такође можете ручно да изаберете ваш жељени мирор: да би то урадили,\n"
+"покрените Менаџер за Медије са Софтвером , а затим додајте медиј `Сигурносне "
+"надоградње`.\n"
+"\n"
+"Затим рестартујте %s. "
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
-msgstr ""
+msgstr "Учитавам описе за надоградње"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr ""
+msgstr "Сачекајте, проналазим доступне пакете..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
-msgstr ""
+msgstr "Сачекајте, излиставам основне пакете..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:502
 msgid "Please wait, finding installed packages..."
-msgstr ""
+msgstr "Сачекајјте, проналазим инсталиране пакете..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:630
 msgid "Upgrade information"
-msgstr ""
+msgstr "Информације о надоградњи"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:646
 msgid "These packages come with upgrade information"
-msgstr ""
+msgstr "Ови пакети долазе са информација о надоградњи"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
 msgid "All requested packages were installed successfully."
-msgstr ""
+msgstr "Сви захтевани пакети су успешно инсталирали."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
-msgstr ""
+msgstr "Проблем током инсталације"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:724 lib/ManaTools/Rpmdragora/pkg.pm:744
 #: lib/ManaTools/Rpmdragora/pkg.pm:957
@@ -2694,10 +2804,13 @@ msgid ""
 "\n"
 "%s"
 msgstr ""
+"Појавио се проблем током инсталације:\n"
+"\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "Неуспела инсталација"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -2705,12 +2818,12 @@ msgstr "Провера исправности захтеваних пакета.
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
-msgstr ""
+msgstr "Није могуће прибављање изворних пакета."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:790
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr ""
+msgstr "Жалим, није могуће добављање изворних пакета. %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:791
 #, perl-format
@@ -2720,24 +2833,30 @@ msgid ""
 "Error(s) reported:\n"
 "%s"
 msgstr ""
+"\n"
+"\n"
+"Пријављена Грешка(е) :\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:959
 msgid ""
 "Rpmdragora or one of its priority dependencies needs to be updated first. "
 "Rpmdragora will then restart."
 msgstr ""
+"Rpmdragora или један од њених приоритетних зависности мора прво бити "
+"надограђена. затим ће се Rpmdragora рестартовати."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:809
 msgid "The following package is going to be installed:"
-msgstr ""
+msgstr "Следећи пакети ће бити инсталирани."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1494
 msgid "Some packages need to be removed"
-msgstr ""
+msgstr "Неки пакети морају бити уклоњени"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
-msgstr ""
+msgstr "Уклонити један пакет?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
@@ -2754,7 +2873,7 @@ msgstr "Да ли је у реду за се настави?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:833
 msgid "Initializing..."
-msgstr ""
+msgstr "Покретање..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841 lib/ManaTools/Rpmdragora/pkg.pm:1034
 msgid "Orphan packages"
@@ -2762,25 +2881,25 @@ msgstr "Заостали пакети:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr ""
+msgstr "Следећи застарели пакети ће бити уклоњени."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
-msgstr ""
+msgstr "Припрема инсталације пакета..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Инсталација пакета `%s' (%d/%d)..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "Укупно: %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Change medium"
-msgstr ""
+msgstr "Промените медиј"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
@@ -2789,16 +2908,16 @@ msgstr "Унесите медиј са именом \"%s\" "
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Провера потиса пакета..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "%d инсталационе трансакције неуспеле"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
-msgstr ""
+msgstr "Непоправљива грешка: Жалим, али није пронађен пакет за инсталацију."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:973
 msgid "Inspecting configuration files..."
@@ -2811,6 +2930,11 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"Инсталација је завршена, све је инсталирано како треба.\n"
+"\n"
+"Направљени су одређени фајлови са подешавањима попут `.rpmnew' или `."
+"rpmsave',\n"
+"сада можете проверите поједине како би сте нешто предузели:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -5031,6 +5155,8 @@ msgid ""
 "Authentication is required to run the program manahost (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Аутентификација је потребна за покретање програма manahost (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manalog.policy.in:11
@@ -5048,6 +5174,8 @@ msgid ""
 "Authentication is required to run the program manaproxy (user=$(user), "
 "program=$(program), command_line=$(command_line))"
 msgstr ""
+"Аутентификација је потребна за покретање програма manaproxy (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manaservice.policy.in:11
@@ -5072,12 +5200,13 @@ msgstr "Потребна је аутентификација за покрета
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "Покрените Конфигурацију Mageia Заштитног зида"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
 msgid "Authentication is required to run Mageia Firewall Configuration"
 msgstr ""
+"Аутентификација је потребна за покретање конфигурације Mageia Заштитног зида "
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.mpan.policy.in:12
@@ -5085,16 +5214,18 @@ msgid ""
 "Authentication is required to run the program apanel (user=$(user), program="
 "$(program), command_line=$(command_line))"
 msgstr ""
+"Аутентификација је потребна за покретање програма apanel (user=$(user), "
+"program=$(program), command_line=$(command_line))"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.rpmdragora.policy.in:11
 msgid "Run Mageia install and remove software"
-msgstr ""
+msgstr "Покрените Mageia Инсталацију и уклањање софтвера"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.rpmdragora.policy.in:12
 msgid "Authentication is required to run Mageia rpm manager"
-msgstr ""
+msgstr "Аутентификација је потребна за покретање Mageia менаџера rpm-a"
 
 #. (itstool) path: settings/title
 #: extras/conf/mpan/settings.conf.in:3
