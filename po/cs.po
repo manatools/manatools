@@ -13,13 +13,13 @@
 # Jiří Vírava <appukonrad@gmail.com>, 2015-2016
 # Luděk Janča <joelp@email.cz>, 2016
 # fri, 2015
-# fri, 2015-2017
+# fri, 2015-2017,2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2017-10-31 10:51+0000\n"
+"PO-Revision-Date: 2020-03-04 15:19+0000\n"
 "Last-Translator: fri\n"
 "Language-Team: Czech (http://www.transifex.com/MageiaLinux/mageia/language/"
 "cs/)\n"
@@ -27,7 +27,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"Plural-Forms: nplurals=4; plural=(n == 1 && n % 1 == 0) ? 0 : (n >= 2 && n "
+"<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: lib/ManaTools/MainDisplay.pm:247 lib/ManaTools/Module/LogViewer.pm:317
 #: lib/ManaTools/Module/Users.pm:2381 lib/ManaTools/Module/Clock.pm:190
@@ -47,7 +48,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:354 modules/rpmdragora/rpmdragora:1093
 #, perl-format
 msgid "Copyright (C) %s Mageia community"
-msgstr "Autorské právo (C) %s Mageia komunita"
+msgstr "Autorské právo (C) %s Společenství Mageia"
 
 #: lib/ManaTools/MainDisplay.pm:252 lib/ManaTools/Module/LogViewer.pm:321
 #: lib/ManaTools/Module/Users.pm:2386 lib/ManaTools/Module/Clock.pm:196
@@ -2246,7 +2247,7 @@ msgstr "Aktualizace softwaru"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr "Mageia Update"
+msgstr "Aktualizace Mageii"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
@@ -3748,9 +3749,9 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
-"Abychom zajistili trvalou a udržitelnou bezpečnost a stabilitu vašeho "
-"systému, musíme nastavit minimální množinu zdrojů s oficiálními "
-"bezpečnostními aktualizacemi. \n"
+"Abychom zajistili trvalou a udržitelnou bezpečnost a stálost vašeho systému, "
+"musíme nastavit nejmenší množinu zdrojů s oficiálními bezpečnostními "
+"aktualizacemi. \n"
 "Můžete si rovněž vybrat širší okruh zdrojů, které zahrnují veškeré zdroje "
 "softwaru Mageia, čímž získáte přístup k širšímu\n"
 "okruhu softwaru, než bylo možno vměstnat na disky Mageia. \n"
@@ -4832,7 +4833,7 @@ msgid ""
 "update for the packages installed on your computer, or you already installed "
 "all of them."
 msgstr ""
-"Seznam aktualizací je prázdný. To znamená, že buď nejsou k dispozici\n"
+"Seznam aktualizací je prázdný. To znamená, že buď nejsou dostupné\n"
 "žádné aktualizace pro balíčky instalované na vašem počítači, nebo už\n"
 "máte všechny aktualizace nainstalované."
 
@@ -4985,7 +4986,7 @@ msgstr "Smazat dočasnou paměť po úspěšné instalaci"
 
 #: modules/rpmdragora/rpmdragora:696
 msgid "/_Compute updates on startup"
-msgstr "/Počítat aktualiza_ce při startu"
+msgstr "/Počítat aktualiza_ce při spuštění"
 
 #: modules/rpmdragora/rpmdragora:697
 msgid "Search in _full package names"
