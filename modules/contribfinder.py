@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # vim: set et ts=4 sw=4:
 #coding:utf-8
 #############################################################################
@@ -79,7 +79,8 @@ class mainGui():
             resp, content = h.request(dlurl, 'GET')
             if resp.status != 200:
                 raise Exception('Package cannot be found in maintdb')
-            retoutput = content.rstrip('\n')
+            str_content = content.decode('utf-8')
+            retoutput = str_content.rstrip('\n')
         except:
             retoutput = "No contributors found"
         return retoutput
@@ -97,7 +98,7 @@ class mainGui():
                 self.dialog.destroy()
                 break
             if event.widget() == self.btnLookAtIt:
-                if(cmp(self.contributor.strip(),"")!=0):
+                if(self.contributor.strip()):
                   url = 'http://people.mageia.org/u/%s.html' % self.contributor
                   os.system("www-browser %s" % url)
             if event.widget() == self.btnsearch:
@@ -105,7 +106,7 @@ class mainGui():
                 #self.rtinformations.setValue("Loading...")
                 #self.dialog.doneMultipleChanges()
                 self.contributor = self.stripErrMessages(self.queryMaintDB(self.txtpkgname.value()))
-                if(cmp(self.contributor.strip(),"")!=0):
+                if(self.contributor.strip()):
                   outstr = 'Maintainer:&nbsp;<a href="http://people.mageia.org/u/%s.html">%s</a><br />e-mail:&nbsp;<a href="mailto:%s@mageia.org">%s@mageia.org</a>' % (self.contributor,self.contributor,self.contributor,self.contributor)
                 else:
                   outstr = ''
