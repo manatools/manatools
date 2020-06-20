@@ -9,19 +9,20 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Miguel Ortega, 2015-2016
-# Egoitz Rodriguez Obieta <egoitzro@gmail.com>, 2015
-# Jose Manuel López <inactive+rocholc@transifex.com>, 2016
-# Jose Manuel López <inactive+rocholc@transifex.com>, 2016
+# Miguel, 2015-2016
+# Egoitz Rodriguez <egoitzro@gmail.com>, 2015
+# José Alberto Valle Cid <j.alberto.vc@gmail.com>, 2020
+# 9d2429286e4b6db037855ee18ff950ea_21b1117 <e234ccd2dcb0d5482e17780be633a729_130514>, 2016
+# 9d2429286e4b6db037855ee18ff950ea_21b1117 <e234ccd2dcb0d5482e17780be633a729_130514>, 2016
 # Miguel Ortega, 2016
-# Miguel Ortega, 2016,2018
+# Miguel, 2016,2018
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2018-01-15 10:40+0000\n"
-"Last-Translator: Miguel Ortega\n"
+"PO-Revision-Date: 2020-06-19 23:11+0000\n"
+"Last-Translator: José Alberto Valle Cid <j.alberto.vc@gmail.com>\n"
 "Language-Team: Spanish (http://www.transifex.com/MageiaLinux/mageia/language/"
 "es/)\n"
 "Language: es\n"
@@ -275,15 +276,15 @@ msgstr "Descartar reglas personalizadas"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
-msgstr "comenzar a usar la implementación del plugin yui gtk"
+msgstr "usando la implementación gtk del plugin yui "
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:93
 msgid "start using yui ncurses plugin implementation"
-msgstr "comenzar a usar la implementación del plugin yui ncurses"
+msgstr "usando la implementación ncurses del plugin yui "
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:99
 msgid "start using yui qt plugin implementation"
-msgstr "comenzar a usar la implementación del plugin yui qt"
+msgstr "usando la implementación qt del plugin yui "
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:105
 msgid "use full screen for dialogs"
@@ -291,7 +292,7 @@ msgstr "usar pantalla completa para diálogos"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:111
 msgid "no window manager border for dialogs"
-msgstr "administrador de ventanas sin borde para diálogos"
+msgstr "sin borde del administrador de ventanas  en diálogos"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:119
 msgid ""
@@ -633,11 +634,10 @@ msgid ""
 "basic\n"
 "UNIX cron, including better security and more powerful configuration options."
 msgstr ""
-"cron es un programa UNIX estándar que ejecuta programas especificados por\n"
-"el usuario periódicamente. El cron de Vixie añade varias funcionalidades al "
-"cron de Unix \n"
-"básico, incluyendo una mayor seguridad y opciones de configuración más "
-"potentes."
+"cron es un programa estándar de UNIX,  que ejecuta periódicamente programas "
+"especificados por el usuario . El cron de Vixie añade varias funcionalidades "
+"al cron básico de Unix, incluyendo una mayor seguridad y opciones de "
+"configuración más potentes."
 
 #: lib/ManaTools/Shared/Services.pm:251
 msgid ""
@@ -735,7 +735,7 @@ msgstr "Automatiza un cortafuegos para filtro de paquetes con ip6tables"
 
 #: lib/ManaTools/Shared/Services.pm:272
 msgid "Automates a packet filtering firewall with iptables"
-msgstr "Automatiza un cortafuegos para filtro de paquetes con ip6tables"
+msgstr "Automatiza un cortafuegos para filtro de paquetes con iptables"
 
 #: lib/ManaTools/Shared/Services.pm:273
 msgid ""
@@ -1099,11 +1099,11 @@ msgstr "Desde prioridad"
 
 #: lib/ManaTools/Module/LogViewer.pm:260
 msgid "To priority"
-msgstr "A prioridad"
+msgstr "Hasta prioridad"
 
 #: lib/ManaTools/Module/LogViewer.pm:278
 msgid "&Find"
-msgstr "Buscar"
+msgstr "&Buscar"
 
 #: lib/ManaTools/Module/LogViewer.pm:281
 msgid "Log content"
@@ -1341,7 +1341,7 @@ msgstr "Consola de login:"
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr "&Icon (%s)"
+msgstr "&Icono (%s)"
 
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2406
 #: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Proxy.pm:147
@@ -1607,7 +1607,7 @@ msgid ""
 "manauser is a Mageia user management tool \n"
 "(from the original idea of Mandriva userdrake)."
 msgstr ""
-"manauser is una herramienta de administración de usuarios de Mageia\n"
+"manauser es una herramienta de administración de usuarios de Mageia\n"
 "(idea original userdrake de Mandriva)"
 
 #: lib/ManaTools/Module/Users.pm:2388
@@ -2482,7 +2482,7 @@ msgstr "&Seleccionar todo"
 
 #: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
 msgid "&Update"
-msgstr "Actu&Ualizar"
+msgstr "Act&Ualizar"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -3194,7 +3194,7 @@ msgstr "Arcade"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:84
 msgid "Boards"
-msgstr "Mesa"
+msgstr "Tableros"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:85
 msgid "Cards"
@@ -4253,7 +4253,7 @@ msgstr "/_Archivo"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 msgid "/_Update"
-msgstr "/_Actualizar"
+msgstr "/A_ctualizar"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1975
 msgid "<control>U"
@@ -4339,7 +4339,7 @@ msgstr "/_Informar de un fallo"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 msgid "/_About..."
-msgstr "/_Acerca..."
+msgstr "/A_cerca..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1991
 msgid "Rpmdragora"
@@ -4848,7 +4848,7 @@ msgstr "Arq"
 
 #: modules/rpmdragora/dragoraUpdate:292
 msgid "U&ncheck all"
-msgstr "Deseleccio&nar todo"
+msgstr "&Deseleccionar todo"
 
 #: modules/rpmdragora/dragoraUpdate:356
 msgid "dragoraUpdate is the Mageia package management tool."
@@ -5051,7 +5051,7 @@ msgstr "Configuraciones"
 
 #: modules/rpmdragora/rpmdragora:722
 msgid "&Media Manager"
-msgstr "Administrador de repositorios"
+msgstr "Ad&ministrador de repositorios"
 
 #: modules/rpmdragora/rpmdragora:752
 msgid "View"
