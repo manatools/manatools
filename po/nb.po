@@ -9,14 +9,14 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Karl Morten Ramberg <karl.m.ramberg@gmail.com>, 2017-2019
+# Karl Morten Ramberg <karl.m.ramberg@gmail.com>, 2017-2020
 # kekePower <smelror@gmail.com>, 2017
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2019-11-30 21:38+0000\n"
+"PO-Revision-Date: 2020-09-06 19:05+0000\n"
 "Last-Translator: Karl Morten Ramberg <karl.m.ramberg@gmail.com>\n"
 "Language-Team: Norwegian Bokmål (http://www.transifex.com/MageiaLinux/mageia/"
 "language/nb/)\n"
@@ -600,7 +600,8 @@ msgid ""
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
 "Programmet apmd blir brukt til å overvåke og logge batteristatus.\n"
-"Du kan også bruke det til å slå av maskina når batteriet holder på å gå tomt."
+"Du kan også bruke det til å slå av maskinen når batteriet holder på å gå "
+"tomt."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
@@ -766,7 +767,8 @@ msgid ""
 "basically a server that arbitrates print jobs to printer(s)."
 msgstr ""
 "lpd er utskriftstjenesten som må kjøre for at lpr skal fungere.\n"
-"Programmet er i hovedsak en tjener som fordeler utskriftsjobber til skrivere."
+"Programmet er i hovedsak en server som fordeler utskriftsjobber til "
+"skriverne."
 
 #: lib/ManaTools/Shared/Services.pm:285
 msgid ""
@@ -774,7 +776,7 @@ msgid ""
 "available server."
 msgstr ""
 "Linux Virtual Server – brukes til å bygge en rask og godt tilgjengelig "
-"tjener."
+"server."
 
 #: lib/ManaTools/Shared/Services.pm:287
 msgid "Monitors the network (Interactive Firewall and wireless)"
@@ -839,8 +841,8 @@ msgid ""
 "/etc/exports file."
 msgstr ""
 "NFS er en populær protokoll for fildeling over TCP/IP-nettverk.\n"
-"Denne tjenesten gir NFS-tjenerfunksjonalitet, som er satt opp via fila «/etc/"
-"exports»."
+"Denne tjenesten gir NFS-tjenerfunksjonalitet, som er satt opp via filen «/"
+"etc/exports»."
 
 #: lib/ManaTools/Shared/Services.pm:302
 msgid ""
@@ -986,7 +988,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:335
 msgid "Launch the sound system on your machine"
-msgstr "Start lydsystemet på maskina"
+msgstr "Start lydsystemet på maskinen"
 
 #: lib/ManaTools/Shared/Services.pm:336
 msgid "layer for speech analysis"
@@ -1719,11 +1721,11 @@ msgstr "Installer en NTP tjeneste som chrony eller ntp "
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr "Velg en NTP tjener"
+msgstr "Velg en NTP server"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
-msgstr "NTP tjener DrakClock"
+msgstr "NTP server DrakClock"
 
 #: lib/ManaTools/Module/Clock.pm:463
 msgid "Choose your NTP server"
@@ -1934,7 +1936,7 @@ msgid ""
 "Please select which network activities should be watched."
 msgstr ""
 "Du kan bli advart når noen prøver å få tilgang til en tjeneste eller "
-"forsøker å bryte seg inn på maskina.\n"
+"forsøker å bryte seg inn på maskinen.\n"
 "Velg hvilke nettverksaktiviter som skal overvåkes."
 
 #: lib/ManaTools/Module/Firewall.pm:496
@@ -2864,7 +2866,7 @@ msgstr "Foreldreløse pakker"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:841
 msgid "The following orphan package will be removed."
-msgstr "De følgende foreldreløse pakkene vil bli fjerna."
+msgstr "De følgende foreldreløse pakkene vil bli fjernet."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
@@ -3792,7 +3794,7 @@ msgstr "Mediesti:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 msgid "FTP server"
-msgstr "FTP-tjener"
+msgstr "FTP-server"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:261
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
@@ -3803,11 +3805,11 @@ msgstr "URL:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:262
 msgid "RSYNC server"
-msgstr "Rsync-tjener"
+msgstr "Rsync-server"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:263
 msgid "HTTP server"
-msgstr "HTTP-tjener"
+msgstr "HTTP-server"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:264
 msgid "Removable device (CD-ROM, DVD, ...)"
@@ -4345,7 +4347,7 @@ msgstr "Den kan <b>ødelegge</b> systemet ditt."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:177
 msgid "This package is not free software"
-msgstr "Denne pakka er ikke fri programvare"
+msgstr "Denne pakken er ikke fri programvare"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:180
 msgid "This package contains a new version that was backported."
@@ -4431,7 +4433,7 @@ msgstr "Nye avhengigheter:"
 #: lib/ManaTools/Rpmdragora/gui.pm:399
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr "Fant pakka «%s»."
+msgstr "Fant pakken «%s»."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:400
 msgid "However this package is not in the package list."
@@ -4641,7 +4643,7 @@ msgstr "Kan legges til"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1751
 msgid "Description not available for this package\n"
-msgstr "Det er ingen tilgjengelig beskrivelse for denne pakka\n"
+msgstr "Det er ingen tilgjengelig beskrivelse for denne pakken\n"
 
 #: scripts/manaadduser:31
 msgid "Mageia Add Users Tool"
@@ -4809,7 +4811,7 @@ msgid ""
 msgstr ""
 "Lista over oppdateringer er tom. Dette betyr enten at det ikke er\n"
 "noen tilgjengelige oppdateringer for pakkene som er installert på\n"
-"maskina, eller at de allerede er installert."
+"maskinen, eller at de allerede er installert."
 
 #: modules/rpmdragora/rpmdragora:306
 #, perl-format
