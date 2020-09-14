@@ -9,14 +9,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
+# Omer I.S., 2020
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-02-20 09:30+0000\n"
-"Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
+"PO-Revision-Date: 2020-09-14 07:29+0000\n"
+"Last-Translator: Omer I.S.\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
 "Language: he\n"
@@ -34,6 +35,8 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:348 modules/rpmdragora/rpmdragora:1088
 msgid "_: Translator(s) name(s) & email(s)\n"
 msgstr ""
+"Dotan Kamber <kamberd@yahoo.com>\n"
+"Omer I.S. <omeritzicschwartz@gmail.com>\n"
 
 #: lib/ManaTools/MainDisplay.pm:251 lib/ManaTools/Module/LogViewer.pm:320
 #: lib/ManaTools/Module/Users.pm:2385 lib/ManaTools/Module/Clock.pm:195
@@ -67,6 +70,13 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>תרגום</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/MainDisplay.pm:379 lib/ManaTools/Module/Users.pm:2435
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1580
@@ -154,7 +164,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:939
 #: lib/ManaTools/Rpmdragora/gui.pm:1308
 msgid "&Ok"
-msgstr ""
+msgstr "&אישור"
 
 #: lib/ManaTools/Shared/GUI.pm:266 lib/ManaTools/Shared/GUI.pm:500
 #: lib/ManaTools/Shared/GUI.pm:618 lib/ManaTools/Shared/GUI.pm:925
@@ -175,7 +185,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:941
 #: lib/ManaTools/Rpmdragora/gui.pm:1307
 msgid "&Cancel"
-msgstr ""
+msgstr "&ביטול"
 
 #: lib/ManaTools/Shared/GUI.pm:318
 msgid "Yes"
@@ -378,7 +388,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:401 lib/ManaTools/rpmdragora.pm:609
 msgid "Taiwan"
-msgstr ""
+msgstr "טאיוואן"
 
 #: lib/ManaTools/Shared/TimeZone.pm:402 lib/ManaTools/rpmdragora.pm:610
 msgid "Thailand"
@@ -499,7 +509,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:433 lib/ManaTools/rpmdragora.pm:583
 msgid "Switzerland"
-msgstr ""
+msgstr "שווייץ"
 
 #: lib/ManaTools/Shared/TimeZone.pm:434
 msgid "Ukraine"
@@ -515,7 +525,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:439 lib/ManaTools/rpmdragora.pm:582
 msgid "Canada"
-msgstr ""
+msgstr "קנדה"
 
 #: lib/ManaTools/Shared/TimeZone.pm:440
 msgid "Guatemala"
@@ -533,7 +543,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:445 lib/ManaTools/rpmdragora.pm:577
 msgid "Australia"
-msgstr ""
+msgstr "אוסטרליה"
 
 #: lib/ManaTools/Shared/TimeZone.pm:446
 msgid "New Zealand"
@@ -541,7 +551,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:449 lib/ManaTools/rpmdragora.pm:575
 msgid "Argentina"
-msgstr ""
+msgstr "ארגנטינה"
 
 #: lib/ManaTools/Shared/TimeZone.pm:450 lib/ManaTools/rpmdragora.pm:580
 msgid "Brazil"
@@ -689,6 +699,9 @@ msgid ""
 "Automatic regeneration of kernel header in /boot for\n"
 "/usr/include/linux/{autoconf,version}.h"
 msgstr ""
+"יצירה אוטומטית של kernel header בזמן אתחול\n"
+"תחת boot/ עבור:\n"
+"/usr/include/linux/{autoconf,version}.h"
 
 #: lib/ManaTools/Shared/Services.pm:279
 msgid "Automatic detection and configuration of hardware at boot."
@@ -1054,7 +1067,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
-msgstr ""
+msgstr "הוספה לקבוצה הקיימת"
 
 #: lib/ManaTools/Module/Users.pm:354
 msgid "Add to the 'users' group"
@@ -1198,7 +1211,7 @@ msgstr ""
 #: modules/rpmdragora/dragora-urpm-addmedia:66
 #: modules/rpmdragora/dragora-urpm-sources.pl:39
 msgid "root privileges required"
-msgstr ""
+msgstr "נדרשות הרשאות של משתמש על"
 
 #: lib/ManaTools/Module/Users.pm:856
 msgid "Create New User"
@@ -1241,6 +1254,8 @@ msgid ""
 "This password is too simple. \n"
 " Good passwords should be > 6 characters"
 msgstr ""
+"הסיסמה הזו פשוטה מדיי.\n"
+" סיסמאות טובות אמורות להכיל 6 תווים ומעלה"
 
 #: lib/ManaTools/Module/Users.pm:967
 #, perl-format
@@ -1461,7 +1476,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
-msgstr ""
+msgstr "רענון"
 
 #: lib/ManaTools/Module/Users.pm:2444
 msgid "Actions"
@@ -1716,7 +1731,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:435
 msgid "A&dd"
-msgstr ""
+msgstr "הוס&פה"
 
 #: lib/ManaTools/Module/Hosts.pm:437
 msgid "&Remove"
@@ -1757,7 +1772,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:415 lib/ManaTools/Module/Firewall.pm:422
 #: lib/ManaTools/Module/Firewall.pm:1008
 msgid "Firewall configuration"
-msgstr ""
+msgstr "הגדרת חומת האש"
 
 #: lib/ManaTools/Module/Firewall.pm:416
 msgid ""
@@ -2055,7 +2070,7 @@ msgstr "עדכון חבילות תוכנה"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Mageia Update"
-msgstr "עדכון Mageia"
+msgstr "עדכון מגאיה"
 
 #: lib/ManaTools/rpmdragora.pm:187
 msgid "Please enter your credentials for accessing proxy\n"
@@ -2079,15 +2094,15 @@ msgstr "התקנה של חבילות תוכנה."
 
 #: lib/ManaTools/rpmdragora.pm:353
 msgid "Do not ask me next time"
-msgstr "אל תשאל אותי בפעם הבאה"
+msgstr "לא לשאול אותי בפעם הבאה"
 
 #: lib/ManaTools/rpmdragora.pm:361
 msgid "&Yes"
-msgstr ""
+msgstr "&כן"
 
 #: lib/ManaTools/rpmdragora.pm:362
 msgid "&No"
-msgstr ""
+msgstr "&לא"
 
 #: lib/ManaTools/rpmdragora.pm:411
 msgid "Dependencies"
@@ -2147,7 +2162,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr "יצירת המקור נכשלה."
+msgstr "יצירת המדיה נכשלה."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
@@ -2170,7 +2185,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
-msgstr "נא להמתין בעת עדכון המקור..."
+msgstr "נא להמתין, בעדכון מדיה..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
@@ -2186,10 +2201,10 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
-"אין אפשרות לייבא את רשימת החבילות החדשות מהמקור '%s'.\n"
-"יבמקרה שמקור זה אינו מוגדר כהלכה, עליך להסיר אותו בעזרת מנהל\n"
-"המקורות ולהוסיפו מחדש תוך הגדרתו כהלכה. ייתכן גם שמקור זה אינו\n"
-"זמין כרגע, ובמקרה זה עליך לנסות לעדכן את הרשימה מאוחר יותר."
+"אין אפשרות לייבא את רשימת החבילות החדשות מהמאגר \"%s\".\n"
+"במקרה שמאגר זה אינו מוגדר כהלכה, יש להסיר אותו בעזרת מנהל\n"
+"המאגרים ולהוסיפו מחדש על מנת להגדירו כהלכה. ייתכן גם שמאגר זה אינו\n"
+"זמין כרגע, ובמקרה זה יש לנסות לעדכן את הרשימה מאוחר יותר."
 
 #: lib/ManaTools/rpmdragora.pm:812
 #, perl-format
@@ -2243,15 +2258,16 @@ msgstr "הורדה של `%s' במהירות: %s"
 #: lib/ManaTools/rpmdragora.pm:854
 msgid ""
 "No active medium found. You must enable some media to be able to update them."
-msgstr "לא נמצאו מקורות פעילים. יש צורך לאפשר מקורות כדי שניתן יהיה לעדכנם."
+msgstr ""
+"לא נמצאו מאגרים פעילים. יש צורך לאפשר כמה מאגרים כדי שניתן יהיה לעדכן אותם."
 
 #: lib/ManaTools/rpmdragora.pm:861 modules/rpmdragora/rpmdragora:704
 msgid "Update media"
-msgstr ""
+msgstr "עדכון מאגרים"
 
 #: lib/ManaTools/rpmdragora.pm:875
 msgid "Media"
-msgstr ""
+msgstr "מאגר"
 
 #: lib/ManaTools/rpmdragora.pm:894 modules/rpmdragora/dragoraUpdate:293
 #: modules/rpmdragora/rpmdragora:653
@@ -2294,6 +2310,10 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"יש צורך להתחבר לאתר מגאיה על מנת לייבא את\n"
+"רשימת אתרי המראה. המחשב צריך להיות מחובר לרשת.\n"
+"\n"
+"האם ניתן להמשיך?"
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
@@ -2342,7 +2362,7 @@ msgstr ""
 "אין אפשרות למצוא אתר מראה מתאים.\n"
 "\n"
 "ישנן מספר סיבות אפשריות לבעיה זו; הנפוצה בהן היא שארכיטקטורת\n"
-"המעבד הראשי במחשב שלך לא נתמכת על-ידי העדכונים הרשמיים של Mageia."
+"המעבד הראשי במחשב שלך לא נתמכת על ידי העדכונים הרשמיים של Mageia."
 
 #: lib/ManaTools/rpmdragora.pm:1044
 msgid "Please choose the desired mirror."
@@ -2376,7 +2396,7 @@ msgstr " נא להמתין, מוריד כתובות כתובות של אתרי �
 
 #: lib/ManaTools/rpmdragora.pm:1105
 msgid "Please wait, downloading mirror addresses from the Mageia website."
-msgstr " נא להמתין בעת הורדת כתובות אתרי מראה מאתר מנדריבה"
+msgstr " נא להמתין, בהורדת כתובות אתרי מראה מהאתר של מגאיה."
 
 #: lib/ManaTools/rpmdragora.pm:1127
 #, perl-format
@@ -2443,7 +2463,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:145
 #, perl-format
 msgid "Getting '%s' from XML meta-data..."
-msgstr ""
+msgstr "בקבלת \"%s\" ממטא־נתונים ב־XML..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:162
 #, perl-format
@@ -2464,7 +2484,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr ""
+msgstr "בהורדת החבילה \"%s\"..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2486,7 +2506,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
-msgstr ""
+msgstr "כבר קיימת מדיה לעדכונים"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:287
 #, perl-format
@@ -2498,6 +2518,11 @@ msgid ""
 "\n"
 "Then, restart \"%s\"."
 msgstr ""
+"יש לך לפחות מאגר עדכונים אחד מוגדר, אך אף מקור אינו\n"
+"מאופשר כרגע. יש להריץ את מנהל מאגרי התכנה ולאפשר\n"
+"לפחות מאגר אחד (יש לסמן אותו בטור \"%s\").\n"
+"\n"
+"לאחר מכן יש לאתחל את \"%s\"."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:292
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:760
@@ -2512,6 +2537,8 @@ msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
+"לא הגדרת מקורות עדכון. אין באפשרות MageiaUpdate לבצע פעולות ללא מקורות עדכון "
+"כלל."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
@@ -2533,7 +2560,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:483 lib/ManaTools/Rpmdragora/pkg.pm:519
 msgid "Please wait, finding available packages..."
-msgstr ""
+msgstr "נא להמתין, במציאת חבילות זמינות..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:489
 msgid "Please wait, listing base packages..."
@@ -2683,6 +2710,10 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
+"ההתקנה הסתיימה; כל דבר הותקן באופן תקין.\n"
+"\n"
+"נוצרו מספר קובצי הגדרות בשם, \".rpmnew\" או \".rpmsave\"\n"
+"ניתן לעיין בהם על מנת להשלים את עדכון המערכת שלך:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
 msgid "Looking for \"README\" files..."
@@ -2759,7 +2790,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:49
 msgid "Bluetooth"
-msgstr ""
+msgstr "בלוטות'"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
@@ -2771,7 +2802,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:52
 msgid "Mobile"
-msgstr ""
+msgstr "נייד"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:53
 msgid "Radio"
@@ -2821,7 +2852,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "ניפוי באגים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
@@ -2841,7 +2872,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:68
 msgid "Kernel"
-msgstr ""
+msgstr "ליבה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
@@ -2870,7 +2901,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:76 lib/ManaTools/Rpmdragora/icon.pm:189
 #: lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Documentation"
-msgstr ""
+msgstr "תיעוד"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:77
 msgid "Editors"
@@ -2923,7 +2954,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:89
 msgid "Simulation"
-msgstr ""
+msgstr "סימולציה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:90
 msgid "Sports"
@@ -2977,7 +3008,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:114
 msgid "3D"
-msgstr ""
+msgstr "תלת ממד"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
@@ -2995,15 +3026,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
-msgstr ""
+msgstr "סריקה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:119
 msgid "Viewers"
-msgstr ""
+msgstr "מציגים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
-msgstr ""
+msgstr "ניטור"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
 #: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
@@ -3122,7 +3153,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:149 modules/rpmdragora/dragoraUpdate:77
 #: extras/conf/mpan/categories.conf.in:43
 msgid "Security"
-msgstr ""
+msgstr "אבטחה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:150
 msgid "Shells"
@@ -3202,7 +3233,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:167
 msgid "Kernel and hardware"
-msgstr ""
+msgstr "ליבה וחומרה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:168
 msgid "Libraries"
@@ -3464,7 +3495,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:125
 msgid "Choose media type"
-msgstr ""
+msgstr "בחירת סוג מאגר"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:126
 msgid ""
@@ -3478,6 +3509,11 @@ msgid ""
 "set\n"
 "of sources."
 msgstr ""
+"על מנת לשמור את המערכת שלך מאובטחת ויציבה, חובה לפחות להגדיר מקורות\n"
+"לעדכוני אבטחה ויציבות. ניתן גם לבחור להגדיר מערך מלא יותר של מקורות אשר\n"
+"כולל את כל המאגרים הרשמיים של מגאיה ומעניק לך גישה למגוון רחב יותר\n"
+"של תכנה ממה שניתן לכלול בתקליטורים של מגאיה. נא לבחור האם להגדיר\n"
+"מקורות לעדכונים בלבד, או את המערך המלא של המקורות."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:134
 msgid "Full set of sources"
@@ -3498,11 +3534,18 @@ msgid ""
 "\n"
 "Is it ok to continue?"
 msgstr ""
+"בשלב זה יותקנו כל המקורות הרשמיים המתאימים להפצה\n"
+"שברשותך (%s).\n"
+"\n"
+"יש צורך להתחבר לאתר מגאיה על מנת לייבא את\n"
+"רשימת אתרי המראה. המחשב צריך להיות מחובר לרשת.\n"
+"\n"
+"האם זה בסדר להמשיך?"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr ""
+msgstr "נא להמתין, בהוספת מדיה..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
@@ -3600,7 +3643,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:480
 msgid "XML meta-data download policy:"
-msgstr ""
+msgstr "מדיניות הורדת מטא־נתונים ב־XML:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:485
 msgid "Never"
@@ -3666,7 +3709,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr ""
+msgstr "על מנת לשמור את השינויים, עליך להכניס את המדיה אל הכונן."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
@@ -3675,7 +3718,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:889
 #, perl-format
 msgid "Proxy settings for media \"%s\""
-msgstr ""
+msgstr "הגדרות מתווך למאגר \"%s\""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:890
 msgid "Global proxy settings"
@@ -3722,7 +3765,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Choose a medium to add to the media limit:"
-msgstr ""
+msgstr "נא לבחור מדיה להוספה אל הגבלת המאגרים:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1069
 msgid "Add a host"
@@ -3747,7 +3790,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
-msgstr ""
+msgstr "הגבלת מאגרים:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1095
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1104
@@ -3780,7 +3823,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1139
 msgid "Media limit"
-msgstr ""
+msgstr "הגבלת מאגר"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
@@ -3846,7 +3889,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2144
 #: modules/rpmdragora/dragora-urpm-sources.pl:38
 msgid "Configure media"
-msgstr ""
+msgstr "הגדרת מדיה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
@@ -3866,7 +3909,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
-msgstr ""
+msgstr "אפשרויות גלובליות"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1596
 msgid "Manage keys"
@@ -4015,11 +4058,11 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1993
 #, perl-format
 msgid "Copyright (C) %s by Mandriva"
-msgstr ""
+msgstr "זכויות היוצרים (C) %s שמורות למנדריבה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1997
 msgid "Mageia"
-msgstr ""
+msgstr "מגאיה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2203
 msgid ""
@@ -4156,7 +4199,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/gui.pm:399
 #, perl-format
 msgid "The package \"%s\" was found."
-msgstr ""
+msgstr "החבילה \"%s\" נמצאה."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:400
 msgid "However this package is not in the package list."
@@ -4297,7 +4340,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1546
 msgid "You need to select some packages first."
-msgstr ""
+msgstr "יש לבחור כמה חבילות קודם."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1551
 msgid "Too many packages are selected"
@@ -4455,7 +4498,7 @@ msgstr ""
 #: modules/rpmdragora/dragoraUpdate:236 modules/rpmdragora/rpmdragora:424
 #: modules/rpmdragora/rpmdragora:1216 extras/conf/mpan/categories.conf.in:4
 msgid "Software Management"
-msgstr ""
+msgstr "ניהול תכנה"
 
 #: modules/rpmdragora/dragoraUpdate:267
 msgid "Name"
@@ -4589,7 +4632,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:554
 msgid "Meta packages"
-msgstr ""
+msgstr "מטא־חבילות"
 
 #: modules/rpmdragora/rpmdragora:555
 msgid "Packages with GUI"
@@ -4742,12 +4785,12 @@ msgstr ""
 #: modules/rpmdragora/dragora-urpm-addmedia:166
 #, perl-format
 msgid "Successfully added media %s."
-msgstr ""
+msgstr "המאגר \"%s\" נוסף בהצלחה."
 
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr ""
+msgstr "המאגר \"%s\" נוסף בהצלחה."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
@@ -4823,17 +4866,17 @@ msgstr ""
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manauser.policy.in:11
 msgid "Run Mageia User Manager"
-msgstr ""
+msgstr "הפעלת מנהל המשתמשים של מגאיה"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manauser.policy.in:12
 msgid "Authentication is required to run Mageia User Manager"
-msgstr ""
+msgstr "אימות נדרש להפעלת מנהל המשתמשים של מגאיה"
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.manawall.policy.in:11
 msgid "Run Mageia Firewall Configuration"
-msgstr ""
+msgstr "הפעלת הגדרת חומת האש של מגאיה"
 
 #. (itstool) path: action/message
 #: extras/polkit/org.mageia.manawall.policy.in:12
@@ -4880,7 +4923,7 @@ msgstr ""
 #. (itstool) path: module/title
 #: extras/conf/mpan/categories.conf.in:17
 msgid "Configure media sources for install and update"
-msgstr "הגדרת מקורות להתקנה ועדכון"
+msgstr "הגדרת מקורות מאגרים להתקנה ולעדכון"
 
 #. (itstool) path: category/title
 #: extras/conf/mpan/categories.conf.in:33
@@ -4902,7 +4945,7 @@ msgstr ""
 
 #: extras/desktop/dragoraupdate.desktop.in:6
 msgid "A graphical front end for updating packages"
-msgstr ""
+msgstr "ממשק משתמש גרפי לעדכון חבילות"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
@@ -5030,4 +5073,4 @@ msgstr ""
 
 #: extras/desktop/rpmdragora.desktop.in:6
 msgid "A graphical front end for installing, removing and updating packages"
-msgstr "מנשק גרפי להתקנת, הסרת ועדכון חבילות"
+msgstr "ממשק משתמש גרפי להתקנת, הסרת ועדכון חבילות"
