@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-09-21 06:53+0000\n"
+"PO-Revision-Date: 2020-10-04 23:49+0000\n"
 "Last-Translator: Omer I.S.\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -1012,6 +1012,12 @@ msgid ""
 "                                                    <h3>Translators</h3>\n"
 "                                                    <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                        <li>%s</li>\n"
+"                                                    </ul>\n"
+"                                                    <h3>תרגום</h3>\n"
+"                                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
@@ -1477,6 +1483,12 @@ msgid ""
 "                                    <h3>Translators</h3>\n"
 "                                    <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                    <ul><li>%s</li>\n"
+"                                        <li>%s</li>\n"
+"                                    </ul>\n"
+"                                    <h3>תרגום</h3>\n"
+"                                    <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Users.pm:2436 lib/ManaTools/Module/Users.pm:2488
 msgid "Refresh"
@@ -1543,6 +1555,10 @@ msgid ""
 "                                              <h3>Translators</h3>\n"
 "                                              <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                              <ul><li>%s</li></ul>\n"
+"                                              <h3>תרגום</h3>\n"
+"                                              <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Clock.pm:214
 msgid "Restore data"
@@ -1982,7 +1998,7 @@ msgstr ""
 #: lib/ManaTools/Module/Proxy.pm:347
 #, perl-format
 msgid "Copyright (C) %s"
-msgstr ""
+msgstr "כל הזכויות שמורות (C) %s"
 
 #: lib/ManaTools/Module/Proxy.pm:349
 msgid "Graphical manager for proxies"
@@ -2052,6 +2068,12 @@ msgid ""
 "                                                       <h3>Translators</h3>\n"
 "                                                       <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                                    <ul><li>%s</li>\n"
+"                                                           <li>%s</li>\n"
+"                                                       </ul>\n"
+"                                                       <h3>תרגום</h3>\n"
+"                                                       <ul>%s</ul>"
 
 #: lib/ManaTools/Module/Services.pm:516
 #, perl-format
@@ -2798,7 +2820,7 @@ msgstr "Bluetooth"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:50
 msgid "Dial-Up"
-msgstr ""
+msgstr "חיוג"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:51
 msgid "Fax"
@@ -2814,7 +2836,7 @@ msgstr "רדיו"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:54
 msgid "Serial"
-msgstr ""
+msgstr "סידורי"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Telephony"
@@ -2840,7 +2862,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr ""
+msgstr "בסיסי"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
@@ -2860,7 +2882,7 @@ msgstr "ניפוי באגים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
-msgstr ""
+msgstr "Erlang"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:65
 msgid "GNOME and GTK+"
@@ -2880,7 +2902,7 @@ msgstr "ליבה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:69
 msgid "OCaml"
-msgstr ""
+msgstr "OCaml"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:71
 msgid "Perl"
@@ -3017,7 +3039,7 @@ msgstr "תלת ממד"
 #: lib/ManaTools/Rpmdragora/icon.pm:115 lib/ManaTools/Rpmdragora/icon.pm:152
 #: lib/ManaTools/Rpmdragora/icon.pm:180
 msgid "Editors and Converters"
-msgstr ""
+msgstr "עורכים וממירים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:116 lib/ManaTools/Rpmdragora/icon.pm:135
 #: lib/ManaTools/Rpmdragora/icon.pm:156 lib/ManaTools/Rpmdragora/icon.pm:183
@@ -3026,7 +3048,7 @@ msgstr "עזרים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:117
 msgid "Photography"
-msgstr ""
+msgstr "צילום"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:118
 msgid "Scanning"
@@ -3086,15 +3108,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:131
 msgid "Dictionary"
-msgstr ""
+msgstr "מילון"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "כספים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
-msgstr ""
+msgstr "ניהול"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:134
 msgid "Organizer"
@@ -3102,7 +3124,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:136
 msgid "Spreadsheet"
-msgstr ""
+msgstr "גיליון נתונים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
@@ -3175,7 +3197,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:154
 msgid "Mixers"
-msgstr ""
+msgstr "מערבלים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:155 lib/ManaTools/Rpmdragora/icon.pm:181
 msgid "Players"
@@ -3275,7 +3297,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:182
 msgid "Television"
-msgstr ""
+msgstr "טלוויזיה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:186 lib/ManaTools/Rpmdragora/icon.pm:187
 #: lib/ManaTools/Rpmdragora/icon.pm:188 lib/ManaTools/Rpmdragora/icon.pm:189
@@ -4054,7 +4076,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1988
 msgid "/_About..."
-msgstr "/_על האודות..."
+msgstr "/_על אודות..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1991
 msgid "Rpmdragora"
@@ -4541,6 +4563,10 @@ msgid ""
 "                                            <h3>Translators</h3>\n"
 "                                            <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                            <ul><li>%s</li></ul>\n"
+"                                            <h3>תרגום</h3>\n"
+"                                            <ul>%s</ul>"
 
 #: modules/rpmdragora/dragoraUpdate:421
 msgid ""
@@ -4677,7 +4703,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:630
 msgid "Search"
-msgstr ""
+msgstr "חיפוש"
 
 #: modules/rpmdragora/rpmdragora:636
 msgid "Reset"
@@ -4685,7 +4711,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:656
 msgid "&Apply"
-msgstr ""
+msgstr "ה&חלה"
 
 #: modules/rpmdragora/rpmdragora:692
 msgid "/_Select dependencies without asking"
@@ -4709,7 +4735,7 @@ msgstr ""
 
 #: modules/rpmdragora/rpmdragora:705
 msgid "Reset the selection"
-msgstr ""
+msgstr "איפוס הבחירה"
 
 #: modules/rpmdragora/rpmdragora:706
 msgid "Reload the packages list"
@@ -4742,6 +4768,12 @@ msgid ""
 "h3>\n"
 "                                                        <ul>%s</ul>"
 msgstr ""
+"<h3>פיתוח</h3>\n"
+"                                                        <ul><li>%s</li>\n"
+"                                                            <li>%s</li>\n"
+"                                                        </ul>\n"
+"                                                        <h3>תרגום</h3>\n"
+"                                                        <ul>%s</ul>"
 
 #: modules/rpmdragora/rpmdragora:1208
 #, perl-format
