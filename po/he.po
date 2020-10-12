@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-10-04 23:49+0000\n"
+"PO-Revision-Date: 2020-10-11 17:29+0000\n"
 "Last-Translator: Omer I.S.\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -2211,7 +2211,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:760
 msgid "Please wait, updating media..."
-msgstr "נא להמתין, בעדכון מדיה..."
+msgstr "נא להמתין, בעדכון מאגרים..."
 
 #: lib/ManaTools/rpmdragora.pm:783
 msgid "Error retrieving packages"
@@ -2532,7 +2532,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:286
 msgid "Already existing update media"
-msgstr "כבר קיימת מדיה לעדכונים"
+msgstr "כבר קיים מאגר לעדכונים"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:287
 #, perl-format
@@ -2563,8 +2563,8 @@ msgid ""
 "You have no configured update media. MageiaUpdate cannot operate without any "
 "update media."
 msgstr ""
-"לא הגדרת מקורות עדכון. אין באפשרות MageiaUpdate לבצע פעולות ללא מקורות עדכון "
-"כלל."
+"לא הגדרת מאגרים לעדכון. אין באפשרות MageiaUpdate לבצע פעולות ללא מקורות "
+"עדכון כלל."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:305
 msgid "How to choose manually your mirror"
@@ -3405,7 +3405,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:70
 msgid "  --media=medium1,..     limit to given media"
-msgstr ""
+msgstr "  --media=medium1,..     להגביל למאגר הנתון"
 
 #: lib/ManaTools/Rpmdragora/init.pm:71
 msgid ""
@@ -3429,7 +3429,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:75
 msgid "  --no-media-update      don't update media at startup"
-msgstr ""
+msgstr "  --no-media-update      לא תעדכן את המאגר בעת ההפעלה"
 
 #: lib/ManaTools/Rpmdragora/init.pm:76
 msgid "  --no-verify-rpm        don't verify package signatures"
@@ -3572,7 +3572,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:155
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:170
 msgid "Please wait, adding media..."
-msgstr "נא להמתין, בהוספת מדיה..."
+msgstr "נא להמתין, בהוספת מאגרים..."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:206
 msgid "Browse..."
@@ -3631,7 +3631,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:298
 msgid "Create media for a whole distribution"
-msgstr ""
+msgstr "יצירת מאגר לכל ההפצה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:301
 msgid "Tag this medium as an update medium"
@@ -4098,6 +4098,9 @@ msgid ""
 "manager on another desktop, or are you currently installing\n"
 "packages as well?"
 msgstr ""
+"מסד נתוני החבילות נעול. עליך לסגור יישומים אחרים\n"
+"הניגשים למסד נתוני החבילות. האם יש לך מנהל מאגרים\n"
+"נוסף בשולחן עבודה אחר, או אולי מבוצעת גם התקנת חבילות?"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
