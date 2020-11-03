@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-10-11 17:29+0000\n"
+"PO-Revision-Date: 2020-11-03 19:50+0000\n"
 "Last-Translator: Omer I.S.\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -2188,7 +2188,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr "יצירת המדיה נכשלה."
+msgstr "לא ניתן ליצור את אמצעי ההתקנה."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
@@ -2253,7 +2253,7 @@ msgstr " סיום."
 
 #: lib/ManaTools/rpmdragora.pm:826
 msgid " failed!"
-msgstr " נכשל!"
+msgstr " כשל!"
 
 #: lib/ManaTools/rpmdragora.pm:831
 #, perl-format
@@ -2302,7 +2302,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:895 modules/rpmdragora/dragoraUpdate:294
 msgid "&Update"
-msgstr ""
+msgstr "&עדכון"
 
 #: lib/ManaTools/rpmdragora.pm:974
 #, perl-format
@@ -2312,7 +2312,7 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
-"עדכון המקור נכשל, מקור זה יבוטל באופן אוטומטי.\n"
+"לא ניתן לעדכן את המאגר, מאגר זה יושבת באופן אוטומטי.\n"
 "\n"
 "שגיאות:\n"
 "%s"
@@ -2623,7 +2623,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:743
 msgid "Installation failed"
-msgstr ""
+msgstr "ההתקנה כשלה"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:766
 msgid "Checking validity of requested packages..."
@@ -2719,7 +2719,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
 msgid "%d installation transactions failed"
-msgstr ""
+msgstr "%d העברות ההתקנה כשלו"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:970
 msgid "Unrecoverable error: no package found for installation, sorry."
