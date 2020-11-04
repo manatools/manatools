@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-11-03 19:50+0000\n"
+"PO-Revision-Date: 2020-11-04 09:43+0000\n"
 "Last-Translator: Omer I.S.\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -2188,7 +2188,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
-msgstr "לא ניתן ליצור את אמצעי ההתקנה."
+msgstr "אין אפשרות ליצור את אמצעי ההתקנה."
 
 #: lib/ManaTools/rpmdragora.pm:725
 msgid "Failure when adding medium"
@@ -2312,7 +2312,7 @@ msgid ""
 "Errors:\n"
 "%s"
 msgstr ""
-"לא ניתן לעדכן את המאגר, מאגר זה יושבת באופן אוטומטי.\n"
+"אין אפשרות לעדכן את אמצעי ההתקנה, הוא יושבת אוטומטית.\n"
 "\n"
 "שגיאות:\n"
 "%s"
@@ -2375,7 +2375,7 @@ msgstr "אין אתר מראה"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr "לא מצליח למצוא אף אתר מראה מתאים."
+msgstr "אין באפשרותי למצוא אף אתר מראה מתאים."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -2501,6 +2501,7 @@ msgstr ""
 msgid ""
 "No xml info for medium \"%s\", unable to return any result for package %s"
 msgstr ""
+"אין מידע ב־xml לאמצעי ההתקנה \"%s\", אין אפשרות למצוא תוצאות עבור החבילה %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:201 lib/ManaTools/Rpmdragora/gui.pm:351
 #: lib/ManaTools/Rpmdragora/gui.pm:364 lib/ManaTools/Rpmdragora/gui.pm:368
@@ -2631,12 +2632,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:789
 msgid "Unable to get source packages."
-msgstr ""
+msgstr "אין אפשרות לקבל את חבילות המקור."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:790
 #, perl-format
 msgid "Unable to get source packages, sorry. %s"
-msgstr ""
+msgstr "אין אפשרות להשיג את חבילות המקור, עמך הסליחה. %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:791
 #, perl-format
