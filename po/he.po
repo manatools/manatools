@@ -9,15 +9,15 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# Omer I.S., 2020
+# Omer I.S. <omeritzicschwartz@gmail.com>, 2020
 # Yaron Shahrabani <sh.yaron@gmail.com>, 2020
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-11-10 15:38+0000\n"
-"Last-Translator: Omer I.S.\n"
+"PO-Revision-Date: 2020-11-12 14:46+0000\n"
+"Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
 "Language: he\n"
@@ -1341,7 +1341,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
-msgstr ""
+msgstr "מזהה קבוצה"
 
 #: lib/ManaTools/Module/Users.pm:1138
 msgid "Group Members"
@@ -2227,7 +2227,7 @@ msgid ""
 "to reconfigure it, either it is currently unreachable and you should retry\n"
 "later."
 msgstr ""
-"אין אפשרות לייבא את רשימת החבילות החדשות מהמאגר \"%s\".\n"
+"אי אפשר לייבא את רשימת החבילות החדשות מהמאגר „%s”.\n"
 "במקרה שמאגר זה אינו מוגדר כהלכה, יש להסיר אותו בעזרת מנהל\n"
 "המאגרים ולהוסיפו מחדש על מנת להגדירו כהלכה. ייתכן גם שמאגר זה אינו\n"
 "זמין כרגע, ובמקרה זה יש לנסות לעדכן את הרשימה מאוחר יותר."
@@ -2263,7 +2263,7 @@ msgstr "%s ממקור %s"
 #: lib/ManaTools/rpmdragora.pm:835
 #, perl-format
 msgid "Starting download of `%s'..."
-msgstr "מתחיל להוריד את %s..."
+msgstr "הורדת „%s” מתחילה..."
 
 #: lib/ManaTools/rpmdragora.pm:839
 #, perl-format
@@ -2271,15 +2271,17 @@ msgid ""
 "Download of `%s'\n"
 "time to go:%s, speed:%s"
 msgstr ""
-"הורדה של `%s'\n"
-"זמן נותר:%s, במהירות: %s"
+"הורדת „%s”\n"
+"הזמן שנותר: %s, מהירות: %s"
 
 #: lib/ManaTools/rpmdragora.pm:842
 #, perl-format
 msgid ""
 "Download of `%s'\n"
 "speed:%s"
-msgstr "הורדה של `%s' במהירות: %s"
+msgstr ""
+"הורדת „%s”\n"
+"מהירות: %s"
 
 #: lib/ManaTools/rpmdragora.pm:854
 msgid ""
@@ -2401,7 +2403,7 @@ msgid ""
 "running (%s).\n"
 "It will be disabled."
 msgstr ""
-"המקור \"%s\", המשמש לעדכוני תוכנה, אינו מתאים לגרסת %s שמותקנת במערכת זו "
+"המאגר „%s”, המשמש לעדכוני תוכנה, אינו מתאים לגרסת %s שמותקנת במערכת זו "
 "(%s).\n"
 "ולכן הוא יושבת."
 
@@ -2412,7 +2414,7 @@ msgid ""
 "you're running (%s).\n"
 "It will be disabled."
 msgstr ""
-"המקור שלך „%s”, המשמש לעדכוני תוכנה, אינו מתאים לגרסת Mageia שמחשבך מריץ "
+"המאגר שלך „%s”, המשמש לעדכוני תוכנה, אינו מתאים לגרסת Mageia שמחשבך מריץ "
 "(%s).\n"
 "לכן הוא יושבת."
 
@@ -2580,6 +2582,11 @@ msgid ""
 "\n"
 "Then, restart %s."
 msgstr ""
+"באפשרותך גם לבחור את אתר המראה הרצוי לעדכונים באופן ידני: לשם כך,\n"
+"יש להפעיל את מנהל מאגרי התכנה, ואז להוסיף מקור\n"
+"„עדכוני אבטחה”.\n"
+"\n"
+"לאחר מכן, יש להפעיל את %s מחדש."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:478
 msgid "Reading updates description"
@@ -2739,7 +2746,7 @@ msgid ""
 msgstr ""
 "ההתקנה הסתיימה; הכול הותקן באופן תקין.\n"
 "\n"
-"נוצרו מספר קובצי הגדרות בשם, „‎.rpmnew” או „‎.rpmsave”\n"
+"נוצרו מספר קובצי הגדרות בשם „‎.rpmnew” או „‎.rpmsave”\n"
 "ניתן לעיין בהם על מנת להשלים את עדכון המערכת שלך:"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:987
@@ -3379,7 +3386,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
-msgstr ""
+msgstr "דוא״ל/תכנה קבוצתית/חדשות"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:211
 msgid "Network Computer server"
@@ -3781,11 +3788,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Add a parallel group"
-msgstr ""
+msgstr "הוספת קבוצה מקבילה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1028
 msgid "Edit a parallel group"
-msgstr ""
+msgstr "עריכת קבוצה מקבילה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1052
 msgid "Add a medium limit"
