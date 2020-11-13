@@ -16,7 +16,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-11-12 14:46+0000\n"
+"PO-Revision-Date: 2020-11-13 07:39+0000\n"
 "Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -295,7 +295,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/GUI/Dialog.pm:427
 msgid "&Close"
-msgstr ""
+msgstr "ס&גירה"
 
 #: lib/ManaTools/Shared/TimeZone.pm:175 lib/ManaTools/Shared/TimeZone.pm:917
 #, perl-format
@@ -2513,7 +2513,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:219 lib/ManaTools/Rpmdragora/pkg.pm:224
 #, perl-format
 msgid "Downloading package `%s'..."
-msgstr "בהורדת החבילה \"%s\"..."
+msgstr "בהורדת החבילה „%s”..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:226
 #, perl-format
@@ -2654,6 +2654,10 @@ msgid ""
 "Error(s) reported:\n"
 "%s"
 msgstr ""
+"\n"
+"\n"
+"דו״ח שגיאות:\n"
+"%s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:808 lib/ManaTools/Rpmdragora/gui.pm:959
 msgid ""
@@ -2744,7 +2748,7 @@ msgid ""
 "Some configuration files were created as `.rpmnew' or `.rpmsave',\n"
 "you may now inspect some in order to take actions:"
 msgstr ""
-"ההתקנה הסתיימה; הכול הותקן באופן תקין.\n"
+"ההתקנה הסתיימה, כל הרכיבים הותקנו כהלכה.\n"
 "\n"
 "נוצרו מספר קובצי הגדרות בשם „‎.rpmnew” או „‎.rpmsave”\n"
 "ניתן לעיין בהם על מנת להשלים את עדכון המערכת שלך:"
@@ -2813,7 +2817,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
 #: lib/ManaTools/Rpmdragora/icon.pm:127 lib/ManaTools/Rpmdragora/icon.pm:147
 msgid "Other"
-msgstr ""
+msgstr "שונות"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:48 lib/ManaTools/Rpmdragora/icon.pm:49
 #: lib/ManaTools/Rpmdragora/icon.pm:50 lib/ManaTools/Rpmdragora/icon.pm:51
@@ -3136,7 +3140,7 @@ msgstr "גיליון נתונים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:137
 msgid "Suite"
-msgstr ""
+msgstr "מארז"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:138
 msgid "Word processor"
@@ -3321,15 +3325,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:190
 msgid "Game station"
-msgstr ""
+msgstr "תחנת משחקים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:191
 msgid "Internet station"
-msgstr ""
+msgstr "אינטרנט"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:192
 msgid "Multimedia station"
-msgstr ""
+msgstr "תחנת מולטימדיה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:193
 msgid "Network Computer (client)"
@@ -3337,11 +3341,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:194
 msgid "Office Workstation"
-msgstr ""
+msgstr "משרד"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Scientific Workstation"
-msgstr ""
+msgstr "מדעית"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
 #: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
@@ -3940,7 +3944,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1594
 msgid "&Options"
-msgstr ""
+msgstr "אפ&שרויות"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1595
 msgid "Global options"
@@ -4840,7 +4844,7 @@ msgstr "המאגר \"%s\" נוסף בהצלחה."
 #: modules/rpmdragora/dragora-urpm-addmedia:167
 #, perl-format
 msgid "Successfully added medium `%s'."
-msgstr "המאגר \"%s\" נוסף בהצלחה."
+msgstr "המאגר „%s” נוסף בהצלחה."
 
 #. (itstool) path: action/description
 #: extras/polkit/org.mageia.dragoraupdate.policy.in:11
