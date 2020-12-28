@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-12-18 13:15+0000\n"
+"PO-Revision-Date: 2020-12-28 15:56+0000\n"
 "Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -256,11 +256,11 @@ msgstr "לא ידוע"
 
 #: lib/ManaTools/Shared/Shorewall.pm:189
 msgid "Keep custom rules"
-msgstr ""
+msgstr "שמירת החוקים המותאמים"
 
 #: lib/ManaTools/Shared/Shorewall.pm:190
 msgid "Drop custom rules"
-msgstr ""
+msgstr "השלכת החוקים המותאמים"
 
 #: lib/ManaTools/Shared/GUI/CommandLine.pm:87
 msgid "start using yui gtk plugin implementation"
@@ -435,7 +435,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/TimeZone.pm:415 lib/ManaTools/rpmdragora.pm:592
 msgid "France"
-msgstr "צרפת - France"
+msgstr "צרפת"
 
 #: lib/ManaTools/Shared/TimeZone.pm:416 lib/ManaTools/rpmdragora.pm:586
 msgid "Germany"
@@ -1141,7 +1141,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:578
 msgid "Create New Group"
-msgstr ""
+msgstr "יצירת קבוצה חדשה"
 
 #: lib/ManaTools/Module/Users.pm:588 lib/ManaTools/Module/Users.pm:1625
 msgid "Group Name:"
@@ -1174,7 +1174,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:650
 msgid " Group ID is already used "
-msgstr ""
+msgstr "מזהה הקבוצה כבר בשימוש"
 
 #: lib/ManaTools/Module/Users.pm:651
 msgid ""
@@ -1232,7 +1232,7 @@ msgstr "יצירת תיקיית בית חדשה"
 
 #: lib/ManaTools/Module/Users.pm:875
 msgid "Home Directory:"
-msgstr ""
+msgstr "תיקיית הבית:"
 
 #: lib/ManaTools/Module/Users.pm:884
 msgid "Create a private group for the user"
@@ -1319,7 +1319,7 @@ msgstr "קבוצה ראשית"
 
 #: lib/ManaTools/Module/Users.pm:1093
 msgid "Full Name"
-msgstr ""
+msgstr "שם מלא"
 
 #: lib/ManaTools/Module/Users.pm:1094
 msgid "Login Shell"
@@ -1332,11 +1332,11 @@ msgstr "תיקיית הבית"
 #: lib/ManaTools/Module/Users.pm:1096 lib/ManaTools/Module/Services.pm:371
 #: modules/rpmdragora/rpmdragora:478
 msgid "Status"
-msgstr ""
+msgstr "מצב"
 
 #: lib/ManaTools/Module/Users.pm:1136
 msgid "Group Name"
-msgstr ""
+msgstr "שם קבוצה"
 
 #: lib/ManaTools/Module/Users.pm:1137
 msgid "Group ID"
@@ -1954,15 +1954,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Proxy.pm:210
 msgid "Proxy should be http://..."
-msgstr "על כתובת המתווך (פרוקסי) להיות http://..."
+msgstr "על כתובת השרת המתווך (פרוקסי) להתחיל עם http://…‎"
 
 #: lib/ManaTools/Module/Proxy.pm:215
 msgid "Proxy should be http://... or https://..."
-msgstr ""
+msgstr "על כתובת השרת המתווך (פרוקסי) להתחיל עם http://…‎ או עם https://...‎"
 
 #: lib/ManaTools/Module/Proxy.pm:220
 msgid "URL should begin with 'ftp:' or 'http:'"
-msgstr ""
+msgstr "על הכתובת להתחיל עם \"ftp:‎\" או עם \"http:‎\""
 
 #: lib/ManaTools/Module/Proxy.pm:232
 msgid "Proxies configuration"
@@ -2183,7 +2183,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:698 lib/ManaTools/Rpmdragora/gui.pm:232
 msgid "Medium: "
-msgstr "מאגר:"
+msgstr "מאגר: "
 
 #: lib/ManaTools/rpmdragora.pm:720
 msgid "Unable to create medium."
@@ -2344,7 +2344,7 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1007 lib/ManaTools/rpmdragora.pm:1043
 msgid "Mirror choice"
-msgstr "בחירת אתר מַראָה"
+msgstr "בחירת אתר מראָה"
 
 #: lib/ManaTools/rpmdragora.pm:1019
 msgid "Error during download"
@@ -2372,11 +2372,11 @@ msgstr ""
 
 #: lib/ManaTools/rpmdragora.pm:1031
 msgid "No mirror"
-msgstr "אין אתרי מַּראָה"
+msgstr "אין אתרי מראָה"
 
 #: lib/ManaTools/rpmdragora.pm:1033
 msgid "I can't find any suitable mirror."
-msgstr "אין באפשרותי למצוא אתרי מַראָה מתאימים כלל."
+msgstr "אין באפשרותי למצוא אתרי מראָה מתאימים כלל."
 
 #: lib/ManaTools/rpmdragora.pm:1034
 msgid ""
@@ -2386,7 +2386,7 @@ msgid ""
 "the case when the architecture of your processor is not supported\n"
 "by Mageia Official Updates."
 msgstr ""
-"אין אפשרות למצוא אתר מַראָה מתאים.\n"
+"אין אפשרות למצוא אתר מראָה מתאים.\n"
 "\n"
 "ישנן מספר סיבות אפשריות לבעיה זו; הנפוצה בהן היא שארכיטקטורת\n"
 "המעבד הראשי במחשב שלך לא נתמכת על ידי העדכונים הרשמיים של Mageia."
@@ -2720,12 +2720,12 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Change medium"
-msgstr ""
+msgstr "החלפת מאגר"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:929
 #, perl-format
 msgid "Please insert the medium named \"%s\""
-msgstr ""
+msgstr "נא להכניס את אמצעי ההתקנה בשם \"%s\""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
@@ -3381,7 +3381,7 @@ msgstr "שרת"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:206
 msgid "DNS/NIS"
-msgstr ""
+msgstr "DNS/NIS"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:207
 msgid "Database"
@@ -3389,7 +3389,7 @@ msgstr "מסד נתונים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:208
 msgid "Firewall/Router"
-msgstr ""
+msgstr "חומת אש/נתב"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:210
 msgid "Mail/Groupware/News"
@@ -3520,11 +3520,11 @@ msgstr "HTTPS"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:78
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:81
 msgid "NFS"
-msgstr ""
+msgstr "NFS"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:79
 msgid "Removable"
-msgstr ""
+msgstr "נשלף"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:80
 msgid "rsync"
@@ -3751,7 +3751,7 @@ msgstr "יש להכניס את אמצעי ההתקנה כדי להמשיך"
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:810
 msgid ""
 "In order to save the changes, you need to insert the medium in the drive."
-msgstr "על מנת לשמור את השינויים, עליך להכניס את המדיה אל הכונן."
+msgstr "על מנת לשמור את השינויים, יש צורך בהכנסת אמצעי ההתקנה אל הכונן."
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:878
 msgid "Configure proxies"
@@ -3828,7 +3828,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1088
 msgid "Protocol:"
-msgstr ""
+msgstr "פרוטוקול:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1090
 msgid "Media limit:"
@@ -3869,7 +3869,7 @@ msgstr "הגבלת מאגר"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1140
 msgid "Command"
-msgstr ""
+msgstr "פקודה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1170
 msgid "Edit..."
@@ -3887,7 +3887,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1645
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2067
 msgid "Medium"
-msgstr ""
+msgstr "מאגר"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1249
 msgid "Keys"
@@ -3931,7 +3931,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2144
 #: modules/rpmdragora/dragora-urpm-sources.pl:38
 msgid "Configure media"
-msgstr "הגדרת מדיה"
+msgstr "הגדרת מאגרים"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1581
 msgid "Update"
@@ -3963,7 +3963,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1598
 msgid "Proxy"
-msgstr ""
+msgstr "מתווך (פרוקסי)"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1608
 #: modules/rpmdragora/rpmdragora:757
@@ -3977,7 +3977,7 @@ msgstr "סוג"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1680
 msgid "Up"
-msgstr ""
+msgstr "למעלה"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1681
 msgid "Down"
@@ -4186,19 +4186,19 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:212
 msgid "Importance: "
-msgstr ""
+msgstr "חשיבות: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:213
 msgid "Reason for update: "
-msgstr ""
+msgstr "הסיבה לעדכון:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:227
 msgid "Version: "
-msgstr ""
+msgstr "גרסה: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:228
 msgid "Currently installed version: "
-msgstr ""
+msgstr "הגרסה שמותקנת כרגע: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:229
 msgid "Group: "
@@ -4206,7 +4206,7 @@ msgstr "קבוצה:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:230
 msgid "Architecture: "
-msgstr ""
+msgstr "ארכיטקטורה: "
 
 #: lib/ManaTools/Rpmdragora/gui.pm:231
 msgid "Size: "
@@ -4219,11 +4219,11 @@ msgstr "%s ק״ב"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:254
 msgid "All dependencies installed."
-msgstr ""
+msgstr "כל התלויות הותקנו."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:272
 msgid "URL: "
-msgstr ""
+msgstr "כתובת:"
 
 #: lib/ManaTools/Rpmdragora/gui.pm:334
 msgid "Details:"
@@ -4561,7 +4561,7 @@ msgstr "גרסה"
 
 #: modules/rpmdragora/dragoraUpdate:270 modules/rpmdragora/rpmdragora:459
 msgid "Release"
-msgstr "גרסה"
+msgstr "שחרור"
 
 #: modules/rpmdragora/dragoraUpdate:271
 msgid "Arch"
