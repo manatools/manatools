@@ -9,13 +9,13 @@
 # This file is distributed under the same license as the PACKAGE package.
 #
 # Translators:
-# enolp <enolp@softastur.org>, 2016,2018,2020
+# enolp <enolp@softastur.org>, 2016,2018,2020-2021
 msgid ""
 msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2020-11-01 23:03+0000\n"
+"PO-Revision-Date: 2021-01-06 05:26+0000\n"
 "Last-Translator: enolp <enolp@softastur.org>\n"
 "Language-Team: Asturian (http://www.transifex.com/MageiaLinux/mageia/"
 "language/ast/)\n"
@@ -1062,7 +1062,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:344
 msgid "A group with this name already exists.  What would you like to do?"
-msgstr "Yá esiste un grupu con esti nome. ¿Qué te prestaría facer?"
+msgstr "Yá esiste un grupu con esti nome. ¿Qué quedríes facer?"
 
 #: lib/ManaTools/Module/Users.pm:350
 msgid "Add to the existing group"
@@ -1301,7 +1301,7 @@ msgstr "Nome"
 
 #: lib/ManaTools/Module/Users.pm:1091
 msgid "User ID"
-msgstr "ID"
+msgstr "ID d'usuariu"
 
 #: lib/ManaTools/Module/Users.pm:1092 lib/ManaTools/Module/Users.pm:1839
 msgid "Primary Group"
@@ -1925,7 +1925,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
-msgstr ""
+msgstr "Precises reaniciar la sesión pa que los cambeos faigan efeutu."
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
@@ -2592,7 +2592,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:719 lib/ManaTools/Rpmdragora/pkg.pm:986
 msgid "All requested packages were installed successfully."
-msgstr "Tolos paquetes instalaos instaláronse con ésitu."
+msgstr "Tolos paquetes solicitaos instaláronse con ésitu."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
@@ -2680,12 +2680,12 @@ msgstr "Va desaniciase'l paquete güérfanu de darréu."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:857 lib/ManaTools/Rpmdragora/pkg.pm:858
 msgid "Preparing package installation..."
-msgstr ""
+msgstr "Tresnando instalación de paquetes..."
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:861 lib/ManaTools/Rpmdragora/pkg.pm:863
 #, perl-format
 msgid "Installing package `%s' (%d/%d)..."
-msgstr ""
+msgstr "Instalando'l paquete «%s» (%d/%d)…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
@@ -2703,7 +2703,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:933
 msgid "Verifying package signatures..."
-msgstr ""
+msgstr "Verificando les robles de los paquetes…"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:956
 #, perl-format
@@ -2847,7 +2847,7 @@ msgstr "Desendolcu"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
-msgstr ""
+msgstr "Basic"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:59
 msgid "C"
@@ -2863,7 +2863,7 @@ msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr ""
+msgstr "Depuración"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
@@ -3045,7 +3045,7 @@ msgstr "Visores"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:120
 msgid "Monitoring"
-msgstr ""
+msgstr "Supervisión"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:121 lib/ManaTools/Rpmdragora/icon.pm:122
 #: lib/ManaTools/Rpmdragora/icon.pm:123 lib/ManaTools/Rpmdragora/icon.pm:124
@@ -3097,7 +3097,7 @@ msgstr "Diccionariu"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:132
 msgid "Finance"
-msgstr ""
+msgstr "Finances"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:133
 msgid "Management"
@@ -3298,15 +3298,15 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:190
 msgid "Game station"
-msgstr ""
+msgstr "Estación de xuegu"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:191
 msgid "Internet station"
-msgstr ""
+msgstr "Estación d'internet"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:192
 msgid "Multimedia station"
-msgstr ""
+msgstr "Estación multimedia"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:193
 msgid "Network Computer (client)"
@@ -3314,11 +3314,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/icon.pm:194
 msgid "Office Workstation"
-msgstr ""
+msgstr "Estación ofimática"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:195
 msgid "Scientific Workstation"
-msgstr ""
+msgstr "Estación científica"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:196 lib/ManaTools/Rpmdragora/icon.pm:198
 #: lib/ManaTools/Rpmdragora/icon.pm:199 lib/ManaTools/Rpmdragora/icon.pm:200
@@ -3569,7 +3569,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:255
 msgid "Type of medium:"
-msgstr "Triba del mediu:"
+msgstr "Tipu del mediu:"
 
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:260
 msgid "Local files"
@@ -4088,7 +4088,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:196
 #, perl-format
 msgid "%s of additional disk space will be used."
-msgstr ""
+msgstr "L'espaciu adicional nel discu que va usase: %s"
 
 #: lib/ManaTools/Rpmdragora/formatting.pm:197
 #, perl-format
@@ -4098,7 +4098,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/formatting.pm:202
 #, perl-format
 msgid "%s of packages will be retrieved."
-msgstr ""
+msgstr "Van recuperase %s de paquetes."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:106
 msgid "Search results"
