@@ -21,7 +21,6 @@
 package ManaTools::Module::Hosts;
 
 use Modern::Perl '2011';
-use English;
 use autodie;
 use Moose;
 use POSIX qw(ceil);
@@ -95,15 +94,7 @@ sub _SharedUGUIInitialize {
 sub start {
     my $self = shift;
 
-    my $login = (getpwuid $>);
-    if ($login ne 'root')
-    {
-	$self->_warningMissingPrivileges();
-    }
-    else
-    {
-        $self->_manageHostsDialog();
-    }
+    $self->_manageHostsDialog();
 };
 
 #=============================================================
@@ -392,54 +383,6 @@ sub setupTable {
         $tblItem = new yui::YTableItem($host->{'ip'},$host->{'hosts'}[0],$aliases);
         $self->table->addItem($tblItem);
     }
-}
-
-sub _warningMissingPrivileges{
-    my $self = shift;
-
-    my $appTitle = yui::YUI::app()->applicationTitle();
-    my $appIcon = yui::YUI::app()->applicationIcon();
-    ## set new title to get it in dialog
-    my $newTitle = $self->loc->N("Need administrator privileges");
-
-    my $factory  = yui::YUI::widgetFactory;
-    my $optional = yui::YUI::optionalWidgetFactory;
-
-## TODO remove title and icon when using Shared::Module::GUI::Dialog
-    ## set new title to get it in dialog
-    yui::YUI::app()->setApplicationTitle($self->name());
-    ## set icon if not already set by external launcher
-    yui::YUI::app()->setApplicationIcon($self->icon());
-
-    $self->dialog($factory->createMainDialog());
-    my $layout    = $factory->createVBox($self->dialog);
-
-    my $hbox_header = $factory->createHBox($layout);
-    my $labelAppDescription = $factory->createLabel($hbox_header,$newTitle);
-    $labelAppDescription->setWeight($yui::YD_HORIZ,0);
-    my $hbox_foot = $factory->createHBox($layout);
-    my $okButton = $factory->createPushButton($hbox_foot,$self->loc->N("&OK"));
-    
-    # main loop
-    while(1) {
-        my $event     = $self->dialog->waitForEvent();
-        my $eventType = $event->eventType();
-
-        #event type checking
-        if ($eventType == $yui::YEvent::CancelEvent) {
-            last;
-        }
-        elsif ($eventType == $yui::YEvent::WidgetEvent) {
-            my $widget = $event->widget();
-            if ($widget == $okButton) {
-                last;
-            }
-        }
-    }
-    $self->dialog->destroy() ;
-
-    #restore old application title
-    yui::YUI::app()->setApplicationTitle($appTitle);
 }
 
 sub _manageHostsDialog {
