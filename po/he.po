@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2021-03-13 18:09+0000\n"
+"PO-Revision-Date: 2021-03-17 23:13+0000\n"
 "Last-Translator: Omeritzics Games <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -585,6 +585,8 @@ msgid ""
 "apmd is used for monitoring battery status and logging it via syslog.\n"
 "It can also be used for shutting down the machine when the battery is low."
 msgstr ""
+"apmd משמש להצגת מצב הסוללה ותיעודו בקובץ היומן בעזרת syslog.\n"
+"אפשר להשתמש בו גם לכיבוי המחשב כאשר הסוללה חלשה."
 
 #: lib/ManaTools/Shared/Services.pm:243
 msgid ""
@@ -947,7 +949,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
-msgstr ""
+msgstr "כלי להצגת קובצי היומן"
 
 #: lib/ManaTools/Module/LogViewer.pm:160
 msgid "Matching"
@@ -1871,7 +1873,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Firewall.pm:914
 msgid "Log firewall messages in system logs"
-msgstr "שמירת הודעות מחומת האש ביומן המערכת"
+msgstr "תיעוד הודעות חומת האש בקובצי יומן המערכת"
 
 #: lib/ManaTools/Module/Firewall.pm:969
 msgid "Invalid port given"
@@ -1935,7 +1937,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "You need to log out and back in again for changes to take effect"
-msgstr ""
+msgstr "יש לצאת ולהיכנס בחזרה על מנת שהשינויים ייכנסו לתוקף"
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
@@ -2328,7 +2330,7 @@ msgid ""
 "Is it ok to continue?"
 msgstr ""
 "יש צורך בחיבור לאינטרנט על מנת לייבא את רשימת\n"
-"אתרי המַּראָה. על חיבור האינטרנט במחשבך להיות פעיל.\n"
+"אתרי המַּראָה. נא לוודא שמחשבך מחובר לרשת.\n"
 "\n"
 "האם ניתן להמשיך?"
 
@@ -2340,7 +2342,7 @@ msgid ""
 "Is it ok to continue?"
 msgstr ""
 "יש צורך להתחבר לאתר Mageia על מנת לייבא את\n"
-"רשימת אתרי המַּראָה. המחשב צריך להיות מחובר לרשת.\n"
+"רשימת אתרי המַּראָה. נא לוודא שמחשבך מחובר לרשת.\n"
 "\n"
 "האם ניתן להמשיך?"
 
@@ -2534,7 +2536,7 @@ msgid ""
 "Is it ok to continue?"
 msgstr ""
 "כדי לייבא את רשימת העדכונים יש להתחבר לשרת\n"
-"העדכונים. עליך לוודא שמחשבך מחובר לרשת.\n"
+"העדכונים. נא לוודא שמחשבך מחובר לרשת.\n"
 "\n"
 "האם ניתן להמשיך?"
 
@@ -3582,7 +3584,7 @@ msgstr ""
 "שברשותך (%s).\n"
 "\n"
 "יש צורך להתחבר לאתר Mageia על מנת לייבא את\n"
-"רשימת אתרי המַּראָה. המחשב צריך להיות מחובר לרשת.\n"
+"רשימת אתרי המַּראָה. נא לוודא שמחשבך מחובר לרשת.\n"
 "\n"
 "האם ניתן להמשיך?"
 
@@ -4410,7 +4412,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1663
 msgid "Please wait, listing packages..."
-msgstr "כעת ברישום החבילות, נא להמתין..."
+msgstr "כעת בפירוט החבילות, נא להמתין..."
 
 #: lib/ManaTools/Rpmdragora/gui.pm:1676
 msgid "No update"
