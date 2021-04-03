@@ -17,7 +17,7 @@ msgstr ""
 "Project-Id-Version: Mageia\n"
 "Report-Msgid-Bugs-To: https://bugs.mageia.org/\n"
 "POT-Creation-Date: 2017-09-10 12:55+0200\n"
-"PO-Revision-Date: 2021-04-01 19:14+0000\n"
+"PO-Revision-Date: 2021-04-03 18:53+0000\n"
 "Last-Translator: Omer I.S. <omeritzicschwartz@gmail.com>\n"
 "Language-Team: Hebrew (http://www.transifex.com/MageiaLinux/mageia/language/"
 "he/)\n"
@@ -240,11 +240,11 @@ msgstr "אין באפשרותך להסיר את המשתמש <%s> מהקבוצה
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Locked"
-msgstr ""
+msgstr "נעול"
 
 #: lib/ManaTools/Shared/Users.pm:1172
 msgid "Expired"
-msgstr ""
+msgstr "פג־תוקף"
 
 #: lib/ManaTools/Shared/urpmi_backend/tools.pm:367
 #: lib/ManaTools/Rpmdragora/formatting.pm:126
@@ -623,7 +623,7 @@ msgstr ""
 
 #: lib/ManaTools/Shared/Services.pm:252
 msgid "Launches the graphical display manager"
-msgstr ""
+msgstr "מפעיל את מנהל התצוגה הגרפית"
 
 #: lib/ManaTools/Shared/Services.pm:253
 msgid ""
@@ -947,7 +947,7 @@ msgstr ""
 #: lib/ManaTools/Module/LogViewer.pm:81
 #, perl-format
 msgid "%s - Log viewer"
-msgstr ""
+msgstr "%s - מציג קובצי היומן"
 
 #: lib/ManaTools/Module/LogViewer.pm:156
 msgid "A tool to monitor your logs"
@@ -1024,7 +1024,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/LogViewer.pm:341
 msgid "Empty log found"
-msgstr ""
+msgstr "נמצא קובץ יומן ריק"
 
 #: lib/ManaTools/Module/LogViewer.pm:434
 msgid "manalog - running in user mode"
@@ -1044,7 +1044,7 @@ msgstr "שמירה בשם.."
 #: lib/ManaTools/Module/Users.pm:107
 #, perl-format
 msgid "%s - Users Management Tool"
-msgstr ""
+msgstr "‏%s - כלי ניהול המשתמשים"
 
 #: lib/ManaTools/Module/Users.pm:295
 msgid "User Data"
@@ -1052,11 +1052,11 @@ msgstr "פרטי המשתמש"
 
 #: lib/ManaTools/Module/Users.pm:296
 msgid "Account Info"
-msgstr ""
+msgstr "מידע על החשבון"
 
 #: lib/ManaTools/Module/Users.pm:297
 msgid "Password Info"
-msgstr ""
+msgstr "מידע על הסיסמה"
 
 #: lib/ManaTools/Module/Users.pm:298 lib/ManaTools/Module/Users.pm:2532
 msgid "Groups"
@@ -1064,7 +1064,7 @@ msgstr "קבוצות"
 
 #: lib/ManaTools/Module/Users.pm:301
 msgid "Group Data"
-msgstr ""
+msgstr "פרטי הקבוצה"
 
 #: lib/ManaTools/Module/Users.pm:302
 msgid "Group Users"
@@ -1217,7 +1217,7 @@ msgstr "מעטפת כניסה:"
 #: lib/ManaTools/Module/Users.pm:808
 #, perl-format
 msgid "&Icon (%s)"
-msgstr ""
+msgstr "&סמל (%s)"
 
 #: lib/ManaTools/Module/Users.pm:841 lib/ManaTools/Module/Users.pm:2406
 #: lib/ManaTools/Module/DisplayManager.pm:138 lib/ManaTools/Module/Proxy.pm:147
@@ -1360,7 +1360,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Users.pm:1654
 msgid "Account expires (YYYY-MM-DD):"
-msgstr "החשבון פג בתאריך (YYYY-MM-DD):"
+msgstr "תוקף החשבון פג בתאריך (YYYY-MM-DD):"
 
 #: lib/ManaTools/Module/Users.pm:1661
 msgid "Lock User Account"
@@ -1544,13 +1544,14 @@ msgstr "משתמשים"
 #: lib/ManaTools/Module/Clock.pm:79
 #, perl-format
 msgid "%s - Date, Clock & Time Zone Settings"
-msgstr "%s - הגדרות התאריך, השעון ואזור הזמן"
+msgstr "%s - הגדרות התאריך, השעה ואזור הזמן"
 
 #: lib/ManaTools/Module/Clock.pm:197
 msgid ""
 "Date, Clock & Time Zone Settings allows to setup time zone and adjust date "
 "and time"
 msgstr ""
+"הגדרות התאריך והשעה מאפשרות להגדיר את אזור הזמן ולהגדיר את התאריך והשעה"
 
 #: lib/ManaTools/Module/Clock.pm:198
 #, perl-format
@@ -1571,7 +1572,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:215
 msgid "Restore date and time only?"
-msgstr ""
+msgstr "לשחזר את התאריך והשעה בלבד?"
 
 #: lib/ManaTools/Module/Clock.pm:235 lib/ManaTools/Module/Clock.pm:241
 #: lib/ManaTools/Module/Clock.pm:567 lib/ManaTools/Module/Clock.pm:652
@@ -1600,7 +1601,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:399
 msgid "Setting date and time"
-msgstr ""
+msgstr "הגדרת התאריך והשעה"
 
 #: lib/ManaTools/Module/Clock.pm:417
 msgid "Enable Network Time Protocol"
@@ -1616,7 +1617,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:446
 msgid "Choose &NTP server"
-msgstr ""
+msgstr "ב&חירת שרת NTP"
 
 #: lib/ManaTools/Module/Clock.pm:462
 msgid "NTP server - DrakClock"
@@ -1628,7 +1629,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:494
 msgid "&Local NTP server"
-msgstr ""
+msgstr "שרת NTP &מקומי"
 
 #: lib/ManaTools/Module/Clock.pm:507
 msgid "Set local NTP server"
@@ -1640,15 +1641,15 @@ msgstr ""
 
 #: lib/ManaTools/Module/Clock.pm:565 lib/ManaTools/Module/Clock.pm:650
 msgid "Current:"
-msgstr ""
+msgstr "הנוכחי:"
 
 #: lib/ManaTools/Module/Clock.pm:590
 msgid "TimeZone"
-msgstr ""
+msgstr "אזור זמן"
 
 #: lib/ManaTools/Module/Clock.pm:592
 msgid "Change &Time Zone"
-msgstr ""
+msgstr "שינוי &אזור זמן"
 
 #: lib/ManaTools/Module/Clock.pm:605 lib/ManaTools/Module/Clock.pm:613
 msgid "Timezone - DrakClock"
@@ -1664,7 +1665,7 @@ msgstr "מהו אזור הזמן שלך?"
 
 #: lib/ManaTools/Module/Clock.pm:626
 msgid "GMT - manaclock"
-msgstr ""
+msgstr "GMT - manaclock"
 
 #: lib/ManaTools/Module/Clock.pm:627
 msgid "Is your hardware clock set to GMT?"
@@ -1720,7 +1721,7 @@ msgstr ""
 
 #: lib/ManaTools/Module/Hosts.pm:162
 msgid "Icon Name"
-msgstr ""
+msgstr "שם הסמל"
 
 #: lib/ManaTools/Module/Hosts.pm:175 lib/ManaTools/Module/Hosts.pm:259
 #: lib/ManaTools/Module/Hosts.pm:449 lib/ManaTools/Module/Firewall.pm:608
@@ -1732,7 +1733,7 @@ msgstr "אי&שור"
 
 #: lib/ManaTools/Module/Hosts.pm:237 lib/ManaTools/Module/Hosts.pm:420
 msgid "IP Address"
-msgstr ""
+msgstr "כתובת IP"
 
 #: lib/ManaTools/Module/Hosts.pm:239
 msgid "Host aliases"
@@ -1788,7 +1789,7 @@ msgstr ""
 #: lib/ManaTools/Module/Firewall.pm:86
 #, perl-format
 msgid "%s - Firewall Manager"
-msgstr ""
+msgstr "‏%s - מנהל חומת האש"
 
 #: lib/ManaTools/Module/Firewall.pm:200
 msgid "Port scan detection"
@@ -1917,23 +1918,23 @@ msgstr ""
 #: lib/ManaTools/Module/DisplayManager.pm:54
 #, perl-format
 msgid "%s - Display Manager"
-msgstr ""
+msgstr "%s - מנהל התצוגה"
 
 #: lib/ManaTools/Module/DisplayManager.pm:89
 msgid "LightDM (The Light Display Manager)"
-msgstr "LightDM (The Light Display Manager)"
+msgstr "‏LightDM (מנהל התצוגה הקליל)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:90
 msgid "GDM (GNOME Display Manager)"
-msgstr "GDM (GNOME Display Manager)"
+msgstr "‏GDM (מנהל התצוגה של GNOME)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:91
 msgid "KDM (KDE Display Manager)"
-msgstr "KDM (KDE Display Manager)"
+msgstr "‏KDM (מנהל התצוגה של KDE)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:92
 msgid "XDM (X Display Manager)"
-msgstr "XDM (X Display Manager)"
+msgstr "‏XDM (מנהל התצוגה X)"
 
 #: lib/ManaTools/Module/DisplayManager.pm:169 lib/ManaTools/Module/Proxy.pm:175
 msgid "X Restart Required"
@@ -1945,11 +1946,11 @@ msgstr "יש לצאת ולהיכנס בחזרה על מנת שהשינויים �
 
 #: lib/ManaTools/Module/DisplayManager.pm:178
 msgid "Display Manager"
-msgstr ""
+msgstr "מנהל תצוגה"
 
 #: lib/ManaTools/Module/DisplayManager.pm:209
 msgid "Choosing a display manager"
-msgstr ""
+msgstr "בחירת מנהל תצוגה"
 
 #: lib/ManaTools/Module/DisplayManager.pm:265
 msgid "Graphical configurator for system Display Manager"
@@ -2095,7 +2096,7 @@ msgstr ""
 #: lib/ManaTools/Module.pm:108
 #, perl-format
 msgid "%s - Management Tool"
-msgstr ""
+msgstr "‏%s - כלי ניהול"
 
 #: lib/ManaTools/rpmdragora.pm:161
 msgid "Software Update"
@@ -2466,11 +2467,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:238
 msgid "Remove new file"
-msgstr ""
+msgstr "להסיר קובץ חדש"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:239
 msgid "Use new file"
-msgstr ""
+msgstr "שימוש בקובץ חדש"
 
 #: lib/ManaTools/Rpmdragora/rpmnew.pm:240
 msgid "Do nothing"
@@ -2530,7 +2531,7 @@ msgstr "        %s%% מתוך %s הושלמו, זמן נותר = %s, מהירו�
 #: lib/ManaTools/Rpmdragora/pkg.pm:227
 #, perl-format
 msgid "        %s%% completed, speed = %s"
-msgstr ""
+msgstr "        %s%% הושלמו, מהירות = %s"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:268
 msgid ""
@@ -2570,7 +2571,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:1669
 #: lib/ManaTools/Rpmdragora/edit_urpm_sources.pm:2057
 msgid "Enabled"
-msgstr ""
+msgstr "מופעל"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:297
 msgid ""
@@ -2629,7 +2630,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:723 lib/ManaTools/Rpmdragora/pkg.pm:955
 msgid "Problem during installation"
-msgstr ""
+msgstr "בעיה במהלך ההתקנה"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:724 lib/ManaTools/Rpmdragora/pkg.pm:744
 #: lib/ManaTools/Rpmdragora/pkg.pm:957
@@ -2682,11 +2683,11 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:812 lib/ManaTools/Rpmdragora/gui.pm:1494
 msgid "Some packages need to be removed"
-msgstr ""
+msgstr "יש להסיר מספר חבילות"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:815
 msgid "Remove one package?"
-msgstr ""
+msgstr "להסיר חבילה אחת?"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:817
 msgid "The following package has to be removed for others to be upgraded:"
@@ -2724,7 +2725,7 @@ msgstr ""
 #: lib/ManaTools/Rpmdragora/pkg.pm:862 lib/ManaTools/Rpmdragora/pkg.pm:864
 #, perl-format
 msgid "Total: %d/%d"
-msgstr ""
+msgstr "סך הכול: %d/%d"
 
 #: lib/ManaTools/Rpmdragora/pkg.pm:928
 msgid "Change medium"
@@ -2804,7 +2805,7 @@ msgstr "הכול"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:42
 msgid "Accessibility"
-msgstr ""
+msgstr "נגישות"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:43 lib/ManaTools/Rpmdragora/icon.pm:44
 #: lib/ManaTools/Rpmdragora/icon.pm:45 lib/ManaTools/Rpmdragora/icon.pm:46
@@ -2814,7 +2815,7 @@ msgstr "דחיסה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:44
 msgid "Backup"
-msgstr ""
+msgstr "גיבוי"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:45
 msgid "Cd burning"
@@ -2822,7 +2823,7 @@ msgstr "צריבת תקליטורים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:46
 msgid "Compression"
-msgstr ""
+msgstr "דחיסה"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:47 lib/ManaTools/Rpmdragora/icon.pm:70
 #: lib/ManaTools/Rpmdragora/icon.pm:86 lib/ManaTools/Rpmdragora/icon.pm:106
@@ -2835,7 +2836,7 @@ msgstr "שונות"
 #: lib/ManaTools/Rpmdragora/icon.pm:52 lib/ManaTools/Rpmdragora/icon.pm:53
 #: lib/ManaTools/Rpmdragora/icon.pm:54 lib/ManaTools/Rpmdragora/icon.pm:55
 msgid "Communications"
-msgstr ""
+msgstr "תקשורת"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:49
 msgid "Bluetooth"
@@ -2881,7 +2882,7 @@ msgstr "מסדי נתונים"
 #: lib/ManaTools/Rpmdragora/icon.pm:75 lib/ManaTools/Rpmdragora/icon.pm:202
 #: lib/ManaTools/Rpmdragora/icon.pm:203 lib/ManaTools/Rpmdragora/icon.pm:204
 msgid "Development"
-msgstr ""
+msgstr "פיתוח"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:58
 msgid "Basic"
@@ -2901,7 +2902,7 @@ msgstr "C#"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:63
 msgid "Debug"
-msgstr "ניפוי באגים"
+msgstr "ניפוי תקלות"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:64
 msgid "Erlang"
@@ -2962,11 +2963,11 @@ msgstr "חינוך"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:79
 msgid "Emulators"
-msgstr ""
+msgstr "מדמים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:80
 msgid "File tools"
-msgstr ""
+msgstr "כלי ניהול קבצים"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:81 lib/ManaTools/Rpmdragora/icon.pm:82
 #: lib/ManaTools/Rpmdragora/icon.pm:83 lib/ManaTools/Rpmdragora/icon.pm:84
@@ -2987,7 +2988,7 @@ msgstr "ארקייד"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:84
 msgid "Boards"
-msgstr ""
+msgstr "משחקי לוח"
 
 #: lib/ManaTools/Rpmdragora/icon.pm:85
 msgid "Cards"
@@ -3475,7 +3476,7 @@ msgstr ""
 
 #: lib/ManaTools/Rpmdragora/init.pm:80
 msgid "  --run-as-root          force to run as root"
-msgstr ""
+msgstr "  --run-as-root          אילוץ הפעלה כמשתמש שורש (root)"
 
 #: lib/ManaTools/Rpmdragora/init.pm:81
 msgid "  --search=pkg           run search for \"pkg\""
@@ -4464,7 +4465,7 @@ msgstr ""
 
 #: scripts/mana:44
 msgid "manauser: user manager"
-msgstr ""
+msgstr "‏manauser: מנהל המשתמשים"
 
 #: scripts/mana:48
 msgid "manaservice: service manager"
@@ -4476,7 +4477,7 @@ msgstr ""
 
 #: scripts/mana:57
 msgid "manaclock: date/time manager"
-msgstr ""
+msgstr "manaclock: מנהל התאריך והשעה"
 
 #: scripts/mana:61
 msgid "manahost: hosts manager"
@@ -5038,11 +5039,11 @@ msgstr "ממשק גרפי לעדכון חבילות"
 
 #: extras/desktop/manaclock.desktop.in:3
 msgid "manaclock - Date, Clock & Time Zone Settings"
-msgstr ""
+msgstr "manaclock - הגדרות התאריך, השעה ואזור הזמן"
 
 #: extras/desktop/manaclock.desktop.in:4
 msgid "ManaTools clock manager"
-msgstr ""
+msgstr "מנהל התאריך והשעה של ManaTools"
 
 #: extras/desktop/manaclock.desktop.in:6
 msgid "/usr/share/icons/manaclock.png"
@@ -5114,7 +5115,7 @@ msgstr ""
 
 #: extras/desktop/manauser.desktop.in:4
 msgid "ManaTools user manager"
-msgstr ""
+msgstr "מנהל המשתמשים של ManaTools"
 
 #: extras/desktop/manauser.desktop.in:6
 msgid "/usr/share/icons/manauser.png"
@@ -5142,7 +5143,7 @@ msgstr "/usr/share/icons/manawall.png"
 
 #: extras/desktop/mpan.desktop.in:3
 msgid "mpan - Mageia ManaTools Control Panel"
-msgstr ""
+msgstr "mpan - לוח הבקרה ManaTools של Mageia"
 
 #: extras/desktop/mpan.desktop.in:4
 msgid "ManaTools panel - application launcher"
