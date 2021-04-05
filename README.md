@@ -1,3 +1,11 @@
+# THIS PROJECT HAS BEEN ABANDONED #
+
+The ManaTools Project has abandoned this project in favor of splitting
+out each of the tools into their own projects, leveraging the common
+[`python-manatools`](https://github.com/manatools/python-manatools) framework library.
+
+The various ManaTools can be found [on GitHub](https://github.com/ManaTools).
+
 # ManaTools #
 
 ManaTools is a generic launcher application that can run
